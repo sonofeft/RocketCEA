@@ -1,7 +1,5 @@
 
 
-.. image:: https://travis-ci.org/sonofeft/RocketCEA.svg?branch=master
-    :target: https://travis-ci.org/sonofeft/RocketCEA
 
 .. image:: https://img.shields.io/pypi/v/RocketCEA.svg
     :target: https://pypi.python.org/pypi/rocketcea
@@ -26,7 +24,7 @@ See PyPI page at:`<https://pypi.python.org/pypi/rocketcea>`_
 See NASA CEA HomePage at: `<https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_
 
 
-RocketCEA makes direct calls to the FORTRAN CEA code in "rocket" mode to calculate
+RocketCEA makes direct calls to the NASA FORTRAN CEA code in "rocket" mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.
 
