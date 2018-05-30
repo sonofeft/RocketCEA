@@ -5,11 +5,14 @@ python:
     - "3.6"
     - "3.7"
 
-before_install:
-- sudo apt-get update -qq
-- sudo apt-get install -qq libgfortran3:i386
+#before_install:
+#- sudo apt-get update -qq
+#- sudo apt-get install -qq libgfortran3:i386
+#- conda install libgfortran==1
 
 install:
+    - pip install --upgrade pip setuptools wheel
+    - pip install --only-binary=numpy,scipy numpy scipy
     - pip install -r requirements.txt
 script:
     - py.test
