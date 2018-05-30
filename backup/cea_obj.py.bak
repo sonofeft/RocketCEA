@@ -1,0 +1,1480 @@
+#!/usr/bin/env python
+# -*- coding: ascii -*-
+
+r"""
+RocketCEA wraps the FORTRAN CEA code and provides some useful tools.
+
+RocketCEA makes direct calls to the FORTRAN CEA code in "rocket" mode to calculate
+Isp, Cstar, Tcham etc. and provides tools to help determine useful
+mixture ratio range, optimum MR and more.
+
+
+RocketCEA
+Copyright (C) 2005-2018  Applied Python
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-----------------------
+
+"""
+
+import os, sys
+here = os.path.abspath(os.path.dirname(__file__))
+
+
+# for multi-file projects see LICENSE file for authorship info
+# for single file projects, insert following information
+__author__ = 'Charlie Taylor'
+__copyright__ = 'Copyright (c) 2018 Charlie Taylor'
+__license__ = 'GPL-3'
+exec( open(os.path.join( here,'_version.py' )).read() )  # creates local __version__ variable
+__email__ = "cet@appliedpython.com"
+__status__ = "4 - Beta" # "3 - Alpha", "4 - Beta", "5 - Production/Stable"
+
+#
+import py_cea
+#
+
+#  ==== Use convention of ending with (G) for gaseous propellants, O2(G), CH4(G), etc.
+#  NOTE !!!!! xxx(G) will be Changed to Gxxx <========= !!!!!!!!
+#
+# cards are an index to either a string or a list of strings
+#
+#  Heats of formation in CEA thermo.inp file are in Joules
+#    Multiply by 0.238846 to convert into cal
+#
+oxCards = {
+        "AIR"  :["oxid Air    wt%=100.00",
+                  " h,cal=-28.2     t(k)=298.15   "],
+        "AIRSIMP" :[" oxid AIRSIMP  N 1.5622 O .4192 Ar .0093",
+                " h,cal=0.     t(k)=298.15   "],
+        "CLF5"  :[" oxid CLF5(L)   CL 1 F 5   wt%=100.00",
+                  " h,cal=-60500.0     t(k)=298.15   "],
+        "CLF3"  :[" oxid CLF3(L)   CL 1 F 3   wt%=100.00",
+                  " h,cal=-45680.0     t(k)=298.15   "],
+        "OF2": [" oxid OF2(L)  O 1 F 2 ",
+                 " h,cal=2524.      t(k)=167.0       wt%=100."],
+        "N2H4" :[" oxid N2H4(L)  N 2 H 4    wt%=100.",
+                " h,cal=12100.0     t(k)=298.15   rho=1.0036"],
+        "N2F4": [" oxid N2F4(L)  N 2 F 4 ",
+                 " h,cal=-5200.0      t(k)=199.0       wt%=100."],
+        "F2":  [" oxid F2(L)  F 2 ",
+                 " h,cal=-3098.      t(k)=82.02       wt%=100."],
+        "O2":  [" oxid O2(L)  O 2 ",
+                 " h,cal=-3102.      t(k)=90.18       wt%=100."],
+        "LO2":  [" oxid O2(L)  O 2 ",
+                 " h,cal=-3102.      t(k)=90.18       wt%=100."],
+        "LOX":  [" oxid O2(L)  O 2 ",
+                 " h,cal=-3102.      t(k)=90.18       wt%=100."],
+        "GOX":  [" oxid O2(G)  O 2 ",
+                 " h,cal=0.      t(k)=298.15       wt%=100."],
+        "GO2":  [" oxid O2(G)  O 2 ",
+                 " h,cal=0.      t(k)=298.15       wt%=100."],
+        "MON3"  :[" oxid N2O4(L)   N 2 O 4   wt%=100.00",
+                  " h,cal=-4676.0     t(k)=298.15   "],
+        "N2O4"  :[" oxid N2O4(L)   N 2 O 4   wt%=100.00",
+                  " h,cal=-4676.0     t(k)=298.15   "],
+        "N2O3"  :[" oxid N2O3(L)   N 2 O 3   wt%=100.00",
+                  " h,cal=12020.7     t(k)=298.15   "],                  
+        "MON15"  :[" oxid N2O4(L)   N 2 O 4   wt%=59.7",
+                  " h,cal=-4676.0     t(k)=298.15   ",
+                  " oxid N2O3   N 2 O 3   wt%=40.3",
+                  " h,cal=12020.7     t(k)=298.15   "],
+        "MON25"  :[" oxid N2O4(L)   N 2 O 4   wt%=36.67",
+                  " h,cal=-4676.0     t(k)=298.15   ",
+                  " oxid N2O3   N 2 O 3   wt%=63.33",
+                  " h,cal=12020.7     t(k)=298.15   "],
+        "N2O"   :[" oxid NitrousOxide  N 2.0 O 1.0  wt%=100.00",
+                  " h,cal= 19467.0 t(k)=298.15 "],
+        "N2O_nbp"   :[" oxid NitrousOxide  N 2.0 O 1.0  wt%=100.00",
+                  " h,cal= 14583.0 t(k)=184.4 "],
+        "HNO3"  :[" oxid HNO3(L) H 1 N 1 O 3   wt%=100.00",
+                  " h,cal=-42460.0     t(k)=298.15  rho.g/cc=1.5027 "],
+        "IRFNA"  :[" oxid IRFNA  H 1.57216 N 1.62945 O 4.69505 F 0.02499   wt%=100.00",
+                  " h,cal=-64860.0     t(k)=298.15  rho.g/cc=1.48 "],
+        "H2O2"  :[" oxid H2O2(L) H 2 O 2  wt%=100.00",
+                  " h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "],
+        "H2O":["oxid water H 2.0 O 1.0  wt%=100.0",
+               "h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998  "],
+        "90%H2O2":[" oxid H2O2(L) H 2 O 2  wt%=90.00",
+                  " h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "
+                   " oxid = WATER H 2.0 O 1.0 wt%= 10.0       ",
+                   " h.cal=-68317. t(k)=298.15 rho.g/cc=1.0   "],
+        "Peroxide98":[" oxid H2O2(L) H 2 O 2  wt%=98.00",
+                  " h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "
+                   " oxid = WATER H 2.0 O 1.0 wt%= 2.0       ",
+                   " h.cal=-68317. t(k)=298.15 rho.g/cc=1.0   "],
+        "Peroxide90":[" oxid H2O2(L) H 2 O 2  wt%=90.00",
+                  " h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "
+                   " oxid = WATER H 2.0 O 1.0 wt%= 10.0       ",
+                   " h.cal=-68317. t(k)=298.15 rho.g/cc=1.0   "],
+        "HAN315" :[ " oxid = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5      ",
+                    " h.cal=-93980. t(k)=298.15 rho.g/cc=1.685    ",
+                    " oxid = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5        ",
+                    " h.cal=-108000. t(k)=298.15 rho.g/cc=1.428   ",
+                    " oxid = WATER H 2.0 O 1.0 wt%= 11.0       ",
+                    " h.cal=-68000. t(k)=298.15 rho.g/cc=1.0   ",
+                  ]
+        }
+                
+# cards are an index to either a string or a list of strings
+#
+#  Heats of formation in CEA thermo.inp file are in Joules
+#    Multiply by 0.238846 to convert into cal
+#
+# added Kerosene, Gasoline, JP10, JP4, JPX, Acetylene AT BOTTOM of "fuelCards ="
+fuelCards = {
+        "CH3OH":  [" fuel CH3OH(L)   C 1 H 4 O 1  ",
+                 " h,cal=-57040.0      t(k)=298.15       wt%=100."],
+        "Methanol":  [" fuel CH3OH(L)   C 1 H 4 O 1  ",
+                 " h,cal=-57040.0      t(k)=298.15       wt%=100."],
+        "METHANOL":  [" fuel CH3OH(L)   C 1 H 4 O 1  ",
+                 " h,cal=-57040.0      t(k)=298.15       wt%=100."],
+        "B2H6":  [" fuel B2H6(L)   B 2 H 6  ",
+                 " h,cal=4970.0      t(k)=180.0       wt%=100."],
+        "C2H5OH":  [" fuel C2H5OH(L)   C 2 H 6 O 1  ",
+                 " h,cal=-66370.0      t(k)=298.15       wt%=100."],
+        "Ethanol":  [" fuel C2H5OH(L)   C 2 H 6 O 1  ",
+                 " h,cal=-66370.0      t(k)=298.15       wt%=100."],
+        "ETHANOL":  [" fuel C2H5OH(L)   C 2 H 6 O 1  ",
+                 " h,cal=-66370.0      t(k)=298.15       wt%=100."],
+        "GH2_160":  [" fuel H2(G)  H 2 ",
+                 " h,cal=-940.      t(k)=160.0       wt%=100."],
+        "GH2":  [" fuel H2(G)  H 2 ",
+                 " h,cal=0.      t(k)=298.15       wt%=100."],
+        "LH2":  [" fuel H2(L)  H 2 ",
+                 " h,cal=-2154.0      t(k)=20.27       wt%=100."],
+        "H2":  [" fuel H2(L)  H 2 ",
+                 " h,cal=-2154.0      t(k)=20.27       wt%=100."],
+        "MMH" :[" fuel CH6N2(L)  C 1     H 6     N 2     wt%=100.00",
+                " h,cal=12900.0     t(k)=298.15   rho=.874"],
+        "N2H4" :[" fuel N2H4(L)  N 2 H 4    wt%=100.",
+                " h,cal=12100.0     t(k)=298.15   rho=1.0036"],
+        "HZ" :[" fuel N2H4(L)  N 2 H 4    wt%=100.",
+                " h,cal=12100.0     t(k)=298.15   rho=1.0036"],
+        "NH3" :[" fuel NH3(L)   N 1 H 3      wt%=100.",
+                " h,cal=-17090.     t(k)=298.15   rho=0.676"],
+        "M20_NH3" :["  fuel CH6N2(L)  C 1 H 6 N 2  wt%=17.9",
+               " h,cal=12900.0     t(k)=298.15   rho=.874",
+               " fuel N2H4(L)  N 2 H 4    wt%=71.6",
+               " h,cal=12100.0     t(k)=298.15   rho=1.0036",
+               " fuel NH3(L)   N 1 H 3      wt%=10.5",
+               " h,cal=-17090.     t(k)=298.15   rho=0.676"    ],
+        "M20" :["  fuel CH6N2(L)  C 1 H 6 N 2  wt%=20.0",
+               " h,cal=12900.0     t(k)=298.15   rho=.874",
+               " fuel N2H4(L)  N 2 H 4    wt%=80.0",
+               " h,cal=12100.0     t(k)=298.15   rho=1.0036"   ],
+        "MHF3" :["  fuel CH6N2(L)  C 1 H 6 N 2  wt%=86.0",
+               " h,cal=12900.0     t(k)=298.15   rho=.874",
+               " fuel N2H4(L)  N 2 H 4    wt%=14.0",
+               " h,cal=12100.0     t(k)=298.15   rho=1.0036"   ],
+        "A50" :[" fuel C2H8N2(L),UDMH wt% 50.   t(k) 298.15",
+                " h,cal=11900.0     t(k)=298.15   rho=.783",
+                " fuel N2H4(L)  N 2 H 4    wt%=50.",
+                " h,cal=12100.0     t(k)=298.15   rho=1.0036"],
+        "UDMH" :[" fuel C2H8N2(L),UDMH wt% 50.   t(k) 298.15",
+                " h,cal=11900.0     t(k)=298.15   rho=.783"],
+        "RP_1" :[" fuel RP-1  C 1 H 1.9423",
+                " h,cal=-5430.     t(k)=298.15   rho=0.773"],
+        "RP1" :[" fuel RP-1  C 1 H 1.9423",
+                " h,cal=-5430.     t(k)=298.15   rho=0.773"],
+        "JetA" :[" fuel Jet-A(L)  C  12.0 H  23.0",
+                " h,cal=-72466.6     t(k)=298.15   rho=0.815"],
+        "C3H8" :[" fuel C3H8(L) C 3 H 8     wt%=100.",
+                " h,cal=-30372.     t(k)=231.08   rho=0.5808"],
+        "Propane" :[" fuel C3H8(L) C 3 H 8     wt%=100.",
+                " h,cal=-30372.     t(k)=231.08   rho=0.5808"],
+        "C2H6_167" :[" fuel C2H6(L) C 2 H 6     wt%=100.",
+                " h,cal=-25296.0     t(k)=167.0   rho=0.5808"],
+        "C2H6" :[" fuel C2H6(L) C 2 H 6     wt%=100.",
+                " h,cal=-24797.0     t(k)=184.56   rho=0.5808"],
+        "Isopropanol" : [" fuel C3H8O-2propanol C 3 H 8 O 1    wt%=100.",
+                " h,cal=-65133.     t(k)=298.15   rho=0.786"],
+        "Propylene" : [" fuel C3H6,propylene C 3 H 6    wt%=100.",
+                " h,cal=4776.92     t(k)=298.15   rho=0.0018"],
+        "propylene" : [" fuel C3H6,propylene C 3 H 6    wt%=100.",
+                " h,cal=4776.92     t(k)=298.15   rho=0.0018"],
+        "CH4" :[" fuel CH4(L) C 1 H 4     wt%=100.",
+                " h,cal=-21390.     t(k)=111.66   rho=0.4239"],
+        "GCH4": [" fuel CH4(G) C 1 H 4 ",
+               " h,cal=-17895.0      t(k)=298.15       wt%=100."],
+        "AP10_RDX25_HTPB":["  fuel NH4CLO4(I)       wt%=10.0",
+               " fuel RDX    C 1.3506 H 2.7011 O 2.7011 N 2.7011  wt%=25.00",
+               " h,cal=6610.     t(k)=298.15   rho=1.8200",
+               " fuel R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=65.00",
+               " h,cal= 1200.0 t(k)=298.15 rho=0.9220"],
+        "AP10_CF50_HTPB":["  fuel NH4CLO4(I)       wt%=10.0",
+               " fuel CFx    C 1.0 F 1.0   wt%=50.00",
+               " h,cal=57863.0     t(k)=298.15   rho=1.8200",
+               " fuel R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=40.00",
+               " h,cal= 1200.0 t(k)=298.15 rho=0.9220"],
+        "CFx40_HTPB60":[" fuel CFx    C 1.0 F 1.0   wt%=40.00",
+               " h,cal=57863.0     t(k)=298.15   rho=1.8200",
+               " fuel R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=60.00",
+               " h,cal= 1200.0 t(k)=298.15 rho=0.9220"],
+        "CINCH":[" fuel CINCH(L)     C 4.     H 10.    N 4.",
+                 " h,cal=66550.      t(k)=298.15             wt%=100."],
+        "ECP_dimer":[" fuel ECP-dimer(L) C 10.    H 10.",
+                     " h,cal=123600.     t(k)=298.15                     wt%=100."],
+        "H2O":["fuel water H 2.0 O 1.0  wt%=100.0",
+               "h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998  "],
+        "DMAZ":["fuel dmaz C 4.0 H 10.0 N 4.0 wt%= 100.00",
+                "h,cal=66548. t(k)=298.15 rho,g/cc = 0.93   "],
+        "NITROMETHANE":["fuel nitroMethane C 1. H 3. N 1. O 2. wt%= 100.00",
+            "h,cal=-27030. t(k)=298.15  rho,g/cc =1.1371"],
+        'AL':['fuel  Aluminum  t(k)=298.15 AL 1                               wt%=100.00',
+                        'h,cal=0.0     t(k)=298.15  '],
+        'HTPB':['fuel R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=100.00',
+                        'h,cal= 1200.0 t(k)=298.15 rho=0.9220'],
+        'AP':[' fuel NH4CLO4(I)       wt%=100.00'],
+        'CFx':[" fuel CFx    C 1.0 F 1.0   wt%=100.00",
+                " h,cal=57863.0     t(k)=298.15   rho=1.8200"]
+        }
+        
+fuelCards['Kerosene'] = [" fuel Kerosene  C 1 H 1.9532",
+                        " h,cal=-5769.     t(k)=298.15   rho=0.8"]
+                             
+fuelCards['Kerosene90_H2O10'] = [" fuel Kerosene  C 1 H 1.9532  wt%=90.00",
+                                " h,cal=-5769.     t(k)=298.15   rho=0.8",
+                                " fuel = WATER H 2.0 O 1.0  wt%= 10.0   ",
+                                " h.cal=-68317. t(k)=298.15 rho.g/cc=1.0   "]
+                             
+                             
+fuelCards['Gasoline'] = [" fuel Gasoline  C 8 H 18",
+                        " h,cal=-49809.     t(k)=298.15   rho=0.7025"]
+
+# JP10 from TDK Reactant Cards
+# cards['JP10']    = 'C 10.0   H 16.000                              100.    -29350.L 298.15 F'
+fuelCards['JP10'] = [" fuel JP10  C 10 H 16  wt%=100.00",
+                    " h,cal=-29350.     t(k)=298.15   rho=0.9318"]
+
+
+# JP4 is 50/50 Kerosene/Gasoline
+fuelCards['JP4'] = [" fuel Kerosene  C 1 H 1.9532  wt%=50.00",
+                    " h,cal=-5769.     t(k)=298.15   rho=0.8",
+                    " fuel Gasoline  C 8 H 18  wt%=50.00",
+                    " h,cal=-49809.     t(k)=298.15   rho=0.7025"]
+
+# JPX is 60/40 JP4/UDMH
+fuelCards['JPX'] = [" fuel C2H8N2(L),UDMH wt%=60.   t(k) 298.15",
+                    " h,cal=11900.0     t(k)=298.15   rho=.783",
+                    " fuel Kerosene  C 1 H 1.9532  wt%=30.00",
+                    " h,cal=-5769.     t(k)=298.15   rho=0.8",
+                    " fuel Gasoline  C 8 H 18  wt%=30.00",
+                    " h,cal=-49809.     t(k)=298.15   rho=0.7025"]
+                        
+fuelCards["C2H2"] = [" fuel Acetylene  C 2 H 2   wt%=100.  ",
+                          " h,cal=54324.     t(k)=198.3   rho=0.9"]
+fuelCards["Acetylene"] = fuelCards["C2H2"]
+
+        
+def isAPeroxide_Blend( name ):
+    # check for Peroxide98 or maybe Peroxide90
+    if name.lower()[:8]=='peroxide':
+        return 1
+    else:
+        return 0
+                
+def isAnMMH_N2H4_Blend( name ):
+    # check for an MMH + N2H4 blend
+    try:
+        mmhPcent = float( name[1:] ) 
+    except:
+        mmhPcent = -1.0 # fails to have an mmhFrac in legal range
+        
+    if name[0] in ['M','m']:
+        if mmhPcent>=0.0 and mmhPcent<=100.0:
+            return 1
+    return 0
+        
+
+                
+# cards are an index to either a string or a list of strings
+propCards = {
+        "ARC448":[" name ARC448  H 3.359766 C 2.052322 N 1.932190 O 2.806300  wt%=100.00 ",
+                  " h,cal= -36867.1  t(k)=298.15 rho=1.537 "],
+        "ARC452":[" name ARC452  H 3.694563 C 2.469813 N 1.041212 O 3.251794  wt%=100.00 ",                                
+                  " h,cal= -67947.0  t(k)=298.15 rho=1.473 "],
+        "ARC457":[" name ARC457  H 4.080395 C 1.238333 N 1.677693 O 3.593891 ",                                                        
+                  " wt%=100.00 h,cal= -80325.0 t(k)=298.15 rho=1.594 "], 
+        "ARC311":[" name ARC311  H 3.919935 C 2.237043 N 2.300870 O 2.309573  wt%=100.00 ",                                                            
+                  " h,cal= 3939.6  t(k)=298.15 rho=1.634 "],                                    
+        "N2H4" :[   " name = diss NX 0.800 H 1.600 N 1.200 wt%= 99.5 ",
+                    " h,cal=12094. t(k)=298.15 rho,g/cc = 1.004    ",
+                    " ",
+                    " name = water H 2.0 O 1.0  wt%=0.5  ",
+                    " h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998  ",
+                    " !	THIS IS 40% AMMONIA DISSOCIATION",
+                    " omit NH3 "],
+        "N2H4":" fuel N2H4(L)  t(k)=298.15 N 2 H 4 ",  # override NX entry above
+        "HAN269" :[ " name = HAN N 2.0 H 4.0 O 4.0 wt%= 69.15       ",
+                    " h,cal=-80962. t(k)=298.15 rho,g/cc = 1.685  ",
+                    " name = MEOH C 1.0 H 4.0 O 1.0 wt%= 15.46      ",
+                    " h,cal=-57146. t(k)=298.15 rho,g/cc = 0.791",
+                    " name = water H 2.0 O 1.0 wt%= 14.80     ",
+                    " h,cal=-68256. t(k)=298.17 rho,g/cc=1.00 ",
+                    " name = AN H 4.0 N 2.0 O 3.0 wt%= 0.59      ",
+                    " h,cal=-87380. t(k)=298.17 rho,g/cc=1.725",
+                  ],
+        "HAN315" :[ " name = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5      ",
+                    " h.cal=-93980. t(k)=298.15 rho.g/cc=1.685    ",
+                    " name = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5        ",
+                    " h.cal=-108000. t(k)=298.15 rho.g/cc=1.428   ",
+                    " name = WATER H 2.0 O 1.0 wt%= 11.0       ",
+                    " h.cal=-68000. t(k)=298.15 rho.g/cc=1.0   ",
+                  ],
+        "HPB24" :[  " name = diss NX 0.6667 H 2.0000 N 1.3333 wt%= 71.46   ",
+                    " h,cal=12094. t(k)=298.15 rho,g/cc = 1.004   ",
+                    " name = water H 2.0 O 1.0  wt%=0.5   ",
+                    " h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998   ",
+                    " name = hydra H 4.0 N 2.0 wt%= 4.04    ",
+                    " h,cal=12094. t(k)=298.15 rho,g/cc = 1.004    ",
+                    " name = hydni N 3.000 H 5.000 O 3.000 wt%= 24.00   ",     
+                    " h,cal=-50477. t(k)=298.15 rho,g/cc = 1.647 ",
+                ],
+        "AP10_RDX25_HTPB":["  name NH4CLO4(I)       wt%=10.0 ",
+               " name RDX    C 1.3506 H 2.7011 O 2.7011 N 2.7011  wt%=25.00 ",
+               " h,cal=6610.     t(k)=298.15   rho=1.8200 ",
+               " name R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=65.00 ",
+               " h,cal= 1200.0 t(k)=298.15 rho=0.9220 "],
+               
+        "AMT_2091":[  "name NH4NO3         H  4.9968 O  3.7476 N  2.4984                   wt%=75.00 ",
+                      "h,cal=-109019.9966   t(k)=298.15   rho=1.7250 ",
+                      "name (NH4)2CR2O7   H  3.1733 O  2.7766  N  0.7933  CR 0.7933        wt%=2.00 ",
+                      "h,cal=-168780.   t(k)=298.15   rho=2.1500 ",
+                      "name A-20_GENPOL  C  4.5500  H  7.1000  O  2.3900                   wt%=7.24 ",
+                      "h,cal=-111000.   t(k)=298.15   rho=1.0380 ",
+                      "name METHYL_ACRYLATE   C  4.6464  H  6.9696  O  2.3232              wt%=11.08 ",
+                      "h,cal=-111300.   t(k)=298.15   rho=1.2000 ",
+                      "name POLYSTYRENE  C  7.6817  H  7.6817                              wt%=3.957 ",
+                      "h,cal=8000.   t(k)=298.15   rho=1.0600 ",
+                      "name MAKP   C  5.3768  H 10.7535  O  1.5362  wt%=0.40 ",
+                      "h,cal=-134060.   t(k)=298.15   rho=0.8500 ",
+                      "name CALCIUM_PHOSPHATE  P  0.6447  CA 0.9671 O  2.5790              wt%=0.50 ",
+                      "h,cal=-300500.   t(k)=298.15   rho=3.1400 ",
+                      "name TIN_OCTOATE  C  3.9497 H  7.4057 O  0.9874 PB 0.0948 CU 0.1521 wt%=0.003 ",
+                      "h,cal=-76120.   t(k)=298.15   rho=1.0000 ",
+                      "name LECITHIN  C  5.5611 H 11.1223 O  1.2692 N  0.1208              wt%=0.18 ",
+                      "h,cal=-63010.   t(k)=298.15   rho=1.0220 "],
+            }
+            
+# !!! MAKE SURE LINE HAVE A SPACE ON THE END !!!
+
+def tightenUpEquals( card ):
+    c = None
+    while 1:
+        c = card.replace(' =','=')
+        c = c.replace('= ','=')
+        if c==card:
+            break
+        card = c
+    return c
+    
+def giveCardNewHfAndTref( card, HfCalPerMole, TrefDegR ):
+    c = tightenUpEquals( card )
+    cNew = ''
+    spL = c.split()
+    TrefDegK = TrefDegR / 1.8
+    for sp in spL:
+        speL = sp.split('=')
+        if len(speL)==2:
+            if speL[0]=='h,cal':
+                speL[1]='%.1f'%HfCalPerMole
+            if speL[0]=='t(k)':
+                speL[1]='%.2f'%TrefDegK
+            s = '='.join(speL)
+        else:
+            s = sp
+        cNew += ' ' + s 
+        
+    return cNew + ' '
+
+def giveCardMassPercent( card, fuelPcent ):
+    c = tightenUpEquals( card )
+    cNew = ''
+    spL = c.split()
+    for sp in spL:
+        speL = sp.split('=')
+        if len(speL)==2:
+            if speL[0]=='wt%':
+                speL[1]='%g'%fuelPcent
+            s = '='.join(speL)
+        else:
+            s = sp
+        cNew += ' ' + s 
+        
+    #print 'cNew =',cNew
+    return cNew + ' '
+
+def newOxBlend( oxL=None, oxPcentL=None): # e.g. oxL=["N2O4","N2O3"], oxPcentL=[36.67,63.33]
+    '''create ox blends such as MON25'''
+    if 1:#try:
+        newName = ''
+        newCardL = []
+        for i,name in enumerate(oxL):
+            newName += name + '_%g'%oxPcentL[i]
+            if i<len(oxL)-1:
+                newName += '_'
+                
+            if len(oxCards[ name ])>2:
+                print 'ERROR... can NOT specify ox Blend for multi propellant card', name
+                return name
+                
+            cardL = oxCards[ name ]
+                
+            for card in cardL:
+                if float( oxPcentL[i] ) > 0.0:
+                    newCardL.append( giveCardMassPercent( card, oxPcentL[i] ) )
+            
+            #newCardL.extend( cardL )
+            
+        oxCards[newName] = newCardL
+        
+        #print 'new cards for newName=',newName
+        #for card in newCardL:
+        #    print card
+        #print
+            
+        return newName
+    else:#except:
+        return 'ERROR'
+
+def newFuelBlend( fuelL=None, fuelPcentL=None): # e.g. fuelL=["MMH","N2H4"], fuelPcentL=[20,80]
+    '''create fuel blends such as M20'''
+    if 1:#try:
+        newName = ''
+        newCardL = []
+        for i,name in enumerate(fuelL):
+            newName += name + '_%g'%fuelPcentL[i]
+            if i<len(fuelL)-1:
+                newName += '_'
+                
+            if len(fuelCards[ name ])>2:
+                print 'ERROR... can NOT specify Fuel Blend for multi propellant card', name
+                return name
+                
+            cardL = fuelCards[ name ]
+                
+            for card in cardL:
+                if float( fuelPcentL[i] ) > 0.0:
+                    newCardL.append( giveCardMassPercent( card, fuelPcentL[i] ) )
+            
+            #newCardL.extend( cardL )
+            
+        fuelCards[newName] = newCardL
+        
+        #print 'new cards for newName=',newName
+        #for card in newCardL:
+        #    print card
+        #print
+            
+        return newName
+    else:#except:
+        return 'ERROR'
+
+def newPropWithNewState( cardDict, name,HfCalPerMole, TrefDegR):
+    '''Take name as it exists in fuelCards or oxCards and append Hf and Tref info'''
+    try:
+        suffix =  '_%g_%g'%(HfCalPerMole, TrefDegR)
+        suffix = suffix.replace('-','m')
+        newName = name + suffix
+        
+        if not cardDict.has_key( newName ):
+            cardL = cardDict[ name ]
+            if len(cardL)>2:
+                print 'ERROR... can NOT specify new Hf, Tref for multi propellant card', name
+                return name
+            newCardL = []
+            for card in cardL:
+                newCardL.append( giveCardNewHfAndTref( card, HfCalPerMole, TrefDegR ) )
+            
+            cardDict[newName] = newCardL
+            
+            
+        return newName
+    except:
+        return 'ERROR'
+
+def newFuelWithNewState( name,HfCalPerMole, TrefDegR):
+    return newPropWithNewState( fuelCards, name,HfCalPerMole, TrefDegR)
+    
+def newOxWithNewState( name,HfCalPerMole, TrefDegR):
+    return newPropWithNewState( oxCards, name,HfCalPerMole, TrefDegR)
+
+def turnCardsIntoTokenL( cardL ):
+    tokenL = []
+    for card in cardL:
+        c = card.replace('=',' ')
+        spL = c.split()
+        for s in spL:
+            if s:
+                tokenL.append(s)
+    return tokenL
+
+def getFloatTokenFromCards( cardL, token='t(k)' ):
+    tokenL = turnCardsIntoTokenL( cardL )
+    for i,tok in enumerate(tokenL):
+        if tok.lower()==token:
+            try:
+                return float( tokenL[i+1] )
+            except:
+                return None
+    return None
+    
+def getFuelRefTempDegK( name ):
+    try:
+        cardL = fuelCards[ name ]
+        return getFloatTokenFromCards( cardL, 't(k)' )
+    except:
+        return None
+    
+def getOxRefTempDegK( name ):
+    try:
+        cardL = oxCards[ name ]
+        return getFloatTokenFromCards( cardL, 't(k)' )
+    except:
+        return None
+    
+def getFuelHfCalPerMole( name ):
+    try:
+        cardL = fuelCards[ name ]
+        return getFloatTokenFromCards( cardL, 'h,cal' )
+    except:
+        return None
+    
+def getOxHfCalPerMole( name ):
+    try:
+        cardL = oxCards[ name ]
+        return getFloatTokenFromCards( cardL, 'h,cal' )
+    except:
+        return None
+
+
+def makeCardForNewTP( ceaName='CH4', nistName=None, TdegR=536.0, Ppsia=15. ):
+    
+    if not nistName:
+        nistName = ceaName
+    
+    if oxCards.has_key(ceaName):
+        cardD = oxCards
+        isFuel = 0
+    elif fuelCards.has_key(ceaName):
+        cardD = fuelCards
+        isFuel = 1
+    else:
+        print 'Could NOT find ceaName=',ceaName,'in makeCardForNewTP'
+        sys.exit()
+    
+    try:
+        nistObj = n_fluid( nistName )
+    except:
+        print 'Cound NOT make RefProp Fluid=',nistName,'in makeCardForNewTP'
+        sys.exit()
+    
+    # find Hf and Tref on card
+    cardL = cardD[ceaName]
+    #print cardL
+    
+    # make one big line and look for Hf and Tref
+    line = ' '.join(cardL)
+    line = line.replace('=',' ')
+    sL = line.split()
+    Hf, TrefR = None, None
+    for i,s in enumerate(sL):
+        token = s.strip()
+        if token=='h,cal':
+            Hf = float( sL[i+1] )
+        if token=='t(k)':
+            TrefR = float( sL[i+1] ) * 1.8
+    
+    if Hf==None or TrefR==None:
+        print 'Did NOT find Heat of Formation and/or Reference Temperature in makeCardForNewTP'
+        sys.exit()
+    
+    #print 'Hf=',Hf,'  TrefR=',TrefR
+    
+    nistObj.setTP(T=TrefR, P=15.0) # use 15, not 14.7 so liquids are saturated liquid
+    Href = nistObj.H
+    #print 'Href=',Href
+    
+    nistObj.setTP(T=TdegR, P=Ppsia)
+    deltaH = nistObj.H - Href
+
+    delCALperMOLE = deltaH * nistObj.WtMol / 1.8
+
+    #print 'deltaH=',deltaH,'  delCALperMOLE=',delCALperMOLE
+    
+    HfNew = Hf + delCALperMOLE
+    #print 'HfNew=',HfNew
+    
+    if isFuel:
+        newName = newFuelWithNewState(ceaName,HfNew, TdegR)
+    else:
+        newName = newOxWithNewState(ceaName,HfNew, TdegR)
+    
+    return newName
+    
+
+
+_last_called = None # remember the last object to read the datafile
+_NLines_Max_ever = 0 # make sure to overwrite any lines from previous calls
+
+# hold CEA_Cache objects by propellant name
+_CacheObjDict = {}
+def getCacheDict():
+    return _CacheObjDict
+
+def set_py_cea_line(N, line):
+    '''make sure that trailing blanks are on added lines'''
+    ln =  line + " "
+    py_cea.setinpline(N, ln)
+    #print '"'+ln[:77]+'"'
+
+def renamePropIfNewHfOrTrefInName( cardDict, name ):
+    '''Look for "h,cal OR "t(k)"" in name.
+       If present, then create new modified name and create new
+       card in cardDict if necessary
+       
+       for example to tweak LH2 run might look like:
+       "LH2 h,cal=-2155.0  t(k)=21.0"   
+    '''
+    
+    if cardDict.has_key( name ): # if name in dictionary already, simply return it
+        return name
+    
+    # w/o any equals sign, assume that the name is unchanged
+    if name.find("=") == -1:
+        return name
+        
+    spL = name.split()
+    #check for extra entries
+    if len(spL)>1:
+        dictName = spL[0]
+        if cardDict.has_key( dictName ):
+            n = tightenUpEquals( name )
+            print 'tightenUpEquals( name )',n
+            nL = n.split()
+            if len(nL) != 3:
+                print 'ERROR in adjusted propellant format:\n    "%s"'%name
+                print '    Should be:  "LH2 h,cal=-2155.0  t(k)=21.0"'
+                return name
+            
+            try:
+                valD = {}
+                for s in nL[1:]:
+                    eL = s.split('=')
+                    valD[ eL[0].lower() ] = float( eL[1] )
+                    
+                HfCalPerMole, TrefDegR = valD['h,cal'], valD['t(k)']
+                newName = newPropWithNewState( cardDict, dictName,HfCalPerMole, TrefDegR)
+                return newName
+            except:
+                print 'ERROR in adjusted propellant format:\n    "%s"'%name
+                print '    Should be:  "LH2 h,cal=-2155.0  t(k)=21.0"'
+                return name
+        
+    # if all else fails, simply return input name
+    return name
+
+_PrintCountDict = {}
+
+
+class CEA_Cache(object):
+    def __init__(self, maxCache=10000, propName=None):
+        
+        self.maxCache = maxCache
+        self.propName = propName
+        self.ispDict = {}
+        self.cstarDict = {}
+        self.tcDict = {}
+        
+        # keep track of size, assume faster than a len( xxDict ) call
+        self.Nisp = 0
+        self.Ncstar = 0
+        self.Ntc = 0
+        
+    def setIsp(self, desc='', isp=0.0):
+        # do not check for existence, assume usage logic handles that
+        if self.Nisp < self.maxCache:
+            self.Nisp += 1
+            #print 'in setIsp, desc=',desc,' isp=',isp
+            self.ispDict[desc] = isp
+        
+    def setCstar(self, desc='', cstar=0.0):
+        # do not check for existence, assume usage logic handles that
+        if self.Ncstar < self.maxCache:
+            self.Ncstar += 1
+            self.cstarDict[desc] = cstar
+        
+    def setTcK(self, desc='', tc=0.0):
+        # do not check for existence, assume usage logic handles that
+        if self.Ntc < self.maxCache:
+            self.Ntc += 1
+            self.tcDict[desc] = tc
+    
+    def getIsp(self, desc=''):
+        try:
+            return self.ispDict[desc]
+        except:
+            return None
+    
+    def getCstar(self, desc=''):
+        try:
+            return self.cstarDict[desc]
+        except:
+            return None
+    
+    def getTcK(self, desc=''):
+        try:
+            return self.tcDict[desc]
+        except:
+            return None
+
+class CEA_Obj(object):
+    """
+    RocketCEA wraps the FORTRAN CEA code to calculate Isp, cstar, and Tcomb
+    """
+
+    def __init__(self, propName='', oxName='', fuelName='', useFastLookup=0,
+        makeOutput=0):
+            
+        self.makeOutput = makeOutput # makes "f.out"
+        
+        oxName = renamePropIfNewHfOrTrefInName( oxCards, oxName )
+        fuelName = renamePropIfNewHfOrTrefInName( fuelCards, fuelName )
+        propName = renamePropIfNewHfOrTrefInName( propCards, propName )
+        
+        oxName = oxName.replace('(g)', '(G)')
+        fuelName = fuelName.replace('(g)', '(G)')
+        propName = propName.replace('(g)', '(G)')
+
+        # do NOT allow "-" or "+" as part of the name
+        oxName = oxName.replace('-', '_')
+        fuelName = fuelName.replace('-', '_')
+        propName = propName.replace('-', '_')
+
+        oxName = oxName.replace('+', '_')
+        fuelName = fuelName.replace('+', '_')
+        propName = propName.replace('+', '_')
+
+        if oxName[-3:]=='(G)': 
+            oxName = 'G' + oxName[:-3]
+            print 'Ox name changed to',oxName
+        if fuelName[-3:]=='(G)': 
+            fuelName = 'G' + fuelName[:-3]
+            print 'Fuel name changed to',fuelName
+        if propName[-3:]=='(G)': 
+            propName = 'G' + propName[:-3]
+            print 'Propellant name changed to',propName
+        
+        # may want to interpolate tables of CEA runs for speed
+        self.useFastLookup = useFastLookup
+        
+        self.readDatafileOnce = 0
+        
+        #check for propellant (mono or solid) vs. fuel and ox
+        self.cea_deck = ["reac"]
+        self.desc = ''
+        self.useMR = 1
+        self.propName = propName
+        if len(propName)>0: # can be in propCards, fuelCards, or oxCards
+            if propCards.has_key(propName):
+                self.cea_deck.append( propCards[ propName ] )
+                self.desc += ' ' + propName
+            elif fuelCards.has_key(propName):
+                tempList = fuelCards[ propName ]
+                if type(tempList) == type(''):
+                    tempList = [tempList]
+                    
+                propList = []
+                for p in tempList:
+                    propList.append( p.replace(' fuel ',' name ' ) )
+                    
+                self.cea_deck.append( propList )
+                self.desc += ' ' + propName
+                print "fuel Cards converted into prop Cards"
+                for card in self.cea_deck:
+                    if type(card) == type(''):
+                        print card
+                    else:
+                        for c in card:
+                            print c
+            elif oxCards.has_key(propName):
+                tempList = oxCards[ propName ]
+                if type(tempList) == type(''):
+                    tempList = [tempList]
+                    
+                propList = []
+                for p in tempList:
+                    propList.append( p.replace(' oxid ',' name ' ) )
+                    
+                self.cea_deck.append( propList )
+                self.desc += ' ' + propName
+                print "ox Cards converted into prop Cards"
+                for card in self.cea_deck:
+                    if type(card) == type(''):
+                        print card
+                    else:
+                        for c in card:
+                            print c
+            else:
+                print 'ERROR... bad propellant name (%s) in cea_obj.py'%propName
+                
+            self.useMR = 0
+        
+        #check for fuel
+        self.fuelName = fuelName
+        if len(fuelName)>0:
+            if fuelCards.has_key(fuelName):
+                self.cea_deck.append( fuelCards[ fuelName ] )
+                self.desc +=  fuelName
+                
+            elif isAnMMH_N2H4_Blend( fuelName ):  #M20 will be caught above
+                mmhPcent = float( fuelName[1:] ) 
+                    
+                if mmhPcent>0.0 and mmhPcent<100.0:
+                    blendName = newFuelBlend( fuelL=["MMH","N2H4"], fuelPcentL=[mmhPcent,100.0-mmhPcent])
+                elif mmhPcent==0.0:
+                    blendName = 'N2H4'
+                else:
+                    blendName = 'MMH'
+                    
+                # need to cover both naming conventions for the blend
+                cardL = fuelCards[ blendName ]
+                fuelCards[fuelName] = cardL
+                    
+                    
+                # blendName will be in fuelCards
+                self.cea_deck.append( fuelCards[ blendName ] )
+                self.desc +=  fuelName
+                
+                
+            else:
+                print 'ERROR... bad fuel name (%s) in cea_obj.py'%fuelName
+                print 'isAnMMH_N2H4_Blend( fuelName ) = ',isAnMMH_N2H4_Blend( fuelName )
+            
+        #check for oxidizer
+        self.oxName = oxName
+        if len(oxName)>0:
+            if oxCards.has_key(oxName):
+                self.cea_deck.append( oxCards[ oxName ] )
+                self.desc = oxName + ' / ' + self.desc
+                
+            elif isAPeroxide_Blend( oxName ):
+                try:
+                    h2o2Pcent = min(100.0, float( oxName[8:] ))
+                    waterPcent = max(0., 100.0 - h2o2Pcent)
+                except:
+                    h2o2Pcent = 100.0
+                    waterPcent = 0.0
+                if waterPcent>0.0:
+                    blendName = newOxBlend(oxL=["H2O2","H2O"], oxPcentL=[h2o2Pcent, waterPcent])
+                else:
+                    blendName = 'H2O2'
+                    
+                # need to cover both naming conventions for the blend
+                cardL = oxCards[ blendName ]
+                oxCards[oxName] = cardL
+                    
+                    
+                # blendName will be in oxCards
+                self.cea_deck.append( oxCards[ blendName ] )
+                self.desc +=  oxName
+                
+            else:
+                print 'ERROR... bad oxidizer name (%s) in cea_obj.py'%oxName
+                    
+        thisPath = py_cea.__file__
+        dataPath = os.path.dirname( thisPath ) 
+        sp = dataPath.split('\\')
+        dataPath = '/'.join( sp ) + '/ ' # be sure to leave extra space
+        self.pathPrefix = dataPath
+        #print "self.pathPrefix",self.pathPrefix
+        
+        # make a cache object for this propellant combo if it does not already exist
+        try:
+            cacheObj = _CacheObjDict[ self.desc ]
+        except:
+            _CacheObjDict[ self.desc ] = CEA_Cache(maxCache=10000, propName=self.desc )
+        
+        #print self.cea_deck
+        if self.useFastLookup:
+            if self.useMR :
+                self.fastModuleName = "cea_fit_" + self.oxName.replace('-','_') + '_' + self.fuelName.replace('-','_')
+            else:
+                self.fastModuleName = "cea_fit_" + self.propName.replace('-','_')
+            fp = None
+            try:
+                pathList = [os.path.dirname( os.path.abspath(sys.argv[0])[:] ),
+                    self.pathPrefix[:-1]]
+                #print 'pathList',pathList
+                fp, pathname, description = imp.find_module(self.fastModuleName, pathList)
+                self.fastModule = imp.load_module(self.fastModuleName, fp, pathname, description)
+            except:
+                # Since we may exit via an exception, close fp explicitly.
+                self.useFastLookup = 0
+                print "WARNING... Fast Module",self.fastModuleName,"failed to load"
+                print "   Will call CEA code instead (slower but more accurate)"
+                print traceback.print_exc()
+                if fp:
+                    fp.close()
+        
+
+    def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, PcOvPe=None, frozen=0, ERphi=None, ERr=None, frozenAtThroat=0):
+        '''if PcOvPe has a value, use it instead of eps to run case'''
+        global _last_called, _NLines_Max_ever
+        
+        '''phi = Equivalence ratios in terms of fuel-to-oxidant weight ratios
+           r = Chemical equivalence ratios in terms of valences'''
+        
+        N = 1
+        for line in self.cea_deck:
+            if type(line) == type("str"):
+                set_py_cea_line(N, line)
+                N += 1
+            else: # might be a list of strings
+                for ln in line:
+                    set_py_cea_line(N, ln)
+                    N += 1
+        
+        set_py_cea_line(N,"   ")
+        N += 1
+        
+        if self.desc==self.oxName + ' / ' + self.fuelName:
+            temp_prop_case = self.oxName + '_/_' + self.fuelName
+        else:
+            temp_prop_case = self.desc
+            
+        set_py_cea_line(N,"prob case="+temp_prop_case+"  ")
+        #set_py_cea_line(N,"prob case="+self.desc+"  ")
+        
+        
+        N += 1
+        #print "prob case="+self.desc+"  "
+        
+        if frozen:
+            if frozenAtThroat:
+                eqfrStr = 'frozen nfz=2 ' # nfz=2 is throat, nfz=1 is chamber
+            else:
+                eqfrStr = 'frozen nfz=1 ' # nfz=1 is chamber
+        else:
+            eqfrStr = 'equilibrium'
+
+        if PcOvPe: # a case for Pc/Pe
+            set_py_cea_line(N," rocket %s  p,psia=%f,"%(eqfrStr,Pc)  + " pi/p=%f,  "%PcOvPe + " supar=%f,  "%eps)
+        else:
+            set_py_cea_line(N," rocket %s  p,psia=%f,"%(eqfrStr,Pc)  + " supar=%f,  "%eps)
+            
+            
+        N += 1
+        
+        if self.useMR :
+            if ERphi != None:
+                # use ER,phi as an input instead of MR
+                # phi = Equivalence ratios in terms of fuel-to-oxidant weight ratios
+                set_py_cea_line(N,"phi,eq.ratio=%f"%ERphi+"  ")
+                N += 1
+            elif ERr != None:
+                # use ER,r as an input instead of MR
+                # r = Chemical equivalence ratios in terms of valences
+                set_py_cea_line(N,"r,eq.ratio=%f"%ERr+"  ")
+                N += 1
+            else:
+                # use MR as input
+                set_py_cea_line(N," o/f=%f"%MR+"  ")
+                N += 1
+        else:
+            set_py_cea_line(N,"    ")
+            N += 1
+
+        for line in ["   ","outp   calories ","   ","end "]:
+            set_py_cea_line(N,line)
+            N += 1
+  
+        # make sure to overwrite any lines from previous calls  
+        if N>_NLines_Max_ever: 
+            _NLines_Max_ever=N
+        if _NLines_Max_ever>N:
+            while N<_NLines_Max_ever:
+                set_py_cea_line(N,"    ")
+                N += 1
+        
+        # now call CEA
+        myfile = "f.inp "  # be sure to leave extra space at end
+        
+        readData = 1
+        if (self is _last_called): readData = 0
+        
+        try:
+            if self.readDatafileOnce and (self.desc==_last_called.desc):readData = 0
+        except:
+            print "ERROR reading data file for",self.desc
+            pass
+            
+        if readData:
+            _last_called = self
+            self.readDatafileOnce = 1
+            if _PrintCountDict.has_key( self.desc ):
+                _PrintCountDict[self.desc] = _PrintCountDict[self.desc] + 1
+                if _PrintCountDict[self.desc] % 100 == 0:
+                    print "reading cea isp data files for",self.desc,_PrintCountDict[self.desc],'times'
+            else:
+                print "reading cea isp data files for",self.desc
+                _PrintCountDict[self.desc] = 1
+            
+        
+        if self.makeOutput:
+            print "WARNING... making an output file"
+        
+        # Before calling CEA, init values to zero so bad run can be detected
+        py_cea.rockt.vaci[1] =  0.0
+        py_cea.rockt.vaci[2] =  0.0
+        py_cea.rockt.cstr = 0.0
+        py_cea.prtout.ttt[0] = 0.0
+        py_cea.rockt.app[1] = 0.0 # Pc/Pt
+        py_cea.rockt.app[2] = 0.0 # Pc/Pe
+        py_cea.rockt.aeat[2] = 0.0
+        py_cea.rockt.vmoc[2]  = 0.0
+        py_cea.miscr.eqrat = 0.0
+        
+        for i in xrange(3):
+            py_cea.rockt.sonvel[i] = 0.0
+            py_cea.prtout.hsum[i] = 0.0
+            py_cea.prtout.wm[i] = 0.0
+            py_cea.prtout.gammas[i] = 0.0
+            py_cea.prtout.vlm[i] = 0.0
+            py_cea.prtout.cpr[i] = 0.0
+        #print 'calling py_cea with pathPrefix and myfile='
+        #print '"'+self.pathPrefix+'"',' and ', '"'+myfile+'"'
+        py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)
+        
+
+    
+        
+    def __call__(self, Pc=100.0, MR=1.0, eps=40.0):
+        if self.useFastLookup:
+            isp =  self.fastModule.get_isp(Pc, eps, MR)
+            return isp
+        else:
+            return self.get_Isp(Pc=Pc, MR=MR, eps=eps)
+        
+    def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):
+        if self.useFastLookup:
+            isp,cstr,tc = self.fastModule.get_ivaccstrtc(Pc, eps, MR)
+            return isp,cstr,tc
+        else:
+            
+            #cacheDesc1 = '%g|%g|%g'%(Pc,MR,eps)  # %g only shows 6 sig digits
+            cacheDesc1 = (Pc,MR,eps)
+            try:
+                IspODE = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
+            except:
+                IspODE = None
+            
+            # don't bother looking at Cstar and Tc if there's no Isp
+            #cacheDesc2 = '%g|%g'%(Pc,MR)  # %g only shows 6 sig digits
+            cacheDesc2 = (Pc,MR)
+            if IspODE:
+                try:
+                    Cstar = _CacheObjDict[ self.desc ].getCstar( cacheDesc2 )
+                    TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
+                except:
+                    Cstar = None
+                    TcK = None
+                if Cstar and TcK:
+                    Tcomb = TcK * 1.8 # convert from Kelvin to Rankine
+                    return IspODE, Cstar, Tcomb
+            
+            self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+            #print "py_cea.rockt.vaci",py_cea.rockt.vaci
+            IspODE = py_cea.rockt.vaci[2]
+            Cstar = float(py_cea.rockt.cstr)
+            TcK = py_cea.prtout.ttt[0] 
+            Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+            _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspODE )
+            _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
+            _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+            return IspODE, Cstar, Tcomb
+        
+    def getFrozen_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0):
+            
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=1, frozenAtThroat=frozenAtThroat)
+        IspODE = py_cea.rockt.vaci[2]
+        Cstar = float(py_cea.rockt.cstr)
+        TcK = py_cea.prtout.ttt[0] 
+        Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+        return IspODE, Cstar, Tcomb
+        
+    def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
+        
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        #print "py_cea.rockt.vaci",py_cea.rockt.vaci
+        IspODE = py_cea.rockt.vaci[2]
+        Cstar = float(py_cea.rockt.cstr)
+        Tcomb = py_cea.prtout.ttt[0] * 1.8  # convert from Kelvin to Rankine
+        mw,gam = py_cea.prtout.wm[2], py_cea.prtout.gammas[2]
+
+        return IspODE, Cstar, Tcomb, mw, gam
+        
+        
+    def get_IvacCstrTc_ChmMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
+        
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        #print "py_cea.rockt.vaci",py_cea.rockt.vaci
+        IspODE = py_cea.rockt.vaci[2]
+        Cstar = float(py_cea.rockt.cstr)
+        Tcomb = py_cea.prtout.ttt[0] * 1.8  # convert from Kelvin to Rankine
+        mw,gam = py_cea.prtout.wm[0], py_cea.prtout.gammas[0]
+
+        return IspODE, Cstar, Tcomb, mw, gam
+        
+    def get_IvacCstrTc_ThtMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
+        
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        #print "py_cea.rockt.vaci",py_cea.rockt.vaci
+        IspODE = py_cea.rockt.vaci[2]
+        Cstar = float(py_cea.rockt.cstr)
+        Tcomb = py_cea.prtout.ttt[0] * 1.8  # convert from Kelvin to Rankine
+        mw,gam = py_cea.prtout.wm[1], py_cea.prtout.gammas[1]
+
+        return IspODE, Cstar, Tcomb, mw, gam
+        
+    def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0):
+        if self.useFastLookup:
+            isp =  self.fastModule.get_isp(Pc, eps, MR)
+            return isp
+        else:
+            #cacheDesc1 = '%g|%g|%g'%(Pc,MR,eps) # %g only shows 6 sig digits
+            cacheDesc1 = (Pc,MR,eps)
+            try:
+                IspODE = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
+            except:
+                IspODE = None
+            if IspODE:
+                return IspODE
+            
+            self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+            IspODE = py_cea.rockt.vaci[2]
+            _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspODE )
+            #print 'py_cea.rockt.vaci',py_cea.rockt.vaci
+            #print 'py_cea.rockt.cstr',py_cea.rockt.cstr
+            return IspODE
+        
+    def get_Cstar(self, Pc=100.0, MR=1.0):
+        if self.useFastLookup:
+            Cstar =  self.fastModule.get_cstar(Pc, MR)
+            return Cstar
+        else:
+            #cacheDesc2 = '%g|%g'%(Pc,MR) # %g only shows 6 sig digits
+            cacheDesc2 = (Pc,MR)
+            try:
+                Cstar = _CacheObjDict[ self.desc ].getCstar( cacheDesc2 )
+            except:
+                Cstar = None
+            if Cstar:
+                return Cstar
+            
+            
+            self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+            Cstar = float(py_cea.rockt.cstr)
+            _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
+            return Cstar
+        
+    def get_Tcomb(self, Pc=100.0, MR=1.0):
+        if self.useFastLookup:
+            tc =  self.fastModule.get_tcomb(Pc, MR)
+            return tc
+        else:
+            #cacheDesc2 = '%g|%g'%(Pc,MR) # %g only shows 6 sig digits
+            cacheDesc2 = (Pc,MR)
+            try:
+                TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
+                Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+            except:
+                TcK = None
+                Tcomb = None
+            if Tcomb:
+                return Tcomb
+                
+            self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+            TcK = py_cea.prtout.ttt[0] 
+            Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+            _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+            return Tcomb
+            
+    def get_PcOvPe(self, Pc=100.0, MR=1.0, eps=40.0):
+        if self.useFastLookup:
+            PcOvPe =  self.fastModule.get_pcovpe(Pc, eps, MR)
+            return PcOvPe
+        else:
+            self.setupCards( Pc=Pc, MR=MR, eps=eps)
+            PcOvPe = py_cea.rockt.app[2] 
+            #print 'py_cea.rockt.app',py_cea.rockt.app
+            return PcOvPe
+    
+    def get_eps_at_PcOvPe(self, Pc=100.0, MR=1.0, PcOvPe=1000.0):
+        self.setupCards( Pc=Pc, MR=MR, PcOvPe=PcOvPe)
+        eps = py_cea.rockt.aeat[2]
+        #print 'py_cea.rockt.aeat',py_cea.rockt.aeat
+        return eps
+    
+    def get_Throat_PcOvPe(self, Pc=100.0, MR=1.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+        PcOvPe = py_cea.rockt.app[1] 
+        return PcOvPe
+            
+    def get_MachNumber(self, Pc=100.0, MR=1.0,eps=40.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        M = py_cea.rockt.vmoc[2] 
+        return M
+            
+    def get_SonicVelocities(self, Pc=100.0, MR=1.0,eps=40.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        # convert from m/sec into ft/sec
+        sonicList = 3.28083 * py_cea.rockt.sonvel[:3]
+        return sonicList
+        
+    def get_Chamber_SonicVel(self, Pc=100.0, MR=1.0, eps=40.0):
+        sonicList = self.get_SonicVelocities( Pc=Pc, MR=MR, eps=eps)
+        return sonicList[0]
+        
+            
+    def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        # convert from m/sec into ft/sec
+        hList =  py_cea.prtout.hsum[:3]
+        for i,h in enumerate( hList ):
+            hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
+        return hList
+        
+    def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):
+        hList = self.get_Enthalpies( Pc=Pc, MR=MR, eps=eps)
+        return hList[0] # BTU/lbm
+        
+            
+    def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        # convert from m/sec into ft/sec
+        dList =  py_cea.prtout.vlm[:3]
+        for i,v in enumerate( dList ):
+            dList[i] = 62.42796 * 100.0 / v # convert into lbm/cuft
+        return dList
+        
+    def get_Chamber_Density(self, Pc=100.0, MR=1.0, eps=40.0):
+        dList = self.get_Densities( Pc=Pc, MR=MR, eps=eps)
+        return dList[0] # lbm/cuft
+        
+            
+    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        # convert from m/sec into ft/sec
+        cpList =  py_cea.prtout.cpr[:3]
+        for i,cp in enumerate( cpList ):
+            cpList[i] = cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        return cpList
+        
+    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0):
+        cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps)
+        return cpList[0] # BTU/lbm degR
+        
+    def get_Throat_Isp(self, Pc=100.0, MR=1.0):
+        eps=1.0
+        cacheDesc1 = (Pc,MR,eps)
+        try:
+            IspODE = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
+        except:
+            IspODE = None
+        if IspODE:
+            return IspODE
+            
+        self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+        
+        IspODE = py_cea.rockt.vaci[1]
+        _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspODE )
+        #print 'py_cea.rockt.vaci',py_cea.rockt.vaci
+        #print 'py_cea.rockt.cstr',py_cea.rockt.cstr
+        return IspODE
+
+        
+    def get_Chamber_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+        #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        mw,gam = py_cea.prtout.wm[0], py_cea.prtout.gammas[0]
+        return mw,gam
+        
+    def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+        #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        mw,gam = py_cea.prtout.wm[1], py_cea.prtout.gammas[1]
+        return mw,gam
+        
+    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+        #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        mw,gam = py_cea.prtout.wm[2], py_cea.prtout.gammas[2]
+        return mw,gam
+
+        
+    def get_eqratio(self, Pc=100.0, MR=1.0, eps=40.0):
+        '''Returns BOTH ERr and ERphi (valence basis and mass basis respectively)'''
+        #common /miscr/ a,atwt,avgdr,boltz,b0,eqrat,...
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        ERr = py_cea.miscr.eqrat
+        try:  # the logic below is lifted directly from the CEA FORTRAN source code
+            tem = (py_cea.inpt.vpls[0]+py_cea.inpt.vmin[0])*py_cea.miscr.oxfl
+            ERphi = -(py_cea.inpt.vmin[1]+py_cea.inpt.vpls[1])/tem
+        except:
+            ERphi = 0.0
+        
+        return float(ERr), float(ERphi)
+        
+    def getMRforER(self, ERphi=None, ERr=None):
+        #common /miscr/ a,atwt,avgdr,boltz,b0,eqrat,...
+        
+        if ERphi != None:
+            self.setupCards( Pc=100.0, ERphi=ERphi, eps=40.0 )
+            MR = py_cea.miscr.oxfl
+        elif ERr != None:
+            self.setupCards( Pc=100.0, ERr=ERr, eps=40.0 )
+            MR = py_cea.miscr.oxfl
+        else:
+            print 'WARNING... ERROR in call to getMRforER.  No ER value input'
+            MR = 0.0 #ERROR
+        
+        #self.setupCards( Pc=100.0, MR=1.0, eps=40.0 ) # fix any mismatches in system from ER call
+        return float(MR)
+
+    def get_description(self):
+        return str(self.desc)
+
+
+    def public_method(self, arg1, arg2, mykey=True):
+        """Performs operation blah.
+        
+        :param arg1: description of arg1
+        :param arg2: description of arg2
+        :type arg1: int
+        :type arg2: float
+        :keyword mykey: a needed input
+        :type mykey: boolean
+        :return: None
+        :rtype: None
+        
+        .. seealso:: blabla see stuff
+        
+        .. note:: blabla noteworthy stuff
+        
+        .. warning:: blabla arg2 must be non-zero.
+        
+        .. todo:: blabla  lots to do
+        """
+        #  Answer to the Ultimate Question of Life, The Universe, and Everything
+        return 42
+
+def print_py_cea_vars():
+
+    commonL = dir(py_cea)
+    for common in commonL:
+        if common[:1] != '_':
+            print common
+            vL = dir( getattr(py_cea,common) )
+            print vL
+            for v in vL:
+                var = getattr( getattr(py_cea,common), v)
+                print v,var
+            print
+    
+
+if __name__ == '__main__':
+    
+    from pylab import *
+    
+    if 1:
+        #ispNew = CEA_Obj(oxName="O2(g)", fuelName="Ethanol",  useFastLookup=1)
+        ispNew = CEA_Obj(oxName="GOX", fuelName="GCH4",  useFastLookup=0)
+        Pc = 1000.0
+        mr = 1.05
+        i,c,t = ispNew.get_IvacCstrTc(Pc,mr,25.0)
+        print '========================================='
+        print 'for ',ispNew.desc
+        print 'MR = ',mr
+        print 'Isp = ',i
+        print 'Cstar = ',c
+        print 'Tcomb = ',t
+        print '========================================='
+        
+        for e in [ 50., 30.0, 20.0, 10.0]:
+            ispArr = []
+            MR = 0.5
+            mrArr = []
+            while MR < 6.0:
+                ispArr.append( ispNew(Pc, MR, e ))
+                mrArr.append(MR)
+                MR += 0.1
+            plot(mrArr, ispArr, label='eps %.1f'%e, linewidth=4)
+    
+        legend(loc='best')
+        grid(True)
+        title( ispNew.desc )
+        xlabel( 'Mixture Ratio' )
+        ylabel( 'Isp (sec)' )
+        show()
+
+    def showOutput( ispObj ):
+        print
+        print ispObj.desc,'   at Pc=%.1f, MR=%.3f, eps=%.2f...'%(Pc,MR,eps)
+        i,c,t = ispObj.get_IvacCstrTc(Pc,MR,eps)
+        print 'Isp = ',i
+        print 'Cstar = ',c
+        print 'Tcomb = ',t
+        print '  at eps    =',eps
+        PcOvPe = ispObj.get_PcOvPe(Pc=Pc, MR=MR, eps=eps)
+        print 'PcOvPe = ',PcOvPe
+        epsAtPcOvPe = ispObj.get_eps_at_PcOvPe(Pc=Pc, MR=MR, PcOvPe=PcOvPe)
+        print 'epsAtPcOvPe=',epsAtPcOvPe
+        print 'Mach Number=',ispObj.get_MachNumber(Pc=Pc, MR=MR, eps=eps)
+        print
+        print 'Chamber Sonic Vel =',ispObj.get_Chamber_SonicVel( Pc=Pc, MR=MR,eps=eps)
+        print 'Enthalpies =',ispObj.get_Enthalpies( Pc=Pc, MR=MR,eps=eps)
+        print 'Densities =',ispObj.get_Densities( Pc=Pc, MR=MR,eps=eps)
+        print 'Cp        =',ispObj.get_HeatCapacities( Pc=Pc, MR=MR,eps=eps)
+        print '======================================='
+
+    Pc,MR,eps = 1000.0, 1.0, 30.0
+    ispNew = CEA_Obj(fuelName="AP10-RDX25-HTPB", oxName="N2O4")
+    showOutput( ispNew )
+    
+    ispNew = CEA_Obj(propName="AP10-RDX25-HTPB")
+    showOutput( ispNew )
+    
+    ispNew = CEA_Obj(propName="N2O")
+    showOutput( ispNew )
+    
+    ispNew = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
+    showOutput( ispNew )
+    
+    ispNew = CEA_Obj(oxName="LOX", fuelName="GH2_160",  useFastLookup=0)
+    showOutput( ispNew )
+    
+    
+    C = CEA_Obj()

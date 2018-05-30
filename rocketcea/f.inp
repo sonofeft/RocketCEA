@@ -1,0 +1,11 @@
+reac 
+  fuel N2H4(L)  t(k)=298.15 N 2 H 4 
+  oxid N2O4(L)  t(k)=298.15 N 2 O 4 
+
+prob case=N2O4 / N2H4
+     rocket equil o/f=1.4135 p,psia=1000.0,
+     pi/p=68.0457, supar=40.0,60,80,100
+
+outp   calories
+
+end

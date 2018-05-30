@@ -1,0 +1,222 @@
+NAME  Argon             NSRDS-NBS 35, 1971. Temperature cutoff & FILL.   Expl. 1
+AR1                     HF298    0.
+DATE  L 6/88
+REFN  MOORE, ATOMIC ENERGY LEVELS, NSRDS-NBS 35, 1971, PP 211-215.
+TEMP  T      100.       T       500.      T      1000.      I        1000.
+TEMP  T     20000.
+LSTS  T      298.15     T       1000.     T        6000.    T        20000.   
+LSTS  EXP      0.                                                              1
+LSTS  EXP      0.                                                              2
+LSTS  EXP      0.       EXP      1.       EXP       2.      EXP       3.       3
+LSTS  EXP      4.       EXP       -1.     EXP       -2.                        3
+OUTP  MFIG              DMLESS            JOULES            CAL      
+OUTP  LSQS              CTAB
+METH  TEMPER            FILL
+AR     0          0.    0      111667.87                                       3
+AR    1      111818.09  4      112750.22  3      113020.39  2      112138.98   3
+AR    1      114147.75  2      113426.05  3      113716.61  2      114641.04   3
+AR    3      114821.99  2      114805.18  1      115366.9                      3
+AR                      2      93143.8    1       93750.639 0       94553.707  4
+AR    1       95399.87  1      104102.144 3       105462.804   2   105617.315  4
+AR    1      106087.305 2      106237.597 0      107054.319 1      107131.755  4
+AR    2      107289.747 1      107496.463 0      108722.668                    4
+AR    0      118512.17  1      118651.447 4       119023.6993      119212.93   4
+AR    2      118906.665 1      119847.81  2      119444.88  3      119566.11   4
+AR    2      120619.076 3      120753.52  2      120600.944 1      121011.979  4
+AR    1      120188.34  2      120188.66  5      120207.32  4      120207.77   4
+AR    3      120229.81  2      120230.07  7.5    120250.15  13.5   121654.     4
+AR    2      113468.55  1      113643.26  0      114861.67  1      114975.07   5
+AR    1      116660.054 3      116942.815 2      116999.389 1      117151.387  5
+AR    2      117183.654 0      117563.020 1      118407.494 2      118469.117  5
+AR    1      118459.662 0      118870.981 0      121794.158 1      121932.908  5
+AR    10     122090.    1      122514.29  5.5     122310.   5.5     123535.    5
+AR    2      123372.987 1      123815.53  27.5    122700.   13.5    124137.    5
+AR    2      119683.113 1      119760.22  0      121096.67  1      121161.356  6
+AR    11.5   121205.    5.5    122633.    19.5   123741.    9.5    125140.     6
+AR    27.5   124050.    13.5   125483.                                         6
+AR    3.5    122455.    1.5    123880.    11.5    123230.   5.5     124660.    7
+AR    19.5   124652.    9.5    126069.    27.5    124863.   13.5    126295.    7
+AR    11.5     124400.  5.5     125800.   19.5    125280.   27.5    125390.    8
+AR    3.5    123920.    1.5     125340.                                        8
+AR    3.5    124780.    1.5    126210.    11.5    125100.   1.5    126524.2    9
+AR    19.5    125650.   3.5     127130.   27.5    125754.                      9
+AR    3.5    125330.    11.5     125540.  19.5    125940.   3.5    127410.    10
+AR    3.5    125712.    1.5    127130.    5.5     125860.   19.5    126155.   11
+AR    3.5    127610.                                                          11
+AR    7.5     126000.   19.5    126300.   3.5     127760.                     12
+AR    5.5     126200.   1.5    127610.    19.5     126430.  3.5     127880.   13
+AR    3.5    126330.    1.5    127600.    19.5   126520.    3.5    127970.    14
+AR    IP      127109.9
+FINISH
+NAME  C2H3 RADICAL      GROUP ADDITION WITH WILHOIT EXTRAPOLATION.       Expl. 2
+C2H3
+DATE  G 3/91
+TEMP  T      298.15     T      300.       I       100.      T       3000.
+OUTP  MFIG              JOULES            LSQS
+LSTS  EXP      0.       EXP       1.      EXP      2.       EXP      3.        1
+LSTS  EXP      4.                                                              1
+METH  ADD 
+      CDH2   2.         HVIN     -1.      SYMNO   1.        STATWT    2.
+TEMP  T       3500.     I      500.       T        6000.
+METH  WILH
+FINISH
+NAME  CYCLOBUTADIENE    TRC TABLES T,U,V,W-2920, OCT 31, 1985.           Expl. 3
+C4H4                    HF298   435000.   JOULES
+DATE  X10/85
+REFN  TRC THERMODYNAMIC TABLES - HYDROCARBONS.  The Texas A&M University System,
+REFN    College Station, TX 77843-3111.  Tables t,u,v,w-2920, Oct.31,1985.
+OUTP  ATM               DMLESS            MFIG              JOULES
+METH  READIN            KJOULE            BAR               
+C4H4  T         50.000  CP       33.2600  H-H0  0.166300D 01S        182.78000
+C4H4  T        100.000  CP       33.6300  H-H0  0.333000D 01S        205.88000
+C4H4  T        150.000  CP       36.6100  H-H0  0.507100D 01S        219.96000
+C4H4  T        200.000  CP       43.0200  H-H0  0.705000D 01S        231.30000
+C4H4  T        273.160  CP       55.9800  H-H0  0.106550D 02S        246.56000
+C4H4  T        298.150  CP       60.7500  H-H0  0.121140D 02S        251.67000
+C4H4  T        300.000  CP       61.1000  H-H0  0.122270D 02S        252.04000
+C4H4  T        400.000  CP       79.3000  H-H0  0.192670D 02S        272.17000
+C4H4  T        500.000  CP       94.4500  H-H0  0.279830D 02S        291.56000
+C4H4  T        600.000  CP      106.5000  H-H0  0.380530D 02S        309.88000
+C4H4  T        700.000  CP      116.1700  H-H0  0.492040D 02S        327.05000
+C4H4  T        800.000  CP      124.1200  H-H0  0.612310D 02S        343.10000
+C4H4  T        900.000  CP      130.8100  H-H0  0.739900D 02S        358.12000
+C4H4  T       1000.000  CP      136.5000  H-H0  0.873600D 02S        372.20000
+C4H4  T       1100.000  CP      141.5000  H-H0  0.101260D 03S        385.50000
+C4H4  T       1200.000  CP      145.7000  H-H0  0.115630D 03S        398.00000
+C4H4  T       1300.000  CP      149.4000  H-H0  0.130390D 03S        409.80000
+C4H4  T       1400.000  CP      152.7000  H-H0  0.145500D 03S        421.00000
+C4H4  T       1500.000  CP      155.5000  H-H0  0.160920D 03S        431.60000
+TEMP  T      1600.      I       200.      T       5000.
+METH  WILH
+FINISH
+NAME  TERT-PENTYL RAD   WING TSANG, J.AM.CH.SOC., MAY 15,1985, P2872.    Expl. 4
+C5H11                   HF298    32600.   JOULES
+DATE  L 5/87
+REFN  WING TSANG, 'THE STABILITY OF ALKYL RADICALS,' J. AM. CHEM. SOC.
+REFN  MAY 15,1985, PP 2872-2880.
+TEMP  T        100.     T      1000.      I      1000.      T       6000.
+OUTP  MFIG              DMLESS            JOULES            CAL
+METH  RRHO
+      V1(9)   2931.     V2(2)   2825.     V3(8)   1455.     V4(3)   1370.
+      V5      1279.     V6(2)    1252.    V7(2)   1189.     V8      1126.
+      V9(3)    992.     V10      733.     V11(2)  541.      V12     380. 
+      V13(1)    200.    V14(2)   990.
+      STATWT  2.        IA     1.         IB      8590.     IC        1.
+      INTROT 4.
+      ANGLES  201.      NEL     100.                        NROTOR  1.         1
+      ROSYM   3.        V3      1254.     IB         .48                       1
+      ROSYM   1.        NROTOR    1.      IB         2.1                       2
+      ROSYM   3.        NROTOR    2.      IB         .48                       3
+FINISH
+REFNCE                                                                   Expl. 5
+H2O1                    ASINDH -57103.5   T           0.
+TEMP  T      5000.                                                              
+OUTP  INTERM            MFIG              JOULES
+METHOD                  NRRAO2                                                  
+DATA  V1    3656.65     V2    1594.78     V3    3755.79     X11   -45.18        
+DATA  X12   -15.14      X33   -44.62      X13   -165.48     X22   -17.04        
+DATA  Y233  -.81        Y333  -.45        X23   -19.99                          
+DATA  Y111  .47         Y112  -.10        Y113  .68         Y122  -0.1          
+DATA  Y123  -1.72       Y133  1.17        Y222  -.60        Y223  1.55          
+DATA  A0    27.848      BO    14.5064     CO    9.28285     SYMNO 2.            
+DATA  ALFAA1 .750       ALFAA2 -2.941     ALFAA3 1.253      ALFAB1 .238 
+DATA  ALFAB2 -.160      ALFAB3 .078       ALFAC1 .2018      ALFAC2 .1392
+DATA  ALFAC3 .1445      RHO    .0000213   STATWT 1.     
+FINISH
+NAME  Mg(cr)            Hexagonal. Ref-Elm. Alcock,1993.                 Expl. 6
+NAME  Mg(L)             Liquid. Ref-Elm. Alcock,1993.
+MG1(S)                  HF298      0.
+DATE  srd 93
+OUTP  JOULES            MFIG              LOGK
+OUTP  EFTAPE
+REFN  Alcock,C.B.; Chase,M.W.; and Itkin,V.:  Thermodynamic
+REFN    Properties of the Group IIA Elements.  JPCRD v22 n1 1993 p1-85.
+TEMP  T        20.      I        10.      T        100.     I        20.
+TEMP  T       300.      I        50.
+TEMP  T       500.      I       100.      T         900.    T        923.
+CTEM  T      200.       I       100.      T        6000.
+METH  COEF              JOULES            MELTPT    923.    H298H0  4979.1613   
+      T      100.       H-H0     639.2226 S      9.454894
+      T       20.       T         99.     E1      -2.       E2       0.
+      E3       1.       E4        2.      C1      858.32    C2     -5.153  
+      C3      .1258     C4       .00257   C5     -.00001756 E5      3.
+METH  COEF              JOULES            MELTPT    923.   
+      T       298.15    CP       24.775   H-H0     4979.1613S      32.535063
+      T      100.       T        298.15   E1      -2.       E2       0.
+      E3       1.       E4        2.      C1     -45000.    C2     12.124  
+      C3      .1106     C4      -.0003408 C5     .0000003953E5      3.
+      TCOEF
+      T      298.15     T         923.    E1      -2.       E2       0.
+      E3       1.       E4        2.      C1     -237800.   C2      28.260 
+      C3     -.006023   C4     .000011684
+      TCOEF
+TEMP  T        923.     T        1000.    I        100.     T       6000.
+METH  COEF              DELTAH   8400.    JOULES
+      T        923.     T      6000.      C1     34.30      E1             
+      TCOEF
+FINISH 
+NAME  MGO               Magnesium Oxide.  JANAF Dec.1974, p1472.         Expl. 7
+MG1O1                   HF298     58158.  JOULES 
+DATE  J12/74
+OUTP  JOULES            LOGK              CTAB              LSQS
+CTEM  T         200.    I        100.     T     1000.       I       200.
+CTEM  T        3000.
+METH  JANAF
+DATA  WE        785.1   WEXE     5.18     BE       .5743    ALPHA1   .0050     1
+DATA  STATWT     6.     T0      2300.     WE     664.4      WEXE    3.9        2
+DATA  BE         .5050  ALPHA1       .004                                      2
+DATA  STATWT     2.     T0      3503.3    WE     664.4      WEXE    3.9        3
+DATA  BE         .5050  ALPHA1       .004                                      3
+DATA  STATWT     3.     T0      14000.    WE     824.1      WEXE    4.8        4
+DATA  BE         .5822  ALPHA1       .0045                                     4
+DATA  STATWT     1.     T0      20004.    WE     824.1      WEXE    4.76       5
+DATA  BE         .5822  ALPHA1       .0045                                     5
+DATA  STATWT     3.     T0      28000.    WE     632.5      WEXE    5.3        6
+DATA  BE         .501   ALPHA1       .0048                                     6
+DATA  STATWT     6.     T0      29000.    WE     632.5      WEXE    5.3        7
+DATA  BE         .501   ALPHA1       .0048                                     7
+DATA  STATWT     2.     T0      29775.    WE     632.5      WEXE    5.3        8
+DATA  BE         .5014  ALPHA1       .0048                                     8
+DATA  STATWT     3.     T0      30000.    WE     632.5      WEXE    5.3        9
+DATA  BE         .501   ALPHA1       .0048                                     9
+DATA  STATWT     1.     T0      30004.    WE     632.4      WEXE    5.2       10
+DATA  BE         .5008  ALPHA1       .0048                                    10
+DATA  STATWT     1.     T0      37684.    WE     632.4      WEXE    5.2       11
+DATA  BE         .5273  ALPHA1       .0048                                    11
+DATA  STATWT     6.     T0      37000.    WE     710.       WEXE    5.        12
+DATA  BE         .5615  ALPHA1       .005                                     12
+DATA  STATWT     2.     T0      37879.    WE     710.       WEXE    5.        13
+DATA  BE         .5615  ALPHA1       .005                                     13
+DATA  STATWT     6.     T0      39000.    WE     790.       WEXE    5.        14
+DATA  BE         .5249  ALPHA1       .005                                     14
+DATA  STATWT     2.     T0      39868.    WE     790.       WEXE    5.        15
+DATA  BE         .5249  ALPHA1       .005                                     15
+FINISH
+NAME  NA2CO3(1)         JANAF DATA.  MARCH 1966.                         Expl. 8
+NAME  NA2CO3(2)         JANAF DATA.  MARCH 1966.
+NAME  NA2CO3(L)         JANAF DATA.  MARCH 1966.
+NA2C1O3(S)              HF298 -270.26     KCAL
+DATE  J 3/66                                  
+OUTP  LOGK              JOULES            LSQS
+METHODREADIN            H298H0 4974.      MELTPT  1123.15   CAL
+      T     100.        CP    14.637      S     10.334      H-H2  -4348.
+      T     200.        CP    22.5000     S     23.367      H-H2  -2424.
+      T     298.15      CP    26.530      S     33.173      H-H2  0.0  
+      T     300.        CP    26.590      S     33.338      H-H2  49.0
+      T     400.        CP    29.900      S     41.421      H-H2  2867.
+      T     500.        CP    33.990      S     48.520      H-H2  6056.
+      T     600.        CP    39.030      S     55.153      H-H2  9702.
+      T     700.        CP    44.830      S     61.597      H-H2  13890.
+      T     723.15      CP    46.220      S     63.078      H-H2  14944.
+METHODREADIN            DELTAH   165.  
+      T     723.15      CP    34.360      S                 H-H2      
+      T     800.        CP    36.650      S     66.889      H-H2  17837.
+      T     900.        CP    39.730      S     71.383      H-H2  21655.
+      T     1000.       CP    42.830      S     75.729      H-H2  25782.
+      T     1100.       CP    45.900      S     79.956      H-H2  30220.
+      T     1123.15     CP    46.630      S     80.920      H-H2  31291.
+TEMP  T     1123.15     T     1200.       I     200.        T     6000. 
+METH  COEF              DELTAH7090.0                 
+      T     1123.15     T     6000.       C1    45.30       E1    0.0 
+      TCOEF            
+FINISH

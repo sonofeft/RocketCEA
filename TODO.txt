@@ -1,0 +1,61 @@
+
+*) Mixture Ratio Range calculations (show TDK influence)
+*) propellant MR recommendations: http://www.braeunig.us/space/propel.htm
+*) get historical MR values from: https://engineering.purdue.edu/~propulsi/propulsion/rockets/liquids.html
+
+*) remove fortran fast calc... replace with M_Pool logic.
+
+*) make rocketcea HELP launch web browser help.
+   PRISM updates with "make_dist.bat" file.
+   could put in... UPLOAD_TO_PyPI.BAT like PyHatch
+
+*) make a jupyter notebook
+
+*) Simple summary output
+
+*) add ability to "omit" species
+
+*) add ability to make blends of multi-part cards.
+
+*) Assure compiled py_cea for:
+   2.7, 3.5, 3.6, 3.7 windows 32bit  (got 2.7, 3.5, 3.6, 3.7)
+   2.7, 3.5, 3.6, 3.7 windows 64bit  (got 2.7, 3.5, 3.6, 3.7)
+
+   2.7, 3.5, 3.6, 3.7 linux 32bit (got 2.7, 3.5, 3.6)
+   2.7, 3.5, 3.6, 3.7 linux 64bit (got 2.7, 3.5, 3.6)
+   
+miniconda 4.2 is py3.5,  >  4.2 is py3.6
+
+*) test pip install rocketcea
+   ======== WINDOWS ============
+   py27 32bit, "pyXY prism" machine ... GOOD
+   py27 64bit, "Win7 py27_64" machine ... GOOD
+   py35 64 bit, "Win7 py35_64" machine ... GOOD
+   py36 64 bit, "Win7 py36_64" machine ... FAIL w/o err message... flat plots. ... GOOD
+        python installed at C:\Program Files\Python36
+        ... GOOD when installed at C:\Python36
+   py37 64 bit, "Win7 py37_64" machine ... FAIL during matplotlib build.
+
+   
+   ======== LINUX =============
+   LinuxLite32 machine (failed on matplotlib install) ... FAIL
+   LinuxMintCinn32 OLD...machine (failed on InsecurePlatformWarning) ... FAIL
+   
+   LinuxLite64 py27_64 failed with "please install python-tk package"... GOOD
+               sudo apt-get install python-tk
+               py35_64 failed with "please install python3-tk package"... GOOD
+               sudo apt-get install python3-tk
+   
+   LinuxMint32 18.3, sudo apt-get install python-pip ... FAIL
+                     sudo apt-get install python-matplotlib
+                     sudo apt-get install python-tkinter
+                     sudo apt-get install python-setuptools
+   LinuxMint32 18.3, sudo apt-get install python3-pip ... FAIL
+                     sudo apt-get install python3-matplotlib
+                     sudo apt-get install python3-tkinter
+                     sudo apt-get install python3-setuptools
+   
+   Ubuntu Mate 18.04, py27_32 worked after many depency installs.
+                      py3_32 
+   
+   

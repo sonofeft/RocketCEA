@@ -1,0 +1,19 @@
+ reac
+    name = diss UA 0.800 H 1.600 N 1.200 wt%= 99.5           
+         h,cal=12094. t(k)=298.15 rho,g/cc = 1.004    
+         
+    name = water H 2.0 O 1.0  wt%=0.5  
+         h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998  
+
+!     
+!	THIS IS 40% AMMONIA DISSOCIATION
+!
+
+
+ problem  rkt eq p,psi= 50
+          supar= 10
+ output  calories short
+ omit NH3
+
+      end
+

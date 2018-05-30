@@ -1,0 +1,367 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Propellant Selection &#8212; RocketCEA 0.1.5 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Propellants" href="propellants.html" />
+    <link rel="prev" title="Engine Mixture Ratio" href="engine_mr.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="propellants.html" title="Propellants"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="engine_mr.html" title="Engine Mixture Ratio"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 0.1.5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Propellant Selection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rough-screening">Rough Screening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stage-density">Stage Density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#volume-limit">Volume Limit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delta-v-requirement">Delta V Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mass-limit">Mass Limit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monopropellants">Monopropellants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="engine_mr.html"
+                        title="previous chapter">Engine Mixture Ratio</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="propellants.html"
+                        title="next chapter">Propellants</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/propellant_select.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="propellant-selection">
+<span id="propellant-select-link"></span><h1>Propellant Selection<a class="headerlink" href="#propellant-selection" title="Permalink to this headline">¶</a></h1>
+<p>Before looking at stage performance,
+selecting a bipropellant combination for an application can have many considerations.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Historical</span> <span class="n">Experience</span>
+<span class="n">Stage</span><span class="o">/</span><span class="n">Vehicle</span> <span class="n">Cost</span>
+<span class="n">Propellant</span> <span class="n">Cost</span>
+<span class="n">Production</span> <span class="n">Run</span> <span class="n">Size</span>
+<span class="n">Propellant</span> <span class="n">Handling</span> <span class="n">Requirements</span>
+<span class="n">Propellant</span> <span class="n">Production</span> <span class="n">Sources</span>
+<span class="n">Propellant</span> <span class="n">Toxicity</span>
+<span class="n">Hypergolicity</span>
+<span class="n">Common</span> <span class="n">Propellant</span> <span class="n">Liquidus</span> <span class="n">Range</span>
+<span class="n">Propellant</span> <span class="n">Vapor</span> <span class="n">Pressure</span> <span class="ow">or</span> <span class="n">Freezing</span> <span class="n">Limits</span>
+<span class="n">Stage</span> <span class="n">Readiness</span> <span class="n">Requirements</span>
+<span class="n">Launch</span> <span class="n">Hold</span><span class="o">-</span><span class="n">Time</span> <span class="n">Limits</span>
+<span class="n">Insulation</span> <span class="n">Requirements</span>
+<span class="n">Insulation</span> <span class="n">Purge</span> <span class="n">Requirements</span>
+<span class="n">Cleanliness</span> <span class="n">Requirements</span>
+<span class="n">Material</span> <span class="n">Compatibility</span> <span class="n">Requirements</span>
+<span class="n">Propellant</span> <span class="n">Line</span> <span class="n">Filling</span> <span class="n">Procedures</span>
+<span class="n">Propellant</span> <span class="n">Line</span> <span class="n">Velocity</span> <span class="n">Limits</span>
+<span class="n">Propellant</span> <span class="n">Storage</span> <span class="n">Life</span>
+<span class="n">Storage</span> <span class="n">Conditioning</span> <span class="n">Requirements</span>
+<span class="n">Propellant</span> <span class="n">Venting</span>
+<span class="n">Technology</span> <span class="n">Readiness</span>
+<span class="n">etc</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The list of candidate propellants can
+usually be pruned down to just a few that satisfy the basic application requirements above.</p>
+<p>For most applications, the performance goal is usually a combination of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fit</span> <span class="n">Into</span> <span class="n">a</span> <span class="n">Volume</span>
+<span class="n">Weigh</span> <span class="n">Less</span> <span class="n">Than</span> <span class="n">a</span> <span class="n">Limit</span>
+<span class="n">Deliver</span> <span class="n">a</span> <span class="n">Delta</span> <span class="n">Velocity</span>
+<span class="n">Deliver</span> <span class="n">an</span> <span class="n">Acceleration</span>
+</pre></div>
+</div>
+<p>The best way to evaluate performance differences
+between propellants that survive the initial screening
+is to have engineering teams generate
+detailed designs for each of the propellants and pick the best detailed design.</p>
+<p>In practice, that is rarely a viable option due to the cost and schedule of generating detailed designs.</p>
+<div class="section" id="rough-screening">
+<h2>Rough Screening<a class="headerlink" href="#rough-screening" title="Permalink to this headline">¶</a></h2>
+<p>The most common tool for simplified performance screening is a chart of propellant
+<code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">impulse</span></code> (Isp * bulk propellant density).</p>
+<p>It is very clear that high Isp is good and high density is good so it's natural to assume that
+the linear combination of Isp and density must be good also.
+Many companies publish charts of density impulse such as this
+<a class="reference external" href="./_static/TRW_Propellant_Performance_Summary.pdf">TRW Propellant Performance Summary</a></p>
+<p>The units of density impulse can vary between charts, however the choice of <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">gravity</span></code>
+for density and <code class="docutils literal notranslate"><span class="pre">sec</span></code> for Isp seem to keep numbers in more recognizable ranges.
+Most charts use an X axis of <code class="docutils literal notranslate"><span class="pre">Mixture</span> <span class="pre">Ratio</span></code> and a combined Y axis of <code class="docutils literal notranslate"><span class="pre">Isp</span></code> and <code class="docutils literal notranslate"><span class="pre">Density</span> <span class="pre">Impulse</span></code>.</p>
+<p>The same information can also be displayed on a chart like the one below.
+Here the X axis is <code class="docutils literal notranslate"><span class="pre">Specific</span> <span class="pre">Gravity</span> <span class="pre">(g/ml)</span></code> and the Y axis is <code class="docutils literal notranslate"><span class="pre">Isp</span></code>.
+On that chart, contours of <code class="docutils literal notranslate"><span class="pre">Density</span> <span class="pre">Impulse</span></code> can be shown.</p>
+<p>The bipropellant Isp curves correspond to CEA equilibrium Isp vacuum at the given chamber pressure
+and area ratio.
+Recall that real engine Isp will be derived from a curve between equilibrium and frozen as shown
+in <a class="reference internal" href="engine_mr.html#engine-mr-loxlh2-link"><span class="std std-ref">LOX/LH2 Performance</span></a></p>
+<a class="reference internal image-reference" href="_images/basic_chart.png"><img alt="_images/basic_chart.png" src="_images/basic_chart.png" style="width: 75%;" /></a>
+<p><cite>Click Image to View Fill Size</cite></p>
+<p>The script that created this chart is.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">()</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Looking at the chart above, it says that if Isp is most important, then only use F2/H2 or perhaps LOX/LH2 if
+Fluorine is rejected.</p>
+<p>If density impulse is most important, then only use N2F4/N2H4 or perhaps LOX/RP1 if LOX is the chosen oxidizer.</p>
+</div>
+<div class="section" id="stage-density">
+<h2>Stage Density<a class="headerlink" href="#stage-density" title="Permalink to this headline">¶</a></h2>
+<p>In order to help bring some order into the decision making process, it is possible to introduce
+a new parameter called <strong>Stage Density</strong>.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Stage</span> <span class="n">Density</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">Inert</span> <span class="n">Mass</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">Propellant</span> <span class="n">Volume</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If we assume that <strong>Stage inert mass only depends on tank volume</strong>.
+Then no matter which bipropellant combination we pour into the stage or in whatever mixture ratio we pour it,
+all of the stage performance parameters can be calculated.</p>
+<p>This allows us to take a reference stage design and compare its use by other propellant combinations.</p>
+<p>The quality of this assumption will certainly vary between propellant combinations.
+The performance of some propellants will be helped and others will be hurt, however,
+a review of any results can take those differences into account.</p>
+</div>
+<div class="section" id="volume-limit">
+<h2>Volume Limit<a class="headerlink" href="#volume-limit" title="Permalink to this headline">¶</a></h2>
+<p>A common requirement on a stage is to meet a volume limit.
+This is the easiest application of the stage density idea.
+Using a fixed stage design with a fixed propellant volume, simply pour in that volume of various propellants
+and evaluate their performance.</p>
+<p>As an example, say that the first stage of the Saturn V was designed to have a maximum propellant volume
+of 75500 cubic feet (its actual volume). For every point on the specific gravity vs Isp chart,
+lines of constant stage delta velocity and stage gross liftoff weight
+(GLOW) can be drawn by assuming that the inert mass of the stage does not change regardless of
+the propellant used in the stage.</p>
+<p><strong>Every point on the chart below has the same volume.</strong></p>
+<p>Notice that for much of the chart, that the lines of constant density impulse closely match the lines of
+constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice for the Saturn V first stage.</p>
+<a class="reference internal image-reference" href="_images/rho_veh_stg1_vol.png"><img alt="_images/rho_veh_stg1_vol.png" src="_images/rho_veh_stg1_vol.png" style="width: 75%;" /></a>
+<p><cite>Click Image to View Fill Size</cite></p>
+<p>The script that created this chart is.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+
+<span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;RP1&#39;</span><span class="p">)],</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">stg_obj</span> <span class="o">=</span> <span class="n">ReferenceStage</span><span class="p">(</span> <span class="n">WtPayload</span><span class="o">=</span><span class="mf">1600000.0</span><span class="p">,</span> <span class="n">volCuInRef</span><span class="o">=</span><span class="mf">75500.0</span><span class="o">*</span><span class="mi">1728</span><span class="p">,</span> <span class="n">WtInertRef</span><span class="o">=</span><span class="mf">300000.0</span><span class="p">,</span>
+                          <span class="n">Name</span><span class="o">=</span><span class="s1">&#39;Saturn V 1st stg&#39;</span><span class="p">)</span>
+
+<span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;VolPropellant&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mf">75500.0</span><span class="o">*</span><span class="mi">1728</span><span class="p">,</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;MassFrac&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">5</span><span class="p">},</span>
+                             <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">:[</span><span class="mi">8000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">12000</span><span class="p">,</span><span class="mi">14000</span><span class="p">,</span><span class="mi">16000</span><span class="p">,</span><span class="mi">18000</span><span class="p">],</span>
+                                              <span class="s1">&#39;MassFrac&#39;</span><span class="p">:[</span><span class="mf">0.86</span><span class="p">,</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.92</span><span class="p">,</span><span class="mf">0.94</span><span class="p">,</span><span class="mf">0.95</span><span class="p">],</span>
+                                              <span class="s1">&#39;GLOW&#39;</span><span class="p">:[</span><span class="mf">3e6</span><span class="p">,</span> <span class="mf">4e6</span><span class="p">,</span> <span class="mf">5e6</span><span class="p">,</span> <span class="mf">6e6</span><span class="p">,</span> <span class="mf">7e6</span><span class="p">,</span> <span class="mf">8e6</span><span class="p">,</span> <span class="mf">9e6</span><span class="p">]</span>    <span class="p">},</span>
+                             <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span><span class="s1">&#39;GLOW&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delta-v-requirement">
+<h2>Delta V Requirement<a class="headerlink" href="#delta-v-requirement" title="Permalink to this headline">¶</a></h2>
+<p>Another common requirement for a stage is to deliver a certain delta velocity.
+the use of stage density in this scenario requires that a function for stage density be derived.
+The chart below scales the actual Saturn V stage from an historical chart of stage density.
+Another good approach is to estimate stage designs at points of interest on the chart and scale between them.</p>
+<p><strong>Every point on the chart below delivers the same delta velocity.</strong></p>
+<p>What this chart says is that a LOX/LH2 first stage would weigh a bit less than the existing LOX/RP1 stage,
+but it would be twice the size.</p>
+<p>It is interesting to note here also that the lines of density impulse and those of propellant volume
+track closely together in an inverse relationship.</p>
+<a class="reference internal image-reference" href="_images/rho_veh_stg1_dv.png"><img alt="_images/rho_veh_stg1_dv.png" src="_images/rho_veh_stg1_dv.png" style="width: 75%;" /></a>
+<p><cite>Click Image to View Fill Size</cite></p>
+<p>The script that created this chart is.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+
+<span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;RP1&#39;</span><span class="p">)],</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">stg_obj</span> <span class="o">=</span> <span class="n">ReferenceStage</span><span class="p">(</span> <span class="n">WtPayload</span><span class="o">=</span><span class="mf">1600000.0</span><span class="p">,</span> <span class="n">volCuInRef</span><span class="o">=</span><span class="mf">75500.0</span><span class="o">*</span><span class="mi">1728</span><span class="p">,</span> <span class="n">WtInertRef</span><span class="o">=</span><span class="mf">300000.0</span><span class="p">,</span>
+                          <span class="n">Name</span><span class="o">=</span><span class="s1">&#39;Saturn V 1st stg&#39;</span><span class="p">)</span>
+
+<span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mi">12000</span><span class="p">,</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;MassFrac&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">8</span><span class="p">},</span>
+                             <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:[</span><span class="mf">6e6</span><span class="p">,</span> <span class="mf">5.5e6</span><span class="p">,</span> <span class="mf">5e6</span><span class="p">,</span> <span class="mf">4.5e6</span><span class="p">],</span>
+                                              <span class="s1">&#39;CubicFt&#39;</span><span class="p">:[</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">90000</span><span class="p">,</span> <span class="mi">110000</span><span class="p">,</span> <span class="mi">13000</span><span class="p">]},</span>
+                             <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GLOW&#39;</span><span class="p">,</span><span class="s1">&#39;CubicFt&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mass-limit">
+<h2>Mass Limit<a class="headerlink" href="#mass-limit" title="Permalink to this headline">¶</a></h2>
+<p>A common requirement, especially for upper stages, is to minimize mass for a given delta v.
+The volume is not as important since upper stages are the smallest stages already.
+Using stage density to evaluate this situation again requires a function for stage density.
+The stage density function can be a scaling of a single design point
+or the interpolation between various design points.</p>
+<p>The chart below is an evaluation of the LOX/LH2 third stage of the Saturn V.</p>
+<p><strong>Every point on the chart has the same initial mass.</strong>
+This means that the lower stages will deliver the same delta v for all points on the chart.</p>
+<p>Given this, the chart shows that using LOX/LH2 for the third stage will deliver about 1000 ft/sec
+more than a LOX/RP1 or a LOX/CH4 third stage.</p>
+<p>Note that in this case of <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">limit</span></code>, density impulse is a poor indicator of the best propellant combination.</p>
+<a class="reference internal image-reference" href="_images/rho_veh_stg3_glow.png"><img alt="_images/rho_veh_stg3_glow.png" src="_images/rho_veh_stg3_glow.png" style="width: 75%;" /></a>
+<p><cite>Click Image to View Fill Size</cite></p>
+<p>The script that created this chart is.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+
+<span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;RP1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;CH4&#39;</span><span class="p">)],</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">735.</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">27.5</span><span class="p">)</span>
+
+<span class="n">stg_obj</span> <span class="o">=</span> <span class="n">ReferenceStage</span><span class="p">(</span> <span class="n">WtPayload</span><span class="o">=</span><span class="mf">260000.0</span><span class="p">,</span> <span class="n">volCuInRef</span><span class="o">=</span><span class="mi">11180</span><span class="o">*</span><span class="mi">1728</span><span class="p">,</span> <span class="n">WtInertRef</span><span class="o">=</span><span class="mf">29300.0</span><span class="p">,</span>
+                          <span class="n">Name</span><span class="o">=</span><span class="s1">&#39;Saturn V 3rd stg&#39;</span><span class="p">)</span>
+
+<span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;GLOW&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mf">524300.0</span><span class="p">,</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;DeltaV&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">5</span><span class="p">},</span>
+                             <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">],</span>
+                                               <span class="s1">&#39;DeltaV&#39;</span> <span class="p">:[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">7500</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">8500</span><span class="p">]</span> <span class="p">},</span>
+                             <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span><span class="s1">&#39;CubicFt&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="monopropellants">
+<h2>Monopropellants<a class="headerlink" href="#monopropellants" title="Permalink to this headline">¶</a></h2>
+<p>Screening with monopropellants can also be done using <code class="docutils literal notranslate"><span class="pre">stage</span> <span class="pre">density</span></code>, however, some care must
+be taken in the <code class="docutils literal notranslate"><span class="pre">stage</span> <span class="pre">density</span> <span class="pre">function</span></code>.</p>
+<p>Note also that monopropellants are only a single point on the specific gravity vs Isp curve.</p>
+<p>The chart below compares different propellants being used in a divert vehicle.</p>
+<p><strong>Every point on the chart has the same initial mass.</strong></p>
+<p>Note that in this case with a <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">limit</span></code>, but a much lower delta velocity requirement,
+that density impulse is a better indicator of performance than the Saturn stage 3 case, but not
+particularly good.</p>
+<a class="reference internal image-reference" href="_images/divert_veh.png"><img alt="_images/divert_veh.png" src="_images/divert_veh.png" style="width: 75%;" /></a>
+<p><cite>Click Image to View Fill Size</cite></p>
+<p>The script that created this chart is.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+
+<span class="n">stg_obj</span> <span class="o">=</span> <span class="n">ReferenceStage</span><span class="p">(</span><span class="n">volCuInRef</span><span class="o">=</span><span class="mf">441.0</span> <span class="p">,</span> <span class="n">WtInertRef</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">WtPayload</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span>
+        <span class="n">Name</span><span class="o">=</span><span class="s1">&#39;N2H4 DACS&#39;</span><span class="p">)</span>
+
+<span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span><span class="s1">&#39;MMH&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;CLF5&#39;</span><span class="p">,</span><span class="s1">&#39;N2H4&#39;</span><span class="p">)],</span>
+                <span class="n">monopropL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HYD40&#39;</span><span class="p">,</span> <span class="s1">&#39;HAN315&#39;</span><span class="p">,</span> <span class="s1">&#39;HAN269&#39;</span><span class="p">])</span>
+
+
+<span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;GLOW&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mf">64.0</span><span class="p">,</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;VolPropellant&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">},</span>
+                             <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">:[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">2100</span><span class="p">,</span> <span class="mi">2300</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">2700</span><span class="p">,</span> <span class="mi">2900</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">3300</span><span class="p">],</span>
+                                              <span class="s1">&#39;MassFrac&#39;</span><span class="p">:[</span><span class="o">.</span><span class="mi">44</span><span class="p">,</span> <span class="o">.</span><span class="mi">46</span><span class="p">,</span> <span class="o">.</span><span class="mi">48</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">52</span><span class="p">],</span>
+                                              <span class="s1">&#39;VolPropellant&#39;</span><span class="p">:[</span><span class="mi">350</span><span class="p">,</span> <span class="mi">375</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">450</span><span class="p">]},</span>
+                             <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span><span class="s1">&#39;VolPropellant&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="propellants.html" title="Propellants"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="engine_mr.html" title="Engine Mixture Ratio"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 0.1.5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

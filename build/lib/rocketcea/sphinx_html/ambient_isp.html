@@ -1,0 +1,256 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ambient Isp &#8212; RocketCEA 0.1.5 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Hydrazine Monopropellant" href="hydrazine_mono.html" />
+    <link rel="prev" title="Plot Examples" href="plot_examples.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_examples.html" title="Plot Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 0.1.5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ambient Isp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ispamb-equation">IspAmb Equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#estimate-ispamb">Estimate IspAmb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nozzle-flow-separation">Nozzle Flow Separation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plot_examples.html"
+                        title="previous chapter">Plot Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hydrazine_mono.html"
+                        title="next chapter">Hydrazine Monopropellant</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ambient_isp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ambient-isp">
+<h1>Ambient Isp<a class="headerlink" href="#ambient-isp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ispamb-equation">
+<h2>IspAmb Equation<a class="headerlink" href="#ispamb-equation" title="Permalink to this headline">¶</a></h2>
+<p>The standard CEA output includes two values of Isp:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ivac</span> <span class="o">=</span> <span class="n">Isp</span> <span class="n">at</span> <span class="n">vacuum</span>
+<span class="n">Isp</span>  <span class="o">=</span> <span class="n">Isp</span> <span class="n">at</span> <span class="n">ambient</span> <span class="n">pressure</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">nozzle</span> <span class="n">exit</span> <span class="n">pressure</span>
+</pre></div>
+</div>
+<p>Neglecting nozzle flow separation, the equation for calculating Isp at any ambient pressure (Pamb) is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IspAmb</span> <span class="o">=</span> <span class="n">Isp</span> <span class="o">-</span> <span class="n">Cstar</span> <span class="o">*</span> <span class="n">Pamb</span> <span class="o">*</span> <span class="n">eps</span> <span class="o">/</span> <span class="n">Pc</span> <span class="o">/</span> <span class="mf">32.174</span>
+</pre></div>
+</div>
+<p>This can be verified on the  <a class="reference internal" href="std_examples.html#example-1-link"><span class="std std-ref">LOX/LH2 Performance</span></a> example of the Standard Examples page:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                     <span class="mf">1.00000</span>   <span class="mf">40.000</span>
+<span class="n">CSTAR</span><span class="p">,</span> <span class="n">FT</span><span class="o">/</span><span class="n">SEC</span>              <span class="mf">7560.0</span>   <span class="mf">7560.0</span>
+<span class="n">CF</span>                         <span class="mf">0.6572</span>   <span class="mf">1.8351</span>
+<span class="n">Ivac</span><span class="p">,</span><span class="n">LB</span><span class="o">-</span><span class="n">SEC</span><span class="o">/</span><span class="n">LB</span>              <span class="mf">289.8</span>    <span class="mf">451.7</span>
+<span class="n">Isp</span><span class="p">,</span> <span class="n">LB</span><span class="o">-</span><span class="n">SEC</span><span class="o">/</span><span class="n">LB</span>              <span class="mf">154.4</span>    <span class="mf">431.2</span>
+</pre></div>
+</div>
+<p>where:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IspAmb</span> <span class="o">=</span> <span class="mf">431.2</span> <span class="o">=</span> <span class="mf">451.7</span> <span class="o">-</span> <span class="mi">7560</span> <span class="o">*</span> <span class="mf">2.17838</span> <span class="o">*</span> <span class="mi">40</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mf">32.174</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estimate-ispamb">
+<h2>Estimate IspAmb<a class="headerlink" href="#estimate-ispamb" title="Permalink to this headline">¶</a></h2>
+<p>RocketCEA includes a method for calculating ambient Isp.
+The <strong>estimate_Ambient_Isp</strong> method is called as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IspSL</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">estimate_Ambient_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">Pamb</span><span class="o">=</span><span class="mf">14.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The example above is for sea level performance where Pamb=14.7 psia.
+The returned Isp value considers both ambient pressure correction and potential nozzle flow separation.</p>
+<p>The returned <strong>mode</strong> parameter is a string describing the nozzle flow condition.
+The script below demonstrates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">oxName</span><span class="o">=</span><span class="s2">&quot;LOX&quot;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;H2&quot;</span><span class="p">,</span>  <span class="n">useFastLookup</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Pc</span><span class="o">=</span><span class="mf">500.</span>
+<span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span>
+<span class="k">for</span> <span class="n">eps</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">]:</span>
+    
+    <span class="n">IspVac</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">IspAmb</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">estimate_Ambient_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">Pamb</span><span class="o">=</span><span class="mf">14.7</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pc=</span><span class="si">%4i</span><span class="s1">  eps=</span><span class="si">%3i</span><span class="s1">  IspAmb/IspVac= </span><span class="si">%6.2f</span><span class="s1">/</span><span class="si">%6.2f</span><span class="s1">  Mode= </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Pc</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">eps</span><span class="p">),</span> <span class="n">IspAmb</span><span class="p">,</span> <span class="n">IspVac</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The output from the script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pc</span><span class="o">=</span> <span class="mi">500</span>  <span class="n">eps</span><span class="o">=</span>  <span class="mi">2</span>  <span class="n">IspAmb</span><span class="o">/</span><span class="n">IspVac</span><span class="o">=</span> <span class="mf">329.49</span><span class="o">/</span><span class="mf">343.22</span>  <span class="n">Mode</span><span class="o">=</span> <span class="n">UnderExpanded</span> <span class="n">Pe</span><span class="o">=</span><span class="mf">65.7213</span>
+<span class="n">Pc</span><span class="o">=</span> <span class="mi">500</span>  <span class="n">eps</span><span class="o">=</span>  <span class="mi">5</span>  <span class="n">IspAmb</span><span class="o">/</span><span class="n">IspVac</span><span class="o">=</span> <span class="mf">354.82</span><span class="o">/</span><span class="mf">389.09</span>  <span class="n">Mode</span><span class="o">=</span> <span class="n">UnderExpanded</span> <span class="n">Pe</span><span class="o">=</span><span class="mf">18.3402</span>
+<span class="n">Pc</span><span class="o">=</span> <span class="mi">500</span>  <span class="n">eps</span><span class="o">=</span>  <span class="mi">7</span>  <span class="n">IspAmb</span><span class="o">/</span><span class="n">IspVac</span><span class="o">=</span> <span class="mf">354.32</span><span class="o">/</span><span class="mf">402.22</span>  <span class="n">Mode</span><span class="o">=</span> <span class="n">OverExpanded</span> <span class="n">Pe</span><span class="o">=</span><span class="mf">11.8242</span>
+<span class="n">Pc</span><span class="o">=</span> <span class="mi">500</span>  <span class="n">eps</span><span class="o">=</span> <span class="mi">10</span>  <span class="n">IspAmb</span><span class="o">/</span><span class="n">IspVac</span><span class="o">=</span> <span class="mf">346.25</span><span class="o">/</span><span class="mf">414.56</span>  <span class="n">Mode</span><span class="o">=</span> <span class="n">OverExpanded</span> <span class="n">Pe</span><span class="o">=</span><span class="mf">7.49482</span>
+<span class="n">Pc</span><span class="o">=</span> <span class="mi">500</span>  <span class="n">eps</span><span class="o">=</span> <span class="mi">20</span>  <span class="n">IspAmb</span><span class="o">/</span><span class="n">IspVac</span><span class="o">=</span> <span class="mf">316.16</span><span class="o">/</span><span class="mf">434.70</span>  <span class="n">Mode</span><span class="o">=</span> <span class="n">Separated</span> <span class="n">Psep</span><span class="o">=</span><span class="mf">4.84056</span><span class="p">,</span> <span class="n">epsSep</span><span class="o">=</span><span class="mf">14.2</span>
+<span class="n">Pc</span><span class="o">=</span> <span class="mi">500</span>  <span class="n">eps</span><span class="o">=</span> <span class="mi">50</span>  <span class="n">IspAmb</span><span class="o">/</span><span class="n">IspVac</span><span class="o">=</span> <span class="mf">309.31</span><span class="o">/</span><span class="mf">455.27</span>  <span class="n">Mode</span><span class="o">=</span> <span class="n">Separated</span> <span class="n">Psep</span><span class="o">=</span><span class="mf">4.84056</span><span class="p">,</span> <span class="n">epsSep</span><span class="o">=</span><span class="mf">14.2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nozzle-flow-separation">
+<h2>Nozzle Flow Separation<a class="headerlink" href="#nozzle-flow-separation" title="Permalink to this headline">¶</a></h2>
+<p>The IspAmb equation above neglects the fact that, as ambient pressure rises, eventually the nozzle flow separates.
+Flow separation can be quite violent and, in fact, can be the major structural design criteria of engines designed for it.</p>
+<p>The <a class="reference internal" href="parasol_example.html#parasol-example-link"><span class="std std-ref">Parasol Example</span></a> page devotes a more detailed exploration of ambient performance and
+flow separation.</p>
+<p>The following RocketCEA script runs nozzle separation calculations and launches Microsoft Excel in order to
+plot the results. (works on Windows only, see: <a class="reference external" href="http://odscharts.readthedocs.io/en/latest/">ODSCharts</a> for a Linux solution.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea</span> <span class="k">import</span> <span class="n">separated_Cf</span>
+<span class="kn">from</span> <span class="nn">rocketcea</span> <span class="k">import</span> <span class="n">xlChart</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">pc</span><span class="o">=</span><span class="mf">108.0</span>
+<span class="n">eps</span><span class="o">=</span><span class="mf">5.0</span>
+<span class="n">oxName</span><span class="o">=</span> <span class="s1">&#39;N2O4&#39;</span>
+<span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span>
+<span class="n">mr</span> <span class="o">=</span> <span class="mf">1.65</span>
+<span class="n">Nsteps</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">oxName</span><span class="o">=</span><span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="n">fuelName</span><span class="p">)</span>
+
+<span class="n">IspODE</span><span class="p">,</span> <span class="n">Cstar</span><span class="p">,</span> <span class="n">Tcomb</span><span class="p">,</span> <span class="n">mw</span><span class="p">,</span> <span class="n">gam</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_IvacCstrTc_ChmMwGam</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">mr</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
+
+<span class="n">pcArr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">]</span>
+
+<span class="n">rs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="s1">&#39;Pamb&#39;</span><span class="p">,</span><span class="s1">&#39;Cf/Cfvac&#39;</span><span class="p">,</span> <span class="s1">&#39;Pc&#39;</span><span class="p">,</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">pc</span> <span class="ow">in</span> <span class="n">pcArr</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="n">Nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">Pamb</span> <span class="o">=</span> <span class="mf">14.7</span> <span class="o">*</span> <span class="n">i</span> <span class="o">/</span> <span class="n">Nsteps</span>
+        <span class="n">Cf</span><span class="p">,</span> <span class="n">CfOverCfvac</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">separated_Cf</span><span class="o">.</span><span class="n">ambientCf</span><span class="p">(</span><span class="n">gam</span><span class="o">=</span><span class="n">gam</span><span class="p">,</span> <span class="n">epsTot</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">Pc</span><span class="o">=</span><span class="n">pc</span><span class="p">,</span> <span class="n">Pamb</span><span class="o">=</span><span class="n">Pamb</span><span class="p">)</span>
+            
+        <span class="n">rs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span> <span class="n">Pamb</span><span class="p">,</span> <span class="n">CfOverCfvac</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">rs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
+
+<span class="n">xl</span> <span class="o">=</span> <span class="n">xlChart</span><span class="o">.</span><span class="n">xlChart</span><span class="p">()</span>
+<span class="n">xl</span><span class="o">.</span><span class="n">xlApp</span><span class="o">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Allow Quick Close without Save Message</span>
+
+<span class="n">myTitle</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2"> Ambient Performance at Area Ratio=</span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span> <span class="o">+</span>\
+    <span class="s2">&quot;Pc Range = </span><span class="si">%g</span><span class="s2"> - </span><span class="si">%g</span><span class="s2"> psia&quot;</span><span class="o">%</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">pcArr</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">pcArr</span><span class="p">))</span>
+<span class="n">xl</span><span class="o">.</span><span class="n">makeChart</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span>  
+            <span class="n">title</span><span class="o">=</span><span class="n">myTitle</span><span class="p">,</span><span class="n">nCurves</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">chartName</span><span class="o">=</span><span class="s2">&quot;Performance&quot;</span><span class="p">,</span>
+            <span class="n">sheetName</span><span class="o">=</span><span class="s2">&quot;FillData&quot;</span><span class="p">,</span><span class="n">yLabel</span><span class="o">=</span><span class="s2">&quot;Cfamb/Cfvac&quot;</span><span class="p">,</span> <span class="n">xLabel</span><span class="o">=</span><span class="s2">&quot;Ambient Pressure (psia)&quot;</span><span class="p">)</span>
+<span class="n">xl</span><span class="o">.</span><span class="n">setYrange</span><span class="p">(</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The script creates an Excel spreadsheet of ambient performance calculations shown in the image below.
+A table of nozzle conditions is shown in the upper left corner of the image.
+A graph of ambient pressure vs nozzle Cf ambient divided by Cf vacuum is
+shown in the bottom right corner of the image:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>There are more modern methods of estimating flow separation than Kalt and Badal from 1965.</p>
+<p class="last">Any detailed engine design that needs to consider flow separation would need to employ improved methods.</p>
+</div>
+<img alt="_images/noz_flowsep_2.jpg" src="_images/noz_flowsep_2.jpg" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_examples.html" title="Plot Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 0.1.5 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
+  </body>
+</html>

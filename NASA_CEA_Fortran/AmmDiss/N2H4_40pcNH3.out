@@ -1,0 +1,91 @@
+
+ *******************************************************************************
+
+         NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA2, MAY 21, 2004
+                   BY  BONNIE MCBRIDE AND SANFORD GORDON
+      REFS: NASA RP-1311, PART I, 1994 AND NASA RP-1311, PART II, 1996
+
+ *******************************************************************************
+
+
+
+  reac
+     name = diss UA 0.800 H 1.600 N 1.200 wt%= 99.5
+          h,cal=12094. t(k)=298.15 rho,g/cc = 1.004
+  
+     name = water H 2.0 O 1.0  wt%=0.5
+          h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998
+  
+ !
+ !	THIS IS 40% AMMONIA DISSOCIATION
+ !
+  
+  
+  problem  rkt eq p,psi= 50
+           supar= 10
+  output  calories short
+  omit NH3
+  
+       end
+
+
+
+
+
+              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
+
+           COMPOSITION DURING EXPANSION FROM INFINITE AREA COMBUSTOR
+
+ Pin =    50.0 PSIA
+ CASE =                
+
+             REACTANT                    WT FRACTION      ENERGY      TEMP
+                                          (SEE NOTE)      CAL/MOL       K  
+ NAME        diss                         0.9950000     12094.000    298.150
+ NAME        water                        0.0050000    -68308.000    298.150
+
+ REACTANT DENSITY=  1.0040 G/CC
+
+ O/F=    0.00000  %FUEL=  0.000000  R,EQ.RATIO=90.499622  PHI,EQ.RATIO= 0.000000
+
+                 CHAMBER   THROAT     EXIT
+ Pinf/P            1.0000   1.7987   101.37
+ P, ATM            3.4023   1.8915  0.03356
+ T, K             1335.60  1192.71   490.34
+ RHO, G/CC       4.5261-4 2.8177-4 1.2161-5
+ H, CAL/G          356.56   255.48  -186.07
+ U, CAL/G          174.52   92.916  -252.91
+ G, CAL/G        -4536.36 -4113.96 -1982.42
+ S, CAL/(G)(K)     3.6634   3.6634   3.6634
+
+ M, (1/n)          14.580   14.580   14.580
+ (dLV/dLP)t      -1.00000 -1.00000 -1.00000
+ (dLV/dLT)p        1.0000   1.0000   1.0000
+ Cp, CAL/(G)(K)    0.7186   0.6958   0.5549
+ GAMMAs            1.2341   1.2436   1.3256
+ SON VEL,M/SEC      969.5    919.7    608.8
+ MACH NUMBER        0.000    1.000    3.500
+
+ PERFORMANCE PARAMETERS
+
+ Ae/At                      1.0000   10.000
+ CSTAR, FT/SEC              4364.4   4364.4
+ CF                         0.6914   1.6018
+ Ivac,LB-SEC/LB              169.2    230.7
+ Isp, LB-SEC/LB               93.8    217.3
+
+
+ MOLE FRACTIONS
+
+ *H2              0.36216  0.36216  0.36216
+ H2O              0.00405  0.00405  0.00405
+ UA               0.36216  0.36216  0.36216
+ *N2              0.27162  0.27162  0.27162
+
+  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
+
+ NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
+
+
+
+  

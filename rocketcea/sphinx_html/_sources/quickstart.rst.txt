@@ -1,0 +1,129 @@
+
+.. quickstart
+
+QuickStart
+==========
+
+Install RocketCEA
+-----------------
+
+The easiest way to install RocketCEA is::
+
+    pip install rocketcea
+    
+        OR on Linux
+    sudo pip install rocketcea
+        OR perhaps
+    pip install --user rocketcea
+
+
+Getting Help
+------------
+
+After installing with ``pip``, there will be a launch command line program called **rocketcea** or, on Windows, **rocketcea.exe**. 
+
+From a terminal or command prompt window simply type::
+
+    rocketcea
+
+Your browser will launch with these RocketCEA help pages.
+
+Running RocketCEA
+-----------------
+
+Any use of RocketCEA begins with an import statement and an instance of CEA_obj::
+
+    from rocketcea.cea_obj import CEA_Obj
+    C = CEA_Obj( oxName='LOX', fuelName='LH2')
+
+In the above example, LOX and LH2 are called out, but any propellants on the :ref:`Propellants <propellants_link>` page can be used.
+
+There are a large number of examples included in this document
+
+For instance, look at :ref:`LOX/LH2 Performance <example_1_link>` on the :ref:`Standard Examples <std_examples_link>` page. 
+
+Highlight the source code with your mouse, right click the highlighted code and select **Copy**. 
+
+Paste that code into your text editor and save it to a python file.(for example D:/rocketcea/example_1.py).
+
+
+At a command prompt, navigate to that subdirectory (D:/rocketcea in the example above) and give the command::
+
+    python.exe example1.py
+
+In many text editors, hitting the **F5** key will execute the code.
+
+Install Problems
+----------------
+
+RocketCEA makes heavy use of the `NASA CEA FORTRAN code <https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_.
+For RocketCEA, the NASA FORTRAN code has been modified and turned into a python module using `f2py <https://docs.scipy.org/doc/numpy/f2py/python-usage.html>`_.
+
+When compiling FORTRAN into a python library, each version of python needs its own compiled library.
+The libraries I've provided are::
+
+    Windows python 2.7 32 bit and 64 bit
+    Windows python 3.5 32 bit and 64 bit
+    Windows python 3.6 32 bit and 64 bit
+    Windows python 3.7 32 bit and 64 bit
+    
+    Ubuntu Linux python 2.7 32 bit and 64 bit
+    Ubuntu Linux python 3.5 32 bit and 64 bit
+    Ubuntu Linux python 3.6 32 bit and 64 bit
+
+If your version of python is not shown above, or if RocketCEA fails to load the ``py_cea`` module,
+you may need to run f2py on the FORTRAN code on your system in order to create ``py_cea.pyd`` or
+``py_cea.so`` or some variation thereof.
+
+The source code ``py_cea.f`` is in the install directory of ``rocketcea`` along with a FORTRAN
+include file called ``py_cea.inc``. 
+
+Windows Issues
+--------------
+
+Commands like::
+
+    pip install rocketcea
+    pip3.6 install rocketcea
+    
+should just work on Windows.
+
+So far, the main issue I've had on a Windows platform is when python is installed in a directory
+with a space in the name.  Any directories like ``C:/Python27`` or C:/Python37`` should work fine.
+
+The other issue is with python 3.7 64 bit.
+At the time of this writing, matplotlib was not properly installing.
+I made matplotlib a dependency of RocketCEA and I assume that python 3.7 will have working support for 
+matplotlib soon.
+
+Ubuntu Linux Issues
+-------------------
+
+
+Commands like::
+
+    pip install rocketcea
+    pip3 install rocketcea
+    
+may well fail with any number of messages.
+
+The most common problems can be solved by first installing depenencies like the following.::
+
+    sudo apt-get install python-pip
+    sudo apt-get install python-matplotlib
+    sudo apt-get install python-tkinter
+
+    OR
+
+    sudo apt-get install python3-pip
+    sudo apt-get install python3-matplotlib
+    sudo apt-get install python3-tkinter
+
+    AND PERHAPS
+
+    sudo apt-get install libfreetype6-dev
+    sudo apt-get install pkg-config
+    sudo apt-get install libgfortran3:i386
+    sudo pip install cairocffi
+    sudo apt-get install python-gi-cairo
+

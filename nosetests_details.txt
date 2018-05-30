@@ -1,0 +1,254 @@
+________tk_nosy UNITTEST RUN# 20________
+
+{Item #1} test__main__, 
+FLOX80
+[[' oxid F2(L) F 2 ', ' h,cal=-3098. t(k)=82.02 wt%=80 ', ' oxid O2(L) O 2 ', ' h,cal=-3102. t(k)=90.18 wt%=20 ']]
+-------------------------------------------------------
+MON15
+[[' oxid N2O4(L) N 2 O 4 wt%=62.0077 ', ' h,cal=-4676.0 t(k)=298.15 ', ' oxid N2O3(L) N 2 O 3 wt%=37.9923 ', ' h,cal=12020.7 t(k)=298.15 ']]
+-------------------------------------------------------
+M13
+[[' fuel CH6N2(L) C 1 H 6 N 2 wt%=13 ', ' h,cal=12900.0 t(k)=298.15 rho=.874 ', ' fuel N2H4(L) N 2 H 4 wt%=87 ', ' h,cal=12100.0 t(k)=298.15 rho=1.0036 ']]
+-------------------------------------------------------
+Peroxide88
+[[' oxid H2O2(L) H 2 O 2 wt%=88 ', ' h,cal=-44880.0 t(k)=298.15 rho.g/cc=1.407 ', ' oxid water H 2.0 O 1.0 wt%=12 ', ' h,cal=-68308. t(k)=298.15 rho,g/cc=0.9998 ']]
+-------------------------------------------------------
+
+{Item #2} test_getFuelRefTempDegK, 
+298.15
+
+{Item #3} test_makeCardForNewTemperature, 
+CH4_m19028.6_536
+
+{Item #4} test__main__, 
+N2O4 / MMH    at Pc=1000.0, MR=1.000, eps=30.00...
+Isp =  300.74267615171067
+Cstar =  1565.1337455716427
+Tcomb =  3894.4668437497166
+  at eps    = 30.0
+PcOvPe =  0.0
+epsAtPcOvPe= 40.0
+Mach Number= 4.3009076785691915
+
+Chamber Sonic Vel = 3827.3738798835197
+Enthalpies = [-9.03681738e-12 -2.59309843e+02 -1.25117969e-01]
+Densities = [0.40079456 0.25047299 0.00310785]
+Cp        = [0.56505063 0.55042961 2.24875335]
+=======================================
+
+ ARC311    at Pc=1000.0, MR=1.000, eps=30.00...
+Isp =  262.29521076231896
+Cstar =  1354.630878257623
+Tcomb =  3315.5078442006734
+  at eps    = 30.0
+PcOvPe =  0.0
+epsAtPcOvPe= 40.0
+Mach Number= 3.9276064348977715
+
+Chamber Sonic Vel = 3380.546149884461
+Enthalpies = [-1.20394368e-11 -1.97963688e+02 -1.12340737e-01]
+Densities = [0.52715747 0.33121356 0.0042633 ]
+Cp        = [0.4790369  0.51912748 3.02986274]
+=======================================
+ox Cards converted into prop Cards
+reac
+ name NitrousOxide  N 2.0 O 1.0  wt%=100.00
+ h,cal= 19467.0 t(k)=298.15
+
+ N2O    at Pc=1000.0, MR=1.000, eps=30.00...
+Isp =  197.5530907626007
+Cstar =  424.62543109139636
+Tcomb =  536.6700000118775
+  at eps    = 30.0
+PcOvPe =  0.0
+epsAtPcOvPe= 40.0
+Mach Number= 4.8397102500108335
+
+Chamber Sonic Vel = 1127.503758264016
+Enthalpies = [ 5.38038718e-14 -2.12008077e+01 -8.24076436e-02]
+Densities = [5.09463061 3.22878887 0.00690394]
+Cp        = [0.23792361 0.23737434 0.23997598]
+=======================================
+
+LOX / H2    at Pc=1000.0, MR=1.000, eps=30.00...
+Isp =  372.46984960872527
+Cstar =  2408.72768762256
+Tcomb =  2308.172401427191
+  at eps    = 30.0
+PcOvPe =  0.0
+epsAtPcOvPe= 40.0
+Mach Number= 4.526836147583067
+
+Chamber Sonic Vel = 6167.195466526314
+Enthalpies = [-2.03696445e-12 -6.55106398e+02 -5.98721776e-01]
+Densities = [0.16276413 0.10239488 0.00195856]
+Cp        = [ 1.95897368  1.8998336  11.36325107]
+=======================================
+
+LOX / GH2_160    at Pc=1000.0, MR=1.000, eps=30.00...
+Isp =  399.6013023721951
+Cstar =  2408.72768762256
+Tcomb =  2308.172401427191
+  at eps    = 30.0
+PcOvPe =  0.0
+epsAtPcOvPe= 40.0
+Mach Number= 4.802488641011324
+
+Chamber Sonic Vel = 6167.195466526314
+Enthalpies = [-2.03696445e-12 -6.55106398e+02 -5.98721776e-01]
+Densities = [0.16276413 0.10239488 0.0016808 ]
+Cp        = [ 1.95897368  1.8998336  15.50658801]
+=======================================
+
+amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_
+Pc= 100  eps=  2  IspAmb=    270.47 IspVac=    338.05  Mode=OverExpanded Pe=13.3665
+Pc= 100  eps=  5  IspAmb=    246.67 IspVac=    384.40  Mode=Separated Psep=6.67866, epsSep=3.3
+Pc= 100  eps= 10  IspAmb=    241.86 IspVac=    410.58  Mode=Separated Psep=6.67866, epsSep=3.3
+Pc= 100  eps= 20  IspAmb=    232.48 IspVac=    431.46  Mode=Separated Psep=6.67866, epsSep=3.3
+Pc= 100  eps= 50  IspAmb=    205.72 IspVac=    452.84  Mode=Separated Psep=6.67866, epsSep=3.3
+Pc= 100  eps=100  IspAmb=    162.96 IspVac=    465.35  Mode=Separated Psep=6.67866, epsSep=3.3
+  ---
+Pc= 500  eps=  2  IspAmb=    329.49 IspVac=    343.22  Mode=UnderExpanded Pe=65.9701
+Pc= 500  eps=  5  IspAmb=    354.85 IspVac=    389.09  Mode=UnderExpanded Pe=18.4544
+Pc= 500  eps= 10  IspAmb=    346.32 IspVac=    414.56  Mode=OverExpanded Pe=7.55456
+Pc= 500  eps= 20  IspAmb=    315.98 IspVac=    434.70  Mode=Separated Psep=4.84056, epsSep=14.3
+Pc= 500  eps= 50  IspAmb=    308.74 IspVac=    455.27  Mode=Separated Psep=4.84056, epsSep=14.3
+Pc= 500  eps=100  IspAmb=    298.17 IspVac=    467.30  Mode=Separated Psep=4.84056, epsSep=14.3
+  ---
+Pc=1500  eps=  2  IspAmb=    341.53 IspVac=    346.15  Mode=UnderExpanded Pe=196.01
+Pc=1500  eps=  5  IspAmb=    380.07 IspVac=    391.58  Mode=UnderExpanded Pe=54.4922
+Pc=1500  eps= 10  IspAmb=    393.68 IspVac=    416.61  Mode=UnderExpanded Pe=22.2087
+Pc=1500  eps= 20  IspAmb=    390.73 IspVac=    436.35  Mode=OverExpanded Pe=9.30993
+Pc=1500  eps= 50  IspAmb=    352.51 IspVac=    456.50  Mode=Separated Psep=3.88572, epsSep=40.7
+Pc=1500  eps=100  IspAmb=    342.26 IspVac=    468.29  Mode=Separated Psep=3.88572, epsSep=40.7
+  ---
+Pc=5000  eps=  2  IspAmb=    347.30 IspVac=    348.70  Mode=UnderExpanded Pe=646.167
+Pc=5000  eps=  5  IspAmb=    390.16 IspVac=    393.64  Mode=UnderExpanded Pe=178.36
+Pc=5000  eps= 10  IspAmb=    411.35 IspVac=    418.28  Mode=UnderExpanded Pe=72.3226
+Pc=5000  eps= 20  IspAmb=    423.90 IspVac=    437.68  Mode=UnderExpanded Pe=30.1669
+Pc=5000  eps= 50  IspAmb=    423.29 IspVac=    457.49  Mode=OverExpanded Pe=9.74591
+Pc=5000  eps=100  IspAmb=    401.12 IspVac=    469.09  Mode=OverExpanded Pe=4.20031
+  ---
+
+{Item #5} test_badFLOX888, 
+ERROR... bad oxidizer name (FLOX888) in cea_obj.py
+
+{Item #6} test_badM1000, 
+ERROR... bad fuel name (M1000) in cea_obj.py
+
+{Item #7} test_badMON1300, 
+ERROR... bad oxidizer name (MON1300) in cea_obj.py
+
+{Item #8} test_badMONxyz, 
+ERROR... bad oxidizer name (MONxyz) in cea_obj.py
+
+{Item #9} test_full_cea_output, 
+NOTICE... making an output file
+
+{Item #10} test_get_Cstar, 
+6073.157251192369
+
+{Item #11} test_get_Enthalpies, 
+[  164.75127481  -161.9403418  -2198.84467212]
+
+{Item #12} test_get_SonicVelocities, 
+[4187.8341406  4043.2202883  2446.32946625]
+
+{Item #13} test_Goal__main__, 
+======================================================
+----->Answer should be = 2.5
+with tolerance=1.0E-3  =
+(2.499999999275627, 0)
+with tolerance=1.0E-20 =
+(2.5, 0)
+
+{Item #14} test_Isp__main__, 
+for gam=1.25 and eps=2
+
+solvePCoPE(1.25,2)= 8.828960623207562
+CalcEps(gam,PCoPE)= 2.0000000000000004
+
+CalcPCoPE(1.25,2)= 8.82896062320756     Pe/Pc= 0.11326361535370627
+CalcEps(gam,PCoPE)= 2.0
+CalcCFvac(gam,PCoPE) 1.4631435664023358
+for T=5000 degR and WtMol=20 lbm/lbmole
+CalcCstar(Gam,Temp,WtMol) 5356.956495962318
+for Pc=250  and Pamb=0
+CalcIdealIsVac(Gam,Temp,WtMol,eps) 243.6127442209382
+
+CalcCFvac(gam,PCoPE) 1.4631435664023358   in gray book= 1.4411964129063006
+CalcCstar(Gam,Temp,WtMol) 5356.956495962318
+
+{Item #15} test_bad_goal_func, 
+ERROR unrecoverable in Goal.py
+returned an ERROR=1 from cren_goal in goalFind.py
+
+{Item #16} test_goal_func_bad_range, 
+returned an ERROR=1 from cren_goal in goalFind.py
+goalVal, minX, maxX, funcOfX 0.0 2.6 2.9 FofX
+using X value= 2.9
+
+{Item #17} test_goal_func_early_terminate, 
+returned an ERROR=2 from cren_goal in goalFind.py
+goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
+using X value= 57.123
+
+{Item #18} test_goal_func_err, 
+ERROR unrecoverable in Goal.py
+returned an ERROR=1 from cren_goal in goalFind.py
+goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
+using X value= 57.123
+ERROR unrecoverable in Goal.py
+
+{Item #19} test_mr_t_limits__main__, 
+Stoich MR = 2.496405605692339 for N2O4/MMH
+
+Min MR = 0   Tc at Min MR = 2145.1178929460416
+Max MR = 53.5632   Tc at Max MR = 1000.000013198075
+
+{Item #20} test_run_cea_w_error_corr__main__, 
+Searching....................._NOT_FOUND_
+Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
+Estimated CEA_Isp at Pc=100, MR=1, eps=40 ispODE374.303
+Searching....................._NOT_FOUND_
+Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
+     isp_ode = 374.3036176557629
+     isp_odf = 0.0
+     isp_est = 374.30264440377147
+isp_froz_est = 0.0
+
+Estimated CEA_Isp at Pc=100, MR=2, eps=40 ispODE424.36
+     isp_ode = 424.3597085736007
+     isp_odf = 424.2731751154906
+     isp_est = 424.35970775585383
+isp_froz_est = 424.27309382819965
+
+Estimated CEA_Isp at Pc=400, MR=1.24535, eps=32 ispODE388.159
+Estimated CEA_Isp at Pc=400, MR=1.24535, eps=32 ispODE388.159
+     isp_ode = 388.15930367555944
+     isp_odf = 386.45267086952447
+     isp_est = 388.15930367555944
+isp_froz_est = 386.4526708353623
+
+Estimated CEA_Isp at Pc=400, MR=2.5, eps=32 ispODE434.381
+     isp_ode = 434.3809063410128
+     isp_odf = 433.9885336812321
+     isp_est = 434.380898816195
+isp_froz_est = 433.9881713376461
+
+Run All: 448.190232998362 414.81259040131465 7210.171598261248 5787.742274248721
+
+{Item #21} test_separated_Cf__main__, 
+saving data to CSV file separated_Noz.csv
+gam=1.25, epsTot=25, Pc=200, Pamb=14.7
+CfOvCfvacAtEsep, CfOvCfvac 0.7359305787100278 0.6648559059513175
+Cfsep, CfiAmbSimple 1.1966281482300833 1.261913054725679
+CfiVac CfVac 1.6260068311437568 1.7998308167509964
+epsSep 4.953656822014666
+
+gam=1.25, epsTot=20.45, Pc=250, Pamb=14.7
+CfOvCfvacAtEsep, CfOvCfvac 0.75598113986346 0.7004380591744589
+Cfsep, CfiAmbSimple 1.2490682952528125 1.3001984600230723
+CfiVac CfVac 1.6522479588292511 1.783267312351606
+epsSep 5.987236374254742
+

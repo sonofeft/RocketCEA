@@ -1,0 +1,187 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 10 (filtered)">
+<title>README FOR CEA2 BATCH JOBS</title>
+
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#606420;
+	text-decoration:underline;}
+p.HTMLBody, li.HTMLBody, div.HTMLBody
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Arial;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.8in 1.1in .8in 1.1in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#606420">
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-right:-9.0pt'><b>                                              
+README FOR CEA2 BATCH JOBS</b></p>
+
+<p class=MsoNormal align=center style='margin-right:-9.0pt;text-align:center'><b>&nbsp;</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=HTMLBody style='text-align:justify'>CEA2 is slightly different than
+the NASA Glenn program described in NASA RP-1311, Parts I and II. </p>
+
+<p class=HTMLBody style='text-align:justify'>(Manuals are available from this
+website). The program now uses an <b><span style='text-transform:uppercase'>include</span></b>
+file named <b><i>cea.inc</i></b> </p>
+
+<p class=HTMLBody style='text-align:justify'>which consolidates<span
+style='text-transform:uppercase'> <b>parameter</b></span> assignments and <b><span
+style='text-transform:uppercase'>common</span></b> variable statements in one
+place.  </p>
+
+<p class=HTMLBody style='text-align:justify'>Previously these statements were
+at the beginning of each subroutine.  The <b><span style='text-transform:uppercase'>include</span></b>
+file is useful </p>
+
+<p class=HTMLBody style='text-align:justify'>for revising maximum dimensions
+and input/output unit assignments. See RP-1311, part II, p39.</p>
+
+<p class=HTMLBody style='text-align:justify'>&nbsp;</p>
+
+<p class=HTMLBody style='text-align:justify'>The FORTRAN source and data are
+ASCII files in our anonymous server available at the following URL:</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody style='text-indent:.5in'><a
+href="ftp://ftp.grc.nasa.gov/users/xxminna/CEA+Fortran/">ftp://ftp.grc.nasa.gov/users/xxminna/CEA+Fortran/</a></p>
+
+<p class=HTMLBody style='text-indent:.5in'>&nbsp;</p>
+
+<p class=HTMLBody>The files you should have downloaded are:</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>            <b><i>readme.cea</i></b></p>
+
+<p class=HTMLBody><b><i>            cea2.f</i></b></p>
+
+<p class=HTMLBody><b><i>            cea.inc</i></b></p>
+
+<p class=HTMLBody><b><i>            thermo.inp</i></b></p>
+
+<p class=HTMLBody><b><i>            trans.inp</i></b></p>
+
+<p class=HTMLBody><b><i>            cea2.inp</i></b></p>
+
+<p class=HTMLBody><b><i>            cea2.out</i></b></p>
+
+<p class=HTMLBody><b><i>&nbsp;</i></b></p>
+
+<p class=HTMLBody>Since this program is identical to the one available with the
+CEAgui download, you may use that </p>
+
+<p class=HTMLBody>executable called <b><i>FCEA2.exe</i></b> if the platform is
+appropriate.  Or you may compile <b><i>cea2.f</i></b>  with <b><i>cea.inc</i></b>
+</p>
+
+<p class=HTMLBody>available in the same directory.  Note that compilers are freely
+available from the internet.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>File names have an extension (suffix) defined as follows: </p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>            Fortran source programs - .f</p>
+
+<p class=HTMLBody>            Input files - .inp</p>
+
+<p class=HTMLBody>            Output files - .out</p>
+
+<p class=HTMLBody>            Files of output parameters for plotting - .plt</p>
+
+<p class=HTMLBody>            Include file - .inc</p>
+
+<p class=HTMLBody>            Unformatted thermodynamic or transport property
+databases - .lib</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>The root names of these files are referred to as prefixes. To
+run CEA2, simply type in the name of the </p>
+
+<p class=HTMLBody>executable and CEA2 will interactively ask for the prefix of
+the input file.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>The thermodynamic and transport data files must be
+preprocessed to form “.lib” files before input </p>
+
+<p class=HTMLBody>problem files can be run. The “.lib” files are obtained by
+running the <b><i>thermo.inp</i></b> and <b><i>trans.inp</i></b> </p>
+
+<p class=HTMLBody>as input files. The user types <b>thermo</b> or <b>trans</b>
+when CEA2 asks for an input prefix and the </p>
+
+<p class=HTMLBody>required files are created.  These files do not need to be
+processed again unless the data are revised. </p>
+
+<p class=HTMLBody>The <b><i>thermo.out</i></b> file lists each species name,
+the reference/date code, the heat of formation in </p>
+
+<p class=HTMLBody>Joules/mole at 298.15K , and some reference information.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>You are now ready to run the sample problems <b><i>cea2.inp </i></b>and
+check with the sample output <b><i>cea2.out</i></b></p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>To get thermodynamic properties of individual species in <b><i>thermo.inp</i></b>
+or to download subsets of this </p>
+
+<p class=HTMLBody>data, go to the following URL and see <b><i>“About
+ThermoBuild”</i></b><i> </i> for details.</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>            <a href="http://cea.grc.nasa.gov/">http://cea.grc.nasa.gov/</a></p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody>If you have any comments or questions, please contact Russell.W.Claus@nasa.gov</p>
+
+<p class=HTMLBody>&nbsp;</p>
+
+<p class=HTMLBody> </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

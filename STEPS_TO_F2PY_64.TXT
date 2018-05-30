@@ -1,0 +1,39 @@
+
+*) copy c:\mingw64 to VM
+
+*) add C:\mingw64\bin to VM PATH env. variable
+
+*) create C:\temp
+
+*) copy python-2.7.15.amd64.msi to c:\temp
+
+   open cmd window "Run as administrator"
+   run python-2.7.15.amd64.msi 
+      CHOOSE CUSTOM INSTALLATION   <==== C:\Python35,  C:\Python36,  C:\Python37 <====
+       - select Add python.ext to Path
+
+*) pip install numpy 
+   (again from cmd window "Run as administrator")
+   (py37 needed unofficial binary)
+
+*** NOTE *** the f2py executable was not created on py27.
+
+use:  "python -m numpy.f2py " instead of  "f2py"
+
+*) run "set_env_for_f2py.bat"
+
+    SET GCC=C:\mingw64\bin\gcc.exe
+    SET PYTHON_LIB = C:\Python27\libs
+
+    SET LIBRARY_PATH = C:\mingw64\lib
+    SET G95_LIBRARY_PATH = C:\mingw64\lib
+
+    set C_INCLUDE_PATH=C:\mingw64\include
+
+*) run the batch file: "run_f2py.bat"
+
+*) for 64 bit Python27, creates py_cea.pyd
+        put into subdirectory py27_64/py_cea.pyd  
+        (will need to use import py27_64.py_cea as py_cea)
+
+

@@ -1,0 +1,178 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 10 (filtered)">
+<title> </title>
+
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 65.95pt 1.0in 65.95pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoPlainText>                               README FOR CAP</p>
+
+<p class=MsoPlainText>        </p>
+
+<p class=MsoPlainText>The Coefficiients and Properties (CAP) computer code is
+described </p>
+
+<p class=MsoPlainText>in NASA/TP--2001-210595 available from the CEA website.
+See &quot;Codes</p>
+
+<p class=MsoPlainText>related to thermodynamic properties of individual
+species...&quot; </p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>           http://www.grc.nasa.gov/WWW/CEAWeb/</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>The report provides a detailed description of input
+preparation and </p>
+
+<p class=MsoPlainText>examples of input and output for many species.  </p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>The program permits the generation of tabulated
+thermodynamic functions </p>
+
+<p class=MsoPlainText>from NASA least-squares coefficients.  CAP provides
+considerable </p>
+
+<p class=MsoPlainText>flexibility in the output format, the temperature
+schedule, and the </p>
+
+<p class=MsoPlainText>energy units of the calculated properties. ThermoBuild at
+the following</p>
+
+<p class=MsoPlainText>website is similar except for the fact that it uses the
+NASA thermo</p>
+
+<p class=MsoPlainText>database and does not allow for as much flexibility in
+energy units.</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>           http://cea.grc.nasa.gov/</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>The Fortran source code and associated data are available
+at the </p>
+
+<p class=MsoPlainText>following internet URL:</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>           ftp://ftp.grc.nasa.gov/users/xxminna/CEA+Fortran/cap/</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>GENERAL INFORMATION TO GET STARTED:</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>1)  Compile the fortran program cap.f.  Note that
+compilers </p>
+
+<p class=MsoPlainText>    are freely available from the CEAWeb.</p>
+
+<p class=MsoPlainText>2)  When executing CAP, the file cap.elms must be
+available</p>
+
+<p class=MsoPlainText>    if heats of formation and log K values are desired.</p>
+
+<p class=MsoPlainText>3)  Input and output files as assumed to be standard
+input</p>
+
+<p class=MsoPlainText>    (I/O unit 5) and standard output (I/O/ unit 6).  OPEN</p>
+
+<p class=MsoPlainText>    statements may be added to the source code.</p>
+
+<p class=MsoPlainText>4)  Run the executable with the provided example
+&quot;cap.in&quot;,e.g.:</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>            cap.x &lt; cap.in &gt; cap.out</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>Generally, the input consists of 2 records followed by
+any number of </p>
+
+<p class=MsoPlainText>sets of coefficients in the format of 9 coefficients for
+Cp--see </p>
+
+<p class=MsoPlainText>ThermoBuild (details given in &quot;About
+ThermoBuild&quot;) or the CAP manual.</p>
+
+<p class=MsoPlainText>The first record contains options in the form of
+keywords.  The</p>
+
+<p class=MsoPlainText>second record indicates the desired T schedule.  These
+records are</p>
+
+<p class=MsoPlainText>also descrided in source code comments.</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>CAP will generate output tables for each species whoses
+coefficients</p>
+
+<p class=MsoPlainText>are provided.  An unlimited number of species may be run.
+For species </p>
+
+<p class=MsoPlainText>with several phases, the phases must be supplied in
+increasing order </p>
+
+<p class=MsoPlainText>by temperature.  If the temperature schedule in record 2
+exceeds the</p>
+
+<p class=MsoPlainText>range of the coefficients, CAP will use the coefficients
+for up to </p>
+
+<p class=MsoPlainText>20 percent beyond the endpoint.</p>
+
+<p class=MsoPlainText>          </p>
+
+<p class=MsoPlainText>The file &quot;cap.elms&quot; contains coefficients for
+the reference elements.</p>
+
+<p class=MsoPlainText>These data may be revised or expanded.</p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText>If you have any comments or questions, please contact
+Russell.W.Claus@nasa.gov.     </p>
+
+</div>
+
+</body>
+
+</html>
