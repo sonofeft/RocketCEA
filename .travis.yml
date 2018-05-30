@@ -5,17 +5,23 @@ python:
     - "3.6"
     - "3.7"
 
+cache: apt
+addons:
+  apt:
+    packages:
+    - libatlas-dev
+    - libatlas-base-dev
+    - liblapack-dev
+    - gfortran
+
+#before_install:
+#- sudo apt-get update -qq
+#- sudo apt-get install -qq libgfortran3:i386
+#- conda install libgfortran==1
+
 install:
-  # Install conda
-  - sudo pip install conda
-  # install deps
-  - sudo conda init
-  - sudo conda update conda --yes
-  - deps='pip numpy pandas requests nose numpydoc sphinx'
-  - conda create -p $HOME/py --yes $deps "python=$TRAVIS_PYTHON_VERSION"
-  - export PATH=$HOME/py/bin:$PATH
-  # install your own package into the environment
-  - pip install -r requirements.txt
-  - python setup.py install    
+    - pip install --upgrade pip setuptools wheel
+    - pip install --only-binary=numpy,scipy numpy scipy
+    - pip install -r requirements.txt
 script:
     - py.test
