@@ -1,6 +1,9 @@
 
 
 
+.. image:: https://travis-ci.org/sonofeft/RocketCEA.svg?branch=master
+    :target: https://travis-ci.org/sonofeft/RocketCEA
+
 .. image:: https://img.shields.io/pypi/v/RocketCEA.svg
     :target: https://pypi.python.org/pypi/rocketcea
         
