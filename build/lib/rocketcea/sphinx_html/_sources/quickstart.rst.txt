@@ -89,9 +89,9 @@ Commands like::
 should just work on Windows.
 
 So far, the main issue I've had on a Windows platform is when python is installed in a directory
-with a space in the name.  Any directories like ``C:/Python27`` or C:/Python37`` should work fine.
+with a space in the name.  Any directories like ``C:/Python27`` or ``C:/Python37`` should work fine.
 
-The other issue is with python 3.7 64 bit.
+Another issue is with python 3.7 64 bit.
 At the time of this writing, matplotlib was not properly installing.
 I made matplotlib a dependency of RocketCEA and I assume that python 3.7 will have working support for 
 matplotlib soon.
@@ -107,7 +107,7 @@ Commands like::
     
 may well fail with any number of messages.
 
-The most common problems can be solved by first installing depenencies like the following.::
+The most common problems can be solved by first installing dependencies like the following.::
 
     sudo apt-get install python-pip
     sudo apt-get install python-matplotlib
