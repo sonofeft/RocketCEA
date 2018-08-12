@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use('Agg') # a fix for Travis CI
+
 import unittest
 # import unittest2 as unittest # for versions of python < 2.7
 
