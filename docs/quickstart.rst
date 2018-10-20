@@ -36,6 +36,15 @@ Any use of RocketCEA begins with an import statement and an instance of CEA_obj:
     from rocketcea.cea_obj import CEA_Obj
     C = CEA_Obj( oxName='LOX', fuelName='LH2')
 
+
+.. warning::
+    
+    Recent versions of python may require you to run as administrator.
+    
+    You may also be able to launch your IDE or run-enabled editor as administrator.
+    
+
+
 In the above example, LOX and LH2 are called out, but any propellants on the :ref:`Propellants <propellants_link>` page can be used.
 
 There are a large number of examples included in this document
