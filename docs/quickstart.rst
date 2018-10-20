@@ -39,9 +39,13 @@ Any use of RocketCEA begins with an import statement and an instance of CEA_obj:
 
 .. warning::
     
-    Recent versions of python may require you to run as administrator.
+    RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
+    giving a "shared" `*.pyd` file that requires mingw libraries at run time.
     
-    You may also be able to launch your IDE or run-enabled editor as administrator.
+    If you see the error: ``Import Error: DLL load failed: The specified module could not be found``
+    You may need to install the MinGW Compiler Suite in order for RocketCEA to work (see below)
+    
+    
     
 
 
@@ -86,6 +90,24 @@ you may need to run f2py on the FORTRAN code on your system in order to create `
 
 The source code ``py_cea.f`` is in the install directory of ``rocketcea`` along with a FORTRAN
 include file called ``py_cea.inc``. 
+
+Import Error
+------------
+
+The error message ``Import Error: DLL load failed: The specified module could not be found`` indicates
+that the MinGW libraries were not found.
+
+Go to the site `SourceForge MinGW-w64 for 32 and 64 bit Windows <https://sourceforge.net/projects/mingw-w64/>`_.
+and download MinGW. You will need the 32 bit MinGW libraries for 32 bit python, and 64 bit MinGW for 64 bit python.
+
+Make sure that your environment variable `PATH` includes the `bin` subdirectory of MinGW.
+
+For example::
+
+    C:\mingw\bin
+    
+    C:\mingw64\bin
+
 
 Windows Issues
 --------------

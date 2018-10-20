@@ -54,6 +54,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-problems">Install Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-error">Import Error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-issues">Windows Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ubuntu-linux-issues">Ubuntu Linux Issues</a></li>
 </ul>
@@ -140,8 +141,10 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>Recent versions of python may require you to run as administrator.</p>
-<p class="last">You may also be able to launch your IDE or run-enabled editor as administrator.</p>
+<p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
+giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
+<p class="last">If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
+You may need to install the MinGW Compiler Suite in order for RocketCEA to work (see below)</p>
 </div>
 <p>In the above example, LOX and LH2 are called out, but any propellants on the <a class="reference internal" href="propellants.html#propellants-link"><span class="std std-ref">Propellants</span></a> page can be used.</p>
 <p>There are a large number of examples included in this document</p>
@@ -175,6 +178,20 @@ you may need to run f2py on the FORTRAN code on your system in order to create <
 <code class="docutils literal notranslate"><span class="pre">py_cea.so</span></code> or some variation thereof.</p>
 <p>The source code <code class="docutils literal notranslate"><span class="pre">py_cea.f</span></code> is in the install directory of <code class="docutils literal notranslate"><span class="pre">rocketcea</span></code> along with a FORTRAN
 include file called <code class="docutils literal notranslate"><span class="pre">py_cea.inc</span></code>.</p>
+</div>
+<div class="section" id="import-error">
+<h2>Import Error<a class="headerlink" href="#import-error" title="Permalink to this headline">¶</a></h2>
+<p>The error message <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code> indicates
+that the MinGW libraries were not found.</p>
+<p>Go to the site <a class="reference external" href="https://sourceforge.net/projects/mingw-w64/">SourceForge MinGW-w64 for 32 and 64 bit Windows</a>.
+and download MinGW. You will need the 32 bit MinGW libraries for 32 bit python, and 64 bit MinGW for 64 bit python.</p>
+<p>Make sure that your environment variable <cite>PATH</cite> includes the <cite>bin</cite> subdirectory of MinGW.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="nb">bin</span>
+
+<span class="n">C</span><span class="p">:</span>\<span class="n">mingw64</span>\<span class="nb">bin</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="windows-issues">
 <h2>Windows Issues<a class="headerlink" href="#windows-issues" title="Permalink to this headline">¶</a></h2>
