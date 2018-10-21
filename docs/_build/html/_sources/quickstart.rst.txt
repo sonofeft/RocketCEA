@@ -37,34 +37,59 @@ Any use of RocketCEA begins with an import statement and an instance of CEA_obj:
     C = CEA_Obj( oxName='LOX', fuelName='LH2')
 
 
-.. warning::
-    
-    RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-    giving a "shared" `*.pyd` file that requires mingw libraries at run time.
-    
-    If you see the error: ``Import Error: DLL load failed: The specified module could not be found``
-    You may need to install the MinGW Compiler Suite in order for RocketCEA to work (see below)
-    
-    
-    
-
-
 In the above example, LOX and LH2 are called out, but any propellants on the :ref:`Propellants <propellants_link>` page can be used.
 
 There are a large number of examples included in this document
 
 For instance, look at :ref:`LOX/LH2 Performance <example_1_link>` on the :ref:`Standard Examples <std_examples_link>` page. 
 
-Highlight the source code with your mouse, right click the highlighted code and select **Copy**. 
+To run an example, highlight the source code with your mouse, right click the highlighted code and select **Copy**. 
+Paste that code into your text editor and save it to a python file.(for example D:\\rocketcea\\example_1.py).
 
-Paste that code into your text editor and save it to a python file.(for example D:/rocketcea/example_1.py).
+    
+Example files can be run with the command::
 
+    python example1.py
 
-At a command prompt, navigate to that subdirectory (D:/rocketcea in the example above) and give the command::
+Or, in many text editors hitting the **F5** key will execute the code.
 
-    python.exe example1.py
+.. note::
+    
+    RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
+    giving a "shared" `*.pyd` file that requires mingw libraries at run time.
+    
+    If you see the error: ``Import Error: DLL load failed: The specified module could not be found``
+    You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order 
+    for RocketCEA to work (see below)
 
-In many text editors, hitting the **F5** key will execute the code.
+Test The Install
+----------------
+
+Paste the following code into your text editor and save it to your test folder as basic_cea.py 
+(for example, D:\\rocketcea\\basic_cea.py)::
+
+    from rocketcea.cea_obj import CEA_Obj
+    C = CEA_Obj( oxName='LOX', fuelName='LH2')
+    for mr in range(2,9):
+        print(mr, C.get_Isp(Pc=100.0, MR=mr, eps=40.0) )
+
+At the command prompt, give the command::
+
+    python basic_cea.py
+    
+If you see the following output::
+
+    (2, 424.3597085736007)
+    (3, 445.44434236555196)
+    (4, 453.13271951921837)
+    (5, 453.240429182719)
+    (6, 448.190232998362)
+    (7, 438.74340042907266)
+    (8, 424.6998266323161)
+
+Great... you are good to go.
+
+If not, see the information below.
 
 Install Problems
 ----------------
@@ -91,23 +116,207 @@ you may need to run f2py on the FORTRAN code on your system in order to create `
 The source code ``py_cea.f`` is in the install directory of ``rocketcea`` along with a FORTRAN
 include file called ``py_cea.inc``. 
 
-Import Error
-------------
+Linux ImportError:
+------------------
 
-The error message ``Import Error: DLL load failed: The specified module could not be found`` indicates
-that the MinGW libraries were not found.
+On Linux, the error message ``ImportError: Libgfortran.so.3: cannot open shared object file:`` indicates
+that the gfortran libraries were not found.
+
+Begin by installing gfortran::
+
+    sudo apt-get install gfortran
+    
+
+Rerun the above test with the command::
+
+    python basic_cea.py
+
+If you get the ImportError again, try installing the same version of Libgfortran 
+(Libgfortran.so.3 in the above error message.)::
+
+    sudo apt-get install libgfortran3
+
+The basic_cea.py file should be working now.
+
+Windows DLL load failed:
+------------------------
+
+On Windows, the error message ``Import Error: DLL load failed: The specified module could not be found`` indicates
+that the MinGW gfortran libraries were not found.
+
+On Windows the procedure is much more involved than on Linux. You will need to download MinGW gfortran,
+recompile the NASA CEA code, and place the resulting executable library into the RocketCEA site-packages.
+
+Install MinGW
+~~~~~~~~~~~~~
 
 Go to the site `SourceForge MinGW-w64 for 32 and 64 bit Windows <https://sourceforge.net/projects/mingw-w64/>`_.
-and download MinGW. You will need the 32 bit MinGW libraries for 32 bit python, and 64 bit MinGW for 64 bit python.
+and download MinGW. At the time of this writing, the downloaded file is ``mingw-w64-install.exe``.
+Run mingw-w64-install.exe.
+
+
+.. image:: ./_static/mingw_welcome.jpg
+    :width: 60%
+
+After clicking ``Next``, the settings screen will appear.  The settings that worked for me are shown below.
+
+.. image:: ./_static/mingw_settings.jpg
+    :width: 60%
+
+A location for the MinGW install then needs to be selected. The default location is in 
+C:\\Program Files (x86)\\mingw-w64\\... etc.  However I recommend a simpler path like C:\\mingw
+so that some of the later steps will be easier.
+
+
+.. image:: ./_static/mingw_path_select.jpg
+    :width: 60%
+
+After several minutes of an ``Installing Files`` you should arrive at a successful finish screen.
+
+
+.. image:: ./_static/mingw_installing_files.jpg
+    :width: 45%
+
+.. image:: ./_static/mingw_finished.jpg
+    :width: 45%
+
+
+Set PATH Environment Variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Make sure that your environment variable `PATH` includes the `bin` subdirectory of MinGW.
 
-For example::
+Find the ``System Properties`` interface on your machine or perhaps go directly to
+`Edit environment variables for your account` and Edit the ``Path`` variable.
 
-    C:\mingw\bin
+.. image:: ./_static/system_props.jpg
+
+
+.. image:: ./_static/env_vars.jpg
+
+
+Select ``Edit`` for the ``Path`` variable and then ``New`` to place the ``bin`` subdirectory of MinGW into
+your system PATH.
+
+
+.. image:: ./_static/add_mingw_bin.jpg
+
+
+If you installed MinGW to C:\\mingw, then the proper path should be::
+
+    C:\mingw\mingw64\bin
     
-    C:\mingw64\bin
+However, you should verify this using the Windows file explorer.
 
+Recompile RocketCEA
+~~~~~~~~~~~~~~~~~~~
+
+We are now ready to recompile RocketCEA.
+
+I recommend setting up a temporary directory for this, something like C:\\temp.
+
+You will need to locate RocketCEA in the python site-packages (assuming your pip install succeeded).
+One way to do that is at the command prompt. Call up the python interpreter, import rocketcea and then 
+print the value of rocketcea.__file__.
+
+
+.. image:: ./_static/find_rocketcea.jpg
+
+Using the Windows file explorer, go to the RocketCEA site-packages subdirectory (discovered above) 
+and copy three files to C:\\temp: py_cea.f, py_cea.inc and py_cea.pyf
+
+In addition to those three files, we need to create two Windows BAT files.
+Copy the following lines and paste them into a text editor.
+Save them to the file names shown.
+
+.. note::
+
+    You will DEFINITELY need to change the PYTHON_LIB value to match your python install.
+    
+    PYTHON_LIB = C:\\Users\\Win10Clean\\AppData\\Local\\Programs\\Python\\Python37\\libs
+
+    You MAY need to change mingw value (C:\\mingw\\mingw64) everywhere it occurs.
+
+``set_env_for_f2py.bat``::
+
+    SET GCC=C:\mingw\mingw64\bin\x86_64-w64-mingw32-gcc.exe
+    SET PYTHON_LIB = C:\Users\Win10Clean\AppData\Local\Programs\Python\Python37\libs
+
+    SET LIBRARY_PATH = C:\mingw\mingw64\lib
+    SET G95_LIBRARY_PATH = C:\mingw\mingw64\lib
+
+    SET C_INCLUDE_PATH=C:\mingw\mingw64\include
+
+    SET CC=gcc python setup.py build
+
+.. note::
+
+    You MAY need to change mingw value C:\\mingw\\mingw64
+
+``run_f2py.bat``::
+
+    python.exe -m numpy.f2py -c py_cea.pyf py_cea.f  --compiler=mingw32 --f77exec=C:\mingw\mingw64\bin\x86_64-w64-mingw32-gfortran.exe
+
+When you have done all of the above, you should have a directory that looks like the following.
+
+
+.. image:: ./_static/ready_to_compile.jpg
+
+Using a command prompt, navigate to C:\\temp and enter the command::
+
+    set_env_for_f2py.bat
+
+You should see a number of environment variables set 
+
+.. image:: ./_static/set_env_for_f2py.jpg
+
+Now cross your fingers and enter the command::
+
+    run_f2py.bat
+    
+With any luck, the long series of output will end as shown below
+
+
+.. image:: ./_static/compile_success.jpg
+
+The resulting ``pyd`` file should now be in C:\\temp as shown below.
+In this case it is ``py_cea.cp37-win_amd64.pyd``
+
+
+.. image:: ./_static/post_compile_dir.jpg
+
+Move pyd Into RocketCEA
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Now that all the hard work is done, the final step is to move the resulting ``pyd`` file 
+into the RocketCEA site-packages.
+
+Use Windows file explorer to right click on the ``pyd`` file 
+(``py_cea.cp37-win_amd64.pyd`` in the example above)
+and select ``Copy``.
+
+Navigate to the path that you located by printing the rocketcea.__file__ parameter
+and paste the file into the rocketcea subdirectory. ``(EXCEPT for Python 2.7 64 bit,  SEE BELOW)``
+
+You will likely be prompted to replace or skip the operation.  Choose ``Replace``.
+
+.. image:: ./_static/replace_old_pyd.jpg
+
+That subdirectory will now look something like the following.
+
+.. image:: ./_static/destination_of_pyd.jpg
+
+.. note::
+
+    Python 2.7 64 bit should be pasted below rocketcea at rocketcea\\py27_64
+
+.. image:: ./_static/py27_64bit_location.jpg
+
+
+Re-Test RocketCEA
+~~~~~~~~~~~~~~~~~
+
+Go back to `Test The Install`_ and run the test.
 
 Windows Issues
 --------------
