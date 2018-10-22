@@ -208,6 +208,15 @@ If you installed MinGW to C:\\mingw, then the proper path should be::
     
 However, you should verify this using the Windows file explorer.
 
+I recommend that you use file explorer to copy and then paste the ``bin`` directory path
+in order to avoid any typing errors.
+
+.. note::
+
+    After entering the new PATH value, close any open command prompt windows and open a new one.
+    
+    Changes to the PATH only take affect for new window.
+
 Recompile RocketCEA
 ~~~~~~~~~~~~~~~~~~~
 
@@ -270,6 +279,9 @@ You should see a number of environment variables set
 
 .. image:: ./_static/set_env_for_f2py.jpg
 
+Cross Your Fingers
+~~~~~~~~~~~~~~~~~~
+
 Now cross your fingers and enter the command::
 
     run_f2py.bat
@@ -284,6 +296,15 @@ In this case it is ``py_cea.cp37-win_amd64.pyd``
 
 
 .. image:: ./_static/post_compile_dir.jpg
+
+
+A possible compile error is 
+``TypeError: '>=' not supported between instances of 'NoneType' and 'str'``
+
+.. image:: ./_static/bad_mingw_path.jpg
+
+If you have this error, go to `MinGW PATH Error`_.
+
 
 Move pyd Into RocketCEA
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -317,6 +338,36 @@ Re-Test RocketCEA
 ~~~~~~~~~~~~~~~~~
 
 Go back to `Test The Install`_ and run the test.
+
+MinGW PATH Error
+~~~~~~~~~~~~~~~~
+
+A possible compile error is 
+``TypeError: '>=' not supported between instances of 'NoneType' and 'str'``
+
+.. image:: ./_static/bad_mingw_path.jpg
+
+
+
+This occurs when the various path entries to the MinGW libraries in the two batch files are incorrect, OR,
+when the PATH to MinGW in the environment variables is wrong or not entered.
+
+It can also occur if you use a command prompt window that was already open when you entered the PATH
+environment variable or if you entered the PATH data incorrectly.
+
+In ``set_env_for_f2py.bat``, double check your values for GCC, LIBRARY_PATH, G95_LIBRARY_PATH, C_INCLUDE_PATH
+
+Use file explorer to go to the MinGW bin directory and copy the path directly from file explore and paste it directly
+into ``set_env_for_f2py.bat`` in order to avoid any typing errors.
+
+Do the same with ``run_f2py.bat``. Copy and paste the full path to the gfortran executable
+(it will look similar to ``C:\mingw\mingw64\bin\x86_64-w64-mingw32-gfortran.exe``
+BUT MIGHT BE DIFFERENT ON YOUR SETUP)
+
+Finally, go back and verify the PATH environment variable in `Set PATH Environment Variable`_.
+Again copy and paste the path and again close any open command prompt windows.
+
+You should now be ready for another compile attempt at `Cross Your Fingers`_.
 
 Windows Issues
 --------------

@@ -60,8 +60,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#install-mingw">Install MinGW</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-path-environment-variable">Set PATH Environment Variable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#recompile-rocketcea">Recompile RocketCEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cross-your-fingers">Cross Your Fingers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#move-pyd-into-rocketcea">Move pyd Into RocketCEA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#re-test-rocketcea">Re-Test RocketCEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mingw-path-error">MinGW PATH Error</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-issues">Windows Issues</a></li>
@@ -272,6 +274,13 @@ your system PATH.</p>
 </pre></div>
 </div>
 <p>However, you should verify this using the Windows file explorer.</p>
+<p>I recommend that you use file explorer to copy and then paste the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory path
+in order to avoid any typing errors.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>After entering the new PATH value, close any open command prompt windows and open a new one.</p>
+<p class="last">Changes to the PATH only take affect for new window.</p>
+</div>
 </div>
 <div class="section" id="recompile-rocketcea">
 <h3>Recompile RocketCEA<a class="headerlink" href="#recompile-rocketcea" title="Permalink to this headline">¶</a></h3>
@@ -320,6 +329,9 @@ Save them to the file names shown.</p>
 </div>
 <p>You should see a number of environment variables set</p>
 <img alt="_images/set_env_for_f2py.jpg" src="_images/set_env_for_f2py.jpg" />
+</div>
+<div class="section" id="cross-your-fingers">
+<h3>Cross Your Fingers<a class="headerlink" href="#cross-your-fingers" title="Permalink to this headline">¶</a></h3>
 <p>Now cross your fingers and enter the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_f2py</span><span class="o">.</span><span class="n">bat</span>
 </pre></div>
@@ -329,6 +341,10 @@ Save them to the file names shown.</p>
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file should now be in C:\temp as shown below.
 In this case it is <code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code></p>
 <img alt="_images/post_compile_dir.jpg" src="_images/post_compile_dir.jpg" />
+<p>A possible compile error is
+<code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'&gt;='</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">between</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">'NoneType'</span> <span class="pre">and</span> <span class="pre">'str'</span></code></p>
+<img alt="_images/bad_mingw_path.jpg" src="_images/bad_mingw_path.jpg" />
+<p>If you have this error, go to <a class="reference internal" href="#mingw-path-error">MinGW PATH Error</a>.</p>
 </div>
 <div class="section" id="move-pyd-into-rocketcea">
 <h3>Move pyd Into RocketCEA<a class="headerlink" href="#move-pyd-into-rocketcea" title="Permalink to this headline">¶</a></h3>
@@ -352,6 +368,25 @@ and paste the file into the rocketcea subdirectory. <code class="docutils litera
 <div class="section" id="re-test-rocketcea">
 <h3>Re-Test RocketCEA<a class="headerlink" href="#re-test-rocketcea" title="Permalink to this headline">¶</a></h3>
 <p>Go back to <a class="reference internal" href="#test-the-install">Test The Install</a> and run the test.</p>
+</div>
+<div class="section" id="mingw-path-error">
+<h3>MinGW PATH Error<a class="headerlink" href="#mingw-path-error" title="Permalink to this headline">¶</a></h3>
+<p>A possible compile error is
+<code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'&gt;='</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">between</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">'NoneType'</span> <span class="pre">and</span> <span class="pre">'str'</span></code></p>
+<img alt="_images/bad_mingw_path.jpg" src="_images/bad_mingw_path.jpg" />
+<p>This occurs when the various path entries to the MinGW libraries in the two batch files are incorrect, OR,
+when the PATH to MinGW in the environment variables is wrong or not entered.</p>
+<p>It can also occur if you use a command prompt window that was already open when you entered the PATH
+environment variable or if you entered the PATH data incorrectly.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">set_env_for_f2py.bat</span></code>, double check your values for GCC, LIBRARY_PATH, G95_LIBRARY_PATH, C_INCLUDE_PATH</p>
+<p>Use file explorer to go to the MinGW bin directory and copy the path directly from file explore and paste it directly
+into <code class="docutils literal notranslate"><span class="pre">set_env_for_f2py.bat</span></code> in order to avoid any typing errors.</p>
+<p>Do the same with <code class="docutils literal notranslate"><span class="pre">run_f2py.bat</span></code>. Copy and paste the full path to the gfortran executable
+(it will look similar to <code class="docutils literal notranslate"><span class="pre">C:\mingw\mingw64\bin\x86_64-w64-mingw32-gfortran.exe</span></code>
+BUT MIGHT BE DIFFERENT ON YOUR SETUP)</p>
+<p>Finally, go back and verify the PATH environment variable in <a class="reference internal" href="#set-path-environment-variable">Set PATH Environment Variable</a>.
+Again copy and paste the path and again close any open command prompt windows.</p>
+<p>You should now be ready for another compile attempt at <a class="reference internal" href="#cross-your-fingers">Cross Your Fingers</a>.</p>
 </div>
 </div>
 <div class="section" id="windows-issues">

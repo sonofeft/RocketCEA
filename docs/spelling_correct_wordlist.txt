@@ -1,3 +1,8 @@
+mingw
+gfortran
+Libgfortran
+pyf
+AppData
 nosetests
 tcham
 klbf
