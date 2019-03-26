@@ -215,7 +215,16 @@ in order to avoid any typing errors.
 
     After entering the new PATH value, close any open command prompt windows and open a new one.
     
-    Changes to the PATH only take affect for new window.
+    Changes to the PATH only take affect for new windows.
+
+Retry Running RocketCEA
+~~~~~~~~~~~~~~~~~~~~~~~
+
+IN A NEW COMMAND PROMPT... CREATED AFTER THE ENVIRONMENT PATH EDIT.
+
+Try running the RocketCEA test from above `Test The Install`_
+
+If that does NOT work, try recompiling RocketCEA.
 
 Recompile RocketCEA
 ~~~~~~~~~~~~~~~~~~~

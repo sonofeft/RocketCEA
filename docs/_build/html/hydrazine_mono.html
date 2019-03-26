@@ -9,6 +9,7 @@
     <title>Hydrazine Monopropellant &#8212; RocketCEA 1.0.2 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -47,7 +48,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
@@ -122,11 +123,11 @@ Isp of the monopropellant engine.</p>
 </div>
 <div class="section" id="cea-modification">
 <h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Permalink to this headline">¶</a></h2>
-<p>In RocketCEA the CEA FORTRAN code has been modified to include &quot;Undissociated Ammonia (UA)&quot; as an exhaust product.
+<p>In RocketCEA the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
 When decomposing hydrazine with only partial ammonia dissociation,
-the CEA input includes an &quot;omit NH3&quot; statement to prevent normal equilibrium NH3 calculations.</p>
-<p>Partial ammonia dissociation is implemented in RocketCEA with the <strong>propName</strong> &quot;HYDnn&quot;, where &quot;nn&quot; is the mass percent
-of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be &quot;HYD30&quot;, &quot;HYD40&quot; and &quot;HYD50&quot;.</p>
+the CEA input includes an “omit NH3” statement to prevent normal equilibrium NH3 calculations.</p>
+<p>Partial ammonia dissociation is implemented in RocketCEA with the <strong>propName</strong> “HYDnn”, where “nn” is the mass percent
+of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be “HYD30”, “HYD40” and “HYD50”.</p>
 <p>This can be demonstrated with the following RocketCEA script that shows the difference between <strong>HYD40</strong> (40% ammonia dissociation)
 and <strong>N2H4</strong> (equilibrium CEA logic)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
@@ -235,7 +236,7 @@ are:</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>
