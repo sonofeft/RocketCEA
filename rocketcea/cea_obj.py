@@ -61,7 +61,15 @@ if platform.system() == 'Windows':
         import rocketcea.py_cea as py_cea # can be py_cea.cp35-win32.pyd, py_cea.cp36-win32.pyd, etc.
 # ========== MACOS =========
 elif platform.system() == 'Darwin':
-    import rocketcea.darwin.py_cea as py_cea
+    if sys.version_info[0] < 3: # assume 2.7
+        if sys.maxsize > 2147483647:
+            # py27 64bit
+            import rocketcea.darwin.py27_64.py_cea as py_cea # should be py_cea.so for 64 bit
+        else:
+            # py27 32bit
+            import rocketcea.darwin.py27_32.py_cea as py_cea # should be py_cea.so for 32 bit
+    else: # py3x both 32 and 64 bit
+        import rocketcea.darwin.py_cea as py_cea # can be py_cea.cpython-37m-darwin.so, etc.
 # ========== LINUX =========
 elif platform.system() == 'Linux':
     if sys.version_info[0] < 3: # assume 2.7
