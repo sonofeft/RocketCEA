@@ -63,7 +63,7 @@ if platform.system() == 'Windows':
         try:
             #TODO using suprocess call here due to being unable to get
             #f2py.compile() to behave like a call to numpy.f2py with a -c flag.
-            subprocess.call([pythonCommand,'-m','numpy.f2py','-m','py_cea','-c',os.path.dirname(__file__)+'/py_cea.f'],cwd=os.path.dirname(__file__))
+            subprocess.call([pythonCommand,'-m','numpy.f2py','-m','py_cea','-c',os.path.dirname(__file__)+'\\py_cea.f','--compiler=mingw32', '--f77exec=C:\\mingw64\\bin\\x86_64-w64-mingw32-gfortran.exe'],cwd=os.path.dirname(__file__))
             print('compiled py_cea')
         except Exception as e:
             print('unable to compile py_cea')
