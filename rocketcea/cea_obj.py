@@ -51,19 +51,8 @@ from rocketcea.blends import addPeroxideBlend, addMON_Blend, addFLOX_Blend, addM
 
 # ========= WINDOWS ===============
 if platform.system() == 'Windows':
-    if sys.version_info[0] < 3: # assume 2.7
-        if sys.maxsize > 2147483647:
-            # py27 64bit
-            import rocketcea.py27_64.py_cea as py_cea # should be py_cea.pyd for 64 bit
-        else:
-            # py27 32bit
-            import rocketcea.py_cea as py_cea # should be py_cea.pyd for 32 bit
-    else: # py3x both 32 and 64 bit
-        import rocketcea.py_cea as py_cea # can be py_cea.cp35-win32.pyd, py_cea.cp36-win32.pyd, etc.
-# ========== MACOS =========
-elif platform.system() == 'Darwin':
     if sys.version_info[0] < 3: #check which version of python we are using
-        pythonCommand = 'python'#set correct command to invoke python 2.x
+        pythonCommand = 'python2'#set correct command to invoke python 2.x
     else:
         pythonCommand = 'python3'#set correct command to invoke python 3.x
 
@@ -72,6 +61,34 @@ elif platform.system() == 'Darwin':
     except Exception as e:
         print('unable to import py_cea binary, this is likely your first time running RocketCEA. Will attempt to compile binary using numpy.f2py')
         try:
+            #TODO using suprocess call here due to being unable to get
+            #f2py.compile() to behave like a call to numpy.f2py with a -c flag.
+            subprocess.call([pythonCommand,'-m','numpy.f2py','-m','py_cea','-c',os.path.dirname(__file__)+'/py_cea.f'],cwd=os.path.dirname(__file__))
+            print('compiled py_cea')
+        except Exception as e:
+            print('unable to compile py_cea')
+            raise
+        else:
+            try:
+                print('trying to import py_cea binary again')
+                import rocketcea.py_cea as py_cea
+            except Exception as e:
+                print('despite compilation still unable to import py_cea binary. blame the authors and try to manually compile the binaries as detailed in the rocketCEA documentation')
+                raise
+# ========== MACOS =========
+elif platform.system() == 'Darwin':
+    if sys.version_info[0] < 3: #check which version of python we are using
+        pythonCommand = 'python2'#set correct command to invoke python 2.x
+    else:
+        pythonCommand = 'python3'#set correct command to invoke python 3.x
+
+    try:
+        import rocketcea.py_cea as py_cea
+    except Exception as e:
+        print('unable to import py_cea binary, this is likely your first time running RocketCEA. Will attempt to compile binary using numpy.f2py')
+        try:
+            #TODO using suprocess call here due to being unable to get
+            #f2py.compile() to behave like a call to numpy.f2py with a -c flag.
             subprocess.call([pythonCommand,'-m','numpy.f2py','-m','py_cea','-c',os.path.dirname(__file__)+'/py_cea.f'],cwd=os.path.dirname(__file__))
             print('compiled py_cea')
         except Exception as e:
@@ -86,15 +103,30 @@ elif platform.system() == 'Darwin':
                 raise
 # ========== LINUX =========
 elif platform.system() == 'Linux':
-    if sys.version_info[0] < 3: # assume 2.7
-        if sys.maxsize > 2147483647:
-            # py27 64 bit
-            import rocketcea.py27_64.py_cea as py_cea # should be py_cea.pyd for 64 bit
+    if sys.version_info[0] < 3: #check which version of python we are using
+        pythonCommand = 'python2'#set correct command to invoke python 2.x
+    else:
+        pythonCommand = 'python3'#set correct command to invoke python 3.x
+
+    try:
+        import rocketcea.py_cea as py_cea
+    except Exception as e:
+        print('unable to import py_cea binary, this is likely your first time running RocketCEA. Will attempt to compile binary using numpy.f2py')
+        try:
+            #TODO using suprocess call here due to being unable to get
+            #f2py.compile() to behave like a call to numpy.f2py with a -c flag.
+            subprocess.call([pythonCommand,'-m','numpy.f2py','-m','py_cea','-c',os.path.dirname(__file__)+'/py_cea.f'],cwd=os.path.dirname(__file__))
+            print('compiled py_cea')
+        except Exception as e:
+            print('unable to compile py_cea')
+            raise
         else:
-            # py27 32 bit
-            import rocketcea.py_cea as py_cea # should be py_cea.so for 32 bit
-    else: # py3x both 32 and 64 bit
-        import rocketcea.py_cea as py_cea # can be py_cea.cpython-35m-i386-linux-gnu.so, etc.
+            try:
+                print('trying to import py_cea binary again')
+                import rocketcea.py_cea as py_cea
+            except Exception as e:
+                print('despite compilation still unable to import py_cea binary. blame the authors and try to manually compile the binaries as detailed in the rocketCEA documentation')
+                raise
 else:
     print('ERROR... unknown operating system, unable to select py_cea binary')
 
