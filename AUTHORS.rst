@@ -13,7 +13,8 @@ Development Lead
 Patches and Ideas
 -----------------
 
- *Your Name Here*
+* `stepbot <https://github.com/stepbot>`_
+    - MacOS support 
 
 Initial Project Layout
 ----------------------

@@ -108,6 +108,9 @@ The libraries I've provided are::
     Ubuntu Linux python 2.7 32 bit and 64 bit
     Ubuntu Linux python 3.5 32 bit and 64 bit
     Ubuntu Linux python 3.6 32 bit and 64 bit
+    
+    MacOS python 2.7 64 bit
+    MacOS python 3.7 32 bit and 64 bit
 
 If your version of python is not shown above, or if RocketCEA fails to load the ``py_cea`` module,
 you may need to run f2py on the FORTRAN code on your system in order to create ``py_cea.pyd`` or
