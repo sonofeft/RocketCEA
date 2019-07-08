@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QuickStart &#8212; RocketCEA 1.0.2 documentation</title>
+    <title>QuickStart &#8212; RocketCEA 1.0.3 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#google-colaboratory">Google Colaboratory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-problems">Install Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#linux-importerror">Linux ImportError:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-dll-load-failed">Windows DLL load failed:</a><ul>
@@ -198,6 +199,40 @@ for RocketCEA to work (see below)</p>
 <p>Great… you are good to go.</p>
 <p>If not, see the information below.</p>
 </div>
+<div class="section" id="google-colaboratory">
+<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this headline">¶</a></h2>
+<p>If you are having trouble installing RocketCEA on your system,
+RocketCEA can be run on <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colaboratory</a>
+(either python3 or python2).</p>
+<p><a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Colaboratory</a>
+is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud.</p>
+<p>After creating a Colaboratory notebook, install RocketCEA.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install RocketCEA
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/colab_pip_rocketcea.jpg"><img alt="_images/colab_pip_rocketcea.jpg" src="_images/colab_pip_rocketcea.jpg" style="width: 60%;" /></a>
+<p>Install libgfortran3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!apt-get install libgfortran3
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/colab_apt_libgfortran3.jpg"><img alt="_images/colab_apt_libgfortran3.jpg" src="_images/colab_apt_libgfortran3.jpg" style="width: 70%;" /></a>
+<p>Create a python script to run RocketCEA:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">chk_cea</span><span class="o">.</span><span class="n">py</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">mr</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/colab_save_pyfile.jpg"><img alt="_images/colab_save_pyfile.jpg" src="_images/colab_save_pyfile.jpg" style="width: 60%;" /></a>
+<p>And then run the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python chk_cea.py
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/colab_run_chk_cea.jpg"><img alt="_images/colab_run_chk_cea.jpg" src="_images/colab_run_chk_cea.jpg" style="width: 50%;" /></a>
+<p>Colab plots work with RocketCEA as well.</p>
+<a class="reference internal image-reference" href="_images/colab_cstar_plot_example.jpg"><img alt="_images/colab_cstar_plot_example.jpg" src="_images/colab_cstar_plot_example.jpg" style="width: 70%;" /></a>
+</div>
 <div class="section" id="install-problems">
 <h2>Install Problems<a class="headerlink" href="#install-problems" title="Permalink to this headline">¶</a></h2>
 <p>RocketCEA makes heavy use of the <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">NASA CEA FORTRAN code</a>.
@@ -212,6 +247,9 @@ The libraries I’ve provided are:</p>
 <span class="n">Ubuntu</span> <span class="n">Linux</span> <span class="n">python</span> <span class="mf">2.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
 <span class="n">Ubuntu</span> <span class="n">Linux</span> <span class="n">python</span> <span class="mf">3.5</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
 <span class="n">Ubuntu</span> <span class="n">Linux</span> <span class="n">python</span> <span class="mf">3.6</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
+
+<span class="n">MacOS</span> <span class="n">python</span> <span class="mf">2.7</span> <span class="mi">64</span> <span class="n">bit</span>
+<span class="n">MacOS</span> <span class="n">python</span> <span class="mf">3.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
 </pre></div>
 </div>
 <p>If your version of python is not shown above, or if RocketCEA fails to load the <code class="docutils literal notranslate"><span class="pre">py_cea</span></code> module,
@@ -464,7 +502,7 @@ matplotlib soon.</p>
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools."
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

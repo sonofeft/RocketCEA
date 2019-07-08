@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>History &#8212; RocketCEA 1.0.2 documentation</title>
+    <title>History &#8212; RocketCEA 1.0.3 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="authors.html" title="Authors"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -104,13 +104,12 @@
 <h2>GitHub Log<a class="headerlink" href="#github-log" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt>2005</dt>
+<dt>July 6, 2019</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>(by: Charlie Taylor)</dt>
+<dt>(by: sonofeft and stepbot)</dt>
 <dd><ul class="first last">
-<li>Modified <strong>CEA2.f</strong> into <strong>py_cea.f</strong> so that
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> could build a python module</li>
+<li>Begin to support MacOS (Darwin)</li>
 </ul>
 </dd>
 </dl>
@@ -120,12 +119,132 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>2005 - 2015</dt>
+<dt>Mar 26, 2019</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: sonofeft)</dt>
+<dd><ul class="first last">
+<li>Added Windows install fix info to docs</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Oct 22, 2018</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: sonofeft)</dt>
+<dd><ul class="first last">
+<li>added help for bad MinGW path error</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Oct 21, 2018</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: sonofeft)</dt>
+<dd><ul class="first last">
+<li>full instructions to recompile with gfortran</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Oct 20, 2018</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: sonofeft)</dt>
+<dd><ul class="first last">
+<li>Identified MinGW library issue in docs</li>
+<li>Updated quickstart to show warning about recent python requiring user to run as administrator</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Aug 12, 2018</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: sonofeft)</dt>
+<dd><ul class="first last">
+<li>modify .gitattributes to make project show as python</li>
+<li>added .gitattributes</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>May 30, 2018</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: sonofeft)</dt>
+<dd><ul class="first last">
+<li>Reinstated Travis CI</li>
+<li><dl class="first docutils">
+<dt>matplotlib fix for Travis CI</dt>
+<dd>added: matplotlib.use(‘Agg’)</dd>
+</dl>
+</li>
+<li>try apt packages on travis ci</li>
+<li>try conda on travis ci</li>
+<li>try some pip fixes to travis ci</li>
+<li>try apt-get in travis build</li>
+<li><dl class="first docutils">
+<dt>Removed Travis-CI</dt>
+<dd>Need to solve missing libgfortran.so.3 import error on Travis CI</dd>
+</dl>
+</li>
+<li>Developed code first commit</li>
+<li><dl class="first docutils">
+<dt>Revert “Initial commit”</dt>
+<dd>This reverts commit e06031f0a5c0244d944fc3b1f4a3ed987579a2a7.</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(by: Charlie Taylor)</dt>
+<dd><ul class="first last">
+<li>Initial commit</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>May 29, 2018</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>(by: Charlie Taylor)</dt>
 <dd><ul class="first last">
-<li>Added enhancements to CEA interface.</li>
+<li>Verified operation on multiple platforms.</li>
 </ul>
 </dd>
 </dl>
@@ -150,12 +269,28 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>May 29, 2018</dt>
+<dt>2005 - 2015</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>(by: Charlie Taylor)</dt>
 <dd><ul class="first last">
-<li>Verified operation on multiple platforms.</li>
+<li>Added enhancements to CEA interface.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2005</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>(by: Charlie Taylor)</dt>
+<dd><ul class="first last">
+<li>Modified <strong>CEA2.f</strong> into <strong>py_cea.f</strong> so that
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> could build a python module</li>
 </ul>
 </dd>
 </dl>
@@ -192,7 +327,7 @@
         <li class="right" >
           <a href="authors.html" title="Authors"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

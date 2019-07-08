@@ -91,6 +91,56 @@ Great... you are good to go.
 
 If not, see the information below.
 
+Google Colaboratory
+-------------------
+
+If you are having trouble installing RocketCEA on your system,
+RocketCEA can be run on `Google Colaboratory <https://colab.research.google.com/notebooks/welcome.ipynb>`_
+(either python3 or python2).
+
+`Colaboratory <https://colab.research.google.com/notebooks/welcome.ipynb>`_ 
+is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud.
+
+After creating a Colaboratory notebook, install RocketCEA.::
+
+    !pip install RocketCEA
+
+
+.. image:: ./_static/colab_pip_rocketcea.jpg
+    :width: 60%
+
+
+Install libgfortran3::
+
+    !apt-get install libgfortran3
+    
+.. image:: ./_static/colab_apt_libgfortran3.jpg
+    :width: 70%
+
+Create a python script to run RocketCEA::
+
+    %%file chk_cea.py
+    from rocketcea.cea_obj import CEA_Obj
+    C = CEA_Obj( oxName='LOX', fuelName='LH2')
+    for mr in range(2,9):
+        print(mr, C.get_Isp(Pc=100.0, MR=mr, eps=40.0) )
+    
+.. image:: ./_static/colab_save_pyfile.jpg
+    :width: 60%
+
+And then run the file::
+
+    !python chk_cea.py
+
+.. image:: ./_static/colab_run_chk_cea.jpg
+    :width: 50%
+
+Colab plots work with RocketCEA as well.
+
+.. image:: ./_static/colab_cstar_plot_example.jpg
+    :width: 70%
+
+
 Install Problems
 ----------------
 
@@ -108,6 +158,9 @@ The libraries I've provided are::
     Ubuntu Linux python 2.7 32 bit and 64 bit
     Ubuntu Linux python 3.5 32 bit and 64 bit
     Ubuntu Linux python 3.6 32 bit and 64 bit
+    
+    MacOS python 2.7 64 bit
+    MacOS python 3.7 32 bit and 64 bit
 
 If your version of python is not shown above, or if RocketCEA fails to load the ``py_cea`` module,
 you may need to run f2py on the FORTRAN code on your system in order to create ``py_cea.pyd`` or
