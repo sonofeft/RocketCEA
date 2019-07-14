@@ -14,6 +14,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -104,7 +105,7 @@
   <div class="section" id="module-rocketcea.cea_obj">
 <span id="rocketcea-functions"></span><h1>RocketCEA Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h1>
 <p>RocketCEA wraps the NASA FORTRAN CEA code and provides some useful tools.</p>
-<p>RocketCEA makes direct calls to the FORTRAN CEA code in “rocket” mode to calculate
+<p>RocketCEA makes direct calls to the FORTRAN CEA code in &quot;rocket&quot; mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.</p>
 <p>See the NASA CEA code at: <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/">https://www.grc.nasa.gov/WWW/CEAWeb/</a></p>
@@ -349,7 +350,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.get_description">
 <code class="descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a string description of the propellant(s).  e.g. ‘LOX / MMH’</p>
+<dd><p>Return a string description of the propellant(s).  e.g. 'LOX / MMH'</p>
 </dd></dl>
 
 <dl class="method">
@@ -455,7 +456,7 @@ FLOX70, for example, represents 70% F2 and 30% LOX</p>
 <dt id="rocketcea.blends.addHYD_AmmoniaBlend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">addHYD_AmmoniaBlend</code><span class="sig-paren">(</span><em>name</em>, <em>cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addHYD_AmmoniaBlend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new N2H4 + undissociated Ammonia (UA) Blend to the CEA_Obj.cea_deck.
-Use name like “HYD30” to represent hydrazine with 30% dissociated ammonia.</p>
+Use name like &quot;HYD30&quot; to represent hydrazine with 30% dissociated ammonia.</p>
 </dd></dl>
 
 <dl class="function">
@@ -469,7 +470,7 @@ Use name like M10 to represent 10% MMH and 90% N2H4</p>
 <dt id="rocketcea.blends.addMON_Blend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">addMON_Blend</code><span class="sig-paren">(</span><em>oxName</em>, <em>cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addMON_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new MON oxidizer Blend to the CEA_Obj.cea_deck
-MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
+MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="function">
@@ -488,43 +489,43 @@ Use name like Peroxide95 to represent 95% Peroxide and 5% water.</p>
 <dl class="function">
 <dt id="rocketcea.blends.getFloatTokenFromCards">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getFloatTokenFromCards</code><span class="sig-paren">(</span><em>cardL</em>, <em>token='t(k)'</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFloatTokenFromCards" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the float value of the desired token. (e.g. ‘t(k)’ )</p>
+<dd><p>Get the float value of the desired token. (e.g. 't(k)' )</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.getFuelHfCalPerMole">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getFuelHfCalPerMole</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fuel float value of the reference temperature ‘h,cal’</p>
+<dd><p>Get the fuel float value of the reference temperature 'h,cal'</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.getFuelRefTempDegK">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getFuelRefTempDegK</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fuel float value of the reference temperature ‘t(k)’</p>
+<dd><p>Get the fuel float value of the reference temperature 't(k)'</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.getOxHfCalPerMole">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getOxHfCalPerMole</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the ox float value of the reference temperature ‘h,cal’</p>
+<dd><p>Get the ox float value of the reference temperature 'h,cal'</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.getOxRefTempDegK">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getOxRefTempDegK</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the oxidizer float value of the reference temperature ‘t(k)’</p>
+<dd><p>Get the oxidizer float value of the reference temperature 't(k)'</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.getPropHfCalPerMole">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getPropHfCalPerMole</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the propellant float value of the reference temperature ‘h,cal’</p>
+<dd><p>Get the propellant float value of the reference temperature 'h,cal'</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.getPropRefTempDegK">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">getPropRefTempDegK</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the propellant float value of the reference temperature ‘t(k)’</p>
+<dd><p>Get the propellant float value of the reference temperature 't(k)'</p>
 </dd></dl>
 
 <dl class="function">
@@ -548,42 +549,42 @@ Use name like Peroxide95 to represent 95% Peroxide and 5% water.</p>
 <dl class="function">
 <dt id="rocketcea.blends.giveCardNewHfAndTref">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">giveCardNewHfAndTref</code><span class="sig-paren">(</span><em>card</em>, <em>newHfCalPerMole</em>, <em>newTrefDegR</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.giveCardNewHfAndTref" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the values of “h,cal” and “t(k)” on propellant cards.</p>
+<dd><p>Change the values of &quot;h,cal&quot; and &quot;t(k)&quot; on propellant cards.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.isAPeroxide_Blend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">isAPeroxide_Blend</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAPeroxide_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check if name is for a blend of peroxide and water.
-Peroxide98 and Peroxide90 are in standard deck, however can make Peroxide95 etc. “on-the-fly”</p>
+Peroxide98 and Peroxide90 are in standard deck, however can make Peroxide95 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.isAnMMH_N2H4_Blend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">isAnMMH_N2H4_Blend</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAnMMH_N2H4_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check if name is for a blend of MMH + N2H4
-M20 is in standard deck, however can make M10, M30 etc. “on-the-fly”</p>
+M20 is in standard deck, however can make M10, M30 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.isFLOX_Ox_Blend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">isFLOX_Ox_Blend</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isFLOX_Ox_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check for FLOX oxidizer (e.g. FLOX70 or FLOX82.5)
-No FLOX blends are in standard deck, however can make FLOX70, FLOX82.5 etc. “on-the-fly”</p>
+No FLOX blends are in standard deck, however can make FLOX70, FLOX82.5 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.isMON_Ox_Blend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">isMON_Ox_Blend</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isMON_Ox_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check for MON oxidizer (MON1 to MON40)  48% is theoretical max
-MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
+MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.is_HYD_Ammonia_Blend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">is_HYD_Ammonia_Blend</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.is_HYD_Ammonia_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check if name is for a blend of N2H4 and undissociated Ammonia (UA)
-HYD40 is in standard deck, however can make HYD30, HYD50 etc. “on-the-fly”</p>
+HYD40 is in standard deck, however can make HYD30, HYD50 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="function">
@@ -599,7 +600,7 @@ of temperature, newTdegR.</p>
 <dt id="rocketcea.blends.newFuelBlend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">newFuelBlend</code><span class="sig-paren">(</span><em>fuelL=None</em>, <em>fuelPcentL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newFuelBlend" title="Permalink to this definition">¶</a></dt>
 <dd><p>create fuel blends such as M20  given the fuel names and weight percentages.
-e.g. fuelL=[“MMH”,”N2H4”], fuelPcentL=[20,80]</p>
+e.g. fuelL=[&quot;MMH&quot;,&quot;N2H4&quot;], fuelPcentL=[20,80]</p>
 </dd></dl>
 
 <dl class="function">
@@ -613,7 +614,7 @@ the input values newHfCalPerMole and newTrefDegR</p>
 <dt id="rocketcea.blends.newOxBlend">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">newOxBlend</code><span class="sig-paren">(</span><em>oxL=None</em>, <em>oxPcentL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newOxBlend" title="Permalink to this definition">¶</a></dt>
 <dd><p>create ox blends such as MON25 given the oxidizer names and weight percentages.
-e.g. oxL=[“N2O4”,”N2O3”], oxPcentL=[36.67,63.33]</p>
+e.g. oxL=[&quot;N2O4&quot;,&quot;N2O3&quot;], oxPcentL=[36.67,63.33]</p>
 </dd></dl>
 
 <dl class="function">
@@ -633,17 +634,17 @@ the input values newHfCalPerMole and newTrefDegR</p>
 <dl class="function">
 <dt id="rocketcea.blends.renamePropIfNewHfOrTrefInName">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">renamePropIfNewHfOrTrefInName</code><span class="sig-paren">(</span><em>cardDict</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.renamePropIfNewHfOrTrefInName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look for “h,cal OR “t(k)”” in name.
+<dd><p>Look for &quot;h,cal OR &quot;t(k)&quot;&quot; in name.
 If present, then create new modified name and create new
 card in cardDict if necessary</p>
 <p>for example to tweak LH2 run might look like:
-“LH2 h,cal=-2155.0  t(k)=21.0”</p>
+&quot;LH2 h,cal=-2155.0  t(k)=21.0&quot;</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rocketcea.blends.tightenUpEquals">
 <code class="descclassname">rocketcea.blends.</code><code class="descname">tightenUpEquals</code><span class="sig-paren">(</span><em>card</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.tightenUpEquals" title="Permalink to this definition">¶</a></dt>
-<dd><p>make sure there’s no spaces around equal signs.</p>
+<dd><p>make sure there's no spaces around equal signs.</p>
 </dd></dl>
 
 <dl class="function">
@@ -680,7 +681,7 @@ card in cardDict if necessary</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

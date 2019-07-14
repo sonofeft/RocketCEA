@@ -69,6 +69,11 @@ rocketcea/biprop_utils/mr_t_limits.py
 rocketcea/biprop_utils/rho_isp_plot_obj.py
 rocketcea/biprop_utils/run_cea_w_error_corr.py
 rocketcea/biprop_utils/veh_stage_obj.py
+rocketcea/darwin/__init__.py
+rocketcea/darwin/py_cea.cpython-37m-darwin.so
+rocketcea/darwin/py27_32/__init__.py
+rocketcea/darwin/py27_64/__init__.py
+rocketcea/darwin/py27_64/py_cea.so
 rocketcea/examples/DivertVeh.py
 rocketcea/examples/IspAmb_plot.png
 rocketcea/examples/IspAmb_plot.py

@@ -1,3 +1,13 @@
+MinGW
+stepbot
+gitattributes
+matplotlib
+Agg
+libgfortran
+fc
+Colaboratory
+Jupyter
+Colab
 mingw
 gfortran
 Libgfortran

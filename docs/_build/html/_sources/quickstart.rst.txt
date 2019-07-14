@@ -211,17 +211,25 @@ Run mingw-w64-install.exe.
 .. image:: ./_static/mingw_welcome.jpg
     :width: 60%
 
-After clicking ``Next``, the settings screen will appear.  The settings that worked for me are shown below.
+After clicking ``Next``, the settings screen will appear.  
 
-.. image:: ./_static/mingw_settings.jpg
+For 64 bit compilation, the settings that worked for me are shown below.
+
+.. image:: ./_static/mingw64_install.jpg
     :width: 60%
 
+
+For 32 bit compilation, these were my settings.
+
+.. image:: ./_static/mingw32_install.jpg
+    :width: 60%
+    
 A location for the MinGW install then needs to be selected. The default location is in 
-C:\\Program Files (x86)\\mingw-w64\\... etc.  However I recommend a simpler path like C:\\mingw
+C:\\Program Files (x86)\\mingw-w64\\... etc.  However I recommend a simpler path like C:\\MinGW
 so that some of the later steps will be easier.
 
 
-.. image:: ./_static/mingw_path_select.jpg
+.. image:: ./_static/mingw_folder_select.jpg
     :width: 60%
 
 After several minutes of an ``Installing Files`` you should arrive at a successful finish screen.
@@ -233,51 +241,11 @@ After several minutes of an ``Installing Files`` you should arrive at a successf
 .. image:: ./_static/mingw_finished.jpg
     :width: 45%
 
+When both 32 and 64 bit compilers are installed, and if you selected `C:\\MinGW` as your install directory.
+You should have a `C:\\MinGW` directory that looks like the one below.
 
-Set PATH Environment Variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Make sure that your environment variable `PATH` includes the `bin` subdirectory of MinGW.
-
-Find the ``System Properties`` interface on your machine or perhaps go directly to
-`Edit environment variables for your account` and Edit the ``Path`` variable.
-
-.. image:: ./_static/system_props.jpg
-
-
-.. image:: ./_static/env_vars.jpg
-
-
-Select ``Edit`` for the ``Path`` variable and then ``New`` to place the ``bin`` subdirectory of MinGW into
-your system PATH.
-
-
-.. image:: ./_static/add_mingw_bin.jpg
-
-
-If you installed MinGW to C:\\mingw, then the proper path should be::
-
-    C:\mingw\mingw64\bin
-    
-However, you should verify this using the Windows file explorer.
-
-I recommend that you use file explorer to copy and then paste the ``bin`` directory path
-in order to avoid any typing errors.
-
-.. note::
-
-    After entering the new PATH value, close any open command prompt windows and open a new one.
-    
-    Changes to the PATH only take affect for new windows.
-
-Retry Running RocketCEA
-~~~~~~~~~~~~~~~~~~~~~~~
-
-IN A NEW COMMAND PROMPT... CREATED AFTER THE ENVIRONMENT PATH EDIT.
-
-Try running the RocketCEA test from above `Test The Install`_
-
-If that does NOT work, try recompiling RocketCEA.
+.. image:: ./_static/MinGW_folder.jpg
+    :width: 40%
 
 Recompile RocketCEA
 ~~~~~~~~~~~~~~~~~~~
@@ -293,68 +261,73 @@ print the value of rocketcea.__file__.
 
 .. image:: ./_static/find_rocketcea.jpg
 
+Copy FORTRAN Source
+...................
+
 Using the Windows file explorer, go to the RocketCEA site-packages subdirectory (discovered above) 
-and copy three files to C:\\temp: py_cea.f, py_cea.inc and py_cea.pyf
+and copy the two files shown below to C:\\temp:: 
 
-In addition to those three files, we need to create two Windows BAT files.
+    py_cea.f
+    py_cea.inc
+
+Make Batch File
+...............
+
+In addition to those two source files, we need to create a Windows BAT file.
+
 Copy the following lines and paste them into a text editor.
-Save them to the file names shown.
 
-.. note::
+Save them to a file named ``compile_rocketcea.bat``.
 
-    You will DEFINITELY need to change the PYTHON_LIB value to match your python install.
+``compile_rocketcea.bat``::
+
+    rem set python path variable
+    set MYPYTHONPATH=D:\Python27
+
+    rem set name of FORTRAN program (also import name of compiled module)
+    set MYPROGRAMNAME=py_cea
+
+    rem Make PATH as simple as possible
+    set PATH=C:\MinGW\mingw32\bin;C:\MinGW\mingw32\lib;C:\MinGW\mingw32\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts
+
+    python -m numpy.f2py -m %MYPROGRAMNAME% -c %MYPROGRAMNAME%.f  --opt="-shared -static" --compiler=mingw32 
     
-    PYTHON_LIB = C:\\Users\\Win10Clean\\AppData\\Local\\Programs\\Python\\Python37\\libs
+    rem should now have pyd file 
 
-    You MAY need to change mingw value (C:\\mingw\\mingw64) everywhere it occurs.
-
-``set_env_for_f2py.bat``::
-
-    SET GCC=C:\mingw\mingw64\bin\x86_64-w64-mingw32-gcc.exe
-    SET PYTHON_LIB = C:\Users\Win10Clean\AppData\Local\Programs\Python\Python37\libs
-
-    SET LIBRARY_PATH = C:\mingw\mingw64\lib
-    SET G95_LIBRARY_PATH = C:\mingw\mingw64\lib
-
-    SET C_INCLUDE_PATH=C:\mingw\mingw64\include
-
-    SET CC=gcc python setup.py build
 
 .. note::
 
-    You MAY need to change mingw value C:\\mingw\\mingw64
-
-``run_f2py.bat``::
-
-    python.exe -m numpy.f2py -c py_cea.pyf py_cea.f  --compiler=mingw32 --f77exec=C:\mingw\mingw64\bin\x86_64-w64-mingw32-gfortran.exe
-
-When you have done all of the above, you should have a directory that looks like the following.
+    You will need to change the MYPYTHONPATH value to match your python install.
+    
+    The batch file shown is for 32 bit compilation.
+    
+    For 64 bit compilation, change mingw32 to mingw64 everywhere it occurs.
 
 
-.. image:: ./_static/ready_to_compile.jpg
+When you have done all of the above, you are ready to compile RocketCEA.
 
-Using a command prompt, navigate to C:\\temp and enter the command::
-
-    set_env_for_f2py.bat
-
-You should see a number of environment variables set 
-
-.. image:: ./_static/set_env_for_f2py.jpg
 
 Cross Your Fingers
 ~~~~~~~~~~~~~~~~~~
 
-Now cross your fingers and enter the command::
+Using a command prompt, navigate to C:\\temp and enter the command::
 
-    run_f2py.bat
+    compile_rocketcea.bat
+
+.. note::
+
+    The above BAT file will change your system PATH in this command prompt **ONLY**
+    
+    Open a new command prompt if you need to execute more system-wide commands.
     
 With any luck, the long series of output will end as shown below
-
 
 .. image:: ./_static/compile_success.jpg
 
 The resulting ``pyd`` file should now be in C:\\temp as shown below.
-In this case it is ``py_cea.cp37-win_amd64.pyd``
+In this case it is ``py_cea.pyd`` (The name resulting for **BOTH** 32 and 64 bit Python 2.7
+
+64 bit Python 3.7 would create ``py_cea.cp37-win_amd64.pyd``
 
 
 .. image:: ./_static/post_compile_dir.jpg
@@ -375,11 +348,11 @@ Now that all the hard work is done, the final step is to move the resulting ``py
 into the RocketCEA site-packages.
 
 Use Windows file explorer to right click on the ``pyd`` file 
-(``py_cea.cp37-win_amd64.pyd`` in the example above)
+(For Example: ``py_cea.pyd`` or ``py_cea.cp37-win_amd64.pyd``)
 and select ``Copy``.
 
 Navigate to the path that you located by printing the rocketcea.__file__ parameter
-and paste the file into the rocketcea subdirectory. ``(EXCEPT for Python 2.7 64 bit,  SEE BELOW)``
+and paste the file into the rocketcea subdirectory. **(EXCEPT for Python 2.7 64 bit,  SEE BELOW)**
 
 You will likely be prompted to replace or skip the operation.  Choose ``Replace``.
 
@@ -411,23 +384,10 @@ A possible compile error is
 
 
 
-This occurs when the various path entries to the MinGW libraries in the two batch files are incorrect, OR,
+This occurs when the various path entries to the MinGW libraries in the batch file is incorrect, OR,
 when the PATH to MinGW in the environment variables is wrong or not entered.
 
-It can also occur if you use a command prompt window that was already open when you entered the PATH
-environment variable or if you entered the PATH data incorrectly.
-
-In ``set_env_for_f2py.bat``, double check your values for GCC, LIBRARY_PATH, G95_LIBRARY_PATH, C_INCLUDE_PATH
-
-Use file explorer to go to the MinGW bin directory and copy the path directly from file explore and paste it directly
-into ``set_env_for_f2py.bat`` in order to avoid any typing errors.
-
-Do the same with ``run_f2py.bat``. Copy and paste the full path to the gfortran executable
-(it will look similar to ``C:\mingw\mingw64\bin\x86_64-w64-mingw32-gfortran.exe``
-BUT MIGHT BE DIFFERENT ON YOUR SETUP)
-
-Finally, go back and verify the PATH environment variable in `Set PATH Environment Variable`_.
-Again copy and paste the path and again close any open command prompt windows.
+Go back and verify the PATH environment variable in `Make Batch File`_.
 
 You should now be ready for another compile attempt at `Cross Your Fingers`_.
 

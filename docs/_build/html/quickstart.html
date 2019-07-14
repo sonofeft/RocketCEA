@@ -14,6 +14,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -60,9 +61,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#linux-importerror">Linux ImportError:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-dll-load-failed">Windows DLL load failed:</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install-mingw">Install MinGW</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-path-environment-variable">Set PATH Environment Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#retry-running-rocketcea">Retry Running RocketCEA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recompile-rocketcea">Recompile RocketCEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recompile-rocketcea">Recompile RocketCEA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#copy-fortran-source">Copy FORTRAN Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#make-batch-file">Make Batch File</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#cross-your-fingers">Cross Your Fingers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#move-pyd-into-rocketcea">Move pyd Into RocketCEA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#re-test-rocketcea">Re-Test RocketCEA</a></li>
@@ -166,7 +169,7 @@ Paste that code into your text editor and save it to a python file.(for example 
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-giving a “shared” <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
+giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
 <p class="last">If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
 You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order
 for RocketCEA to work (see below)</p>
@@ -196,7 +199,7 @@ for RocketCEA to work (see below)</p>
 <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">424.6998266323161</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Great… you are good to go.</p>
+<p>Great... you are good to go.</p>
 <p>If not, see the information below.</p>
 </div>
 <div class="section" id="google-colaboratory">
@@ -238,7 +241,7 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 <p>RocketCEA makes heavy use of the <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">NASA CEA FORTRAN code</a>.
 For RocketCEA, the NASA FORTRAN code has been modified and turned into a python module using <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a>.</p>
 <p>When compiling FORTRAN into a python library, each version of python needs its own compiled library.
-The libraries I’ve provided are:</p>
+The libraries I've provided are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Windows</span> <span class="n">python</span> <span class="mf">2.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
 <span class="n">Windows</span> <span class="n">python</span> <span class="mf">3.5</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
 <span class="n">Windows</span> <span class="n">python</span> <span class="mf">3.6</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
@@ -289,44 +292,21 @@ recompile the NASA CEA code, and place the resulting executable library into the
 and download MinGW. At the time of this writing, the downloaded file is <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.
 Run mingw-w64-install.exe.</p>
 <a class="reference internal image-reference" href="_images/mingw_welcome.jpg"><img alt="_images/mingw_welcome.jpg" src="_images/mingw_welcome.jpg" style="width: 60%;" /></a>
-<p>After clicking <code class="docutils literal notranslate"><span class="pre">Next</span></code>, the settings screen will appear.  The settings that worked for me are shown below.</p>
-<a class="reference internal image-reference" href="_images/mingw_settings.jpg"><img alt="_images/mingw_settings.jpg" src="_images/mingw_settings.jpg" style="width: 60%;" /></a>
+<p>After clicking <code class="docutils literal notranslate"><span class="pre">Next</span></code>, the settings screen will appear.</p>
+<p>For 64 bit compilation, the settings that worked for me are shown below.</p>
+<a class="reference internal image-reference" href="_images/mingw64_install.jpg"><img alt="_images/mingw64_install.jpg" src="_images/mingw64_install.jpg" style="width: 60%;" /></a>
+<p>For 32 bit compilation, these were my settings.</p>
+<a class="reference internal image-reference" href="_images/mingw32_install.jpg"><img alt="_images/mingw32_install.jpg" src="_images/mingw32_install.jpg" style="width: 60%;" /></a>
 <p>A location for the MinGW install then needs to be selected. The default location is in
-C:\Program Files (x86)\mingw-w64... etc.  However I recommend a simpler path like C:\mingw
+C:\Program Files (x86)\mingw-w64\... etc.  However I recommend a simpler path like C:\MinGW
 so that some of the later steps will be easier.</p>
-<a class="reference internal image-reference" href="_images/mingw_path_select.jpg"><img alt="_images/mingw_path_select.jpg" src="_images/mingw_path_select.jpg" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="_images/mingw_folder_select.jpg"><img alt="_images/mingw_folder_select.jpg" src="_images/mingw_folder_select.jpg" style="width: 60%;" /></a>
 <p>After several minutes of an <code class="docutils literal notranslate"><span class="pre">Installing</span> <span class="pre">Files</span></code> you should arrive at a successful finish screen.</p>
 <a class="reference internal image-reference" href="_images/mingw_installing_files.jpg"><img alt="_images/mingw_installing_files.jpg" src="_images/mingw_installing_files.jpg" style="width: 45%;" /></a>
 <a class="reference internal image-reference" href="_images/mingw_finished.jpg"><img alt="_images/mingw_finished.jpg" src="_images/mingw_finished.jpg" style="width: 45%;" /></a>
-</div>
-<div class="section" id="set-path-environment-variable">
-<h3>Set PATH Environment Variable<a class="headerlink" href="#set-path-environment-variable" title="Permalink to this headline">¶</a></h3>
-<p>Make sure that your environment variable <cite>PATH</cite> includes the <cite>bin</cite> subdirectory of MinGW.</p>
-<p>Find the <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Properties</span></code> interface on your machine or perhaps go directly to
-<cite>Edit environment variables for your account</cite> and Edit the <code class="docutils literal notranslate"><span class="pre">Path</span></code> variable.</p>
-<img alt="_images/system_props.jpg" src="_images/system_props.jpg" />
-<img alt="_images/env_vars.jpg" src="_images/env_vars.jpg" />
-<p>Select <code class="docutils literal notranslate"><span class="pre">Edit</span></code> for the <code class="docutils literal notranslate"><span class="pre">Path</span></code> variable and then <code class="docutils literal notranslate"><span class="pre">New</span></code> to place the <code class="docutils literal notranslate"><span class="pre">bin</span></code> subdirectory of MinGW into
-your system PATH.</p>
-<img alt="_images/add_mingw_bin.jpg" src="_images/add_mingw_bin.jpg" />
-<p>If you installed MinGW to C:\mingw, then the proper path should be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="n">mingw64</span>\<span class="nb">bin</span>
-</pre></div>
-</div>
-<p>However, you should verify this using the Windows file explorer.</p>
-<p>I recommend that you use file explorer to copy and then paste the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory path
-in order to avoid any typing errors.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>After entering the new PATH value, close any open command prompt windows and open a new one.</p>
-<p class="last">Changes to the PATH only take affect for new windows.</p>
-</div>
-</div>
-<div class="section" id="retry-running-rocketcea">
-<h3>Retry Running RocketCEA<a class="headerlink" href="#retry-running-rocketcea" title="Permalink to this headline">¶</a></h3>
-<p>IN A NEW COMMAND PROMPT… CREATED AFTER THE ENVIRONMENT PATH EDIT.</p>
-<p>Try running the RocketCEA test from above <a class="reference internal" href="#test-the-install">Test The Install</a></p>
-<p>If that does NOT work, try recompiling RocketCEA.</p>
+<p>When both 32 and 64 bit compilers are installed, and if you selected <cite>C:\MinGW</cite> as your install directory.
+You should have a <cite>C:\MinGW</cite> directory that looks like the one below.</p>
+<a class="reference internal image-reference" href="_images/MinGW_folder.jpg"><img alt="_images/MinGW_folder.jpg" src="_images/MinGW_folder.jpg" style="width: 40%;" /></a>
 </div>
 <div class="section" id="recompile-rocketcea">
 <h3>Recompile RocketCEA<a class="headerlink" href="#recompile-rocketcea" title="Permalink to this headline">¶</a></h3>
@@ -336,56 +316,60 @@ in order to avoid any typing errors.</p>
 One way to do that is at the command prompt. Call up the python interpreter, import rocketcea and then
 print the value of rocketcea.__file__.</p>
 <img alt="_images/find_rocketcea.jpg" src="_images/find_rocketcea.jpg" />
+<div class="section" id="copy-fortran-source">
+<h4>Copy FORTRAN Source<a class="headerlink" href="#copy-fortran-source" title="Permalink to this headline">¶</a></h4>
 <p>Using the Windows file explorer, go to the RocketCEA site-packages subdirectory (discovered above)
-and copy three files to C:\temp: py_cea.f, py_cea.inc and py_cea.pyf</p>
-<p>In addition to those three files, we need to create two Windows BAT files.
-Copy the following lines and paste them into a text editor.
-Save them to the file names shown.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You will DEFINITELY need to change the PYTHON_LIB value to match your python install.</p>
-<p>PYTHON_LIB = C:\Users\Win10Clean\AppData\Local\Programs\Python\Python37\libs</p>
-<p class="last">You MAY need to change mingw value (C:\mingw\mingw64) everywhere it occurs.</p>
+and copy the two files shown below to C:\temp:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">py_cea</span><span class="o">.</span><span class="n">f</span>
+<span class="n">py_cea</span><span class="o">.</span><span class="n">inc</span>
+</pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">set_env_for_f2py.bat</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SET</span> <span class="n">GCC</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="n">mingw64</span>\<span class="nb">bin</span>\<span class="n">x86_64</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">mingw32</span><span class="o">-</span><span class="n">gcc</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">SET</span> <span class="n">PYTHON_LIB</span> <span class="o">=</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Win10Clean</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python37</span>\<span class="n">libs</span>
+</div>
+<div class="section" id="make-batch-file">
+<h4>Make Batch File<a class="headerlink" href="#make-batch-file" title="Permalink to this headline">¶</a></h4>
+<p>In addition to those two source files, we need to create a Windows BAT file.</p>
+<p>Copy the following lines and paste them into a text editor.</p>
+<p>Save them to a file named <code class="docutils literal notranslate"><span class="pre">compile_rocketcea.bat</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">compile_rocketcea.bat</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rem</span> <span class="nb">set</span> <span class="n">python</span> <span class="n">path</span> <span class="n">variable</span>
+<span class="nb">set</span> <span class="n">MYPYTHONPATH</span><span class="o">=</span><span class="n">D</span><span class="p">:</span>\<span class="n">Python27</span>
 
-<span class="n">SET</span> <span class="n">LIBRARY_PATH</span> <span class="o">=</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="n">mingw64</span>\<span class="n">lib</span>
-<span class="n">SET</span> <span class="n">G95_LIBRARY_PATH</span> <span class="o">=</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="n">mingw64</span>\<span class="n">lib</span>
+<span class="n">rem</span> <span class="nb">set</span> <span class="n">name</span> <span class="n">of</span> <span class="n">FORTRAN</span> <span class="n">program</span> <span class="p">(</span><span class="n">also</span> <span class="kn">import</span> <span class="nn">name</span> <span class="n">of</span> <span class="n">compiled</span> <span class="n">module</span><span class="p">)</span>
+<span class="nb">set</span> <span class="n">MYPROGRAMNAME</span><span class="o">=</span><span class="n">py_cea</span>
 
-<span class="n">SET</span> <span class="n">C_INCLUDE_PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="n">mingw64</span>\<span class="n">include</span>
+<span class="n">rem</span> <span class="n">Make</span> <span class="n">PATH</span> <span class="k">as</span> <span class="n">simple</span> <span class="k">as</span> <span class="n">possible</span>
+<span class="nb">set</span> <span class="n">PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="nb">bin</span><span class="p">;</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span><span class="o">%</span><span class="n">MYPYTHONPATH</span><span class="o">%</span><span class="p">;</span><span class="o">%</span><span class="n">MYPYTHONPATH</span><span class="o">%</span>\<span class="n">Scripts</span>
 
-<span class="n">SET</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">numpy</span><span class="o">.</span><span class="n">f2py</span> <span class="o">-</span><span class="n">m</span> <span class="o">%</span><span class="n">MYPROGRAMNAME</span><span class="o">%</span> <span class="o">-</span><span class="n">c</span> <span class="o">%</span><span class="n">MYPROGRAMNAME</span><span class="o">%.</span><span class="n">f</span>  <span class="o">--</span><span class="n">opt</span><span class="o">=</span><span class="s2">&quot;-shared -static&quot;</span> <span class="o">--</span><span class="n">compiler</span><span class="o">=</span><span class="n">mingw32</span>
+
+<span class="n">rem</span> <span class="n">should</span> <span class="n">now</span> <span class="n">have</span> <span class="n">pyd</span> <span class="n">file</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You MAY need to change mingw value C:\mingw\mingw64</p>
+<p>You will need to change the MYPYTHONPATH value to match your python install.</p>
+<p>The batch file shown is for 32 bit compilation.</p>
+<p class="last">For 64 bit compilation, change mingw32 to mingw64 everywhere it occurs.</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">run_f2py.bat</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">m</span> <span class="n">numpy</span><span class="o">.</span><span class="n">f2py</span> <span class="o">-</span><span class="n">c</span> <span class="n">py_cea</span><span class="o">.</span><span class="n">pyf</span> <span class="n">py_cea</span><span class="o">.</span><span class="n">f</span>  <span class="o">--</span><span class="n">compiler</span><span class="o">=</span><span class="n">mingw32</span> <span class="o">--</span><span class="n">f77exec</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">mingw</span>\<span class="n">mingw64</span>\<span class="nb">bin</span>\<span class="n">x86_64</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">mingw32</span><span class="o">-</span><span class="n">gfortran</span><span class="o">.</span><span class="n">exe</span>
-</pre></div>
+<p>When you have done all of the above, you are ready to compile RocketCEA.</p>
 </div>
-<p>When you have done all of the above, you should have a directory that looks like the following.</p>
-<img alt="_images/ready_to_compile.jpg" src="_images/ready_to_compile.jpg" />
-<p>Using a command prompt, navigate to C:\temp and enter the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">set_env_for_f2py</span><span class="o">.</span><span class="n">bat</span>
-</pre></div>
-</div>
-<p>You should see a number of environment variables set</p>
-<img alt="_images/set_env_for_f2py.jpg" src="_images/set_env_for_f2py.jpg" />
 </div>
 <div class="section" id="cross-your-fingers">
 <h3>Cross Your Fingers<a class="headerlink" href="#cross-your-fingers" title="Permalink to this headline">¶</a></h3>
-<p>Now cross your fingers and enter the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_f2py</span><span class="o">.</span><span class="n">bat</span>
+<p>Using a command prompt, navigate to C:\temp and enter the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compile_rocketcea</span><span class="o">.</span><span class="n">bat</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The above BAT file will change your system PATH in this command prompt <strong>ONLY</strong></p>
+<p class="last">Open a new command prompt if you need to execute more system-wide commands.</p>
 </div>
 <p>With any luck, the long series of output will end as shown below</p>
 <img alt="_images/compile_success.jpg" src="_images/compile_success.jpg" />
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file should now be in C:\temp as shown below.
-In this case it is <code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code></p>
+In this case it is <code class="docutils literal notranslate"><span class="pre">py_cea.pyd</span></code> (The name resulting for <strong>BOTH</strong> 32 and 64 bit Python 2.7</p>
+<p>64 bit Python 3.7 would create <code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code></p>
 <img alt="_images/post_compile_dir.jpg" src="_images/post_compile_dir.jpg" />
 <p>A possible compile error is
 <code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'&gt;='</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">between</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">'NoneType'</span> <span class="pre">and</span> <span class="pre">'str'</span></code></p>
@@ -397,10 +381,10 @@ In this case it is <code class="docutils literal notranslate"><span class="pre">
 <p>Now that all the hard work is done, the final step is to move the resulting <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file
 into the RocketCEA site-packages.</p>
 <p>Use Windows file explorer to right click on the <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file
-(<code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code> in the example above)
+(For Example: <code class="docutils literal notranslate"><span class="pre">py_cea.pyd</span></code> or <code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code>)
 and select <code class="docutils literal notranslate"><span class="pre">Copy</span></code>.</p>
 <p>Navigate to the path that you located by printing the rocketcea.__file__ parameter
-and paste the file into the rocketcea subdirectory. <code class="docutils literal notranslate"><span class="pre">(EXCEPT</span> <span class="pre">for</span> <span class="pre">Python</span> <span class="pre">2.7</span> <span class="pre">64</span> <span class="pre">bit,</span>&#160; <span class="pre">SEE</span> <span class="pre">BELOW)</span></code></p>
+and paste the file into the rocketcea subdirectory. <strong>(EXCEPT for Python 2.7 64 bit,  SEE BELOW)</strong></p>
 <p>You will likely be prompted to replace or skip the operation.  Choose <code class="docutils literal notranslate"><span class="pre">Replace</span></code>.</p>
 <img alt="_images/replace_old_pyd.jpg" src="_images/replace_old_pyd.jpg" />
 <p>That subdirectory will now look something like the following.</p>
@@ -420,18 +404,9 @@ and paste the file into the rocketcea subdirectory. <code class="docutils litera
 <p>A possible compile error is
 <code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'&gt;='</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">between</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">'NoneType'</span> <span class="pre">and</span> <span class="pre">'str'</span></code></p>
 <img alt="_images/bad_mingw_path.jpg" src="_images/bad_mingw_path.jpg" />
-<p>This occurs when the various path entries to the MinGW libraries in the two batch files are incorrect, OR,
+<p>This occurs when the various path entries to the MinGW libraries in the batch file is incorrect, OR,
 when the PATH to MinGW in the environment variables is wrong or not entered.</p>
-<p>It can also occur if you use a command prompt window that was already open when you entered the PATH
-environment variable or if you entered the PATH data incorrectly.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">set_env_for_f2py.bat</span></code>, double check your values for GCC, LIBRARY_PATH, G95_LIBRARY_PATH, C_INCLUDE_PATH</p>
-<p>Use file explorer to go to the MinGW bin directory and copy the path directly from file explore and paste it directly
-into <code class="docutils literal notranslate"><span class="pre">set_env_for_f2py.bat</span></code> in order to avoid any typing errors.</p>
-<p>Do the same with <code class="docutils literal notranslate"><span class="pre">run_f2py.bat</span></code>. Copy and paste the full path to the gfortran executable
-(it will look similar to <code class="docutils literal notranslate"><span class="pre">C:\mingw\mingw64\bin\x86_64-w64-mingw32-gfortran.exe</span></code>
-BUT MIGHT BE DIFFERENT ON YOUR SETUP)</p>
-<p>Finally, go back and verify the PATH environment variable in <a class="reference internal" href="#set-path-environment-variable">Set PATH Environment Variable</a>.
-Again copy and paste the path and again close any open command prompt windows.</p>
+<p>Go back and verify the PATH environment variable in <a class="reference internal" href="#make-batch-file">Make Batch File</a>.</p>
 <p>You should now be ready for another compile attempt at <a class="reference internal" href="#cross-your-fingers">Cross Your Fingers</a>.</p>
 </div>
 </div>
@@ -443,7 +418,7 @@ Again copy and paste the path and again close any open command prompt windows.</
 </pre></div>
 </div>
 <p>should just work on Windows.</p>
-<p>So far, the main issue I’ve had on a Windows platform is when python is installed in a directory
+<p>So far, the main issue I've had on a Windows platform is when python is installed in a directory
 with a space in the name.  Any directories like <code class="docutils literal notranslate"><span class="pre">C:/Python27</span></code> or <code class="docutils literal notranslate"><span class="pre">C:/Python37</span></code> should work fine.</p>
 <p>Another issue is with python 3.7 64 bit.
 At the time of this writing, matplotlib was not properly installing.
@@ -507,7 +482,7 @@ matplotlib soon.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>
