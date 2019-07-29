@@ -11,8 +11,7 @@ before_install:
     - "sudo apt-get install gfortran"
 
 install:
-    - "sudo pip install --upgrade pip"
-    - "python setup.py build"
+    - "sudo pip install --upgrade pip >= 9.0.1"
     - "python setup.py install"
     
 script:
