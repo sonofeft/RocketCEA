@@ -10,7 +10,7 @@ install:
     - "sudo pip install --upgrade pip"
     - "python setup.py build"
     - "python setup.py install"
-    - "ls /home/travis/build/sonofeft/RocketCEA"
+    - "ls /home/travis/build/sonofeft/RocketCEA/build"
     - "ls /home/travis/build/sonofeft/RocketCEA/rocketcea"
     
 script:
