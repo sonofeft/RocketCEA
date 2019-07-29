@@ -3,7 +3,6 @@ python:
     - "2.7"
     - "3.5"
     - "3.6"
-    - "3.7"
 
 cache: apt
 addons:
@@ -16,11 +15,11 @@ addons:
 
 before_install:
     - "sudo apt-get update"
-    - "sudo apt-get install python-numpy"
     - "sudo apt-get install gfortran"
-    - "sudo apt-get install python-matplotlib"
 
 install:
+    - "sudo apt-get install python-numpy"
+    - "sudo apt-get install python-matplotlib"
     - "python setup.py build"
     - "python setup.py install"
     
