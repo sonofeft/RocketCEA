@@ -18,8 +18,8 @@ before_install:
     - "sudo apt-get install gfortran"
 
 install:
-    - "sudo apt-get install python-numpy"
-    - "sudo apt-get install python-matplotlib"
+    - "sudo pip install numpy"
+    - "sudo pip install matplotlib==3.0.3"
     - "python setup.py build"
     - "python setup.py install"
     
