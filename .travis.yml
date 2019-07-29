@@ -10,9 +10,9 @@ install:
     - "sudo pip install --upgrade pip"
     - "python setup.py build"
     - "python setup.py install"
-    - "ls /home/travis/build/sonofeft/RocketCEA/dist"
+    - "ls /home/travis/build/sonofeft/RocketCEA"
     - "ls /home/travis/build/sonofeft/RocketCEA/rocketcea"
-    - "cp /home/travis/build/sonofeft/RocketCEA/dist/*.so /home/travis/build/sonofeft/RocketCEA/rocketcea"
+    - "find /home/travis/build/sonofeft/RocketCEA/ -name *.so"
     
 script:
     - py.test
