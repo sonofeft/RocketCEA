@@ -7,6 +7,10 @@ History
 GitHub Log
 ----------
 
+* July 29, 2019
+    - (by: sonofeft) 
+        - Major Overhaul of f2py usage
+
 * July 6, 2019
     - (by: sonofeft and stepbot)
         - Begin to support MacOS (Darwin)

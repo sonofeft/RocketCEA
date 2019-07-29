@@ -49,6 +49,15 @@ import glob
 import webbrowser
 from keyboard_hit import KBHit
 
+py_path,_ = os.path.split( sys.executable )
+scripts_path = os.path.join( py_path, 'Scripts' )
+
+if not os.environ["PATH"].startswith(scripts_path):
+    print('Inserting into PATH:', scripts_path)
+    print('So that Spell Check Executables can be found')
+    # needed to find spell check with SPELL_RUNNER
+    os.environ["PATH"] = scripts_path + os.pathsep + os.environ["PATH"]
+
 kb = KBHit()
 
 TEST_RUNNER =  "sphinx-build -b html -d _build/doctrees  . _build/html"

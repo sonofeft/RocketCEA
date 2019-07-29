@@ -4,9 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>QuickStart &#8212; RocketCEA 1.0.3 documentation</title>
+    <meta charset="utf-8" />
+    <title>QuickStart &#8212; RocketCEA 1.0.4 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -19,8 +18,8 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="next" title="Standard Examples" href="std_examples.html" />
-    <link rel="prev" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools." href="index.html" />
+    <link rel="next" title="Install gfortran" href="installgfortran.html" />
+    <link rel="prev" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -36,12 +35,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="std_examples.html" title="Standard Examples"
+          <a href="installgfortran.html" title="Install gfortran"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools."
+          <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -52,30 +51,16 @@
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">QuickStart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-numpy-matplotlib">Install Numpy &amp; Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-compiler">Install Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-rocketcea">Install RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#google-colaboratory">Google Colaboratory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-problems">Install Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux-importerror">Linux ImportError:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#windows-dll-load-failed">Windows DLL load failed:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install-mingw">Install MinGW</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recompile-rocketcea">Recompile RocketCEA</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#copy-fortran-source">Copy FORTRAN Source</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#make-batch-file">Make Batch File</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#cross-your-fingers">Cross Your Fingers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#move-pyd-into-rocketcea">Move pyd Into RocketCEA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#re-test-rocketcea">Re-Test RocketCEA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mingw-path-error">MinGW PATH Error</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#windows-issues">Windows Issues</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ubuntu-linux-issues">Ubuntu Linux Issues</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
@@ -95,10 +80,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools.</a></p>
+                        title="previous chapter">RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="std_examples.html"
-                        title="next chapter">Standard Examples</a></p>
+  <p class="topless"><a href="installgfortran.html"
+                        title="next chapter">Install gfortran</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -107,13 +92,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -128,9 +111,50 @@
             
   <div class="section" id="quickstart">
 <h1>QuickStart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-numpy-matplotlib">
+<h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>Because RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
+compile the FORTRAN <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">NASA CEA code</a> and
+<a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a>
+is part of <a class="reference external" href="https://numpy.org/">numpy</a> ,
+<a class="reference external" href="https://numpy.org/">numpy</a> will need to be installed.</p>
+<p>RocketCEA also makes use of the <a class="reference external" href="https://matplotlib.org/">matplotlib</a> package for
+creating plots.</p>
+<p>To install <a class="reference external" href="https://numpy.org/">numpy</a> and <a class="reference external" href="https://matplotlib.org/">matplotlib</a>, give the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+
+<span class="n">OR</span> <span class="n">perhaps</span><span class="o">...</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">numpy</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>Some Linux systems may require:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-compiler">
+<h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Permalink to this headline">¶</a></h2>
+<p>Using <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to compile FORTRAN requires
+a FORTRAN compiler. I recommend using <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>
+on all platforms so that there are no FORTRAN incompatibilities between platforms.</p>
+<p>Each operating system has its own approach to install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a></p>
+<p>Click: <a class="reference internal" href="installgfortran.html#link-installgfortran"><span class="std std-ref">Install gfortran</span></a> to see install instructions for a few platforms that I have tested.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Windows users MUST put MinGW into environment PATH variable.
+(see: <a class="reference internal" href="installgfortran.html#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
+<p>C:MinGWmingw64bin  OR  C:MinGWmingw32bin</p>
+<p>and</p>
+<p>C:MinGWmingw64lib  OR  C:MinGWmingw32lib</p>
+</div>
+</div>
 <div class="section" id="install-rocketcea">
 <h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this headline">¶</a></h2>
-<p>The easiest way to install RocketCEA is:</p>
+<p><strong>After</strong> the above installs have been accomplished, the easiest way to install RocketCEA is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
 
     <span class="n">OR</span> <span class="n">on</span> <span class="n">Linux</span>
@@ -139,10 +163,17 @@
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">rocketcea</span>
 </pre></div>
 </div>
+<p>Try a quick test of the install by pasting the following into a command terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=&#39;LOX&#39;, fuelName=&#39;LH2&#39;); print(C.get_Isp())&quot;</span>
+
+<span class="n">should</span> <span class="n">result</span> <span class="ow">in</span><span class="p">:</span>
+<span class="mf">374.30361765576265</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
-<p>After installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, there will be a launch command line program called <strong>rocketcea</strong> or, on Windows, <strong>rocketcea.exe</strong>.</p>
+<p>After installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, there should be a launch command line program called <strong>rocketcea</strong> or, on Windows, <strong>rocketcea.exe</strong>.</p>
 <p>From a terminal or command prompt window simply type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rocketcea</span>
 </pre></div>
@@ -167,12 +198,13 @@ Paste that code into your text editor and save it to a python file.(for example 
 </div>
 <p>Or, in many text editors hitting the <strong>F5</strong> key will execute the code.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
-<p class="last">If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
+giving a “shared” <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
+<p>If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
 You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order
 for RocketCEA to work (see below)</p>
+<p>On Windows, make sure the environment PATH variable is set properly (see: <a class="reference internal" href="installgfortran.html#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
 </div>
 </div>
 <div class="section" id="test-the-install">
@@ -199,7 +231,7 @@ for RocketCEA to work (see below)</p>
 <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">424.6998266323161</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Great... you are good to go.</p>
+<p>Great… you are good to go.</p>
 <p>If not, see the information below.</p>
 </div>
 <div class="section" id="google-colaboratory">
@@ -236,224 +268,6 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 <p>Colab plots work with RocketCEA as well.</p>
 <a class="reference internal image-reference" href="_images/colab_cstar_plot_example.jpg"><img alt="_images/colab_cstar_plot_example.jpg" src="_images/colab_cstar_plot_example.jpg" style="width: 70%;" /></a>
 </div>
-<div class="section" id="install-problems">
-<h2>Install Problems<a class="headerlink" href="#install-problems" title="Permalink to this headline">¶</a></h2>
-<p>RocketCEA makes heavy use of the <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">NASA CEA FORTRAN code</a>.
-For RocketCEA, the NASA FORTRAN code has been modified and turned into a python module using <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a>.</p>
-<p>When compiling FORTRAN into a python library, each version of python needs its own compiled library.
-The libraries I've provided are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Windows</span> <span class="n">python</span> <span class="mf">2.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-<span class="n">Windows</span> <span class="n">python</span> <span class="mf">3.5</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-<span class="n">Windows</span> <span class="n">python</span> <span class="mf">3.6</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-<span class="n">Windows</span> <span class="n">python</span> <span class="mf">3.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-
-<span class="n">Ubuntu</span> <span class="n">Linux</span> <span class="n">python</span> <span class="mf">2.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-<span class="n">Ubuntu</span> <span class="n">Linux</span> <span class="n">python</span> <span class="mf">3.5</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-<span class="n">Ubuntu</span> <span class="n">Linux</span> <span class="n">python</span> <span class="mf">3.6</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-
-<span class="n">MacOS</span> <span class="n">python</span> <span class="mf">2.7</span> <span class="mi">64</span> <span class="n">bit</span>
-<span class="n">MacOS</span> <span class="n">python</span> <span class="mf">3.7</span> <span class="mi">32</span> <span class="n">bit</span> <span class="ow">and</span> <span class="mi">64</span> <span class="n">bit</span>
-</pre></div>
-</div>
-<p>If your version of python is not shown above, or if RocketCEA fails to load the <code class="docutils literal notranslate"><span class="pre">py_cea</span></code> module,
-you may need to run f2py on the FORTRAN code on your system in order to create <code class="docutils literal notranslate"><span class="pre">py_cea.pyd</span></code> or
-<code class="docutils literal notranslate"><span class="pre">py_cea.so</span></code> or some variation thereof.</p>
-<p>The source code <code class="docutils literal notranslate"><span class="pre">py_cea.f</span></code> is in the install directory of <code class="docutils literal notranslate"><span class="pre">rocketcea</span></code> along with a FORTRAN
-include file called <code class="docutils literal notranslate"><span class="pre">py_cea.inc</span></code>.</p>
-</div>
-<div class="section" id="linux-importerror">
-<h2>Linux ImportError:<a class="headerlink" href="#linux-importerror" title="Permalink to this headline">¶</a></h2>
-<p>On Linux, the error message <code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">Libgfortran.so.3:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span></code> indicates
-that the gfortran libraries were not found.</p>
-<p>Begin by installing gfortran:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
-</pre></div>
-</div>
-<p>Rerun the above test with the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">basic_cea</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-<p>If you get the ImportError again, try installing the same version of Libgfortran
-(Libgfortran.so.3 in the above error message.):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libgfortran3</span>
-</pre></div>
-</div>
-<p>The basic_cea.py file should be working now.</p>
-</div>
-<div class="section" id="windows-dll-load-failed">
-<h2>Windows DLL load failed:<a class="headerlink" href="#windows-dll-load-failed" title="Permalink to this headline">¶</a></h2>
-<p>On Windows, the error message <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code> indicates
-that the MinGW gfortran libraries were not found.</p>
-<p>On Windows the procedure is much more involved than on Linux. You will need to download MinGW gfortran,
-recompile the NASA CEA code, and place the resulting executable library into the RocketCEA site-packages.</p>
-<div class="section" id="install-mingw">
-<h3>Install MinGW<a class="headerlink" href="#install-mingw" title="Permalink to this headline">¶</a></h3>
-<p>Go to the site <a class="reference external" href="https://sourceforge.net/projects/mingw-w64/">SourceForge MinGW-w64 for 32 and 64 bit Windows</a>.
-and download MinGW. At the time of this writing, the downloaded file is <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.
-Run mingw-w64-install.exe.</p>
-<a class="reference internal image-reference" href="_images/mingw_welcome.jpg"><img alt="_images/mingw_welcome.jpg" src="_images/mingw_welcome.jpg" style="width: 60%;" /></a>
-<p>After clicking <code class="docutils literal notranslate"><span class="pre">Next</span></code>, the settings screen will appear.</p>
-<p>For 64 bit compilation, the settings that worked for me are shown below.</p>
-<a class="reference internal image-reference" href="_images/mingw64_install.jpg"><img alt="_images/mingw64_install.jpg" src="_images/mingw64_install.jpg" style="width: 60%;" /></a>
-<p>For 32 bit compilation, these were my settings.</p>
-<a class="reference internal image-reference" href="_images/mingw32_install.jpg"><img alt="_images/mingw32_install.jpg" src="_images/mingw32_install.jpg" style="width: 60%;" /></a>
-<p>A location for the MinGW install then needs to be selected. The default location is in
-C:\Program Files (x86)\mingw-w64\... etc.  However I recommend a simpler path like C:\MinGW
-so that some of the later steps will be easier.</p>
-<a class="reference internal image-reference" href="_images/mingw_folder_select.jpg"><img alt="_images/mingw_folder_select.jpg" src="_images/mingw_folder_select.jpg" style="width: 60%;" /></a>
-<p>After several minutes of an <code class="docutils literal notranslate"><span class="pre">Installing</span> <span class="pre">Files</span></code> you should arrive at a successful finish screen.</p>
-<a class="reference internal image-reference" href="_images/mingw_installing_files.jpg"><img alt="_images/mingw_installing_files.jpg" src="_images/mingw_installing_files.jpg" style="width: 45%;" /></a>
-<a class="reference internal image-reference" href="_images/mingw_finished.jpg"><img alt="_images/mingw_finished.jpg" src="_images/mingw_finished.jpg" style="width: 45%;" /></a>
-<p>When both 32 and 64 bit compilers are installed, and if you selected <cite>C:\MinGW</cite> as your install directory.
-You should have a <cite>C:\MinGW</cite> directory that looks like the one below.</p>
-<a class="reference internal image-reference" href="_images/MinGW_folder.jpg"><img alt="_images/MinGW_folder.jpg" src="_images/MinGW_folder.jpg" style="width: 40%;" /></a>
-</div>
-<div class="section" id="recompile-rocketcea">
-<h3>Recompile RocketCEA<a class="headerlink" href="#recompile-rocketcea" title="Permalink to this headline">¶</a></h3>
-<p>We are now ready to recompile RocketCEA.</p>
-<p>I recommend setting up a temporary directory for this, something like C:\temp.</p>
-<p>You will need to locate RocketCEA in the python site-packages (assuming your pip install succeeded).
-One way to do that is at the command prompt. Call up the python interpreter, import rocketcea and then
-print the value of rocketcea.__file__.</p>
-<img alt="_images/find_rocketcea.jpg" src="_images/find_rocketcea.jpg" />
-<div class="section" id="copy-fortran-source">
-<h4>Copy FORTRAN Source<a class="headerlink" href="#copy-fortran-source" title="Permalink to this headline">¶</a></h4>
-<p>Using the Windows file explorer, go to the RocketCEA site-packages subdirectory (discovered above)
-and copy the two files shown below to C:\temp:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">py_cea</span><span class="o">.</span><span class="n">f</span>
-<span class="n">py_cea</span><span class="o">.</span><span class="n">inc</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="make-batch-file">
-<h4>Make Batch File<a class="headerlink" href="#make-batch-file" title="Permalink to this headline">¶</a></h4>
-<p>In addition to those two source files, we need to create a Windows BAT file.</p>
-<p>Copy the following lines and paste them into a text editor.</p>
-<p>Save them to a file named <code class="docutils literal notranslate"><span class="pre">compile_rocketcea.bat</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">compile_rocketcea.bat</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rem</span> <span class="nb">set</span> <span class="n">python</span> <span class="n">path</span> <span class="n">variable</span>
-<span class="nb">set</span> <span class="n">MYPYTHONPATH</span><span class="o">=</span><span class="n">D</span><span class="p">:</span>\<span class="n">Python27</span>
-
-<span class="n">rem</span> <span class="nb">set</span> <span class="n">name</span> <span class="n">of</span> <span class="n">FORTRAN</span> <span class="n">program</span> <span class="p">(</span><span class="n">also</span> <span class="kn">import</span> <span class="nn">name</span> <span class="n">of</span> <span class="n">compiled</span> <span class="n">module</span><span class="p">)</span>
-<span class="nb">set</span> <span class="n">MYPROGRAMNAME</span><span class="o">=</span><span class="n">py_cea</span>
-
-<span class="n">rem</span> <span class="n">Make</span> <span class="n">PATH</span> <span class="k">as</span> <span class="n">simple</span> <span class="k">as</span> <span class="n">possible</span>
-<span class="nb">set</span> <span class="n">PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="nb">bin</span><span class="p">;</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span><span class="o">%</span><span class="n">MYPYTHONPATH</span><span class="o">%</span><span class="p">;</span><span class="o">%</span><span class="n">MYPYTHONPATH</span><span class="o">%</span>\<span class="n">Scripts</span>
-
-<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">numpy</span><span class="o">.</span><span class="n">f2py</span> <span class="o">-</span><span class="n">m</span> <span class="o">%</span><span class="n">MYPROGRAMNAME</span><span class="o">%</span> <span class="o">-</span><span class="n">c</span> <span class="o">%</span><span class="n">MYPROGRAMNAME</span><span class="o">%.</span><span class="n">f</span>  <span class="o">--</span><span class="n">opt</span><span class="o">=</span><span class="s2">&quot;-shared -static&quot;</span> <span class="o">--</span><span class="n">compiler</span><span class="o">=</span><span class="n">mingw32</span>
-
-<span class="n">rem</span> <span class="n">should</span> <span class="n">now</span> <span class="n">have</span> <span class="n">pyd</span> <span class="n">file</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You will need to change the MYPYTHONPATH value to match your python install.</p>
-<p>The batch file shown is for 32 bit compilation.</p>
-<p class="last">For 64 bit compilation, change mingw32 to mingw64 everywhere it occurs.</p>
-</div>
-<p>When you have done all of the above, you are ready to compile RocketCEA.</p>
-</div>
-</div>
-<div class="section" id="cross-your-fingers">
-<h3>Cross Your Fingers<a class="headerlink" href="#cross-your-fingers" title="Permalink to this headline">¶</a></h3>
-<p>Using a command prompt, navigate to C:\temp and enter the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compile_rocketcea</span><span class="o">.</span><span class="n">bat</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>The above BAT file will change your system PATH in this command prompt <strong>ONLY</strong></p>
-<p class="last">Open a new command prompt if you need to execute more system-wide commands.</p>
-</div>
-<p>With any luck, the long series of output will end as shown below</p>
-<img alt="_images/compile_success.jpg" src="_images/compile_success.jpg" />
-<p>The resulting <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file should now be in C:\temp as shown below.
-In this case it is <code class="docutils literal notranslate"><span class="pre">py_cea.pyd</span></code> (The name resulting for <strong>BOTH</strong> 32 and 64 bit Python 2.7</p>
-<p>64 bit Python 3.7 would create <code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code></p>
-<img alt="_images/post_compile_dir.jpg" src="_images/post_compile_dir.jpg" />
-<p>A possible compile error is
-<code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'&gt;='</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">between</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">'NoneType'</span> <span class="pre">and</span> <span class="pre">'str'</span></code></p>
-<img alt="_images/bad_mingw_path.jpg" src="_images/bad_mingw_path.jpg" />
-<p>If you have this error, go to <a class="reference internal" href="#mingw-path-error">MinGW PATH Error</a>.</p>
-</div>
-<div class="section" id="move-pyd-into-rocketcea">
-<h3>Move pyd Into RocketCEA<a class="headerlink" href="#move-pyd-into-rocketcea" title="Permalink to this headline">¶</a></h3>
-<p>Now that all the hard work is done, the final step is to move the resulting <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file
-into the RocketCEA site-packages.</p>
-<p>Use Windows file explorer to right click on the <code class="docutils literal notranslate"><span class="pre">pyd</span></code> file
-(For Example: <code class="docutils literal notranslate"><span class="pre">py_cea.pyd</span></code> or <code class="docutils literal notranslate"><span class="pre">py_cea.cp37-win_amd64.pyd</span></code>)
-and select <code class="docutils literal notranslate"><span class="pre">Copy</span></code>.</p>
-<p>Navigate to the path that you located by printing the rocketcea.__file__ parameter
-and paste the file into the rocketcea subdirectory. <strong>(EXCEPT for Python 2.7 64 bit,  SEE BELOW)</strong></p>
-<p>You will likely be prompted to replace or skip the operation.  Choose <code class="docutils literal notranslate"><span class="pre">Replace</span></code>.</p>
-<img alt="_images/replace_old_pyd.jpg" src="_images/replace_old_pyd.jpg" />
-<p>That subdirectory will now look something like the following.</p>
-<img alt="_images/destination_of_pyd.jpg" src="_images/destination_of_pyd.jpg" />
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Python 2.7 64 bit should be pasted below rocketcea at rocketcea\py27_64</p>
-</div>
-<img alt="_images/py27_64bit_location.jpg" src="_images/py27_64bit_location.jpg" />
-</div>
-<div class="section" id="re-test-rocketcea">
-<h3>Re-Test RocketCEA<a class="headerlink" href="#re-test-rocketcea" title="Permalink to this headline">¶</a></h3>
-<p>Go back to <a class="reference internal" href="#test-the-install">Test The Install</a> and run the test.</p>
-</div>
-<div class="section" id="mingw-path-error">
-<h3>MinGW PATH Error<a class="headerlink" href="#mingw-path-error" title="Permalink to this headline">¶</a></h3>
-<p>A possible compile error is
-<code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'&gt;='</span> <span class="pre">not</span> <span class="pre">supported</span> <span class="pre">between</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">'NoneType'</span> <span class="pre">and</span> <span class="pre">'str'</span></code></p>
-<img alt="_images/bad_mingw_path.jpg" src="_images/bad_mingw_path.jpg" />
-<p>This occurs when the various path entries to the MinGW libraries in the batch file is incorrect, OR,
-when the PATH to MinGW in the environment variables is wrong or not entered.</p>
-<p>Go back and verify the PATH environment variable in <a class="reference internal" href="#make-batch-file">Make Batch File</a>.</p>
-<p>You should now be ready for another compile attempt at <a class="reference internal" href="#cross-your-fingers">Cross Your Fingers</a>.</p>
-</div>
-</div>
-<div class="section" id="windows-issues">
-<h2>Windows Issues<a class="headerlink" href="#windows-issues" title="Permalink to this headline">¶</a></h2>
-<p>Commands like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
-<span class="n">pip3</span><span class="o">.</span><span class="mi">6</span> <span class="n">install</span> <span class="n">rocketcea</span>
-</pre></div>
-</div>
-<p>should just work on Windows.</p>
-<p>So far, the main issue I've had on a Windows platform is when python is installed in a directory
-with a space in the name.  Any directories like <code class="docutils literal notranslate"><span class="pre">C:/Python27</span></code> or <code class="docutils literal notranslate"><span class="pre">C:/Python37</span></code> should work fine.</p>
-<p>Another issue is with python 3.7 64 bit.
-At the time of this writing, matplotlib was not properly installing.
-I made matplotlib a dependency of RocketCEA and I assume that python 3.7 will have working support for
-matplotlib soon.</p>
-</div>
-<div class="section" id="ubuntu-linux-issues">
-<h2>Ubuntu Linux Issues<a class="headerlink" href="#ubuntu-linux-issues" title="Permalink to this headline">¶</a></h2>
-<p>Commands like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
-<span class="n">pip3</span> <span class="n">install</span> <span class="n">rocketcea</span>
-</pre></div>
-</div>
-<p>may well fail with any number of messages.</p>
-<p>The most common problems can be solved by first installing dependencies like the following.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">matplotlib</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">tkinter</span>
-
-<span class="n">OR</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">matplotlib</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">tkinter</span>
-
-<span class="n">AND</span> <span class="n">PERHAPS</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libfreetype6</span><span class="o">-</span><span class="n">dev</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libgfortran3</span><span class="p">:</span><span class="n">i386</span>
-<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">cairocffi</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">gi</span><span class="o">-</span><span class="n">cairo</span>
-</pre></div>
-</div>
-</div>
 </div>
 
 
@@ -472,17 +286,17 @@ matplotlib soon.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="std_examples.html" title="Standard Examples"
+          <a href="installgfortran.html" title="Install gfortran"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools."
+          <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

@@ -5,4 +5,7 @@ cd ..
 
 xcopy /S .\docs\_build\html .\rocketcea\sphinx_html /y
 
-python setup.py sdist bdist_wheel upload
+python setup.py sdist
+
+rem only upload source to PyPI
+twine upload --skip-existing dist/*.gz

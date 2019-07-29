@@ -1,5 +1,11 @@
 include *.rst
 include *.txt
+include *.f
+include *.inc
+include *.inp
+include *.out
+include thermo.*
+include trans.*
 include setup.cfg
 include .travis.yml tox.ini
 

@@ -405,7 +405,7 @@ class xlChart:
 
     def focusSheet(self, N):
         '''use 1-based index to Sheets'''
-        print 'focusing on sheet #',N
+        print( 'focusing on sheet #',N )
         self.xlSheet = self.sheetList[N-1]
         #self.chart = self.chartList[N-1]
         #self.nColumns = self.chartNColumns[N-1]

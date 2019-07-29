@@ -1,4 +1,4 @@
-"""A setuptools based setup module for RocketCEA
+"""A numpy.distutils based setup module for RocketCEA
 
 See:
 http://rocketcea.readthedocs.org/en/latest/
@@ -15,11 +15,14 @@ This will execute the setup.py file and insure that its pip-specific commands ar
 """
 
 
+# Use numpy to build the f2py fortran extension
+# --------------------------------    
+import setuptools
+from numpy.distutils.core import Extension, setup
+
+
 # Always prefer setuptools over distutils
-try:
-    from setuptools import setup, find_packages
-except ImportError:
-    from distutils.core import setup, find_packages
+from setuptools import  find_packages
 
 # To use a consistent encoding
 from codecs import open
@@ -30,6 +33,10 @@ here = path.abspath(path.dirname(__file__))
 # Get the long description from the relevant file
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
+    
+    # twine currently fails long description with "Unexpected section title or transition"
+    # (seems to be related to line endings)
+    long_description = long_description.replace('\n','\r')
 
 # Place install_requires into the text file "requirements.txt"
 with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f2:
@@ -39,12 +46,17 @@ target_file = path.join( here, 'rocketcea','_version.py')
 exec( open( target_file ).read() )  # creates local __version__ variable
 
 
+ext_py_cea = Extension(name = 'rocketcea.py_cea',
+             sources = ['rocketcea/py_cea.f'])
+
 setup(
     name='rocketcea',
     version = __version__,  # METADATA_RESET:    version = '<<version>>',
+    ext_modules = [ext_py_cea],
 
     description = 'RocketCEA wraps the FORTRAN CEA code and provides some useful tools.',
     long_description = long_description,
+    long_description_content_type='text/x-rst',
 
     # The project's main homepage.
     url='http://rocketcea.readthedocs.org/en/latest/',
@@ -86,7 +98,8 @@ setup(
     keywords = 'rocketcea setuptools development',
 
     packages = find_packages(exclude=['.tox', '.hg', 'docs']),
-    package_data = {'rocketcea':['examples/*.*']},
+    package_data = {'rocketcea':['examples/*.*', 'f.inp', 'f.out', 'thermo.*', 
+                    'trans.*', 'py_cea.f', 'py_cea.inc']},
     include_package_data=True,
 
     # List run-time dependencies here.  These will be installed by pip when
@@ -117,3 +130,6 @@ setup(
         ],
     },
 )
+
+print('\n\nFor a quick test of RocketCEA execute the command:\n\n' +\
+      '''python -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"''')

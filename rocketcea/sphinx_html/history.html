@@ -4,15 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>History &#8212; RocketCEA 1.0.2 documentation</title>
+    <meta charset="utf-8" />
+    <title>History &#8212; RocketCEA 1.0.4 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +36,7 @@
         <li class="right" >
           <a href="authors.html" title="Authors"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -43,9 +44,10 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
@@ -78,13 +80,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -102,14 +102,11 @@
 <div class="section" id="github-log">
 <h2>GitHub Log<a class="headerlink" href="#github-log" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>2005</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>(by: Charlie Taylor)</dt>
-<dd><ul class="first last">
-<li>Modified <strong>CEA2.f</strong> into <strong>py_cea.f</strong> so that
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> could build a python module</li>
+<li><dl class="simple">
+<dt>July 29, 2019</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>Major Overhaul of f2py usage</p></li>
 </ul>
 </dd>
 </dl>
@@ -118,13 +115,11 @@
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>2005 - 2015</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>(by: Charlie Taylor)</dt>
-<dd><ul class="first last">
-<li>Added enhancements to CEA interface.</li>
+<li><dl class="simple">
+<dt>July 6, 2019</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft and stepbot)</dt><dd><ul>
+<li><p>Begin to support MacOS (Darwin)</p></li>
 </ul>
 </dd>
 </dl>
@@ -133,13 +128,11 @@
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>May 13, 2018</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>(by: Charlie Taylor)</dt>
-<dd><ul class="first last">
-<li>First Created RocketCEA with PyHatch</li>
+<li><dl class="simple">
+<dt>Mar 26, 2019</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>Added Windows install fix info to docs</p></li>
 </ul>
 </dd>
 </dl>
@@ -148,13 +141,145 @@
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>May 29, 2018</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>(by: Charlie Taylor)</dt>
-<dd><ul class="first last">
-<li>Verified operation on multiple platforms.</li>
+<li><dl class="simple">
+<dt>Oct 22, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>added help for bad MinGW path error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Oct 21, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>full instructions to recompile with gfortran</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Oct 20, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>Identified MinGW library issue in docs</p></li>
+<li><p>Updated quickstart to show warning about recent python requiring user to run as administrator</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Aug 12, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>modify .gitattributes to make project show as python</p></li>
+<li><p>added .gitattributes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>May 30, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: sonofeft)</dt><dd><ul>
+<li><p>Reinstated Travis CI</p></li>
+<li><dl class="simple">
+<dt>matplotlib fix for Travis CI</dt><dd><p>added: matplotlib.use('Agg')</p>
+</dd>
+</dl>
+</li>
+<li><p>try apt packages on travis ci</p></li>
+<li><p>try conda on travis ci</p></li>
+<li><p>try some pip fixes to travis ci</p></li>
+<li><p>try apt-get in travis build</p></li>
+<li><dl class="simple">
+<dt>Removed Travis-CI</dt><dd><p>Need to solve missing libgfortran.so.3 import error on Travis CI</p>
+</dd>
+</dl>
+</li>
+<li><p>Developed code first commit</p></li>
+<li><dl class="simple">
+<dt>Revert &quot;Initial commit&quot;</dt><dd><p>This reverts commit e06031f0a5c0244d944fc3b1f4a3ed987579a2a7.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>(by: Charlie Taylor)</dt><dd><ul>
+<li><p>Initial commit</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>May 29, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: Charlie Taylor)</dt><dd><ul>
+<li><p>Verified operation on multiple platforms.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>May 13, 2018</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: Charlie Taylor)</dt><dd><ul>
+<li><p>First Created RocketCEA with PyHatch</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>2005 - 2015</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: Charlie Taylor)</dt><dd><ul>
+<li><p>Added enhancements to CEA interface.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>2005</dt><dd><ul>
+<li><dl class="simple">
+<dt>(by: Charlie Taylor)</dt><dd><ul>
+<li><p>Modified <strong>CEA2.f</strong> into <strong>py_cea.f</strong> so that
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> could build a python module</p></li>
 </ul>
 </dd>
 </dl>
@@ -191,12 +316,12 @@
         <li class="right" >
           <a href="authors.html" title="Authors"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

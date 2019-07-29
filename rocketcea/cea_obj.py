@@ -48,42 +48,7 @@ from rocketcea.blends import newFuelBlend, newOxBlend, renamePropIfNewHfOrTrefIn
 from rocketcea.blends import isAPeroxide_Blend, isAnMMH_N2H4_Blend, isMON_Ox_Blend, isFLOX_Ox_Blend, is_HYD_Ammonia_Blend
 from rocketcea.blends import addPeroxideBlend, addMON_Blend, addFLOX_Blend, addMMH_N2H4_Blend, addHYD_AmmoniaBlend
 
-# ========= WINDOWS ===============
-if platform.system() == 'Windows':
-    if sys.version_info[0] < 3: # assume 2.7
-        if sys.maxsize > 2147483647:
-            # py27 64bit
-            import rocketcea.py27_64.py_cea as py_cea # should be py_cea.pyd for 64 bit
-        else:
-            # py27 32bit
-            import rocketcea.py_cea as py_cea # should be py_cea.pyd for 32 bit
-    else: # py3x both 32 and 64 bit
-        import rocketcea.py_cea as py_cea # can be py_cea.cp35-win32.pyd, py_cea.cp36-win32.pyd, etc.
-# ========== MACOS =========
-elif platform.system() == 'Darwin':
-    if sys.version_info[0] < 3: # assume 2.7
-        if sys.maxsize > 2147483647:
-            # py27 64bit
-            import rocketcea.darwin.py27_64.py_cea as py_cea # should be py_cea.so for 64 bit
-        else:
-            # py27 32bit
-            import rocketcea.darwin.py27_32.py_cea as py_cea # should be py_cea.so for 32 bit
-    else: # py3x both 32 and 64 bit
-        import rocketcea.darwin.py_cea as py_cea # can be py_cea.cpython-37m-darwin.so, etc.
-# ========== LINUX =========
-elif platform.system() == 'Linux':
-    if sys.version_info[0] < 3: # assume 2.7
-        if sys.maxsize > 2147483647:
-            # py27 64 bit
-            import rocketcea.py27_64.py_cea as py_cea # should be py_cea.pyd for 64 bit
-        else:
-            # py27 32 bit
-            import rocketcea.py_cea as py_cea # should be py_cea.so for 32 bit
-    else: # py3x both 32 and 64 bit
-        import rocketcea.py_cea as py_cea # can be py_cea.cpython-35m-i386-linux-gnu.so, etc.
-else:
-    print('ERROR... unknown operating system, unable to select py_cea binary')
-
+import rocketcea.py_cea as py_cea
 
 from rocketcea.separated_Cf import ambientCf
 #
@@ -337,6 +302,7 @@ class CEA_Obj(object):
         #sp = dataPath.split('\\')
         #dataPath = '/'.join( sp ) + '/ ' # be sure to leave extra space
         self.pathPrefix = here + os.sep + ' ' # be sure to leave extra space  # dataPath
+        #self.pathPrefix = self.pathPrefix.replace('\\','/')
         #print( "self.pathPrefix",self.pathPrefix )
 
         # make a cache object for this propellant combo if it does not already exist

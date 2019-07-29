@@ -15,6 +15,7 @@ Contents:
    :maxdepth: 2
 
    quickstart
+   installgfortran
    std_examples
    simple_examples
    engine_mr

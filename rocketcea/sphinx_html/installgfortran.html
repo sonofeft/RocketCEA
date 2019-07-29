@@ -1,0 +1,299 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Install gfortran &#8212; RocketCEA 1.0.4 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Standard Examples" href="std_examples.html" />
+    <link rel="prev" title="QuickStart" href="quickstart.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="std_examples.html" title="Standard Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="quickstart.html" title="QuickStart"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install gfortran</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#debian-ubuntu">Debian/Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos-rhel">CentOS/RHEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opensuse">OpenSUSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos-osx">MacOS/OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-10">Windows 10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows-path">Windows PATH</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quickstart.html"
+                        title="previous chapter">QuickStart</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="std_examples.html"
+                        title="next chapter">Standard Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installgfortran.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install-gfortran">
+<span id="link-installgfortran"></span><h1>Install gfortran<a class="headerlink" href="#install-gfortran" title="Permalink to this headline">¶</a></h1>
+<p>To compile and run RocketCEA, users need to install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> .</p>
+<p>Each operating system has its own approach.</p>
+<div class="section" id="debian-ubuntu">
+<h2>Debian/Ubuntu<a class="headerlink" href="#debian-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>The one-liner:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
+</pre></div>
+</div>
+<p>installs <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> on
+<a class="reference external" href="https://www.debian.org/">Debian</a>/<a class="reference external" href="https://ubuntu.com/">Ubuntu</a> systems.</p>
+</div>
+<div class="section" id="centos-rhel">
+<h2>CentOS/RHEL<a class="headerlink" href="#centos-rhel" title="Permalink to this headline">¶</a></h2>
+<p>From my testing on <a class="reference external" href="https://www.centos.org/">CentOS</a>, <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>
+the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="n">gfortran</span>
+</pre></div>
+</div>
+<p>will install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>
+(You may need to be logged in as root.)</p>
+<p>In order to link with python and use pip, you will also need:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+
+<span class="n">OR</span>
+
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The error message
+&quot;not finding Python.h during compile.&quot;
+indicates that the python devel library is required.</p>
+</div>
+<p>Presumably <a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">RHEL</a>
+will be similar.</p>
+</div>
+<div class="section" id="opensuse">
+<h2>OpenSUSE<a class="headerlink" href="#opensuse" title="Permalink to this headline">¶</a></h2>
+<p>To install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> on
+<a class="reference external" href="https://www.opensuse.org/">OpenSUSE</a> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="n">install</span> <span class="n">gcc</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">gcc</span><span class="o">-</span><span class="n">fortran</span>
+</pre></div>
+</div>
+<p>Similar to <a class="reference external" href="https://www.centos.org/">CentOS</a> ,
+<a class="reference external" href="https://www.opensuse.org/">OpenSUSE</a> will need the following
+in order to link the compiled FORTRAN to python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span>   <span class="c1"># for python2.x installs</span>
+<span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span>  <span class="c1"># for python3.x installs</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The error message
+&quot;not finding Python.h during compile.&quot;
+indicates that the python devel library is required.</p>
+</div>
+</div>
+<div class="section" id="macos-osx">
+<h2>MacOS/OSX<a class="headerlink" href="#macos-osx" title="Permalink to this headline">¶</a></h2>
+<p>I had trouble using <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> with
+python 2.7 on <a class="reference external" href="https://en.wikipedia.org/wiki/MacOS_Sierra">MacOS Sierra</a>,
+however, python 3.7 seemed to work just fine with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
+<span class="n">brew</span> <span class="n">install</span> <span class="n">python3</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">genericf2py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-10">
+<h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Windows users MUST put MinGW into environment PATH variable.
+(see: <a class="reference internal" href="#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
+<p>C:MinGWmingw64bin  OR  C:MinGWmingw32bin</p>
+<p>and</p>
+<p>C:MinGWmingw64lib  OR  C:MinGWmingw32lib</p>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Windows_10">Windows 10</a> is the most complicated platform
+on which to set up <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>.</p>
+<p>Assuming that your user may need either the 32 or 64 bit compiler, I recommend using the
+<a class="reference external" href="https://sourceforge.net/projects/mingw-w64/">SourceForge MinGW-w64 for 32 &amp; 64 bit Windows</a>.</p>
+<p>Go to the site <a class="reference external" href="https://sourceforge.net/projects/mingw-w64/">SourceForge MinGW-w64 for 32 &amp; 64 bit Windows</a>.
+and download MinGW. At the time of this writing, the downloaded file is <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.
+Run <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.</p>
+<a class="reference internal image-reference" href="_images/mingw_welcome.jpg"><img alt="_images/mingw_welcome.jpg" src="_images/mingw_welcome.jpg" style="width: 60%;" /></a>
+<p>After clicking <code class="docutils literal notranslate"><span class="pre">Next</span></code>, the settings screen will appear.</p>
+<p>For 64 bit compilation, the settings that worked for me are shown below.</p>
+<a class="reference internal image-reference" href="_images/mingw64_install.jpg"><img alt="_images/mingw64_install.jpg" src="_images/mingw64_install.jpg" style="width: 60%;" /></a>
+<p>For 32 bit compilation, these were my settings.</p>
+<a class="reference internal image-reference" href="_images/mingw32_install.jpg"><img alt="_images/mingw32_install.jpg" src="_images/mingw32_install.jpg" style="width: 60%;" /></a>
+<p>A location for the MinGW install then needs to be selected. The default location is in
+C:\Program Files (x86)\mingw-w64\... etc.  However I recommend a simpler path like <strong>C:\MinGW</strong>
+so that, later on, setting the user's environment PATH will be easier.</p>
+<a class="reference internal image-reference" href="_images/mingw_folder_select.jpg"><img alt="_images/mingw_folder_select.jpg" src="_images/mingw_folder_select.jpg" style="width: 60%;" /></a>
+<p>After several minutes of an <code class="docutils literal notranslate"><span class="pre">Installing</span> <span class="pre">Files</span></code> you should arrive at a successful finish screen.</p>
+<a class="reference internal image-reference" href="_images/mingw_installing_files.jpg"><img alt="_images/mingw_installing_files.jpg" src="_images/mingw_installing_files.jpg" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/mingw_finished.jpg"><img alt="_images/mingw_finished.jpg" src="_images/mingw_finished.jpg" style="width: 45%;" /></a>
+<p>When both 32 and 64 bit compilers are installed, and if you selected <strong>C:\MinGW</strong> as your install directory.
+You should have a <strong>C:\MinGW</strong> directory that looks like the one below.</p>
+<a class="reference internal image-reference" href="_images/MinGW_folder.jpg"><img alt="_images/MinGW_folder.jpg" src="_images/MinGW_folder.jpg" style="width: 40%;" /></a>
+<div class="section" id="windows-path">
+<span id="link-windowspath"></span><h3>Windows PATH<a class="headerlink" href="#windows-path" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Windows users MUST put MinGW into environment PATH variable.</p>
+<p>C:MinGWmingw64bin  OR  C:MinGWmingw32bin</p>
+<p>and</p>
+<p>C:MinGWmingw64lib  OR  C:MinGWmingw32lib</p>
+</div>
+<p>Having installed <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> ,
+there are some options as to when and how to change the system's PATH environment variable.</p>
+<p>For 32 bit compilation, the following must be in the PATH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="nb">bin</span><span class="p">;</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>for 64 bit compilation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw64</span>\<span class="nb">bin</span><span class="p">;</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw64</span>\<span class="n">lib</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>These can be added as-needed, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="nb">bin</span><span class="p">;</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span><span class="o">%</span><span class="n">PATH</span><span class="o">%</span>
+  <span class="n">OR</span>
+<span class="nb">set</span> <span class="n">PATH</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw64</span>\<span class="nb">bin</span><span class="p">;</span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw64</span>\<span class="n">lib</span><span class="p">;</span><span class="o">%</span><span class="n">PATH</span><span class="o">%</span>
+</pre></div>
+</div>
+<p>They can also be added by editing the system Environment Variables in the Control Panel.</p>
+<p>Search for &quot;environment variables&quot; in the Windows 10 Search box and click on &quot;Control Panel&quot;</p>
+<p>Once there, select &quot;Environment Variables...&quot;.</p>
+<a class="reference internal image-reference" href="_images/search_env_vars_lhs.jpg"><img alt="_images/search_env_vars_lhs.jpg" src="_images/search_env_vars_lhs.jpg" style="width: 40%;" /></a>
+<a class="reference internal image-reference" href="_images/control_panel.jpg"><img alt="_images/control_panel.jpg" src="_images/control_panel.jpg" style="width: 55%;" /></a>
+<p>The &quot;Environment Variables...&quot; Button will result in the screen below where either the
+System or User Variables can be edited.</p>
+<img alt="_images/path_env_var.jpg" src="_images/path_env_var.jpg" />
+<p>Add the <strong>C:\MinGW</strong> path for <strong>Either</strong> the 32 or 64 bit compiler.</p>
+<img alt="_images/new_env_var.jpg" src="_images/new_env_var.jpg" />
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Windows users MUST put MinGW into environment PATH variable.
+(see: <a class="reference internal" href="#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
+<p>C:MinGWmingw64bin  OR  C:MinGWmingw32bin</p>
+<p>and</p>
+<p>C:MinGWmingw64lib  OR  C:MinGWmingw32lib</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="std_examples.html" title="Standard Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="quickstart.html" title="QuickStart"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

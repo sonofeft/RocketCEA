@@ -99,7 +99,7 @@ c///      print *,'myfile=','"'//myfile//'"'
       
 C///      WRITE (*,99001)
 c///      READ (*,99002) prefix
-c///      prefix = 'c:\\inetpub\\scripts\\pyoneer2\\f '
+
       ln = INDEX(prefix,' ') - 1
       ln2 = INDEX(myfile,' ') - 1
       ld  = INDEX(myfile,'.') - 1
