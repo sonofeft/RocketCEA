@@ -1,4 +1,4 @@
-________tk_nosy UNITTEST RUN# 20________
+________tk_nosy UNITTEST RUN# 1_________
 
 {Item #1} test__main__, 
 FLOX80
@@ -22,31 +22,31 @@ CH4_m19028.6_536
 
 {Item #4} test__main__, 
 N2O4 / MMH    at Pc=1000.0, MR=1.000, eps=30.00...
-Isp =  300.74267615171067
-Cstar =  1565.1337455716427
-Tcomb =  3894.4668437497166
+Isp =  300.7426761517114
+Cstar =  1565.1337455713985
+Tcomb =  3894.46684374972
   at eps    = 30.0
 PcOvPe =  0.0
 epsAtPcOvPe= 40.0
-Mach Number= 4.3009076785691915
+Mach Number= 4.3009076785690565
 
-Chamber Sonic Vel = 3827.3738798835197
-Enthalpies = [-9.03681738e-12 -2.59309843e+02 -1.25117969e-01]
+Chamber Sonic Vel = 3827.3738798835257
+Enthalpies = [-1.75649557e-13 -2.59309843e+02             nan]
 Densities = [0.40079456 0.25047299 0.00310785]
 Cp        = [0.56505063 0.55042961 2.24875335]
 =======================================
 
  ARC311    at Pc=1000.0, MR=1.000, eps=30.00...
-Isp =  262.29521076231896
-Cstar =  1354.630878257623
-Tcomb =  3315.5078442006734
+Isp =  262.2952107623197
+Cstar =  1354.6308782575823
+Tcomb =  3315.5078442007034
   at eps    = 30.0
 PcOvPe =  0.0
 epsAtPcOvPe= 40.0
-Mach Number= 3.9276064348977715
+Mach Number= 3.9276064348977338
 
-Chamber Sonic Vel = 3380.546149884461
-Enthalpies = [-1.20394368e-11 -1.97963688e+02 -1.12340737e-01]
+Chamber Sonic Vel = 3380.546149884455
+Enthalpies = [-1.43710707e-11 -1.97963688e+02             nan]
 Densities = [0.52715747 0.33121356 0.0042633 ]
 Cp        = [0.4790369  0.51912748 3.02986274]
 =======================================
@@ -56,46 +56,46 @@ reac
  h,cal= 19467.0 t(k)=298.15
 
  N2O    at Pc=1000.0, MR=1.000, eps=30.00...
-Isp =  197.5530907626007
-Cstar =  424.62543109139636
+Isp =  197.55309076259832
+Cstar =  424.6254310914306
 Tcomb =  536.6700000118775
   at eps    = 30.0
 PcOvPe =  0.0
 epsAtPcOvPe= 40.0
-Mach Number= 4.8397102500108335
+Mach Number= 4.8397102500107145
 
-Chamber Sonic Vel = 1127.503758264016
-Enthalpies = [ 5.38038718e-14 -2.12008077e+01 -8.24076436e-02]
+Chamber Sonic Vel = 1127.503758264017
+Enthalpies = [ 5.38038720e-14 -2.12008077e+01 -8.24076436e-02]
 Densities = [5.09463061 3.22878887 0.00690394]
 Cp        = [0.23792361 0.23737434 0.23997598]
 =======================================
 
 LOX / H2    at Pc=1000.0, MR=1.000, eps=30.00...
-Isp =  372.46984960872527
-Cstar =  2408.72768762256
-Tcomb =  2308.172401427191
+Isp =  372.46984960878615
+Cstar =  2408.727687622576
+Tcomb =  2308.172401427185
   at eps    = 30.0
 PcOvPe =  0.0
 epsAtPcOvPe= 40.0
-Mach Number= 4.526836147583067
+Mach Number= 4.526836147589177
 
-Chamber Sonic Vel = 6167.195466526314
-Enthalpies = [-2.03696445e-12 -6.55106398e+02 -5.98721776e-01]
+Chamber Sonic Vel = 6167.195466526333
+Enthalpies = [ 2.54620556e-12 -6.55106398e+02             nan]
 Densities = [0.16276413 0.10239488 0.00195856]
 Cp        = [ 1.95897368  1.8998336  11.36325107]
 =======================================
 
 LOX / GH2_160    at Pc=1000.0, MR=1.000, eps=30.00...
-Isp =  399.6013023721951
-Cstar =  2408.72768762256
-Tcomb =  2308.172401427191
+Isp =  399.6013023721478
+Cstar =  2408.727687622576
+Tcomb =  2308.172401427185
   at eps    = 30.0
 PcOvPe =  0.0
 epsAtPcOvPe= 40.0
-Mach Number= 4.802488641011324
+Mach Number= 4.802488641009086
 
-Chamber Sonic Vel = 6167.195466526314
-Enthalpies = [-2.03696445e-12 -6.55106398e+02 -5.98721776e-01]
+Chamber Sonic Vel = 6167.195466526333
+Enthalpies = [ 2.54620556e-12 -6.55106398e+02             nan]
 Densities = [0.16276413 0.10239488 0.0016808 ]
 Cp        = [ 1.95897368  1.8998336  15.50658801]
 =======================================
@@ -146,7 +146,7 @@ ERROR... bad oxidizer name (MONxyz) in cea_obj.py
 NOTICE... making an output file
 
 {Item #10} test_get_Cstar, 
-6073.157251192369
+6073.157251192654
 
 {Item #11} test_get_Enthalpies, 
 [  164.75127481  -161.9403418  -2198.84467212]
@@ -204,7 +204,7 @@ ERROR unrecoverable in Goal.py
 Stoich MR = 2.496405605692339 for N2O4/MMH
 
 Min MR = 0   Tc at Min MR = 2145.1178929460416
-Max MR = 53.5632   Tc at Max MR = 1000.000013198075
+Max MR = 53.5632   Tc at Max MR = 1000.0000131980624
 
 {Item #20} test_run_cea_w_error_corr__main__, 
 Searching....................._NOT_FOUND_
@@ -212,31 +212,31 @@ Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
 Estimated CEA_Isp at Pc=100, MR=1, eps=40 ispODE374.303
 Searching....................._NOT_FOUND_
 Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
-     isp_ode = 374.3036176557629
+     isp_ode = 374.30361765576265
      isp_odf = 0.0
-     isp_est = 374.30264440377147
+     isp_est = 374.30264440377096
 isp_froz_est = 0.0
 
 Estimated CEA_Isp at Pc=100, MR=2, eps=40 ispODE424.36
-     isp_ode = 424.3597085736007
-     isp_odf = 424.2731751154906
-     isp_est = 424.35970775585383
-isp_froz_est = 424.27309382819965
+     isp_ode = 424.35970857360184
+     isp_odf = 424.2731751154918
+     isp_est = 424.3597077558516
+isp_froz_est = 424.27309382819874
 
 Estimated CEA_Isp at Pc=400, MR=1.24535, eps=32 ispODE388.159
 Estimated CEA_Isp at Pc=400, MR=1.24535, eps=32 ispODE388.159
-     isp_ode = 388.15930367555944
-     isp_odf = 386.45267086952447
-     isp_est = 388.15930367555944
-isp_froz_est = 386.4526708353623
+     isp_ode = 388.1593036754975
+     isp_odf = 386.4526708695236
+     isp_est = 388.1593036754975
+isp_froz_est = 386.4526708353625
 
 Estimated CEA_Isp at Pc=400, MR=2.5, eps=32 ispODE434.381
-     isp_ode = 434.3809063410128
-     isp_odf = 433.9885336812321
-     isp_est = 434.380898816195
-isp_froz_est = 433.9881713376461
+     isp_ode = 434.3809063410057
+     isp_odf = 433.98853368123196
+     isp_est = 434.38089881620033
+isp_froz_est = 433.98817133764663
 
-Run All: 448.190232998362 414.81259040131465 7210.171598261248 5787.742274248721
+Run All: 448.1902329983554 414.8125904013141 7210.171598261272 5787.742274248721
 
 {Item #21} test_separated_Cf__main__, 
 saving data to CSV file separated_Noz.csv

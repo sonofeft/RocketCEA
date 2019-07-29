@@ -1,6 +1,10 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[co]
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.so
 *$py.class
 
 # Distribution / packaging
@@ -96,3 +100,5 @@ ENV/
 
 # mypy
 .mypy_cache/
+rocketcea/tests/__pycache__/test_misc.cpython-37.pyc
+*.pyc
