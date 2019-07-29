@@ -13,6 +13,7 @@ install:
     - "ls /home/travis/build/sonofeft/RocketCEA"
     - "ls /home/travis/build/sonofeft/RocketCEA/rocketcea"
     - "find /home/travis/build/sonofeft/RocketCEA/ -name *.so"
+    - "cp /home/travis/build/sonofeft/RocketCEA/build/lib/rocketcea/*.so /home/travis/build/sonofeft/RocketCEA/rocketcea"
     
 script:
     - py.test
