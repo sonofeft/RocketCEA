@@ -18,7 +18,7 @@ fl2.printTPD() # Print state point at given T,P
 dT = fl2.T-fl.T
 dH = fl2.H-fl.H
 
-print '\nCH4 dT=%g degR, dH=%g BTU/lbm'%(dT, dH)
+print( '\nCH4 dT=%g degR, dH=%g BTU/lbm'%(dT, dH) )
 
 # ======== Build a new adjusted CEA card for the subcooled CH4 ==========
 CpAve = abs(dH / dT)

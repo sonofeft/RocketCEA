@@ -18,6 +18,7 @@ before_install:
     - "sudo apt-get install gfortran"
 
 install:
+    - "sudo pip install --upgrade pip"
     - "sudo pip install numpy"
     - "sudo pip install matplotlib==2.2.4"
     - "python setup.py build"
