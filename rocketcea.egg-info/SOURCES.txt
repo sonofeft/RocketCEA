@@ -23,11 +23,10 @@ rocketcea/excel_const.py
 rocketcea/f.inp
 rocketcea/f.out
 rocketcea/input_cards.py
+rocketcea/py_cea.cp37-win_amd64.pyd
 rocketcea/py_cea.f
 rocketcea/py_cea.inc
-rocketcea/py_cea.pyd
 rocketcea/py_cea.pyf
-rocketcea/py_cea.so
 rocketcea/separated_Cf.py
 rocketcea/separated_Noz.csv
 rocketcea/separated_Noz_cea.csv

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Functions &#8212; RocketCEA 1.0.4 documentation</title>
+    <title>RocketCEA Functions &#8212; RocketCEA 1.0.5 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.5 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -100,9 +100,349 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-rocketcea.blends">
-<span id="rocketcea-functions"></span><h1>RocketCEA Functions<a class="headerlink" href="#module-rocketcea.blends" title="Permalink to this headline">¶</a></h1>
-<p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
+  <div class="section" id="module-rocketcea.cea_obj">
+<span id="rocketcea-functions"></span><h1>RocketCEA Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h1>
+<p>RocketCEA wraps the NASA FORTRAN CEA code and provides some useful tools.</p>
+<p>RocketCEA makes direct calls to the FORTRAN CEA code in “rocket” mode to calculate
+Isp, Cstar, Tcham etc. and provides tools to help determine useful
+mixture ratio range, optimum MR and more.</p>
+<p>See the NASA CEA code at: <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/">https://www.grc.nasa.gov/WWW/CEAWeb/</a></p>
+<p>RocketCEA
+Copyright (C) 2005-2018  Applied Python</p>
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+<hr class="docutils" />
+<dl class="class">
+<dt id="rocketcea.cea_obj.CEA_Obj">
+<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp">
+<code class="sig-name descname">estimate_Ambient_Isp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">Pamb=14.7</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspAmb, mode)</span>
+<span class="c1">#: Use throat gam to run ideal separation calculations.</span>
+<span class="c1">#: mode is a string containing, UnderExpanded, OverExpanded, or Separated</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc">
+<code class="sig-name descname">getFrozen_IvacCstrTc</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the tuple (IspFrozen, Cstar, Tcomb).</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.getMRforER">
+<code class="sig-name descname">getMRforER</code><span class="sig-paren">(</span><em class="sig-param">ERphi=None</em>, <em class="sig-param">ERr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getMRforER" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the value of mixture ratio that applies to the input equivalence ratio.</span>
+<span class="c1">#: Can be ERr or ERphi (valence basis and mass basis respectively)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp">
+<code class="sig-name descname">get_Chamber_Cp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the heat capacity in the chamber.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Density">
+<code class="sig-name descname">get_Chamber_Density</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Density" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the density in the chamber.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_H">
+<code class="sig-name descname">get_Chamber_H</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_H" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the enthalpy in the chamber.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma">
+<code class="sig-name descname">get_Chamber_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the chamber</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel">
+<code class="sig-name descname">get_Chamber_SonicVel</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the sonic velocity in the chamber.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Cstar">
+<code class="sig-name descname">get_Cstar</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Cstar" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Cstar.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Densities">
+<code class="sig-name descname">get_Densities</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Densities" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of densities at the chamber, throat and exit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Enthalpies">
+<code class="sig-name descname">get_Enthalpies</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Enthalpies" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of enthalpies at the chamber, throat and exit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_HeatCapacities">
+<code class="sig-name descname">get_HeatCapacities</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_HeatCapacities" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacities at the chamber, throat and exit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Isp">
+<code class="sig-name descname">get_Isp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Isp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return IspVac.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc">
+<code class="sig-name descname">get_IvacCstrTc</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the tuple (IspVac, Cstar, Tcomb).</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam">
+<code class="sig-name descname">get_IvacCstrTc_ChmMwGam</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)</span>
+<span class="c1">#: mw and gam apply to chamber.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam">
+<code class="sig-name descname">get_IvacCstrTc_ThtMwGam</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)</span>
+<span class="c1">#: mw and gam apply to throat.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam">
+<code class="sig-name descname">get_IvacCstrTc_exitMwGam</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)</span>
+<span class="c1">#: mw and gam apply to nozzle exit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_MachNumber">
+<code class="sig-name descname">get_MachNumber</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_MachNumber" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return nozzle exit mach number.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_PcOvPe">
+<code class="sig-name descname">get_PcOvPe</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_PcOvPe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Pc / Pexit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_SonicVelocities">
+<code class="sig-name descname">get_SonicVelocities</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SonicVelocities" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of sonic velocities at the chamber, throat and exit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Tcomb">
+<code class="sig-name descname">get_Tcomb</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Tcomb" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Tcomb.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_Isp">
+<code class="sig-name descname">get_Throat_Isp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Isp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the IspVac for the throat.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma">
+<code class="sig-name descname">get_Throat_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the throat</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe">
+<code class="sig-name descname">get_Throat_PcOvPe</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Pc/Pexit at throat.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_description">
+<code class="sig-name descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string description of the propellant(s).  e.g. ‘LOX / MMH’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe">
+<code class="sig-name descname">get_eps_at_PcOvPe</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">PcOvPe=1000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Given a Pc/Pexit, return the Area Ratio that applies.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_eqratio">
+<code class="sig-name descname">get_eqratio</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_eqratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns BOTH ERr and ERphi (valence basis and mass basis respectively)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma">
+<code class="sig-name descname">get_exit_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the nozzle exit</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_full_cea_output">
+<code class="sig-name descname">get_full_cea_output</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_full_cea_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the full output file created by CEA. Return as a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.setupCards">
+<code class="sig-name descname">setupCards</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">ERphi=None</em>, <em class="sig-param">ERr=None</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.setupCards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up card deck and call CEA FORTRAN code.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: if PcOvPe has a value, use it instead of eps to run case</span>
+<span class="c1">#: ERphi = Equivalence ratios in terms of fuel-to-oxidant weight ratios.</span>
+<span class="c1">#: ERr = Chemical equivalence ratios in terms of valences.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.add_new_card">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_card</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em>, <em class="sig-param">propD</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_card" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Add or Replace a propellant.</span>
+<span class="c1">#: name = string name (e.g. oxName, fuelName or propName)</span>
+<span class="c1">#: card_str = a single multiline string containing CEA input card for new propellant</span>
+<span class="c1">#: propD = dictionary to receive new propellant (e.g. oxCards, fuelCards or propCards)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.add_new_fuel">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_fuel</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_fuel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Fuel Card</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.add_new_oxidizer">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_oxidizer</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_oxidizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Oxidizer Card</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.add_new_propellant">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_propellant</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_propellant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Propellant Card</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.getCacheDict">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">getCacheDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.getCacheDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns internal cache of previously called calculations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.print_py_cea_vars">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">print_py_cea_vars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.print_py_cea_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all the interface variables to the FORTRAN pyd file.
+Normally used for debugging or verifying FORTRAN internal values.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.set_py_cea_line">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">set_py_cea_line</code><span class="sig-paren">(</span><em class="sig-param">N</em>, <em class="sig-param">line</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.set_py_cea_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>make sure that trailing blanks are on added lines</p>
+</dd></dl>
+
+<span class="target" id="module-rocketcea.blends"></span><p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
 <dl class="function">
 <dt id="rocketcea.blends.addFLOX_Blend">
 <code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addFLOX_Blend</code><span class="sig-paren">(</span><em class="sig-param">oxName</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addFLOX_Blend" title="Permalink to this definition">¶</a></dt>
@@ -334,7 +674,7 @@ card in cardDict if necessary</p>
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

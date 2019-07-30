@@ -1,3 +1,8 @@
+*) OpenSuse requires Permission to open 
+/usr/lib64/python3.6/site-packages/rocketcea/temp.scr
+
+Move temp.scr to user %HOME% area
+
 
 *) Mixture Ratio Range calculations (show TDK influence)
 *) propellant MR recommendations: http://www.braeunig.us/space/propel.htm
