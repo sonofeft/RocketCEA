@@ -656,7 +656,7 @@ class CEA_Obj(object):
             _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
             return Cstar
 
-    def get_Tcomb(self, Pc=100.0, MR=1.0):
+    def get_Tcomb(self, Pc=100.0, MR=1.0, eps=2.0):
         """::
 
         #: return Tcomb.
@@ -677,11 +677,66 @@ class CEA_Obj(object):
             if Tcomb:
                 return Tcomb
 
-            self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+            self.setupCards( Pc=Pc, MR=MR, eps=eps)
             TcK = py_cea.prtout.ttt[0]
             Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
             _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
             return Tcomb
+
+    def get_Tthroat(self, Pc=100.0, MR=1.0, eps=2.0):
+        """::
+
+        #: return Tthroat.
+        #: MR is only used for ox/fuel combos.
+        """
+        if self.useFastLookup:
+            tc =  self.fastModule.get_tcomb(Pc, MR)
+            return tc
+        else:
+            #cacheDesc2 = '%g|%g'%(Pc,MR) # %g only shows 6 sig digits
+            cacheDesc2 = (Pc,MR)
+            try:
+                TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
+                Tthroat = TcK * 1.8  # convert from Kelvin to Rankine
+            except:
+                TcK = None
+                Tthroat = None
+            if Tthroat:
+                return Tthroat
+
+            self.setupCards( Pc=Pc, MR=MR, eps=eps)
+            TcK = py_cea.prtout.ttt[1]
+            Tthroat = TcK * 1.8  # convert from Kelvin to Rankine
+            _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+            return Tthroat
+        
+    def get_Texit(self, Pc=100.0, MR=1.0, eps=2.0):
+        """::
+
+        #: return Texit.
+        #: MR is only used for ox/fuel combos.
+        """
+        if self.useFastLookup:
+            tc =  self.fastModule.get_tcomb(Pc, MR)
+            return tc
+        else:
+            #cacheDesc2 = '%g|%g'%(Pc,MR) # %g only shows 6 sig digits
+            cacheDesc2 = (Pc,MR)
+            try:
+                TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
+                Texit = TcK * 1.8  # convert from Kelvin to Rankine
+            except:
+                TcK = None
+                Texit = None
+            if Texit:
+                return Texit
+
+            self.setupCards( Pc=Pc, MR=MR, eps=eps)
+            TcK = py_cea.prtout.ttt[2]
+            Texit = TcK * 1.8  # convert from Kelvin to Rankine
+            _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+            return Texit
+    
 
     def get_PcOvPe(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
@@ -959,85 +1014,90 @@ def print_py_cea_vars():
 
 if __name__ == '__main__':
 
-    from pylab import *
-
-    if 0:
-        #ispNew = CEA_Obj(oxName="O2(g)", fuelName="Ethanol",  useFastLookup=1)
-        ispNew = CEA_Obj(oxName="GOX", fuelName="GCH4",  useFastLookup=0)
-        Pc = 1000.0
-        mr = 1.05
-        i,c,t = ispNew.get_IvacCstrTc(Pc,mr,25.0)
-        print('=========================================')
-        print('for ',ispNew.desc)
-        print('MR = ',mr)
-        print('Isp = ',i)
-        print('Cstar = ',c)
-        print('Tcomb = ',t)
-        print('=========================================')
-
-        for e in [ 50., 30.0, 20.0, 10.0]:
-            ispArr = []
-            MR = 0.5
-            mrArr = []
-            while MR < 6.0:
-                ispArr.append( ispNew(Pc, MR, e ))
-                mrArr.append(MR)
-                MR += 0.1
-            plot(mrArr, ispArr, label='eps %.1f'%e, linewidth=4)
-
-        legend(loc='best')
-        grid(True)
-        title( ispNew.desc )
-        xlabel( 'Mixture Ratio' )
-        ylabel( 'Isp (sec)' )
-        if not sys.argv[-1]=='suppress_show':
-            show()
-
-    def showOutput( ispObj ):
-        print()
-        print(ispObj.desc,'   at Pc=%.1f, MR=%.3f, eps=%.2f...'%(Pc,MR,eps))
-        i,c,t = ispObj.get_IvacCstrTc(Pc,MR,eps)
-        print('Isp = ',i)
-        print('Cstar = ',c)
-        print('Tcomb = ',t)
-        print('  at eps    =',eps)
-        PcOvPe = ispObj.get_PcOvPe(Pc=Pc, MR=MR, eps=eps)
-        print('PcOvPe = ',PcOvPe)
-        epsAtPcOvPe = ispObj.get_eps_at_PcOvPe(Pc=Pc, MR=MR, PcOvPe=PcOvPe)
-        print('epsAtPcOvPe=',epsAtPcOvPe)
-        print('Mach Number=',ispObj.get_MachNumber(Pc=Pc, MR=MR, eps=eps))
-        print()
-        print('Chamber Sonic Vel =',ispObj.get_Chamber_SonicVel( Pc=Pc, MR=MR,eps=eps))
-        print('Enthalpies =',ispObj.get_Enthalpies( Pc=Pc, MR=MR,eps=eps))
-        print('Densities =',ispObj.get_Densities( Pc=Pc, MR=MR,eps=eps))
-        print('Cp        =',ispObj.get_HeatCapacities( Pc=Pc, MR=MR,eps=eps))
-        print('=======================================')
-
-    Pc,MR,eps = 1000.0, 1.0, 30.0
-    ispNew = CEA_Obj(fuelName="MMH", oxName="N2O4")
-    showOutput( ispNew )
-
-    ispNew = CEA_Obj(propName="ARC311")
-    showOutput( ispNew )
-
-    ispNew = CEA_Obj(propName="N2O")
-    showOutput( ispNew )
-
-    ispNew = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
-    showOutput( ispNew )
-
-    ispNew = CEA_Obj(oxName="LOX", fuelName="GH2_160",  useFastLookup=0)
-    showOutput( ispNew )
-
-    print()
-    print('amb_'*14)
-    C = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
-    MR = 6.0
-    for Pc in [100., 500., 1500., 5000.]:
-        for eps in [2.0, 5., 10., 20., 50., 100.]:
-
-            IspVac = C.get_Isp( Pc=Pc, MR=MR, eps=eps)
-            IspAmb, mode = C.estimate_Ambient_Isp(Pc=Pc, MR=MR, eps=eps, Pamb=14.7)
-
-            print('Pc=%4i  eps=%3i  IspAmb=%10.2f IspVac=%10.2f  Mode=%s'%(int(Pc),int(eps), IspAmb, IspVac, mode))
-        print('  ---')
+    C = CEA_Obj(propName='', oxName='LOX', fuelName='LH2')
+    s=C.get_full_cea_output()
+    print(s)
+#    
+    T=C.get_Tthroat()
+#    from pylab import *
+#
+#    if 0:
+#        #ispNew = CEA_Obj(oxName="O2(g)", fuelName="Ethanol",  useFastLookup=1)
+#        ispNew = CEA_Obj(oxName="GOX", fuelName="GCH4",  useFastLookup=0)
+#        Pc = 1000.0
+#        mr = 1.05
+#        i,c,t = ispNew.get_IvacCstrTc(Pc,mr,25.0)
+#        print('=========================================')
+#        print('for ',ispNew.desc)
+#        print('MR = ',mr)
+#        print('Isp = ',i)
+#        print('Cstar = ',c)
+#        print('Tcomb = ',t)
+#        print('=========================================')
+#
+#        for e in [ 50., 30.0, 20.0, 10.0]:
+#            ispArr = []
+#            MR = 0.5
+#            mrArr = []
+#            while MR < 6.0:
+#                ispArr.append( ispNew(Pc, MR, e ))
+#                mrArr.append(MR)
+#                MR += 0.1
+#            plot(mrArr, ispArr, label='eps %.1f'%e, linewidth=4)
+#
+#        legend(loc='best')
+#        grid(True)
+#        title( ispNew.desc )
+#        xlabel( 'Mixture Ratio' )
+#        ylabel( 'Isp (sec)' )
+#        if not sys.argv[-1]=='suppress_show':
+#            show()
+#
+#    def showOutput( ispObj ):
+#        print()
+#        print(ispObj.desc,'   at Pc=%.1f, MR=%.3f, eps=%.2f...'%(Pc,MR,eps))
+#        i,c,t = ispObj.get_IvacCstrTc(Pc,MR,eps)
+#        print('Isp = ',i)
+#        print('Cstar = ',c)
+#        print('Tcomb = ',t)
+#        print('  at eps    =',eps)
+#        PcOvPe = ispObj.get_PcOvPe(Pc=Pc, MR=MR, eps=eps)
+#        print('PcOvPe = ',PcOvPe)
+#        epsAtPcOvPe = ispObj.get_eps_at_PcOvPe(Pc=Pc, MR=MR, PcOvPe=PcOvPe)
+#        print('epsAtPcOvPe=',epsAtPcOvPe)
+#        print('Mach Number=',ispObj.get_MachNumber(Pc=Pc, MR=MR, eps=eps))
+#        print()
+#        print('Chamber Sonic Vel =',ispObj.get_Chamber_SonicVel( Pc=Pc, MR=MR,eps=eps))
+#        print('Enthalpies =',ispObj.get_Enthalpies( Pc=Pc, MR=MR,eps=eps))
+#        print('Densities =',ispObj.get_Densities( Pc=Pc, MR=MR,eps=eps))
+#        print('Cp        =',ispObj.get_HeatCapacities( Pc=Pc, MR=MR,eps=eps))
+#        print('=======================================')
+#
+#    Pc,MR,eps = 1000.0, 1.0, 30.0
+#    ispNew = CEA_Obj(fuelName="MMH", oxName="N2O4")
+#    showOutput( ispNew )
+#
+#    ispNew = CEA_Obj(propName="ARC311")
+#    showOutput( ispNew )
+#
+#    ispNew = CEA_Obj(propName="N2O")
+#    showOutput( ispNew )
+#
+#    ispNew = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
+#    showOutput( ispNew )
+#
+#    ispNew = CEA_Obj(oxName="LOX", fuelName="GH2_160",  useFastLookup=0)
+#    showOutput( ispNew )
+#
+#    print()
+#    print('amb_'*14)
+#    C = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
+#    MR = 6.0
+#    for Pc in [100., 500., 1500., 5000.]:
+#        for eps in [2.0, 5., 10., 20., 50., 100.]:
+#
+#            IspVac = C.get_Isp( Pc=Pc, MR=MR, eps=eps)
+#            IspAmb, mode = C.estimate_Ambient_Isp(Pc=Pc, MR=MR, eps=eps, Pamb=14.7)
+#
+#            print('Pc=%4i  eps=%3i  IspAmb=%10.2f IspVac=%10.2f  Mode=%s'%(int(Pc),int(eps), IspAmb, IspVac, mode))
+#        print('  ---')
