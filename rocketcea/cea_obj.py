@@ -335,7 +335,7 @@ class CEA_Obj(object):
 
 
     def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, PcOvPe=None, frozen=0,
-                   ERphi=None, ERr=None, frozenAtThroat=0, short_output=0):
+                   ERphi=None, ERr=None, frozenAtThroat=0, short_output=0, transport=0):
         '''
         Set up card deck and call CEA FORTRAN code.::
 
@@ -409,7 +409,7 @@ class CEA_Obj(object):
         for line in ["   ","outp   calories ","   ","end "]:
             if (line=="outp   calories ") and short_output:
                 line = "outp  calories "
-            elif (line=="outp   calories "):
+            elif (line=="outp   calories ") and transport:
                 line = "outp transport calories "
             set_py_cea_line(N,line)
             N += 1
@@ -471,14 +471,14 @@ class CEA_Obj(object):
         #print( '"'+self.pathPrefix+'"',' and ', '"'+myfile+'"' )
         py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)
 
-    def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0, short_output=0):
+    def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0, short_output=0, transport=0):
         """Get the full output file created by CEA. Return as a string."""
 
         # regardless of how run was set up, change makeOutput flag True
         save_flag = self.makeOutput
         self.makeOutput = True
 
-        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat, short_output=short_output)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat, short_output=short_output, transport=transport)
 
         self.makeOutput = save_flag # restore makeOutput
 
@@ -1017,7 +1017,7 @@ def print_py_cea_vars():
 if __name__ == '__main__':
 
     C = CEA_Obj(propName='', oxName='LOX', fuelName='LH2')
-    s=C.get_full_cea_output(short_output=0)
+    s=C.get_full_cea_output(short_output=0,transport=1)
     print(s)
 #    T=C.get_Tthroat()
 #    from pylab import *
