@@ -408,7 +408,9 @@ class CEA_Obj(object):
 
         for line in ["   ","outp   calories ","   ","end "]:
             if (line=="outp   calories ") and short_output:
-                line = "outp   calories short "
+                line = "outp  calories "
+            elif (line=="outp   calories "):
+                line = "outp transport calories "
             set_py_cea_line(N,line)
             N += 1
 
@@ -656,7 +658,7 @@ class CEA_Obj(object):
             _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
             return Cstar
 
-    def get_Tcomb(self, Pc=100.0, MR=1.0, eps=2.0):
+    def get_Tcomb(self, Pc=100.0, MR=1.0):
         """::
 
         #: return Tcomb.
@@ -677,7 +679,7 @@ class CEA_Obj(object):
             if Tcomb:
                 return Tcomb
 
-            self.setupCards( Pc=Pc, MR=MR, eps=eps)
+            self.setupCards( Pc=Pc, MR=MR)
             TcK = py_cea.prtout.ttt[0]
             Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
             _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
@@ -1015,10 +1017,9 @@ def print_py_cea_vars():
 if __name__ == '__main__':
 
     C = CEA_Obj(propName='', oxName='LOX', fuelName='LH2')
-    s=C.get_full_cea_output()
+    s=C.get_full_cea_output(short_output=0)
     print(s)
-#    
-    T=C.get_Tthroat()
+#    T=C.get_Tthroat()
 #    from pylab import *
 #
 #    if 0:

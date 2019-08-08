@@ -19,12 +19,12 @@
   rocket equilibrium  p,psia=100.000000, supar=40.000000,
   o/f=1.000000
   
- outp   calories
+ outp transport calories
   
  end
 
  OPTIONS: TP=F  HP=F  SP=F  TV=F  UV=F  SV=F  DETN=F  SHOCK=F  REFL=F  INCD=F
- RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=F  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=F
+ RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=F  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=T
 
  TRACE= 0.00E+00  S/R= 0.000000E+00  H/R= 0.000000E+00  U/R= 0.000000E+00
 
@@ -40,7 +40,7 @@
 
     REACTANT          WT.FRAC   (ENERGY/R),K   TEMP,K  DENSITY
         EXPLODED FORMULA
- F: H2(L)            1.000000  -0.108393E+04    20.27  1.6340
+ F: H2(L)            1.000000  -0.108393E+04    20.27  0.4239
           H  2.00000
  O: O2(L)            1.000000  -0.156098E+04    90.18  0.1000
           O  2.00000
@@ -53,6 +53,23 @@
   g 8/89  H2O              g 6/99  H2O2             g 5/97  *O             
   g 4/02  *OH              tpis89  *O2              g 8/01  O3             
   g11/99  H2O(cr)          g 8/01  H2O(L)           g 8/01  H2O(L)         
+
+ SPECIES WITH TRANSPORT PROPERTIES
+
+        PURE SPECIES
+
+  H                 H2                H2O               O               
+  OH                O2              
+
+     BINARY INTERACTIONS
+
+     H               H2              
+     H               O               
+     H2              H2O             
+     H2              O2              
+     H2O             O2              
+     O               O2              
+
 
  O/F =   1.000000
 
@@ -91,7 +108,7 @@
  FUEL        H2(L)                        1.0000000     -2154.000     20.270
  OXIDANT     O2(L)                        1.0000000     -3102.000     90.180
 
- REACTANT DENSITY=  0.1885 G/CC
+ REACTANT DENSITY=  0.1618 G/CC
 
  O/F=    1.00000  %FUEL= 50.000000  R,EQ.RATIO= 7.936683  PHI,EQ.RATIO= 7.936683
 
@@ -113,6 +130,23 @@
  GAMMAs            1.3587   1.3686   1.0990
  SON VEL,M/SEC     1655.0   1527.4    729.7
  MACH NUMBER        0.000    1.000    4.843
+
+ TRANSPORT PROPERTIES (GASES ONLY)
+   CONDUCTIVITY IN UNITS OF MILLICALORIES/(CM)(K)(SEC)
+
+ VISC,MILLIPOISE  0.28363  0.25039  0.09343
+
+  WITH EQUILIBRIUM REACTIONS
+
+ Cp, CAL/(G)(K)    1.8668   1.8299   2.1994
+ CONDUCTIVITY      0.8814   0.7736   0.3495
+ PRANDTL NUMBER    0.6008   0.5923   0.5880
+
+  WITH FROZEN REACTIONS
+
+ Cp, CAL/(G)(K)    1.8668   1.8299   2.1994
+ CONDUCTIVITY      0.8814   0.7736   0.3495
+ PRANDTL NUMBER    0.6008   0.5923   0.5880
 
  PERFORMANCE PARAMETERS
 
