@@ -16,6 +16,9 @@ Patches and Ideas
 * `stepbot <https://github.com/stepbot>`_
     - MacOS support 
 
+* `mahoep <https://github.com/mahoep>`_
+    - Added transport properties and temperatures of throat and exit (see get_Temperatures function)
+
 Initial Project Layout
 ----------------------
 

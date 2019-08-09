@@ -19,12 +19,12 @@
   rocket equilibrium  p,psia=1000.000000, supar=40.000000,
   o/f=6.000000
   
- outp   calories
+ outp   calories  transport
   
  end
 
  OPTIONS: TP=F  HP=F  SP=F  TV=F  UV=F  SV=F  DETN=F  SHOCK=F  REFL=F  INCD=F
- RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=F  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=F
+ RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=F  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=T
 
  TRACE= 0.00E+00  S/R= 0.000000E+00  H/R= 0.000000E+00  U/R= 0.000000E+00
 
@@ -53,6 +53,23 @@
   g 8/89  H2O              g 6/99  H2O2             g 5/97  *O             
   g 4/02  *OH              tpis89  *O2              g 8/01  O3             
   g11/99  H2O(cr)          g 8/01  H2O(L)           g 8/01  H2O(L)         
+
+ SPECIES WITH TRANSPORT PROPERTIES
+
+        PURE SPECIES
+
+  H                 H2                H2O               O               
+  OH                O2              
+
+     BINARY INTERACTIONS
+
+     H               H2              
+     H               O               
+     H2              H2O             
+     H2              O2              
+     H2O             O2              
+     O               O2              
+
 
  O/F =   6.000000
 
@@ -110,6 +127,23 @@
  GAMMAs            1.1401   1.1403   1.2388
  SON VEL,M/SEC     1566.3   1514.4   1025.6
  MACH NUMBER        0.000    1.000    4.123
+
+ TRANSPORT PROPERTIES (GASES ONLY)
+   CONDUCTIVITY IN UNITS OF MILLICALORIES/(CM)(K)(SEC)
+
+ VISC,MILLIPOISE   1.0588   1.0153  0.52745
+
+  WITH EQUILIBRIUM REACTIONS
+
+ Cp, CAL/(G)(K)    2.0951   1.9171   0.7308
+ CONDUCTIVITY      4.1444   3.6272   0.5411
+ PRANDTL NUMBER    0.5352   0.5366   0.7123
+
+  WITH FROZEN REACTIONS
+
+ Cp, CAL/(G)(K)    0.9029   0.8950   0.7302
+ CONDUCTIVITY      1.3519   1.2760   0.5398
+ PRANDTL NUMBER    0.7071   0.7121   0.7135
 
  PERFORMANCE PARAMETERS
 

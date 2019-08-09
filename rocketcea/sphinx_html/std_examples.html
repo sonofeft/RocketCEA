@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Standard Examples &#8212; RocketCEA 1.0.5 documentation</title>
+    <title>Standard Examples &#8212; RocketCEA 1.0.6 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.5 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.6 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Standard Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lox-lh2-performance">LOX/LH2 Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transport-properties">Transport Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#frozen-performance">Frozen Performance</a></li>
 </ul>
 </li>
@@ -222,6 +223,34 @@ propellants and normal boiling point for cryogenic propellants.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="transport-properties">
+<h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this headline">¶</a></h2>
+<p>New in RocketCEA version 1.06,
+to include transport properties, set the <strong>show_transport</strong> flag.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> 
+                                <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">show_transport</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>which adds the following lines to the output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span> <span class="p">(</span><span class="n">GASES</span> <span class="n">ONLY</span><span class="p">)</span>
+  <span class="n">CONDUCTIVITY</span> <span class="n">IN</span> <span class="n">UNITS</span> <span class="n">OF</span> <span class="n">MILLICALORIES</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)(</span><span class="n">SEC</span><span class="p">)</span>
+
+<span class="n">VISC</span><span class="p">,</span><span class="n">MILLIPOISE</span>   <span class="mf">1.0588</span>   <span class="mf">1.0153</span>  <span class="mf">0.43328</span>
+
+ <span class="n">WITH</span> <span class="n">FROZEN</span> <span class="n">REACTIONS</span>
+
+<span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">0.9029</span>   <span class="mf">0.8950</span>   <span class="mf">0.6859</span>
+<span class="n">CONDUCTIVITY</span>      <span class="mf">1.3519</span>   <span class="mf">1.2760</span>   <span class="mf">0.4369</span>
+<span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7071</span>   <span class="mf">0.7121</span>   <span class="mf">0.6803</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="frozen-performance">
 <h2>Frozen Performance<a class="headerlink" href="#frozen-performance" title="Permalink to this headline">¶</a></h2>
 <p>To run the same LOX/LH2 case above, but with frozen composition during expansion, the following script is used.</p>
@@ -386,7 +415,7 @@ Otherwise, the chamber composition is used.</p>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.5 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.6 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

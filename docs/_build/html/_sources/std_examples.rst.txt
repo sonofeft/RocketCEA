@@ -126,6 +126,29 @@ The above script gives the standard output that a typical CEA run from the comma
      NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
 
+Transport Properties
+--------------------
+
+New in RocketCEA version 1.06,
+to include transport properties, set the **show_transport** flag.
+
+.. literalinclude:: ./_static/example_scripts/loxlh2_transport_output.py
+
+which adds the following lines to the output::
+
+
+     TRANSPORT PROPERTIES (GASES ONLY)
+       CONDUCTIVITY IN UNITS OF MILLICALORIES/(CM)(K)(SEC)
+
+     VISC,MILLIPOISE   1.0588   1.0153  0.43328
+
+      WITH FROZEN REACTIONS
+
+     Cp, CAL/(G)(K)    0.9029   0.8950   0.6859
+     CONDUCTIVITY      1.3519   1.2760   0.4369
+     PRANDTL NUMBER    0.7071   0.7121   0.6803
+
+
 Frozen Performance
 ------------------
 

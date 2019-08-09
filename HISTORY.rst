@@ -7,6 +7,16 @@ History
 GitHub Log
 ----------
 
+* Aug 9, 2019
+    - (by: sonofeft) 
+        - Version 1.06
+        - Incorporated suggestion of `mahoep <https://github.com/mahoep>`_ for transport properties
+        - Added get_Temperatures function to return (Tc, Tthroat, Texit)
+
+* July 31, 2019
+    - (by: sonofeft) 
+        - update quickstart docs
+
 * July 29, 2019
     - (by: sonofeft) 
         - Major Overhaul of f2py usage

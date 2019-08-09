@@ -4,7 +4,6 @@ HISTORY.rst
 LICENSE.txt
 MANIFEST.in
 README.rst
-STEPS_TO_F2PY_64.TXT
 TODO.txt
 build_results.txt
 nosetests_details.txt
@@ -17,12 +16,12 @@ rocketcea/Isp.py
 rocketcea/__init__.py
 rocketcea/_version.py
 rocketcea/blends.py
-rocketcea/build_pyd.bat
 rocketcea/cea_obj.py
 rocketcea/excel_const.py
 rocketcea/f.inp
 rocketcea/f.out
 rocketcea/input_cards.py
+rocketcea/py_cea.cp37-win32.pyd
 rocketcea/py_cea.cp37-win_amd64.pyd
 rocketcea/py_cea.f
 rocketcea/py_cea.inc
@@ -123,6 +122,8 @@ rocketcea/examples/rho_veh_stg3_glow.png
 rocketcea/examples/rho_veh_stg3_glow.py
 rocketcea/examples/rho_veh_stg3_vol.png
 rocketcea/examples/rho_veh_stg3_vol.py
+rocketcea/examples/short_output.py
+rocketcea/examples/short_output_w_transp.py
 rocketcea/examples/show_X_mono.py
 rocketcea/examples/show_amb_mode.py
 rocketcea/examples/xl_nozsep.py
@@ -385,6 +386,7 @@ rocketcea/sphinx_html/_static/example_scripts/lox_gox_compare.html
 rocketcea/sphinx_html/_static/example_scripts/lox_gox_compare.png
 rocketcea/sphinx_html/_static/example_scripts/lox_gox_compare.py
 rocketcea/sphinx_html/_static/example_scripts/loxlh2_full_output.py
+rocketcea/sphinx_html/_static/example_scripts/loxlh2_transport_output.py
 rocketcea/sphinx_html/_static/example_scripts/mono_peroxide.py
 rocketcea/sphinx_html/_static/example_scripts/new_propellants.py
 rocketcea/sphinx_html/_static/example_scripts/new_propellants_2.py
@@ -423,6 +425,8 @@ rocketcea/sphinx_html/_static/example_scripts/Pexit/Pexit_5___carpet_IspVac_vs_e
 rocketcea/sphinx_html/_static/example_scripts/Pexit/Pexit_6___carpet_IspSL_vs_eps_Pc_Pexit.png
 rocketcea/sphinx_html/_static/example_scripts/Pexit/Pexit_7___carpet_IspSL_vs_eps_Pc_IspVac.png
 rocketcea/tests/__init__.py
+rocketcea/tests/nosetests_details.txt
+rocketcea/tests/separated_Noz.csv
 rocketcea/tests/test_biprop_utils.py
 rocketcea/tests/test_blend_defs.py
 rocketcea/tests/test_cea_obj.py
