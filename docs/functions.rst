@@ -4,9 +4,8 @@
 RocketCEA Functions
 ===================
 
-.. raw:: html
-   :file: funcs_rocketcea.html
-
+.. automodule:: rocketcea.cea_obj
+   :members:
 
 .. automodule:: rocketcea.blends
    :members:

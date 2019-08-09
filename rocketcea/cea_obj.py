@@ -48,7 +48,17 @@ from rocketcea.blends import newFuelBlend, newOxBlend, renamePropIfNewHfOrTrefIn
 from rocketcea.blends import isAPeroxide_Blend, isAnMMH_N2H4_Blend, isMON_Ox_Blend, isFLOX_Ox_Blend, is_HYD_Ammonia_Blend
 from rocketcea.blends import addPeroxideBlend, addMON_Blend, addFLOX_Blend, addMMH_N2H4_Blend, addHYD_AmmoniaBlend
 
-import rocketcea.py_cea as py_cea
+try:
+    import rocketcea.py_cea as py_cea
+except:
+    # automodule doc builds fail on ReadTheDocs w/o some error handling.
+    if os.environ.get('READTHEDOCS',False):
+        print('Allowing py_cea import to fail on READTHEDOCS.')
+        py_cea = None
+    else:
+        # go ahead and raise the error.
+        import rocketcea.py_cea as py_cea
+    
 
 from rocketcea.separated_Cf import ambientCf
 #
