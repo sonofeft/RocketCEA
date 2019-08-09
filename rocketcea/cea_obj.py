@@ -463,15 +463,15 @@ class CEA_Obj(object):
             print("NOTICE... making an output file")
 
         # Before calling CEA, init values to zero so bad run can be detected
-        py_cea.rockt.vaci[1] =  0.0
-        py_cea.rockt.vaci[2] =  0.0
-        py_cea.rockt.cstr = 0.0
-        py_cea.prtout.ttt[0] = 0.0
-        py_cea.rockt.app[1] = 0.0 # Pc/Pt
-        py_cea.rockt.app[2] = 0.0 # Pc/Pe
-        py_cea.rockt.aeat[2] = 0.0
+        py_cea.rockt.vaci[1] =  0.0 # Vacuum Isp at throat
+        py_cea.rockt.vaci[2] =  0.0 # Vacuum Isp at exit
+        py_cea.rockt.cstr = 0.0     # cstar
+        py_cea.prtout.ttt[0] = 0.0  # chamber temperature
+        py_cea.rockt.app[1] = 0.0   # Pc/Pt
+        py_cea.rockt.app[2] = 0.0   # Pc/Pe
+        py_cea.rockt.aeat[2] = 0.0  # exit area/throat area
         py_cea.rockt.vmoc[2]  = 0.0
-        py_cea.miscr.eqrat = 0.0
+        py_cea.miscr.eqrat = 0.0    # equivalence ratio
 
         for i in range(3):
             py_cea.rockt.sonvel[i] = 0.0
@@ -480,6 +480,14 @@ class CEA_Obj(object):
             py_cea.prtout.gammas[i] = 0.0
             py_cea.prtout.vlm[i] = 0.0
             py_cea.prtout.cpr[i] = 0.0
+            
+            py_cea.trpts.vis[i] = 0.0    # viscosity
+            py_cea.trpts.cpeql[i] = 0.0  # equilibrium specific heat
+            py_cea.trpts.coneql[i] = 0.0 # equilibrium thermal conductivity
+            py_cea.trpts.preql[i] = 0.0  # equilibrium prandtl number
+            py_cea.trpts.cpfro[i] = 0.0  # frozen specific heat
+            py_cea.trpts.confro[i] = 0.0 # frozen thermal conductivity
+            py_cea.trpts.prfro[i] = 0.0  # frozen prandtl number
         #print( 'calling py_cea with pathPrefix and myfile=' )
         #print( '"'+self.pathPrefix+'"',' and ', '"'+myfile+'"' )
         py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)
