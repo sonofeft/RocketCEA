@@ -2,29 +2,39 @@
 
 <!doctype html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>Temperature Adjust &#8212; RocketCEA 1.0.6 documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Temperature Adjust &mdash; RocketCEA 1.0.7 documentation</title>
+    
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="top" title="RocketCEA 1.0.7 documentation" href="index.html" />
     <link rel="next" title="Parasol Example" href="parasol_example.html" />
     <link rel="prev" title="Hydrazine Monopropellant" href="hydrazine_mono.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head><body>
+  </head>
+  <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -40,7 +50,7 @@
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -48,7 +58,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="index.html">Table Of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
@@ -61,7 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Temperature Adjust</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Temperature Adjust</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#standard-t-and-h">Standard T and H</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changing-t-and-h">Changing T and H</a></li>
 </ul>
@@ -82,18 +92,21 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/temperature_adjust.rst.txt"
+      <li><a href="_sources/temperature_adjust.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -113,93 +126,93 @@ RocketCEA provides some aid in creating adjusted input decks.</p>
 <p>Propellants in RocketCEA are assumed to be at standard temperature and enthalpy.
 For storable and gaseous propellants, room temperature is standard.
 For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
-<p>Calling the propellants “LOX” and “LH2” by name in a CEA_obj statement such as this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
+<p>Calling the propellants &#8220;LOX&#8221; and &#8220;LH2&#8221; by name in a CEA_obj statement such as this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will result in LOX and LH2 at standard conditions.</p>
 </div>
 <div class="section" id="changing-t-and-h">
 <h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this headline">¶</a></h2>
-<p>As an example, I’ll use a LOX/CH4 engine, where, instead of running the engine on propellants
+<p>As an example, I&#8217;ll use a LOX/CH4 engine, where, instead of running the engine on propellants
 that are each at their normal boiling point (NBP), this engine will store both propellants at a
 common temperature. The LOX will be at NBP and the CH4 will be subcooled.</p>
 <p>In some designs a common propellant temperature is desirable in order to have common dome tankage.
 The ox and fuel are separated by an uninsulated dome without the worry of heat transfer between them.
 Additionally, common dome tankage makes a shorter stage.</p>
-<p>I’ll assume that only the CH4 CEA card will need to be adjusted, but the LOX CEA card can be used as is.
-In order to calculate the common storage temperature, I’ll assume that the bleed valve on the LOX tank is
+<p>I&#8217;ll assume that only the CH4 CEA card will need to be adjusted, but the LOX CEA card can be used as is.
+In order to calculate the common storage temperature, I&#8217;ll assume that the bleed valve on the LOX tank is
 set at 5 psig so that the LOX is stored at 20 psia and therefore 168 degR.</p>
 <p>Using the fluid properties code <a class="reference external" href="http://www.coolprop.org/dev/index.html">CoolProp</a> as wrapped by the
 engineering units code <a class="reference external" href="http://engcoolprop.readthedocs.org/en/latest/">EngCoolProp</a>, the following script
 will calculate the delta T and delta H for CH4, create a new CEA card for subcooled CH4,
 run the performance of both all-NBP and common-T engine designs and output the comparison between  all-NBP and common-T.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="k">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
-<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="k">import</span> <span class="n">makeCardForNewTemperature</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="kn">import</span> <span class="n">EC_Fluid</span>  <span class="c"># &lt;== pip install EngCoolProp </span>
+<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="kn">import</span> <span class="n">makeCardForNewTemperature</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
 
-<span class="c1"># ======= use EngCoolProp to calculate dT and dH ========</span>
-<span class="n">fl</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;CH4&quot;</span> <span class="p">)</span>
-<span class="n">fl</span><span class="o">.</span><span class="n">setProps</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="mf">14.7</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Set T and all liquid</span>
-<span class="n">fl</span><span class="o">.</span><span class="n">printTPD</span><span class="p">()</span> <span class="c1"># Print state point at given T,P</span>
+<span class="c"># ======= use EngCoolProp to calculate dT and dH ========</span>
+<span class="n">fl</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">&quot;CH4&quot;</span> <span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">setProps</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="mf">14.7</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># Set T and all liquid</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">printTPD</span><span class="p">()</span> <span class="c"># Print state point at given T,P</span>
 
-<span class="n">ox</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;O2&quot;</span> <span class="p">)</span>
-<span class="n">ox</span><span class="o">.</span><span class="n">setProps</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Set T and all liquid</span>
-<span class="n">ox</span><span class="o">.</span><span class="n">printTPD</span><span class="p">()</span> <span class="c1"># Print state point at given T,P</span>
+<span class="n">ox</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">&quot;O2&quot;</span> <span class="p">)</span>
+<span class="n">ox</span><span class="o">.</span><span class="n">setProps</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># Set T and all liquid</span>
+<span class="n">ox</span><span class="o">.</span><span class="n">printTPD</span><span class="p">()</span> <span class="c"># Print state point at given T,P</span>
 
-<span class="n">fl2</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;CH4&quot;</span> <span class="p">)</span>
-<span class="n">fl2</span><span class="o">.</span><span class="n">setProps</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">ox</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Set T and all liquid</span>
-<span class="n">fl2</span><span class="o">.</span><span class="n">printTPD</span><span class="p">()</span> <span class="c1"># Print state point at given T,P</span>
+<span class="n">fl2</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">&quot;CH4&quot;</span> <span class="p">)</span>
+<span class="n">fl2</span><span class="o">.</span><span class="n">setProps</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">ox</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># Set T and all liquid</span>
+<span class="n">fl2</span><span class="o">.</span><span class="n">printTPD</span><span class="p">()</span> <span class="c"># Print state point at given T,P</span>
 
 <span class="n">dT</span> <span class="o">=</span> <span class="n">fl2</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="n">fl</span><span class="o">.</span><span class="n">T</span>
 <span class="n">dH</span> <span class="o">=</span> <span class="n">fl2</span><span class="o">.</span><span class="n">H</span><span class="o">-</span><span class="n">fl</span><span class="o">.</span><span class="n">H</span>
 
-<span class="nb">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">CH4 dT=</span><span class="si">%g</span><span class="s1"> degR, dH=</span><span class="si">%g</span><span class="s1"> BTU/lbm&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">dT</span><span class="p">,</span> <span class="n">dH</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">CH4 dT=</span><span class="si">%g</span><span class="s"> degR, dH=</span><span class="si">%g</span><span class="s"> BTU/lbm&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">dT</span><span class="p">,</span> <span class="n">dH</span><span class="p">)</span>
 
-<span class="c1"># ======== Build a new adjusted CEA card for the subcooled CH4 ==========</span>
+<span class="c"># ======== Build a new adjusted CEA card for the subcooled CH4 ==========</span>
 <span class="n">CpAve</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dH</span> <span class="o">/</span> <span class="n">dT</span><span class="p">)</span>
-<span class="n">card_name</span> <span class="o">=</span> <span class="n">makeCardForNewTemperature</span><span class="p">(</span> <span class="n">ceaName</span><span class="o">=</span><span class="s1">&#39;CH4&#39;</span><span class="p">,</span> <span class="n">newTdegR</span><span class="o">=</span><span class="n">fl2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">CpAve</span><span class="o">=</span><span class="n">CpAve</span><span class="p">,</span> <span class="n">MolWt</span><span class="o">=</span><span class="mf">16.04</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;New Name = &#39;</span> <span class="o">+</span> <span class="n">card_name</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fuelCards</span><span class="p">[</span><span class="n">card_name</span><span class="p">])</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Standard CH4&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fuelCards</span><span class="p">[</span><span class="s1">&#39;CH4&#39;</span><span class="p">])</span> <span class="p">)</span>
+<span class="n">card_name</span> <span class="o">=</span> <span class="n">makeCardForNewTemperature</span><span class="p">(</span> <span class="n">ceaName</span><span class="o">=</span><span class="s">&#39;CH4&#39;</span><span class="p">,</span> <span class="n">newTdegR</span><span class="o">=</span><span class="n">fl2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">CpAve</span><span class="o">=</span><span class="n">CpAve</span><span class="p">,</span> <span class="n">MolWt</span><span class="o">=</span><span class="mf">16.04</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">&#39;New Name = &#39;</span> <span class="o">+</span> <span class="n">card_name</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fuelCards</span><span class="p">[</span><span class="n">card_name</span><span class="p">])</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">&#39;Standard CH4&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fuelCards</span><span class="p">[</span><span class="s">&#39;CH4&#39;</span><span class="p">])</span> <span class="p">)</span>
 
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;CH4&#39;</span><span class="p">)</span>
-<span class="n">C2</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="n">card_name</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;CH4&#39;</span><span class="p">)</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="n">card_name</span><span class="p">)</span>
 
 <span class="n">IspVac</span><span class="p">,</span>  <span class="n">Cstar</span><span class="p">,</span>  <span class="n">Tc</span>  <span class="o">=</span>  <span class="n">C</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">IspVac2</span><span class="p">,</span> <span class="n">Cstar2</span><span class="p">,</span> <span class="n">Tc2</span> <span class="o">=</span> <span class="n">C2</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;       Both NBP    Common Temp&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IspVac  </span><span class="si">%6.1f</span><span class="s1">     </span><span class="si">%6.1f</span><span class="s1"> sec&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">IspVac</span><span class="p">,</span> <span class="n">IspVac2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cstar   </span><span class="si">%6.1f</span><span class="s1">     </span><span class="si">%6.1f</span><span class="s1"> ft/sec&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Cstar</span><span class="p">,</span> <span class="n">Cstar2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tcomb   </span><span class="si">%6.1f</span><span class="s1">     </span><span class="si">%6.1f</span><span class="s1"> degR&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Tc2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;       Both NBP    Common Temp&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;IspVac  </span><span class="si">%6.1f</span><span class="s">     </span><span class="si">%6.1f</span><span class="s"> sec&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">IspVac</span><span class="p">,</span> <span class="n">IspVac2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Cstar   </span><span class="si">%6.1f</span><span class="s">     </span><span class="si">%6.1f</span><span class="s"> ft/sec&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Cstar</span><span class="p">,</span> <span class="n">Cstar2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Tcomb   </span><span class="si">%6.1f</span><span class="s">     </span><span class="si">%6.1f</span><span class="s"> degR&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Tc2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The output from the script shows that the CH4 will change by, dT=-33.2 degR and dH=-27.2 BTU/lbm.</p>
 <p>The new name created for the subcooled CH4 incorporates the new H and T.
 Both CEA cards are shown in the output for comparison.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">degR</span>      <span class="n">psia</span>   <span class="n">lbm</span><span class="o">/</span><span class="n">cuft</span>   <span class="n">BTU</span><span class="o">/</span><span class="c1">#    BTU/#  BTU/#R   ---</span>
-<span class="n">CH4</span> <span class="n">T</span><span class="o">=</span> <span class="mf">201.0</span> <span class="n">P</span><span class="o">=</span>  <span class="mf">14.7</span> <span class="n">D</span><span class="o">=</span><span class="mf">26.3666</span> <span class="n">E</span><span class="o">=</span> <span class="o">-</span><span class="mf">0.10</span> <span class="n">H</span><span class="o">=</span>  <span class="mf">0.01</span> <span class="n">S</span><span class="o">=</span><span class="mf">0.000</span> <span class="n">Q</span><span class="o">=</span><span class="mf">0.00</span>
-<span class="n">O2</span>  <span class="n">T</span><span class="o">=</span> <span class="mf">167.8</span> <span class="n">P</span><span class="o">=</span>  <span class="mf">20.0</span> <span class="n">D</span><span class="o">=</span><span class="mf">70.2858</span> <span class="n">E</span><span class="o">=-</span><span class="mf">55.14</span> <span class="n">H</span><span class="o">=-</span><span class="mf">55.09</span> <span class="n">S</span><span class="o">=</span><span class="mf">0.716</span> <span class="n">Q</span><span class="o">=</span><span class="mf">0.00</span>
-<span class="n">CH4</span> <span class="n">T</span><span class="o">=</span> <span class="mf">167.8</span> <span class="n">P</span><span class="o">=</span>   <span class="mf">2.3</span> <span class="n">D</span><span class="o">=</span><span class="mf">27.9723</span> <span class="n">E</span><span class="o">=-</span><span class="mf">27.20</span> <span class="n">H</span><span class="o">=-</span><span class="mf">27.18</span> <span class="n">S</span><span class="o">=-</span><span class="mf">0.147</span> <span class="n">Q</span><span class="o">=</span><span class="mf">0.00</span>
+<div class="highlight-python"><div class="highlight"><pre>       degR      psia   lbm/cuft   BTU/#    BTU/#  BTU/#R   ---
+CH4 T= 201.0 P=  14.7 D=26.3666 E= -0.10 H=  0.01 S=0.000 Q=0.00
+O2  T= 167.8 P=  20.0 D=70.2858 E=-55.14 H=-55.09 S=0.716 Q=0.00
+CH4 T= 167.8 P=   2.3 D=27.9723 E=-27.20 H=-27.18 S=-0.147 Q=0.00
 
-<span class="n">CH4</span> <span class="n">dT</span><span class="o">=-</span><span class="mf">33.171</span> <span class="n">degR</span><span class="p">,</span> <span class="n">dH</span><span class="o">=-</span><span class="mf">27.1848</span> <span class="n">BTU</span><span class="o">/</span><span class="n">lbm</span>
+CH4 dT=-33.171 degR, dH=-27.1848 BTU/lbm
 
-<span class="n">New</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">CH4_m21632</span><span class="o">.</span><span class="mf">1_167.836</span>
- <span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span> <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
- <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">21632.1</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">93.24</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.4239</span>
+New Name = CH4_m21632.1_167.836
+ fuel CH4(L) C 1 H 4 wt%=100.
+ h,cal=-21632.1 t(k)=93.24 rho=0.4239
 
-<span class="n">Standard</span> <span class="n">CH4</span>
- <span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
- <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">21390.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">111.66</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.4239</span>
+Standard CH4
+ fuel CH4(L) C 1 H 4     wt%=100.
+ h,cal=-21390.     t(k)=111.66   rho=0.4239
 
-       <span class="n">Both</span> <span class="n">NBP</span>    <span class="n">Common</span> <span class="n">Temp</span>
-<span class="n">IspVac</span>   <span class="mf">396.9</span>      <span class="mf">396.7</span> <span class="n">sec</span>
-<span class="n">Cstar</span>   <span class="mf">6002.4</span>     <span class="mf">5999.7</span> <span class="n">ft</span><span class="o">/</span><span class="n">sec</span>
-<span class="n">Tcomb</span>   <span class="mf">6732.5</span>     <span class="mf">6728.7</span> <span class="n">degR</span>
+       Both NBP    Common Temp
+IspVac   396.9      396.7 sec
+Cstar   6002.4     5999.7 ft/sec
+Tcomb   6732.5     6728.7 degR
 </pre></div>
 </div>
 <p>The final answer is that the performance only drops by about 0.2 seconds, almost certainly better than
@@ -228,12 +241,12 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+        &copy; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>
