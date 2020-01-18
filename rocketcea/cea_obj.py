@@ -171,13 +171,21 @@ class CEA_Obj(object):
     """
 
     def __init__(self, propName='', oxName='', fuelName='', useFastLookup=0,
-        makeOutput=0):
+        makeOutput=0, useSiUnits=False):
         """
         #: Create the base CEA wrapper object.
         #: Fast Lookup is being reviewed.
         """
 
         self.makeOutput = makeOutput # makes "f.out"
+        self.useSiUnits = useSiUnits
+
+        if self.useSiUnits:
+            self.pressureUnit = "bara"
+            self.tempConvFactor = 1
+        else:
+            self.pressureUnit = "psia"
+            self.tempConvFactor = 1.8
 
         oxName = renamePropIfNewHfOrTrefInName( oxCards, oxName )
         fuelName = renamePropIfNewHfOrTrefInName( fuelCards, fuelName )
@@ -390,10 +398,10 @@ class CEA_Obj(object):
         else:
             eqfrStr = 'equilibrium'
 
-        if PcOvPe: # a case for Pc/Pe
-            set_py_cea_line(N," rocket %s  p,psia=%f,"%(eqfrStr,Pc)  + " pi/p=%f,  "%PcOvPe + " supar=%f,  "%eps)
+        if PcOvPe:  # a case for Pc/Pe
+            set_py_cea_line(N, " rocket %s  p," % eqfrStr +self.pressureUnit +"=%f," % Pc + " pi/p=%f,  " % PcOvPe + " supar=%f,  " % eps)
         else:
-            set_py_cea_line(N," rocket %s  p,psia=%f,"%(eqfrStr,Pc)  + " supar=%f,  "%eps)
+            set_py_cea_line(N, " rocket %s  p," % eqfrStr +self.pressureUnit +"=%f," % Pc + " supar=%f,  " % eps)
 
 
         N += 1
@@ -417,15 +425,23 @@ class CEA_Obj(object):
             set_py_cea_line(N,"    ")
             N += 1
 
-        for line in ["   ","outp   calories ","   ","end "]:
-            if (line=="outp   calories "):
-                if short_output:
-                    line += " short "
-                if show_transport:
-                    line += " transport "
-                    
-            set_py_cea_line(N,line)
-            N += 1
+        set_py_cea_line(N, "   ")
+        N += 1
+
+        line = "outp   "
+        if self.useSiUnits:
+            line += "siunits "
+        else:
+            line += "calories "
+        if short_output:
+            line += "short "
+        if show_transport:
+            line += "transport "
+        set_py_cea_line(N, line)
+        N += 1
+
+        set_py_cea_line(N, "end ")
+        N += 1
 
         # make sure to overwrite any lines from previous calls
         if N>_NLines_Max_ever:
@@ -546,7 +562,7 @@ class CEA_Obj(object):
                     Cstar = None
                     TcK = None
                 if Cstar and TcK:
-                    Tcomb = TcK * 1.8 # convert from Kelvin to Rankine
+                    Tcomb = TcK * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
                     return IspVac, Cstar, Tcomb
 
             self.setupCards( Pc=Pc, MR=MR, eps=eps)
@@ -555,7 +571,7 @@ class CEA_Obj(object):
             IspVac = py_cea.rockt.vaci[2]
             Cstar = float(py_cea.rockt.cstr)
             TcK = py_cea.prtout.ttt[0]
-            Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+            Tcomb = TcK * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
             _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspVac )
             _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
             _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
@@ -572,7 +588,7 @@ class CEA_Obj(object):
         IspFrozen = py_cea.rockt.vaci[2]
         Cstar = float(py_cea.rockt.cstr)
         TcK = py_cea.prtout.ttt[0]
-        Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+        Tcomb = TcK * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
         return IspFrozen, Cstar, Tcomb
 
     def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
@@ -588,7 +604,7 @@ class CEA_Obj(object):
         #print( "py_cea.rockt.vaci",py_cea.rockt.vaci )
         IspVac = py_cea.rockt.vaci[2]
         Cstar = float(py_cea.rockt.cstr)
-        Tcomb = py_cea.prtout.ttt[0] * 1.8  # convert from Kelvin to Rankine
+        Tcomb = py_cea.prtout.ttt[0] * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
         mw,gam = py_cea.prtout.wm[2], py_cea.prtout.gammas[2]
 
         return IspVac, Cstar, Tcomb, mw, gam
@@ -607,7 +623,7 @@ class CEA_Obj(object):
         #print( "py_cea.rockt.vaci",py_cea.rockt.vaci )
         IspVac = py_cea.rockt.vaci[2]
         Cstar = float(py_cea.rockt.cstr)
-        Tcomb = py_cea.prtout.ttt[0] * 1.8  # convert from Kelvin to Rankine
+        Tcomb = py_cea.prtout.ttt[0] * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
         mw,gam = py_cea.prtout.wm[0], py_cea.prtout.gammas[0]
 
         return IspVac, Cstar, Tcomb, mw, gam
@@ -625,7 +641,7 @@ class CEA_Obj(object):
         #print( "py_cea.rockt.vaci",py_cea.rockt.vaci )
         IspVac = py_cea.rockt.vaci[2]
         Cstar = float(py_cea.rockt.cstr)
-        Tcomb = py_cea.prtout.ttt[0] * 1.8  # convert from Kelvin to Rankine
+        Tcomb = py_cea.prtout.ttt[0] * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
         mw,gam = py_cea.prtout.wm[1], py_cea.prtout.gammas[1]
 
         return IspVac, Cstar, Tcomb, mw, gam
@@ -696,7 +712,7 @@ class CEA_Obj(object):
             cacheDesc2 = (Pc,MR)
             try:
                 TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
-                Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+                Tcomb = TcK * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
             except:
                 TcK = None
                 Tcomb = None
@@ -705,7 +721,7 @@ class CEA_Obj(object):
 
             self.setupCards( Pc=Pc, MR=MR, eps=2.0)
             TcK = py_cea.prtout.ttt[0]
-            Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+            Tcomb = TcK * self.tempConvFactor  # convert from Kelvin to Rankine if not using SI
             _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
             return Tcomb
 
@@ -776,8 +792,11 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
-        # convert from m/sec into ft/sec
-        sonicList = 3.28083 * py_cea.rockt.sonvel[:3]
+        if self.useSiUnits:
+            sonicList = py_cea.rockt.sonvel[:3]
+        else:
+            # convert from m/sec into ft/sec
+            sonicList = 3.28083 * py_cea.rockt.sonvel[:3]
         return sonicList
 
     def get_Chamber_SonicVel(self, Pc=100.0, MR=1.0, eps=40.0):
@@ -797,10 +816,10 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
-        # convert from m/sec into ft/sec
         hList =  py_cea.prtout.hsum[:3]
-        for i,h in enumerate( hList ):
-            hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
+        if not self.useSiUnits:
+            for i,h in enumerate( hList ):
+                hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
         return hList
 
     def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):
@@ -810,7 +829,7 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         hList = self.get_Enthalpies( Pc=Pc, MR=MR, eps=eps)
-        return hList[0] # BTU/lbm
+        return hList[0]
 
 
     def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0):
@@ -820,10 +839,10 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
-        # convert from m/sec into ft/sec
         dList =  py_cea.prtout.vlm[:3]
-        for i,v in enumerate( dList ):
-            dList[i] = 62.42796 * 100.0 / v # convert into lbm/cuft
+        if not self.useSiUnits:
+            for i,v in enumerate( dList ):
+                dList[i] = 62.42796 * 100.0 / v # convert into lbm/cuft
         return dList
 
     def get_Chamber_Density(self, Pc=100.0, MR=1.0, eps=40.0):
@@ -833,7 +852,7 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         dList = self.get_Densities( Pc=Pc, MR=MR, eps=eps)
-        return dList[0] # lbm/cuft
+        return dList[0]
 
 
     def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0):
@@ -843,10 +862,10 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
-        # convert from m/sec into ft/sec
         cpList =  py_cea.prtout.cpr[:3]
-        for i,cp in enumerate( cpList ):
-            cpList[i] = cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        if not self.useSiUnits:
+            for i,cp in enumerate( cpList ):
+                cpList[i] = cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
         return cpList
 
     def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0):
@@ -856,7 +875,7 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         """
         cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps)
-        return cpList[0] # BTU/lbm degR
+        return cpList[0]
 
     def get_Throat_Isp(self, Pc=100.0, MR=1.0):
         """::
