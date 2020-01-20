@@ -84,11 +84,15 @@ add_user_units('degR', 'F', 1.0 , -459.67)
 
 # ...Isp
 add_user_units('sec', 'N sec/kg', 9.80665)
+add_user_units('sec', 'N s/kg', 9.80665)
 add_user_units('sec', 'm/sec', 9.80665)
+add_user_units('sec', 'm/s', 9.80665)
+add_user_units('sec', 'km/s', 9.80665/1000.0)
 add_user_units('sec', 'km/sec', 9.80665/1000.0)
 
 # ...velocity and Cstar
 add_user_units('ft/sec', 'm/sec', 0.3048)
+add_user_units('ft/sec', 'm/s', 0.3048)
 
 # ...enthalpy 
 add_user_units('BTU/lbm','J/g',2.3244462314030762)

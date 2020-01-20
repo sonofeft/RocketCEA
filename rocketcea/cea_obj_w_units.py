@@ -19,7 +19,16 @@ class CEA_Obj( object ):
         pressure_units='psia', temperature_units='degR', 
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
         density_units='lbm/cuft', specific_heat_units='BTU/lbm degR'):
-            
+
+        self.isp_units            = isp_units
+        self.cstar_units          = cstar_units
+        self.pressure_units       = pressure_units
+        self.temperature_units    = temperature_units
+        self.sonic_velocity_units = sonic_velocity_units
+        self.enthalpy_units       = enthalpy_units
+        self.density_units        = density_units
+        self.specific_heat_units  = specific_heat_units
+        
         # Units objects for input/output (e.g. Pc and Pamb)
         self.Pc_U       = get_units_obj('psia', pressure_units )
         
@@ -34,6 +43,7 @@ class CEA_Obj( object ):
         
         self.cea_obj = CEA_Obj_default(propName=propName, oxName=oxName, fuelName=fuelName, 
                                useFastLookup=useFastLookup, makeOutput=makeOutput)
+        self.desc = self.cea_obj.desc
     
     def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):
         
@@ -89,7 +99,11 @@ class CEA_Obj( object ):
         Tcomb = self.temperature_U.dval_to_uval( Tcomb )
         
         return IspVac, Cstar, Tcomb, mw, gam
-        
+
+
+    def __call__(self, Pc=100.0, MR=1.0, eps=40.0):
+        return self.get_Isp(Pc=Pc, MR=MR, eps=eps)
+
     def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
