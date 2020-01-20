@@ -55,7 +55,7 @@ Simply include an input parameter in the creation of CEA_Obj as shown above with
 .. note:: 
 
     If the units you desire are not shown above, your units may be added by importing
-    **add_user_units** from **rocketcea.cea_obj_w_units** and calling it prior to
+    **add_user_units** from **rocketcea.units** and calling it prior to
     creating the CEA_Obj. For example MPa was added with the line.
     
     add_user_units('psia', 'MPa', 0.00689475729) # multiplier = user units / default units

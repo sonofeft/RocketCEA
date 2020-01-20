@@ -15,6 +15,7 @@ install:
     - "ls /home/travis/build/sonofeft/RocketCEA"
     - "ls /home/travis/build/sonofeft/RocketCEA/rocketcea"
     - "find /home/travis/build/sonofeft/RocketCEA/ -name *.so"
+    # need to discover where *.so file is created and copy it to .../rocketcea subdir.
     - "cp /home/travis/build/sonofeft/RocketCEA/build/lib.linux-x86_64-3.7/rocketcea/*.so /home/travis/build/sonofeft/RocketCEA/rocketcea"
     
 script:
