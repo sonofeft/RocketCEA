@@ -5,6 +5,7 @@ __pycache__
 *.pyo
 *.pyd
 *.so
+*.o
 *$py.class
 
 # Distribution / packaging

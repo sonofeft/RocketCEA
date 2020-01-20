@@ -17,6 +17,7 @@ rocketcea/__init__.py
 rocketcea/_version.py
 rocketcea/blends.py
 rocketcea/cea_obj.py
+rocketcea/cea_obj_w_units.py
 rocketcea/excel_const.py
 rocketcea/f.inp
 rocketcea/f.out
@@ -25,6 +26,8 @@ rocketcea/py_cea.cp37-win32.pyd
 rocketcea/py_cea.cp37-win_amd64.pyd
 rocketcea/py_cea.f
 rocketcea/py_cea.inc
+rocketcea/py_cea.o
+rocketcea/py_cea.pyd
 rocketcea/py_cea.pyf
 rocketcea/separated_Cf.py
 rocketcea/separated_Noz.csv
@@ -37,6 +40,7 @@ rocketcea/thermo.out
 rocketcea/trans.inp
 rocketcea/trans.lib
 rocketcea/trans.out
+rocketcea/units.py
 rocketcea/xlChFormula.py
 rocketcea/xlChart.py
 rocketcea.egg-info/PKG-INFO
@@ -98,6 +102,7 @@ rocketcea/examples/full_output.py
 rocketcea/examples/full_output_mono.py
 rocketcea/examples/lox_gox_compare.png
 rocketcea/examples/lox_gox_compare.py
+rocketcea/examples/make_single_card.py
 rocketcea/examples/mono_peroxide.py
 rocketcea/examples/new_propellants.py
 rocketcea/examples/new_propellants_2.py

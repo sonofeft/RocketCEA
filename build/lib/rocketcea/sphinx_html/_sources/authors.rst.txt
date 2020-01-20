@@ -1,5 +1,0 @@
-
-.. authors
-
-.. include:: ../AUTHORS.rst
-    
