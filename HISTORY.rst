@@ -7,6 +7,13 @@ History
 GitHub Log
 ----------
 
+* Jan 20, 2020
+    - (by: sonofeft) 
+        - Version 1.08
+        - Added docs for SI units
+        - created SI example "plot_SI_biprop.py"
+        - Some folder cleanup and starting  SI Units Addition
+
 * Aug 9, 2019
     - (by: sonofeft) 
         - Version 1.06
