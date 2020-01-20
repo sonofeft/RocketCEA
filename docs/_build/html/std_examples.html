@@ -2,39 +2,29 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Standard Examples &mdash; RocketCEA 1.0.7 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Standard Examples &#8212; RocketCEA 1.0.8 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="top" title="RocketCEA 1.0.7 documentation" href="index.html" />
     <link rel="next" title="Simple Examples" href="simple_examples.html" />
     <link rel="prev" title="Install gfortran" href="installgfortran.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -50,7 +40,7 @@
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -58,11 +48,11 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Standard Examples</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Standard Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lox-lh2-performance">LOX/LH2 Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transport-properties">Transport Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#frozen-performance">Frozen Performance</a></li>
@@ -93,21 +83,18 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/std_examples.txt"
+      <li><a href="_sources/std_examples.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -124,8 +111,8 @@
 running CEA and reviewing the printed output is standard practice.</p>
 <p>The following examples show how to run a case and review the standard <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">CEA</a> output.</p>
 <p>RocketCEA always begins with an import statement and an instance of a CEA_obj:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;LH2&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Instead of manually assembling a run deck for CEA, the above is all that is needed to run a CEA <strong>rocket</strong> case with standard
@@ -135,103 +122,104 @@ definitions of all the most common rocket propellants.</p>
 <p>The script below is typical to calculate predicted equilibrium performance at a specific
 chamber pressure, mixture ratio and expansion ratio.</p>
 <p>The script uses the <strong>short</strong> output option. (long-form output is default)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 
-<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;LH2&#39;</span><span class="p">)</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Notice that RocketCEA generates the propellant cards and input parameters for the <strong>rocket equilibrium</strong> problem.
 (as opposed to a <strong>shock</strong> or <strong>detonation</strong> problem)</p>
 <p>The propellant temperature and enthalpy are <em>standard</em>, which usually means room temperature for storable or gas
 propellants and normal boiling point for cryogenic propellants.</p>
-<p>See the <a class="reference internal" href="temperature_adjust.html#temperature-adjust-link"><span>Temperature Adjust</span></a> page for modifying the temperature and enthalpy of the reactants.</p>
+<p>See the <a class="reference internal" href="temperature_adjust.html#temperature-adjust-link"><span class="std std-ref">Temperature Adjust</span></a> page for modifying the temperature and enthalpy of the reactants.</p>
 <p>The above script gives the standard output that a typical CEA run from the command prompt would give:</p>
-<div class="highlight-python"><div class="highlight"><pre>*******************************************************************************
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
 
-        NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA, OCTOBER 18, 2002
-                  BY  BONNIE MCBRIDE AND SANFORD GORDON
-     REFS: NASA RP-1311, PART I, 1994 AND NASA RP-1311, PART II, 1996
+        <span class="n">NASA</span><span class="o">-</span><span class="n">GLENN</span> <span class="n">CHEMICAL</span> <span class="n">EQUILIBRIUM</span> <span class="n">PROGRAM</span> <span class="n">CEA</span><span class="p">,</span> <span class="n">OCTOBER</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">2002</span>
+                  <span class="n">BY</span>  <span class="n">BONNIE</span> <span class="n">MCBRIDE</span> <span class="n">AND</span> <span class="n">SANFORD</span> <span class="n">GORDON</span>
+     <span class="n">REFS</span><span class="p">:</span> <span class="n">NASA</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1311</span><span class="p">,</span> <span class="n">PART</span> <span class="n">I</span><span class="p">,</span> <span class="mi">1994</span> <span class="n">AND</span> <span class="n">NASA</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1311</span><span class="p">,</span> <span class="n">PART</span> <span class="n">II</span><span class="p">,</span> <span class="mi">1996</span>
 
-*******************************************************************************
-
-
-
-reac
- fuel H2(L)  H 2
- h,cal=-2154.0      t(k)=20.27       wt%=100.
- oxid O2(L)  O 2
- h,cal=-3102.      t(k)=90.18       wt%=100.
-
-prob case=LOX_/_LH2
- rocket equilibrium  p,psia=1000.000000, supar=40.000000,
- o/f=6.000000
-
-outp   calories short
-
-end
+<span class="o">*******************************************************************************</span>
 
 
 
+<span class="n">reac</span>
+ <span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+ <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2154.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+ <span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+ <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+
+<span class="n">prob</span> <span class="n">case</span><span class="o">=</span><span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>
+ <span class="n">rocket</span> <span class="n">equilibrium</span>  <span class="n">p</span><span class="p">,</span><span class="n">psia</span><span class="o">=</span><span class="mf">1000.000000</span><span class="p">,</span> <span class="n">supar</span><span class="o">=</span><span class="mf">40.000000</span><span class="p">,</span>
+ <span class="n">o</span><span class="o">/</span><span class="n">f</span><span class="o">=</span><span class="mf">6.000000</span>
+
+<span class="n">outp</span>   <span class="n">calories</span> <span class="n">short</span>
+
+<span class="n">end</span>
 
 
-             THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-          COMPOSITION DURING EXPANSION FROM INFINITE AREA COMBUSTOR
-
-Pinj =  1000.0 PSIA
-CASE = LOX_/_LH2
-
-            REACTANT                    WT FRACTION      ENERGY      TEMP
-                                         (SEE NOTE)      CAL/MOL       K
-FUEL        H2(L)                        1.0000000     -2154.000     20.270
-OXIDANT     O2(L)                        1.0000000     -3102.000     90.180
-
-O/F=    6.00000  %FUEL= 14.285714  R,EQ.RATIO= 1.322780  PHI,EQ.RATIO= 1.322780
-
-                CHAMBER   THROAT     EXIT
-Pinf/P            1.0000   1.7351   459.06
-P, ATM            68.046   39.216  0.14823
-T, K             3483.35  3291.03  1440.95
-RHO, G/CC       3.2038-3 1.9758-3 1.7690-5
-H, CAL/G         -235.74  -509.81 -2372.54
-U, CAL/G         -750.09  -990.49 -2575.47
-G, CAL/G        -15090.3 -14544.2 -8517.40
-S, CAL/(G)(K)     4.2644   4.2644   4.2644
-
-M, (1/n)          13.458   13.606   14.111
-(dLV/dLP)t      -1.02525 -1.01954 -1.00000
-(dLV/dLT)p        1.4496   1.3682   1.0001
-Cp, CAL/(G)(K)    2.0951   1.9171   0.7308
-GAMMAs            1.1401   1.1403   1.2388
-SON VEL,M/SEC     1566.3   1514.4   1025.6
-MACH NUMBER        0.000    1.000    4.123
-
-PERFORMANCE PARAMETERS
-
-Ae/At                     1.00000   40.000
-CSTAR, FT/SEC              7560.0   7560.0
-CF                         0.6572   1.8351
-Ivac,LB-SEC/LB              289.8    451.7
-Isp, LB-SEC/LB              154.4    431.2
 
 
-MOLE FRACTIONS
 
-*H               0.03417  0.02810  0.00001
-HO2              0.00003  0.00002  0.00000
-*H2              0.24832  0.24538  0.24401
-H2O              0.66590  0.68751  0.75598
-H2O2             0.00001  0.00001  0.00000
-*O               0.00334  0.00217  0.00000
-*OH              0.04478  0.03446  0.00000
-*O2              0.00345  0.00236  0.00000
+             <span class="n">THEORETICAL</span> <span class="n">ROCKET</span> <span class="n">PERFORMANCE</span> <span class="n">ASSUMING</span> <span class="n">EQUILIBRIUM</span>
 
- * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
+          <span class="n">COMPOSITION</span> <span class="n">DURING</span> <span class="n">EXPANSION</span> <span class="n">FROM</span> <span class="n">INFINITE</span> <span class="n">AREA</span> <span class="n">COMBUSTOR</span>
 
-NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
+<span class="n">Pinj</span> <span class="o">=</span>  <span class="mf">1000.0</span> <span class="n">PSIA</span>
+<span class="n">CASE</span> <span class="o">=</span> <span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>
+
+            <span class="n">REACTANT</span>                    <span class="n">WT</span> <span class="n">FRACTION</span>      <span class="n">ENERGY</span>      <span class="n">TEMP</span>
+                                         <span class="p">(</span><span class="n">SEE</span> <span class="n">NOTE</span><span class="p">)</span>      <span class="n">CAL</span><span class="o">/</span><span class="n">MOL</span>       <span class="n">K</span>
+<span class="n">FUEL</span>        <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">2154.000</span>     <span class="mf">20.270</span>
+<span class="n">OXIDANT</span>     <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">3102.000</span>     <span class="mf">90.180</span>
+
+<span class="n">O</span><span class="o">/</span><span class="n">F</span><span class="o">=</span>    <span class="mf">6.00000</span>  <span class="o">%</span><span class="n">FUEL</span><span class="o">=</span> <span class="mf">14.285714</span>  <span class="n">R</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>  <span class="n">PHI</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>
+
+                <span class="n">CHAMBER</span>   <span class="n">THROAT</span>     <span class="n">EXIT</span>
+<span class="n">Pinf</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.7351</span>   <span class="mf">459.06</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">ATM</span>            <span class="mf">68.046</span>   <span class="mf">39.216</span>  <span class="mf">0.14823</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3483.35</span>  <span class="mf">3291.03</span>  <span class="mf">1440.95</span>
+<span class="n">RHO</span><span class="p">,</span> <span class="n">G</span><span class="o">/</span><span class="n">CC</span>       <span class="mf">3.2038</span><span class="o">-</span><span class="mi">3</span> <span class="mf">1.9758</span><span class="o">-</span><span class="mi">3</span> <span class="mf">1.7690</span><span class="o">-</span><span class="mi">5</span>
+<span class="n">H</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">235.74</span>  <span class="o">-</span><span class="mf">509.81</span> <span class="o">-</span><span class="mf">2372.54</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">750.09</span>  <span class="o">-</span><span class="mf">990.49</span> <span class="o">-</span><span class="mf">2575.47</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>        <span class="o">-</span><span class="mf">15090.3</span> <span class="o">-</span><span class="mf">14544.2</span> <span class="o">-</span><span class="mf">8517.40</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>     <span class="mf">4.2644</span>   <span class="mf">4.2644</span>   <span class="mf">4.2644</span>
+
+<span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">13.458</span>   <span class="mf">13.606</span>   <span class="mf">14.111</span>
+<span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.02525</span> <span class="o">-</span><span class="mf">1.01954</span> <span class="o">-</span><span class="mf">1.00000</span>
+<span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.4496</span>   <span class="mf">1.3682</span>   <span class="mf">1.0001</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">2.0951</span>   <span class="mf">1.9171</span>   <span class="mf">0.7308</span>
+<span class="n">GAMMAs</span>            <span class="mf">1.1401</span>   <span class="mf">1.1403</span>   <span class="mf">1.2388</span>
+<span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1566.3</span>   <span class="mf">1514.4</span>   <span class="mf">1025.6</span>
+<span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">1.000</span>    <span class="mf">4.123</span>
+
+<span class="n">PERFORMANCE</span> <span class="n">PARAMETERS</span>
+
+<span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                     <span class="mf">1.00000</span>   <span class="mf">40.000</span>
+<span class="n">CSTAR</span><span class="p">,</span> <span class="n">FT</span><span class="o">/</span><span class="n">SEC</span>              <span class="mf">7560.0</span>   <span class="mf">7560.0</span>
+<span class="n">CF</span>                         <span class="mf">0.6572</span>   <span class="mf">1.8351</span>
+<span class="n">Ivac</span><span class="p">,</span><span class="n">LB</span><span class="o">-</span><span class="n">SEC</span><span class="o">/</span><span class="n">LB</span>              <span class="mf">289.8</span>    <span class="mf">451.7</span>
+<span class="n">Isp</span><span class="p">,</span> <span class="n">LB</span><span class="o">-</span><span class="n">SEC</span><span class="o">/</span><span class="n">LB</span>              <span class="mf">154.4</span>    <span class="mf">431.2</span>
+
+
+<span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+<span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.00001</span>
+<span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24401</span>
+<span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.75598</span>
+<span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>
+
+ <span class="o">*</span> <span class="n">THERMODYNAMIC</span> <span class="n">PROPERTIES</span> <span class="n">FITTED</span> <span class="n">TO</span> <span class="mf">20000.</span><span class="n">K</span>
+
+<span class="n">NOTE</span><span class="o">.</span> <span class="n">WEIGHT</span> <span class="n">FRACTION</span> <span class="n">OF</span> <span class="n">FUEL</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">FUELS</span> <span class="n">AND</span> <span class="n">OF</span> <span class="n">OXIDANT</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">OXIDANTS</span>
 </pre></div>
 </div>
 </div>
@@ -239,26 +227,27 @@ NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 <h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this headline">¶</a></h2>
 <p>New in RocketCEA version 1.06,
 to include transport properties, set the <strong>show_transport</strong> flag.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 
-<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;LH2&#39;</span><span class="p">)</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> 
                                 <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">show_transport</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>which adds the following lines to the output:</p>
-<div class="highlight-python"><div class="highlight"><pre>TRANSPORT PROPERTIES (GASES ONLY)
-  CONDUCTIVITY IN UNITS OF MILLICALORIES/(CM)(K)(SEC)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span> <span class="p">(</span><span class="n">GASES</span> <span class="n">ONLY</span><span class="p">)</span>
+  <span class="n">CONDUCTIVITY</span> <span class="n">IN</span> <span class="n">UNITS</span> <span class="n">OF</span> <span class="n">MILLICALORIES</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)(</span><span class="n">SEC</span><span class="p">)</span>
 
-VISC,MILLIPOISE   1.0588   1.0153  0.43328
+<span class="n">VISC</span><span class="p">,</span><span class="n">MILLIPOISE</span>   <span class="mf">1.0588</span>   <span class="mf">1.0153</span>  <span class="mf">0.43328</span>
 
- WITH FROZEN REACTIONS
+ <span class="n">WITH</span> <span class="n">FROZEN</span> <span class="n">REACTIONS</span>
 
-Cp, CAL/(G)(K)    0.9029   0.8950   0.6859
-CONDUCTIVITY      1.3519   1.2760   0.4369
-PRANDTL NUMBER    0.7071   0.7121   0.6803
+<span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">0.9029</span>   <span class="mf">0.8950</span>   <span class="mf">0.6859</span>
+<span class="n">CONDUCTIVITY</span>      <span class="mf">1.3519</span>   <span class="mf">1.2760</span>   <span class="mf">0.4369</span>
+<span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7071</span>   <span class="mf">0.7121</span>   <span class="mf">0.6803</span>
 </pre></div>
 </div>
 </div>
@@ -268,137 +257,138 @@ PRANDTL NUMBER    0.7071   0.7121   0.6803
 <p>Notice here that the flag to freeze the composition at the throat is set.
 Otherwise, the chamber composition is used.</p>
 <p>Also notice that without the short output flag, the long form of output results.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 
-<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;LH2&#39;</span><span class="p">)</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>The result are shown below:</p>
-<div class="highlight-python"><div class="highlight"><pre>*******************************************************************************
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
 
-        NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA, OCTOBER 18, 2002
-                  BY  BONNIE MCBRIDE AND SANFORD GORDON
-     REFS: NASA RP-1311, PART I, 1994 AND NASA RP-1311, PART II, 1996
+        <span class="n">NASA</span><span class="o">-</span><span class="n">GLENN</span> <span class="n">CHEMICAL</span> <span class="n">EQUILIBRIUM</span> <span class="n">PROGRAM</span> <span class="n">CEA</span><span class="p">,</span> <span class="n">OCTOBER</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">2002</span>
+                  <span class="n">BY</span>  <span class="n">BONNIE</span> <span class="n">MCBRIDE</span> <span class="n">AND</span> <span class="n">SANFORD</span> <span class="n">GORDON</span>
+     <span class="n">REFS</span><span class="p">:</span> <span class="n">NASA</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1311</span><span class="p">,</span> <span class="n">PART</span> <span class="n">I</span><span class="p">,</span> <span class="mi">1994</span> <span class="n">AND</span> <span class="n">NASA</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1311</span><span class="p">,</span> <span class="n">PART</span> <span class="n">II</span><span class="p">,</span> <span class="mi">1996</span>
 
-*******************************************************************************
-
-
-
-reac
- fuel H2(L)  H 2
- h,cal=-2154.0      t(k)=20.27       wt%=100.
- oxid O2(L)  O 2
- h,cal=-3102.      t(k)=90.18       wt%=100.
-
-prob case=LOX_/_LH2
- rocket frozen nfz=2   p,psia=1000.000000, supar=40.000000,
- o/f=6.000000
-
-outp   calories
-
-end
-
-OPTIONS: TP=F  HP=F  SP=F  TV=F  UV=F  SV=F  DETN=F  SHOCK=F  REFL=F  INCD=F
-RKT=T  FROZ=T  EQL=F  IONS=F  SIUNIT=F  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=F
-
-TRACE= 0.00E+00  S/R= 0.000000E+00  H/R= 0.000000E+00  U/R= 0.000000E+00
-
-Pc,BAR =    68.947304
-
-Pc/P =
-
-SUBSONIC AREA RATIOS =
-
-SUPERSONIC AREA RATIOS =    40.0000
-
-NFZ=  2  Mdot/Ac= 0.000000E+00  Ac/At= 0.000000E+00
-
-   REACTANT          WT.FRAC   (ENERGY/R),K   TEMP,K  DENSITY
-       EXPLODED FORMULA
-F: H2(L)            1.000000  -0.108393E+04    20.27  0.0000
-         H  2.00000
-O: O2(L)            1.000000  -0.156098E+04    90.18  0.0000
-         O  2.00000
-
- SPECIES BEING CONSIDERED IN THIS SYSTEM
-(CONDENSED PHASE MAY HAVE NAME LISTED SEVERAL TIMES)
- LAST thermo.inp UPDATE:    9/09/04
-
- g 6/97  *H               g 4/02  HO2              tpis78  *H2
- g 8/89  H2O              g 6/99  H2O2             g 5/97  *O
- g 4/02  *OH              tpis89  *O2              g 8/01  O3
- g11/99  H2O(cr)          g 8/01  H2O(L)           g 8/01  H2O(L)
-
-O/F =   6.000000
-
-                      EFFECTIVE FUEL     EFFECTIVE OXIDANT        MIXTURE
-ENTHALPY                  h(2)/R              h(1)/R               h0/R
-(KG-MOL)(K)/KG       -0.53769505E+03     -0.48782395E+02     -0.11862706E+03
-
-KG-FORM.WT./KG             bi(2)               bi(1)               b0i
- *H                   0.99212255E+00      0.00000000E+00      0.14173179E+00
- *O                   0.00000000E+00      0.62502344E-01      0.53573438E-01
-
-POINT ITN      T            H           O
-  1    9    3483.350      -9.273     -16.160
-Pinf/Pt = 1.734909
-  2    4    3291.075      -9.450     -16.510
-Pinf/Pt = 1.735136
-  2    1    3291.030      -9.450     -16.510
+<span class="o">*******************************************************************************</span>
 
 
 
+<span class="n">reac</span>
+ <span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+ <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2154.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+ <span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+ <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+
+<span class="n">prob</span> <span class="n">case</span><span class="o">=</span><span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>
+ <span class="n">rocket</span> <span class="n">frozen</span> <span class="n">nfz</span><span class="o">=</span><span class="mi">2</span>   <span class="n">p</span><span class="p">,</span><span class="n">psia</span><span class="o">=</span><span class="mf">1000.000000</span><span class="p">,</span> <span class="n">supar</span><span class="o">=</span><span class="mf">40.000000</span><span class="p">,</span>
+ <span class="n">o</span><span class="o">/</span><span class="n">f</span><span class="o">=</span><span class="mf">6.000000</span>
+
+<span class="n">outp</span>   <span class="n">calories</span>
+
+<span class="n">end</span>
+
+<span class="n">OPTIONS</span><span class="p">:</span> <span class="n">TP</span><span class="o">=</span><span class="n">F</span>  <span class="n">HP</span><span class="o">=</span><span class="n">F</span>  <span class="n">SP</span><span class="o">=</span><span class="n">F</span>  <span class="n">TV</span><span class="o">=</span><span class="n">F</span>  <span class="n">UV</span><span class="o">=</span><span class="n">F</span>  <span class="n">SV</span><span class="o">=</span><span class="n">F</span>  <span class="n">DETN</span><span class="o">=</span><span class="n">F</span>  <span class="n">SHOCK</span><span class="o">=</span><span class="n">F</span>  <span class="n">REFL</span><span class="o">=</span><span class="n">F</span>  <span class="n">INCD</span><span class="o">=</span><span class="n">F</span>
+<span class="n">RKT</span><span class="o">=</span><span class="n">T</span>  <span class="n">FROZ</span><span class="o">=</span><span class="n">T</span>  <span class="n">EQL</span><span class="o">=</span><span class="n">F</span>  <span class="n">IONS</span><span class="o">=</span><span class="n">F</span>  <span class="n">SIUNIT</span><span class="o">=</span><span class="n">F</span>  <span class="n">DEBUGF</span><span class="o">=</span><span class="n">F</span>  <span class="n">SHKDBG</span><span class="o">=</span><span class="n">F</span>  <span class="n">DETDBG</span><span class="o">=</span><span class="n">F</span>  <span class="n">TRNSPT</span><span class="o">=</span><span class="n">F</span>
+
+<span class="n">TRACE</span><span class="o">=</span> <span class="mf">0.00E+00</span>  <span class="n">S</span><span class="o">/</span><span class="n">R</span><span class="o">=</span> <span class="mf">0.000000E+00</span>  <span class="n">H</span><span class="o">/</span><span class="n">R</span><span class="o">=</span> <span class="mf">0.000000E+00</span>  <span class="n">U</span><span class="o">/</span><span class="n">R</span><span class="o">=</span> <span class="mf">0.000000E+00</span>
+
+<span class="n">Pc</span><span class="p">,</span><span class="n">BAR</span> <span class="o">=</span>    <span class="mf">68.947304</span>
+
+<span class="n">Pc</span><span class="o">/</span><span class="n">P</span> <span class="o">=</span>
+
+<span class="n">SUBSONIC</span> <span class="n">AREA</span> <span class="n">RATIOS</span> <span class="o">=</span>
+
+<span class="n">SUPERSONIC</span> <span class="n">AREA</span> <span class="n">RATIOS</span> <span class="o">=</span>    <span class="mf">40.0000</span>
+
+<span class="n">NFZ</span><span class="o">=</span>  <span class="mi">2</span>  <span class="n">Mdot</span><span class="o">/</span><span class="n">Ac</span><span class="o">=</span> <span class="mf">0.000000E+00</span>  <span class="n">Ac</span><span class="o">/</span><span class="n">At</span><span class="o">=</span> <span class="mf">0.000000E+00</span>
+
+   <span class="n">REACTANT</span>          <span class="n">WT</span><span class="o">.</span><span class="n">FRAC</span>   <span class="p">(</span><span class="n">ENERGY</span><span class="o">/</span><span class="n">R</span><span class="p">),</span><span class="n">K</span>   <span class="n">TEMP</span><span class="p">,</span><span class="n">K</span>  <span class="n">DENSITY</span>
+       <span class="n">EXPLODED</span> <span class="n">FORMULA</span>
+<span class="n">F</span><span class="p">:</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>            <span class="mf">1.000000</span>  <span class="o">-</span><span class="mf">0.108393E+04</span>    <span class="mf">20.27</span>  <span class="mf">0.0000</span>
+         <span class="n">H</span>  <span class="mf">2.00000</span>
+<span class="n">O</span><span class="p">:</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>            <span class="mf">1.000000</span>  <span class="o">-</span><span class="mf">0.156098E+04</span>    <span class="mf">90.18</span>  <span class="mf">0.0000</span>
+         <span class="n">O</span>  <span class="mf">2.00000</span>
+
+ <span class="n">SPECIES</span> <span class="n">BEING</span> <span class="n">CONSIDERED</span> <span class="n">IN</span> <span class="n">THIS</span> <span class="n">SYSTEM</span>
+<span class="p">(</span><span class="n">CONDENSED</span> <span class="n">PHASE</span> <span class="n">MAY</span> <span class="n">HAVE</span> <span class="n">NAME</span> <span class="n">LISTED</span> <span class="n">SEVERAL</span> <span class="n">TIMES</span><span class="p">)</span>
+ <span class="n">LAST</span> <span class="n">thermo</span><span class="o">.</span><span class="n">inp</span> <span class="n">UPDATE</span><span class="p">:</span>    <span class="mi">9</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">04</span>
+
+ <span class="n">g</span> <span class="mi">6</span><span class="o">/</span><span class="mi">97</span>  <span class="o">*</span><span class="n">H</span>               <span class="n">g</span> <span class="mi">4</span><span class="o">/</span><span class="mi">02</span>  <span class="n">HO2</span>              <span class="n">tpis78</span>  <span class="o">*</span><span class="n">H2</span>
+ <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">89</span>  <span class="n">H2O</span>              <span class="n">g</span> <span class="mi">6</span><span class="o">/</span><span class="mi">99</span>  <span class="n">H2O2</span>             <span class="n">g</span> <span class="mi">5</span><span class="o">/</span><span class="mi">97</span>  <span class="o">*</span><span class="n">O</span>
+ <span class="n">g</span> <span class="mi">4</span><span class="o">/</span><span class="mi">02</span>  <span class="o">*</span><span class="n">OH</span>              <span class="n">tpis89</span>  <span class="o">*</span><span class="n">O2</span>              <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">01</span>  <span class="n">O3</span>
+ <span class="n">g11</span><span class="o">/</span><span class="mi">99</span>  <span class="n">H2O</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>          <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">01</span>  <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>           <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">01</span>  <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="n">O</span><span class="o">/</span><span class="n">F</span> <span class="o">=</span>   <span class="mf">6.000000</span>
+
+                      <span class="n">EFFECTIVE</span> <span class="n">FUEL</span>     <span class="n">EFFECTIVE</span> <span class="n">OXIDANT</span>        <span class="n">MIXTURE</span>
+<span class="n">ENTHALPY</span>                  <span class="n">h</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>              <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>               <span class="n">h0</span><span class="o">/</span><span class="n">R</span>
+<span class="p">(</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span><span class="o">/</span><span class="n">KG</span>       <span class="o">-</span><span class="mf">0.53769505E+03</span>     <span class="o">-</span><span class="mf">0.48782395E+02</span>     <span class="o">-</span><span class="mf">0.11862706E+03</span>
+
+<span class="n">KG</span><span class="o">-</span><span class="n">FORM</span><span class="o">.</span><span class="n">WT</span><span class="o">./</span><span class="n">KG</span>             <span class="n">bi</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>               <span class="n">bi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>               <span class="n">b0i</span>
+ <span class="o">*</span><span class="n">H</span>                   <span class="mf">0.99212255E+00</span>      <span class="mf">0.00000000E+00</span>      <span class="mf">0.14173179E+00</span>
+ <span class="o">*</span><span class="n">O</span>                   <span class="mf">0.00000000E+00</span>      <span class="mf">0.62502344E-01</span>      <span class="mf">0.53573438E-01</span>
+
+<span class="n">POINT</span> <span class="n">ITN</span>      <span class="n">T</span>            <span class="n">H</span>           <span class="n">O</span>
+  <span class="mi">1</span>    <span class="mi">9</span>    <span class="mf">3483.350</span>      <span class="o">-</span><span class="mf">9.273</span>     <span class="o">-</span><span class="mf">16.160</span>
+<span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.734909</span>
+  <span class="mi">2</span>    <span class="mi">4</span>    <span class="mf">3291.075</span>      <span class="o">-</span><span class="mf">9.450</span>     <span class="o">-</span><span class="mf">16.510</span>
+<span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.735136</span>
+  <span class="mi">2</span>    <span class="mi">1</span>    <span class="mf">3291.030</span>      <span class="o">-</span><span class="mf">9.450</span>     <span class="o">-</span><span class="mf">16.510</span>
 
 
-          THEORETICAL ROCKET PERFORMANCE ASSUMING FROZEN COMPOSITION
-                                AFTER POINT 2
 
-Pinj =  1000.0 PSIA
-CASE = LOX_/_LH2
 
-            REACTANT                    WT FRACTION      ENERGY      TEMP
-                                         (SEE NOTE)      CAL/MOL       K
-FUEL        H2(L)                        1.0000000     -2154.000     20.270
-OXIDANT     O2(L)                        1.0000000     -3102.000     90.180
 
-O/F=    6.00000  %FUEL= 14.285714  R,EQ.RATIO= 1.322780  PHI,EQ.RATIO= 1.322780
+          <span class="n">THEORETICAL</span> <span class="n">ROCKET</span> <span class="n">PERFORMANCE</span> <span class="n">ASSUMING</span> <span class="n">FROZEN</span> <span class="n">COMPOSITION</span>
+                                <span class="n">AFTER</span> <span class="n">POINT</span> <span class="mi">2</span>
 
-                CHAMBER   THROAT     EXIT
-Pinf/P            1.0000   1.7351   539.53
-P, ATM            68.046   39.216  0.12612
-T, K             3483.35  3291.03  1149.39
-RHO, G/CC       3.2038-3 1.9758-3 1.8194-5
-H, CAL/G         -235.74  -509.81 -2255.83
-U, CAL/G         -750.09  -990.49 -2423.71
-G, CAL/G        -15090.3 -14544.2 -7157.33
-S, CAL/(G)(K)     4.2644   4.2644   4.2644
+<span class="n">Pinj</span> <span class="o">=</span>  <span class="mf">1000.0</span> <span class="n">PSIA</span>
+<span class="n">CASE</span> <span class="o">=</span> <span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>
 
-M, (1/n)          13.458   13.606   13.606
-Cp, CAL/(G)(K)    2.0951   1.9171   0.6859
-GAMMAs            1.1401   1.1403   1.2705
-SON VEL,M/SEC     1566.3   1514.4    944.7
-MACH NUMBER        0.000    1.000    4.352
+            <span class="n">REACTANT</span>                    <span class="n">WT</span> <span class="n">FRACTION</span>      <span class="n">ENERGY</span>      <span class="n">TEMP</span>
+                                         <span class="p">(</span><span class="n">SEE</span> <span class="n">NOTE</span><span class="p">)</span>      <span class="n">CAL</span><span class="o">/</span><span class="n">MOL</span>       <span class="n">K</span>
+<span class="n">FUEL</span>        <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">2154.000</span>     <span class="mf">20.270</span>
+<span class="n">OXIDANT</span>     <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">3102.000</span>     <span class="mf">90.180</span>
 
-PERFORMANCE PARAMETERS
+<span class="n">O</span><span class="o">/</span><span class="n">F</span><span class="o">=</span>    <span class="mf">6.00000</span>  <span class="o">%</span><span class="n">FUEL</span><span class="o">=</span> <span class="mf">14.285714</span>  <span class="n">R</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>  <span class="n">PHI</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>
 
-Ae/At                     1.00000   40.000
-CSTAR, FT/SEC              7560.0   7560.0
-CF                         0.6572   1.7843
-Ivac,LB-SEC/LB              289.8    436.7
-Isp, LB-SEC/LB              154.4    419.3
+                <span class="n">CHAMBER</span>   <span class="n">THROAT</span>     <span class="n">EXIT</span>
+<span class="n">Pinf</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.7351</span>   <span class="mf">539.53</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">ATM</span>            <span class="mf">68.046</span>   <span class="mf">39.216</span>  <span class="mf">0.12612</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3483.35</span>  <span class="mf">3291.03</span>  <span class="mf">1149.39</span>
+<span class="n">RHO</span><span class="p">,</span> <span class="n">G</span><span class="o">/</span><span class="n">CC</span>       <span class="mf">3.2038</span><span class="o">-</span><span class="mi">3</span> <span class="mf">1.9758</span><span class="o">-</span><span class="mi">3</span> <span class="mf">1.8194</span><span class="o">-</span><span class="mi">5</span>
+<span class="n">H</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">235.74</span>  <span class="o">-</span><span class="mf">509.81</span> <span class="o">-</span><span class="mf">2255.83</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">750.09</span>  <span class="o">-</span><span class="mf">990.49</span> <span class="o">-</span><span class="mf">2423.71</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>        <span class="o">-</span><span class="mf">15090.3</span> <span class="o">-</span><span class="mf">14544.2</span> <span class="o">-</span><span class="mf">7157.33</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>     <span class="mf">4.2644</span>   <span class="mf">4.2644</span>   <span class="mf">4.2644</span>
 
-MOLE FRACTIONS
+<span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">13.458</span>   <span class="mf">13.606</span>   <span class="mf">13.606</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">2.0951</span>   <span class="mf">1.9171</span>   <span class="mf">0.6859</span>
+<span class="n">GAMMAs</span>            <span class="mf">1.1401</span>   <span class="mf">1.1403</span>   <span class="mf">1.2705</span>
+<span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1566.3</span>   <span class="mf">1514.4</span>    <span class="mf">944.7</span>
+<span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">1.000</span>    <span class="mf">4.352</span>
 
-*H              0.02810   HO2             0.00002   *H2             0.24538
-H2O             0.68751   H2O2            0.00001   *O              0.00217
-*OH             0.03446   *O2             0.00236
+<span class="n">PERFORMANCE</span> <span class="n">PARAMETERS</span>
 
- * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
+<span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                     <span class="mf">1.00000</span>   <span class="mf">40.000</span>
+<span class="n">CSTAR</span><span class="p">,</span> <span class="n">FT</span><span class="o">/</span><span class="n">SEC</span>              <span class="mf">7560.0</span>   <span class="mf">7560.0</span>
+<span class="n">CF</span>                         <span class="mf">0.6572</span>   <span class="mf">1.7843</span>
+<span class="n">Ivac</span><span class="p">,</span><span class="n">LB</span><span class="o">-</span><span class="n">SEC</span><span class="o">/</span><span class="n">LB</span>              <span class="mf">289.8</span>    <span class="mf">436.7</span>
+<span class="n">Isp</span><span class="p">,</span> <span class="n">LB</span><span class="o">-</span><span class="n">SEC</span><span class="o">/</span><span class="n">LB</span>              <span class="mf">154.4</span>    <span class="mf">419.3</span>
 
-   PRODUCTS WHICH WERE CONSIDERED BUT WHOSE
+<span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+<span class="o">*</span><span class="n">H</span>              <span class="mf">0.02810</span>   <span class="n">HO2</span>             <span class="mf">0.00002</span>   <span class="o">*</span><span class="n">H2</span>             <span class="mf">0.24538</span>
+<span class="n">H2O</span>             <span class="mf">0.68751</span>   <span class="n">H2O2</span>            <span class="mf">0.00001</span>   <span class="o">*</span><span class="n">O</span>              <span class="mf">0.00217</span>
+<span class="o">*</span><span class="n">OH</span>             <span class="mf">0.03446</span>   <span class="o">*</span><span class="n">O2</span>             <span class="mf">0.00236</span>
+
+ <span class="o">*</span> <span class="n">THERMODYNAMIC</span> <span class="n">PROPERTIES</span> <span class="n">FITTED</span> <span class="n">TO</span> <span class="mf">20000.</span><span class="n">K</span>
+
+   <span class="n">PRODUCTS</span> <span class="n">WHICH</span> <span class="n">WERE</span> <span class="n">CONSIDERED</span> <span class="n">BUT</span> <span class="n">WHOSE</span>
 </pre></div>
 </div>
 </div>
@@ -425,12 +415,12 @@ H2O             0.68751   H2O2            0.00001   *O              0.00217
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

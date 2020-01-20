@@ -2,39 +2,29 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Parasol Example &mdash; RocketCEA 1.0.7 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Parasol Example &#8212; RocketCEA 1.0.8 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="top" title="RocketCEA 1.0.7 documentation" href="index.html" />
     <link rel="next" title="RocketCEA Functions" href="functions.html" />
     <link rel="prev" title="Temperature Adjust" href="temperature_adjust.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -50,7 +40,7 @@
         <li class="right" >
           <a href="temperature_adjust.html" title="Temperature Adjust"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -58,7 +48,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
@@ -72,7 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Parasol Example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parasol Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
@@ -88,21 +78,18 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/parasol_example.txt"
+      <li><a href="_sources/parasol_example.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -120,16 +107,17 @@
 <p><a class="reference external" href="http://parasol.readthedocs.io/en/latest/">Parasol</a>  enables easy optimization, sensitivity study, and visualization.</p>
 <p>For this example, <a class="reference external" href="http://parasol.readthedocs.io/en/latest/">Parasol</a> was used along with RocketCEA
 to evaluate sea level performance of a rocket engine.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">parasol</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">parasol</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 
-<span class="c"># create system object (make sure author is correct... it&#39;s used for report)</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">ParametricSoln</span><span class="p">(</span><span class="n">subtaskName</span><span class="o">=</span><span class="s">&quot;Nozzle Area Ratio&quot;</span><span class="p">,</span> 
-    <span class="n">author</span><span class="o">=</span><span class="s">&quot;Charlie Taylor&quot;</span><span class="p">,</span> <span class="n">taskName</span><span class="o">=</span><span class="s">&quot;System Analysis&quot;</span><span class="p">,</span> <span class="n">constraintTolerance</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="c1"># create system object (make sure author is correct... it&#39;s used for report)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">ParametricSoln</span><span class="p">(</span><span class="n">subtaskName</span><span class="o">=</span><span class="s2">&quot;Nozzle Area Ratio&quot;</span><span class="p">,</span> 
+    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Charlie Taylor&quot;</span><span class="p">,</span> <span class="n">taskName</span><span class="o">=</span><span class="s2">&quot;System Analysis&quot;</span><span class="p">,</span> <span class="n">constraintTolerance</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
 
-<span class="n">fuelName</span> <span class="o">=</span> <span class="s">&#39;LH2&#39;</span>
-<span class="n">oxName</span> <span class="o">=</span> <span class="s">&#39;LOX&#39;</span>
+<span class="n">fuelName</span> <span class="o">=</span> <span class="s1">&#39;LH2&#39;</span>
+<span class="n">oxName</span> <span class="o">=</span> <span class="s1">&#39;LOX&#39;</span>
 <span class="n">pcRef</span><span class="o">=</span><span class="mf">1488.0</span> 
 <span class="n">epsRef</span> <span class="o">=</span> <span class="mf">21.5</span>
 <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span>
@@ -138,32 +126,32 @@ to evaluate sea level performance of a rocket engine.</p>
 
 <span class="n">ispODEref</span><span class="p">,</span><span class="n">cstrODEref</span><span class="p">,</span><span class="n">tcODEref</span> <span class="o">=</span> <span class="n">ispODEObj</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">pcRef</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">epsRef</span><span class="p">)</span>
 
-<span class="c"># add design variables to the system (these variables may be used to</span>
-<span class="c"># optimize the system or to create plots)</span>
-<span class="c"># design vars have: </span>
-<span class="c">#     name, value, minVal, maxVal, NSteps,  units,  description</span>
+<span class="c1"># add design variables to the system (these variables may be used to</span>
+<span class="c1"># optimize the system or to create plots)</span>
+<span class="c1"># design vars have: </span>
+<span class="c1">#     name, value, minVal, maxVal, NSteps,  units,  description</span>
 <span class="n">S</span><span class="o">.</span><span class="n">addDesVars</span><span class="p">(</span>
-    <span class="p">[</span><span class="s">&#39;Pc&#39;</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="s">&#39;psia&#39;</span><span class="p">,</span><span class="s">&#39;Chamber Pressure&#39;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s">&#39;eps&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;Nozzle Area Ratio&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Pc&#39;</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;psia&#39;</span><span class="p">,</span><span class="s1">&#39;Chamber Pressure&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;eps&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Nozzle Area Ratio&#39;</span><span class="p">],</span>
     <span class="p">)</span>
 
 
-<span class="c"># now add any Result Variables That might be plotted</span>
-<span class="c"># &quot;sysMass&quot; is required</span>
-<span class="c"># result variables have: </span>
-<span class="c">#    name,      units,  description</span>
+<span class="c1"># now add any Result Variables That might be plotted</span>
+<span class="c1"># &quot;sysMass&quot; is required</span>
+<span class="c1"># result variables have: </span>
+<span class="c1">#    name,      units,  description</span>
 <span class="n">S</span><span class="o">.</span><span class="n">addResultVars</span><span class="p">(</span>
-    <span class="p">[</span><span class="s">&#39;IspVac&#39;</span><span class="p">,</span><span class="s">&#39;sec&#39;</span><span class="p">,</span><span class="s">&#39;Vacuum Isp&#39;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s">&#39;Pexit&#39;</span><span class="p">,</span><span class="s">&#39;psia&#39;</span><span class="p">,</span><span class="s">&#39;Nozzle Exit Pressure&#39;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s">&#39;IspSL&#39;</span><span class="p">,</span><span class="s">&#39;sec&#39;</span><span class="p">,</span><span class="s">&#39;Sea Level Isp&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;IspVac&#39;</span><span class="p">,</span><span class="s1">&#39;sec&#39;</span><span class="p">,</span><span class="s1">&#39;Vacuum Isp&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Pexit&#39;</span><span class="p">,</span><span class="s1">&#39;psia&#39;</span><span class="p">,</span><span class="s1">&#39;Nozzle Exit Pressure&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;IspSL&#39;</span><span class="p">,</span><span class="s1">&#39;sec&#39;</span><span class="p">,</span><span class="s1">&#39;Sea Level Isp&#39;</span><span class="p">],</span>
     <span class="p">)</span>
 
 
-<span class="c"># the following control routine ties together the system components</span>
-<span class="c">#  with the system design variables</span>
+<span class="c1"># the following control routine ties together the system components</span>
+<span class="c1">#  with the system design variables</span>
 <span class="k">def</span> <span class="nf">myControlRoutine</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
-    <span class="c"># get current values of design variables    </span>
-    <span class="n">Pc</span><span class="p">,</span><span class="n">eps</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">getDesVars</span><span class="p">(</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span><span class="s">&quot;eps&quot;</span><span class="p">)</span>
+    <span class="c1"># get current values of design variables    </span>
+    <span class="n">Pc</span><span class="p">,</span><span class="n">eps</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">getDesVars</span><span class="p">(</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span><span class="s2">&quot;eps&quot;</span><span class="p">)</span>
     
     <span class="n">ispODE</span><span class="p">,</span><span class="n">cstrODE</span><span class="p">,</span><span class="n">tcODE</span> <span class="o">=</span> <span class="n">ispODEObj</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
     <span class="n">PcOvPe</span> <span class="o">=</span> <span class="n">ispODEObj</span><span class="o">.</span><span class="n">get_PcOvPe</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
@@ -173,59 +161,59 @@ to evaluate sea level performance of a rocket engine.</p>
     
     <span class="n">IspSL</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">ispODEObj</span><span class="o">.</span><span class="n">estimate_Ambient_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">Pamb</span><span class="o">=</span><span class="mf">14.7</span><span class="p">)</span>
 
-    <span class="n">S</span><span class="p">[</span><span class="s">&quot;IspVac&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">IspVac</span>
-    <span class="n">S</span><span class="p">[</span><span class="s">&quot;IspSL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">IspSL</span>
-    <span class="n">S</span><span class="p">[</span><span class="s">&quot;Pexit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Pexit</span>
+    <span class="n">S</span><span class="p">[</span><span class="s2">&quot;IspVac&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">IspVac</span>
+    <span class="n">S</span><span class="p">[</span><span class="s2">&quot;IspSL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">IspSL</span>
+    <span class="n">S</span><span class="p">[</span><span class="s2">&quot;Pexit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Pexit</span>
     
     <span class="k">if</span> <span class="n">IspVac</span> <span class="o">&lt;</span> <span class="n">IspSL</span><span class="p">:</span>
-        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">+</span> <span class="s">&#39;&lt;&lt;ERROR&gt;&gt;&#39;</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Pc=</span><span class="si">%4i</span><span class="s">  eps=</span><span class="si">%3i</span><span class="s">  IspAmb=</span><span class="si">%10.2f</span><span class="s"> IspVac=</span><span class="si">%10.2f</span><span class="s">  Mode=</span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Pc</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">eps</span><span class="p">),</span> <span class="n">IspSL</span><span class="p">,</span> <span class="n">IspVac</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">+</span> <span class="s1">&#39;&lt;&lt;ERROR&gt;&gt;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pc=</span><span class="si">%4i</span><span class="s1">  eps=</span><span class="si">%3i</span><span class="s1">  IspAmb=</span><span class="si">%10.2f</span><span class="s1"> IspVac=</span><span class="si">%10.2f</span><span class="s1">  Mode=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Pc</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">eps</span><span class="p">),</span> <span class="n">IspSL</span><span class="p">,</span> <span class="n">IspVac</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
 
-<span class="c"># need to tell system the name of the control routine</span>
+<span class="c1"># need to tell system the name of the control routine</span>
 <span class="n">S</span><span class="o">.</span><span class="n">setControlRoutine</span><span class="p">(</span><span class="n">myControlRoutine</span><span class="p">)</span>
 
-<span class="n">make2DPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;IspVac&quot;</span><span class="p">,</span><span class="s">&quot;IspSL&quot;</span><span class="p">],</span> <span class="n">desVar</span><span class="o">=</span><span class="s">&quot;eps&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-           <span class="n">titleStr</span><span class="o">=</span><span class="s">&quot;Vacuum and Sea Level Isp for </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+<span class="n">make2DPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;IspVac&quot;</span><span class="p">,</span><span class="s2">&quot;IspSL&quot;</span><span class="p">],</span> <span class="n">desVar</span><span class="o">=</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+           <span class="n">titleStr</span><span class="o">=</span><span class="s2">&quot;Vacuum and Sea Level Isp for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
 
-<span class="n">make2DParametricPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s">&quot;IspVac&quot;</span><span class="p">,</span> <span class="n">desVar</span><span class="o">=</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">paramVar</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">titleStr</span><span class="o">=</span><span class="s">&quot;Vacuum Isp for </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
-
-
-<span class="n">make2DParametricPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s">&quot;IspSL&quot;</span><span class="p">,</span> <span class="n">desVar</span><span class="o">=</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">paramVar</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">]</span>  <span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">titleStr</span><span class="o">=</span><span class="s">&quot;Sea Level Isp for </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+<span class="n">make2DParametricPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s2">&quot;IspVac&quot;</span><span class="p">,</span> <span class="n">desVar</span><span class="o">=</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">paramVar</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">titleStr</span><span class="o">=</span><span class="s2">&quot;Vacuum Isp for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
 
 
-<span class="n">make2DParametricPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s">&quot;Pexit&quot;</span><span class="p">,</span> <span class="n">desVar</span><span class="o">=</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">paramVar</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">]</span>  <span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">make2DParametricPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s2">&quot;IspSL&quot;</span><span class="p">,</span> <span class="n">desVar</span><span class="o">=</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">paramVar</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">]</span>  <span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">titleStr</span><span class="o">=</span><span class="s2">&quot;Sea Level Isp for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
 
 
-<span class="n">makeCarpetPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s">&quot;IspVac&quot;</span><span class="p">,</span> 
-    <span class="n">desVarL</span><span class="o">=</span><span class="p">[[</span><span class="s">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],[</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span><span class="mf">1000.</span><span class="p">,</span><span class="mf">2000.</span><span class="p">,</span><span class="mf">3000.</span><span class="p">]],</span> 
-    <span class="n">xResultVar</span><span class="o">=</span><span class="s">&quot;Pexit&quot;</span><span class="p">,</span>
-    <span class="n">haLabel</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span> <span class="n">vaLabel</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">titleStr</span><span class="o">=</span><span class="s">&quot;Vacuum Isp and Nozzle Exit Pressure for </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+<span class="n">make2DParametricPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s2">&quot;Pexit&quot;</span><span class="p">,</span> <span class="n">desVar</span><span class="o">=</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">paramVar</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">]</span>  <span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 
-<span class="n">makeCarpetPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s">&quot;IspSL&quot;</span><span class="p">,</span> 
-    <span class="n">desVarL</span><span class="o">=</span><span class="p">[[</span><span class="s">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],[</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span><span class="mf">1500.</span><span class="p">,</span><span class="mf">2000.</span><span class="p">,</span><span class="mf">3000.</span><span class="p">]],</span> 
-    <span class="n">xResultVar</span><span class="o">=</span><span class="s">&quot;Pexit&quot;</span><span class="p">,</span>
-    <span class="n">haLabel</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span> <span class="n">vaLabel</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">titleStr</span><span class="o">=</span><span class="s">&quot;Sea Level Isp and Nozzle Exit Pressure for </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+<span class="n">makeCarpetPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s2">&quot;IspVac&quot;</span><span class="p">,</span> 
+    <span class="n">desVarL</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],[</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span><span class="mf">1000.</span><span class="p">,</span><span class="mf">2000.</span><span class="p">,</span><span class="mf">3000.</span><span class="p">]],</span> 
+    <span class="n">xResultVar</span><span class="o">=</span><span class="s2">&quot;Pexit&quot;</span><span class="p">,</span>
+    <span class="n">haLabel</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">vaLabel</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">titleStr</span><span class="o">=</span><span class="s2">&quot;Vacuum Isp and Nozzle Exit Pressure for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
 
 
-<span class="n">makeCarpetPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s">&quot;IspSL&quot;</span><span class="p">,</span> 
-    <span class="n">desVarL</span><span class="o">=</span><span class="p">[[</span><span class="s">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],[</span><span class="s">&quot;Pc&quot;</span><span class="p">,</span><span class="mf">1500.</span><span class="p">,</span><span class="mf">2000.</span><span class="p">,</span><span class="mf">3000.</span><span class="p">]],</span> 
-    <span class="n">xResultVar</span><span class="o">=</span><span class="s">&quot;IspVac&quot;</span><span class="p">,</span>
-    <span class="n">haLabel</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span> <span class="n">vaLabel</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">titleStr</span><span class="o">=</span><span class="s">&quot;Sea Level and Vacuum Isp for </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+<span class="n">makeCarpetPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s2">&quot;IspSL&quot;</span><span class="p">,</span> 
+    <span class="n">desVarL</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],[</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span><span class="mf">1500.</span><span class="p">,</span><span class="mf">2000.</span><span class="p">,</span><span class="mf">3000.</span><span class="p">]],</span> 
+    <span class="n">xResultVar</span><span class="o">=</span><span class="s2">&quot;Pexit&quot;</span><span class="p">,</span>
+    <span class="n">haLabel</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">vaLabel</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">titleStr</span><span class="o">=</span><span class="s2">&quot;Sea Level Isp and Nozzle Exit Pressure for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
 
 
-<span class="c"># now save summary of system</span>
+<span class="n">makeCarpetPlot</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sysParam</span><span class="o">=</span><span class="s2">&quot;IspSL&quot;</span><span class="p">,</span> 
+    <span class="n">desVarL</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">],[</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span><span class="mf">1500.</span><span class="p">,</span><span class="mf">2000.</span><span class="p">,</span><span class="mf">3000.</span><span class="p">]],</span> 
+    <span class="n">xResultVar</span><span class="o">=</span><span class="s2">&quot;IspVac&quot;</span><span class="p">,</span>
+    <span class="n">haLabel</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">vaLabel</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">titleStr</span><span class="o">=</span><span class="s2">&quot;Sea Level and Vacuum Isp for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ispODEObj</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+
+
+<span class="c1"># now save summary of system</span>
 <span class="n">S</span><span class="o">.</span><span class="n">saveFullSummary</span><span class="p">()</span>
 
-<span class="c"># Be sure to wrap-up any files</span>
+<span class="c1"># Be sure to wrap-up any files</span>
 <span class="n">S</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -453,12 +441,12 @@ contact: C. Taylor, cet@appliedpython.com
         <li class="right" >
           <a href="temperature_adjust.html" title="Temperature Adjust"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

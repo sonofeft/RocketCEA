@@ -68,7 +68,7 @@ def add_user_units( default_units, user_units, multiplier, offset=0 ):
     
 # ----------- add units for Pressure --------------
 # ...Pressure
-add_user_units('psia', 'MPa', 0.00689475729)
+add_user_units('psia', 'MPa', 0.00689475729) # multiplier = user units / default units
 add_user_units('psia', 'kPa', 6.89475729)
 add_user_units('psia', 'Bar', 0.0689475729)
 add_user_units('psia', 'Atm', 0.068046)
@@ -85,6 +85,8 @@ add_user_units('degR', 'F', 1.0 , -459.67)
 # ...Isp
 add_user_units('sec', 'N sec/kg', 9.80665)
 add_user_units('sec', 'N s/kg', 9.80665)
+add_user_units('sec', 'N-sec/kg', 9.80665)
+add_user_units('sec', 'N-s/kg', 9.80665)
 add_user_units('sec', 'm/sec', 9.80665)
 add_user_units('sec', 'm/s', 9.80665)
 add_user_units('sec', 'km/s', 9.80665/1000.0)
@@ -101,6 +103,7 @@ add_user_units('BTU/lbm','J/kg',2324.446231403076)
 add_user_units('BTU/lbm','kcal/kg', 0.5555565908154452)
 add_user_units('BTU/lbm','cal/g', 0.5555565908154452)
 add_user_units('BTU/lbm','ft lbf/lbm',777.7783085697629)
+add_user_units('BTU/lbm','ft-lbf/lbm',777.7783085697629)
 
 # ...heat capacity
 add_user_units('BTU/lbm degR','kJ/kg degK', 4.1868)
@@ -118,12 +121,25 @@ add_user_units('BTU/lbm degR','cal/g K', 1.000669)
 add_user_units('BTU/lbm degR','cal/g degC', 1.000669)
 add_user_units('BTU/lbm degR','cal/g C', 1.000669)
 
+add_user_units('BTU/lbm degR','kJ/kg-degK', 4.1868)
+add_user_units('BTU/lbm degR','kJ/kg-K', 4.1868)
+add_user_units('BTU/lbm degR','kJ/kg-degC', 4.1868)
+add_user_units('BTU/lbm degR','kJ/kg-C', 4.1868)
+
+add_user_units('BTU/lbm degR','J/kg-degK', 4186.8)
+add_user_units('BTU/lbm degR','J/kg-K', 4186.8)
+add_user_units('BTU/lbm degR','J/kg-degC', 4186.8)
+add_user_units('BTU/lbm degR','J/kg-C', 4186.8)
+
+add_user_units('BTU/lbm degR','cal/g-degK', 1.000669)
+add_user_units('BTU/lbm degR','cal/g-K', 1.000669)
+add_user_units('BTU/lbm degR','cal/g-degC', 1.000669)
+add_user_units('BTU/lbm degR','cal/g-C', 1.000669)
+
 # ... density
 add_user_units('lbm/cuft', 'g/cc', 0.016018463)
 add_user_units('lbm/cuft', 'sg', 0.016018463)
 add_user_units('lbm/cuft', 'kg/m^3', 16.018463374)
-
-print('WARNING: still need user units for velocity to Cp')
 
 class Units( object ):
     
@@ -222,3 +238,7 @@ if __name__ == "__main__":
     chk_obj( get_units_obj('BTU/lbm','cal/g') )
     chk_obj( get_units_obj('sec', 'km/sec') )
  
+    print('='*55)
+    for k,vD in unitsConvFactD.items():
+        print(k, [uk for uk in vD.keys()])
+        print()

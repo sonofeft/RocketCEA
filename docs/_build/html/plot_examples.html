@@ -2,39 +2,29 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Plot Examples &mdash; RocketCEA 1.0.7 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Plot Examples &#8212; RocketCEA 1.0.8 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="top" title="RocketCEA 1.0.7 documentation" href="index.html" />
     <link rel="next" title="Ambient Isp" href="ambient_isp.html" />
     <link rel="prev" title="New Propellants" href="new_propellants.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -50,7 +40,7 @@
         <li class="right" >
           <a href="new_propellants.html" title="New Propellants"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -58,7 +48,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
@@ -68,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Plot Examples</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plot Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cstar-plot">Cstar Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#isp-plot">Isp Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#isp-comparisons">Isp Comparisons</a></li>
@@ -93,21 +83,18 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/plot_examples.txt"
+      <li><a href="_sources/plot_examples.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -127,12 +114,14 @@
 <h2>Cstar Plot<a class="headerlink" href="#cstar-plot" title="Permalink to this headline">¶</a></h2>
 <p>The script below plots Cstar Values for LOX/LH2 for several values of chamber pressure
 and a range of mixture ratio.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="n">pcL</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">2000.</span><span class="p">,</span> <span class="mf">500.</span><span class="p">,</span> <span class="mf">70.</span><span class="p">]</span>
 
-<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">propName</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&quot;LH2&quot;</span><span class="p">)</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">propName</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">Pc</span> <span class="ow">in</span> <span class="n">pcL</span><span class="p">:</span>
     <span class="n">cstarArr</span> <span class="o">=</span> <span class="p">[]</span>
@@ -142,14 +131,14 @@ and a range of mixture ratio.</p>
         <span class="n">cstarArr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Cstar</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">)</span> <span class="p">)</span>
         <span class="n">mrArr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MR</span><span class="p">)</span>
         <span class="n">MR</span> <span class="o">+=</span> <span class="mf">0.05</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">mrArr</span><span class="p">,</span> <span class="n">cstarArr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;Pc=</span><span class="si">%g</span><span class="s"> psia&#39;</span><span class="o">%</span><span class="n">Pc</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">mrArr</span><span class="p">,</span> <span class="n">cstarArr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pc=</span><span class="si">%g</span><span class="s1"> psia&#39;</span><span class="o">%</span><span class="n">Pc</span><span class="p">)</span>
 
-<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">title</span><span class="p">(</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">desc</span> <span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span> <span class="s">&#39;Mixture Ratio&#39;</span> <span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span> <span class="s">&#39;Cstar (ft/sec)&#39;</span> <span class="p">)</span>
-<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;cea_cstar_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span> <span class="s1">&#39;Mixture Ratio&#39;</span> <span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span> <span class="s1">&#39;Cstar (ft/sec)&#39;</span> <span class="p">)</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cea_cstar_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -160,12 +149,13 @@ and a range of mixture ratio.</p>
 <div class="section" id="isp-plot">
 <h2>Isp Plot<a class="headerlink" href="#isp-plot" title="Permalink to this headline">¶</a></h2>
 <p>Plot several area ratios over a range of mixture ratio.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="n">Pc</span> <span class="o">=</span> <span class="mf">500.0</span>
 
-<span class="n">ispIRFNA</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">propName</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;IRFNA&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&quot;MHF3&quot;</span><span class="p">)</span>
+<span class="n">ispIRFNA</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">propName</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;IRFNA&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;MHF3&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">50.0</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">]:</span>
     <span class="n">ispArr</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">MR</span> <span class="o">=</span> <span class="mf">1.1</span>
@@ -174,14 +164,14 @@ and a range of mixture ratio.</p>
         <span class="n">ispArr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">ispIRFNA</span><span class="p">(</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="p">,</span> <span class="n">e</span> <span class="p">))</span>
         <span class="n">mrArr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MR</span><span class="p">)</span>
         <span class="n">MR</span> <span class="o">+=</span> <span class="mf">0.05</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">mrArr</span><span class="p">,</span> <span class="n">ispArr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;AreaRatio </span><span class="si">%g</span><span class="s">&#39;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">mrArr</span><span class="p">,</span> <span class="n">ispArr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AreaRatio </span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span>
 
-<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">title</span><span class="p">(</span> <span class="n">ispIRFNA</span><span class="o">.</span><span class="n">desc</span> <span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span> <span class="s">&#39;Mixture Ratio&#39;</span> <span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span> <span class="s">&#39;Isp ODE (sec)&#39;</span> <span class="p">)</span>
-<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;cea_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span> <span class="s1">&#39;Mixture Ratio&#39;</span> <span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span> <span class="s1">&#39;Isp ODE (sec)&#39;</span> <span class="p">)</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cea_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -193,8 +183,10 @@ and a range of mixture ratio.</p>
 <h2>Isp Comparisons<a class="headerlink" href="#isp-comparisons" title="Permalink to this headline">¶</a></h2>
 <p>Compare propellant combinations.</p>
 <p>Notice that the plots are sorted by max Isp to make them easier to interpret.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="n">Pc</span> <span class="o">=</span> <span class="mf">500.0</span>
 <span class="n">eps</span> <span class="o">=</span> <span class="mf">25.0</span>
@@ -203,27 +195,27 @@ and a range of mixture ratio.</p>
 <span class="n">mrMax</span> <span class="o">=</span> <span class="mf">4.0</span>
 
 <span class="n">mrL</span> <span class="o">=</span> <span class="p">[</span><span class="n">mrMin</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">mrStep</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="nb">int</span><span class="p">((</span><span class="n">mrMax</span><span class="o">-</span><span class="n">mrMin</span><span class="p">)</span><span class="o">/</span><span class="n">mrStep</span><span class="p">))]</span>
-<span class="n">ispLL</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># a list of lists of Isp data</span>
+<span class="n">ispLL</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># a list of lists of Isp data</span>
 
-<span class="k">for</span> <span class="n">oxName</span><span class="p">,</span><span class="n">fuelName</span> <span class="ow">in</span> <span class="p">[(</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span><span class="s">&#39;N2H4&#39;</span><span class="p">),(</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span><span class="s">&#39;MMH&#39;</span><span class="p">),(</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span><span class="s">&#39;M20&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s">&#39;CLF5&#39;</span><span class="p">,</span><span class="s">&#39;N2H4&#39;</span><span class="p">),(</span><span class="s">&#39;CLF5&#39;</span><span class="p">,</span><span class="s">&#39;NH3&#39;</span><span class="p">)]:</span>
+<span class="k">for</span> <span class="n">oxName</span><span class="p">,</span><span class="n">fuelName</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span><span class="s1">&#39;N2H4&#39;</span><span class="p">),(</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span><span class="s1">&#39;MMH&#39;</span><span class="p">),(</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span><span class="s1">&#39;M20&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;CLF5&#39;</span><span class="p">,</span><span class="s1">&#39;N2H4&#39;</span><span class="p">),(</span><span class="s1">&#39;CLF5&#39;</span><span class="p">,</span><span class="s1">&#39;NH3&#39;</span><span class="p">)]:</span>
 
     <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="n">fuelName</span> <span class="p">)</span>
     
     <span class="n">ispL</span> <span class="o">=</span> <span class="p">[</span><span class="n">ispObj</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span> <span class="k">for</span> <span class="n">MR</span> <span class="ow">in</span> <span class="n">mrL</span><span class="p">]</span>
-    <span class="n">ispLL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">ispL</span><span class="p">),</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">oxName</span><span class="p">,</span><span class="n">fuelName</span><span class="p">),</span> <span class="n">ispL</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">ispLL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">ispL</span><span class="p">),</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">oxName</span><span class="p">,</span><span class="n">fuelName</span><span class="p">),</span> <span class="n">ispL</span><span class="p">]</span> <span class="p">)</span>
 
-<span class="n">ispLL</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c"># sort in-place from high to low</span>
+<span class="n">ispLL</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># sort in-place from high to low</span>
 
 <span class="k">for</span> <span class="n">maxIsp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ispL</span> <span class="ow">in</span> <span class="n">ispLL</span><span class="p">:</span>
     <span class="n">plot</span><span class="p">(</span><span class="n">mrL</span><span class="p">,</span> <span class="n">ispL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span> <span class="s">&#39;Propellant Performance Comparison at Eps=</span><span class="si">%g</span><span class="s">, Pc=</span><span class="si">%g</span><span class="s"> psia&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="n">Pc</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span> <span class="s">&#39;Mixture Ratio&#39;</span> <span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span> <span class="s">&#39;Isp ODE (sec)&#39;</span> <span class="p">)</span>
-<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;cea_compare2.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span> <span class="s1">&#39;Propellant Performance Comparison at Eps=</span><span class="si">%g</span><span class="s1">, Pc=</span><span class="si">%g</span><span class="s1"> psia&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="n">Pc</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span> <span class="s1">&#39;Mixture Ratio&#39;</span> <span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span> <span class="s1">&#39;Isp ODE (sec)&#39;</span> <span class="p">)</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cea_compare2.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 
 <span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -255,12 +247,12 @@ and a range of mixture ratio.</p>
         <li class="right" >
           <a href="new_propellants.html" title="New Propellants"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

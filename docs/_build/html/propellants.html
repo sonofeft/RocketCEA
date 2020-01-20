@@ -2,39 +2,29 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Propellants &mdash; RocketCEA 1.0.7 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Propellants &#8212; RocketCEA 1.0.8 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="top" title="RocketCEA 1.0.7 documentation" href="index.html" />
     <link rel="next" title="New Propellants" href="new_propellants.html" />
     <link rel="prev" title="Propellant Selection" href="propellant_select.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -50,7 +40,7 @@
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -58,7 +48,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
@@ -66,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Propellants</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Propellants</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#special-blends">Special Blends</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#hydrazine-monopropellant">Hydrazine Monopropellant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mmh-n2h4">MMH + N2H4</a></li>
@@ -194,21 +184,18 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/propellants.txt"
+      <li><a href="_sources/propellants.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -226,14 +213,14 @@ Click any of the names to see the card deck submitted to CEA for that propellant
 <p>If your propellant is not included, or if you disagree with the definitions,
 new propellants can be added, and existing propellants can be modified.</p>
 <p>Any use of RocketCEA begins with an import statement and an instance of CEA_Obj:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;MMH&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Bipropellant runs use <strong>oxName</strong> and <strong>fuelName</strong> to define propellants.
 For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>propName</strong>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;HYD40&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><cite>Click Propellant Name to View Definition</cite></p>
@@ -265,15 +252,15 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>
 <p>There are a number of special blends that can be created when making an instance of CEA_Obj.</p>
 <div class="section" id="hydrazine-monopropellant">
 <h3>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this headline">¶</a></h3>
-<p>The performance of <a class="reference internal" href="hydrazine_mono.html#hydrazine-mono-link"><span>Hydrazine Monopropellant</span></a> engines is driven by the amount of ammonia dissociation that
+<p>The performance of <a class="reference internal" href="hydrazine_mono.html#hydrazine-mono-link"><span class="std std-ref">Hydrazine Monopropellant</span></a> engines is driven by the amount of ammonia dissociation that
 the catalyst bed delivers. Any amount of ammonia dissociation can be run by calling out the <strong>propName</strong>
-as &#8220;HYD&#8221; + weight percent dissociation.</p>
-<p>Note that the CEA FORTRAN code has been modified to include &#8220;Undissociated Ammonia (UA)&#8221; as an exhaust product.
-The CEA input also includes an &#8220;omit NH3&#8221; statement to prevent normal NH3 calculations.</p>
+as “HYD” + weight percent dissociation.</p>
+<p>Note that the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
+The CEA input also includes an “omit NH3” statement to prevent normal NH3 calculations.</p>
 <p>The examples below call out 30, 40 and 50 percent ammonia dissociation.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;HYD30&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;HYD40&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;HYD50&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD30&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD50&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -281,9 +268,9 @@ The CEA input also includes an &#8220;omit NH3&#8221; statement to prevent norma
 <h3>MMH + N2H4<a class="headerlink" href="#mmh-n2h4" title="Permalink to this headline">¶</a></h3>
 <p>Mixtures of MMH and N2H4 are often used to suppress the freezing point of N2H4.
 M20 is a common mixture (20% MMH + 80% N2H4 by weight). The examples below call out 10, 20 and 30 percent MMH:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;M10&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;M20&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;M30&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;M10&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;M20&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;M30&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -292,16 +279,16 @@ M20 is a common mixture (20% MMH + 80% N2H4 by weight). The examples below call 
 <p>Mixtures of N2O4 and NO are often used to suppress the freezing point of N2O4.
 MON25 is a common mixture (25% NO + 75% N2O4 by weight).</p>
 <p>When NO is added to N2O4, there are two main equilibrium reactions:</p>
-<div class="highlight-python"><div class="highlight"><pre>N2O4     &lt;==&gt; 2 NO2
-NO + NO2 &lt;==&gt; N2O3
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N2O4</span>     <span class="o">&lt;==&gt;</span> <span class="mi">2</span> <span class="n">NO2</span>
+<span class="n">NO</span> <span class="o">+</span> <span class="n">NO2</span> <span class="o">&lt;==&gt;</span> <span class="n">N2O3</span>
 </pre></div>
 </div>
 <p>For this reason, the input cards for MON oxidizers include N2O4 and N2O3.
 The weight percentages are calculated based on the equilibrium equations above.</p>
 <p>The examples below call out MON oxidizers with 15, 20 and 25 percent NO:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;MON15&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;MMH&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;MON20&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;MMH&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;MON25&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&#39;MMH&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;MON15&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;MON20&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;MON25&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -309,23 +296,23 @@ The weight percentages are calculated based on the equilibrium equations above.<
 <h3>Peroxide + Water<a class="headerlink" href="#peroxide-water" title="Permalink to this headline">¶</a></h3>
 <p>Peroxide is often blended with water in order to enhance its stability and improve its safety.
 While the debate about an appropriate blend of Peroxide rages on, analyzing it with RocketCEA
-simply requires calling it out as &#8220;Peroxide&#8221; + weight percent Peroxide.
+simply requires calling it out as “Peroxide” + weight percent Peroxide.
 The examples below call out 90, 95 and 98 percent Peroxide:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;Peroxide90&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;Peroxide95&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s">&#39;Peroxide98&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;Peroxide98&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&quot;MMH&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide90&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide95&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide98&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;Peroxide98&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;MMH&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="flox">
 <h3>FLOX<a class="headerlink" href="#flox" title="Permalink to this headline">¶</a></h3>
 <p>FLOX is a mixture of Fluorine and Oxygen.
-Call out the mixture as &#8220;FLOX&#8221; + weight percent of Fluorine.
+Call out the mixture as “FLOX” + weight percent of Fluorine.
 The examples below call out 60, 70 and 80 percent Fluorine:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;FLOX60&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&quot;LH2&quot;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;FLOX70&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&quot;LH2&quot;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s">&#39;FLOX80&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s">&quot;LH2&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX60&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX70&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX80&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -334,220 +321,220 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <h2>Oxidizers<a class="headerlink" href="#oxidizers" title="Permalink to this headline">¶</a></h2>
 <a name="90_H2O2"></a><div class="section" id="h2o2">
 <h3>90_H2O2<a class="headerlink" href="#h2o2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid H2O2(L) H 2 O 2  wt%=90.00
-h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
-oxid = WATER H 2.0 O 1.0 wt%= 10.0
-h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">90.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
+<span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">10.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="98_H2O2"></a></div>
 <div class="section" id="id1">
 <h3>98_H2O2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid H2O2(L) H 2 O 2  wt%=98.00
-h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
-oxid = WATER H 2.0 O 1.0 wt%= 2.0
-h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">98.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
+<span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">2.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="AIR"></a></div>
 <div class="section" id="air">
 <h3>AIR<a class="headerlink" href="#air" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid Air    wt%=100.00
-h,cal=-28.2     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">Air</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">28.2</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="AIRSIMP"></a></div>
 <div class="section" id="airsimp">
 <h3>AIRSIMP<a class="headerlink" href="#airsimp" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid AIRSIMP  N 1.5622 O .4192 Ar .0093
-h,cal=0.     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">AIRSIMP</span>  <span class="n">N</span> <span class="mf">1.5622</span> <span class="n">O</span> <span class="o">.</span><span class="mi">4192</span> <span class="n">Ar</span> <span class="o">.</span><span class="mi">0093</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">0.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="CLF3"></a></div>
 <div class="section" id="clf3">
 <h3>CLF3<a class="headerlink" href="#clf3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid CLF3(L)   CL 1 F 3   wt%=100.00
-h,cal=-45680.0     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">CLF3</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">CL</span> <span class="mi">1</span> <span class="n">F</span> <span class="mi">3</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">45680.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="CLF5"></a></div>
 <div class="section" id="clf5">
 <h3>CLF5<a class="headerlink" href="#clf5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid CLF5(L)   CL 1 F 5   wt%=100.00
-h,cal=-60500.0     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">CLF5</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">CL</span> <span class="mi">1</span> <span class="n">F</span> <span class="mi">5</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">60500.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="F2"></a></div>
 <div class="section" id="f2">
 <h3>F2<a class="headerlink" href="#f2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid F2(L)  F 2
-h,cal=-3098.      t(k)=82.02       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">F2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">F</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3098.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">82.02</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="GO2"></a></div>
 <div class="section" id="go2">
 <h3>GO2<a class="headerlink" href="#go2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid O2(G)  O 2
-h,cal=0.      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">0.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="GOX"></a></div>
 <div class="section" id="gox">
 <h3>GOX<a class="headerlink" href="#gox" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid O2(G)  O 2
-h,cal=0.      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">0.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="H2O"></a></div>
 <div class="section" id="h2o">
 <h3>H2O<a class="headerlink" href="#h2o" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid water H 2.0 O 1.0  wt%=100.0
-h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">water</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68308.</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">0.9998</span>
 </pre></div>
 </div>
 <a name="H2O2"></a></div>
 <div class="section" id="id2">
 <h3>H2O2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid H2O2(L) H 2 O 2  wt%=100.00
-h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
 </pre></div>
 </div>
 <a name="HAN315"></a></div>
 <div class="section" id="han315">
 <h3>HAN315<a class="headerlink" href="#han315" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5
-h.cal=-93980. t(k)=298.15 rho.g/cc=1.685
-oxid = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5
-h.cal=-108000. t(k)=298.15 rho.g/cc=1.428
-oxid = WATER H 2.0 O 1.0 wt%= 11.0
-h.cal=-68000. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="o">=</span> <span class="n">HAN</span> <span class="n">C</span> <span class="mf">0.064</span> <span class="n">H</span> <span class="mf">4.296</span> <span class="n">N</span> <span class="mf">2.062</span> <span class="n">O</span> <span class="mf">4.1</span> <span class="n">P</span> <span class="mf">0.008</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">93980.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.685</span>
+<span class="n">oxid</span> <span class="o">=</span> <span class="n">HEHN</span> <span class="n">C</span> <span class="mf">2.0</span> <span class="n">H</span> <span class="mf">9.0</span> <span class="n">N</span> <span class="mf">3.0</span> <span class="n">O</span> <span class="mf">4.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">108000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.428</span>
+<span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">11.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="HNO3"></a></div>
 <div class="section" id="hno3">
 <h3>HNO3<a class="headerlink" href="#hno3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid HNO3(L) H 1 N 1 O 3   wt%=100.00
-h,cal=-42460.0     t(k)=298.15  rho.g/cc=1.5027
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">HNO3</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">1</span> <span class="n">N</span> <span class="mi">1</span> <span class="n">O</span> <span class="mi">3</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">42460.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.5027</span>
 </pre></div>
 </div>
 <a name="IRFNA"></a></div>
 <div class="section" id="irfna">
 <h3>IRFNA<a class="headerlink" href="#irfna" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid IRFNA  H 1.57216 N 1.62945 O 4.69505 F 0.02499   wt%=100.00
-h,cal=-64860.0     t(k)=298.15  rho.g/cc=1.48
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">IRFNA</span>  <span class="n">H</span> <span class="mf">1.57216</span> <span class="n">N</span> <span class="mf">1.62945</span> <span class="n">O</span> <span class="mf">4.69505</span> <span class="n">F</span> <span class="mf">0.02499</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">64860.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.48</span>
 </pre></div>
 </div>
 <a name="LO2"></a></div>
 <div class="section" id="lo2">
 <h3>LO2<a class="headerlink" href="#lo2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid O2(L)  O 2
-h,cal=-3102.      t(k)=90.18       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="LOX"></a></div>
 <div class="section" id="lox">
 <h3>LOX<a class="headerlink" href="#lox" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid O2(L)  O 2
-h,cal=-3102.      t(k)=90.18       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="MON15"></a></div>
 <div class="section" id="mon15">
 <h3>MON15<a class="headerlink" href="#mon15" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2O4(L)   N 2 O 4   wt%=62.01
-h,cal=-4676.0     t(k)=298.15
-oxid N2O3   N 2 O 3   wt%=37.99
-h,cal=12020.7     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2O4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">4</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">62.01</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">4676.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
+<span class="n">oxid</span> <span class="n">N2O3</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">3</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">37.99</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12020.7</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="MON25"></a></div>
 <div class="section" id="mon25">
 <h3>MON25<a class="headerlink" href="#mon25" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2O4(L)   N 2 O 4   wt%=36.67
-h,cal=-4676.0     t(k)=298.15
-oxid N2O3   N 2 O 3   wt%=63.33
-h,cal=12020.7     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2O4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">4</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">36.67</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">4676.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
+<span class="n">oxid</span> <span class="n">N2O3</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">3</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">63.33</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12020.7</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="MON3"></a></div>
 <div class="section" id="mon3">
 <h3>MON3<a class="headerlink" href="#mon3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2O4(L)   N 2 O 4   wt%=100.00
-h,cal=-4676.0     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2O4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">4</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">4676.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="N2F4"></a></div>
 <div class="section" id="n2f4">
 <h3>N2F4<a class="headerlink" href="#n2f4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2F4(L)  N 2 F 4
-h,cal=-5200.0      t(k)=199.0       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2F4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">F</span> <span class="mi">4</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5200.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">199.0</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="N2H4"></a></div>
 <div class="section" id="n2h4">
 <h3>N2H4<a class="headerlink" href="#n2h4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2H4(L)  N 2 H 4    wt%=100.
-h,cal=12100.0     t(k)=298.15   rho=1.0036
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2H4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">4</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12100.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0036</span>
 </pre></div>
 </div>
 <a name="N2O"></a></div>
 <div class="section" id="n2o">
 <h3>N2O<a class="headerlink" href="#n2o" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid NitrousOxide  N 2.0 O 1.0  wt%=100.00
-h,cal= 19467.0 t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">NitrousOxide</span>  <span class="n">N</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="mf">19467.0</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="N2O3"></a></div>
 <div class="section" id="n2o3">
 <h3>N2O3<a class="headerlink" href="#n2o3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2O3(L)   N 2 O 3   wt%=100.00
-h,cal=12020.7     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2O3</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">3</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12020.7</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="N2O4"></a></div>
 <div class="section" id="n2o4">
 <h3>N2O4<a class="headerlink" href="#n2o4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid N2O4(L)   N 2 O 4   wt%=100.00
-h,cal=-4676.0     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">N2O4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">4</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">4676.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="N2O_nbp"></a></div>
 <div class="section" id="n2o-nbp">
 <h3>N2O_nbp<a class="headerlink" href="#n2o-nbp" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid NitrousOxide  N 2.0 O 1.0  wt%=100.00
-h,cal= 14583.0 t(k)=184.4
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">NitrousOxide</span>  <span class="n">N</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="mf">14583.0</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">184.4</span>
 </pre></div>
 </div>
 <a name="O2"></a></div>
 <div class="section" id="o2">
 <h3>O2<a class="headerlink" href="#o2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid O2(L)  O 2
-h,cal=-3102.      t(k)=90.18       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="OF2"></a></div>
 <div class="section" id="of2">
 <h3>OF2<a class="headerlink" href="#of2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid OF2(L)  O 1 F 2
-h,cal=2524.      t(k)=167.0       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">OF2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">1</span> <span class="n">F</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">2524.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">167.0</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="Peroxide90"></a></div>
 <div class="section" id="peroxide90">
 <h3>Peroxide90<a class="headerlink" href="#peroxide90" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid H2O2(L) H 2 O 2  wt%=90.00
-h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
-oxid = WATER H 2.0 O 1.0 wt%= 10.0
-h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">90.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
+<span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">10.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="Peroxide98"></a></div>
 <div class="section" id="peroxide98">
 <h3>Peroxide98<a class="headerlink" href="#peroxide98" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>oxid H2O2(L) H 2 O 2  wt%=98.00
-h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
-oxid = WATER H 2.0 O 1.0 wt%= 2.0
-h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">98.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
+<span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">2.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 </div>
@@ -556,354 +543,354 @@ h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
 <h2>Fuels<a class="headerlink" href="#fuels" title="Permalink to this headline">¶</a></h2>
 <a name="A50"></a><div class="section" id="a50">
 <h3>A50<a class="headerlink" href="#a50" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H8N2(L),UDMH wt% 50.   t(k) 298.15
-h,cal=11900.0     t(k)=298.15   rho=.783
-fuel N2H4(L)  N 2 H 4    wt%=50.
-h,cal=12100.0     t(k)=298.15   rho=1.0036
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H8N2</span><span class="p">(</span><span class="n">L</span><span class="p">),</span><span class="n">UDMH</span> <span class="n">wt</span><span class="o">%</span> <span class="mf">50.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="mf">298.15</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">11900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">783</span>
+<span class="n">fuel</span> <span class="n">N2H4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">4</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">50.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12100.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0036</span>
 </pre></div>
 </div>
 <a name="Acetylene"></a></div>
 <div class="section" id="acetylene">
 <h3>Acetylene<a class="headerlink" href="#acetylene" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Acetylene  C 2 H 2   wt%=100.
-h,cal=54324.     t(k)=198.3   rho=0.9
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Acetylene</span>  <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">2</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">54324.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">198.3</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.9</span>
 </pre></div>
 </div>
 <a name="AL"></a></div>
 <div class="section" id="al">
 <h3>AL<a class="headerlink" href="#al" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel  Aluminum  t(k)=298.15 AL 1                               wt%=100.00
-h,cal=0.0     t(k)=298.15
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span>  <span class="n">Aluminum</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">AL</span> <span class="mi">1</span>                               <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">0.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>
 </pre></div>
 </div>
 <a name="AP"></a></div>
 <div class="section" id="ap">
 <h3>AP<a class="headerlink" href="#ap" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel NH4CLO4(I)       wt%=100.00
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">NH4CLO4</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
 </pre></div>
 </div>
 <a name="B2H6"></a></div>
 <div class="section" id="b2h6">
 <h3>B2H6<a class="headerlink" href="#b2h6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel B2H6(L)   B 2 H 6
-h,cal=4970.0      t(k)=180.0       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">B2H6</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">B</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">6</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">4970.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">180.0</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="C2H2"></a></div>
 <div class="section" id="c2h2">
 <h3>C2H2<a class="headerlink" href="#c2h2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Acetylene  C 2 H 2   wt%=100.
-h,cal=54324.     t(k)=198.3   rho=0.9
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Acetylene</span>  <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">2</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">54324.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">198.3</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.9</span>
 </pre></div>
 </div>
 <a name="C2H5OH"></a></div>
 <div class="section" id="c2h5oh">
 <h3>C2H5OH<a class="headerlink" href="#c2h5oh" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H5OH(L)   C 2 H 6 O 1
-h,cal=-66370.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H5OH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">6</span> <span class="n">O</span> <span class="mi">1</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">66370.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="C2H6"></a></div>
 <div class="section" id="c2h6">
 <h3>C2H6<a class="headerlink" href="#c2h6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H6(L) C 2 H 6     wt%=100.
-h,cal=-24797.0     t(k)=184.56   rho=0.5808
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H6</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">6</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">24797.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">184.56</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.5808</span>
 </pre></div>
 </div>
 <a name="C2H6_167"></a></div>
 <div class="section" id="c2h6-167">
 <h3>C2H6_167<a class="headerlink" href="#c2h6-167" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H6(L) C 2 H 6     wt%=100.
-h,cal=-25296.0     t(k)=167.0   rho=0.5808
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H6</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">6</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">25296.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">167.0</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.5808</span>
 </pre></div>
 </div>
 <a name="C3H8"></a></div>
 <div class="section" id="c3h8">
 <h3>C3H8<a class="headerlink" href="#c3h8" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C3H8(L) C 3 H 8     wt%=100.
-h,cal=-30372.     t(k)=231.08   rho=0.5808
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C3H8</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">3</span> <span class="n">H</span> <span class="mi">8</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">30372.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">231.08</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.5808</span>
 </pre></div>
 </div>
 <a name="CFx"></a></div>
 <div class="section" id="cfx">
 <h3>CFx<a class="headerlink" href="#cfx" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CFx    C 1.0 F 1.0   wt%=100.00
-h,cal=57863.0     t(k)=298.15   rho=1.8200
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CFx</span>    <span class="n">C</span> <span class="mf">1.0</span> <span class="n">F</span> <span class="mf">1.0</span>   <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">57863.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.8200</span>
 </pre></div>
 </div>
 <a name="CH3OH"></a></div>
 <div class="section" id="ch3oh">
 <h3>CH3OH<a class="headerlink" href="#ch3oh" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH3OH(L)   C 1 H 4 O 1
-h,cal=-57040.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH3OH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span> <span class="n">O</span> <span class="mi">1</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">57040.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="CH4"></a></div>
 <div class="section" id="ch4">
 <h3>CH4<a class="headerlink" href="#ch4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH4(L) C 1 H 4     wt%=100.
-h,cal=-21390.     t(k)=111.66   rho=0.4239
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">21390.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">111.66</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.4239</span>
 </pre></div>
 </div>
 <a name="CINCH"></a></div>
 <div class="section" id="cinch">
 <h3>CINCH<a class="headerlink" href="#cinch" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CINCH(L)     C 4.     H 10.    N 4.
-h,cal=66550.      t(k)=298.15             wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CINCH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>     <span class="n">C</span> <span class="mf">4.</span>     <span class="n">H</span> <span class="mf">10.</span>    <span class="n">N</span> <span class="mf">4.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">66550.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>             <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="DMAZ"></a></div>
 <div class="section" id="dmaz">
 <h3>DMAZ<a class="headerlink" href="#dmaz" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel dmaz C 4.0 H 10.0 N 4.0 wt%= 100.00
-h,cal=66548. t(k)=298.15 rho,g/cc = 0.93
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">dmaz</span> <span class="n">C</span> <span class="mf">4.0</span> <span class="n">H</span> <span class="mf">10.0</span> <span class="n">N</span> <span class="mf">4.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">66548.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">0.93</span>
 </pre></div>
 </div>
 <a name="ECP_dimer"></a></div>
 <div class="section" id="ecp-dimer">
 <h3>ECP_dimer<a class="headerlink" href="#ecp-dimer" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel ECP-dimer(L) C 10.    H 10.
-h,cal=123600.     t(k)=298.15                     wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">ECP</span><span class="o">-</span><span class="n">dimer</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mf">10.</span>    <span class="n">H</span> <span class="mf">10.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">123600.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>                     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="Ethanol"></a></div>
 <div class="section" id="ethanol">
 <h3>Ethanol<a class="headerlink" href="#ethanol" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H5OH(L)   C 2 H 6 O 1
-h,cal=-66370.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H5OH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">6</span> <span class="n">O</span> <span class="mi">1</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">66370.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="ETHANOL"></a></div>
 <div class="section" id="id3">
 <h3>ETHANOL<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H5OH(L)   C 2 H 6 O 1
-h,cal=-66370.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H5OH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">C</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">6</span> <span class="n">O</span> <span class="mi">1</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">66370.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="Gasoline"></a></div>
 <div class="section" id="gasoline">
 <h3>Gasoline<a class="headerlink" href="#gasoline" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Gasoline  C 8 H 18
-h,cal=-49809.     t(k)=298.15   rho=0.7025
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Gasoline</span>  <span class="n">C</span> <span class="mi">8</span> <span class="n">H</span> <span class="mi">18</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">49809.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.7025</span>
 </pre></div>
 </div>
 <a name="GCH4"></a></div>
 <div class="section" id="gch4">
 <h3>GCH4<a class="headerlink" href="#gch4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH4(G) C 1 H 4
-h,cal=-17895.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">G</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">17895.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="GH2"></a></div>
 <div class="section" id="gh2">
 <h3>GH2<a class="headerlink" href="#gh2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel H2(G)  H 2
-h,cal=0.      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">0.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="GH2_160"></a></div>
 <div class="section" id="gh2-160">
 <h3>GH2_160<a class="headerlink" href="#gh2-160" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel H2(G)  H 2
-h,cal=-940.      t(k)=160.0       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">940.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">160.0</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="H2"></a></div>
 <div class="section" id="h2">
 <h3>H2<a class="headerlink" href="#h2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel H2(L)  H 2
-h,cal=-2154.0      t(k)=20.27       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2154.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="H2O"></a></div>
 <div class="section" id="id4">
 <h3>H2O<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel water H 2.0 O 1.0  wt%=100.0
-h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">water</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68308.</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">0.9998</span>
 </pre></div>
 </div>
 <a name="HTPB"></a></div>
 <div class="section" id="htpb">
 <h3>HTPB<a class="headerlink" href="#htpb" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=100.00
-h,cal= 1200.0 t(k)=298.15 rho=0.9220
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">R</span><span class="o">-</span><span class="mi">45</span><span class="p">(</span><span class="n">HTPB</span> <span class="n">FROM_RPL_DATA</span><span class="p">)</span> <span class="n">C</span> <span class="mf">7.3165</span> <span class="n">H</span> <span class="mf">10.3360</span> <span class="n">O</span> <span class="mf">0.1063</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="mf">1200.0</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.9220</span>
 </pre></div>
 </div>
 <a name="Isopropanol"></a></div>
 <div class="section" id="isopropanol">
 <h3>Isopropanol<a class="headerlink" href="#isopropanol" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C3H8O-2propanol C 3 H 8 O 1    wt%=100.
-h,cal=-65133.     t(k)=298.15   rho=0.786
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C3H8O</span><span class="o">-</span><span class="mi">2</span><span class="n">propanol</span> <span class="n">C</span> <span class="mi">3</span> <span class="n">H</span> <span class="mi">8</span> <span class="n">O</span> <span class="mi">1</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">65133.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.786</span>
 </pre></div>
 </div>
 <a name="JetA"></a></div>
 <div class="section" id="jeta">
 <h3>JetA<a class="headerlink" href="#jeta" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Jet-A(L)  C  12.0 H  23.0
-h,cal=-72466.6     t(k)=298.15   rho=0.815
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Jet</span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">C</span>  <span class="mf">12.0</span> <span class="n">H</span>  <span class="mf">23.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">72466.6</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.815</span>
 </pre></div>
 </div>
 <a name="JP10"></a></div>
 <div class="section" id="jp10">
 <h3>JP10<a class="headerlink" href="#jp10" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel JP10  C 10 H 16  wt%=100.00
-h,cal=-29350.     t(k)=298.15   rho=0.9318
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">JP10</span>  <span class="n">C</span> <span class="mi">10</span> <span class="n">H</span> <span class="mi">16</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">29350.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.9318</span>
 </pre></div>
 </div>
 <a name="JP4"></a></div>
 <div class="section" id="jp4">
 <h3>JP4<a class="headerlink" href="#jp4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Kerosene  C 1 H 1.9532  wt%=50.00
-h,cal=-5769.     t(k)=298.15   rho=0.8
-fuel Gasoline  C 8 H 18  wt%=50.00
-h,cal=-49809.     t(k)=298.15   rho=0.7025
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Kerosene</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9532</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">50.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5769.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">fuel</span> <span class="n">Gasoline</span>  <span class="n">C</span> <span class="mi">8</span> <span class="n">H</span> <span class="mi">18</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">50.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">49809.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.7025</span>
 </pre></div>
 </div>
 <a name="JPX"></a></div>
 <div class="section" id="jpx">
 <h3>JPX<a class="headerlink" href="#jpx" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H8N2(L),UDMH wt%=60.   t(k) 298.15
-h,cal=11900.0     t(k)=298.15   rho=.783
-fuel Kerosene  C 1 H 1.9532  wt%=30.00
-h,cal=-5769.     t(k)=298.15   rho=0.8
-fuel Gasoline  C 8 H 18  wt%=30.00
-h,cal=-49809.     t(k)=298.15   rho=0.7025
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H8N2</span><span class="p">(</span><span class="n">L</span><span class="p">),</span><span class="n">UDMH</span> <span class="n">wt</span><span class="o">%=</span><span class="mf">60.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="mf">298.15</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">11900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">783</span>
+<span class="n">fuel</span> <span class="n">Kerosene</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9532</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">30.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5769.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">fuel</span> <span class="n">Gasoline</span>  <span class="n">C</span> <span class="mi">8</span> <span class="n">H</span> <span class="mi">18</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">30.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">49809.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.7025</span>
 </pre></div>
 </div>
 <a name="Kerosene"></a></div>
 <div class="section" id="kerosene">
 <h3>Kerosene<a class="headerlink" href="#kerosene" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Kerosene  C 1 H 1.9532
-h,cal=-5769.     t(k)=298.15   rho=0.8
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Kerosene</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9532</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5769.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.8</span>
 </pre></div>
 </div>
 <a name="Kerosene90_H2O10"></a></div>
 <div class="section" id="kerosene90-h2o10">
 <h3>Kerosene90_H2O10<a class="headerlink" href="#kerosene90-h2o10" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel Kerosene  C 1 H 1.9532  wt%=90.00
-h,cal=-5769.     t(k)=298.15   rho=0.8
-fuel = WATER H 2.0 O 1.0  wt%= 10.0
-h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Kerosene</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9532</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">90.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5769.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">fuel</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span> <span class="mf">10.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="LH2"></a></div>
 <div class="section" id="lh2">
 <h3>LH2<a class="headerlink" href="#lh2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel H2(L)  H 2
-h,cal=-2154.0      t(k)=20.27       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2154.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="M20"></a></div>
 <div class="section" id="m20">
 <h3>M20<a class="headerlink" href="#m20" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH6N2(L)  C 1 H 6 N 2  wt%=20.0
-h,cal=12900.0     t(k)=298.15   rho=.874
-fuel N2H4(L)  N 2 H 4    wt%=80.0
-h,cal=12100.0     t(k)=298.15   rho=1.0036
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH6N2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">6</span> <span class="n">N</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">20.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">874</span>
+<span class="n">fuel</span> <span class="n">N2H4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">4</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">80.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12100.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0036</span>
 </pre></div>
 </div>
 <a name="M20_NH3"></a></div>
 <div class="section" id="m20-nh3">
 <h3>M20_NH3<a class="headerlink" href="#m20-nh3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH6N2(L)  C 1 H 6 N 2  wt%=17.9
-h,cal=12900.0     t(k)=298.15   rho=.874
-fuel N2H4(L)  N 2 H 4    wt%=71.6
-h,cal=12100.0     t(k)=298.15   rho=1.0036
-fuel NH3(L)   N 1 H 3      wt%=10.5
-h,cal=-17090.     t(k)=298.15   rho=0.676
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH6N2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">6</span> <span class="n">N</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">17.9</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">874</span>
+<span class="n">fuel</span> <span class="n">N2H4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">4</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">71.6</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12100.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0036</span>
+<span class="n">fuel</span> <span class="n">NH3</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">3</span>      <span class="n">wt</span><span class="o">%=</span><span class="mf">10.5</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">17090.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.676</span>
 </pre></div>
 </div>
 <a name="Methanol"></a></div>
 <div class="section" id="methanol">
 <h3>Methanol<a class="headerlink" href="#methanol" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH3OH(L)   C 1 H 4 O 1
-h,cal=-57040.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH3OH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span> <span class="n">O</span> <span class="mi">1</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">57040.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="METHANOL"></a></div>
 <div class="section" id="id5">
 <h3>METHANOL<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH3OH(L)   C 1 H 4 O 1
-h,cal=-57040.0      t(k)=298.15       wt%=100.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH3OH</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span> <span class="n">O</span> <span class="mi">1</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">57040.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="MHF3"></a></div>
 <div class="section" id="mhf3">
 <h3>MHF3<a class="headerlink" href="#mhf3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH6N2(L)  C 1 H 6 N 2  wt%=86.0
-h,cal=12900.0     t(k)=298.15   rho=.874
-fuel N2H4(L)  N 2 H 4    wt%=14.0
-h,cal=12100.0     t(k)=298.15   rho=1.0036
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH6N2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">6</span> <span class="n">N</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">86.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">874</span>
+<span class="n">fuel</span> <span class="n">N2H4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">4</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">14.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12100.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0036</span>
 </pre></div>
 </div>
 <a name="MMH"></a></div>
 <div class="section" id="mmh">
 <h3>MMH<a class="headerlink" href="#mmh" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel CH6N2(L)  C 1     H 6     N 2     wt%=100.00
-h,cal=12900.0     t(k)=298.15   rho=.874
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH6N2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">C</span> <span class="mi">1</span>     <span class="n">H</span> <span class="mi">6</span>     <span class="n">N</span> <span class="mi">2</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">874</span>
 </pre></div>
 </div>
 <a name="N2H4"></a></div>
 <div class="section" id="id6">
 <h3>N2H4<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel N2H4(L)  N 2 H 4    wt%=100.
-h,cal=12100.0     t(k)=298.15   rho=1.0036
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">N2H4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">N</span> <span class="mi">2</span> <span class="n">H</span> <span class="mi">4</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12100.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0036</span>
 </pre></div>
 </div>
 <a name="NH3"></a></div>
 <div class="section" id="nh3">
 <h3>NH3<a class="headerlink" href="#nh3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel NH3(L)   N 1 H 3      wt%=100.
-h,cal=-17090.     t(k)=298.15   rho=0.676
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">NH3</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>   <span class="n">N</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">3</span>      <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">17090.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.676</span>
 </pre></div>
 </div>
 <a name="NITROMETHANE"></a></div>
 <div class="section" id="nitromethane">
 <h3>NITROMETHANE<a class="headerlink" href="#nitromethane" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel nitroMethane C 1. H 3. N 1. O 2. wt%= 100.00
-h,cal=-27030. t(k)=298.15  rho,g/cc =1.1371
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">nitroMethane</span> <span class="n">C</span> <span class="mf">1.</span> <span class="n">H</span> <span class="mf">3.</span> <span class="n">N</span> <span class="mf">1.</span> <span class="n">O</span> <span class="mf">2.</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">27030.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span><span class="mf">1.1371</span>
 </pre></div>
 </div>
 <a name="Propane"></a></div>
 <div class="section" id="propane">
 <h3>Propane<a class="headerlink" href="#propane" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C3H8(L) C 3 H 8     wt%=100.
-h,cal=-30372.     t(k)=231.08   rho=0.5808
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C3H8</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">3</span> <span class="n">H</span> <span class="mi">8</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">30372.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">231.08</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.5808</span>
 </pre></div>
 </div>
 <a name="Propylene"></a></div>
 <div class="section" id="propylene">
 <h3>Propylene<a class="headerlink" href="#propylene" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C3H6,propylene C 3 H 6    wt%=100.
-h,cal=4776.92     t(k)=298.15   rho=0.0018
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C3H6</span><span class="p">,</span><span class="n">propylene</span> <span class="n">C</span> <span class="mi">3</span> <span class="n">H</span> <span class="mi">6</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">4776.92</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.0018</span>
 </pre></div>
 </div>
 <a name="propylene"></a></div>
 <div class="section" id="id7">
 <h3>propylene<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C3H6,propylene C 3 H 6    wt%=100.
-h,cal=4776.92     t(k)=298.15   rho=0.0018
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C3H6</span><span class="p">,</span><span class="n">propylene</span> <span class="n">C</span> <span class="mi">3</span> <span class="n">H</span> <span class="mi">6</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">4776.92</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.0018</span>
 </pre></div>
 </div>
 <a name="RP1"></a></div>
 <div class="section" id="rp1">
 <h3>RP1<a class="headerlink" href="#rp1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel RP-1  C 1 H 1.9423
-h,cal=-5430.     t(k)=298.15   rho=0.773
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9423</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5430.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.773</span>
 </pre></div>
 </div>
 <a name="RP_1"></a></div>
 <div class="section" id="rp-1">
 <h3>RP_1<a class="headerlink" href="#rp-1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel RP-1  C 1 H 1.9423
-h,cal=-5430.     t(k)=298.15   rho=0.773
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9423</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5430.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.773</span>
 </pre></div>
 </div>
 <a name="UDMH"></a></div>
 <div class="section" id="udmh">
 <h3>UDMH<a class="headerlink" href="#udmh" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>fuel C2H8N2(L),UDMH wt% 50.   t(k) 298.15
-h,cal=11900.0     t(k)=298.15   rho=.783
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">C2H8N2</span><span class="p">(</span><span class="n">L</span><span class="p">),</span><span class="n">UDMH</span> <span class="n">wt</span><span class="o">%</span> <span class="mf">50.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="mf">298.15</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">11900.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=.</span><span class="mi">783</span>
 </pre></div>
 </div>
 </div>
@@ -912,105 +899,105 @@ h,cal=11900.0     t(k)=298.15   rho=.783
 <h2>Monoprop &amp; Solid<a class="headerlink" href="#monoprop-solid" title="Permalink to this headline">¶</a></h2>
 <a name="AMT_2091"></a><div class="section" id="amt-2091">
 <h3>AMT_2091<a class="headerlink" href="#amt-2091" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name NH4NO3         H  4.9968 O  3.7476 N  2.4984                   wt%=75.00
-h,cal=-109019.9966   t(k)=298.15   rho=1.7250
-name (NH4)2CR2O7   H  3.1733 O  2.7766  N  0.7933  CR 0.7933        wt%=2.00
-h,cal=-168780.   t(k)=298.15   rho=2.1500
-name A-20_GENPOL  C  4.5500  H  7.1000  O  2.3900                   wt%=7.24
-h,cal=-111000.   t(k)=298.15   rho=1.0380
-name METHYL_ACRYLATE   C  4.6464  H  6.9696  O  2.3232              wt%=11.08
-h,cal=-111300.   t(k)=298.15   rho=1.2000
-name POLYSTYRENE  C  7.6817  H  7.6817                              wt%=3.957
-h,cal=8000.   t(k)=298.15   rho=1.0600
-name MAKP   C  5.3768  H 10.7535  O  1.5362  wt%=0.40
-h,cal=-134060.   t(k)=298.15   rho=0.8500
-name CALCIUM_PHOSPHATE  P  0.6447  CA 0.9671 O  2.5790              wt%=0.50
-h,cal=-300500.   t(k)=298.15   rho=3.1400
-name TIN_OCTOATE  C  3.9497 H  7.4057 O  0.9874 PB 0.0948 CU 0.1521 wt%=0.003
-h,cal=-76120.   t(k)=298.15   rho=1.0000
-name LECITHIN  C  5.5611 H 11.1223 O  1.2692 N  0.1208              wt%=0.18
-h,cal=-63010.   t(k)=298.15   rho=1.0220
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">NH4NO3</span>         <span class="n">H</span>  <span class="mf">4.9968</span> <span class="n">O</span>  <span class="mf">3.7476</span> <span class="n">N</span>  <span class="mf">2.4984</span>                   <span class="n">wt</span><span class="o">%=</span><span class="mf">75.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">109019.9966</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.7250</span>
+<span class="n">name</span> <span class="p">(</span><span class="n">NH4</span><span class="p">)</span><span class="mi">2</span><span class="n">CR2O7</span>   <span class="n">H</span>  <span class="mf">3.1733</span> <span class="n">O</span>  <span class="mf">2.7766</span>  <span class="n">N</span>  <span class="mf">0.7933</span>  <span class="n">CR</span> <span class="mf">0.7933</span>        <span class="n">wt</span><span class="o">%=</span><span class="mf">2.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">168780.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">2.1500</span>
+<span class="n">name</span> <span class="n">A</span><span class="o">-</span><span class="mi">20</span><span class="n">_GENPOL</span>  <span class="n">C</span>  <span class="mf">4.5500</span>  <span class="n">H</span>  <span class="mf">7.1000</span>  <span class="n">O</span>  <span class="mf">2.3900</span>                   <span class="n">wt</span><span class="o">%=</span><span class="mf">7.24</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">111000.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0380</span>
+<span class="n">name</span> <span class="n">METHYL_ACRYLATE</span>   <span class="n">C</span>  <span class="mf">4.6464</span>  <span class="n">H</span>  <span class="mf">6.9696</span>  <span class="n">O</span>  <span class="mf">2.3232</span>              <span class="n">wt</span><span class="o">%=</span><span class="mf">11.08</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">111300.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.2000</span>
+<span class="n">name</span> <span class="n">POLYSTYRENE</span>  <span class="n">C</span>  <span class="mf">7.6817</span>  <span class="n">H</span>  <span class="mf">7.6817</span>                              <span class="n">wt</span><span class="o">%=</span><span class="mf">3.957</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">8000.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0600</span>
+<span class="n">name</span> <span class="n">MAKP</span>   <span class="n">C</span>  <span class="mf">5.3768</span>  <span class="n">H</span> <span class="mf">10.7535</span>  <span class="n">O</span>  <span class="mf">1.5362</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">0.40</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">134060.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.8500</span>
+<span class="n">name</span> <span class="n">CALCIUM_PHOSPHATE</span>  <span class="n">P</span>  <span class="mf">0.6447</span>  <span class="n">CA</span> <span class="mf">0.9671</span> <span class="n">O</span>  <span class="mf">2.5790</span>              <span class="n">wt</span><span class="o">%=</span><span class="mf">0.50</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">300500.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">3.1400</span>
+<span class="n">name</span> <span class="n">TIN_OCTOATE</span>  <span class="n">C</span>  <span class="mf">3.9497</span> <span class="n">H</span>  <span class="mf">7.4057</span> <span class="n">O</span>  <span class="mf">0.9874</span> <span class="n">PB</span> <span class="mf">0.0948</span> <span class="n">CU</span> <span class="mf">0.1521</span> <span class="n">wt</span><span class="o">%=</span><span class="mf">0.003</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">76120.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0000</span>
+<span class="n">name</span> <span class="n">LECITHIN</span>  <span class="n">C</span>  <span class="mf">5.5611</span> <span class="n">H</span> <span class="mf">11.1223</span> <span class="n">O</span>  <span class="mf">1.2692</span> <span class="n">N</span>  <span class="mf">0.1208</span>              <span class="n">wt</span><span class="o">%=</span><span class="mf">0.18</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">63010.</span>   <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.0220</span>
 </pre></div>
 </div>
 <a name="AP10_RDX25_HTPB"></a></div>
 <div class="section" id="ap10-rdx25-htpb">
 <h3>AP10_RDX25_HTPB<a class="headerlink" href="#ap10-rdx25-htpb" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name NH4CLO4(I)       wt%=10.0
-name RDX    C 1.3506 H 2.7011 O 2.7011 N 2.7011  wt%=25.00
-h,cal=6610.     t(k)=298.15   rho=1.8200
-name R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=65.00
-h,cal= 1200.0 t(k)=298.15 rho=0.9220
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">NH4CLO4</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">10.0</span>
+<span class="n">name</span> <span class="n">RDX</span>    <span class="n">C</span> <span class="mf">1.3506</span> <span class="n">H</span> <span class="mf">2.7011</span> <span class="n">O</span> <span class="mf">2.7011</span> <span class="n">N</span> <span class="mf">2.7011</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">25.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">6610.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">1.8200</span>
+<span class="n">name</span> <span class="n">R</span><span class="o">-</span><span class="mi">45</span><span class="p">(</span><span class="n">HTPB</span> <span class="n">FROM_RPL_DATA</span><span class="p">)</span> <span class="n">C</span> <span class="mf">7.3165</span> <span class="n">H</span> <span class="mf">10.3360</span> <span class="n">O</span> <span class="mf">0.1063</span>    <span class="n">wt</span><span class="o">%=</span><span class="mf">65.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="mf">1200.0</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.9220</span>
 </pre></div>
 </div>
 <a name="ARC311"></a></div>
 <div class="section" id="arc311">
 <h3>ARC311<a class="headerlink" href="#arc311" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name ARC311  H 3.919935 C 2.237043 N 2.300870 O 2.309573  wt%=100.00
-h,cal= 3939.6  t(k)=298.15 rho=1.634
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">ARC311</span>  <span class="n">H</span> <span class="mf">3.919935</span> <span class="n">C</span> <span class="mf">2.237043</span> <span class="n">N</span> <span class="mf">2.300870</span> <span class="n">O</span> <span class="mf">2.309573</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="mf">3939.6</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">=</span><span class="mf">1.634</span>
 </pre></div>
 </div>
 <a name="ARC448"></a></div>
 <div class="section" id="arc448">
 <h3>ARC448<a class="headerlink" href="#arc448" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name ARC448  H 3.359766 C 2.052322 N 1.932190 O 2.806300  wt%=100.00
-h,cal= -36867.1  t(k)=298.15 rho=1.537
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">ARC448</span>  <span class="n">H</span> <span class="mf">3.359766</span> <span class="n">C</span> <span class="mf">2.052322</span> <span class="n">N</span> <span class="mf">1.932190</span> <span class="n">O</span> <span class="mf">2.806300</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="o">-</span><span class="mf">36867.1</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">=</span><span class="mf">1.537</span>
 </pre></div>
 </div>
 <a name="ARC452"></a></div>
 <div class="section" id="arc452">
 <h3>ARC452<a class="headerlink" href="#arc452" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name ARC452  H 3.694563 C 2.469813 N 1.041212 O 3.251794  wt%=100.00
-h,cal= -67947.0  t(k)=298.15 rho=1.473
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">ARC452</span>  <span class="n">H</span> <span class="mf">3.694563</span> <span class="n">C</span> <span class="mf">2.469813</span> <span class="n">N</span> <span class="mf">1.041212</span> <span class="n">O</span> <span class="mf">3.251794</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="o">-</span><span class="mf">67947.0</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">=</span><span class="mf">1.473</span>
 </pre></div>
 </div>
 <a name="ARC457"></a></div>
 <div class="section" id="arc457">
 <h3>ARC457<a class="headerlink" href="#arc457" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name ARC457  H 4.080395 C 1.238333 N 1.677693 O 3.593891
-wt%=100.00 h,cal= -80325.0 t(k)=298.15 rho=1.594
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">ARC457</span>  <span class="n">H</span> <span class="mf">4.080395</span> <span class="n">C</span> <span class="mf">1.238333</span> <span class="n">N</span> <span class="mf">1.677693</span> <span class="n">O</span> <span class="mf">3.593891</span>
+<span class="n">wt</span><span class="o">%=</span><span class="mf">100.00</span> <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span> <span class="o">-</span><span class="mf">80325.0</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">=</span><span class="mf">1.594</span>
 </pre></div>
 </div>
 <a name="HAN269"></a></div>
 <div class="section" id="han269">
 <h3>HAN269<a class="headerlink" href="#han269" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name = HAN N 2.0 H 4.0 O 4.0 wt%= 69.15
-h,cal=-80962. t(k)=298.15 rho,g/cc = 1.685
-name = MEOH C 1.0 H 4.0 O 1.0 wt%= 15.46
-h,cal=-57146. t(k)=298.15 rho,g/cc = 0.791
-name = water H 2.0 O 1.0 wt%= 14.80
-h,cal=-68256. t(k)=298.17 rho,g/cc=1.00
-name = AN H 4.0 N 2.0 O 3.0 wt%= 0.59
-h,cal=-87380. t(k)=298.17 rho,g/cc=1.725
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">HAN</span> <span class="n">N</span> <span class="mf">2.0</span> <span class="n">H</span> <span class="mf">4.0</span> <span class="n">O</span> <span class="mf">4.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">69.15</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">80962.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">1.685</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">MEOH</span> <span class="n">C</span> <span class="mf">1.0</span> <span class="n">H</span> <span class="mf">4.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">15.46</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">57146.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">0.791</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">water</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">14.80</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68256.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.17</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.00</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">AN</span> <span class="n">H</span> <span class="mf">4.0</span> <span class="n">N</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">3.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">0.59</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">87380.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.17</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.725</span>
 </pre></div>
 </div>
 <a name="HAN315"></a></div>
 <div class="section" id="id8">
 <h3>HAN315<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5
-h.cal=-93980. t(k)=298.15 rho.g/cc=1.685
-name = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5
-h.cal=-108000. t(k)=298.15 rho.g/cc=1.428
-name = WATER H 2.0 O 1.0 wt%= 11.0
-h.cal=-68000. t(k)=298.15 rho.g/cc=1.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">HAN</span> <span class="n">C</span> <span class="mf">0.064</span> <span class="n">H</span> <span class="mf">4.296</span> <span class="n">N</span> <span class="mf">2.062</span> <span class="n">O</span> <span class="mf">4.1</span> <span class="n">P</span> <span class="mf">0.008</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">93980.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.685</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">HEHN</span> <span class="n">C</span> <span class="mf">2.0</span> <span class="n">H</span> <span class="mf">9.0</span> <span class="n">N</span> <span class="mf">3.0</span> <span class="n">O</span> <span class="mf">4.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">108000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.428</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">11.0</span>
+<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="HPB24"></a></div>
 <div class="section" id="hpb24">
 <h3>HPB24<a class="headerlink" href="#hpb24" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name = diss UA 0.6667 H 2.0000 N 1.3333 wt%= 71.46
-h,cal=12094. t(k)=298.15 rho,g/cc = 1.004
-name = water H 2.0 O 1.0  wt%=0.5
-h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998
-name = hydra H 4.0 N 2.0 wt%= 4.04
-h,cal=12094. t(k)=298.15 rho,g/cc = 1.004
-name = hydni N 3.000 H 5.000 O 3.000 wt%= 24.00
-h,cal=-50477. t(k)=298.15 rho,g/cc = 1.647
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">diss</span> <span class="n">UA</span> <span class="mf">0.6667</span> <span class="n">H</span> <span class="mf">2.0000</span> <span class="n">N</span> <span class="mf">1.3333</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">71.46</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12094.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">1.004</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">water</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">0.5</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68308.</span>  <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">0.9998</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">hydra</span> <span class="n">H</span> <span class="mf">4.0</span> <span class="n">N</span> <span class="mf">2.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">4.04</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=</span><span class="mf">12094.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">1.004</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">hydni</span> <span class="n">N</span> <span class="mf">3.000</span> <span class="n">H</span> <span class="mf">5.000</span> <span class="n">O</span> <span class="mf">3.000</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">24.00</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">50477.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="p">,</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span> <span class="o">=</span> <span class="mf">1.647</span>
 </pre></div>
 </div>
 <a name="HYD40"></a></div>
 <div class="section" id="hyd40">
 <h3>HYD40<a class="headerlink" href="#hyd40" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>name = diss UA 0.800 H 1.600 N 1.200 wt%= 99.5
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name = diss UA 0.800 H 1.600 N 1.200 wt%= 99.5
 h,cal=12094. t(k)=298.15 rho,g/cc = 1.004
 
 name = water H 2.0 O 1.0  wt%=0.5
@@ -1044,12 +1031,12 @@ omit NH3
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>
