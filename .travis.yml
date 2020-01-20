@@ -6,14 +6,12 @@ before_install:
     - "sudo apt-get update"
     - "sudo apt-get install gfortran"
 
+env: FC=gfortran
+
 install:
     - "sudo pip install --upgrade pip"
     - "python setup.py build"
     - "python setup.py install"
-    - "ls /home/travis/build/sonofeft/RocketCEA"
-    - "ls /home/travis/build/sonofeft/RocketCEA/rocketcea"
-    - "find /home/travis/build/sonofeft/RocketCEA/ -name *.so"
-    - "cp /home/travis/build/sonofeft/RocketCEA/build/lib/rocketcea/*.so /home/travis/build/sonofeft/RocketCEA/rocketcea"
     
 script:
     - py.test
