@@ -22,43 +22,6 @@ Note that the number of significant figures in the Isp above are much higher tha
 While there is likely no physical significance to this, it can sometimes be useful numerically in 
 computations that take derivatives of Isp with respect to a design variable. (for example optimizers.)
 
-Simple SI Units Example
------------------------
-
-By importing CEA_Obj from **cea_obj_w_units** instead of **cea_obj**, all of the I/O 
-units can be changed from the default units (i.e. ft, lbm, BTU, degR, etc.).
-
-The above example in English units is recreated below with SI units(chamber pressure input in MPa).
-Notice that CEA_Obj is created with **pressure_units='MPa'** as an input parameter.
-(For ease of comparison, the value of Pc from above is converted to MPa.)::
-
-    >>> from rocketcea.cea_obj_w_units import CEA_Obj
-    >>> C = CEA_Obj( oxName='LOX', fuelName='LH2', pressure_units='MPa')
-    >>> C.get_Isp(Pc=100.0 /145.037738, MR=1.0, eps=40.0)
-    374.30361765576265
-    >>> C.get_Isp(Pc=100.0 /145.037738, MR=6.0, eps=40.0)
-    448.1902329983554
-
-All of the units may be specified by changing the CEA_Obj inputs from the defaults
-given below, to the desired units shown as comments.
-Simply include an input parameter in the creation of CEA_Obj as shown above with pressure_units.::
-
-        isp_units            = 'sec',         # N-s/kg, m/s, km/s
-        cstar_units          = 'ft/sec',      # m/s
-        pressure_units       = 'psia',        # MPa, KPa, Bar, Atm, Torr
-        temperature_units    = 'degR',        # K, C, F
-        sonic_velocity_units = 'ft/sec',      # m/s
-        enthalpy_units       = 'BTU/lbm',     # J/g, kJ/kg, J/kg, kcal/kg, cal/g
-        density_units        = 'lbm/cuft',    # g/cc, sg, kg/m^3
-        specific_heat_units  = 'BTU/lbm degR' # kJ/kg-K, cal/g-C, J/kg-K
-
-.. note:: 
-
-    If the units you desire are not shown above, your units may be added by importing
-    **add_user_units** from **rocketcea.cea_obj_w_units** and calling it prior to
-    creating the CEA_Obj. For example MPa was added with the line.
-    
-    add_user_units('psia', 'MPa', 0.00689475729) # multiplier = user units / default units
 
 N2O4/MMH Performance
 --------------------

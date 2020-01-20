@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Simple Examples &#8212; RocketCEA 1.0.6 documentation</title>
+    <title>Simple Examples &#8212; RocketCEA 1.0.8 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="std_examples.html" title="Standard Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simple Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simple-si-units-example">Simple SI Units Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#n2o4-mmh-performance">N2O4/MMH Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lox-lh2-delta-v">LOX/LH2 Delta V</a></li>
 </ul>
@@ -123,6 +124,42 @@
 <p>Note that the number of significant figures in the Isp above are much higher than in the standard CEA output.</p>
 <p>While there is likely no physical significance to this, it can sometimes be useful numerically in
 computations that take derivatives of Isp with respect to a design variable. (for example optimizers.)</p>
+<div class="section" id="simple-si-units-example">
+<h2>Simple SI Units Example<a class="headerlink" href="#simple-si-units-example" title="Permalink to this headline">¶</a></h2>
+<p>By importing CEA_Obj from <strong>cea_obj_w_units</strong> instead of <strong>cea_obj</strong>, all of the I/O
+units can be changed from the default units (i.e. ft, lbm, BTU, degR, etc.).</p>
+<p>The above example in English units is recreated below with SI units(chamber pressure input in MPa).
+Notice that CEA_Obj is created with <strong>pressure_units=’MPa’</strong> as an input parameter.
+(For ease of comparison, the value of Pc from above is converted to MPa.):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">pressure_units</span><span class="o">=</span><span class="s1">&#39;MPa&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span> <span class="o">/</span><span class="mf">145.037738</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="go">374.30361765576265</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span> <span class="o">/</span><span class="mf">145.037738</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="go">448.1902329983554</span>
+</pre></div>
+</div>
+<p>All of the units may be specified by changing the CEA_Obj inputs from the defaults
+given below, to the desired units shown as comments.
+Simply include an input parameter in the creation of CEA_Obj as shown above with pressure_units.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">isp_units</span>            <span class="o">=</span> <span class="s1">&#39;sec&#39;</span><span class="p">,</span>         <span class="c1"># N-s/kg, m/s, km/s</span>
+<span class="n">cstar_units</span>          <span class="o">=</span> <span class="s1">&#39;ft/sec&#39;</span><span class="p">,</span>      <span class="c1"># m/s</span>
+<span class="n">pressure_units</span>       <span class="o">=</span> <span class="s1">&#39;psia&#39;</span><span class="p">,</span>        <span class="c1"># MPa, KPa, Bar, Atm, Torr</span>
+<span class="n">temperature_units</span>    <span class="o">=</span> <span class="s1">&#39;degR&#39;</span><span class="p">,</span>        <span class="c1"># K, C, F</span>
+<span class="n">sonic_velocity_units</span> <span class="o">=</span> <span class="s1">&#39;ft/sec&#39;</span><span class="p">,</span>      <span class="c1"># m/s</span>
+<span class="n">enthalpy_units</span>       <span class="o">=</span> <span class="s1">&#39;BTU/lbm&#39;</span><span class="p">,</span>     <span class="c1"># J/g, kJ/kg, J/kg, kcal/kg, cal/g</span>
+<span class="n">density_units</span>        <span class="o">=</span> <span class="s1">&#39;lbm/cuft&#39;</span><span class="p">,</span>    <span class="c1"># g/cc, sg, kg/m^3</span>
+<span class="n">specific_heat_units</span>  <span class="o">=</span> <span class="s1">&#39;BTU/lbm degR&#39;</span> <span class="c1"># kJ/kg-K, cal/g-C, J/kg-K</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the units you desire are not shown above, your units may be added by importing
+<strong>add_user_units</strong> from <strong>rocketcea.cea_obj_w_units</strong> and calling it prior to
+creating the CEA_Obj. For example MPa was added with the line.</p>
+<p>add_user_units(‘psia’, ‘MPa’, 0.00689475729) # multiplier = user units / default units</p>
+</div>
+</div>
 <div class="section" id="n2o4-mmh-performance">
 <h2>N2O4/MMH Performance<a class="headerlink" href="#n2o4-mmh-performance" title="Permalink to this headline">¶</a></h2>
 <p>Successive queries of the CEA_Obj can be made to create tables of information.
@@ -243,7 +280,7 @@ The delivered Isp is then used to calculate a stage deltaV.</p>
         <li class="right" >
           <a href="std_examples.html" title="Standard Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
