@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Standard Examples &#8212; RocketCEA 1.0.8 documentation</title>
+    <title>Standard Examples &#8212; RocketCEA 1.0.9 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.9 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -136,6 +136,16 @@ chamber pressure, mixture ratio and expansion ratio.</p>
 <p>The propellant temperature and enthalpy are <em>standard</em>, which usually means room temperature for storable or gas
 propellants and normal boiling point for cryogenic propellants.</p>
 <p>See the <a class="reference internal" href="temperature_adjust.html#temperature-adjust-link"><span class="std std-ref">Temperature Adjust</span></a> page for modifying the temperature and enthalpy of the reactants.</p>
+<p>Notice also that the CEA documentation (shown below) allows for different pressure units to be used for Pc.
+The default units in <strong>RocketCEA</strong> are psia, however, bar, atm and mmh are also options.</p>
+<img alt="_images/full_output_p_units.jpg" src="_images/full_output_p_units.jpg" />
+<p>Pc units can be specified with the input parameter <strong>pc_units</strong> as shown in the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;psia&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">68.948</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">68.046</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;atm&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">51715.</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;mmh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The above script gives the standard output that a typical CEA run from the command prompt would give:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
 
@@ -415,7 +425,7 @@ Otherwise, the chamber composition is used.</p>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.9 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

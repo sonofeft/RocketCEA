@@ -39,6 +39,18 @@ propellants and normal boiling point for cryogenic propellants.
 
 See the :ref:`Temperature Adjust <temperature_adjust_link>` page for modifying the temperature and enthalpy of the reactants.
 
+Notice also that the CEA documentation (shown below) allows for different pressure units to be used for Pc.
+The default units in **RocketCEA** are psia, however, bar, atm and mmh are also options.
+
+.. image:: ./_static/full_output_p_units.jpg
+
+Pc units can be specified with the input parameter **pc_units** as shown in the following lines::
+
+    s = ispObj.get_full_cea_output( Pc=1000.0, MR=6.0, eps=40.0, short_output=1, pc_units='psia')
+    s = ispObj.get_full_cea_output( Pc=68.948, MR=6.0, eps=40.0, short_output=1, pc_units='bar')
+    s = ispObj.get_full_cea_output( Pc=68.046, MR=6.0, eps=40.0, short_output=1, pc_units='atm')
+    s = ispObj.get_full_cea_output( Pc=51715., MR=6.0, eps=40.0, short_output=1, pc_units='mmh')
+
 The above script gives the standard output that a typical CEA run from the command prompt would give::
 
      *******************************************************************************

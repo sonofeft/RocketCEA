@@ -346,13 +346,14 @@ class CEA_Obj(object):
 
     def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, PcOvPe=None, frozen=0,
                    ERphi=None, ERr=None, frozenAtThroat=0, short_output=0,
-                   show_transport=0):
+                   show_transport=0, pc_units='psia'):
         '''
         Set up card deck and call CEA FORTRAN code.::
 
         #: if PcOvPe has a value, use it instead of eps to run case
         #: ERphi = Equivalence ratios in terms of fuel-to-oxidant weight ratios.
         #: ERr = Chemical equivalence ratios in terms of valences.
+        #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
         '''
 
         global _last_called, _NLines_Max_ever
@@ -391,9 +392,9 @@ class CEA_Obj(object):
             eqfrStr = 'equilibrium'
 
         if PcOvPe: # a case for Pc/Pe
-            set_py_cea_line(N," rocket %s  p,psia=%f,"%(eqfrStr,Pc)  + " pi/p=%f,  "%PcOvPe + " supar=%f,  "%eps)
+            set_py_cea_line(N," rocket %s  p,%s=%f,"%(eqfrStr,pc_units,Pc)  + " pi/p=%f,  "%PcOvPe + " supar=%f,  "%eps)
         else:
-            set_py_cea_line(N," rocket %s  p,psia=%f,"%(eqfrStr,Pc)  + " supar=%f,  "%eps)
+            set_py_cea_line(N," rocket %s  p,%s=%f,"%(eqfrStr,pc_units,Pc)  + " supar=%f,  "%eps)
 
 
         N += 1
@@ -493,8 +494,12 @@ class CEA_Obj(object):
         py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)
 
     def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, 
-                            frozenAtThroat=0, short_output=0, show_transport=1):
-        """Get the full output file created by CEA. Return as a string."""
+                            frozenAtThroat=0, short_output=0, show_transport=1,
+                            pc_units='psia'):
+        """
+        Get the full output file created by CEA. Return as a string.
+        #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
+        """
 
         # regardless of how run was set up, change makeOutput flag True
         save_flag = self.makeOutput
@@ -502,7 +507,7 @@ class CEA_Obj(object):
 
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, 
                          frozenAtThroat=frozenAtThroat, short_output=short_output,
-                         show_transport=show_transport)
+                         show_transport=show_transport, pc_units=pc_units)
 
         self.makeOutput = save_flag # restore makeOutput
 
