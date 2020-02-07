@@ -109,6 +109,8 @@ rocketcea/examples/mono_peroxide.py
 rocketcea/examples/new_propellants.py
 rocketcea/examples/new_propellants_2.py
 rocketcea/examples/perf_table.py
+rocketcea/examples/perox_eq_frz.png
+rocketcea/examples/perox_eq_frz.py
 rocketcea/examples/plot_SI_biprop.py
 rocketcea/examples/plot_biprop.py
 rocketcea/examples/quick_chk.py

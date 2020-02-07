@@ -24,9 +24,9 @@ plot( epsL, TcfrzL, label='Frozen')
 
 legend(loc='best')
 grid(True)
-title( 'Peroxide90 Equilibrium/Frozen Tc Comparison' )
+title( 'Peroxide90 Equilibrium/Frozen Texit Comparison' )
 xlabel( 'Area Ratio' )
-ylabel( 'Tc (%s)'%P90.temperature_units )
+ylabel( 'Texit (%s)'%P90.temperature_units )
 savefig('perox_eq_frz.png', dpi=120)
 
 show()
