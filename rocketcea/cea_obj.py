@@ -760,14 +760,15 @@ class CEA_Obj(object):
         M = py_cea.rockt.vmoc[2]
         return M
 
-    def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of temperatures at the chamber, throat and exit.
-        #: (Note Texit is equilibrium temperature NOT Frozen temperature)
+        #: (Note frozen flag determins whether Texit is equilibrium or Frozen temperature)
         #: MR is only used for ox/fuel combos.
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        #self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         # convert from Kelvin to Rankine
         tempList = 1.8 * py_cea.prtout.ttt[:3]

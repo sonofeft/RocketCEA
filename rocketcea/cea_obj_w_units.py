@@ -142,9 +142,10 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_MachNumber( Pc=Pc, MR=MR, eps=eps )
         
-    def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        tempList = self.cea_obj.get_Temperatures( Pc=Pc, MR=MR, eps=eps )
+        tempList = self.cea_obj.get_Temperatures( Pc=Pc, MR=MR, eps=eps,
+                                                  frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         for i,T in enumerate( tempList ):
             tempList[i] = self.temperature_U.dval_to_uval( T )
