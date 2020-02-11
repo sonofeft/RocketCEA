@@ -10,7 +10,7 @@ class CEA_Obj( object ):
     """
     RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb
     
-    This object wraps the English unit version of CEA_Obj to enable desired user units.
+    This object wraps the English unit version of CEA_Obj to enable desired user units.    
     """
 
     def __init__(self, propName='', oxName='', fuelName='', 
@@ -20,6 +20,23 @@ class CEA_Obj( object ):
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
         density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
         viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s'):
+        """::
+        
+        #: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb
+        #: This object wraps the English unit version of CEA_Obj to enable desired user units.
+        #: Same as CEA_Obj with standard units except, input and output units can be specified.
+        #:  parameter             default             options
+        #: isp_units            = 'sec',         # N-s/kg, m/s, km/s
+        #: cstar_units          = 'ft/sec',      # m/s
+        #: pressure_units       = 'psia',        # MPa, KPa, Bar, Atm, Torr
+        #: temperature_units    = 'degR',        # K, C, F
+        #: sonic_velocity_units = 'ft/sec',      # m/s
+        #: enthalpy_units       = 'BTU/lbm',     # J/g, kJ/kg, J/kg, kcal/kg, cal/g
+        #: density_units        = 'lbm/cuft',    # g/cc, sg, kg/m^3
+        #: specific_heat_units  = 'BTU/lbm degR' # kJ/kg-K, cal/g-C, J/kg-K
+        #: viscosity_units      = 'millipoise'   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise
+        #: thermal_cond_units   = 'mcal/cm-K-s'  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC
+        """
 
         self.isp_units            = isp_units
         self.cstar_units          = cstar_units

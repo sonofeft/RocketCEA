@@ -63,7 +63,13 @@
 <li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RocketCEA Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RocketCEA Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.cea_obj">CEA_Obj Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cea-obj-with-units">CEA_Obj With Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.units">User Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.blends">Blend Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
@@ -100,8 +106,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-rocketcea.cea_obj">
-<span id="rocketcea-functions"></span><h1>RocketCEA Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="rocketcea-functions">
+<h1>RocketCEA Functions<a class="headerlink" href="#rocketcea-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-rocketcea.cea_obj">
+<span id="cea-obj-functions"></span><h2>CEA_Obj Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h2>
 <p>RocketCEA wraps the NASA FORTRAN CEA code and provides some useful tools.</p>
 <p>RocketCEA makes direct calls to the FORTRAN CEA code in &quot;rocket&quot; mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
@@ -491,7 +499,91 @@ Normally used for debugging or verifying FORTRAN internal values.</p>
 <dd><p>make sure that trailing blanks are on added lines</p>
 </dd></dl>
 
-<span class="target" id="module-rocketcea.blends"></span><p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
+</div>
+<div class="section" id="cea-obj-with-units">
+<h2>CEA_Obj With Units<a class="headerlink" href="#cea-obj-with-units" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rocketcea.cea_obj_w_units.CEA_Obj">
+<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj_w_units.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
+<p>This object wraps the English unit version of CEA_Obj to enable desired user units.</p>
+<dl class="method">
+<dt id="rocketcea.cea_obj_w_units.CEA_Obj.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</span>
+<span class="c1">#: This object wraps the English unit version of CEA_Obj to enable desired user units.</span>
+<span class="c1">#: Same as CEA_Obj with standard units except, input and output units can be specified.</span>
+<span class="c1">#:  parameter             default             options</span>
+<span class="c1">#: isp_units            = &#39;sec&#39;,         # N-s/kg, m/s, km/s</span>
+<span class="c1">#: cstar_units          = &#39;ft/sec&#39;,      # m/s</span>
+<span class="c1">#: pressure_units       = &#39;psia&#39;,        # MPa, KPa, Bar, Atm, Torr</span>
+<span class="c1">#: temperature_units    = &#39;degR&#39;,        # K, C, F</span>
+<span class="c1">#: sonic_velocity_units = &#39;ft/sec&#39;,      # m/s</span>
+<span class="c1">#: enthalpy_units       = &#39;BTU/lbm&#39;,     # J/g, kJ/kg, J/kg, kcal/kg, cal/g</span>
+<span class="c1">#: density_units        = &#39;lbm/cuft&#39;,    # g/cc, sg, kg/m^3</span>
+<span class="c1">#: specific_heat_units  = &#39;BTU/lbm degR&#39; # kJ/kg-K, cal/g-C, J/kg-K</span>
+<span class="c1">#: viscosity_units      = &#39;millipoise&#39;   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise</span>
+<span class="c1">#: thermal_cond_units   = &#39;mcal/cm-K-s&#39;  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rocketcea.units">
+<span id="user-units"></span><h2>User Units<a class="headerlink" href="#module-rocketcea.units" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="rocketcea.units.add_default_unit">
+<code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">add_default_unit</code><span class="sig-paren">(</span><em class="sig-param">name='psia'</em>, <em class="sig-param">akaL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_default_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize unitsConvFactD for various default units.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.units.add_user_units">
+<code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">add_user_units</code><span class="sig-paren">(</span><em class="sig-param">default_units</em>, <em class="sig-param">user_units</em>, <em class="sig-param">multiplier</em>, <em class="sig-param">offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_user_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new units to dictionary of default_units.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.units.get_conv_factor">
+<code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">get_conv_factor</code><span class="sig-paren">(</span><em class="sig-param">default_units</em>, <em class="sig-param">user_units</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.get_conv_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get multiplier and offset for user_units.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="rocketcea.units.Units">
+<em class="property">class </em><code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">Units</code><span class="sig-paren">(</span><em class="sig-param">default_units='psia'</em>, <em class="sig-param">user_units='MPa'</em>, <em class="sig-param">user_over_default=0.0068947572</em>, <em class="sig-param">user_offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="rocketcea.units.Units.dval_to_uval">
+<code class="sig-name descname">dval_to_uval</code><span class="sig-paren">(</span><em class="sig-param">def_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.dval_to_uval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in RockeCEA default units, return value in user units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.units.Units.show_dval_to_uval">
+<code class="sig-name descname">show_dval_to_uval</code><span class="sig-paren">(</span><em class="sig-param">def_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.show_dval_to_uval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in RockeCEA default units, print conversion user units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.units.Units.show_uval_to_dval">
+<code class="sig-name descname">show_uval_to_dval</code><span class="sig-paren">(</span><em class="sig-param">user_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.show_uval_to_dval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in user units, print conversion to RockeCEA default units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.units.Units.uval_to_dval">
+<code class="sig-name descname">uval_to_dval</code><span class="sig-paren">(</span><em class="sig-param">user_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.uval_to_dval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in user units, return a value in RockeCEA default units.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rocketcea.blends">
+<span id="blend-functions"></span><h2>Blend Functions<a class="headerlink" href="#module-rocketcea.blends" title="Permalink to this headline">¶</a></h2>
+<p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
 <dl class="function">
 <dt id="rocketcea.blends.addFLOX_Blend">
 <code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addFLOX_Blend</code><span class="sig-paren">(</span><em class="sig-param">oxName</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addFLOX_Blend" title="Permalink to this definition">¶</a></dt>
@@ -700,6 +792,7 @@ card in cardDict if necessary</p>
 <dd><p>turn the card list into one long list of tokens</p>
 </dd></dl>
 
+</div>
 </div>
 
 
