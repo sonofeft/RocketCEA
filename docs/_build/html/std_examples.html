@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Standard Examples &#8212; RocketCEA 1.1.0 documentation</title>
+    <title>Standard Examples &#8212; RocketCEA 1.1.1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -260,6 +260,19 @@ to include transport properties, set the <strong>show_transport</strong> flag.</
 <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7071</span>   <span class="mf">0.7121</span>   <span class="mf">0.6803</span>
 </pre></div>
 </div>
+<p>To access transport properties, each of the following calls return a tuple of
+(Heat Capacity, Viscosity, Thermal Conductivity and Prandtl Number):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Chamber_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Chamber_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Throat_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Throat_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Exit_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Exit_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the <strong>frozen</strong> flag determines equilibrium or frozen output.</p>
 </div>
 <div class="section" id="frozen-performance">
 <h2>Frozen Performance<a class="headerlink" href="#frozen-performance" title="Permalink to this headline">¶</a></h2>
@@ -425,7 +438,7 @@ Otherwise, the chamber composition is used.</p>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

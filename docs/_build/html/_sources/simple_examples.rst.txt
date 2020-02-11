@@ -30,7 +30,7 @@ units can be changed from the default units (i.e. ft, lbm, BTU, degR, etc.).
 
 The above example in English units is recreated below with SI units(chamber pressure input in MPa).
 Notice that CEA_Obj is created with **pressure_units='MPa'** as an input parameter.
-(For ease of comparison, the value of Pc from above is converted to MPa.)::
+(For ease of comparison, the 100 psia input value of Pc from above is converted to MPa as 100/145.037738.)::
 
     >>> from rocketcea.cea_obj_w_units import CEA_Obj
     >>> C = CEA_Obj( oxName='LOX', fuelName='LH2', pressure_units='MPa')
@@ -51,6 +51,9 @@ Simply include an input parameter in the creation of CEA_Obj as shown above with
         enthalpy_units       = 'BTU/lbm',     # J/g, kJ/kg, J/kg, kcal/kg, cal/g
         density_units        = 'lbm/cuft',    # g/cc, sg, kg/m^3
         specific_heat_units  = 'BTU/lbm degR' # kJ/kg-K, cal/g-C, J/kg-K
+        viscosity_units      = 'millipoise'   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise
+        thermal_cond_units   = 'mcal/cm-K-s'  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF,
+                                              #  cal/s-cm-degC, W/cm-degC
 
 .. note:: 
 

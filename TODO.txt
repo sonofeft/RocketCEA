@@ -3,7 +3,6 @@
 
 Move temp.scr to user %HOME% area
 
-
 *) Mixture Ratio Range calculations (show TDK influence)
 *) propellant MR recommendations: http://www.braeunig.us/space/propel.htm
 *) get historical MR values from: https://engineering.purdue.edu/~propulsi/propulsion/rockets/liquids.html

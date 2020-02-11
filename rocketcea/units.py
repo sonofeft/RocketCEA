@@ -37,6 +37,8 @@ add_default_unit( 'ft/sec', ['fps'] )
 add_default_unit( 'BTU/lbm' )
 add_default_unit( 'lbm/cuft' )
 add_default_unit( 'BTU/lbm degR', ['BTU/lbm-degR','BTU/lbm R','BTU/lbm-R'] )
+add_default_unit( 'millipoise' )
+add_default_unit( 'mcal/cm-K-s', ['mcal/cm-degK-sec', 'mcal/cm-degC-s', 'millical/cm-degK-sec'] )
 
 # ----------- function to get new units conversion factor --------------
 def get_conv_factor( default_units, user_units ):
@@ -141,6 +143,21 @@ add_user_units('lbm/cuft', 'g/cc', 0.016018463)
 add_user_units('lbm/cuft', 'sg', 0.016018463)
 add_user_units('lbm/cuft', 'kg/m^3', 16.018463374)
 
+# ... dynamic viscosity
+add_user_units('millipoise', 'centipoise', 0.1)
+add_user_units('millipoise', 'poise', 0.001)
+add_user_units('millipoise', 'lbf-sec/sqin', 1.4503773779686e-8)
+add_user_units('millipoise', 'lbf-sec/sqft', 0.0000020885434224573)
+add_user_units('millipoise', 'lbm/ft-sec', 0.0000671968994813)
+add_user_units('millipoise', 'lbm/in-sec', 0.0000671968994813 / 12.0)
+
+# ... thermal conductivity
+add_user_units('mcal/cm-K-s', 'BTU/hr-ft-degF', 241.747 / 1000.0 )
+add_user_units('mcal/cm-K-s', 'BTU/s-in-degF', 0.005596 / 1000.0 )
+add_user_units('mcal/cm-K-s', 'cal/s-cm-degC', 1.0 / 1000.0 )
+add_user_units('mcal/cm-K-s', 'cal/s-m-degC', 100.0 / 1000.0 )
+add_user_units('mcal/cm-K-s', 'W/cm-degC', 4.184 / 1000.0 )
+
 class Units( object ):
     
     def __init__(self, default_units='psia', user_units='MPa', 
@@ -237,6 +254,12 @@ if __name__ == "__main__":
     chk_obj( get_units_obj('lbm/cuft', 'kg/m^3') )
     chk_obj( get_units_obj('BTU/lbm','cal/g') )
     chk_obj( get_units_obj('sec', 'km/sec') )
+    
+    chk_obj( get_units_obj('millipoise', 'lbm/ft-sec') )
+    chk_obj( get_units_obj('millipoise', 'lbm/in-sec') )
+    
+    chk_obj( get_units_obj('mcal/cm-K-s', 'BTU/s-in-degF') )
+    chk_obj( get_units_obj('mcal/cm-K-s', 'cal/s-cm-degC') )
  
     print('='*55)
     for k,vD in unitsConvFactD.items():

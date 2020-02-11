@@ -842,13 +842,14 @@ class CEA_Obj(object):
         return dList[0] # lbm/cuft
 
 
-    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0):
         """::
 
         #: Return a list of heat capacities at the chamber, throat and exit.
         #: MR is only used for ox/fuel combos.
+        #: frozen flag (0=equilibrium, 1=frozen)
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         # convert from m/sec into ft/sec
         cpList =  py_cea.prtout.cpr[:3]
         for i,cp in enumerate( cpList ):
@@ -985,7 +986,80 @@ class CEA_Obj(object):
         return IspAmb, mode
 
 
+    def get_Chamber_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        """::
 
+        #: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number
+        #: in the chamber. (units are default printout units)
+        #: MR is only used for ox/fuel combos.
+        #: eps has no effect on chamber properties
+        #: frozen flag (0=equilibrium, 1=frozen)
+        """
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, show_transport=1)
+        
+        if frozen:
+            Cp = py_cea.trpts.cpfro[0]
+            visc = py_cea.trpts.vis[0]
+            cond = py_cea.trpts.confro[0]
+            Prandtl = py_cea.trpts.prfro[0]
+        else:
+            Cp = py_cea.trpts.cpeql[0]
+            visc = py_cea.trpts.vis[0]
+            cond = py_cea.trpts.coneql[0]
+            Prandtl = py_cea.trpts.preql[0]
+        
+        return Cp, visc, cond, Prandtl
+
+    def get_Throat_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        """::
+
+        #: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number
+        #: in the throat. (units are default printout units)
+        #: MR is only used for ox/fuel combos.
+        #: eps has no effect on throat properties
+        #: frozen flag (0=equilibrium, 1=frozen)
+        """
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, show_transport=1)
+        
+        if frozen:
+            Cp = py_cea.trpts.cpfro[1]
+            visc = py_cea.trpts.vis[1]
+            cond = py_cea.trpts.confro[1]
+            Prandtl = py_cea.trpts.prfro[1]
+        else:
+            Cp = py_cea.trpts.cpeql[1]
+            visc = py_cea.trpts.vis[1]
+            cond = py_cea.trpts.coneql[1]
+            Prandtl = py_cea.trpts.preql[1]
+        
+        return Cp, visc, cond, Prandtl
+
+    def get_Exit_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        """::
+
+        #: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number
+        #: at the exit. (units are default printout units)
+        #: MR is only used for ox/fuel combos.
+        #: eps is nozzle area ratio
+        #: frozen flag (0=equilibrium, 1=frozen)
+        """
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, show_transport=1)
+        
+        if frozen:
+            Cp = py_cea.trpts.cpfro[2]
+            visc = py_cea.trpts.vis[2]
+            cond = py_cea.trpts.confro[2]
+            Prandtl = py_cea.trpts.prfro[2]
+        else:
+            Cp = py_cea.trpts.cpeql[2]
+            visc = py_cea.trpts.vis[2]
+            cond = py_cea.trpts.coneql[2]
+            Prandtl = py_cea.trpts.preql[2]
+        
+        return Cp, visc, cond, Prandtl
+
+
+# ----------------------- DEBUG OUTPUT -----------------------------
 def print_py_cea_vars():
     """
     Print all the interface variables to the FORTRAN pyd file.

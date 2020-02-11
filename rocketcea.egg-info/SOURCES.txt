@@ -102,6 +102,7 @@ rocketcea/examples/divert_veh.png
 rocketcea/examples/find_mr_temperature_range.py
 rocketcea/examples/full_output.py
 rocketcea/examples/full_output_mono.py
+rocketcea/examples/get_transport.py
 rocketcea/examples/lox_gox_compare.png
 rocketcea/examples/lox_gox_compare.py
 rocketcea/examples/make_single_card.py

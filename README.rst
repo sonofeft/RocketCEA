@@ -31,4 +31,4 @@ Additional changes to **CEA2.f** have been made in order to properly handle hydr
 ammonia dissociation.
 
 Although the default units in RocketCEA are English units, SI units may be used for both
-input and output as well. (See **Simple Examples** in Docs)
+input and output as well. (See **Simple Examples > Transport Properties** in Docs)

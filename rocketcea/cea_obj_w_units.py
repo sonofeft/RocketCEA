@@ -18,7 +18,8 @@ class CEA_Obj( object ):
         isp_units='sec', cstar_units='ft/sec', 
         pressure_units='psia', temperature_units='degR', 
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
-        density_units='lbm/cuft', specific_heat_units='BTU/lbm degR'):
+        density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
+        viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s'):
 
         self.isp_units            = isp_units
         self.cstar_units          = cstar_units
@@ -28,6 +29,8 @@ class CEA_Obj( object ):
         self.enthalpy_units       = enthalpy_units
         self.density_units        = density_units
         self.specific_heat_units  = specific_heat_units
+        self.viscosity_units      = viscosity_units
+        self.thermal_cond_units   = thermal_cond_units
         
         # Units objects for input/output (e.g. Pc and Pamb)
         self.Pc_U       = get_units_obj('psia', pressure_units )
@@ -40,6 +43,8 @@ class CEA_Obj( object ):
         self.enthalpy_U       = get_units_obj('BTU/lbm', enthalpy_units)
         self.density_U        = get_units_obj('lbm/cuft', density_units)
         self.specific_heat_U  = get_units_obj('BTU/lbm degR', specific_heat_units)
+        self.viscosity_U      = get_units_obj('millipoise', viscosity_units)
+        self.thermal_cond_U   = get_units_obj('mcal/cm-K-s', thermal_cond_units)
         
         self.cea_obj = CEA_Obj_default(propName=propName, oxName=oxName, fuelName=fuelName, 
                                useFastLookup=useFastLookup, makeOutput=makeOutput)
@@ -197,10 +202,10 @@ class CEA_Obj( object ):
         H = self.cea_obj.get_Chamber_Density( Pc=Pc, MR=MR, eps=eps )
         return self.density_U.dval_to_uval( H )
         
-    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        cpList = self.cea_obj.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps )
+        cpList = self.cea_obj.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen )
         
         for i,cp in enumerate( cpList ):
             cpList[i] = self.specific_heat_U.dval_to_uval( cp )
@@ -257,6 +262,41 @@ class CEA_Obj( object ):
         
         return IspAmb, mode
         
+    def get_Chamber_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        Cp, visc, cond, Prandtl = self.cea_obj.get_Chamber_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
+        
+        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        Cp = self.specific_heat_U.dval_to_uval( Cp )
+        visc = self.viscosity_U.dval_to_uval( visc )
+        cond = self.thermal_cond_U.dval_to_uval( cond )
+        
+        return Cp, visc, cond, Prandtl
+        
+    def get_Throat_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        Cp, visc, cond, Prandtl = self.cea_obj.get_Throat_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
+        
+        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        Cp = self.specific_heat_U.dval_to_uval( Cp )
+        visc = self.viscosity_U.dval_to_uval( visc )
+        cond = self.thermal_cond_U.dval_to_uval( cond )
+        
+        return Cp, visc, cond, Prandtl
+        
+    def get_Exit_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        Cp, visc, cond, Prandtl = self.cea_obj.get_Exit_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
+        
+        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        Cp = self.specific_heat_U.dval_to_uval( Cp )
+        visc = self.viscosity_U.dval_to_uval( visc )
+        cond = self.thermal_cond_U.dval_to_uval( cond )
+        
+        return Cp, visc, cond, Prandtl
 
 if __name__ == "__main__":
     
@@ -264,20 +304,23 @@ if __name__ == "__main__":
         isp_units='sec', cstar_units='ft/sec', 
         pressure_units='psia', temperature_units='degR', 
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
-        density_units='lbm/cuft', specific_heat_units='BTU/lbm degR')
+        density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
+        viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s')
     
     Cmpa = CEA_Obj(oxName='N2O4', fuelName="MMH", 
         isp_units='sec', cstar_units='ft/sec', 
         pressure_units='MPa', temperature_units='degR', 
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
-        density_units='lbm/cuft', specific_heat_units='BTU/lbm degR')
+        density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
+        viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s')
     
     
     Csi=CEA_Obj( oxName='N2O4', fuelName="MMH", 
         isp_units='N sec/kg', cstar_units='m/sec', 
         pressure_units='MPa', temperature_units='C', 
         sonic_velocity_units='m/sec', enthalpy_units='cal/g', 
-        density_units='sg', specific_heat_units='cal/g C')
+        density_units='sg', specific_heat_units='cal/g C',
+        viscosity_units='poise', thermal_cond_units='cal/s-cm-degC')
     
     def make_a_list( result ):
         if type(result) == type("string"):
@@ -342,6 +385,7 @@ if __name__ == "__main__":
     chk_method('get_Densities',**{'Pc':100.0})
     chk_method('get_Chamber_Density',**{'Pc':100.0})
     chk_method('get_HeatCapacities',**{'Pc':100.0})
+    chk_method('get_HeatCapacities',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Chamber_Cp',**{'Pc':100.0})
     chk_method('get_Throat_Isp',**{'Pc':100.0})
     chk_method('get_Chamber_MolWt_gamma',**{'Pc':100.0})
@@ -351,5 +395,11 @@ if __name__ == "__main__":
     chk_method('getMRforER',**{'ERphi':1.0})
     chk_method('get_description')
     chk_method('estimate_Ambient_Isp',**{'Pc':100.0, 'Pamb':14.7})
+    chk_method('get_Chamber_Transport',**{'Pc':100.0, 'frozen':0})
+    chk_method('get_Chamber_Transport',**{'Pc':100.0, 'frozen':1})
     
+    chk_method('get_Throat_Transport',**{'Pc':100.0, 'frozen':0})
+    chk_method('get_Throat_Transport',**{'Pc':100.0, 'frozen':1})
+    chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':0})
+    chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':1})
     

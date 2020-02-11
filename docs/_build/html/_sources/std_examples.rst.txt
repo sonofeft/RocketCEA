@@ -160,6 +160,20 @@ which adds the following lines to the output::
      CONDUCTIVITY      1.3519   1.2760   0.4369
      PRANDTL NUMBER    0.7071   0.7121   0.6803
 
+To access transport properties, each of the following calls return a tuple of
+(Heat Capacity, Viscosity, Thermal Conductivity and Prandtl Number)::
+
+    Cp, visc, cond, Pr = ispObj.get_Chamber_Transport(Pc=1000.0, MR=6.0)
+    Cp, visc, cond, Pr = ispObj.get_Chamber_Transport(Pc=1000.0, MR=6.0, frozen=1)
+
+    Cp, visc, cond, Pr = ispObj.get_Throat_Transport(Pc=1000.0, MR=6.0)
+    Cp, visc, cond, Pr = ispObj.get_Throat_Transport(Pc=1000.0, MR=6.0, frozen=1)
+
+    Cp, visc, cond, Pr = ispObj.get_Exit_Transport(Pc=1000.0, MR=6.0, eps=40.0)
+    Cp, visc, cond, Pr = ispObj.get_Exit_Transport(Pc=1000.0, MR=6.0, eps=40.0, frozen=1)
+
+where the **frozen** flag determines equilibrium or frozen output.
+
 
 Frozen Performance
 ------------------

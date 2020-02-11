@@ -4,7 +4,12 @@
    contain the root `toctree` directive.
 
 .. include:: ../README.rst
-   
+
+See NASA CEA Documentation:
+:download:`CEA User Manual (NASA RP-1311).pdf <./_static/CEA User Manual (NASA RP-1311).pdf>`
+and
+:download:`CEA Methodology (NASA RP-1311).pdf <./_static/CEA Methodology (NASA RP-1311).pdf>`
+
 
 RocketCEA
 =========
