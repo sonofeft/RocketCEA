@@ -163,7 +163,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp">
-<code class="sig-name descname">get_Chamber_Cp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_Chamber_Cp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the heat capacity in the chamber.</span>
 <span class="c1">#: MR is only used for ox/fuel combos.</span>
 </pre></div>
@@ -521,7 +521,7 @@ Normally used for debugging or verifying FORTRAN internal values.</p>
 <span class="c1">#: sonic_velocity_units = &#39;ft/sec&#39;,      # m/s</span>
 <span class="c1">#: enthalpy_units       = &#39;BTU/lbm&#39;,     # J/g, kJ/kg, J/kg, kcal/kg, cal/g</span>
 <span class="c1">#: density_units        = &#39;lbm/cuft&#39;,    # g/cc, sg, kg/m^3</span>
-<span class="c1">#: specific_heat_units  = &#39;BTU/lbm degR&#39; # kJ/kg-K, cal/g-C, J/kg-K</span>
+<span class="c1">#: specific_heat_units  = &#39;BTU/lbm degR&#39; # kJ/kg-K, cal/g-C, J/kg-K (# note: cal/g K == BTU/lbm degR)</span>
 <span class="c1">#: viscosity_units      = &#39;millipoise&#39;   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise</span>
 <span class="c1">#: thermal_cond_units   = &#39;mcal/cm-K-s&#39;  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC</span>
 </pre></div>

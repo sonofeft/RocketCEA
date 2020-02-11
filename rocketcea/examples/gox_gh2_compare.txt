@@ -1,0 +1,74 @@
+Compare output from NASA CEA ON-LINE and RocketCEA
+Both are the same.
+
+ ===================================================================
+NASA CEA ON-LINE output for both propellants at 298K
+
+             REACTANT                    WT FRACTION      ENERGY      TEMP
+                                          (SEE NOTE)      CAL/MOL       K  
+ FUEL        H2                           1.0000000         0.000    298.150
+ OXIDANT     O2                           1.0000000         0.000    298.150
+
+ O/F=    6.00000  %FUEL= 14.285714  R,EQ.RATIO= 1.322780  PHI,EQ.RATIO= 1.322780
+
+                 CHAMBER   THROAT     EXIT
+ Pinf/P            1.0000   1.7329   438.01
+ P, ATM            68.046   39.266  0.15535
+ T, K             3588.59  3399.27  1590.27
+ RHO, G/CC       3.0632-3 1.8891-3 1.6799-5
+ H, CAL/G         0.00000  -286.16 -2261.57
+ U, CAL/G         -537.96  -789.53 -2485.53
+ G, CAL/G        -15542.5 -15008.7 -9149.19
+ S, CAL/(G)(K)     4.3311   4.3311   4.3311
+
+ M, (1/n)          13.256   13.420   14.111
+ (dLV/dLP)t      -1.03306 -1.02688 -1.00002
+ (dLV/dLT)p        1.5696   1.4892   1.0006
+ Cp, CAL/(G)(K)    2.3905   2.2288   0.7559
+ GAMMAs            1.1382   1.1370   1.2293
+ SON VEL,M/SEC     1600.6   1547.4   1073.3
+ MACH NUMBER        0.000    1.000    4.053
+ 
+ PERFORMANCE PARAMETERS
+
+ Ae/At                      1.0000   40.000
+ CSTAR, FT/SEC              7738.2   7738.2
+ CF                         0.6561   1.8444
+ Ivac,LB-SEC/LB              296.6    465.6
+ Isp, LB-SEC/LB              157.8    443.6
+ 
+ ===================================================================
+ running GOX/GH2 in RocketCEA output
+ 
+             REACTANT                    WT FRACTION      ENERGY      TEMP
+                                          (SEE NOTE)      CAL/MOL       K  
+ FUEL        H2(G)                        1.0000000         0.000    298.150
+ OXIDANT     O2(G)                        1.0000000         0.000    298.150
+
+ O/F=    6.00000  %FUEL= 14.285714  R,EQ.RATIO= 1.322780  PHI,EQ.RATIO= 1.322780
+
+                 CHAMBER   THROAT     EXIT
+ Pinf/P            1.0000   1.7329   438.01
+ P, ATM            68.046   39.266  0.15535
+ T, K             3588.59  3399.27  1590.27
+ RHO, G/CC       3.0632-3 1.8891-3 1.6799-5
+ H, CAL/G         0.00000  -286.16 -2261.57
+ U, CAL/G         -537.96  -789.53 -2485.53
+ G, CAL/G        -15542.5 -15008.7 -9149.19
+ S, CAL/(G)(K)     4.3311   4.3311   4.3311
+
+ M, (1/n)          13.256   13.420   14.111
+ (dLV/dLP)t      -1.03306 -1.02688 -1.00002
+ (dLV/dLT)p        1.5696   1.4892   1.0006
+ Cp, CAL/(G)(K)    2.3905   2.2288   0.7559
+ GAMMAs            1.1382   1.1370   1.2293
+ SON VEL,M/SEC     1600.6   1547.4   1073.3
+ MACH NUMBER        0.000    1.000    4.053
+
+ PERFORMANCE PARAMETERS
+
+ Ae/At                     1.00000   40.000
+ CSTAR, FT/SEC              7738.2   7738.2
+ CF                         0.6561   1.8444
+ Ivac,LB-SEC/LB              296.6    465.6
+ Isp, LB-SEC/LB              157.8    443.6

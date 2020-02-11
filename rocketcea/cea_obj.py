@@ -853,16 +853,16 @@ class CEA_Obj(object):
         # convert from m/sec into ft/sec
         cpList =  py_cea.prtout.cpr[:3]
         for i,cp in enumerate( cpList ):
-            cpList[i] = cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+            cpList[i] = cp * 8314.51 / 4184.0  # convert into BTU/lbm degR (aka cal/gm K)
         return cpList
 
-    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         """::
 
         #: Return the heat capacity in the chamber.
         #: MR is only used for ox/fuel combos.
         """
-        cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps)
+        cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         return cpList[0] # BTU/lbm degR
 
     def get_Throat_Isp(self, Pc=100.0, MR=1.0):

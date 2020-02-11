@@ -33,7 +33,7 @@ class CEA_Obj( object ):
         #: sonic_velocity_units = 'ft/sec',      # m/s
         #: enthalpy_units       = 'BTU/lbm',     # J/g, kJ/kg, J/kg, kcal/kg, cal/g
         #: density_units        = 'lbm/cuft',    # g/cc, sg, kg/m^3
-        #: specific_heat_units  = 'BTU/lbm degR' # kJ/kg-K, cal/g-C, J/kg-K
+        #: specific_heat_units  = 'BTU/lbm degR' # kJ/kg-K, cal/g-C, J/kg-K (# note: cal/g K == BTU/lbm degR)
         #: viscosity_units      = 'millipoise'   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise
         #: thermal_cond_units   = 'mcal/cm-K-s'  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC
         """
@@ -284,7 +284,7 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         Cp, visc, cond, Prandtl = self.cea_obj.get_Chamber_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         
-        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        #Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
         Cp = self.specific_heat_U.dval_to_uval( Cp )
         visc = self.viscosity_U.dval_to_uval( visc )
         cond = self.thermal_cond_U.dval_to_uval( cond )
@@ -296,7 +296,7 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         Cp, visc, cond, Prandtl = self.cea_obj.get_Throat_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         
-        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        #Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
         Cp = self.specific_heat_U.dval_to_uval( Cp )
         visc = self.viscosity_U.dval_to_uval( visc )
         cond = self.thermal_cond_U.dval_to_uval( cond )

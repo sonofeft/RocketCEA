@@ -174,6 +174,21 @@ To access transport properties, each of the following calls return a tuple of
 
 where the **frozen** flag determines equilibrium or frozen output.
 
+The standard units will be the same as the printout, namely::
+
+    Cp   = CAL/(G)(K)
+    visc = MILLIPOISE
+    cond = MILLICALORIES/(CM)(K)(SEC)
+    Pr   = dimensionless
+
+If different units are desired, use the **cea_obj_w_units** wrapper, for example::
+
+    from rocketcea.cea_obj_w_units import CEA_Obj
+    C = CEA_Obj( oxName='LOX', fuelName='LH2', 
+                 specific_heat_units='kJ/kg-K',
+                 viscosity_units='poise', 
+                 thermal_cond_units='BTU/s-in-degF')
+    
 
 Frozen Performance
 ------------------
