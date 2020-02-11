@@ -7,6 +7,22 @@ History
 GitHub Log
 ----------
 
+* Feb 11, 2020
+    - (by: sonofeft)
+        - Finished up (hopefully) transport units and unit testing
+        - A few doc tweaks for the transport property additions.
+        - Started Adding Transport Property Methods 
+
+* Feb 7, 2020
+    - (by: sonofeft)
+        - uploaded version 1.1.0
+        - Added Frozen option to Nozzle Exit Temperature 
+
+* Jan 21, 2020
+    - (by: sonofeft)
+        - added Pc units to full_output method 
+
+
 * Jan 20, 2020
     - (by: sonofeft) 
         - Version 1.08
