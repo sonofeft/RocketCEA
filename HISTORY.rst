@@ -6,6 +6,9 @@ History
 
 GitHub Log
 ----------
+* Feb 21, 2020
+    - (by: sonofeft)
+        - Added error tolerance to multi-input of get_full_cea_output
 
 * Feb 20, 2020
     - (by: sonofeft)
