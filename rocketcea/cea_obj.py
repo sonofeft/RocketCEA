@@ -392,36 +392,37 @@ class CEA_Obj(object):
             eqfrStr = 'equilibrium'
 
         # ======================== make input strings for single or multiple values ==================
-        # get_full_cea_output may input lists for eps, PcOvPe, Pc, MR, or subar
+        # i.e. get_full_cea_output may input lists for eps, PcOvPe, Pc, MR, or subar
+        
+        def make_inp_str( param=' supar=', val=1.0 ):
+            """allow number, list or None. 
+            Return empty string for error or None."""
+            if val is None:
+                return ''
+            try:
+                rtn_str = param + '%f, '%val  #e.g. " supar=%f,  "%eps
+                return rtn_str
+            except:
+                pass
+            try:
+                # e.g. " supar=%s,  "% ','.join( ['%g'%v for v in eps] )
+                rtn_str = param + '%s, '%','.join( ['%g'%v for v in val] )
+            except:
+                rtn_str = ''
+                
+            return rtn_str
+        
         # ------------ Eps String ------------
-        try:
-            eps_str = " supar=%f,  "%eps
-        except:
-            eps_str = " supar=%s,  "% ','.join( ['%g'%v for v in eps] )
+        eps_str = make_inp_str( " supar=", eps )
         
         # ------------ Pc String -------------
-        try:
-            pc_str = " p,%s="%pc_units + "%f,"%Pc
-        except:
-            pc_str = " p,%s="%pc_units + ','.join( ['%g'%v for v in Pc] )
+        pc_str = make_inp_str( " p,%s="%pc_units, Pc )
         
         # ------------ Subsonic Area Ration String ----------
-        subar_str = ''
-        if subar is not None:
-            try:
-                subar_str = " subar=%f, "%subar
-            except:
-                subar_str = " subar=%s, "% ','.join( ['%g'%v for v in subar] )
-            
+        subar_str = make_inp_str( " subar=", subar )
         
         # ------------ Pc/Pe String -------------
-        pcope_str = ''
-        if PcOvPe is not None:
-            try:
-                pcope_str = " pi/p=%f, "%PcOvPe
-            except:
-                pcope_str = " pi/p=%s, "% ','.join( ['%g'%v for v in PcOvPe] )
-        
+        pcope_str = make_inp_str( " pi/p=", PcOvPe )
 
         # ------------------------------------------------
         # set up rocket line with Pc, PC/Pe and Epsilon
@@ -445,10 +446,7 @@ class CEA_Obj(object):
                 # use MR as input
                 
                 # ------------ Mixture Ratio String -------------
-                try:
-                    mr_str = " o/f=%f  "%MR
-                except:
-                    mr_str = " o/f=%s  " % ','.join( ['%g'%v for v in MR] )
+                mr_str = make_inp_str(" o/f=", MR)
                 
                 set_py_cea_line(N, mr_str)
                 N += 1

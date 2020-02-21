@@ -24,7 +24,7 @@ generate that more traditional output.
 .. note:: 
 
     Notice... the input Pc units and output units are controlled by the parameters **pc_units** and 
-    **output** respectiveley.
+    **output** respectively.
 
 The following is the output that results from the above call to **get_full_cea_output**.
 

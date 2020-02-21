@@ -1,4 +1,3 @@
-
 from rocketcea.cea_obj import CEA_Obj
 
 ispObj = CEA_Obj( oxName='LOX', fuelName='LH2')
@@ -10,5 +9,4 @@ s = ispObj.get_full_cea_output( Pc=[1000, 2000], # number or list of chamber pre
                                 short_output=0,  # 0 or 1 to control output length
                                 pc_units='psia', # pc_units = 'psia', 'bar', 'atm', 'mmh'
                                 output='siunits')# output = 'calories' or 'siunits'
-
 print( s )

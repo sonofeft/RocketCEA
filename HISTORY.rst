@@ -14,7 +14,7 @@ GitHub Log
 
 * Feb 11, 2020
     - (by: sonofeft)
-        - updateed git history
+        - updated git history
         - Finished up (hopefully) transport units and unit testing
         - A few doc tweaks for the transport property additions.
         - Started Adding Transport Property Methods
