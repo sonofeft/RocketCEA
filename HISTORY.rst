@@ -7,12 +7,18 @@ History
 GitHub Log
 ----------
 
+* Feb 20, 2020
+    - (by: sonofeft)
+        - Added multiple column, traditional CEA output and documentation
+        - updates to docs
+
 * Feb 11, 2020
     - (by: sonofeft)
+        - updateed git history
         - Finished up (hopefully) transport units and unit testing
         - A few doc tweaks for the transport property additions.
-        - Started Adding Transport Property Methods 
-
+        - Started Adding Transport Property Methods
+        
 * Feb 7, 2020
     - (by: sonofeft)
         - uploaded version 1.1.0
