@@ -36,6 +36,6 @@ $(window).resize(function(){
         $("li.nav-item-0 a").text("Top");
     }
     else {
-        $("li.nav-item-0 a").text("RocketCEA 1.0.8 documentation");
+        $("li.nav-item-0 a").text("RocketCEA 1.1.1 documentation");
     }
 });

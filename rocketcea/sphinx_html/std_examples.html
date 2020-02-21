@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Standard Examples &#8212; RocketCEA 1.0.8 documentation</title>
+    <title>Standard Examples &#8212; RocketCEA 1.1.1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -136,6 +136,16 @@ chamber pressure, mixture ratio and expansion ratio.</p>
 <p>The propellant temperature and enthalpy are <em>standard</em>, which usually means room temperature for storable or gas
 propellants and normal boiling point for cryogenic propellants.</p>
 <p>See the <a class="reference internal" href="temperature_adjust.html#temperature-adjust-link"><span class="std std-ref">Temperature Adjust</span></a> page for modifying the temperature and enthalpy of the reactants.</p>
+<p>Notice also that the CEA documentation (shown below) allows for different pressure units to be used for Pc.
+The default units in <strong>RocketCEA</strong> are psia, however, bar, atm and mmh are also options.</p>
+<img alt="_images/full_output_p_units.jpg" src="_images/full_output_p_units.jpg" />
+<p>Pc units can be specified with the input parameter <strong>pc_units</strong> as shown in the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;psia&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">68.948</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">68.046</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;atm&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">51715.</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;mmh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The above script gives the standard output that a typical CEA run from the command prompt would give:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
 
@@ -248,6 +258,34 @@ to include transport properties, set the <strong>show_transport</strong> flag.</
 <span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">0.9029</span>   <span class="mf">0.8950</span>   <span class="mf">0.6859</span>
 <span class="n">CONDUCTIVITY</span>      <span class="mf">1.3519</span>   <span class="mf">1.2760</span>   <span class="mf">0.4369</span>
 <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7071</span>   <span class="mf">0.7121</span>   <span class="mf">0.6803</span>
+</pre></div>
+</div>
+<p>To access transport properties, each of the following calls return a tuple of
+(Heat Capacity, Viscosity, Thermal Conductivity and Prandtl Number):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Chamber_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Chamber_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Throat_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Throat_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Exit_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">visc</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">Pr</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Exit_Transport</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the <strong>frozen</strong> flag determines equilibrium or frozen output.</p>
+<p>The standard units will be the same as the printout, namely:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cp</span>   <span class="o">=</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">visc</span> <span class="o">=</span> <span class="n">MILLIPOISE</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="n">MILLICALORIES</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)(</span><span class="n">SEC</span><span class="p">)</span>
+<span class="n">Pr</span>   <span class="o">=</span> <span class="n">dimensionless</span>
+</pre></div>
+</div>
+<p>If different units are desired, use the <strong>cea_obj_w_units</strong> wrapper, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span>
+             <span class="n">specific_heat_units</span><span class="o">=</span><span class="s1">&#39;kJ/kg-K&#39;</span><span class="p">,</span>
+             <span class="n">viscosity_units</span><span class="o">=</span><span class="s1">&#39;poise&#39;</span><span class="p">,</span>
+             <span class="n">thermal_cond_units</span><span class="o">=</span><span class="s1">&#39;BTU/s-in-degF&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -415,7 +453,7 @@ Otherwise, the chamber composition is used.</p>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.0.8 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

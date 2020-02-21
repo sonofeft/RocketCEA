@@ -1,8 +1,4 @@
 
-
-#subprocess.Popen( ['cmd.exe', '/c', 'start', '/d"D:\2020_py_proj\RocketCEA"', 
-#                   '/b', 'git', '--no-pager log',  '--since=2000.weeks'], shell=False)
-
 from subprocess import run, Popen, PIPE, STDOUT
 import os, sys
 import time

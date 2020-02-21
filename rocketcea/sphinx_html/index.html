@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA 1.0.8 documentation</title>
+    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA 1.1.1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA 1.0.8 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -100,16 +100,20 @@
 <p>See the Docs at: <a class="reference external" href="http://rocketcea.readthedocs.org/en/latest/">http://rocketcea.readthedocs.org/en/latest/</a></p>
 <p>See PyPI page at:<a class="reference external" href="https://pypi.python.org/pypi/rocketcea">https://pypi.python.org/pypi/rocketcea</a></p>
 <p>See NASA CEA HomePage at: <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm</a></p>
-<p>RocketCEA makes direct calls to the NASA FORTRAN CEA code in “rocket” mode to calculate
+<p>RocketCEA makes direct calls to the NASA FORTRAN CEA code in &quot;rocket&quot; mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.</p>
 <p>RocketCEA does not use the FORTRAN <strong>CEA2.f</strong> file directly.</p>
 <p>Many modifications have been made in order to wrap CEA with
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> to build a python module.</p>
-<p>Additional changes to <strong>CEA2.f</strong> have been made in order to properly handle hydrazine monopropellant’s
+<p>Additional changes to <strong>CEA2.f</strong> have been made in order to properly handle hydrazine monopropellant's
 ammonia dissociation.</p>
 <p>Although the default units in RocketCEA are English units, SI units may be used for both
-input and output as well. (See <strong>Simple Examples</strong> in Docs)</p>
+input and output as well. (See <strong>Simple Examples &gt; Transport Properties</strong> in Docs)</p>
+<p>See NASA CEA Documentation:
+<a class="reference download internal" download="" href="_downloads/e5e5ad055536750f4d8ed8bd77e60a90/CEA User Manual (NASA RP-1311).pdf"><code class="xref download docutils literal notranslate"><span class="pre">CEA</span> <span class="pre">User</span> <span class="pre">Manual</span> <span class="pre">(NASA</span> <span class="pre">RP-1311).pdf</span></code></a>
+and
+<a class="reference download internal" download="" href="_downloads/9ecff26542b9e2b1a74e7819dff3545b/CEA Methodology (NASA RP-1311).pdf"><code class="xref download docutils literal notranslate"><span class="pre">CEA</span> <span class="pre">Methodology</span> <span class="pre">(NASA</span> <span class="pre">RP-1311).pdf</span></code></a></p>
 </div>
 <div class="section" id="rocketcea">
 <h1>RocketCEA<a class="headerlink" href="#rocketcea" title="Permalink to this headline">¶</a></h1>
@@ -197,7 +201,13 @@ input and output as well. (See <strong>Simple Examples</strong> in Docs)</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#module-rocketcea.cea_obj">CEA_Obj Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#cea-obj-with-units">CEA_Obj With Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#module-rocketcea.units">User Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#module-rocketcea.blends">Blend Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="copyright.html#license">License</a></li>
 </ul>
@@ -243,7 +253,7 @@ input and output as well. (See <strong>Simple Examples</strong> in Docs)</p>
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA 1.0.8 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

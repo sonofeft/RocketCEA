@@ -23,6 +23,7 @@ rocketcea/f.inp
 rocketcea/f.out
 rocketcea/full_output_Pc_options.jpg
 rocketcea/input_cards.py
+rocketcea/nosetests_details.txt
 rocketcea/py_cea.cp37-win32.pyd
 rocketcea/py_cea.cp37-win_amd64.pyd
 rocketcea/py_cea.f
@@ -103,6 +104,7 @@ rocketcea/examples/find_mr_temperature_range.py
 rocketcea/examples/full_output.py
 rocketcea/examples/full_output_mono.py
 rocketcea/examples/get_transport.py
+rocketcea/examples/gox_gh2_compare.txt
 rocketcea/examples/lox_gox_compare.png
 rocketcea/examples/lox_gox_compare.py
 rocketcea/examples/make_single_card.py
@@ -175,6 +177,10 @@ rocketcea/sphinx_html/simple_examples.html
 rocketcea/sphinx_html/std_examples.html
 rocketcea/sphinx_html/temperature_adjust.html
 rocketcea/sphinx_html/temperature_change.html
+rocketcea/sphinx_html/_downloads/04440894924e2f28fc954be4e545a0aa/CEA User Manual (NASA RP-1311).pdf
+rocketcea/sphinx_html/_downloads/9ecff26542b9e2b1a74e7819dff3545b/CEA Methodology (NASA RP-1311).pdf
+rocketcea/sphinx_html/_downloads/ad9b4243ce90971ec66b686e3fd6fc33/CEA Methodology (NASA RP-1311).pdf
+rocketcea/sphinx_html/_downloads/e5e5ad055536750f4d8ed8bd77e60a90/CEA User Manual (NASA RP-1311).pdf
 rocketcea/sphinx_html/_images/LOX_LH2_Peak_MR_Shift.png
 rocketcea/sphinx_html/_images/LOX_LH2_Peak_ODK_MR.png
 rocketcea/sphinx_html/_images/LOX_RP1_Fvac100000_Pc2000_eps100.png
@@ -205,6 +211,7 @@ rocketcea/sphinx_html/_images/divert_veh.png
 rocketcea/sphinx_html/_images/edit_path.jpg
 rocketcea/sphinx_html/_images/env_vars.jpg
 rocketcea/sphinx_html/_images/find_rocketcea.jpg
+rocketcea/sphinx_html/_images/full_output_p_units.jpg
 rocketcea/sphinx_html/_images/linux_import_error.jpg
 rocketcea/sphinx_html/_images/mingw32_install.jpg
 rocketcea/sphinx_html/_images/mingw64_install.jpg
@@ -274,6 +281,8 @@ rocketcea/sphinx_html/_sources/temperature_adjust.rst.txt
 rocketcea/sphinx_html/_sources/temperature_adjust.txt
 rocketcea/sphinx_html/_sources/temperature_change.rst.txt
 rocketcea/sphinx_html/_sources/_static/example_scripts/examples_dir.rst.txt
+rocketcea/sphinx_html/_static/CEA Methodology (NASA RP-1311).pdf
+rocketcea/sphinx_html/_static/CEA User Manual (NASA RP-1311).pdf
 rocketcea/sphinx_html/_static/LOX_LH2_Peak_Equil_MR.png
 rocketcea/sphinx_html/_static/LOX_LH2_Peak_MR_Shift.png
 rocketcea/sphinx_html/_static/LOX_LH2_Peak_ODK_MR.png
@@ -317,9 +326,11 @@ rocketcea/sphinx_html/_static/edit_path.jpg
 rocketcea/sphinx_html/_static/env_vars.jpg
 rocketcea/sphinx_html/_static/file.png
 rocketcea/sphinx_html/_static/find_rocketcea.jpg
+rocketcea/sphinx_html/_static/full_output_p_units.jpg
 rocketcea/sphinx_html/_static/generic_logo.svg
 rocketcea/sphinx_html/_static/jquery-1.11.1.js
 rocketcea/sphinx_html/_static/jquery-3.2.1.js
+rocketcea/sphinx_html/_static/jquery-3.4.1.js
 rocketcea/sphinx_html/_static/jquery.js
 rocketcea/sphinx_html/_static/language_data.js
 rocketcea/sphinx_html/_static/linux_import_error.jpg
@@ -461,3 +472,4 @@ rocketcea/tests/test_biprop_utils.py
 rocketcea/tests/test_blend_defs.py
 rocketcea/tests/test_cea_obj.py
 rocketcea/tests/test_misc.py
+rocketcea/tests/test_transp_units.py

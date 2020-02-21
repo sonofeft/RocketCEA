@@ -39,6 +39,18 @@ propellants and normal boiling point for cryogenic propellants.
 
 See the :ref:`Temperature Adjust <temperature_adjust_link>` page for modifying the temperature and enthalpy of the reactants.
 
+Notice also that the CEA documentation (shown below) allows for different pressure units to be used for Pc.
+The default units in **RocketCEA** are psia, however, bar, atm and mmh are also options.
+
+.. image:: ./_static/full_output_p_units.jpg
+
+Pc units can be specified with the input parameter **pc_units** as shown in the following lines::
+
+    s = ispObj.get_full_cea_output( Pc=1000.0, MR=6.0, eps=40.0, short_output=1, pc_units='psia')
+    s = ispObj.get_full_cea_output( Pc=68.948, MR=6.0, eps=40.0, short_output=1, pc_units='bar')
+    s = ispObj.get_full_cea_output( Pc=68.046, MR=6.0, eps=40.0, short_output=1, pc_units='atm')
+    s = ispObj.get_full_cea_output( Pc=51715., MR=6.0, eps=40.0, short_output=1, pc_units='mmh')
+
 The above script gives the standard output that a typical CEA run from the command prompt would give::
 
      *******************************************************************************
@@ -148,6 +160,35 @@ which adds the following lines to the output::
      CONDUCTIVITY      1.3519   1.2760   0.4369
      PRANDTL NUMBER    0.7071   0.7121   0.6803
 
+To access transport properties, each of the following calls return a tuple of
+(Heat Capacity, Viscosity, Thermal Conductivity and Prandtl Number)::
+
+    Cp, visc, cond, Pr = ispObj.get_Chamber_Transport(Pc=1000.0, MR=6.0)
+    Cp, visc, cond, Pr = ispObj.get_Chamber_Transport(Pc=1000.0, MR=6.0, frozen=1)
+
+    Cp, visc, cond, Pr = ispObj.get_Throat_Transport(Pc=1000.0, MR=6.0)
+    Cp, visc, cond, Pr = ispObj.get_Throat_Transport(Pc=1000.0, MR=6.0, frozen=1)
+
+    Cp, visc, cond, Pr = ispObj.get_Exit_Transport(Pc=1000.0, MR=6.0, eps=40.0)
+    Cp, visc, cond, Pr = ispObj.get_Exit_Transport(Pc=1000.0, MR=6.0, eps=40.0, frozen=1)
+
+where the **frozen** flag determines equilibrium or frozen output.
+
+The standard units will be the same as the printout, namely::
+
+    Cp   = CAL/(G)(K)
+    visc = MILLIPOISE
+    cond = MILLICALORIES/(CM)(K)(SEC)
+    Pr   = dimensionless
+
+If different units are desired, use the **cea_obj_w_units** wrapper, for example::
+
+    from rocketcea.cea_obj_w_units import CEA_Obj
+    C = CEA_Obj( oxName='LOX', fuelName='LH2', 
+                 specific_heat_units='kJ/kg-K',
+                 viscosity_units='poise', 
+                 thermal_cond_units='BTU/s-in-degF')
+    
 
 Frozen Performance
 ------------------

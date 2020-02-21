@@ -23,5 +23,5 @@ Classifier: Programming Language :: Python :: 3.5
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Description-Content-Type: text/x-rst
-Provides-Extra: test
 Provides-Extra: dev
+Provides-Extra: test
