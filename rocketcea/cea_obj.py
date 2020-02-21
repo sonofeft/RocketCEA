@@ -344,9 +344,9 @@ class CEA_Obj(object):
                     fp.close()
 
 
-    def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, PcOvPe=None, frozen=0,
+    def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None, frozen=0,
                    ERphi=None, ERr=None, frozenAtThroat=0, short_output=0,
-                   show_transport=0, pc_units='psia'):
+                   show_transport=0, pc_units='psia', output='calories'):
         '''
         Set up card deck and call CEA FORTRAN code.::
 
@@ -391,10 +391,41 @@ class CEA_Obj(object):
         else:
             eqfrStr = 'equilibrium'
 
-        if PcOvPe: # a case for Pc/Pe
-            set_py_cea_line(N," rocket %s  p,%s=%f,"%(eqfrStr,pc_units,Pc)  + " pi/p=%f,  "%PcOvPe + " supar=%f,  "%eps)
-        else:
-            set_py_cea_line(N," rocket %s  p,%s=%f,"%(eqfrStr,pc_units,Pc)  + " supar=%f,  "%eps)
+        # ======================== make input strings for single or multiple values ==================
+        # get_full_cea_output may input lists for eps, PcOvPe, Pc, MR, or subar
+        # ------------ Eps String ------------
+        try:
+            eps_str = " supar=%f,  "%eps
+        except:
+            eps_str = " supar=%s,  "% ','.join( ['%g'%v for v in eps] )
+        
+        # ------------ Pc String -------------
+        try:
+            pc_str = " p,%s="%pc_units + "%f,"%Pc
+        except:
+            pc_str = " p,%s="%pc_units + ','.join( ['%g'%v for v in Pc] )
+        
+        # ------------ Subsonic Area Ration String ----------
+        subar_str = ''
+        if subar is not None:
+            try:
+                subar_str = " subar=%f, "%subar
+            except:
+                subar_str = " subar=%s, "% ','.join( ['%g'%v for v in subar] )
+            
+        
+        # ------------ Pc/Pe String -------------
+        pcope_str = ''
+        if PcOvPe is not None:
+            try:
+                pcope_str = " pi/p=%f, "%PcOvPe
+            except:
+                pcope_str = " pi/p=%s, "% ','.join( ['%g'%v for v in PcOvPe] )
+        
+
+        # ------------------------------------------------
+        # set up rocket line with Pc, PC/Pe and Epsilon
+        set_py_cea_line(N," rocket %s  %s"%(eqfrStr,pc_str) + subar_str + pcope_str + eps_str )
 
 
         N += 1
@@ -412,14 +443,22 @@ class CEA_Obj(object):
                 N += 1
             else:
                 # use MR as input
-                set_py_cea_line(N," o/f=%f"%MR+"  ")
+                
+                # ------------ Mixture Ratio String -------------
+                try:
+                    mr_str = " o/f=%f  "%MR
+                except:
+                    mr_str = " o/f=%s  " % ','.join( ['%g'%v for v in MR] )
+                
+                set_py_cea_line(N, mr_str)
                 N += 1
         else:
             set_py_cea_line(N,"    ")
             N += 1
 
-        for line in ["   ","outp   calories ","   ","end "]:
-            if (line=="outp   calories "):
+        for i_line,line in enumerate(["   ","    ","   ","end "]):
+            if i_line == 2:
+                line = 'output %s '%output
                 if short_output:
                     line += " short "
                 if show_transport:
@@ -493,9 +532,9 @@ class CEA_Obj(object):
         #print( '"'+self.pathPrefix+'"',' and ', '"'+myfile+'"' )
         py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)
 
-    def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, 
-                            frozenAtThroat=0, short_output=0, show_transport=1,
-                            pc_units='psia'):
+    def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None,
+                            frozen=0, frozenAtThroat=0, short_output=0, show_transport=1,
+                            pc_units='psia', output='calories'):
         """
         Get the full output file created by CEA. Return as a string.
         #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
@@ -505,9 +544,11 @@ class CEA_Obj(object):
         save_flag = self.makeOutput
         self.makeOutput = True
 
-        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, 
-                         frozenAtThroat=frozenAtThroat, short_output=short_output,
-                         show_transport=show_transport, pc_units=pc_units)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, subar=subar, PcOvPe=PcOvPe,
+                         frozen=frozen, frozenAtThroat=frozenAtThroat, 
+                         short_output=short_output,
+                         show_transport=show_transport, pc_units=pc_units,
+                         output=output)
 
         self.makeOutput = save_flag # restore makeOutput
 

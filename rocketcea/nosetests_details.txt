@@ -1,4 +1,4 @@
-________tk_nosy UNITTEST RUN# 2_________
+________tk_nosy UNITTEST RUN# 36________
 
 {Item #1} test__main__, 
 FLOX80
@@ -23,11 +23,11 @@ CH4_m19028.6_536
 {Item #4} test__main__, 
 N2O4 / MMH    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  300.7426761517114
-Cstar =  1565.1337455713985
+Cstar =  5134.94536514745
 Tcomb =  3894.46684374972
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 4.3009076785690565
 
 Chamber Sonic Vel = 3827.3738798835257
@@ -38,11 +38,11 @@ Cp        = [0.56505063 0.55042961 2.24875335]
 
  ARC311    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  262.2952107623197
-Cstar =  1354.6308782575823
+Cstar =  4444.320218304993
 Tcomb =  3315.5078442007034
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 3.9276064348977338
 
 Chamber Sonic Vel = 3380.546149884455
@@ -57,26 +57,26 @@ reac
 
  N2O    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  197.55309076259832
-Cstar =  424.6254310914306
+Cstar =  1393.1259200539753
 Tcomb =  536.6700000118775
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
-Mach Number= 4.8397102500107145
+epsAtPcOvPe= 0.0
+Mach Number= 4.8397102500106035
 
 Chamber Sonic Vel = 1127.503758264017
-Enthalpies = [ 5.38038720e-14 -2.12008077e+01 -8.24076436e-02]
+Enthalpies = [ 5.38038721e-14 -2.12008077e+01 -8.24076436e-02]
 Densities = [5.09463061 3.22878887 0.00690394]
 Cp        = [0.23792361 0.23737434 0.23997598]
 =======================================
 
 LOX / H2    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  372.46984960878615
-Cstar =  2408.727687622576
+Cstar =  7902.637784443348
 Tcomb =  2308.172401427185
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 4.526836147589177
 
 Chamber Sonic Vel = 6167.195466526333
@@ -87,11 +87,11 @@ Cp        = [ 1.95897368  1.8998336  11.36325107]
 
 LOX / GH2_160    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  399.6013023721478
-Cstar =  2408.727687622576
+Cstar =  7902.637784443348
 Tcomb =  2308.172401427185
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 4.802488641009086
 
 Chamber Sonic Vel = 6167.195466526333

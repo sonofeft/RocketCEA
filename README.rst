@@ -18,6 +18,8 @@ See PyPI page at:`<https://pypi.python.org/pypi/rocketcea>`_
 
 See NASA CEA HomePage at: `<https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_
 
+See NASA CEA On-Line at: `<https://cearun.grc.nasa.gov/>`_
+
 RocketCEA makes direct calls to the NASA FORTRAN CEA code in "rocket" mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.

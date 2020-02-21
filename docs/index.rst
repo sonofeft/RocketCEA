@@ -5,10 +5,12 @@
 
 .. include:: ../README.rst
 
+
 See NASA CEA Documentation:
-:download:`CEA User Manual (NASA RP-1311).pdf <./_static/CEA User Manual (NASA RP-1311).pdf>`
+`CEA User Manual (NASA RP-1311).pdf <./_static/CEA_User_Manual_(NASA_RP-1311).pdf>`_
 and
-:download:`CEA Methodology (NASA RP-1311).pdf <./_static/CEA Methodology (NASA RP-1311).pdf>`
+`CEA Methodology (NASA RP-1311).pdf <./_static/CEA_Methodology_(NASA_RP-1311).pdf>`_
+
 
 
 RocketCEA
@@ -22,6 +24,7 @@ Contents:
    quickstart
    installgfortran
    std_examples
+   traditional_example
    simple_examples
    engine_mr
    propellant_select
