@@ -1,0 +1,2 @@
+history.rst:17: (updateed) ["updated", "update ed"]
+traditional_example.rst:26: (respectiveley) ["respectively"]

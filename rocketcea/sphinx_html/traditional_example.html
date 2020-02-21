@@ -1,0 +1,686 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Traditional Example &#8212; RocketCEA 1.1.2 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Simple Examples" href="simple_examples.html" />
+    <link rel="prev" title="Standard Examples" href="std_examples.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="simple_examples.html" title="Simple Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="std_examples.html" title="Standard Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="std_examples.html"
+                        title="previous chapter">Standard Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="simple_examples.html"
+                        title="next chapter">Simple Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/traditional_example.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="traditional-example">
+<span id="traditional-example-link"></span><h1>Traditional Example<a class="headerlink" href="#traditional-example" title="Permalink to this headline">¶</a></h1>
+<p>For those with <a class="reference external" href="https://cearun.grc.nasa.gov/">NASA CEA On Line</a> experience
+or with desktop application experience,
+a more traditional run might consist of an output <strong>file</strong> with multiple values for chamber pressure,
+mixture ratio, subsonic area ratio, supersonic area ratio and Pc/Pexit ratio.</p>
+<p>That traditional output is created by calling the RocketCEA function <strong>get_full_cea_output</strong>.</p>
+<p>When calling <strong>get_full_cea_output</strong>, many of the parameters allow for either a single
+value or a list of values to be input.</p>
+<p>The following example shows how to run a case with multiple input values in order to
+generate that more traditional output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="c1"># number or list of chamber pressures</span>
+                                <span class="n">MR</span><span class="o">=</span><span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">],</span>   <span class="c1"># number or list of mixture ratios</span>
+                                <span class="n">PcOvPe</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">],</span><span class="c1"># number or list of Pc/Pexit</span>
+                                <span class="n">eps</span><span class="o">=</span><span class="p">[</span><span class="mf">40.0</span><span class="p">,</span><span class="mi">60</span><span class="p">],</span>   <span class="c1"># number or list of supersonic area ratios</span>
+                                <span class="n">subar</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>     <span class="c1"># number or list of subsonic area ratios</span>
+                                <span class="n">short_output</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># 0 or 1 to control output length</span>
+                                <span class="n">pc_units</span><span class="o">=</span><span class="s1">&#39;psia&#39;</span><span class="p">,</span> <span class="c1"># pc_units = &#39;psia&#39;, &#39;bar&#39;, &#39;atm&#39;, &#39;mmh&#39;</span>
+                                <span class="n">output</span><span class="o">=</span><span class="s1">&#39;siunits&#39;</span><span class="p">)</span><span class="c1"># output = &#39;calories&#39; or &#39;siunits&#39;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice... the input Pc units and output units are controlled by the parameters <strong>pc_units</strong> and
+<strong>output</strong> respectiveley.</p>
+</div>
+<p>The following is the output that results from the above call to <strong>get_full_cea_output</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+ <span class="o">*******************************************************************************</span>
+
+         <span class="n">NASA</span><span class="o">-</span><span class="n">GLENN</span> <span class="n">CHEMICAL</span> <span class="n">EQUILIBRIUM</span> <span class="n">PROGRAM</span> <span class="n">CEA</span><span class="p">,</span> <span class="n">OCTOBER</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">2002</span>
+                   <span class="n">BY</span>  <span class="n">BONNIE</span> <span class="n">MCBRIDE</span> <span class="n">AND</span> <span class="n">SANFORD</span> <span class="n">GORDON</span>
+      <span class="n">REFS</span><span class="p">:</span> <span class="n">NASA</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1311</span><span class="p">,</span> <span class="n">PART</span> <span class="n">I</span><span class="p">,</span> <span class="mi">1994</span> <span class="n">AND</span> <span class="n">NASA</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1311</span><span class="p">,</span> <span class="n">PART</span> <span class="n">II</span><span class="p">,</span> <span class="mi">1996</span>
+
+ <span class="o">*******************************************************************************</span>
+
+
+
+ <span class="n">reac</span>
+  <span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+  <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2154.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+  <span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+  <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+  
+ <span class="n">prob</span> <span class="n">case</span><span class="o">=</span><span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>
+  <span class="n">rocket</span> <span class="n">equilibrium</span>   <span class="n">p</span><span class="p">,</span><span class="n">psia</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span> <span class="n">subar</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span>  <span class="n">pi</span><span class="o">/</span><span class="n">p</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span>  <span class="n">supar</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span>
+  <span class="n">o</span><span class="o">/</span><span class="n">f</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span>
+  
+  
+ <span class="n">output</span> <span class="n">siunits</span>  <span class="n">transport</span>
+ <span class="n">end</span>
+
+ <span class="n">OPTIONS</span><span class="p">:</span> <span class="n">TP</span><span class="o">=</span><span class="n">F</span>  <span class="n">HP</span><span class="o">=</span><span class="n">F</span>  <span class="n">SP</span><span class="o">=</span><span class="n">F</span>  <span class="n">TV</span><span class="o">=</span><span class="n">F</span>  <span class="n">UV</span><span class="o">=</span><span class="n">F</span>  <span class="n">SV</span><span class="o">=</span><span class="n">F</span>  <span class="n">DETN</span><span class="o">=</span><span class="n">F</span>  <span class="n">SHOCK</span><span class="o">=</span><span class="n">F</span>  <span class="n">REFL</span><span class="o">=</span><span class="n">F</span>  <span class="n">INCD</span><span class="o">=</span><span class="n">F</span>
+ <span class="n">RKT</span><span class="o">=</span><span class="n">T</span>  <span class="n">FROZ</span><span class="o">=</span><span class="n">F</span>  <span class="n">EQL</span><span class="o">=</span><span class="n">T</span>  <span class="n">IONS</span><span class="o">=</span><span class="n">F</span>  <span class="n">SIUNIT</span><span class="o">=</span><span class="n">T</span>  <span class="n">DEBUGF</span><span class="o">=</span><span class="n">F</span>  <span class="n">SHKDBG</span><span class="o">=</span><span class="n">F</span>  <span class="n">DETDBG</span><span class="o">=</span><span class="n">F</span>  <span class="n">TRNSPT</span><span class="o">=</span><span class="n">T</span>
+
+ <span class="n">TRACE</span><span class="o">=</span> <span class="mf">0.00E+00</span>  <span class="n">S</span><span class="o">/</span><span class="n">R</span><span class="o">=</span> <span class="mf">0.000000E+00</span>  <span class="n">H</span><span class="o">/</span><span class="n">R</span><span class="o">=</span> <span class="mf">0.000000E+00</span>  <span class="n">U</span><span class="o">/</span><span class="n">R</span><span class="o">=</span> <span class="mf">0.000000E+00</span>
+
+ <span class="n">Pc</span><span class="p">,</span><span class="n">BAR</span> <span class="o">=</span>    <span class="mf">68.947304</span>   <span class="mf">137.894609</span>
+
+ <span class="n">Pc</span><span class="o">/</span><span class="n">P</span> <span class="o">=</span>   <span class="mf">100.0000</span>   <span class="mf">200.0000</span>
+
+ <span class="n">SUBSONIC</span> <span class="n">AREA</span> <span class="n">RATIOS</span> <span class="o">=</span>     <span class="mf">3.0000</span>     <span class="mf">2.0000</span>
+
+ <span class="n">SUPERSONIC</span> <span class="n">AREA</span> <span class="n">RATIOS</span> <span class="o">=</span>    <span class="mf">40.0000</span>    <span class="mf">60.0000</span>
+
+ <span class="n">NFZ</span><span class="o">=</span>  <span class="mi">1</span>  <span class="n">Mdot</span><span class="o">/</span><span class="n">Ac</span><span class="o">=</span> <span class="mf">0.000000E+00</span>  <span class="n">Ac</span><span class="o">/</span><span class="n">At</span><span class="o">=</span> <span class="mf">0.000000E+00</span>
+
+    <span class="n">REACTANT</span>          <span class="n">WT</span><span class="o">.</span><span class="n">FRAC</span>   <span class="p">(</span><span class="n">ENERGY</span><span class="o">/</span><span class="n">R</span><span class="p">),</span><span class="n">K</span>   <span class="n">TEMP</span><span class="p">,</span><span class="n">K</span>  <span class="n">DENSITY</span>
+        <span class="n">EXPLODED</span> <span class="n">FORMULA</span>
+ <span class="n">F</span><span class="p">:</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>            <span class="mf">1.000000</span>  <span class="o">-</span><span class="mf">0.108393E+04</span>    <span class="mf">20.27</span>  <span class="mf">0.0000</span>
+          <span class="n">H</span>  <span class="mf">2.00000</span>
+ <span class="n">O</span><span class="p">:</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>            <span class="mf">1.000000</span>  <span class="o">-</span><span class="mf">0.156098E+04</span>    <span class="mf">90.18</span>  <span class="mf">0.0000</span>
+          <span class="n">O</span>  <span class="mf">2.00000</span>
+
+  <span class="n">SPECIES</span> <span class="n">BEING</span> <span class="n">CONSIDERED</span> <span class="n">IN</span> <span class="n">THIS</span> <span class="n">SYSTEM</span>
+ <span class="p">(</span><span class="n">CONDENSED</span> <span class="n">PHASE</span> <span class="n">MAY</span> <span class="n">HAVE</span> <span class="n">NAME</span> <span class="n">LISTED</span> <span class="n">SEVERAL</span> <span class="n">TIMES</span><span class="p">)</span>
+  <span class="n">LAST</span> <span class="n">thermo</span><span class="o">.</span><span class="n">inp</span> <span class="n">UPDATE</span><span class="p">:</span>    <span class="mi">9</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">04</span>
+
+  <span class="n">g</span> <span class="mi">6</span><span class="o">/</span><span class="mi">97</span>  <span class="o">*</span><span class="n">H</span>               <span class="n">g</span> <span class="mi">4</span><span class="o">/</span><span class="mi">02</span>  <span class="n">HO2</span>              <span class="n">tpis78</span>  <span class="o">*</span><span class="n">H2</span>            
+  <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">89</span>  <span class="n">H2O</span>              <span class="n">g</span> <span class="mi">6</span><span class="o">/</span><span class="mi">99</span>  <span class="n">H2O2</span>             <span class="n">g</span> <span class="mi">5</span><span class="o">/</span><span class="mi">97</span>  <span class="o">*</span><span class="n">O</span>             
+  <span class="n">g</span> <span class="mi">4</span><span class="o">/</span><span class="mi">02</span>  <span class="o">*</span><span class="n">OH</span>              <span class="n">tpis89</span>  <span class="o">*</span><span class="n">O2</span>              <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">01</span>  <span class="n">O3</span>             
+  <span class="n">g11</span><span class="o">/</span><span class="mi">99</span>  <span class="n">H2O</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>          <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">01</span>  <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>           <span class="n">g</span> <span class="mi">8</span><span class="o">/</span><span class="mi">01</span>  <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>         
+
+ <span class="n">SPECIES</span> <span class="n">WITH</span> <span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span>
+
+        <span class="n">PURE</span> <span class="n">SPECIES</span>
+
+  <span class="n">H</span>                 <span class="n">H2</span>                <span class="n">H2O</span>               <span class="n">O</span>               
+  <span class="n">OH</span>                <span class="n">O2</span>              
+
+     <span class="n">BINARY</span> <span class="n">INTERACTIONS</span>
+
+     <span class="n">H</span>               <span class="n">H2</span>              
+     <span class="n">H</span>               <span class="n">O</span>               
+     <span class="n">H2</span>              <span class="n">H2O</span>             
+     <span class="n">H2</span>              <span class="n">O2</span>              
+     <span class="n">H2O</span>             <span class="n">O2</span>              
+     <span class="n">O</span>               <span class="n">O2</span>              
+
+
+ <span class="n">O</span><span class="o">/</span><span class="n">F</span> <span class="o">=</span>   <span class="mf">6.000000</span>
+
+                       <span class="n">EFFECTIVE</span> <span class="n">FUEL</span>     <span class="n">EFFECTIVE</span> <span class="n">OXIDANT</span>        <span class="n">MIXTURE</span>
+ <span class="n">ENTHALPY</span>                  <span class="n">h</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>              <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>               <span class="n">h0</span><span class="o">/</span><span class="n">R</span>
+ <span class="p">(</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span><span class="o">/</span><span class="n">KG</span>       <span class="o">-</span><span class="mf">0.53769505E+03</span>     <span class="o">-</span><span class="mf">0.48782395E+02</span>     <span class="o">-</span><span class="mf">0.11862706E+03</span>
+
+ <span class="n">KG</span><span class="o">-</span><span class="n">FORM</span><span class="o">.</span><span class="n">WT</span><span class="o">./</span><span class="n">KG</span>             <span class="n">bi</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>               <span class="n">bi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>               <span class="n">b0i</span>
+  <span class="o">*</span><span class="n">H</span>                   <span class="mf">0.99212255E+00</span>      <span class="mf">0.00000000E+00</span>      <span class="mf">0.14173179E+00</span>
+  <span class="o">*</span><span class="n">O</span>                   <span class="mf">0.00000000E+00</span>      <span class="mf">0.62502344E-01</span>      <span class="mf">0.53573438E-01</span>
+
+ <span class="n">POINT</span> <span class="n">ITN</span>      <span class="n">T</span>            <span class="n">H</span>           <span class="n">O</span> 
+   <span class="mi">1</span>    <span class="mi">9</span>    <span class="mf">3483.350</span>      <span class="o">-</span><span class="mf">9.273</span>     <span class="o">-</span><span class="mf">16.160</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.734909</span>
+   <span class="mi">2</span>    <span class="mi">4</span>    <span class="mf">3291.075</span>      <span class="o">-</span><span class="mf">9.450</span>     <span class="o">-</span><span class="mf">16.510</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.735136</span>
+   <span class="mi">2</span>    <span class="mi">1</span>    <span class="mf">3291.030</span>      <span class="o">-</span><span class="mf">9.450</span>     <span class="o">-</span><span class="mf">16.510</span>
+   <span class="mi">3</span>    <span class="mi">5</span>    <span class="mf">1906.011</span>     <span class="o">-</span><span class="mf">10.554</span>     <span class="o">-</span><span class="mf">22.064</span>
+   <span class="mi">4</span>    <span class="mi">3</span>    <span class="mf">1684.270</span>     <span class="o">-</span><span class="mf">10.710</span>     <span class="o">-</span><span class="mf">23.936</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3476.204</span>      <span class="o">-</span><span class="mf">9.279</span>     <span class="o">-</span><span class="mf">16.172</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3475.091</span>      <span class="o">-</span><span class="mf">9.280</span>     <span class="o">-</span><span class="mf">16.174</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3474.996</span>      <span class="o">-</span><span class="mf">9.280</span>     <span class="o">-</span><span class="mf">16.174</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3467.142</span>      <span class="o">-</span><span class="mf">9.288</span>     <span class="o">-</span><span class="mf">16.187</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3463.834</span>      <span class="o">-</span><span class="mf">9.291</span>     <span class="o">-</span><span class="mf">16.193</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3463.436</span>      <span class="o">-</span><span class="mf">9.291</span>     <span class="o">-</span><span class="mf">16.194</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mf">3463.431</span>      <span class="o">-</span><span class="mf">9.291</span>     <span class="o">-</span><span class="mf">16.194</span>
+   <span class="mi">7</span>    <span class="mi">5</span>    <span class="mf">1392.743</span>     <span class="o">-</span><span class="mf">10.935</span>     <span class="o">-</span><span class="mf">27.365</span>
+   <span class="mi">7</span>    <span class="mi">3</span>    <span class="mf">1440.950</span>     <span class="o">-</span><span class="mf">10.895</span>     <span class="o">-</span><span class="mf">26.697</span>
+   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mf">1343.855</span>     <span class="o">-</span><span class="mf">10.975</span>     <span class="o">-</span><span class="mf">28.094</span>
+   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mf">1297.898</span>     <span class="o">-</span><span class="mf">11.015</span>     <span class="o">-</span><span class="mf">28.830</span>
+
+
+
+
+
+              <span class="n">THEORETICAL</span> <span class="n">ROCKET</span> <span class="n">PERFORMANCE</span> <span class="n">ASSUMING</span> <span class="n">EQUILIBRIUM</span>
+
+           <span class="n">COMPOSITION</span> <span class="n">DURING</span> <span class="n">EXPANSION</span> <span class="n">FROM</span> <span class="n">INFINITE</span> <span class="n">AREA</span> <span class="n">COMBUSTOR</span>
+
+ <span class="n">Pinj</span> <span class="o">=</span>  <span class="mf">1000.0</span> <span class="n">PSIA</span>
+ <span class="n">CASE</span> <span class="o">=</span> <span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>      
+
+             <span class="n">REACTANT</span>                    <span class="n">WT</span> <span class="n">FRACTION</span>      <span class="n">ENERGY</span>      <span class="n">TEMP</span>
+                                          <span class="p">(</span><span class="n">SEE</span> <span class="n">NOTE</span><span class="p">)</span>     <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span>      <span class="n">K</span>  
+ <span class="n">FUEL</span>        <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">9012.336</span>     <span class="mf">20.270</span>
+ <span class="n">OXIDANT</span>     <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>    <span class="o">-</span><span class="mf">12978.768</span>     <span class="mf">90.180</span>
+
+ <span class="n">O</span><span class="o">/</span><span class="n">F</span><span class="o">=</span>    <span class="mf">6.00000</span>  <span class="o">%</span><span class="n">FUEL</span><span class="o">=</span> <span class="mf">14.285714</span>  <span class="n">R</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>  <span class="n">PHI</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>
+
+                 <span class="n">CHAMBER</span>   <span class="n">THROAT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.7351</span>   <span class="mf">100.00</span>   <span class="mf">200.00</span>   <span class="mf">1.0238</span>   <span class="mf">1.0577</span>   <span class="mf">459.06</span>   <span class="mf">782.65</span>
+ <span class="n">P</span><span class="p">,</span> <span class="n">BAR</span>            <span class="mf">68.947</span>   <span class="mf">39.736</span>  <span class="mf">0.68947</span>  <span class="mf">0.34474</span>   <span class="mf">67.346</span>   <span class="mf">65.186</span>  <span class="mf">0.15019</span>  <span class="mf">0.08809</span>
+ <span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3483.35</span>  <span class="mf">3291.03</span>  <span class="mf">1906.01</span>  <span class="mf">1684.27</span>  <span class="mf">3475.00</span>  <span class="mf">3463.43</span>  <span class="mf">1440.95</span>  <span class="mf">1297.90</span>
+ <span class="n">RHO</span><span class="p">,</span> <span class="n">KG</span><span class="o">/</span><span class="n">CU</span> <span class="n">M</span>    <span class="mf">3.2038</span> <span class="mi">0</span> <span class="mf">1.9758</span> <span class="mi">0</span> <span class="mf">6.1373</span><span class="o">-</span><span class="mi">2</span> <span class="mf">3.4736</span><span class="o">-</span><span class="mi">2</span> <span class="mf">3.1385</span> <span class="mi">0</span> <span class="mf">3.0500</span> <span class="mi">0</span> <span class="mf">1.7690</span><span class="o">-</span><span class="mi">2</span> <span class="mf">1.1519</span><span class="o">-</span><span class="mi">2</span>
+ <span class="n">H</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>         <span class="o">-</span><span class="mf">986.33</span> <span class="o">-</span><span class="mf">2133.04</span> <span class="o">-</span><span class="mf">8430.01</span> <span class="o">-</span><span class="mf">9162.74</span> <span class="o">-</span><span class="mf">1036.82</span> <span class="o">-</span><span class="mf">1106.63</span> <span class="o">-</span><span class="mf">9926.72</span> <span class="o">-</span><span class="mf">10356.9</span>
+ <span class="n">U</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">3138.36</span> <span class="o">-</span><span class="mf">4144.20</span> <span class="o">-</span><span class="mf">9553.42</span> <span class="o">-</span><span class="mf">10155.2</span> <span class="o">-</span><span class="mf">3182.65</span> <span class="o">-</span><span class="mf">3243.88</span> <span class="o">-</span><span class="mf">10775.8</span> <span class="o">-</span><span class="mf">11121.7</span>
+ <span class="n">G</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">63137.8</span> <span class="o">-</span><span class="mf">60853.1</span> <span class="o">-</span><span class="mf">42437.9</span> <span class="o">-</span><span class="mf">39214.2</span> <span class="o">-</span><span class="mf">63039.3</span> <span class="o">-</span><span class="mf">62902.7</span> <span class="o">-</span><span class="mf">35636.8</span> <span class="o">-</span><span class="mf">33514.6</span>
+ <span class="n">S</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">17.8425</span>  <span class="mf">17.8425</span>  <span class="mf">17.8425</span>  <span class="mf">17.8425</span>  <span class="mf">17.8425</span>  <span class="mf">17.8425</span>  <span class="mf">17.8425</span>  <span class="mf">17.8425</span>
+
+ <span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">13.458</span>   <span class="mf">13.606</span>   <span class="mf">14.107</span>   <span class="mf">14.110</span>   <span class="mf">13.465</span>   <span class="mf">13.474</span>   <span class="mf">14.111</span>   <span class="mf">14.111</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.02525</span> <span class="o">-</span><span class="mf">1.01954</span> <span class="o">-</span><span class="mf">1.00016</span> <span class="o">-</span><span class="mf">1.00003</span> <span class="o">-</span><span class="mf">1.02500</span> <span class="o">-</span><span class="mf">1.02466</span> <span class="o">-</span><span class="mf">1.00000</span> <span class="o">-</span><span class="mf">1.00000</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.4496</span>   <span class="mf">1.3682</span>   <span class="mf">1.0049</span>   <span class="mf">1.0011</span>   <span class="mf">1.4462</span>   <span class="mf">1.4415</span>   <span class="mf">1.0001</span>   <span class="mf">1.0000</span>
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">8.7658</span>   <span class="mf">8.0210</span>   <span class="mf">3.4093</span>   <span class="mf">3.2261</span>   <span class="mf">8.7365</span>   <span class="mf">8.6955</span>   <span class="mf">3.0576</span>   <span class="mf">2.9566</span>
+ <span class="n">GAMMAs</span>            <span class="mf">1.1401</span>   <span class="mf">1.1403</span>   <span class="mf">1.2112</span>   <span class="mf">1.2240</span>   <span class="mf">1.1400</span>   <span class="mf">1.1400</span>   <span class="mf">1.2388</span>   <span class="mf">1.2489</span>
+ <span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1566.3</span>   <span class="mf">1514.4</span>   <span class="mf">1166.5</span>   <span class="mf">1102.2</span>   <span class="mf">1564.1</span>   <span class="mf">1560.9</span>   <span class="mf">1025.6</span>    <span class="mf">977.3</span>
+ <span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">1.000</span>    <span class="mf">3.308</span>    <span class="mf">3.669</span>    <span class="mf">0.203</span>    <span class="mf">0.314</span>    <span class="mf">4.123</span>    <span class="mf">4.430</span>
+
+ <span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span> <span class="p">(</span><span class="n">GASES</span> <span class="n">ONLY</span><span class="p">)</span>
+   <span class="n">CONDUCTIVITY</span> <span class="n">IN</span> <span class="n">UNITS</span> <span class="n">OF</span> <span class="n">MILLIWATTS</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>
+
+ <span class="n">VISC</span><span class="p">,</span><span class="n">MILLIPOISE</span>   <span class="mf">1.0588</span>   <span class="mf">1.0153</span>  <span class="mf">0.66645</span>  <span class="mf">0.60214</span>   <span class="mf">1.0569</span>   <span class="mf">1.0543</span>  <span class="mf">0.52745</span>  <span class="mf">0.48118</span>
+
+  <span class="n">WITH</span> <span class="n">EQUILIBRIUM</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">8.7658</span>   <span class="mf">8.0210</span>   <span class="mf">3.4093</span>   <span class="mf">3.2261</span>   <span class="mf">8.7365</span>   <span class="mf">8.6955</span>   <span class="mf">3.0576</span>   <span class="mf">2.9566</span>
+ <span class="n">CONDUCTIVITY</span>     <span class="mf">17.3403</span>  <span class="mf">15.1763</span>   <span class="mf">3.2633</span>   <span class="mf">2.7264</span>  <span class="mf">17.2505</span>  <span class="mf">17.1255</span>   <span class="mf">2.2641</span>   <span class="mf">2.0137</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.5352</span>   <span class="mf">0.5366</span>   <span class="mf">0.6963</span>   <span class="mf">0.7125</span>   <span class="mf">0.5353</span>   <span class="mf">0.5353</span>   <span class="mf">0.7123</span>   <span class="mf">0.7065</span>
+
+  <span class="n">WITH</span> <span class="n">FROZEN</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">3.7778</span>   <span class="mf">3.7448</span>   <span class="mf">3.3216</span>   <span class="mf">3.2050</span>   <span class="mf">3.7764</span>   <span class="mf">3.7745</span>   <span class="mf">3.0551</span>   <span class="mf">2.9562</span>
+ <span class="n">CONDUCTIVITY</span>      <span class="mf">5.6563</span>   <span class="mf">5.3386</span>   <span class="mf">3.0552</span>   <span class="mf">2.6774</span>   <span class="mf">5.6425</span>   <span class="mf">5.6234</span>   <span class="mf">2.2586</span>   <span class="mf">2.0127</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7071</span>   <span class="mf">0.7121</span>   <span class="mf">0.7246</span>   <span class="mf">0.7208</span>   <span class="mf">0.7074</span>   <span class="mf">0.7077</span>   <span class="mf">0.7135</span>   <span class="mf">0.7067</span>
+
+ <span class="n">PERFORMANCE</span> <span class="n">PARAMETERS</span>
+
+ <span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                      <span class="mf">1.0000</span>   <span class="mf">12.635</span>   <span class="mf">21.301</span>   <span class="mf">3.0000</span>   <span class="mf">2.0000</span>   <span class="mf">40.000</span>   <span class="mf">60.000</span>
+ <span class="n">CSTAR</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>               <span class="mf">2304.3</span>   <span class="mf">2304.3</span>   <span class="mf">2304.3</span>   <span class="mf">2304.3</span>   <span class="mf">2304.3</span>   <span class="mf">2304.3</span>   <span class="mf">2304.3</span>
+ <span class="n">CF</span>                         <span class="mf">0.6572</span>   <span class="mf">1.6744</span>   <span class="mf">1.7549</span>   <span class="mf">0.1379</span>   <span class="mf">0.2129</span>   <span class="mf">1.8351</span>   <span class="mf">1.8787</span>
+ <span class="n">Ivac</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                <span class="mf">2842.4</span>   <span class="mf">4149.6</span>   <span class="mf">4289.3</span>   <span class="mf">7070.4</span>   <span class="mf">4847.7</span>   <span class="mf">4429.4</span>   <span class="mf">4505.8</span>
+ <span class="n">Isp</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                 <span class="mf">1514.4</span>   <span class="mf">3858.4</span>   <span class="mf">4043.9</span>    <span class="mf">317.8</span>    <span class="mf">490.5</span>   <span class="mf">4228.6</span>   <span class="mf">4329.1</span>
+
+
+ <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.00049</span>  <span class="mf">0.00011</span>  <span class="mf">0.03391</span>  <span class="mf">0.03355</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24376</span>  <span class="mf">0.24396</span>  <span class="mf">0.24818</span>  <span class="mf">0.24799</span>  <span class="mf">0.24401</span>  <span class="mf">0.24402</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.75560</span>  <span class="mf">0.75592</span>  <span class="mf">0.66686</span>  <span class="mf">0.66819</span>  <span class="mf">0.75598</span>  <span class="mf">0.75598</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00328</span>  <span class="mf">0.00321</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.00014</span>  <span class="mf">0.00002</span>  <span class="mf">0.04432</span>  <span class="mf">0.04369</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00340</span>  <span class="mf">0.00333</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+
+  <span class="o">*</span> <span class="n">THERMODYNAMIC</span> <span class="n">PROPERTIES</span> <span class="n">FITTED</span> <span class="n">TO</span> <span class="mf">20000.</span><span class="n">K</span>
+
+    <span class="n">PRODUCTS</span> <span class="n">WHICH</span> <span class="n">WERE</span> <span class="n">CONSIDERED</span> <span class="n">BUT</span> <span class="n">WHOSE</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+    <span class="n">WERE</span> <span class="n">LESS</span> <span class="n">THAN</span> <span class="mf">5.000000E-06</span> <span class="n">FOR</span> <span class="n">ALL</span> <span class="n">ASSIGNED</span> <span class="n">CONDITIONS</span>
+
+ <span class="n">O3</span>              <span class="n">H2O</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>         <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>         
+
+ <span class="n">NOTE</span><span class="o">.</span> <span class="n">WEIGHT</span> <span class="n">FRACTION</span> <span class="n">OF</span> <span class="n">FUEL</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">FUELS</span> <span class="n">AND</span> <span class="n">OF</span> <span class="n">OXIDANT</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">OXIDANTS</span>
+
+
+
+
+
+
+ <span class="n">POINT</span> <span class="n">ITN</span>      <span class="n">T</span>            <span class="n">H</span>           <span class="n">O</span> 
+   <span class="mi">1</span>    <span class="mi">3</span>    <span class="mf">3557.663</span>      <span class="o">-</span><span class="mf">8.966</span>     <span class="o">-</span><span class="mf">16.000</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.737768</span>
+   <span class="mi">2</span>    <span class="mi">4</span>    <span class="mf">3350.027</span>      <span class="o">-</span><span class="mf">9.137</span>     <span class="o">-</span><span class="mf">16.366</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.738406</span>
+   <span class="mi">2</span>    <span class="mi">2</span>    <span class="mf">3349.892</span>      <span class="o">-</span><span class="mf">9.137</span>     <span class="o">-</span><span class="mf">16.367</span>
+   <span class="mi">3</span>    <span class="mi">5</span>    <span class="mf">1896.766</span>     <span class="o">-</span><span class="mf">10.200</span>     <span class="o">-</span><span class="mf">22.132</span>
+   <span class="mi">4</span>    <span class="mi">3</span>    <span class="mf">1674.960</span>     <span class="o">-</span><span class="mf">10.355</span>     <span class="o">-</span><span class="mf">24.026</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3549.945</span>      <span class="o">-</span><span class="mf">8.973</span>     <span class="o">-</span><span class="mf">16.012</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3548.745</span>      <span class="o">-</span><span class="mf">8.974</span>     <span class="o">-</span><span class="mf">16.014</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3548.642</span>      <span class="o">-</span><span class="mf">8.974</span>     <span class="o">-</span><span class="mf">16.014</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3540.159</span>      <span class="o">-</span><span class="mf">8.981</span>     <span class="o">-</span><span class="mf">16.028</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3536.590</span>      <span class="o">-</span><span class="mf">8.984</span>     <span class="o">-</span><span class="mf">16.034</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3536.160</span>      <span class="o">-</span><span class="mf">8.984</span>     <span class="o">-</span><span class="mf">16.035</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mf">3536.155</span>      <span class="o">-</span><span class="mf">8.984</span>     <span class="o">-</span><span class="mf">16.035</span>
+   <span class="mi">7</span>    <span class="mi">5</span>    <span class="mf">1382.957</span>     <span class="o">-</span><span class="mf">10.581</span>     <span class="o">-</span><span class="mf">27.507</span>
+   <span class="mi">7</span>    <span class="mi">3</span>    <span class="mf">1427.793</span>     <span class="o">-</span><span class="mf">10.544</span>     <span class="o">-</span><span class="mf">26.875</span>
+   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mf">1328.299</span>     <span class="o">-</span><span class="mf">10.627</span>     <span class="o">-</span><span class="mf">28.337</span>
+   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mf">1285.630</span>     <span class="o">-</span><span class="mf">10.663</span>     <span class="o">-</span><span class="mf">29.036</span>
+
+
+
+
+
+              <span class="n">THEORETICAL</span> <span class="n">ROCKET</span> <span class="n">PERFORMANCE</span> <span class="n">ASSUMING</span> <span class="n">EQUILIBRIUM</span>
+
+           <span class="n">COMPOSITION</span> <span class="n">DURING</span> <span class="n">EXPANSION</span> <span class="n">FROM</span> <span class="n">INFINITE</span> <span class="n">AREA</span> <span class="n">COMBUSTOR</span>
+
+ <span class="n">Pinj</span> <span class="o">=</span>  <span class="mf">2000.0</span> <span class="n">PSIA</span>
+ <span class="n">CASE</span> <span class="o">=</span> <span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>      
+
+             <span class="n">REACTANT</span>                    <span class="n">WT</span> <span class="n">FRACTION</span>      <span class="n">ENERGY</span>      <span class="n">TEMP</span>
+                                          <span class="p">(</span><span class="n">SEE</span> <span class="n">NOTE</span><span class="p">)</span>     <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span>      <span class="n">K</span>  
+ <span class="n">FUEL</span>        <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">9012.336</span>     <span class="mf">20.270</span>
+ <span class="n">OXIDANT</span>     <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>    <span class="o">-</span><span class="mf">12978.768</span>     <span class="mf">90.180</span>
+
+ <span class="n">O</span><span class="o">/</span><span class="n">F</span><span class="o">=</span>    <span class="mf">6.00000</span>  <span class="o">%</span><span class="n">FUEL</span><span class="o">=</span> <span class="mf">14.285714</span>  <span class="n">R</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>  <span class="n">PHI</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.322780</span>
+
+                 <span class="n">CHAMBER</span>   <span class="n">THROAT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.7384</span>   <span class="mf">100.00</span>   <span class="mf">200.00</span>   <span class="mf">1.0239</span>   <span class="mf">1.0579</span>   <span class="mf">466.78</span>   <span class="mf">795.82</span>
+ <span class="n">P</span><span class="p">,</span> <span class="n">BAR</span>            <span class="mf">137.89</span>   <span class="mf">79.322</span>   <span class="mf">1.3789</span>  <span class="mf">0.68947</span>   <span class="mf">134.68</span>   <span class="mf">130.35</span>  <span class="mf">0.29542</span>  <span class="mf">0.17327</span>
+ <span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3557.66</span>  <span class="mf">3349.89</span>  <span class="mf">1896.77</span>  <span class="mf">1674.96</span>  <span class="mf">3548.64</span>  <span class="mf">3536.16</span>  <span class="mf">1427.79</span>  <span class="mf">1285.63</span>
+ <span class="n">RHO</span><span class="p">,</span> <span class="n">KG</span><span class="o">/</span><span class="n">CU</span> <span class="n">M</span>    <span class="mf">6.3206</span> <span class="mi">0</span> <span class="mf">3.8996</span> <span class="mi">0</span> <span class="mf">1.2336</span><span class="o">-</span><span class="mi">1</span> <span class="mf">6.9859</span><span class="o">-</span><span class="mi">2</span> <span class="mf">6.1917</span> <span class="mi">0</span> <span class="mf">6.0174</span> <span class="mi">0</span> <span class="mf">3.5115</span><span class="o">-</span><span class="mi">2</span> <span class="mf">2.2874</span><span class="o">-</span><span class="mi">2</span>
+ <span class="n">H</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>         <span class="o">-</span><span class="mf">986.33</span> <span class="o">-</span><span class="mf">2151.49</span> <span class="o">-</span><span class="mf">8464.44</span> <span class="o">-</span><span class="mf">9193.30</span> <span class="o">-</span><span class="mf">1037.67</span> <span class="o">-</span><span class="mf">1108.66</span> <span class="o">-</span><span class="mf">9966.94</span> <span class="o">-</span><span class="mf">10393.2</span>
+ <span class="n">U</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">3168.01</span> <span class="o">-</span><span class="mf">4185.61</span> <span class="o">-</span><span class="mf">9582.28</span> <span class="o">-</span><span class="mf">10180.3</span> <span class="o">-</span><span class="mf">3212.87</span> <span class="o">-</span><span class="mf">3274.88</span> <span class="o">-</span><span class="mf">10808.2</span> <span class="o">-</span><span class="mf">11150.7</span>
+ <span class="n">G</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">62946.0</span> <span class="o">-</span><span class="mf">60492.6</span> <span class="o">-</span><span class="mf">41498.2</span> <span class="o">-</span><span class="mf">38364.1</span> <span class="o">-</span><span class="mf">62840.2</span> <span class="o">-</span><span class="mf">62693.7</span> <span class="o">-</span><span class="mf">34833.1</span> <span class="o">-</span><span class="mf">32783.5</span>
+ <span class="n">S</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">17.4158</span>  <span class="mf">17.4158</span>  <span class="mf">17.4158</span>  <span class="mf">17.4158</span>  <span class="mf">17.4158</span>  <span class="mf">17.4158</span>  <span class="mf">17.4158</span>  <span class="mf">17.4158</span>
+
+ <span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">13.558</span>   <span class="mf">13.693</span>   <span class="mf">14.108</span>   <span class="mf">14.111</span>   <span class="mf">13.564</span>   <span class="mf">13.573</span>   <span class="mf">14.111</span>   <span class="mf">14.111</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.02121</span> <span class="o">-</span><span class="mf">1.01602</span> <span class="o">-</span><span class="mf">1.00011</span> <span class="o">-</span><span class="mf">1.00002</span> <span class="o">-</span><span class="mf">1.02098</span> <span class="o">-</span><span class="mf">1.02066</span> <span class="o">-</span><span class="mf">1.00000</span> <span class="o">-</span><span class="mf">1.00000</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.3713</span>   <span class="mf">1.2977</span>   <span class="mf">1.0032</span>   <span class="mf">1.0007</span>   <span class="mf">1.3682</span>   <span class="mf">1.3639</span>   <span class="mf">1.0001</span>   <span class="mf">1.0000</span>
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">7.8107</span>   <span class="mf">7.1443</span>   <span class="mf">3.3750</span>   <span class="mf">3.2134</span>   <span class="mf">7.7843</span>   <span class="mf">7.7473</span>   <span class="mf">3.0478</span>   <span class="mf">2.9476</span>
+ <span class="n">GAMMAs</span>            <span class="mf">1.1447</span>   <span class="mf">1.1456</span>   <span class="mf">1.2130</span>   <span class="mf">1.2249</span>   <span class="mf">1.1447</span>   <span class="mf">1.1447</span>   <span class="mf">1.2397</span>   <span class="mf">1.2498</span>
+ <span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1580.3</span>   <span class="mf">1526.5</span>   <span class="mf">1164.5</span>   <span class="mf">1099.5</span>   <span class="mf">1578.0</span>   <span class="mf">1574.7</span>   <span class="mf">1021.2</span>    <span class="mf">973.0</span>
+ <span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">1.000</span>    <span class="mf">3.321</span>    <span class="mf">3.685</span>    <span class="mf">0.203</span>    <span class="mf">0.314</span>    <span class="mf">4.150</span>    <span class="mf">4.458</span>
+
+ <span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span> <span class="p">(</span><span class="n">GASES</span> <span class="n">ONLY</span><span class="p">)</span>
+   <span class="n">CONDUCTIVITY</span> <span class="n">IN</span> <span class="n">UNITS</span> <span class="n">OF</span> <span class="n">MILLIWATTS</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>
+
+ <span class="n">VISC</span><span class="p">,</span><span class="n">MILLIPOISE</span>   <span class="mf">1.0746</span>   <span class="mf">1.0281</span>  <span class="mf">0.66384</span>  <span class="mf">0.59937</span>   <span class="mf">1.0726</span>   <span class="mf">1.0698</span>  <span class="mf">0.52327</span>  <span class="mf">0.47713</span>
+
+  <span class="n">WITH</span> <span class="n">EQUILIBRIUM</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">7.8107</span>   <span class="mf">7.1443</span>   <span class="mf">3.3750</span>   <span class="mf">3.2134</span>   <span class="mf">7.7843</span>   <span class="mf">7.7473</span>   <span class="mf">3.0478</span>   <span class="mf">2.9476</span>
+ <span class="n">CONDUCTIVITY</span>     <span class="mf">15.2880</span>  <span class="mf">13.3151</span>   <span class="mf">3.1770</span>   <span class="mf">2.6932</span>  <span class="mf">15.2058</span>  <span class="mf">15.0913</span>   <span class="mf">2.2393</span>   <span class="mf">1.9923</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.5490</span>   <span class="mf">0.5516</span>   <span class="mf">0.7052</span>   <span class="mf">0.7151</span>   <span class="mf">0.5491</span>   <span class="mf">0.5492</span>   <span class="mf">0.7122</span>   <span class="mf">0.7059</span>
+
+  <span class="n">WITH</span> <span class="n">FROZEN</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">3.7894</span>   <span class="mf">3.7549</span>   <span class="mf">3.3170</span>   <span class="mf">3.1997</span>   <span class="mf">3.7880</span>   <span class="mf">3.7860</span>   <span class="mf">3.0463</span>   <span class="mf">2.9473</span>
+ <span class="n">CONDUCTIVITY</span>      <span class="mf">5.7348</span>   <span class="mf">5.4019</span>   <span class="mf">3.0394</span>   <span class="mf">2.6614</span>   <span class="mf">5.7204</span>   <span class="mf">5.7004</span>   <span class="mf">2.2359</span>   <span class="mf">1.9917</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7101</span>   <span class="mf">0.7146</span>   <span class="mf">0.7245</span>   <span class="mf">0.7206</span>   <span class="mf">0.7103</span>   <span class="mf">0.7105</span>   <span class="mf">0.7129</span>   <span class="mf">0.7060</span>
+
+ <span class="n">PERFORMANCE</span> <span class="n">PARAMETERS</span>
+
+ <span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                      <span class="mf">1.0000</span>   <span class="mf">12.478</span>   <span class="mf">21.033</span>   <span class="mf">3.0000</span>   <span class="mf">2.0000</span>   <span class="mf">40.000</span>   <span class="mf">60.000</span>
+ <span class="n">CSTAR</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>               <span class="mf">2316.4</span>   <span class="mf">2316.4</span>   <span class="mf">2316.4</span>   <span class="mf">2316.4</span>   <span class="mf">2316.4</span>   <span class="mf">2316.4</span>   <span class="mf">2316.4</span>
+ <span class="n">CF</span>                         <span class="mf">0.6590</span>   <span class="mf">1.6695</span>   <span class="mf">1.7490</span>   <span class="mf">0.1383</span>   <span class="mf">0.2135</span>   <span class="mf">1.8296</span>   <span class="mf">1.8725</span>
+ <span class="n">Ivac</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                <span class="mf">2859.0</span>   <span class="mf">4156.4</span>   <span class="mf">4295.0</span>   <span class="mf">7108.1</span>   <span class="mf">4874.0</span>   <span class="mf">4436.6</span>   <span class="mf">4512.1</span>
+ <span class="n">Isp</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                 <span class="mf">1526.5</span>   <span class="mf">3867.3</span>   <span class="mf">4051.4</span>    <span class="mf">320.5</span>    <span class="mf">494.6</span>   <span class="mf">4238.1</span>   <span class="mf">4337.5</span>
+
+
+ <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.02851</span>  <span class="mf">0.02305</span>  <span class="mf">0.00033</span>  <span class="mf">0.00007</span>  <span class="mf">0.02827</span>  <span class="mf">0.02794</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24776</span>  <span class="mf">0.24510</span>  <span class="mf">0.24385</span>  <span class="mf">0.24398</span>  <span class="mf">0.24763</span>  <span class="mf">0.24746</span>  <span class="mf">0.24401</span>  <span class="mf">0.24402</span>
+ <span class="n">H2O</span>              <span class="mf">0.67894</span>  <span class="mf">0.69881</span>  <span class="mf">0.75573</span>  <span class="mf">0.75594</span>  <span class="mf">0.67983</span>  <span class="mf">0.68106</span>  <span class="mf">0.75598</span>  <span class="mf">0.75598</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00246</span>  <span class="mf">0.00153</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00242</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.03969</span>  <span class="mf">0.02979</span>  <span class="mf">0.00009</span>  <span class="mf">0.00001</span>  <span class="mf">0.03925</span>  <span class="mf">0.03864</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00259</span>  <span class="mf">0.00169</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00255</span>  <span class="mf">0.00249</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+
+  <span class="o">*</span> <span class="n">THERMODYNAMIC</span> <span class="n">PROPERTIES</span> <span class="n">FITTED</span> <span class="n">TO</span> <span class="mf">20000.</span><span class="n">K</span>
+
+    <span class="n">PRODUCTS</span> <span class="n">WHICH</span> <span class="n">WERE</span> <span class="n">CONSIDERED</span> <span class="n">BUT</span> <span class="n">WHOSE</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+    <span class="n">WERE</span> <span class="n">LESS</span> <span class="n">THAN</span> <span class="mf">5.000000E-06</span> <span class="n">FOR</span> <span class="n">ALL</span> <span class="n">ASSIGNED</span> <span class="n">CONDITIONS</span>
+
+ <span class="n">O3</span>              <span class="n">H2O</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>         <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>         
+
+ <span class="n">NOTE</span><span class="o">.</span> <span class="n">WEIGHT</span> <span class="n">FRACTION</span> <span class="n">OF</span> <span class="n">FUEL</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">FUELS</span> <span class="n">AND</span> <span class="n">OF</span> <span class="n">OXIDANT</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">OXIDANTS</span>
+
+
+
+
+
+
+ <span class="n">O</span><span class="o">/</span><span class="n">F</span> <span class="o">=</span>   <span class="mf">7.000000</span>
+
+                       <span class="n">EFFECTIVE</span> <span class="n">FUEL</span>     <span class="n">EFFECTIVE</span> <span class="n">OXIDANT</span>        <span class="n">MIXTURE</span>
+ <span class="n">ENTHALPY</span>                  <span class="n">h</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>              <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>               <span class="n">h0</span><span class="o">/</span><span class="n">R</span>
+ <span class="p">(</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span><span class="o">/</span><span class="n">KG</span>       <span class="o">-</span><span class="mf">0.53769505E+03</span>     <span class="o">-</span><span class="mf">0.48782395E+02</span>     <span class="o">-</span><span class="mf">0.10989648E+03</span>
+
+ <span class="n">KG</span><span class="o">-</span><span class="n">FORM</span><span class="o">.</span><span class="n">WT</span><span class="o">./</span><span class="n">KG</span>             <span class="n">bi</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>               <span class="n">bi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>               <span class="n">b0i</span>
+  <span class="o">*</span><span class="n">H</span>                   <span class="mf">0.99212255E+00</span>      <span class="mf">0.00000000E+00</span>      <span class="mf">0.12401532E+00</span>
+  <span class="o">*</span><span class="n">O</span>                   <span class="mf">0.00000000E+00</span>      <span class="mf">0.62502344E-01</span>      <span class="mf">0.54689551E-01</span>
+
+ <span class="n">POINT</span> <span class="n">ITN</span>      <span class="n">T</span>            <span class="n">H</span>           <span class="n">O</span> 
+   <span class="mi">1</span>    <span class="mi">4</span>    <span class="mf">3574.890</span>      <span class="o">-</span><span class="mf">9.525</span>     <span class="o">-</span><span class="mf">15.526</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.729941</span>
+   <span class="mi">2</span>    <span class="mi">3</span>    <span class="mf">3398.643</span>      <span class="o">-</span><span class="mf">9.730</span>     <span class="o">-</span><span class="mf">15.777</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.728234</span>
+   <span class="mi">2</span>    <span class="mi">2</span>    <span class="mf">3398.951</span>      <span class="o">-</span><span class="mf">9.729</span>     <span class="o">-</span><span class="mf">15.776</span>
+   <span class="mi">3</span>    <span class="mi">6</span>    <span class="mf">2223.851</span>     <span class="o">-</span><span class="mf">11.164</span>     <span class="o">-</span><span class="mf">19.202</span>
+   <span class="mi">4</span>    <span class="mi">4</span>    <span class="mf">2004.514</span>     <span class="o">-</span><span class="mf">11.344</span>     <span class="o">-</span><span class="mf">20.494</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3568.279</span>      <span class="o">-</span><span class="mf">9.532</span>     <span class="o">-</span><span class="mf">15.535</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3567.243</span>      <span class="o">-</span><span class="mf">9.534</span>     <span class="o">-</span><span class="mf">15.536</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3567.154</span>      <span class="o">-</span><span class="mf">9.534</span>     <span class="o">-</span><span class="mf">15.536</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3559.904</span>      <span class="o">-</span><span class="mf">9.542</span>     <span class="o">-</span><span class="mf">15.546</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3556.834</span>      <span class="o">-</span><span class="mf">9.545</span>     <span class="o">-</span><span class="mf">15.550</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3556.462</span>      <span class="o">-</span><span class="mf">9.546</span>     <span class="o">-</span><span class="mf">15.550</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mf">3556.458</span>      <span class="o">-</span><span class="mf">9.546</span>     <span class="o">-</span><span class="mf">15.550</span>
+   <span class="mi">7</span>    <span class="mi">6</span>    <span class="mf">1698.026</span>     <span class="o">-</span><span class="mf">11.583</span>     <span class="o">-</span><span class="mf">22.924</span>
+   <span class="mi">7</span>    <span class="mi">3</span>    <span class="mf">1789.152</span>     <span class="o">-</span><span class="mf">11.511</span>     <span class="o">-</span><span class="mf">22.108</span>
+   <span class="mi">7</span>    <span class="mi">1</span>    <span class="mf">1789.182</span>     <span class="o">-</span><span class="mf">11.511</span>     <span class="o">-</span><span class="mf">22.108</span>
+   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mf">1634.190</span>     <span class="o">-</span><span class="mf">11.635</span>     <span class="o">-</span><span class="mf">23.553</span>
+   <span class="mi">8</span>    <span class="mi">1</span>    <span class="mf">1634.246</span>     <span class="o">-</span><span class="mf">11.635</span>     <span class="o">-</span><span class="mf">23.552</span>
+
+
+
+
+
+              <span class="n">THEORETICAL</span> <span class="n">ROCKET</span> <span class="n">PERFORMANCE</span> <span class="n">ASSUMING</span> <span class="n">EQUILIBRIUM</span>
+
+           <span class="n">COMPOSITION</span> <span class="n">DURING</span> <span class="n">EXPANSION</span> <span class="n">FROM</span> <span class="n">INFINITE</span> <span class="n">AREA</span> <span class="n">COMBUSTOR</span>
+
+ <span class="n">Pinj</span> <span class="o">=</span>  <span class="mf">1000.0</span> <span class="n">PSIA</span>
+ <span class="n">CASE</span> <span class="o">=</span> <span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>      
+
+             <span class="n">REACTANT</span>                    <span class="n">WT</span> <span class="n">FRACTION</span>      <span class="n">ENERGY</span>      <span class="n">TEMP</span>
+                                          <span class="p">(</span><span class="n">SEE</span> <span class="n">NOTE</span><span class="p">)</span>     <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span>      <span class="n">K</span>  
+ <span class="n">FUEL</span>        <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">9012.336</span>     <span class="mf">20.270</span>
+ <span class="n">OXIDANT</span>     <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>    <span class="o">-</span><span class="mf">12978.768</span>     <span class="mf">90.180</span>
+
+ <span class="n">O</span><span class="o">/</span><span class="n">F</span><span class="o">=</span>    <span class="mf">7.00000</span>  <span class="o">%</span><span class="n">FUEL</span><span class="o">=</span> <span class="mf">12.500000</span>  <span class="n">R</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.133812</span>  <span class="n">PHI</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.133812</span>
+
+                 <span class="n">CHAMBER</span>   <span class="n">THROAT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.7282</span>   <span class="mf">100.00</span>   <span class="mf">200.00</span>   <span class="mf">1.0236</span>   <span class="mf">1.0573</span>   <span class="mf">399.34</span>   <span class="mf">673.32</span>
+ <span class="n">P</span><span class="p">,</span> <span class="n">BAR</span>            <span class="mf">68.947</span>   <span class="mf">39.895</span>  <span class="mf">0.68947</span>  <span class="mf">0.34474</span>   <span class="mf">67.356</span>   <span class="mf">65.209</span>  <span class="mf">0.17265</span>  <span class="mf">0.10240</span>
+ <span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3574.89</span>  <span class="mf">3398.95</span>  <span class="mf">2223.85</span>  <span class="mf">2004.51</span>  <span class="mf">3567.15</span>  <span class="mf">3556.46</span>  <span class="mf">1789.18</span>  <span class="mf">1634.25</span>
+ <span class="n">RHO</span><span class="p">,</span> <span class="n">KG</span><span class="o">/</span><span class="n">CU</span> <span class="n">M</span>    <span class="mf">3.4549</span> <span class="mi">0</span> <span class="mf">2.1295</span> <span class="mi">0</span> <span class="mf">5.9948</span><span class="o">-</span><span class="mi">2</span> <span class="mf">3.3327</span><span class="o">-</span><span class="mi">2</span> <span class="mf">3.3844</span> <span class="mi">0</span> <span class="mf">3.2889</span> <span class="mi">0</span> <span class="mf">1.8713</span><span class="o">-</span><span class="mi">2</span> <span class="mf">1.2153</span><span class="o">-</span><span class="mi">2</span>
+ <span class="n">H</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>         <span class="o">-</span><span class="mf">913.74</span> <span class="o">-</span><span class="mf">1971.66</span> <span class="o">-</span><span class="mf">8042.99</span> <span class="o">-</span><span class="mf">8800.00</span>  <span class="o">-</span><span class="mf">960.27</span> <span class="o">-</span><span class="mf">1024.62</span> <span class="o">-</span><span class="mf">9476.31</span> <span class="o">-</span><span class="mf">9937.21</span>
+ <span class="n">U</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">2909.37</span> <span class="o">-</span><span class="mf">3845.07</span> <span class="o">-</span><span class="mf">9193.10</span> <span class="o">-</span><span class="mf">9834.41</span> <span class="o">-</span><span class="mf">2950.49</span> <span class="o">-</span><span class="mf">3007.35</span> <span class="o">-</span><span class="mf">10398.9</span> <span class="o">-</span><span class="mf">10779.8</span>
+ <span class="n">G</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">60349.2</span> <span class="o">-</span><span class="mf">58482.0</span> <span class="o">-</span><span class="mf">45016.3</span> <span class="o">-</span><span class="mf">42126.7</span> <span class="o">-</span><span class="mf">60267.1</span> <span class="o">-</span><span class="mf">60153.6</span> <span class="o">-</span><span class="mf">39222.9</span> <span class="o">-</span><span class="mf">37107.9</span>
+ <span class="n">S</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">16.6258</span>  <span class="mf">16.6258</span>  <span class="mf">16.6258</span>  <span class="mf">16.6258</span>  <span class="mf">16.6258</span>  <span class="mf">16.6258</span>  <span class="mf">16.6258</span>  <span class="mf">16.6258</span>
+
+ <span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">14.894</span>   <span class="mf">15.085</span>   <span class="mf">16.077</span>   <span class="mf">16.112</span>   <span class="mf">14.902</span>   <span class="mf">14.914</span>   <span class="mf">16.124</span>   <span class="mf">16.126</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.03866</span> <span class="o">-</span><span class="mf">1.03336</span> <span class="o">-</span><span class="mf">1.00164</span> <span class="o">-</span><span class="mf">1.00047</span> <span class="o">-</span><span class="mf">1.03843</span> <span class="o">-</span><span class="mf">1.03812</span> <span class="o">-</span><span class="mf">1.00011</span> <span class="o">-</span><span class="mf">1.00003</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.6727</span>   <span class="mf">1.6114</span>   <span class="mf">1.0460</span>   <span class="mf">1.0144</span>   <span class="mf">1.6703</span>   <span class="mf">1.6669</span>   <span class="mf">1.0035</span>   <span class="mf">1.0010</span>
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>   <span class="mf">10.0624</span>   <span class="mf">9.6729</span>   <span class="mf">3.8424</span>   <span class="mf">3.3133</span>  <span class="mf">10.0483</span>  <span class="mf">10.0284</span>   <span class="mf">3.0456</span>   <span class="mf">2.9216</span>
+ <span class="n">GAMMAs</span>            <span class="mf">1.1320</span>   <span class="mf">1.1294</span>   <span class="mf">1.1704</span>   <span class="mf">1.1902</span>   <span class="mf">1.1318</span>   <span class="mf">1.1317</span>   <span class="mf">1.2054</span>   <span class="mf">1.2148</span>
+ <span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1503.0</span>   <span class="mf">1454.6</span>   <span class="mf">1160.2</span>   <span class="mf">1109.6</span>   <span class="mf">1500.9</span>   <span class="mf">1497.9</span>   <span class="mf">1054.6</span>   <span class="mf">1011.7</span>
+ <span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">1.000</span>    <span class="mf">3.255</span>    <span class="mf">3.579</span>    <span class="mf">0.203</span>    <span class="mf">0.314</span>    <span class="mf">3.924</span>    <span class="mf">4.199</span>
+
+ <span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span> <span class="p">(</span><span class="n">GASES</span> <span class="n">ONLY</span><span class="p">)</span>
+   <span class="n">CONDUCTIVITY</span> <span class="n">IN</span> <span class="n">UNITS</span> <span class="n">OF</span> <span class="n">MILLIWATTS</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>
+
+ <span class="n">VISC</span><span class="p">,</span><span class="n">MILLIPOISE</span>   <span class="mf">1.1028</span>   <span class="mf">1.0626</span>  <span class="mf">0.76726</span>  <span class="mf">0.70549</span>   <span class="mf">1.1010</span>   <span class="mf">1.0986</span>  <span class="mf">0.64210</span>  <span class="mf">0.59453</span>
+
+  <span class="n">WITH</span> <span class="n">EQUILIBRIUM</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>   <span class="mf">10.0624</span>   <span class="mf">9.6729</span>   <span class="mf">3.8424</span>   <span class="mf">3.3133</span>  <span class="mf">10.0483</span>  <span class="mf">10.0284</span>   <span class="mf">3.0456</span>   <span class="mf">2.9216</span>
+ <span class="n">CONDUCTIVITY</span>     <span class="mf">20.1269</span>  <span class="mf">18.4513</span>   <span class="mf">4.4185</span>   <span class="mf">3.2662</span>  <span class="mf">20.0589</span>  <span class="mf">19.9640</span>   <span class="mf">2.5977</span>   <span class="mf">2.2630</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.5513</span>   <span class="mf">0.5571</span>   <span class="mf">0.6672</span>   <span class="mf">0.7157</span>   <span class="mf">0.5515</span>   <span class="mf">0.5518</span>   <span class="mf">0.7528</span>   <span class="mf">0.7675</span>
+
+  <span class="n">WITH</span> <span class="n">FROZEN</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">3.4740</span>   <span class="mf">3.4483</span>   <span class="mf">3.1693</span>   <span class="mf">3.0835</span>   <span class="mf">3.4729</span>   <span class="mf">3.4714</span>   <span class="mf">2.9843</span>   <span class="mf">2.9025</span>
+ <span class="n">CONDUCTIVITY</span>      <span class="mf">5.2804</span>   <span class="mf">5.0067</span>   <span class="mf">3.1598</span>   <span class="mf">2.8153</span>   <span class="mf">5.2684</span>   <span class="mf">5.2518</span>   <span class="mf">2.4727</span>   <span class="mf">2.2234</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7255</span>   <span class="mf">0.7318</span>   <span class="mf">0.7696</span>   <span class="mf">0.7727</span>   <span class="mf">0.7258</span>   <span class="mf">0.7262</span>   <span class="mf">0.7749</span>   <span class="mf">0.7761</span>
+
+ <span class="n">PERFORMANCE</span> <span class="n">PARAMETERS</span>
+
+ <span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                      <span class="mf">1.0000</span>   <span class="mf">13.684</span>   <span class="mf">23.404</span>   <span class="mf">3.0000</span>   <span class="mf">2.0000</span>   <span class="mf">40.000</span>   <span class="mf">60.000</span>
+ <span class="n">CSTAR</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>               <span class="mf">2225.8</span>   <span class="mf">2225.8</span>   <span class="mf">2225.8</span>   <span class="mf">2225.8</span>   <span class="mf">2225.8</span>   <span class="mf">2225.8</span>   <span class="mf">2225.8</span>
+ <span class="n">CF</span>                         <span class="mf">0.6535</span>   <span class="mf">1.6965</span>   <span class="mf">1.7843</span>   <span class="mf">0.1371</span>   <span class="mf">0.2116</span>   <span class="mf">1.8592</span>   <span class="mf">1.9086</span>
+ <span class="n">Ivac</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                <span class="mf">2742.5</span>   <span class="mf">4080.6</span>   <span class="mf">4231.9</span>   <span class="mf">6828.6</span>   <span class="mf">4681.2</span>   <span class="mf">4361.2</span>   <span class="mf">4446.5</span>
+ <span class="n">Isp</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                 <span class="mf">1454.6</span>   <span class="mf">3776.0</span>   <span class="mf">3971.5</span>    <span class="mf">305.1</span>    <span class="mf">470.9</span>   <span class="mf">4138.3</span>   <span class="mf">4248.2</span>
+
+
+ <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03416</span>  <span class="mf">0.02934</span>  <span class="mf">0.00267</span>  <span class="mf">0.00098</span>  <span class="mf">0.03395</span>  <span class="mf">0.03366</span>  <span class="mf">0.00027</span>  <span class="mf">0.00008</span>
+ <span class="n">HO2</span>              <span class="mf">0.00010</span>  <span class="mf">0.00006</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00010</span>  <span class="mf">0.00010</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.16503</span>  <span class="mf">0.15736</span>  <span class="mf">0.11823</span>  <span class="mf">0.11787</span>  <span class="mf">0.16470</span>  <span class="mf">0.16425</span>  <span class="mf">0.11794</span>  <span class="mf">0.11799</span>
+ <span class="n">H2O</span>              <span class="mf">0.70401</span>  <span class="mf">0.73151</span>  <span class="mf">0.87572</span>  <span class="mf">0.88030</span>  <span class="mf">0.70520</span>  <span class="mf">0.70684</span>  <span class="mf">0.88164</span>  <span class="mf">0.88190</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00002</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00002</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00834</span>  <span class="mf">0.00647</span>  <span class="mf">0.00004</span>  <span class="mf">0.00000</span>  <span class="mf">0.00825</span>  <span class="mf">0.00814</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.07470</span>  <span class="mf">0.06362</span>  <span class="mf">0.00319</span>  <span class="mf">0.00083</span>  <span class="mf">0.07422</span>  <span class="mf">0.07356</span>  <span class="mf">0.00015</span>  <span class="mf">0.00003</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.01363</span>  <span class="mf">0.01162</span>  <span class="mf">0.00014</span>  <span class="mf">0.00001</span>  <span class="mf">0.01354</span>  <span class="mf">0.01343</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+
+  <span class="o">*</span> <span class="n">THERMODYNAMIC</span> <span class="n">PROPERTIES</span> <span class="n">FITTED</span> <span class="n">TO</span> <span class="mf">20000.</span><span class="n">K</span>
+
+    <span class="n">PRODUCTS</span> <span class="n">WHICH</span> <span class="n">WERE</span> <span class="n">CONSIDERED</span> <span class="n">BUT</span> <span class="n">WHOSE</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+    <span class="n">WERE</span> <span class="n">LESS</span> <span class="n">THAN</span> <span class="mf">5.000000E-06</span> <span class="n">FOR</span> <span class="n">ALL</span> <span class="n">ASSIGNED</span> <span class="n">CONDITIONS</span>
+
+ <span class="n">O3</span>              <span class="n">H2O</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>         <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>         
+
+ <span class="n">NOTE</span><span class="o">.</span> <span class="n">WEIGHT</span> <span class="n">FRACTION</span> <span class="n">OF</span> <span class="n">FUEL</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">FUELS</span> <span class="n">AND</span> <span class="n">OF</span> <span class="n">OXIDANT</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">OXIDANTS</span>
+
+
+
+
+
+
+ <span class="n">POINT</span> <span class="n">ITN</span>      <span class="n">T</span>            <span class="n">H</span>           <span class="n">O</span> 
+   <span class="mi">1</span>    <span class="mi">3</span>    <span class="mf">3666.670</span>      <span class="o">-</span><span class="mf">9.239</span>     <span class="o">-</span><span class="mf">15.313</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.732039</span>
+   <span class="mi">2</span>    <span class="mi">3</span>    <span class="mf">3477.540</span>      <span class="o">-</span><span class="mf">9.440</span>     <span class="o">-</span><span class="mf">15.570</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">Pt</span> <span class="o">=</span> <span class="mf">1.730484</span>
+   <span class="mi">2</span>    <span class="mi">2</span>    <span class="mf">3477.840</span>      <span class="o">-</span><span class="mf">9.440</span>     <span class="o">-</span><span class="mf">15.569</span>
+   <span class="mi">3</span>    <span class="mi">5</span>    <span class="mf">2215.811</span>     <span class="o">-</span><span class="mf">10.812</span>     <span class="o">-</span><span class="mf">19.241</span>
+   <span class="mi">4</span>    <span class="mi">4</span>    <span class="mf">1990.207</span>     <span class="o">-</span><span class="mf">10.986</span>     <span class="o">-</span><span class="mf">20.589</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3659.576</span>      <span class="o">-</span><span class="mf">9.247</span>     <span class="o">-</span><span class="mf">15.322</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3658.464</span>      <span class="o">-</span><span class="mf">9.248</span>     <span class="o">-</span><span class="mf">15.323</span>
+   <span class="mi">5</span>    <span class="mi">2</span>    <span class="mf">3658.369</span>      <span class="o">-</span><span class="mf">9.248</span>     <span class="o">-</span><span class="mf">15.323</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3650.587</span>      <span class="o">-</span><span class="mf">9.256</span>     <span class="o">-</span><span class="mf">15.333</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3647.294</span>      <span class="o">-</span><span class="mf">9.259</span>     <span class="o">-</span><span class="mf">15.337</span>
+   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mf">3646.895</span>      <span class="o">-</span><span class="mf">9.260</span>     <span class="o">-</span><span class="mf">15.338</span>
+   <span class="mi">6</span>    <span class="mi">1</span>    <span class="mf">3646.890</span>      <span class="o">-</span><span class="mf">9.260</span>     <span class="o">-</span><span class="mf">15.338</span>
+   <span class="mi">7</span>    <span class="mi">6</span>    <span class="mf">1681.381</span>     <span class="o">-</span><span class="mf">11.224</span>     <span class="o">-</span><span class="mf">23.083</span>
+   <span class="mi">7</span>    <span class="mi">3</span>    <span class="mf">1766.130</span>     <span class="o">-</span><span class="mf">11.157</span>     <span class="o">-</span><span class="mf">22.306</span>
+   <span class="mi">7</span>    <span class="mi">1</span>    <span class="mf">1766.167</span>     <span class="o">-</span><span class="mf">11.157</span>     <span class="o">-</span><span class="mf">22.305</span>
+   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mf">1611.866</span>     <span class="o">-</span><span class="mf">11.280</span>     <span class="o">-</span><span class="mf">23.785</span>
+   <span class="mi">8</span>    <span class="mi">1</span>    <span class="mf">1611.953</span>     <span class="o">-</span><span class="mf">11.280</span>     <span class="o">-</span><span class="mf">23.784</span>
+
+
+
+
+
+              <span class="n">THEORETICAL</span> <span class="n">ROCKET</span> <span class="n">PERFORMANCE</span> <span class="n">ASSUMING</span> <span class="n">EQUILIBRIUM</span>
+
+           <span class="n">COMPOSITION</span> <span class="n">DURING</span> <span class="n">EXPANSION</span> <span class="n">FROM</span> <span class="n">INFINITE</span> <span class="n">AREA</span> <span class="n">COMBUSTOR</span>
+
+ <span class="n">Pinj</span> <span class="o">=</span>  <span class="mf">2000.0</span> <span class="n">PSIA</span>
+ <span class="n">CASE</span> <span class="o">=</span> <span class="n">LOX_</span><span class="o">/</span><span class="n">_LH2</span>      
+
+             <span class="n">REACTANT</span>                    <span class="n">WT</span> <span class="n">FRACTION</span>      <span class="n">ENERGY</span>      <span class="n">TEMP</span>
+                                          <span class="p">(</span><span class="n">SEE</span> <span class="n">NOTE</span><span class="p">)</span>     <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span><span class="o">-</span><span class="n">MOL</span>      <span class="n">K</span>  
+ <span class="n">FUEL</span>        <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>     <span class="o">-</span><span class="mf">9012.336</span>     <span class="mf">20.270</span>
+ <span class="n">OXIDANT</span>     <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                        <span class="mf">1.0000000</span>    <span class="o">-</span><span class="mf">12978.768</span>     <span class="mf">90.180</span>
+
+ <span class="n">O</span><span class="o">/</span><span class="n">F</span><span class="o">=</span>    <span class="mf">7.00000</span>  <span class="o">%</span><span class="n">FUEL</span><span class="o">=</span> <span class="mf">12.500000</span>  <span class="n">R</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.133812</span>  <span class="n">PHI</span><span class="p">,</span><span class="n">EQ</span><span class="o">.</span><span class="n">RATIO</span><span class="o">=</span> <span class="mf">1.133812</span>
+
+                 <span class="n">CHAMBER</span>   <span class="n">THROAT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>     <span class="n">EXIT</span>
+ <span class="n">Pinf</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.7305</span>   <span class="mf">100.00</span>   <span class="mf">200.00</span>   <span class="mf">1.0237</span>   <span class="mf">1.0575</span>   <span class="mf">409.05</span>   <span class="mf">689.83</span>
+ <span class="n">P</span><span class="p">,</span> <span class="n">BAR</span>            <span class="mf">137.89</span>   <span class="mf">79.686</span>   <span class="mf">1.3789</span>  <span class="mf">0.68947</span>   <span class="mf">134.70</span>   <span class="mf">130.40</span>  <span class="mf">0.33711</span>  <span class="mf">0.19990</span>
+ <span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3666.67</span>  <span class="mf">3477.84</span>  <span class="mf">2215.81</span>  <span class="mf">1990.21</span>  <span class="mf">3658.37</span>  <span class="mf">3646.89</span>  <span class="mf">1766.17</span>  <span class="mf">1611.95</span>
+ <span class="n">RHO</span><span class="p">,</span> <span class="n">KG</span><span class="o">/</span><span class="n">CU</span> <span class="n">M</span>    <span class="mf">6.8001</span> <span class="mi">0</span> <span class="mf">4.1930</span> <span class="mi">0</span> <span class="mf">1.2046</span><span class="o">-</span><span class="mi">1</span> <span class="mf">6.7156</span><span class="o">-</span><span class="mi">2</span> <span class="mf">6.6614</span> <span class="mi">0</span> <span class="mf">6.4736</span> <span class="mi">0</span> <span class="mf">3.7017</span><span class="o">-</span><span class="mi">2</span> <span class="mf">2.4052</span><span class="o">-</span><span class="mi">2</span>
+ <span class="n">H</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>         <span class="o">-</span><span class="mf">913.74</span> <span class="o">-</span><span class="mf">1990.41</span> <span class="o">-</span><span class="mf">8102.62</span> <span class="o">-</span><span class="mf">8854.94</span>  <span class="o">-</span><span class="mf">961.13</span> <span class="o">-</span><span class="mf">1026.66</span> <span class="o">-</span><span class="mf">9547.62</span> <span class="o">-</span><span class="mf">10002.5</span>
+ <span class="n">U</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">2941.56</span> <span class="o">-</span><span class="mf">3890.87</span> <span class="o">-</span><span class="mf">9247.36</span> <span class="o">-</span><span class="mf">9881.62</span> <span class="o">-</span><span class="mf">2983.30</span> <span class="o">-</span><span class="mf">3041.03</span> <span class="o">-</span><span class="mf">10458.3</span> <span class="o">-</span><span class="mf">10833.6</span>
+ <span class="n">G</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="n">KG</span>        <span class="o">-</span><span class="mf">60462.9</span> <span class="o">-</span><span class="mf">58472.9</span> <span class="o">-</span><span class="mf">44088.9</span> <span class="o">-</span><span class="mf">41177.2</span> <span class="o">-</span><span class="mf">60375.5</span> <span class="o">-</span><span class="mf">60254.6</span> <span class="o">-</span><span class="mf">38231.4</span> <span class="o">-</span><span class="mf">36181.8</span>
+ <span class="n">S</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">16.2407</span>  <span class="mf">16.2407</span>  <span class="mf">16.2407</span>  <span class="mf">16.2407</span>  <span class="mf">16.2407</span>  <span class="mf">16.2407</span>  <span class="mf">16.2407</span>  <span class="mf">16.2407</span>
+
+ <span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">15.034</span>   <span class="mf">15.216</span>   <span class="mf">16.094</span>   <span class="mf">16.118</span>   <span class="mf">15.042</span>   <span class="mf">15.053</span>   <span class="mf">16.125</span>   <span class="mf">16.127</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.03433</span> <span class="o">-</span><span class="mf">1.02927</span> <span class="o">-</span><span class="mf">1.00107</span> <span class="o">-</span><span class="mf">1.00030</span> <span class="o">-</span><span class="mf">1.03411</span> <span class="o">-</span><span class="mf">1.03381</span> <span class="o">-</span><span class="mf">1.00006</span> <span class="o">-</span><span class="mf">1.00002</span>
+ <span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.5852</span>   <span class="mf">1.5267</span>   <span class="mf">1.0300</span>   <span class="mf">1.0091</span>   <span class="mf">1.5829</span>   <span class="mf">1.5796</span>   <span class="mf">1.0020</span>   <span class="mf">1.0006</span>
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">9.0497</span>   <span class="mf">8.6814</span>   <span class="mf">3.6069</span>   <span class="mf">3.2225</span>   <span class="mf">9.0364</span>   <span class="mf">9.0176</span>   <span class="mf">3.0085</span>   <span class="mf">2.9009</span>
+ <span class="n">GAMMAs</span>            <span class="mf">1.1354</span>   <span class="mf">1.1331</span>   <span class="mf">1.1777</span>   <span class="mf">1.1943</span>   <span class="mf">1.1353</span>   <span class="mf">1.1351</span>   <span class="mf">1.2078</span>   <span class="mf">1.2164</span>
+ <span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1517.3</span>   <span class="mf">1467.4</span>   <span class="mf">1161.1</span>   <span class="mf">1107.3</span>   <span class="mf">1515.2</span>   <span class="mf">1512.1</span>   <span class="mf">1048.8</span>   <span class="mf">1005.5</span>
+ <span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">1.000</span>    <span class="mf">3.266</span>    <span class="mf">3.599</span>    <span class="mf">0.203</span>    <span class="mf">0.314</span>    <span class="mf">3.962</span>    <span class="mf">4.240</span>
+
+ <span class="n">TRANSPORT</span> <span class="n">PROPERTIES</span> <span class="p">(</span><span class="n">GASES</span> <span class="n">ONLY</span><span class="p">)</span>
+   <span class="n">CONDUCTIVITY</span> <span class="n">IN</span> <span class="n">UNITS</span> <span class="n">OF</span> <span class="n">MILLIWATTS</span><span class="o">/</span><span class="p">(</span><span class="n">CM</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>
+
+ <span class="n">VISC</span><span class="p">,</span><span class="n">MILLIPOISE</span>   <span class="mf">1.1231</span>   <span class="mf">1.0805</span>  <span class="mf">0.76498</span>  <span class="mf">0.70135</span>   <span class="mf">1.1213</span>   <span class="mf">1.1187</span>  <span class="mf">0.63514</span>  <span class="mf">0.58754</span>
+
+  <span class="n">WITH</span> <span class="n">EQUILIBRIUM</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">9.0497</span>   <span class="mf">8.6814</span>   <span class="mf">3.6069</span>   <span class="mf">3.2225</span>   <span class="mf">9.0364</span>   <span class="mf">9.0176</span>   <span class="mf">3.0085</span>   <span class="mf">2.9009</span>
+ <span class="n">CONDUCTIVITY</span>     <span class="mf">17.9449</span>  <span class="mf">16.3743</span>   <span class="mf">3.9837</span>   <span class="mf">3.0799</span>  <span class="mf">17.8811</span>  <span class="mf">17.7921</span>   <span class="mf">2.5093</span>   <span class="mf">2.2101</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.5664</span>   <span class="mf">0.5729</span>   <span class="mf">0.6926</span>   <span class="mf">0.7338</span>   <span class="mf">0.5666</span>   <span class="mf">0.5670</span>   <span class="mf">0.7615</span>   <span class="mf">0.7712</span>
+
+  <span class="n">WITH</span> <span class="n">FROZEN</span> <span class="n">REACTIONS</span>
+
+ <span class="n">Cp</span><span class="p">,</span> <span class="n">KJ</span><span class="o">/</span><span class="p">(</span><span class="n">KG</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">3.4863</span>   <span class="mf">3.4599</span>   <span class="mf">3.1663</span>   <span class="mf">3.0773</span>   <span class="mf">3.4852</span>   <span class="mf">3.4837</span>   <span class="mf">2.9727</span>   <span class="mf">2.8900</span>
+ <span class="n">CONDUCTIVITY</span>      <span class="mf">5.3673</span>   <span class="mf">5.0829</span>   <span class="mf">3.1452</span>   <span class="mf">2.7922</span>   <span class="mf">5.3548</span>   <span class="mf">5.3376</span>   <span class="mf">2.4357</span>   <span class="mf">2.1874</span>
+ <span class="n">PRANDTL</span> <span class="n">NUMBER</span>    <span class="mf">0.7295</span>   <span class="mf">0.7355</span>   <span class="mf">0.7701</span>   <span class="mf">0.7730</span>   <span class="mf">0.7298</span>   <span class="mf">0.7301</span>   <span class="mf">0.7752</span>   <span class="mf">0.7763</span>
+
+ <span class="n">PERFORMANCE</span> <span class="n">PARAMETERS</span>
+
+ <span class="n">Ae</span><span class="o">/</span><span class="n">At</span>                     <span class="mf">1.00000</span>   <span class="mf">13.471</span>   <span class="mf">22.990</span>   <span class="mf">3.0000</span>   <span class="mf">2.0000</span>   <span class="mf">40.000</span>   <span class="mf">60.000</span>
+ <span class="n">CSTAR</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>               <span class="mf">2241.1</span>   <span class="mf">2241.1</span>   <span class="mf">2241.1</span>   <span class="mf">2241.1</span>   <span class="mf">2241.1</span>   <span class="mf">2241.1</span>   <span class="mf">2241.1</span>
+ <span class="n">CF</span>                         <span class="mf">0.6548</span>   <span class="mf">1.6919</span>   <span class="mf">1.7782</span>   <span class="mf">0.1374</span>   <span class="mf">0.2120</span>   <span class="mf">1.8542</span>   <span class="mf">1.9024</span>
+ <span class="n">Ivac</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                <span class="mf">2762.5</span>   <span class="mf">4093.7</span>   <span class="mf">4242.9</span>   <span class="mf">6876.0</span>   <span class="mf">4714.0</span>   <span class="mf">4374.6</span>   <span class="mf">4458.5</span>
+ <span class="n">Isp</span><span class="p">,</span> <span class="n">M</span><span class="o">/</span><span class="n">SEC</span>                 <span class="mf">1467.4</span>   <span class="mf">3791.8</span>   <span class="mf">3985.3</span>    <span class="mf">307.9</span>    <span class="mf">475.2</span>   <span class="mf">4155.5</span>   <span class="mf">4263.5</span>
+
+
+ <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.02895</span>  <span class="mf">0.02464</span>  <span class="mf">0.00180</span>  <span class="mf">0.00063</span>  <span class="mf">0.02876</span>  <span class="mf">0.02850</span>  <span class="mf">0.00016</span>  <span class="mf">0.00005</span>
+ <span class="n">HO2</span>              <span class="mf">0.00012</span>  <span class="mf">0.00007</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00012</span>  <span class="mf">0.00012</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.16058</span>  <span class="mf">0.15299</span>  <span class="mf">0.11809</span>  <span class="mf">0.11791</span>  <span class="mf">0.16026</span>  <span class="mf">0.15980</span>  <span class="mf">0.11797</span>  <span class="mf">0.11800</span>
+ <span class="n">H2O</span>              <span class="mf">0.72217</span>  <span class="mf">0.74874</span>  <span class="mf">0.87788</span>  <span class="mf">0.88093</span>  <span class="mf">0.72332</span>  <span class="mf">0.72491</span>  <span class="mf">0.88179</span>  <span class="mf">0.88194</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00004</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>  <span class="mf">0.00004</span>  <span class="mf">0.00003</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00675</span>  <span class="mf">0.00513</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>  <span class="mf">0.00667</span>  <span class="mf">0.00657</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.06982</span>  <span class="mf">0.05874</span>  <span class="mf">0.00214</span>  <span class="mf">0.00052</span>  <span class="mf">0.06934</span>  <span class="mf">0.06868</span>  <span class="mf">0.00008</span>  <span class="mf">0.00002</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.01158</span>  <span class="mf">0.00966</span>  <span class="mf">0.00006</span>  <span class="mf">0.00001</span>  <span class="mf">0.01150</span>  <span class="mf">0.01139</span>  <span class="mf">0.00000</span>  <span class="mf">0.00000</span>
+
+  <span class="o">*</span> <span class="n">THERMODYNAMIC</span> <span class="n">PROPERTIES</span> <span class="n">FITTED</span> <span class="n">TO</span> <span class="mf">20000.</span><span class="n">K</span>
+
+    <span class="n">PRODUCTS</span> <span class="n">WHICH</span> <span class="n">WERE</span> <span class="n">CONSIDERED</span> <span class="n">BUT</span> <span class="n">WHOSE</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+    <span class="n">WERE</span> <span class="n">LESS</span> <span class="n">THAN</span> <span class="mf">5.000000E-06</span> <span class="n">FOR</span> <span class="n">ALL</span> <span class="n">ASSIGNED</span> <span class="n">CONDITIONS</span>
+
+ <span class="n">O3</span>              <span class="n">H2O</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>         <span class="n">H2O</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>         
+
+ <span class="n">NOTE</span><span class="o">.</span> <span class="n">WEIGHT</span> <span class="n">FRACTION</span> <span class="n">OF</span> <span class="n">FUEL</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">FUELS</span> <span class="n">AND</span> <span class="n">OF</span> <span class="n">OXIDANT</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">OXIDANTS</span>
+
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="simple_examples.html" title="Simple Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="std_examples.html" title="Standard Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
