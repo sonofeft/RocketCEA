@@ -72,6 +72,7 @@ rocketcea/examples/Pexit.py
 rocketcea/examples/Pexit.xlsx
 rocketcea/examples/PexitPexit.summary
 rocketcea/examples/adjust_ch4_t.py
+rocketcea/examples/ambient_Cf.py
 rocketcea/examples/amm_dissociation.png
 rocketcea/examples/amm_dissociation.py
 rocketcea/examples/basic_chart.png
@@ -384,6 +385,7 @@ rocketcea/sphinx_html/_static/example_scripts/Pexit.py
 rocketcea/sphinx_html/_static/example_scripts/Pexit.xlsx
 rocketcea/sphinx_html/_static/example_scripts/PexitPexit.summary
 rocketcea/sphinx_html/_static/example_scripts/adjust_ch4_t.py
+rocketcea/sphinx_html/_static/example_scripts/ambient_Cf.py
 rocketcea/sphinx_html/_static/example_scripts/amm_dissociation.html
 rocketcea/sphinx_html/_static/example_scripts/amm_dissociation.png
 rocketcea/sphinx_html/_static/example_scripts/amm_dissociation.py
