@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Temperature Adjust &#8212; RocketCEA 1.1.4 documentation</title>
+    <title>Temperature Adjust &#8212; RocketCEA 1.1.5 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.5 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -114,7 +114,7 @@ RocketCEA provides some aid in creating adjusted input decks.</p>
 <p>Propellants in RocketCEA are assumed to be at standard temperature and enthalpy.
 For storable and gaseous propellants, room temperature is standard.
 For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
-<p>Calling the propellants &quot;LOX&quot; and &quot;LH2&quot; by name in a CEA_obj statement such as this:</p>
+<p>Calling the propellants “LOX” and “LH2” by name in a CEA_obj statement such as this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -122,14 +122,14 @@ For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
 </div>
 <div class="section" id="changing-t-and-h">
 <h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this headline">¶</a></h2>
-<p>As an example, I'll use a LOX/CH4 engine, where, instead of running the engine on propellants
+<p>As an example, I’ll use a LOX/CH4 engine, where, instead of running the engine on propellants
 that are each at their normal boiling point (NBP), this engine will store both propellants at a
 common temperature. The LOX will be at NBP and the CH4 will be subcooled.</p>
 <p>In some designs a common propellant temperature is desirable in order to have common dome tankage.
 The ox and fuel are separated by an uninsulated dome without the worry of heat transfer between them.
 Additionally, common dome tankage makes a shorter stage.</p>
-<p>I'll assume that only the CH4 CEA card will need to be adjusted, but the LOX CEA card can be used as is.
-In order to calculate the common storage temperature, I'll assume that the bleed valve on the LOX tank is
+<p>I’ll assume that only the CH4 CEA card will need to be adjusted, but the LOX CEA card can be used as is.
+In order to calculate the common storage temperature, I’ll assume that the bleed valve on the LOX tank is
 set at 5 psig so that the LOX is stored at 20 psia and therefore 168 degR.</p>
 <p>Using the fluid properties code <a class="reference external" href="http://www.coolprop.org/dev/index.html">CoolProp</a> as wrapped by the
 engineering units code <a class="reference external" href="http://engcoolprop.readthedocs.org/en/latest/">EngCoolProp</a>, the following script
@@ -229,7 +229,7 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA 1.1.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
