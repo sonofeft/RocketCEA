@@ -60,8 +60,10 @@ except:
         import rocketcea.py_cea as py_cea
     
 
-from rocketcea.separated_Cf import ambientCf
+from rocketcea.separated_Cf import ambientCf, sepNozzleCf
 #
+# gravitational conversion factor
+GC = 32.174
 
 _last_called = None # remember the last object to read the datafile
 _NLines_Max_ever = 0 # make sure to overwrite any lines from previous calls
@@ -766,6 +768,8 @@ class CEA_Obj(object):
             self.setupCards( Pc=Pc, MR=MR, eps=eps)
             PcOvPe = py_cea.rockt.app[2]
             #print( 'py_cea.rockt.app',py_cea.rockt.app )
+            #Pexit = py_cea.prtout.ppp[2]*14.7/1.01325
+            #return Pc/Pexit
             return PcOvPe
 
     def get_eps_at_PcOvPe(self, Pc=100.0, MR=1.0, PcOvPe=1000.0):
@@ -1004,26 +1008,93 @@ class CEA_Obj(object):
         """Return a string description of the propellant(s).  e.g. 'LOX / MMH'"""
         return str(self.desc)
 
-    def estimate_Ambient_Isp(self, Pc=100.0, MR=1.0, eps=40.0, Pamb=14.7):
+    def estimate_Ambient_Isp(self, Pc=100.0, MR=1.0, eps=40.0, Pamb=14.7, 
+                             frozen=0, frozenAtThroat=0):
         """::
 
         #: return the tuple (IspAmb, mode)
         #: Use throat gam to run ideal separation calculations.
         #: mode is a string containing, UnderExpanded, OverExpanded, or Separated
+        #: Pamb ambient pressure (e.g. sea level=14.7 psia)
         #: MR is only used for ox/fuel combos.
+        #: frozen flag, 0=equilibrium, 1=frozen 
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         """
 
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
 
         IspVac = py_cea.rockt.vaci[2]
         mw,gam = py_cea.prtout.wm[1], py_cea.prtout.gammas[1] # throat gamma
-
-        Cf, CfOverCfvac, mode = ambientCf(gam=gam, epsTot=eps, Pc=Pc, Pamb=Pamb)
-
-        IspAmb = IspVac * CfOverCfvac
+        #PcOvPe = py_cea.rockt.app[2]
+        Pexit = py_cea.prtout.ppp[2]*14.7/1.01325
+        #print( "=============== Pexit ", Pexit, py_cea.prtout.ppp[2]/1.01325, py_cea.prtout.ppp[2] )
+        Cstar = float(py_cea.rockt.cstr)
+        # ==================================
+        
+        CfOvCfvacAtEsep, CfOvCfvac, Cfsep, CfiVac, CfiAmbSimple, CfVac, epsSep, Psep = \
+             sepNozzleCf(gam, eps, Pc, Pamb)
+        
+        if Pexit > Psep:
+            # if not separated, use theoretical equation for back-pressure correction
+            IspAmb = IspVac - Cstar*Pamb*eps/Pc/32.174
+            CfAmb = IspAmb * 32.174 / Cstar
+        else:
+            # if separated, use Kalt and Badal estimate of ambient thrust coefficient
+            # NOTE: there are better, more modern methods available
+            IspODEepsSep,CstarODE,Tc = \
+                self.get_IvacCstrTc(Pc=Pc, MR=MR, eps=epsSep)
+                
+            CfvacAtEsep = CfVac * IspODEepsSep / IspVac
+            
+            CfAmb = CfvacAtEsep * CfOvCfvacAtEsep
+            IspAmb = CfAmb * Cstar / 32.174
+        
+        # figure out mode of nozzle operation
+        if Pexit > Psep:
+            if Pexit > Pamb + 0.05:
+                mode = 'UnderExpanded (Pe=%g)'%Pexit
+            elif Pexit < Pamb - 0.05:
+                mode = 'OverExpanded (Pe=%g)'%Pexit
+            else:
+                mode = 'Pexit = %g'%Pexit
+        else:
+            mode = 'Separated (Psep=%g, epsSep=%g)'%(Psep,epsSep)
 
         return IspAmb, mode
 
+
+    def get_PambCf(self, Pamb=14.7, Pc=100.0, MR=1.0, eps=40.0):
+        """::
+
+        #: Return the Thrust Coefficient (CF) for equilibrium chemistry and ambient pressure
+        #: Pamb ambient pressure (e.g. sea level=14.7 psia)
+        #: MR is only used for ox/fuel combos.
+        """
+
+        IspAmb, mode = self.estimate_Ambient_Isp( Pc=Pc, MR=MR, eps=eps, Pamb=Pamb)
+        Cstar = float(py_cea.rockt.cstr)
+        
+        CFamb = GC * IspAmb / Cstar
+        CFcea = GC * float(py_cea.rockt.spim[2]) / Cstar
+        
+        return CFcea, CFamb, mode
+
+    def getFrozen_PambCf(self, Pamb=0.0, Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0):
+        """::
+
+        #: Return the Thrust Coefficient (CF) for frozen chemistry and ambient pressure
+        #: Pamb ambient pressure (e.g. sea level=14.7 psia)
+        #: MR is only used for ox/fuel combos.
+        """
+
+        IspAmb, mode = self.estimate_Ambient_Isp( Pc=Pc, MR=MR, eps=eps, Pamb=Pamb,
+                                                  frozen=1, frozenAtThroat=frozenAtThroat)
+        Cstar = float(py_cea.rockt.cstr)
+        
+        CFfrozen = GC * IspAmb / Cstar
+        CFcea = GC * float(py_cea.rockt.spim[2]) / Cstar
+        
+        return CFcea,CFfrozen, mode
 
     def get_Chamber_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         """::

@@ -269,16 +269,38 @@ class CEA_Obj( object ):
     def get_description(self):
         return self.cea_obj.get_description()
         
-    def estimate_Ambient_Isp(self, Pc=100.0, MR=1.0, eps=40.0, Pamb=14.7):
+    def estimate_Ambient_Isp(self, Pc=100.0, MR=1.0, eps=40.0, Pamb=14.7, 
+                             frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         Pamb = self.Pc_U.uval_to_dval( Pamb ) # convert user units to psia
-        IspAmb, mode = self.cea_obj.estimate_Ambient_Isp(Pc=Pc, MR=MR, eps=eps, Pamb=Pamb)
+        IspAmb, mode = self.cea_obj.estimate_Ambient_Isp(Pc=Pc, MR=MR, eps=eps, Pamb=Pamb,
+                                                         frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         IspAmb = self.isp_U.dval_to_uval( IspAmb )
         
         return IspAmb, mode
+
+
+    def get_PambCf(self, Pamb=14.7, Pc=100.0, MR=1.0, eps=40.0):
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        Pamb = self.Pc_U.uval_to_dval( Pamb ) # convert user units to psia
         
+        CFcea, CF, mode = self.cea_obj.get_PambCf( Pamb=Pamb, Pc=Pc, MR=MR, eps=eps)
+        
+        return CFcea, CF, mode
+
+    def getFrozen_PambCf(self, Pamb=0.0, Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0):
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        Pamb = self.Pc_U.uval_to_dval( Pamb ) # convert user units to psia
+        
+        CFcea,CFfrozen, mode = self.cea_obj.getFrozen_PambCf( Pamb=Pamb, Pc=Pc, MR=MR, eps=eps,
+                                                              frozenAtThroat=frozenAtThroat)
+        
+        return CFcea,CFfrozen, mode
+
+
+
     def get_Chamber_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
@@ -419,4 +441,9 @@ if __name__ == "__main__":
     chk_method('get_Throat_Transport',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':0})
     chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':1})
+        
+    chk_method('get_PambCf', **{'Pc':100.0, 'Pamb':14.7})
+    chk_method('getFrozen_PambCf', **{'Pc':100.0, 'Pamb':14.7, 'frozenAtThroat':1})
+    
+    
     

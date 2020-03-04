@@ -1,4 +1,4 @@
-________tk_nosy UNITTEST RUN# 13________
+________tk_nosy UNITTEST RUN# 68________
 
 {Item #1} test__main__, 
 FLOX80
@@ -101,33 +101,33 @@ Cp        = [ 1.95897368  1.8998336  15.50658801]
 =======================================
 
 amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_
-Pc= 100  eps=  2  IspAmb=    270.47 IspVac=    338.05  Mode=OverExpanded Pe=13.3665
-Pc= 100  eps=  5  IspAmb=    246.67 IspVac=    384.40  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps= 10  IspAmb=    241.86 IspVac=    410.58  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps= 20  IspAmb=    232.48 IspVac=    431.46  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps= 50  IspAmb=    205.72 IspVac=    452.84  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps=100  IspAmb=    162.96 IspVac=    465.35  Mode=Separated Psep=6.67866, epsSep=3.3
+Pc= 100  eps=  2  IspAmb=    269.06 IspVac=    338.05  Mode=OverExpanded (Pe=13.3115)
+Pc= 100  eps=  5  IspAmb=    252.38 IspVac=    384.40  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps= 10  IspAmb=    248.67 IspVac=    410.58  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps= 20  IspAmb=    241.01 IspVac=    431.46  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps= 50  IspAmb=    216.63 IspVac=    452.84  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps=100  IspAmb=    174.11 IspVac=    465.35  Mode=Separated (Psep=6.67866, epsSep=3.25837)
   ---
-Pc= 500  eps=  2  IspAmb=    329.49 IspVac=    343.22  Mode=UnderExpanded Pe=65.9701
-Pc= 500  eps=  5  IspAmb=    354.85 IspVac=    389.09  Mode=UnderExpanded Pe=18.4544
-Pc= 500  eps= 10  IspAmb=    346.32 IspVac=    414.56  Mode=OverExpanded Pe=7.55456
-Pc= 500  eps= 20  IspAmb=    315.98 IspVac=    434.70  Mode=Separated Psep=4.84056, epsSep=14.3
-Pc= 500  eps= 50  IspAmb=    308.74 IspVac=    455.27  Mode=Separated Psep=4.84056, epsSep=14.3
-Pc= 500  eps=100  IspAmb=    298.17 IspVac=    467.30  Mode=Separated Psep=4.84056, epsSep=14.3
+Pc= 500  eps=  2  IspAmb=    329.17 IspVac=    343.22  Mode=UnderExpanded (Pe=65.3707)
+Pc= 500  eps=  5  IspAmb=    353.97 IspVac=    389.09  Mode=UnderExpanded (Pe=17.7524)
+Pc= 500  eps= 10  IspAmb=    344.34 IspVac=    414.56  Mode=OverExpanded (Pe=6.96516)
+Pc= 500  eps= 20  IspAmb=    327.65 IspVac=    434.70  Mode=Separated (Psep=4.84056, epsSep=14.255)
+Pc= 500  eps= 50  IspAmb=    325.47 IspVac=    455.27  Mode=Separated (Psep=4.84056, epsSep=14.255)
+Pc= 500  eps=100  IspAmb=    318.88 IspVac=    467.30  Mode=Separated (Psep=4.84056, epsSep=14.255)
   ---
-Pc=1500  eps=  2  IspAmb=    341.53 IspVac=    346.15  Mode=UnderExpanded Pe=196.01
-Pc=1500  eps=  5  IspAmb=    380.07 IspVac=    391.58  Mode=UnderExpanded Pe=54.4922
-Pc=1500  eps= 10  IspAmb=    393.68 IspVac=    416.61  Mode=UnderExpanded Pe=22.2087
-Pc=1500  eps= 20  IspAmb=    390.73 IspVac=    436.35  Mode=OverExpanded Pe=9.30993
-Pc=1500  eps= 50  IspAmb=    352.51 IspVac=    456.50  Mode=Separated Psep=3.88572, epsSep=40.7
-Pc=1500  eps=100  IspAmb=    342.26 IspVac=    468.29  Mode=Separated Psep=3.88572, epsSep=40.7
+Pc=1500  eps=  2  IspAmb=    341.42 IspVac=    346.15  Mode=UnderExpanded (Pe=193.502)
+Pc=1500  eps=  5  IspAmb=    379.75 IspVac=    391.58  Mode=UnderExpanded (Pe=51.9839)
+Pc=1500  eps= 10  IspAmb=    392.95 IspVac=    416.61  Mode=UnderExpanded (Pe=20.3069)
+Pc=1500  eps= 20  IspAmb=    389.03 IspVac=    436.35  Mode=OverExpanded (Pe=8.07225)
+Pc=1500  eps= 50  IspAmb=    369.34 IspVac=    456.50  Mode=Separated (Psep=3.88572, epsSep=40.7255)
+Pc=1500  eps=100  IspAmb=    363.58 IspVac=    468.29  Mode=Separated (Psep=3.88572, epsSep=40.7255)
   ---
-Pc=5000  eps=  2  IspAmb=    347.30 IspVac=    348.70  Mode=UnderExpanded Pe=646.167
-Pc=5000  eps=  5  IspAmb=    390.16 IspVac=    393.64  Mode=UnderExpanded Pe=178.36
-Pc=5000  eps= 10  IspAmb=    411.35 IspVac=    418.28  Mode=UnderExpanded Pe=72.3226
-Pc=5000  eps= 20  IspAmb=    423.90 IspVac=    437.68  Mode=UnderExpanded Pe=30.1669
-Pc=5000  eps= 50  IspAmb=    423.29 IspVac=    457.49  Mode=OverExpanded Pe=9.74591
-Pc=5000  eps=100  IspAmb=    401.12 IspVac=    469.09  Mode=OverExpanded Pe=4.20031
+Pc=5000  eps=  2  IspAmb=    347.27 IspVac=    348.70  Mode=UnderExpanded (Pe=635.853)
+Pc=5000  eps=  5  IspAmb=    390.06 IspVac=    393.64  Mode=UnderExpanded (Pe=169.396)
+Pc=5000  eps= 10  IspAmb=    411.11 IspVac=    418.28  Mode=UnderExpanded (Pe=66.0304)
+Pc=5000  eps= 20  IspAmb=    423.35 IspVac=    437.68  Mode=UnderExpanded (Pe=26.2442)
+Pc=5000  eps= 50  IspAmb=    421.66 IspVac=    457.49  Mode=OverExpanded (Pe=7.84522)
+Pc=5000  eps=100  IspAmb=    397.42 IspVac=    469.09  Mode=OverExpanded (Pe=3.14832)
   ---
 
 {Item #5} test_badFLOX888, 

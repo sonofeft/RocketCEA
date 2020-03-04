@@ -455,13 +455,13 @@ class MyTest(unittest.TestCase):
         C = CEA_Obj(oxName="LOX", fuelName="LH2")
         
         IspAmb, mode = C.estimate_Ambient_Isp(Pc=100.0, MR=6.0, eps=20.0, Pamb=14.7)
-        self.assertAlmostEqual(IspAmb, 232.76101, places=3)
+        self.assertAlmostEqual(IspAmb, 235.9980548, places=3)
         
         IspAmb, mode = C.estimate_Ambient_Isp(Pc=1000.0, MR=6.0, eps=20.0, Pamb=14.7)
-        self.assertAlmostEqual(IspAmb, 367.4340367530733, places=3)
+        self.assertAlmostEqual(IspAmb, 366.709649, places=3)
         
         IspAmb, mode = C.estimate_Ambient_Isp(Pc=5000.0, MR=6.0, eps=20.0, Pamb=14.7)
-        self.assertAlmostEqual(IspAmb, 423.86533327223106, places=3)
+        self.assertAlmostEqual(IspAmb, 423.712640620, places=3)
         
         del C
     
@@ -508,7 +508,6 @@ class MyTest(unittest.TestCase):
         IspODE = C.get_Isp( Pc=1850.0, eps=40.0)
         self.assertAlmostEqual(IspODE, 189.9709005711723, places=3)
 
-    
     def test__main__(self):
         old_sys_argv = list(sys.argv)
         sys.argv = list(sys.argv)
@@ -521,6 +520,26 @@ class MyTest(unittest.TestCase):
         finally:
             sys.argv = old_sys_argv
     
+    def test_get_ambient_Cf(self):
+        """ test call to get_eqratio( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="LH2")
+        CFcea, CF,mode = C.get_PambCf( Pc=1000.0, MR=6.0, eps=40.0, Pamb=14.7*0.14823)
+        
+        self.assertAlmostEqual(CF, 1.8351, places=3)
+        self.assertAlmostEqual(CFcea, 1.8351, places=3)
+        
+        # check frozen at throat
+        CFcea, CFfrozen, mode = C.getFrozen_PambCf(Pc=1000.0, MR=6.0, eps=40.0, Pamb=14.7*0.12612,
+                                                   frozenAtThroat=1)
+        self.assertAlmostEqual(CFcea, 1.7843, places=3)
+        self.assertAlmostEqual(CFfrozen, 1.7843, places=3)
+        
+        # check frozen at chamber
+        CFcea, CFfrozen, mode = C.getFrozen_PambCf(Pc=1000.0, MR=6.0, eps=40.0, Pamb=14.7*0.12376)
+        self.assertAlmostEqual(CFcea, 1.7919, places=3)
+        self.assertAlmostEqual(CFfrozen, 1.7919, places=3)
+        
+        del C
 
 if __name__ == '__main__':
     # Can test just this file from command prompt

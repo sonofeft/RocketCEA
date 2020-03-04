@@ -1,5 +1,8 @@
 .. ambient_isp
 
+
+.. _`amb_isp_link`:
+
 Ambient Isp
 ===========
 
@@ -51,6 +54,45 @@ The output from the script::
     Pc= 500  eps= 10  IspAmb/IspVac= 346.25/414.56  Mode= OverExpanded Pe=7.49482
     Pc= 500  eps= 20  IspAmb/IspVac= 316.16/434.70  Mode= Separated Psep=4.84056, epsSep=14.2
     Pc= 500  eps= 50  IspAmb/IspVac= 309.31/455.27  Mode= Separated Psep=4.84056, epsSep=14.2
+
+Thrust Coefficient
+------------------
+
+The thrust coefficient (Cf) is normally defined based on the ambient delivered thrust as::
+
+    Cf = Famb / (Pc * At)
+    
+    where: Famb=ambient thrust, Pc=chamber pressure, At=throat area
+
+CF is the name given to the thrust coefficient in the CEA output.
+(shown above in the :ref:`Ambient Isp <amb_isp_link>` section)
+
+When calculating CF, CEA assumes that the ambient pressure is equal to the nozzle exit pressure.
+(displayed as ``P, ATM`` or ``P, BAR`` in the CEA output)
+
+This may not be the Cf of interest since
+it is much more common to want the Cf in vacuum or at sea level.
+
+RocketCEA (as of version 1.1.4) provides two methods to obtain a thrust coefficient at any given ambient pressure;
+``get_PambCf`` and ``getFrozen_PambCf``. 
+
+These routines return three parameters::
+
+    CF - the value printed out by CEA
+    CFamb - the value calculated by RocketCEA for the given ambient pressure
+    mode - a description of the nozzle operating conditions at ambient pressure
+
+The following script calls ``get_PambCf`` for the four nozzle operating domains of interest,
+under-expanded, Pexit equals Pambient, over-expanded and separated flow.
+
+.. literalinclude:: ./_static/example_scripts/ambient_Cf.py
+
+The output of which is::
+
+    eps=      4, CFcea= 1.4319, CFamb=1.56337, mode=UnderExpanded (Pe=47.5806)
+    eps=9.47259, CFcea=1.62334, CFamb=1.62333, mode=Pexit = 14.7034
+    eps=     12, CFcea=1.66568, CFamb=1.61783, mode=OverExpanded (Pe=10.7148)
+    eps=     40, CFcea=1.78854, CFamb=1.45502, mode=Separated (Psep=4.21395, epsSep=27.3156)
 
 
 
