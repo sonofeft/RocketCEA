@@ -6,6 +6,14 @@ History
 
 GitHub Log
 ----------
+* Mar 4, 2020
+    - (by: sonofeft)
+        - version 1.1.4 adds thrust coefficient
+
+* Feb 25, 2020
+    - (by: sonofeft)
+        - some doc updates
+
 * Feb 21, 2020
     - (by: sonofeft)
         - Added error tolerance to multi-input of get_full_cea_output
