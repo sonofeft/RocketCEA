@@ -8,6 +8,7 @@ GitHub Log
 ----------
 * Mar 6, 2020
     - (by: sonofeft)
+        - update history
         - Added combustion species for version 1.1.6
         - examine species mass/mole fraction output
         
