@@ -1,0 +1,266 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Species Mole Fractions &#8212; RocketCEA v1.1.6 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Engine Mixture Ratio" href="engine_mr.html" />
+    <link rel="prev" title="Simple Examples" href="simple_examples.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="engine_mr.html" title="Engine Mixture Ratio"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="simple_examples.html" title="Simple Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.6 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#species-mass-fractions">Species Mass Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="simple_examples.html"
+                        title="previous chapter">Simple Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="engine_mr.html"
+                        title="next chapter">Engine Mixture Ratio</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/comb_species.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="species-mole-fractions">
+<h1>Species Mole Fractions<a class="headerlink" href="#species-mole-fractions" title="Permalink to this headline">¶</a></h1>
+<p>RocketCEA version 1.1.6 and greater provide access to the combustion species
+mass fractions and mole fractions.</p>
+<p>Notice at the bottom of the sample run at
+<a class="reference internal" href="std_examples.html#std-examples-mole-frac-link"><span class="std std-ref">Standard Examples LOX/LH2 Performance</span></a>
+that the combustion species mole fractions are displayed.</p>
+<p>CEA prints those values as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MOLE</span> <span class="n">FRACTIONS</span>
+
+<span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.00001</span>
+<span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24401</span>
+<span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.75598</span>
+<span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.00000</span>
+<span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>
+</pre></div>
+</div>
+<p>RocketCEA provides the function <cite>get_SpeciesMoleFractions</cite> that returns two dictionaries.
+One with with species molecular weights and one with the combustion species mole fractions.
+The user can specify equilibrium or frozen values.</p>
+<p>A Display of the contents of those two dictionaries is shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">ROCKETCEA</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24401</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.75598</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+<span class="o">=======================================================</span>
+   <span class="n">ROCKETCEA</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.03417</span>  <span class="mf">0.03417</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24832</span>  <span class="mf">0.24832</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.66590</span>  <span class="mf">0.66590</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00334</span>  <span class="mf">0.00334</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.04478</span>  <span class="mf">0.04478</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00345</span>  <span class="mf">0.00345</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+<span class="o">=======================================================</span>
+   <span class="n">ROCKETCEA</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.02810</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00002</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24538</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.68751</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00217</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.03446</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00236</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+<span class="o">=======================================================</span>
+</pre></div>
+</div>
+<p>The script that produces the above output is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">frozen</span><span class="p">,</span> <span class="n">frozenAtThroat</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]:</span>
+    <span class="n">molWtD</span><span class="p">,</span> <span class="n">moleFracD</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_SpeciesMoleFractions</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> 
+                                            <span class="n">frozen</span><span class="o">=</span><span class="n">frozen</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="n">frozenAtThroat</span> <span class="p">)</span>
+                                            
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   ROCKETCEA MOLE FRACTIONS (frozen=</span><span class="si">%i</span><span class="s1">, frozenAtThroat=</span><span class="si">%i</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">frozen</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="p">)</span>  <span class="p">)</span>
+    <span class="k">for</span> <span class="n">species</span><span class="p">,</span> <span class="n">mfL</span> <span class="ow">in</span> <span class="n">moleFracD</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;</span><span class="si">%7.5f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">mf</span> <span class="k">for</span> <span class="n">mf</span> <span class="ow">in</span> <span class="n">mfL</span> <span class="p">]</span> <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; </span><span class="si">%-15s</span><span class="s1"> &#39;</span><span class="o">%</span><span class="n">species</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;  MW=</span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">molWtD</span><span class="p">[</span><span class="n">species</span><span class="p">]</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">55</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="species-mass-fractions">
+<h1>Species Mass Fractions<a class="headerlink" href="#species-mass-fractions" title="Permalink to this headline">¶</a></h1>
+<p>If mass fractions are preferred, that can be obtained by calling the method
+<cite>get_SpeciesMassFractions</cite>.</p>
+<p>Modifying the above mole fraction script to
+return mass fractions is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">frozen</span><span class="p">,</span> <span class="n">frozenAtThroat</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]:</span>
+    <span class="n">molWtD</span><span class="p">,</span> <span class="n">massFracD</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_SpeciesMassFractions</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> 
+                                            <span class="n">frozen</span><span class="o">=</span><span class="n">frozen</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="n">frozenAtThroat</span> <span class="p">)</span>
+                                            
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   ROCKETCEA MASS FRACTIONS (frozen=</span><span class="si">%i</span><span class="s1">, frozenAtThroat=</span><span class="si">%i</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">frozen</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="p">)</span>  <span class="p">)</span>
+    <span class="k">for</span> <span class="n">species</span><span class="p">,</span> <span class="n">mfL</span> <span class="ow">in</span> <span class="n">massFracD</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;</span><span class="si">%7.5f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">mf</span> <span class="k">for</span> <span class="n">mf</span> <span class="ow">in</span> <span class="n">mfL</span> <span class="p">]</span> <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; </span><span class="si">%-15s</span><span class="s1"> &#39;</span><span class="o">%</span><span class="n">species</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;  MW=</span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">molWtD</span><span class="p">[</span><span class="n">species</span><span class="p">]</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">55</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This script produces the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">ROCKETCEA</span> <span class="n">MASS</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00208</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00004</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03636</span>  <span class="mf">0.03486</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.91033</span>  <span class="mf">0.96514</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00255</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.04308</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00555</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+<span class="o">=======================================================</span>
+   <span class="n">ROCKETCEA</span> <span class="n">MASS</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00256</span>  <span class="mf">0.00256</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00008</span>  <span class="mf">0.00008</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03720</span>  <span class="mf">0.03720</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.89139</span>  <span class="mf">0.89139</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00397</span>  <span class="mf">0.00397</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.05658</span>  <span class="mf">0.05658</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00820</span>  <span class="mf">0.00820</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+<span class="o">=======================================================</span>
+   <span class="n">ROCKETCEA</span> <span class="n">MASS</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00208</span>  <span class="mf">0.00208</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00004</span>  <span class="mf">0.00004</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03636</span>  <span class="mf">0.03636</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.91033</span>  <span class="mf">0.91033</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00255</span>  <span class="mf">0.00255</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.04308</span>  <span class="mf">0.04308</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00555</span>  <span class="mf">0.00555</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+<span class="o">=======================================================</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="engine_mr.html" title="Engine Mixture Ratio"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="simple_examples.html" title="Simple Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.6 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

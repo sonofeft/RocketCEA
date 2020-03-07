@@ -91,6 +91,11 @@ rocketcea/examples/cea_cstar_plot.png
 rocketcea/examples/cea_cstar_plot.py
 rocketcea/examples/cea_plot.png
 rocketcea/examples/cea_plot.py
+rocketcea/examples/chk_froz_mass_frac.py
+rocketcea/examples/chk_froz_mole_frac.py
+rocketcea/examples/chk_mass_frac.py
+rocketcea/examples/chk_mass_mole.py
+rocketcea/examples/chk_mole_frac.py
 rocketcea/examples/const_mass_frac.py
 rocketcea/examples/const_mass_frac1.png
 rocketcea/examples/const_mass_frac2.png
@@ -158,6 +163,7 @@ rocketcea/examples/Pexit/Pexit_7___carpet_IspSL_vs_eps_Pc_IspVac.png
 rocketcea/sphinx_html/.buildinfo
 rocketcea/sphinx_html/ambient_isp.html
 rocketcea/sphinx_html/authors.html
+rocketcea/sphinx_html/comb_species.html
 rocketcea/sphinx_html/copyright.html
 rocketcea/sphinx_html/engine_mr.html
 rocketcea/sphinx_html/functions.html
@@ -250,6 +256,7 @@ rocketcea/sphinx_html/_sources/ambient_isp.rst.txt
 rocketcea/sphinx_html/_sources/ambient_isp.txt
 rocketcea/sphinx_html/_sources/authors.rst.txt
 rocketcea/sphinx_html/_sources/authors.txt
+rocketcea/sphinx_html/_sources/comb_species.rst.txt
 rocketcea/sphinx_html/_sources/copyright.rst.txt
 rocketcea/sphinx_html/_sources/copyright.txt
 rocketcea/sphinx_html/_sources/engine_mr.rst.txt
@@ -410,6 +417,8 @@ rocketcea/sphinx_html/_static/example_scripts/cea_cstar_plot.py
 rocketcea/sphinx_html/_static/example_scripts/cea_plot.html
 rocketcea/sphinx_html/_static/example_scripts/cea_plot.png
 rocketcea/sphinx_html/_static/example_scripts/cea_plot.py
+rocketcea/sphinx_html/_static/example_scripts/chk_froz_mass_frac.py
+rocketcea/sphinx_html/_static/example_scripts/chk_froz_mole_frac.py
 rocketcea/sphinx_html/_static/example_scripts/const_mass_frac.py
 rocketcea/sphinx_html/_static/example_scripts/const_mass_frac1.png
 rocketcea/sphinx_html/_static/example_scripts/const_mass_frac2.png

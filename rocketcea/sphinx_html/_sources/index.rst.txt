@@ -26,6 +26,7 @@ Contents:
    std_examples
    traditional_example
    simple_examples
+   comb_species
    engine_mr
    propellant_select
    propellants

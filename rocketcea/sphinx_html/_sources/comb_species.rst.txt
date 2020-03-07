@@ -68,7 +68,7 @@ The script that produces the above output is:
 
 
 Species Mass Fractions
-----------------------
+======================
 
 If mass fractions are preferred, that can be obtained by calling the method
 `get_SpeciesMassFractions`. 

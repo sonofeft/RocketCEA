@@ -56,7 +56,6 @@
 <li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comb_species.html#species-mass-fractions">Species Mass Fractions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Propellants</a><ul>
@@ -257,9 +256,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>
 <h3>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this headline">¶</a></h3>
 <p>The performance of <a class="reference internal" href="hydrazine_mono.html#hydrazine-mono-link"><span class="std std-ref">Hydrazine Monopropellant</span></a> engines is driven by the amount of ammonia dissociation that
 the catalyst bed delivers. Any amount of ammonia dissociation can be run by calling out the <strong>propName</strong>
-as &quot;HYD&quot; + weight percent dissociation.</p>
-<p>Note that the CEA FORTRAN code has been modified to include &quot;Undissociated Ammonia (UA)&quot; as an exhaust product.
-The CEA input also includes an &quot;omit NH3&quot; statement to prevent normal NH3 calculations.</p>
+as “HYD” + weight percent dissociation.</p>
+<p>Note that the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
+The CEA input also includes an “omit NH3” statement to prevent normal NH3 calculations.</p>
 <p>The examples below call out 30, 40 and 50 percent ammonia dissociation.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD30&#39;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
@@ -299,7 +298,7 @@ The weight percentages are calculated based on the equilibrium equations above.<
 <h3>Peroxide + Water<a class="headerlink" href="#peroxide-water" title="Permalink to this headline">¶</a></h3>
 <p>Peroxide is often blended with water in order to enhance its stability and improve its safety.
 While the debate about an appropriate blend of Peroxide rages on, analyzing it with RocketCEA
-simply requires calling it out as &quot;Peroxide&quot; + weight percent Peroxide.
+simply requires calling it out as “Peroxide” + weight percent Peroxide.
 The examples below call out 90, 95 and 98 percent Peroxide:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide90&#39;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide95&#39;</span><span class="p">)</span>
@@ -311,7 +310,7 @@ The examples below call out 90, 95 and 98 percent Peroxide:</p>
 <div class="section" id="flox">
 <h3>FLOX<a class="headerlink" href="#flox" title="Permalink to this headline">¶</a></h3>
 <p>FLOX is a mixture of Fluorine and Oxygen.
-Call out the mixture as &quot;FLOX&quot; + weight percent of Fluorine.
+Call out the mixture as “FLOX” + weight percent of Fluorine.
 The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX60&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX70&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
