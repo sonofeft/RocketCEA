@@ -6,6 +6,11 @@ History
 
 GitHub Log
 ----------
+* Mar 6, 2020
+    - (by: sonofeft)
+        - Added combustion species for version 1.1.6
+        - examine species mass/mole fraction output
+        
 * Mar 4, 2020
     - (by: sonofeft)
         - version 1.1.4 adds thrust coefficient
