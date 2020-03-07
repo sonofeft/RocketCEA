@@ -1,0 +1,33 @@
+  
+ prob case=_______________5312 ro equilibrium
+  
+ # Pressure (1 value):
+ p,psia= 40
+ # Supersonic Area Ratio (1 value):
+ supar= 5
+  
+ # Oxidizer/Fuel Wt. ratio (20 values):
+ o/f= 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75
+ , 4, 4.25, 4.5, 4.75, 5
+  
+ # You selected the following fuels and oxidizers:
+ reac
+ fuel H2                wt%=100.0000
+ oxid O2                wt%=100.0000
+  
+ # You selected these options for output:
+ # short version of output
+ output short
+ # Proportions of any products will be expressed as Mass Fractions.
+ output massf
+ # Heat will be expressed as calories
+ output calories
+ # Transport properties calculated
+ output transport
+  
+  
+ # Input prepared by this script:prepareInputFile.cgi
+  
+ ### IMPORTANT:  The following line is the end of your CEA input file!
+ end
+

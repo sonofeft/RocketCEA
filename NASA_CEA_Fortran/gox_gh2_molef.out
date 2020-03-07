@@ -1,7 +1,7 @@
 
  *******************************************************************************
 
-         NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA, OCTOBER 18, 2002
+         NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA2, MAY 21, 2004
                    BY  BONNIE MCBRIDE AND SANFORD GORDON
       REFS: NASA RP-1311, PART I, 1994 AND NASA RP-1311, PART II, 1996
 
@@ -9,19 +9,35 @@
 
 
 
- reac
-  fuel H2(G)  H 2
-  h,cal=0.      t(k)=298.15       wt%=100.
-  oxid O2(G)  O 2
-  h,cal=0.      t(k)=298.15       wt%=100.
   
- prob case=GOX_/_GH2
-  rocket equilibrium   p,psia=40.000000,  supar=5.000000,
-  o/f=5.000000,
+  prob case=_______________5312 ro equilibrium
+  
+  # Pressure (1 value):
+  p,psia= 40
+  # Supersonic Area Ratio (1 value):
+  supar= 5
+  
+  # Oxidizer/Fuel Wt. ratio (20 values):
+  o/f= 5,
+  
+  # You selected the following fuels and oxidizers:
+  reac
+  fuel H2                wt%=100.0000
+  oxid O2                wt%=100.0000
+  
+  # You selected these options for output:
+  # short version of output
+  output short
+  # Heat will be expressed as calories
+  output calories
+  # Transport properties calculated
+  output transport
   
   
- output calories  short  transport
- end
+  # Input prepared by this script:prepareInputFile.cgi
+  
+  ### IMPORTANT:  The following line is the end of your CEA input file!
+  end
 
 
 
@@ -32,13 +48,13 @@
 
            COMPOSITION DURING EXPANSION FROM INFINITE AREA COMBUSTOR
 
- Pinj =    40.0 PSIA
- CASE = GOX_/_GH2      
+ Pin =    40.0 PSIA
+ CASE = _______________
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
                                           (SEE NOTE)      CAL/MOL       K  
- FUEL        H2(G)                        1.0000000         0.000    298.150
- OXIDANT     O2(G)                        1.0000000         0.000    298.150
+ FUEL        H2                           1.0000000         0.000      0.000
+ OXIDANT     O2                           1.0000000         0.000      0.000
 
  O/F=    5.00000  %FUEL= 16.666667  R,EQ.RATIO= 1.587337  PHI,EQ.RATIO= 1.587337
 
@@ -102,3 +118,4 @@
 
 
 
+  
