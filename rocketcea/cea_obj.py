@@ -356,6 +356,8 @@ class CEA_Obj(object):
         #: ERphi = Equivalence ratios in terms of fuel-to-oxidant weight ratios.
         #: ERr = Chemical equivalence ratios in terms of valences.
         #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
+        #: frozen flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         '''
 
         global _last_called, _NLines_Max_ever
@@ -538,6 +540,8 @@ class CEA_Obj(object):
         """
         Get the full output file created by CEA. Return as a string.
         #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
+        #: frozen flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         """
 
         # regardless of how run was set up, change makeOutput flag True
@@ -612,6 +616,7 @@ class CEA_Obj(object):
 
         #: Return the tuple (IspFrozen, Cstar, Tcomb).
         #: MR is only used for ox/fuel combos.
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         """
 
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=1, frozenAtThroat=frozenAtThroat)
@@ -809,6 +814,8 @@ class CEA_Obj(object):
         #: Return a list of temperatures at the chamber, throat and exit.
         #: (Note frozen flag determins whether Texit is equilibrium or Frozen temperature)
         #: MR is only used for ox/fuel combos.
+        #: frozen flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         """
         #self.setupCards( Pc=Pc, MR=MR, eps=eps)
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
@@ -851,6 +858,87 @@ class CEA_Obj(object):
         for i,h in enumerate( hList ):
             hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
         return hList
+
+    def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+        """::
+
+        #: Returns species mass fractions at the chamber, throat and exit.
+        #: MR is only used for ox/fuel combos.
+        #: frozen flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
+        #: Returns 2 dictionaries
+        #: molWtD dictionary: index=species: value=molecular weight
+        #: massFracD dictionary: index=species: value=[massfrac_chm, massfrac_tht, massfrac_exit]
+        """
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
+        
+        massFracD = {} # index=species: value=[massfrac_chm, massfrac_tht, massfrac_exit]
+        molWtD    = {} # index=species: value=molecular weight
+        for k,p in enumerate(py_cea.cdata.prod):
+            p = p.decode("utf-8").strip()
+            if p:
+                sL = []
+                mfL = []
+                gt_zero = False
+                for i in range(3):
+                    en = py_cea.comp.en[k-1,i]
+                    mw = py_cea.therm.mw[k-1]
+                    
+                    mfL.append( en*mw )
+                    if mfL[-1] >= 0.000005:
+                        gt_zero = True
+                
+                if gt_zero:
+                    if frozen:
+                        if frozenAtThroat:
+                            mfL = [ mfL[0], mfL[1], mfL[1] ]
+                        else:
+                            mfL = [ mfL[0], mfL[0], mfL[0] ]
+                            
+                    massFracD[p] = mfL
+                    molWtD[p] = mw
+        return molWtD, massFracD
+
+    def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+        """::
+
+        #: Returns species mole fractions at the chamber, throat and exit.
+        #: MR is only used for ox/fuel combos.
+        #: frozen flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
+        #: Returns 2 dictionaries
+        #: molWtD dictionary: index=species: value=molecular weight
+        #: moleFracD dictionary: index=species: value=[molefrac_chm, molefrac_tht, molefrac_exit]
+        """
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
+        
+        moleFracD = {} # index=species: value=[molefrac_chm, molefrac_tht, molefrac_exit]
+        molWtD    = {} # index=species: value=molecular weight
+        for k,p in enumerate(py_cea.cdata.prod):
+            p = p.decode("utf-8").strip()
+            if p:
+                sL = []
+                mfL = []
+                gt_zero = False
+                for i in range(3):
+                    en = py_cea.comp.en[k-1,i]
+                    totn = py_cea.prtout.totn[i]
+                    mw = py_cea.therm.mw[k-1]
+                    
+                    mfL.append( en/totn )
+                    if mfL[-1] >= 0.000005:
+                        gt_zero = True
+                
+                if gt_zero:
+                    if frozen:
+                        if frozenAtThroat:
+                            mfL = [ mfL[0], mfL[1], mfL[1] ]
+                        else:
+                            mfL = [ mfL[0], mfL[0], mfL[0] ]
+                    
+                    moleFracD[p] = mfL
+                    molWtD[p] = mw
+        return molWtD, moleFracD
 
     def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
@@ -904,6 +992,7 @@ class CEA_Obj(object):
 
         #: Return the heat capacity in the chamber.
         #: MR is only used for ox/fuel combos.
+        #: frozen flag (0=equilibrium, 1=frozen)
         """
         cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         return cpList[0] # BTU/lbm degR
@@ -1085,6 +1174,7 @@ class CEA_Obj(object):
         #: Return the Thrust Coefficient (CF) for frozen chemistry and ambient pressure
         #: Pamb ambient pressure (e.g. sea level=14.7 psia)
         #: MR is only used for ox/fuel combos.
+        #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         """
 
         IspAmb, mode = self.estimate_Ambient_Isp( Pc=Pc, MR=MR, eps=eps, Pamb=Pamb,

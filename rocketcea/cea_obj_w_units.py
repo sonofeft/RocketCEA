@@ -196,6 +196,19 @@ class CEA_Obj( object ):
             hList[i] = self.enthalpy_U.dval_to_uval( H )
         
         return hList
+    def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        
+        molWtD, massFracD = self.cea_obj.get_SpeciesMassFractions(Pc=Pc, MR=MR, eps=eps, 
+                                                          frozenAtThroat=frozenAtThroat)
+        return molWtD, massFracD
+
+    def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        
+        molWtD, moleFracD = self.cea_obj.get_SpeciesMoleFractions(Pc=Pc, MR=MR, eps=eps, 
+                                                            frozenAtThroat=frozenAtThroat)
+        return molWtD, moleFracD
         
     def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):
         
@@ -444,6 +457,9 @@ if __name__ == "__main__":
         
     chk_method('get_PambCf', **{'Pc':100.0, 'Pamb':14.7})
     chk_method('getFrozen_PambCf', **{'Pc':100.0, 'Pamb':14.7, 'frozenAtThroat':1})
-    
+
+    chk_method('get_SpeciesMassFractions',**{'Pc':100.0, 'frozen':1, 'frozenAtThroat':0})
+    chk_method('get_SpeciesMoleFractions',**{'Pc':100.0, 'frozen':0, 'frozenAtThroat':0})
+
     
     

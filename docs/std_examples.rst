@@ -52,7 +52,11 @@ Pc units can be specified with the input parameter **pc_units** as shown in the 
     s = ispObj.get_full_cea_output( Pc=68.046, MR=6.0, eps=40.0, short_output=1, pc_units='atm')
     s = ispObj.get_full_cea_output( Pc=51715., MR=6.0, eps=40.0, short_output=1, pc_units='mmh')
 
+
+.. _`std_examples_mole_frac_link`:
+
 The above script gives the standard output that a typical CEA run from the command prompt would give::
+
 
      *******************************************************************************
 
@@ -137,6 +141,7 @@ The above script gives the standard output that a typical CEA run from the comma
       * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
      NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
+
 
 
 Transport Properties

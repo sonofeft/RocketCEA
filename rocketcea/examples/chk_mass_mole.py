@@ -36,7 +36,7 @@ def main():
                 
                 sL.append( '%7.5f'%(en*mw,)   )
                 mfL.append( en*mw )
-                if en >= 0.00001:
+                if mfL[-1] >= 0.000005:
                     gt_zero = True
             
             
@@ -72,7 +72,7 @@ def main():
                 totn = py_cea.prtout.totn[i]
                 sL.append( '%7.5f'%(en/totn,)   )
                 mfL.append( en/totn )
-                if en >= 0.00001:
+                if mfL[-1] >= 0.000005:
                     gt_zero = True
             
             if gt_zero:
