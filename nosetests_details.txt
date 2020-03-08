@@ -23,11 +23,11 @@ CH4_m19028.6_536
 {Item #4} test__main__, 
 N2O4 / MMH    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  300.7426761517114
-Cstar =  1565.1337455713985
+Cstar =  5134.94536514745
 Tcomb =  3894.46684374972
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 4.3009076785690565
 
 Chamber Sonic Vel = 3827.3738798835257
@@ -38,11 +38,11 @@ Cp        = [0.56505063 0.55042961 2.24875335]
 
  ARC311    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  262.2952107623197
-Cstar =  1354.6308782575823
+Cstar =  4444.320218304993
 Tcomb =  3315.5078442007034
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 3.9276064348977338
 
 Chamber Sonic Vel = 3380.546149884455
@@ -57,26 +57,26 @@ reac
 
  N2O    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  197.55309076259832
-Cstar =  424.6254310914306
+Cstar =  1393.1259200539753
 Tcomb =  536.6700000118775
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
-Mach Number= 4.8397102500107145
+epsAtPcOvPe= 0.0
+Mach Number= 4.8397102500106035
 
 Chamber Sonic Vel = 1127.503758264017
-Enthalpies = [ 5.38038720e-14 -2.12008077e+01 -8.24076436e-02]
+Enthalpies = [ 5.38038721e-14 -2.12008077e+01 -8.24076436e-02]
 Densities = [5.09463061 3.22878887 0.00690394]
 Cp        = [0.23792361 0.23737434 0.23997598]
 =======================================
 
 LOX / H2    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  372.46984960878615
-Cstar =  2408.727687622576
+Cstar =  7902.637784443348
 Tcomb =  2308.172401427185
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 4.526836147589177
 
 Chamber Sonic Vel = 6167.195466526333
@@ -87,11 +87,11 @@ Cp        = [ 1.95897368  1.8998336  11.36325107]
 
 LOX / GH2_160    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  399.6013023721478
-Cstar =  2408.727687622576
+Cstar =  7902.637784443348
 Tcomb =  2308.172401427185
   at eps    = 30.0
 PcOvPe =  0.0
-epsAtPcOvPe= 40.0
+epsAtPcOvPe= 0.0
 Mach Number= 4.802488641009086
 
 Chamber Sonic Vel = 6167.195466526333
@@ -101,33 +101,33 @@ Cp        = [ 1.95897368  1.8998336  15.50658801]
 =======================================
 
 amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_amb_
-Pc= 100  eps=  2  IspAmb=    270.47 IspVac=    338.05  Mode=OverExpanded Pe=13.3665
-Pc= 100  eps=  5  IspAmb=    246.67 IspVac=    384.40  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps= 10  IspAmb=    241.86 IspVac=    410.58  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps= 20  IspAmb=    232.48 IspVac=    431.46  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps= 50  IspAmb=    205.72 IspVac=    452.84  Mode=Separated Psep=6.67866, epsSep=3.3
-Pc= 100  eps=100  IspAmb=    162.96 IspVac=    465.35  Mode=Separated Psep=6.67866, epsSep=3.3
+Pc= 100  eps=  2  IspAmb=    269.06 IspVac=    338.05  Mode=OverExpanded (Pe=13.3115)
+Pc= 100  eps=  5  IspAmb=    252.38 IspVac=    384.40  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps= 10  IspAmb=    248.67 IspVac=    410.58  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps= 20  IspAmb=    241.01 IspVac=    431.46  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps= 50  IspAmb=    216.63 IspVac=    452.84  Mode=Separated (Psep=6.67866, epsSep=3.25837)
+Pc= 100  eps=100  IspAmb=    174.11 IspVac=    465.35  Mode=Separated (Psep=6.67866, epsSep=3.25837)
   ---
-Pc= 500  eps=  2  IspAmb=    329.49 IspVac=    343.22  Mode=UnderExpanded Pe=65.9701
-Pc= 500  eps=  5  IspAmb=    354.85 IspVac=    389.09  Mode=UnderExpanded Pe=18.4544
-Pc= 500  eps= 10  IspAmb=    346.32 IspVac=    414.56  Mode=OverExpanded Pe=7.55456
-Pc= 500  eps= 20  IspAmb=    315.98 IspVac=    434.70  Mode=Separated Psep=4.84056, epsSep=14.3
-Pc= 500  eps= 50  IspAmb=    308.74 IspVac=    455.27  Mode=Separated Psep=4.84056, epsSep=14.3
-Pc= 500  eps=100  IspAmb=    298.17 IspVac=    467.30  Mode=Separated Psep=4.84056, epsSep=14.3
+Pc= 500  eps=  2  IspAmb=    329.17 IspVac=    343.22  Mode=UnderExpanded (Pe=65.3707)
+Pc= 500  eps=  5  IspAmb=    353.97 IspVac=    389.09  Mode=UnderExpanded (Pe=17.7524)
+Pc= 500  eps= 10  IspAmb=    344.34 IspVac=    414.56  Mode=OverExpanded (Pe=6.96516)
+Pc= 500  eps= 20  IspAmb=    327.65 IspVac=    434.70  Mode=Separated (Psep=4.84056, epsSep=14.255)
+Pc= 500  eps= 50  IspAmb=    325.47 IspVac=    455.27  Mode=Separated (Psep=4.84056, epsSep=14.255)
+Pc= 500  eps=100  IspAmb=    318.88 IspVac=    467.30  Mode=Separated (Psep=4.84056, epsSep=14.255)
   ---
-Pc=1500  eps=  2  IspAmb=    341.53 IspVac=    346.15  Mode=UnderExpanded Pe=196.01
-Pc=1500  eps=  5  IspAmb=    380.07 IspVac=    391.58  Mode=UnderExpanded Pe=54.4922
-Pc=1500  eps= 10  IspAmb=    393.68 IspVac=    416.61  Mode=UnderExpanded Pe=22.2087
-Pc=1500  eps= 20  IspAmb=    390.73 IspVac=    436.35  Mode=OverExpanded Pe=9.30993
-Pc=1500  eps= 50  IspAmb=    352.51 IspVac=    456.50  Mode=Separated Psep=3.88572, epsSep=40.7
-Pc=1500  eps=100  IspAmb=    342.26 IspVac=    468.29  Mode=Separated Psep=3.88572, epsSep=40.7
+Pc=1500  eps=  2  IspAmb=    341.42 IspVac=    346.15  Mode=UnderExpanded (Pe=193.502)
+Pc=1500  eps=  5  IspAmb=    379.75 IspVac=    391.58  Mode=UnderExpanded (Pe=51.9839)
+Pc=1500  eps= 10  IspAmb=    392.95 IspVac=    416.61  Mode=UnderExpanded (Pe=20.3069)
+Pc=1500  eps= 20  IspAmb=    389.03 IspVac=    436.35  Mode=OverExpanded (Pe=8.07225)
+Pc=1500  eps= 50  IspAmb=    369.34 IspVac=    456.50  Mode=Separated (Psep=3.88572, epsSep=40.7255)
+Pc=1500  eps=100  IspAmb=    363.58 IspVac=    468.29  Mode=Separated (Psep=3.88572, epsSep=40.7255)
   ---
-Pc=5000  eps=  2  IspAmb=    347.30 IspVac=    348.70  Mode=UnderExpanded Pe=646.167
-Pc=5000  eps=  5  IspAmb=    390.16 IspVac=    393.64  Mode=UnderExpanded Pe=178.36
-Pc=5000  eps= 10  IspAmb=    411.35 IspVac=    418.28  Mode=UnderExpanded Pe=72.3226
-Pc=5000  eps= 20  IspAmb=    423.90 IspVac=    437.68  Mode=UnderExpanded Pe=30.1669
-Pc=5000  eps= 50  IspAmb=    423.29 IspVac=    457.49  Mode=OverExpanded Pe=9.74591
-Pc=5000  eps=100  IspAmb=    401.12 IspVac=    469.09  Mode=OverExpanded Pe=4.20031
+Pc=5000  eps=  2  IspAmb=    347.27 IspVac=    348.70  Mode=UnderExpanded (Pe=635.853)
+Pc=5000  eps=  5  IspAmb=    390.06 IspVac=    393.64  Mode=UnderExpanded (Pe=169.396)
+Pc=5000  eps= 10  IspAmb=    411.11 IspVac=    418.28  Mode=UnderExpanded (Pe=66.0304)
+Pc=5000  eps= 20  IspAmb=    423.35 IspVac=    437.68  Mode=UnderExpanded (Pe=26.2442)
+Pc=5000  eps= 50  IspAmb=    421.66 IspVac=    457.49  Mode=OverExpanded (Pe=7.84522)
+Pc=5000  eps=100  IspAmb=    397.42 IspVac=    469.09  Mode=OverExpanded (Pe=3.14832)
   ---
 
 {Item #5} test_badFLOX888, 
@@ -183,30 +183,72 @@ CalcCstar(Gam,Temp,WtMol) 5356.956495962318
 ERROR unrecoverable in Goal.py
 returned an ERROR=1 from cren_goal in goalFind.py
 
-{Item #16} test_goal_func_bad_range, 
+{Item #16} test_cea_w_units__main__, 
+Chk: get_IvacCstrTc ALL GOOD:3 --> ['302.906', '5378.76', '4231.59']
+Chk: getFrozen_IvacCstrTc ALL GOOD:3 --> ['296.863', '5356.76', '4231.59']
+Chk: get_IvacCstrTc_exitMwGam ALL GOOD:5 --> ['302.906', '5378.76', '4231.59', '17.4208', '1.1199']
+Chk: get_IvacCstrTc_ChmMwGam ALL GOOD:5 --> ['302.906', '5378.76', '4231.59', '16.7247', '1.24802']
+Chk: get_IvacCstrTc_ThtMwGam ALL GOOD:5 --> ['302.906', '5378.76', '4231.59', '16.7434', '1.264']
+Chk: get_Isp ALL GOOD:1 --> ['302.906']
+Chk: get_Cstar ALL GOOD:1 --> ['5378.76']
+Chk: get_Tcomb ALL GOOD:1 --> ['4231.59']
+Chk: get_PcOvPe ALL GOOD:1 --> ['554.5']
+Chk: get_eps_at_PcOvPe ALL GOOD:1 --> ['40.0007']
+Chk: get_Throat_PcOvPe ALL GOOD:1 --> ['1.81151']
+Chk: get_MachNumber ALL GOOD:1 --> ['4.64055']
+Chk: get_Temperatures ALL GOOD:3 --> ['4231.59', '3752.65', '1272.19']
+Chk: get_SonicVelocities ALL GOOD:3 --> ['3962.32', '3753.06', '2016.5']
+Chk: get_Chamber_SonicVel ALL GOOD:1 --> ['3962.32']
+Chk: get_Enthalpies ALL GOOD:3 --> ['206.26', '-75.2243', '-1543.66']
+Chk: get_Chamber_H ALL GOOD:1 --> ['206.26']
+Chk: get_Densities ALL GOOD:3 --> ['0.0368287', '0.0229507', '0.000230116']
+Chk: get_Chamber_Density ALL GOOD:1 --> ['0.0368287']
+Chk: get_HeatCapacities ALL GOOD:3 --> ['0.618347', '0.574791', '2.75696']
+Chk: get_HeatCapacities ALL GOOD:3 --> ['0.562162', '0.550784', '0.435278']
+Chk: get_Chamber_Cp ALL GOOD:1 --> ['0.618347']
+Chk: get_Throat_Isp ALL GOOD:1 --> ['208.935']
+Chk: get_Chamber_MolWt_gamma ALL GOOD:2 --> ['16.7247', '1.24802']
+Chk: get_Throat_MolWt_gamma ALL GOOD:2 --> ['16.7434', '1.264']
+Chk: get_exit_MolWt_gamma ALL GOOD:2 --> ['17.4208', '1.1199']
+Chk: get_eqratio ALL GOOD:2 --> ['2.49641', '2.49641']
+Chk: getMRforER ALL GOOD:1 --> ['2.49641']
+Chk: get_description ALL GOOD:1 --> ['N2O4 / MMH']
+Chk: estimate_Ambient_Isp ALL GOOD:1 --> ['161.414']
+Chk: get_Chamber_Transport ALL GOOD:4 --> ['0.904777', 'nan', 'nan', 'nan']
+Chk: get_Chamber_Transport ALL GOOD:4 --> ['0.822566', 'nan', 'nan', 'nan']
+Chk: get_Throat_Transport ALL GOOD:4 --> ['0.843303', 'nan', 'nan', 'nan']
+Chk: get_Throat_Transport ALL GOOD:4 --> ['0.809198', 'nan', 'nan', 'nan']
+Chk: get_Exit_Transport ALL GOOD:4 --> ['6.89293', 'nan', 'nan', 'nan']
+Chk: get_Exit_Transport ALL GOOD:4 --> ['1.49793', 'nan', 'nan', 'nan']
+Chk: get_PambCf ALL GOOD:2 --> ['1.73974', '0.965525']
+Chk: getFrozen_PambCf ALL GOOD:2 --> ['1.73155', '0.982003']
+Chk: get_SpeciesMassFractions ALL GOOD:1 --> ["{'*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107, '*O': 15.9994, '*Si': 28.0855, 'SiH': 29.09344, 'SiO': 44.0849, 'SiO2': 60.0843, 'ALN(L)': 40.988238, 'AL2O3(a)': 101.961276, 'AL2O3(L)': 101.961276}"]
+Chk: get_SpeciesMoleFractions ALL GOOD:1 --> ["{'CH4': 0.0, '*CO': 0.0, '*CO2': 0.0, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107, '*O': 15.9994, '*Si': 28.0855, 'SiH': 29.09344, 'SiO': 44.0849, 'SiO2': 60.0843, 'ALN(L)': 40.988238, 'AL2O3(a)': 101.961276, 'AL2O3(L)': 101.961276}"]
+
+{Item #17} test_goal_func_bad_range, 
 returned an ERROR=1 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 2.6 2.9 FofX
 using X value= 2.9
 
-{Item #17} test_goal_func_early_terminate, 
+{Item #18} test_goal_func_early_terminate, 
 returned an ERROR=2 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
 using X value= 57.123
 
-{Item #18} test_goal_func_err, 
+{Item #19} test_goal_func_err, 
 ERROR unrecoverable in Goal.py
 returned an ERROR=1 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
 using X value= 57.123
 ERROR unrecoverable in Goal.py
 
-{Item #19} test_mr_t_limits__main__, 
+{Item #20} test_mr_t_limits__main__, 
 Stoich MR = 2.496405605692339 for N2O4/MMH
 
 Min MR = 0   Tc at Min MR = 2145.1178929460416
 Max MR = 53.5632   Tc at Max MR = 1000.0000131980624
 
-{Item #20} test_run_cea_w_error_corr__main__, 
+{Item #21} test_run_cea_w_error_corr__main__, 
 Searching....................._NOT_FOUND_
 Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
 Estimated CEA_Isp at Pc=100, MR=1, eps=40 ispODE374.303
@@ -238,7 +280,7 @@ isp_froz_est = 433.98817133764663
 
 Run All: 448.1902329983554 414.8125904013141 7210.171598261272 5787.742274248721
 
-{Item #21} test_separated_Cf__main__, 
+{Item #22} test_separated_Cf__main__, 
 saving data to CSV file separated_Noz.csv
 gam=1.25, epsTot=25, Pc=200, Pamb=14.7
 CfOvCfvacAtEsep, CfOvCfvac 0.7359305787100278 0.6648559059513175

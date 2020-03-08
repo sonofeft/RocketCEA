@@ -240,6 +240,19 @@ class MyTest(unittest.TestCase):
         finally:
             sys.argv = old_sys_argv
 
+    
+    def test_cea_w_units__main__(self):
+        old_sys_argv = list(sys.argv)
+        sys.argv = list(sys.argv)
+        sys.argv.append('suppress_show')
+        
+        try:
+            runpy = imp.load_source('__main__', os.path.join(up_one, 'cea_obj_w_units.py') )
+        except:
+            raise Exception('ERROR... failed in __main__ routine')
+        finally:
+            sys.argv = old_sys_argv
+
 
 if __name__ == '__main__':
     # Can test just this file from command prompt

@@ -530,6 +530,16 @@ class CEA_Obj(object):
             py_cea.trpts.cpfro[i] = 0.0  # frozen specific heat
             py_cea.trpts.confro[i] = 0.0 # frozen thermal conductivity
             py_cea.trpts.prfro[i] = 0.0  # frozen prandtl number
+        
+        # set species concentrations to 0.0 prior to calcs
+        for k,p in enumerate(py_cea.cdata.prod):
+            for i in range(3):
+                py_cea.comp.en[k-1,i] = 0.0
+                py_cea.therm.mw[k-1] = 0.0
+            if k>50:
+                break
+            
+            
         #print( 'calling py_cea with pathPrefix and myfile=' )
         #print( '"'+self.pathPrefix+'"',' and ', '"'+myfile+'"' )
         py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)

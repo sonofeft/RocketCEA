@@ -390,28 +390,39 @@ if __name__ == "__main__":
                 rL[i] = '%s'%v 
         return rL
     
-    def chk_method( mname,  **D ):
+    def chk_method( mname, max_chks=99,  **D ):
+        # get English unit results
         r1 = getattr(C, mname)( **D )
         
         if 'Pc' in D:
             D['Pc'] = D['Pc'] * 0.00689476 # change to MPa
+        if 'Pamb' in D:
+            D['Pamb'] = D['Pamb'] * 0.00689476 # change to MPa
+        # get Mpa results where Pc is equal to English run.
         r2 = getattr(Cmpa, mname)( **D )
         Ngood = 0
         Nbad = 0
         sL = []
         
+        # make lists of output values from english and Mpa runs
         r1L = make_a_list( r1 )
         r2L = make_a_list( r2 )
         
+        # check that both give same results
         for i,v in enumerate( r1L ):
+            if i>=max_chks:
+                break
             sL.append(v)
             if r1L[i] == r2L[i]:
                 Ngood += 1
             else:
                 Nbad += 1
+                
             
         if Nbad > 0:
             print( 'Chk:',mname, sL, 'Ngood=%i'%Ngood, ' NBAD=%i'%Nbad )
+            print( '   r1L',r1L )
+            print( '   r2L',r2L )
         else:
             print( 'Chk:',mname, 'ALL GOOD:%i -->'%Ngood, sL )
         
@@ -446,7 +457,7 @@ if __name__ == "__main__":
     chk_method('get_eqratio',**{'Pc':100.0})
     chk_method('getMRforER',**{'ERphi':1.0})
     chk_method('get_description')
-    chk_method('estimate_Ambient_Isp',**{'Pc':100.0, 'Pamb':14.7})
+    chk_method('estimate_Ambient_Isp', max_chks=1,**{'Pc':100.0, 'Pamb':14.7})
     chk_method('get_Chamber_Transport',**{'Pc':100.0, 'frozen':0})
     chk_method('get_Chamber_Transport',**{'Pc':100.0, 'frozen':1})
     
@@ -455,11 +466,11 @@ if __name__ == "__main__":
     chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':0})
     chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':1})
         
-    chk_method('get_PambCf', **{'Pc':100.0, 'Pamb':14.7})
-    chk_method('getFrozen_PambCf', **{'Pc':100.0, 'Pamb':14.7, 'frozenAtThroat':1})
+    chk_method('get_PambCf', max_chks=2, **{'Pc':100.0, 'Pamb':14.7})
+    chk_method('getFrozen_PambCf', max_chks=2, **{'Pc':100.0, 'Pamb':14.7, 'frozenAtThroat':1})
 
-    chk_method('get_SpeciesMassFractions',**{'Pc':100.0, 'frozen':1, 'frozenAtThroat':0})
-    chk_method('get_SpeciesMoleFractions',**{'Pc':100.0, 'frozen':0, 'frozenAtThroat':0})
+    chk_method('get_SpeciesMassFractions', max_chks=1,**{'Pc':100.0, 'frozen':1, 'frozenAtThroat':0})
+    chk_method('get_SpeciesMoleFractions', max_chks=1,**{'Pc':100.0, 'frozen':0, 'frozenAtThroat':0})
 
     
     
