@@ -6,6 +6,14 @@ History
 
 GitHub Log
 ----------
+* Mar 10, 2020
+    - (by: sonofeft)
+        - version 1.1.7 with some minor changes
+        
+* Mar 8, 2020
+    - (by: sonofeft)
+        - updated unit testing
+
 * Mar 6, 2020
     - (by: sonofeft)
         - update history

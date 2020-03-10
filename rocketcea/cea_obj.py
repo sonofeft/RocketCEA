@@ -859,11 +859,11 @@ class CEA_Obj(object):
     def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
         """::
 
-        #: Return a list of enthalpies at the chamber, throat and exit.
+        #: Return a list of enthalpies at the chamber, throat and exit in BTU/lbm
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
-        # convert from m/sec into ft/sec
+        
         hList =  py_cea.prtout.hsum[:3]
         for i,h in enumerate( hList ):
             hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
@@ -953,7 +953,7 @@ class CEA_Obj(object):
     def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: Return the enthalpy in the chamber.
+        #: Return the enthalpy in the chamber in BTU/lbm
         #: MR is only used for ox/fuel combos.
         """
         hList = self.get_Enthalpies( Pc=Pc, MR=MR, eps=eps)

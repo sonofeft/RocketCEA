@@ -1,0 +1,677 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <title>Coverage for rocketcea\input_cards.py: 100%</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="jquery.isonscreen.js"></script>
+    <script type="text/javascript" src="coverage_html.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(coverage.pyfile_ready);
+    </script>
+</head>
+<body class="pyfile">
+
+<div id="header">
+    <div class="content">
+        <h1>Coverage for <b>rocketcea\input_cards.py</b> :
+            <span class="pc_cov">100%</span>
+        </h1>
+
+        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+
+        <h2 class="stats">
+            11 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">11 run</span>
+            <span class="mis shortkey_m button_toggle_mis">0 missing</span>
+            <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
+
+            
+        </h2>
+    </div>
+</div>
+
+<div class="help_panel">
+    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
+    <p class="legend">Hot-keys on this page</p>
+    <div>
+    <p class="keyhelp">
+        <span class="key">r</span>
+        <span class="key">m</span>
+        <span class="key">x</span>
+        <span class="key">p</span> &nbsp; toggle line displays
+    </p>
+    <p class="keyhelp">
+        <span class="key">j</span>
+        <span class="key">k</span> &nbsp; next/prev highlighted chunk
+    </p>
+    <p class="keyhelp">
+        <span class="key">0</span> &nbsp; (zero) top of page
+    </p>
+    <p class="keyhelp">
+        <span class="key">1</span> &nbsp; (one) first highlighted chunk
+    </p>
+    </div>
+</div>
+
+<div id="source">
+    <table>
+        <tr>
+            <td class="linenos">
+<p id="n1" class="pln"><a href="#n1">1</a></p>
+<p id="n2" class="pln"><a href="#n2">2</a></p>
+<p id="n3" class="pln"><a href="#n3">3</a></p>
+<p id="n4" class="pln"><a href="#n4">4</a></p>
+<p id="n5" class="pln"><a href="#n5">5</a></p>
+<p id="n6" class="pln"><a href="#n6">6</a></p>
+<p id="n7" class="pln"><a href="#n7">7</a></p>
+<p id="n8" class="pln"><a href="#n8">8</a></p>
+<p id="n9" class="pln"><a href="#n9">9</a></p>
+<p id="n10" class="pln"><a href="#n10">10</a></p>
+<p id="n11" class="pln"><a href="#n11">11</a></p>
+<p id="n12" class="stm run hide_run"><a href="#n12">12</a></p>
+<p id="n13" class="pln"><a href="#n13">13</a></p>
+<p id="n14" class="pln"><a href="#n14">14</a></p>
+<p id="n15" class="pln"><a href="#n15">15</a></p>
+<p id="n16" class="pln"><a href="#n16">16</a></p>
+<p id="n17" class="pln"><a href="#n17">17</a></p>
+<p id="n18" class="pln"><a href="#n18">18</a></p>
+<p id="n19" class="pln"><a href="#n19">19</a></p>
+<p id="n20" class="pln"><a href="#n20">20</a></p>
+<p id="n21" class="pln"><a href="#n21">21</a></p>
+<p id="n22" class="pln"><a href="#n22">22</a></p>
+<p id="n23" class="pln"><a href="#n23">23</a></p>
+<p id="n24" class="pln"><a href="#n24">24</a></p>
+<p id="n25" class="pln"><a href="#n25">25</a></p>
+<p id="n26" class="pln"><a href="#n26">26</a></p>
+<p id="n27" class="pln"><a href="#n27">27</a></p>
+<p id="n28" class="pln"><a href="#n28">28</a></p>
+<p id="n29" class="pln"><a href="#n29">29</a></p>
+<p id="n30" class="pln"><a href="#n30">30</a></p>
+<p id="n31" class="pln"><a href="#n31">31</a></p>
+<p id="n32" class="pln"><a href="#n32">32</a></p>
+<p id="n33" class="pln"><a href="#n33">33</a></p>
+<p id="n34" class="pln"><a href="#n34">34</a></p>
+<p id="n35" class="pln"><a href="#n35">35</a></p>
+<p id="n36" class="pln"><a href="#n36">36</a></p>
+<p id="n37" class="pln"><a href="#n37">37</a></p>
+<p id="n38" class="pln"><a href="#n38">38</a></p>
+<p id="n39" class="pln"><a href="#n39">39</a></p>
+<p id="n40" class="pln"><a href="#n40">40</a></p>
+<p id="n41" class="pln"><a href="#n41">41</a></p>
+<p id="n42" class="pln"><a href="#n42">42</a></p>
+<p id="n43" class="pln"><a href="#n43">43</a></p>
+<p id="n44" class="pln"><a href="#n44">44</a></p>
+<p id="n45" class="pln"><a href="#n45">45</a></p>
+<p id="n46" class="pln"><a href="#n46">46</a></p>
+<p id="n47" class="pln"><a href="#n47">47</a></p>
+<p id="n48" class="pln"><a href="#n48">48</a></p>
+<p id="n49" class="pln"><a href="#n49">49</a></p>
+<p id="n50" class="pln"><a href="#n50">50</a></p>
+<p id="n51" class="pln"><a href="#n51">51</a></p>
+<p id="n52" class="pln"><a href="#n52">52</a></p>
+<p id="n53" class="pln"><a href="#n53">53</a></p>
+<p id="n54" class="pln"><a href="#n54">54</a></p>
+<p id="n55" class="pln"><a href="#n55">55</a></p>
+<p id="n56" class="pln"><a href="#n56">56</a></p>
+<p id="n57" class="pln"><a href="#n57">57</a></p>
+<p id="n58" class="pln"><a href="#n58">58</a></p>
+<p id="n59" class="pln"><a href="#n59">59</a></p>
+<p id="n60" class="pln"><a href="#n60">60</a></p>
+<p id="n61" class="pln"><a href="#n61">61</a></p>
+<p id="n62" class="pln"><a href="#n62">62</a></p>
+<p id="n63" class="pln"><a href="#n63">63</a></p>
+<p id="n64" class="pln"><a href="#n64">64</a></p>
+<p id="n65" class="pln"><a href="#n65">65</a></p>
+<p id="n66" class="pln"><a href="#n66">66</a></p>
+<p id="n67" class="pln"><a href="#n67">67</a></p>
+<p id="n68" class="pln"><a href="#n68">68</a></p>
+<p id="n69" class="pln"><a href="#n69">69</a></p>
+<p id="n70" class="pln"><a href="#n70">70</a></p>
+<p id="n71" class="pln"><a href="#n71">71</a></p>
+<p id="n72" class="pln"><a href="#n72">72</a></p>
+<p id="n73" class="pln"><a href="#n73">73</a></p>
+<p id="n74" class="pln"><a href="#n74">74</a></p>
+<p id="n75" class="pln"><a href="#n75">75</a></p>
+<p id="n76" class="pln"><a href="#n76">76</a></p>
+<p id="n77" class="pln"><a href="#n77">77</a></p>
+<p id="n78" class="pln"><a href="#n78">78</a></p>
+<p id="n79" class="pln"><a href="#n79">79</a></p>
+<p id="n80" class="pln"><a href="#n80">80</a></p>
+<p id="n81" class="pln"><a href="#n81">81</a></p>
+<p id="n82" class="pln"><a href="#n82">82</a></p>
+<p id="n83" class="pln"><a href="#n83">83</a></p>
+<p id="n84" class="pln"><a href="#n84">84</a></p>
+<p id="n85" class="pln"><a href="#n85">85</a></p>
+<p id="n86" class="pln"><a href="#n86">86</a></p>
+<p id="n87" class="pln"><a href="#n87">87</a></p>
+<p id="n88" class="pln"><a href="#n88">88</a></p>
+<p id="n89" class="pln"><a href="#n89">89</a></p>
+<p id="n90" class="pln"><a href="#n90">90</a></p>
+<p id="n91" class="pln"><a href="#n91">91</a></p>
+<p id="n92" class="pln"><a href="#n92">92</a></p>
+<p id="n93" class="pln"><a href="#n93">93</a></p>
+<p id="n94" class="pln"><a href="#n94">94</a></p>
+<p id="n95" class="pln"><a href="#n95">95</a></p>
+<p id="n96" class="stm run hide_run"><a href="#n96">96</a></p>
+<p id="n97" class="pln"><a href="#n97">97</a></p>
+<p id="n98" class="pln"><a href="#n98">98</a></p>
+<p id="n99" class="pln"><a href="#n99">99</a></p>
+<p id="n100" class="pln"><a href="#n100">100</a></p>
+<p id="n101" class="pln"><a href="#n101">101</a></p>
+<p id="n102" class="pln"><a href="#n102">102</a></p>
+<p id="n103" class="pln"><a href="#n103">103</a></p>
+<p id="n104" class="pln"><a href="#n104">104</a></p>
+<p id="n105" class="pln"><a href="#n105">105</a></p>
+<p id="n106" class="pln"><a href="#n106">106</a></p>
+<p id="n107" class="pln"><a href="#n107">107</a></p>
+<p id="n108" class="pln"><a href="#n108">108</a></p>
+<p id="n109" class="pln"><a href="#n109">109</a></p>
+<p id="n110" class="pln"><a href="#n110">110</a></p>
+<p id="n111" class="pln"><a href="#n111">111</a></p>
+<p id="n112" class="pln"><a href="#n112">112</a></p>
+<p id="n113" class="pln"><a href="#n113">113</a></p>
+<p id="n114" class="pln"><a href="#n114">114</a></p>
+<p id="n115" class="pln"><a href="#n115">115</a></p>
+<p id="n116" class="pln"><a href="#n116">116</a></p>
+<p id="n117" class="pln"><a href="#n117">117</a></p>
+<p id="n118" class="pln"><a href="#n118">118</a></p>
+<p id="n119" class="pln"><a href="#n119">119</a></p>
+<p id="n120" class="pln"><a href="#n120">120</a></p>
+<p id="n121" class="pln"><a href="#n121">121</a></p>
+<p id="n122" class="pln"><a href="#n122">122</a></p>
+<p id="n123" class="pln"><a href="#n123">123</a></p>
+<p id="n124" class="pln"><a href="#n124">124</a></p>
+<p id="n125" class="pln"><a href="#n125">125</a></p>
+<p id="n126" class="pln"><a href="#n126">126</a></p>
+<p id="n127" class="pln"><a href="#n127">127</a></p>
+<p id="n128" class="pln"><a href="#n128">128</a></p>
+<p id="n129" class="pln"><a href="#n129">129</a></p>
+<p id="n130" class="pln"><a href="#n130">130</a></p>
+<p id="n131" class="pln"><a href="#n131">131</a></p>
+<p id="n132" class="pln"><a href="#n132">132</a></p>
+<p id="n133" class="pln"><a href="#n133">133</a></p>
+<p id="n134" class="pln"><a href="#n134">134</a></p>
+<p id="n135" class="pln"><a href="#n135">135</a></p>
+<p id="n136" class="pln"><a href="#n136">136</a></p>
+<p id="n137" class="pln"><a href="#n137">137</a></p>
+<p id="n138" class="pln"><a href="#n138">138</a></p>
+<p id="n139" class="pln"><a href="#n139">139</a></p>
+<p id="n140" class="pln"><a href="#n140">140</a></p>
+<p id="n141" class="pln"><a href="#n141">141</a></p>
+<p id="n142" class="pln"><a href="#n142">142</a></p>
+<p id="n143" class="pln"><a href="#n143">143</a></p>
+<p id="n144" class="pln"><a href="#n144">144</a></p>
+<p id="n145" class="pln"><a href="#n145">145</a></p>
+<p id="n146" class="pln"><a href="#n146">146</a></p>
+<p id="n147" class="pln"><a href="#n147">147</a></p>
+<p id="n148" class="pln"><a href="#n148">148</a></p>
+<p id="n149" class="pln"><a href="#n149">149</a></p>
+<p id="n150" class="pln"><a href="#n150">150</a></p>
+<p id="n151" class="pln"><a href="#n151">151</a></p>
+<p id="n152" class="pln"><a href="#n152">152</a></p>
+<p id="n153" class="pln"><a href="#n153">153</a></p>
+<p id="n154" class="pln"><a href="#n154">154</a></p>
+<p id="n155" class="pln"><a href="#n155">155</a></p>
+<p id="n156" class="pln"><a href="#n156">156</a></p>
+<p id="n157" class="pln"><a href="#n157">157</a></p>
+<p id="n158" class="pln"><a href="#n158">158</a></p>
+<p id="n159" class="pln"><a href="#n159">159</a></p>
+<p id="n160" class="pln"><a href="#n160">160</a></p>
+<p id="n161" class="pln"><a href="#n161">161</a></p>
+<p id="n162" class="pln"><a href="#n162">162</a></p>
+<p id="n163" class="pln"><a href="#n163">163</a></p>
+<p id="n164" class="pln"><a href="#n164">164</a></p>
+<p id="n165" class="pln"><a href="#n165">165</a></p>
+<p id="n166" class="pln"><a href="#n166">166</a></p>
+<p id="n167" class="pln"><a href="#n167">167</a></p>
+<p id="n168" class="pln"><a href="#n168">168</a></p>
+<p id="n169" class="pln"><a href="#n169">169</a></p>
+<p id="n170" class="pln"><a href="#n170">170</a></p>
+<p id="n171" class="pln"><a href="#n171">171</a></p>
+<p id="n172" class="pln"><a href="#n172">172</a></p>
+<p id="n173" class="pln"><a href="#n173">173</a></p>
+<p id="n174" class="pln"><a href="#n174">174</a></p>
+<p id="n175" class="pln"><a href="#n175">175</a></p>
+<p id="n176" class="pln"><a href="#n176">176</a></p>
+<p id="n177" class="pln"><a href="#n177">177</a></p>
+<p id="n178" class="pln"><a href="#n178">178</a></p>
+<p id="n179" class="pln"><a href="#n179">179</a></p>
+<p id="n180" class="pln"><a href="#n180">180</a></p>
+<p id="n181" class="pln"><a href="#n181">181</a></p>
+<p id="n182" class="pln"><a href="#n182">182</a></p>
+<p id="n183" class="pln"><a href="#n183">183</a></p>
+<p id="n184" class="pln"><a href="#n184">184</a></p>
+<p id="n185" class="pln"><a href="#n185">185</a></p>
+<p id="n186" class="pln"><a href="#n186">186</a></p>
+<p id="n187" class="pln"><a href="#n187">187</a></p>
+<p id="n188" class="stm run hide_run"><a href="#n188">188</a></p>
+<p id="n189" class="pln"><a href="#n189">189</a></p>
+<p id="n190" class="pln"><a href="#n190">190</a></p>
+<p id="n191" class="stm run hide_run"><a href="#n191">191</a></p>
+<p id="n192" class="pln"><a href="#n192">192</a></p>
+<p id="n193" class="pln"><a href="#n193">193</a></p>
+<p id="n194" class="pln"><a href="#n194">194</a></p>
+<p id="n195" class="pln"><a href="#n195">195</a></p>
+<p id="n196" class="pln"><a href="#n196">196</a></p>
+<p id="n197" class="stm run hide_run"><a href="#n197">197</a></p>
+<p id="n198" class="pln"><a href="#n198">198</a></p>
+<p id="n199" class="pln"><a href="#n199">199</a></p>
+<p id="n200" class="pln"><a href="#n200">200</a></p>
+<p id="n201" class="pln"><a href="#n201">201</a></p>
+<p id="n202" class="stm run hide_run"><a href="#n202">202</a></p>
+<p id="n203" class="pln"><a href="#n203">203</a></p>
+<p id="n204" class="pln"><a href="#n204">204</a></p>
+<p id="n205" class="pln"><a href="#n205">205</a></p>
+<p id="n206" class="pln"><a href="#n206">206</a></p>
+<p id="n207" class="stm run hide_run"><a href="#n207">207</a></p>
+<p id="n208" class="pln"><a href="#n208">208</a></p>
+<p id="n209" class="pln"><a href="#n209">209</a></p>
+<p id="n210" class="pln"><a href="#n210">210</a></p>
+<p id="n211" class="pln"><a href="#n211">211</a></p>
+<p id="n212" class="pln"><a href="#n212">212</a></p>
+<p id="n213" class="stm run hide_run"><a href="#n213">213</a></p>
+<p id="n214" class="pln"><a href="#n214">214</a></p>
+<p id="n215" class="pln"><a href="#n215">215</a></p>
+<p id="n216" class="pln"><a href="#n216">216</a></p>
+<p id="n217" class="pln"><a href="#n217">217</a></p>
+<p id="n218" class="pln"><a href="#n218">218</a></p>
+<p id="n219" class="pln"><a href="#n219">219</a></p>
+<p id="n220" class="stm run hide_run"><a href="#n220">220</a></p>
+<p id="n221" class="pln"><a href="#n221">221</a></p>
+<p id="n222" class="stm run hide_run"><a href="#n222">222</a></p>
+<p id="n223" class="pln"><a href="#n223">223</a></p>
+<p id="n224" class="pln"><a href="#n224">224</a></p>
+<p id="n225" class="pln"><a href="#n225">225</a></p>
+<p id="n226" class="pln"><a href="#n226">226</a></p>
+<p id="n227" class="stm run hide_run"><a href="#n227">227</a></p>
+<p id="n228" class="pln"><a href="#n228">228</a></p>
+<p id="n229" class="pln"><a href="#n229">229</a></p>
+<p id="n230" class="pln"><a href="#n230">230</a></p>
+<p id="n231" class="pln"><a href="#n231">231</a></p>
+<p id="n232" class="pln"><a href="#n232">232</a></p>
+<p id="n233" class="pln"><a href="#n233">233</a></p>
+<p id="n234" class="pln"><a href="#n234">234</a></p>
+<p id="n235" class="pln"><a href="#n235">235</a></p>
+<p id="n236" class="pln"><a href="#n236">236</a></p>
+<p id="n237" class="pln"><a href="#n237">237</a></p>
+<p id="n238" class="pln"><a href="#n238">238</a></p>
+<p id="n239" class="pln"><a href="#n239">239</a></p>
+<p id="n240" class="pln"><a href="#n240">240</a></p>
+<p id="n241" class="pln"><a href="#n241">241</a></p>
+<p id="n242" class="pln"><a href="#n242">242</a></p>
+<p id="n243" class="pln"><a href="#n243">243</a></p>
+<p id="n244" class="pln"><a href="#n244">244</a></p>
+<p id="n245" class="pln"><a href="#n245">245</a></p>
+<p id="n246" class="pln"><a href="#n246">246</a></p>
+<p id="n247" class="pln"><a href="#n247">247</a></p>
+<p id="n248" class="pln"><a href="#n248">248</a></p>
+<p id="n249" class="pln"><a href="#n249">249</a></p>
+<p id="n250" class="pln"><a href="#n250">250</a></p>
+<p id="n251" class="pln"><a href="#n251">251</a></p>
+<p id="n252" class="pln"><a href="#n252">252</a></p>
+<p id="n253" class="pln"><a href="#n253">253</a></p>
+<p id="n254" class="pln"><a href="#n254">254</a></p>
+<p id="n255" class="pln"><a href="#n255">255</a></p>
+<p id="n256" class="pln"><a href="#n256">256</a></p>
+<p id="n257" class="pln"><a href="#n257">257</a></p>
+<p id="n258" class="pln"><a href="#n258">258</a></p>
+<p id="n259" class="pln"><a href="#n259">259</a></p>
+<p id="n260" class="pln"><a href="#n260">260</a></p>
+<p id="n261" class="pln"><a href="#n261">261</a></p>
+<p id="n262" class="pln"><a href="#n262">262</a></p>
+<p id="n263" class="pln"><a href="#n263">263</a></p>
+<p id="n264" class="pln"><a href="#n264">264</a></p>
+<p id="n265" class="pln"><a href="#n265">265</a></p>
+<p id="n266" class="pln"><a href="#n266">266</a></p>
+<p id="n267" class="pln"><a href="#n267">267</a></p>
+<p id="n268" class="pln"><a href="#n268">268</a></p>
+<p id="n269" class="pln"><a href="#n269">269</a></p>
+<p id="n270" class="pln"><a href="#n270">270</a></p>
+<p id="n271" class="pln"><a href="#n271">271</a></p>
+<p id="n272" class="pln"><a href="#n272">272</a></p>
+<p id="n273" class="pln"><a href="#n273">273</a></p>
+<p id="n274" class="pln"><a href="#n274">274</a></p>
+<p id="n275" class="pln"><a href="#n275">275</a></p>
+<p id="n276" class="pln"><a href="#n276">276</a></p>
+<p id="n277" class="pln"><a href="#n277">277</a></p>
+<p id="n278" class="pln"><a href="#n278">278</a></p>
+<p id="n279" class="pln"><a href="#n279">279</a></p>
+<p id="n280" class="pln"><a href="#n280">280</a></p>
+<p id="n281" class="pln"><a href="#n281">281</a></p>
+<p id="n282" class="pln"><a href="#n282">282</a></p>
+<p id="n283" class="pln"><a href="#n283">283</a></p>
+<p id="n284" class="pln"><a href="#n284">284</a></p>
+<p id="n285" class="pln"><a href="#n285">285</a></p>
+<p id="n286" class="pln"><a href="#n286">286</a></p>
+<p id="n287" class="pln"><a href="#n287">287</a></p>
+<p id="n288" class="pln"><a href="#n288">288</a></p>
+<p id="n289" class="pln"><a href="#n289">289</a></p>
+<p id="n290" class="pln"><a href="#n290">290</a></p>
+<p id="n291" class="pln"><a href="#n291">291</a></p>
+<p id="n292" class="pln"><a href="#n292">292</a></p>
+<p id="n293" class="pln"><a href="#n293">293</a></p>
+<p id="n294" class="pln"><a href="#n294">294</a></p>
+
+            </td>
+            <td class="text">
+<p id="t1" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t2" class="pln"><span class="com">#  ==== Use convention of ending with (G) for gaseous propellants, O2(G), CH4(G), etc.</span><span class="strut">&nbsp;</span></p>
+<p id="t3" class="pln"><span class="com">#  NOTE !!!!! xxx(G) will be Changed to Gxxx &lt;========= !!!!!!!!</span><span class="strut">&nbsp;</span></p>
+<p id="t4" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
+<p id="t5" class="pln"><span class="com"># cards are an index to either a string or a list of strings</span><span class="strut">&nbsp;</span></p>
+<p id="t6" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
+<p id="t7" class="pln"><span class="com">#  Heats of formation in CEA thermo.inp file are in Joules</span><span class="strut">&nbsp;</span></p>
+<p id="t8" class="pln"><span class="com">#    Multiply by 0.238846 to convert into cal</span><span class="strut">&nbsp;</span></p>
+<p id="t9" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="pln"><span class="com"># !!! MAKE SURE LINES HAVE A SPACE ON THE END !!!</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t12" class="stm run hide_run"><span class="nam">oxCards</span> <span class="op">=</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="pln">        <span class="str">"AIR"</span>  <span class="op">:</span><span class="op">[</span><span class="str">"oxid Air    wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="pln">                  <span class="str">" h,cal=-28.2     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t15" class="pln">        <span class="str">"AIRSIMP"</span> <span class="op">:</span><span class="op">[</span><span class="str">" oxid AIRSIMP  N 1.5622 O .4192 Ar .0093 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="pln">                <span class="str">" h,cal=0.     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="pln">        <span class="str">"CLF5"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid CLF5(L)   CL 1 F 5   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t18" class="pln">                  <span class="str">" h,cal=-60500.0     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t19" class="pln">        <span class="str">"CLF3"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid CLF3(L)   CL 1 F 3   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t20" class="pln">                  <span class="str">" h,cal=-45680.0     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="pln">        <span class="str">"OF2"</span><span class="op">:</span> <span class="op">[</span><span class="str">" oxid OF2(L)  O 1 F 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t22" class="pln">                 <span class="str">" h,cal=2524.      t(k)=167.0       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="pln">        <span class="str">"N2H4"</span> <span class="op">:</span><span class="op">[</span><span class="str">" oxid N2H4(L)  N 2 H 4    wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t24" class="pln">                <span class="str">" h,cal=12100.0     t(k)=298.15   rho=1.0036 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="pln">        <span class="str">"N2F4"</span><span class="op">:</span> <span class="op">[</span><span class="str">" oxid N2F4(L)  N 2 F 4  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t26" class="pln">                 <span class="str">" h,cal=-5200.0      t(k)=199.0       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t27" class="pln">        <span class="str">"F2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" oxid F2(L)  F 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t28" class="pln">                 <span class="str">" h,cal=-3098.      t(k)=82.02       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t29" class="pln">        <span class="str">"O2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" oxid O2(L)  O 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t30" class="pln">                 <span class="str">" h,cal=-3102.      t(k)=90.18       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t31" class="pln">        <span class="str">"LO2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" oxid O2(L)  O 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t32" class="pln">                 <span class="str">" h,cal=-3102.      t(k)=90.18       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t33" class="pln">        <span class="str">"LOX"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" oxid O2(L)  O 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="pln">                 <span class="str">" h,cal=-3102.      t(k)=90.18       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="pln">        <span class="str">"GOX"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" oxid O2(G)  O 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t36" class="pln">                 <span class="str">" h,cal=0.      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t37" class="pln">        <span class="str">"GO2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" oxid O2(G)  O 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t38" class="pln">                 <span class="str">" h,cal=0.      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t39" class="pln">        <span class="str">"MON3"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid N2O4(L)   N 2 O 4   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t40" class="pln">                  <span class="str">" h,cal=-4676.0     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t41" class="pln">        <span class="str">"N2O4"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid N2O4(L)   N 2 O 4   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t42" class="pln">                  <span class="str">" h,cal=-4676.0     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t43" class="pln">        <span class="str">"N2O3"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid N2O3(L)   N 2 O 3   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t44" class="pln">                  <span class="str">" h,cal=12020.7     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t45" class="pln">        <span class="str">"MON15"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid N2O4(L)   N 2 O 4   wt%=62.01 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t46" class="pln">                  <span class="str">" h,cal=-4676.0     t(k)=298.15    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t47" class="pln">                  <span class="str">" oxid N2O3   N 2 O 3   wt%=37.99 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t48" class="pln">                  <span class="str">" h,cal=12020.7     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t49" class="pln">        <span class="str">"MON25"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid N2O4(L)   N 2 O 4   wt%=36.67 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t50" class="pln">                  <span class="str">" h,cal=-4676.0     t(k)=298.15    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t51" class="pln">                  <span class="str">" oxid N2O3   N 2 O 3   wt%=63.33 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t52" class="pln">                  <span class="str">" h,cal=12020.7     t(k)=298.15   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t53" class="pln">        <span class="str">"N2O"</span>   <span class="op">:</span><span class="op">[</span><span class="str">" oxid NitrousOxide  N 2.0 O 1.0  wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t54" class="pln">                  <span class="str">" h,cal= 19467.0 t(k)=298.15 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t55" class="pln">        <span class="str">"N2O_nbp"</span>   <span class="op">:</span><span class="op">[</span><span class="str">" oxid NitrousOxide  N 2.0 O 1.0  wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t56" class="pln">                  <span class="str">" h,cal= 14583.0 t(k)=184.4 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t57" class="pln">        <span class="str">"HNO3"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid HNO3(L) H 1 N 1 O 3   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t58" class="pln">                  <span class="str">" h,cal=-42460.0     t(k)=298.15  rho.g/cc=1.5027 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t59" class="pln">        <span class="str">"IRFNA"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid IRFNA  H 1.57216 N 1.62945 O 4.69505 F 0.02499   wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t60" class="pln">                  <span class="str">" h,cal=-64860.0     t(k)=298.15  rho.g/cc=1.48 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t61" class="pln">        <span class="str">"H2O2"</span>  <span class="op">:</span><span class="op">[</span><span class="str">" oxid H2O2(L) H 2 O 2  wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t62" class="pln">                  <span class="str">" h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t63" class="pln">        <span class="str">"H2O"</span><span class="op">:</span><span class="op">[</span><span class="str">"oxid water H 2.0 O 1.0  wt%=100.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t64" class="pln">               <span class="str">"h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998  "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t65" class="pln">        <span class="str">"90_H2O2"</span><span class="op">:</span><span class="op">[</span><span class="str">" oxid H2O2(L) H 2 O 2  wt%=90.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t66" class="pln">                  <span class="str">" h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t67" class="pln">                   <span class="str">" oxid = WATER H 2.0 O 1.0 wt%= 10.0        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t68" class="pln">                   <span class="str">" h,cal=-68317. t(k)=298.15 rho.g/cc=1.0   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t69" class="pln">        <span class="str">"98_H2O2"</span><span class="op">:</span><span class="op">[</span><span class="str">" oxid H2O2(L) H 2 O 2  wt%=98.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t70" class="pln">                  <span class="str">" h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t71" class="pln">                   <span class="str">" oxid = WATER H 2.0 O 1.0 wt%= 2.0        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t72" class="pln">                   <span class="str">" h,cal=-68317. t(k)=298.15 rho.g/cc=1.0   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t73" class="pln">        <span class="str">"Peroxide98"</span><span class="op">:</span><span class="op">[</span><span class="str">" oxid H2O2(L) H 2 O 2  wt%=98.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t74" class="pln">                  <span class="str">" h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t75" class="pln">                   <span class="str">" oxid = WATER H 2.0 O 1.0 wt%= 2.0        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t76" class="pln">                   <span class="str">" h,cal=-68317. t(k)=298.15 rho.g/cc=1.0   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t77" class="pln">        <span class="str">"Peroxide90"</span><span class="op">:</span><span class="op">[</span><span class="str">" oxid H2O2(L) H 2 O 2  wt%=90.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t78" class="pln">                  <span class="str">" h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t79" class="pln">                   <span class="str">" oxid = WATER H 2.0 O 1.0 wt%= 10.0        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t80" class="pln">                   <span class="str">" h,cal=-68317. t(k)=298.15 rho.g/cc=1.0   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t81" class="pln">        <span class="str">"HAN315"</span> <span class="op">:</span><span class="op">[</span> <span class="str">" oxid = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5       "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t82" class="pln">                    <span class="str">" h,cal=-93980. t(k)=298.15 rho.g/cc=1.685     "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t83" class="pln">                    <span class="str">" oxid = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5         "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t84" class="pln">                    <span class="str">" h,cal=-108000. t(k)=298.15 rho.g/cc=1.428    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t85" class="pln">                    <span class="str">" oxid = WATER H 2.0 O 1.0 wt%= 11.0        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t86" class="pln">                    <span class="str">" h,cal=-68000. t(k)=298.15 rho.g/cc=1.0    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t87" class="pln">                  <span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t88" class="pln">        <span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t89" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t90" class="pln"><span class="com"># cards are an index to either a string or a list of strings</span><span class="strut">&nbsp;</span></p>
+<p id="t91" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
+<p id="t92" class="pln"><span class="com">#  Heats of formation in CEA thermo.inp file are in Joules</span><span class="strut">&nbsp;</span></p>
+<p id="t93" class="pln"><span class="com">#    Multiply by 0.238846 to convert into cal</span><span class="strut">&nbsp;</span></p>
+<p id="t94" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
+<p id="t95" class="pln"><span class="com"># added Kerosene, Gasoline, JP10, JP4, JPX, Acetylene AT BOTTOM of "fuelCards ="</span><span class="strut">&nbsp;</span></p>
+<p id="t96" class="stm run hide_run"><span class="nam">fuelCards</span> <span class="op">=</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t97" class="pln">        <span class="str">"CH3OH"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel CH3OH(L)   C 1 H 4 O 1   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t98" class="pln">                 <span class="str">" h,cal=-57040.0      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t99" class="pln">        <span class="str">"Methanol"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel CH3OH(L)   C 1 H 4 O 1   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t100" class="pln">                 <span class="str">" h,cal=-57040.0      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t101" class="pln">        <span class="str">"METHANOL"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel CH3OH(L)   C 1 H 4 O 1   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t102" class="pln">                 <span class="str">" h,cal=-57040.0      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t103" class="pln">        <span class="str">"B2H6"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel B2H6(L)   B 2 H 6   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t104" class="pln">                 <span class="str">" h,cal=4970.0      t(k)=180.0       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t105" class="pln">        <span class="str">"C2H5OH"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel C2H5OH(L)   C 2 H 6 O 1   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t106" class="pln">                 <span class="str">" h,cal=-66370.0      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t107" class="pln">        <span class="str">"Ethanol"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel C2H5OH(L)   C 2 H 6 O 1   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t108" class="pln">                 <span class="str">" h,cal=-66370.0      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t109" class="pln">        <span class="str">"ETHANOL"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel C2H5OH(L)   C 2 H 6 O 1   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t110" class="pln">                 <span class="str">" h,cal=-66370.0      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t111" class="pln">        <span class="str">"GH2_160"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel H2(G)  H 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t112" class="pln">                 <span class="str">" h,cal=-940.      t(k)=160.0       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t113" class="pln">        <span class="str">"GH2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel H2(G)  H 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t114" class="pln">                 <span class="str">" h,cal=0.      t(k)=298.15       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t115" class="pln">        <span class="str">"LH2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel H2(L)  H 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t116" class="pln">                 <span class="str">" h,cal=-2154.0      t(k)=20.27       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t117" class="pln">        <span class="str">"H2"</span><span class="op">:</span>  <span class="op">[</span><span class="str">" fuel H2(L)  H 2  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t118" class="pln">                 <span class="str">" h,cal=-2154.0      t(k)=20.27       wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t119" class="pln">        <span class="str">"MMH"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel CH6N2(L)  C 1     H 6     N 2     wt%=100.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t120" class="pln">                <span class="str">" h,cal=12900.0     t(k)=298.15   rho=.874 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t121" class="pln">        <span class="str">"N2H4"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel N2H4(L)  N 2 H 4    wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t122" class="pln">                <span class="str">" h,cal=12100.0     t(k)=298.15   rho=1.0036 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t123" class="pln">        <span class="str">"NH3"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel NH3(L)   N 1 H 3      wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t124" class="pln">                <span class="str">" h,cal=-17090.     t(k)=298.15   rho=0.676 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t125" class="pln">        <span class="str">"M20_NH3"</span> <span class="op">:</span><span class="op">[</span><span class="str">"  fuel CH6N2(L)  C 1 H 6 N 2  wt%=17.9 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t126" class="pln">               <span class="str">" h,cal=12900.0     t(k)=298.15   rho=.874 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t127" class="pln">               <span class="str">" fuel N2H4(L)  N 2 H 4    wt%=71.6 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t128" class="pln">               <span class="str">" h,cal=12100.0     t(k)=298.15   rho=1.0036 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t129" class="pln">               <span class="str">" fuel NH3(L)   N 1 H 3      wt%=10.5 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t130" class="pln">               <span class="str">" h,cal=-17090.     t(k)=298.15   rho=0.676"</span>    <span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t131" class="pln">        <span class="str">"M20"</span> <span class="op">:</span><span class="op">[</span><span class="str">"  fuel CH6N2(L)  C 1 H 6 N 2  wt%=20.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t132" class="pln">               <span class="str">" h,cal=12900.0     t(k)=298.15   rho=.874 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t133" class="pln">               <span class="str">" fuel N2H4(L)  N 2 H 4    wt%=80.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t134" class="pln">               <span class="str">" h,cal=12100.0     t(k)=298.15   rho=1.0036"</span>   <span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t135" class="pln">        <span class="str">"MHF3"</span> <span class="op">:</span><span class="op">[</span><span class="str">"  fuel CH6N2(L)  C 1 H 6 N 2  wt%=86.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t136" class="pln">               <span class="str">" h,cal=12900.0     t(k)=298.15   rho=.874 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t137" class="pln">               <span class="str">" fuel N2H4(L)  N 2 H 4    wt%=14.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t138" class="pln">               <span class="str">" h,cal=12100.0     t(k)=298.15   rho=1.0036"</span>   <span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t139" class="pln">        <span class="str">"A50"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel C2H8N2(L),UDMH wt% 50.   t(k) 298.15 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t140" class="pln">                <span class="str">" h,cal=11900.0     t(k)=298.15   rho=.783 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t141" class="pln">                <span class="str">" fuel N2H4(L)  N 2 H 4    wt%=50. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t142" class="pln">                <span class="str">" h,cal=12100.0     t(k)=298.15   rho=1.0036 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t143" class="pln">        <span class="str">"UDMH"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel C2H8N2(L),UDMH wt% 50.   t(k) 298.15 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t144" class="pln">                <span class="str">" h,cal=11900.0     t(k)=298.15   rho=.783 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t145" class="pln">        <span class="str">"RP_1"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel RP-1  C 1 H 1.9423 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t146" class="pln">                <span class="str">" h,cal=-5430.     t(k)=298.15   rho=0.773 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t147" class="pln">        <span class="str">"RP1"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel RP-1  C 1 H 1.9423 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t148" class="pln">                <span class="str">" h,cal=-5430.     t(k)=298.15   rho=0.773 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t149" class="pln">        <span class="str">"JetA"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel Jet-A(L)  C  12.0 H  23.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t150" class="pln">                <span class="str">" h,cal=-72466.6     t(k)=298.15   rho=0.815 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t151" class="pln">        <span class="str">"C3H8"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel C3H8(L) C 3 H 8     wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t152" class="pln">                <span class="str">" h,cal=-30372.     t(k)=231.08   rho=0.5808 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t153" class="pln">        <span class="str">"Propane"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel C3H8(L) C 3 H 8     wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t154" class="pln">                <span class="str">" h,cal=-30372.     t(k)=231.08   rho=0.5808 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t155" class="pln">        <span class="str">"C2H6_167"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel C2H6(L) C 2 H 6     wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t156" class="pln">                <span class="str">" h,cal=-25296.0     t(k)=167.0   rho=0.5808 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t157" class="pln">        <span class="str">"C2H6"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel C2H6(L) C 2 H 6     wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t158" class="pln">                <span class="str">" h,cal=-24797.0     t(k)=184.56   rho=0.5808 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t159" class="pln">        <span class="str">"Isopropanol"</span> <span class="op">:</span> <span class="op">[</span><span class="str">" fuel C3H8O-2propanol C 3 H 8 O 1    wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t160" class="pln">                <span class="str">" h,cal=-65133.     t(k)=298.15   rho=0.786 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t161" class="pln">        <span class="str">"Propylene"</span> <span class="op">:</span> <span class="op">[</span><span class="str">" fuel C3H6,propylene C 3 H 6    wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t162" class="pln">                <span class="str">" h,cal=4776.92     t(k)=298.15   rho=0.0018 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t163" class="pln">        <span class="str">"propylene"</span> <span class="op">:</span> <span class="op">[</span><span class="str">" fuel C3H6,propylene C 3 H 6    wt%=100. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t164" class="pln">                <span class="str">" h,cal=4776.92     t(k)=298.15   rho=0.0018 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t165" class="pln">        <span class="str">"CH4"</span> <span class="op">:</span><span class="op">[</span><span class="str">" fuel CH4(L) C 1 H 4     wt%=100.  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t166" class="pln">                <span class="str">" h,cal=-21390.     t(k)=111.66   rho=0.4239  "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t167" class="pln">        <span class="str">"GCH4"</span><span class="op">:</span> <span class="op">[</span><span class="str">" fuel CH4(G) C 1 H 4  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t168" class="pln">               <span class="str">" h,cal=-17895.0      t(k)=298.15       wt%=100.  "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t169" class="pln">        <span class="str">"CINCH"</span><span class="op">:</span><span class="op">[</span><span class="str">" fuel CINCH(L)     C 4.     H 10.    N 4.  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t170" class="pln">                 <span class="str">" h,cal=66550.      t(k)=298.15             wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t171" class="pln">        <span class="str">"ECP_dimer"</span><span class="op">:</span><span class="op">[</span><span class="str">" fuel ECP-dimer(L) C 10.    H 10. "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t172" class="pln">                     <span class="str">" h,cal=123600.     t(k)=298.15                     wt%=100. "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t173" class="pln">        <span class="str">"H2O"</span><span class="op">:</span><span class="op">[</span><span class="str">"fuel water H 2.0 O 1.0  wt%=100.0  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t174" class="pln">               <span class="str">"h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998  "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t175" class="pln">        <span class="str">"DMAZ"</span><span class="op">:</span><span class="op">[</span><span class="str">"fuel dmaz C 4.0 H 10.0 N 4.0 wt%= 100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t176" class="pln">                <span class="str">"h,cal=66548. t(k)=298.15 rho,g/cc = 0.93   "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t177" class="pln">        <span class="str">"NITROMETHANE"</span><span class="op">:</span><span class="op">[</span><span class="str">"fuel nitroMethane C 1. H 3. N 1. O 2. wt%= 100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t178" class="pln">            <span class="str">"h,cal=-27030. t(k)=298.15  rho,g/cc =1.1371 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t179" class="pln">        <span class="str">"AL"</span><span class="op">:</span><span class="op">[</span><span class="str">"fuel  Aluminum  t(k)=298.15 AL 1                               wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t180" class="pln">                        <span class="str">"h,cal=0.0     t(k)=298.15  "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t181" class="pln">        <span class="str">"HTPB"</span><span class="op">:</span><span class="op">[</span><span class="str">"fuel R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t182" class="pln">                        <span class="str">"h,cal= 1200.0 t(k)=298.15 rho=0.9220 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t183" class="pln">        <span class="str">"AP"</span><span class="op">:</span><span class="op">[</span><span class="str">" fuel NH4CLO4(I)       wt%=100.00 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t184" class="pln">        <span class="str">"CFx"</span><span class="op">:</span><span class="op">[</span><span class="str">" fuel CFx    C 1.0 F 1.0   wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t185" class="pln">                <span class="str">" h,cal=57863.0     t(k)=298.15   rho=1.8200 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t186" class="pln">        <span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t187" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t188" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"Kerosene"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel Kerosene  C 1 H 1.9532  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t189" class="pln">                        <span class="str">" h,cal=-5769.     t(k)=298.15   rho=0.8 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t190" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t191" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"Kerosene90_H2O10"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel Kerosene  C 1 H 1.9532  wt%=90.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t192" class="pln">                                <span class="str">" h,cal=-5769.     t(k)=298.15   rho=0.8  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t193" class="pln">                                <span class="str">" fuel = WATER H 2.0 O 1.0  wt%= 10.0    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t194" class="pln">                                <span class="str">" h,cal=-68317. t(k)=298.15 rho.g/cc=1.0   "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t195" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t196" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t197" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"Gasoline"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel Gasoline  C 8 H 18  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t198" class="pln">                        <span class="str">" h,cal=-49809.     t(k)=298.15   rho=0.7025 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t199" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t200" class="pln"><span class="com"># JP10 from TDK Reactant Cards</span><span class="strut">&nbsp;</span></p>
+<p id="t201" class="pln"><span class="com"># cards["JP10"]    = "C 10.0   H 16.000                              100.    -29350.L 298.15 F"</span><span class="strut">&nbsp;</span></p>
+<p id="t202" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"JP10"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel JP10  C 10 H 16  wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t203" class="pln">                    <span class="str">" h,cal=-29350.     t(k)=298.15   rho=0.9318 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t204" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t205" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t206" class="pln"><span class="com"># JP4 is 50/50 Kerosene/Gasoline</span><span class="strut">&nbsp;</span></p>
+<p id="t207" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"JP4"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel Kerosene  C 1 H 1.9532  wt%=50.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t208" class="pln">                    <span class="str">" h,cal=-5769.     t(k)=298.15   rho=0.8  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t209" class="pln">                    <span class="str">" fuel Gasoline  C 8 H 18  wt%=50.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t210" class="pln">                    <span class="str">" h,cal=-49809.     t(k)=298.15   rho=0.7025 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t211" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t212" class="pln"><span class="com"># JPX is 60/40 JP4/UDMH</span><span class="strut">&nbsp;</span></p>
+<p id="t213" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"JPX"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel C2H8N2(L),UDMH wt%=60.   t(k) 298.15  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t214" class="pln">                    <span class="str">" h,cal=11900.0     t(k)=298.15   rho=.783  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t215" class="pln">                    <span class="str">" fuel Kerosene  C 1 H 1.9532  wt%=30.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t216" class="pln">                    <span class="str">" h,cal=-5769.     t(k)=298.15   rho=0.8  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t217" class="pln">                    <span class="str">" fuel Gasoline  C 8 H 18  wt%=30.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t218" class="pln">                    <span class="str">" h,cal=-49809.     t(k)=298.15   rho=0.7025 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t219" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t220" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"C2H2"</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">" fuel Acetylene  C 2 H 2   wt%=100.   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t221" class="pln">                          <span class="str">" h,cal=54324.     t(k)=198.3   rho=0.9 "</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t222" class="stm run hide_run"><span class="nam">fuelCards</span><span class="op">[</span><span class="str">"Acetylene"</span><span class="op">]</span> <span class="op">=</span> <span class="nam">fuelCards</span><span class="op">[</span><span class="str">"C2H2"</span><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t223" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t224" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t225" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t226" class="pln"><span class="com"># cards are an index to either a string or a list of strings</span><span class="strut">&nbsp;</span></p>
+<p id="t227" class="stm run hide_run"><span class="nam">propCards</span> <span class="op">=</span> <span class="op">{</span><span class="strut">&nbsp;</span></p>
+<p id="t228" class="pln">        <span class="str">"ARC448"</span><span class="op">:</span><span class="op">[</span><span class="str">" name ARC448  H 3.359766 C 2.052322 N 1.932190 O 2.806300  wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t229" class="pln">                  <span class="str">" h,cal= -36867.1  t(k)=298.15 rho=1.537 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t230" class="pln">        <span class="str">"ARC452"</span><span class="op">:</span><span class="op">[</span><span class="str">" name ARC452  H 3.694563 C 2.469813 N 1.041212 O 3.251794  wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t231" class="pln">                  <span class="str">" h,cal= -67947.0  t(k)=298.15 rho=1.473 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t232" class="pln">        <span class="str">"ARC457"</span><span class="op">:</span><span class="op">[</span><span class="str">" name ARC457  H 4.080395 C 1.238333 N 1.677693 O 3.593891  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t233" class="pln">                  <span class="str">" wt%=100.00 h,cal= -80325.0 t(k)=298.15 rho=1.594 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t234" class="pln">        <span class="str">"ARC311"</span><span class="op">:</span><span class="op">[</span><span class="str">" name ARC311  H 3.919935 C 2.237043 N 2.300870 O 2.309573  wt%=100.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t235" class="pln">                  <span class="str">" h,cal= 3939.6  t(k)=298.15 rho=1.634 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t236" class="pln">        <span class="str">"HYD40"</span> <span class="op">:</span><span class="op">[</span>   <span class="str">" name = diss UA 0.800 H 1.600 N 1.200 wt%= 99.5  "</span><span class="op">,</span> <span class="com"># N2H4 with 40% NH3 dissociation</span><span class="strut">&nbsp;</span></p>
+<p id="t237" class="pln">                    <span class="str">" h,cal=12094. t(k)=298.15 rho,g/cc = 1.004     "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t238" class="pln">                    <span class="str">"  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t239" class="pln">                    <span class="str">" name = water H 2.0 O 1.0  wt%=0.5   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t240" class="pln">                    <span class="str">" h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t241" class="pln">                    <span class="str">" ! THIS IS 40% AMMONIA DISSOCIATION "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t242" class="pln">                    <span class="str">" omit NH3 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t243" class="pln">        <span class="str">"HAN269"</span> <span class="op">:</span><span class="op">[</span> <span class="str">" name = HAN N 2.0 H 4.0 O 4.0 wt%= 69.15        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t244" class="pln">                    <span class="str">" h,cal=-80962. t(k)=298.15 rho,g/cc = 1.685   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t245" class="pln">                    <span class="str">" name = MEOH C 1.0 H 4.0 O 1.0 wt%= 15.46       "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t246" class="pln">                    <span class="str">" h,cal=-57146. t(k)=298.15 rho,g/cc = 0.791 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t247" class="pln">                    <span class="str">" name = water H 2.0 O 1.0 wt%= 14.80      "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t248" class="pln">                    <span class="str">" h,cal=-68256. t(k)=298.17 rho,g/cc=1.00  "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t249" class="pln">                    <span class="str">" name = AN H 4.0 N 2.0 O 3.0 wt%= 0.59      "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t250" class="pln">                    <span class="str">" h,cal=-87380. t(k)=298.17 rho,g/cc=1.725 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t251" class="pln">                  <span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t252" class="pln">        <span class="str">"HAN315"</span> <span class="op">:</span><span class="op">[</span> <span class="str">" name = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5      "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t253" class="pln">                    <span class="str">" h,cal=-93980. t(k)=298.15 rho.g/cc=1.685    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t254" class="pln">                    <span class="str">" name = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5        "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t255" class="pln">                    <span class="str">" h,cal=-108000. t(k)=298.15 rho.g/cc=1.428   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t256" class="pln">                    <span class="str">" name = WATER H 2.0 O 1.0 wt%= 11.0       "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t257" class="pln">                    <span class="str">" h,cal=-68000. t(k)=298.15 rho.g/cc=1.0   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t258" class="pln">                  <span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t259" class="pln">        <span class="str">"HPB24"</span> <span class="op">:</span><span class="op">[</span>  <span class="str">" name = diss UA 0.6667 H 2.0000 N 1.3333 wt%= 71.46   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t260" class="pln">                    <span class="str">" h,cal=12094. t(k)=298.15 rho,g/cc = 1.004   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t261" class="pln">                    <span class="str">" name = water H 2.0 O 1.0  wt%=0.5   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t262" class="pln">                    <span class="str">" h,cal=-68308.  t(k)=298.15 rho,g/cc = 0.9998   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t263" class="pln">                    <span class="str">" name = hydra H 4.0 N 2.0 wt%= 4.04    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t264" class="pln">                    <span class="str">" h,cal=12094. t(k)=298.15 rho,g/cc = 1.004    "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t265" class="pln">                    <span class="str">" name = hydni N 3.000 H 5.000 O 3.000 wt%= 24.00   "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t266" class="pln">                    <span class="str">" h,cal=-50477. t(k)=298.15 rho,g/cc = 1.647 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t267" class="pln">                <span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t268" class="pln">        <span class="str">"AP10_RDX25_HTPB"</span><span class="op">:</span><span class="op">[</span><span class="str">"  name NH4CLO4(I)       wt%=10.0 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t269" class="pln">               <span class="str">" name RDX    C 1.3506 H 2.7011 O 2.7011 N 2.7011  wt%=25.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t270" class="pln">               <span class="str">" h,cal=6610.     t(k)=298.15   rho=1.8200 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t271" class="pln">               <span class="str">" name R-45(HTPB FROM_RPL_DATA) C 7.3165 H 10.3360 O 0.1063    wt%=65.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t272" class="pln">               <span class="str">" h,cal= 1200.0 t(k)=298.15 rho=0.9220 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t273" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t274" class="pln">        <span class="str">"AMT_2091"</span><span class="op">:</span><span class="op">[</span>  <span class="str">"name NH4NO3         H  4.9968 O  3.7476 N  2.4984                   wt%=75.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t275" class="pln">                      <span class="str">"h,cal=-109019.9966   t(k)=298.15   rho=1.7250 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t276" class="pln">                      <span class="str">"name (NH4)2CR2O7   H  3.1733 O  2.7766  N  0.7933  CR 0.7933        wt%=2.00 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t277" class="pln">                      <span class="str">"h,cal=-168780.   t(k)=298.15   rho=2.1500 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t278" class="pln">                      <span class="str">"name A-20_GENPOL  C  4.5500  H  7.1000  O  2.3900                   wt%=7.24 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t279" class="pln">                      <span class="str">"h,cal=-111000.   t(k)=298.15   rho=1.0380 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t280" class="pln">                      <span class="str">"name METHYL_ACRYLATE   C  4.6464  H  6.9696  O  2.3232              wt%=11.08 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t281" class="pln">                      <span class="str">"h,cal=-111300.   t(k)=298.15   rho=1.2000 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t282" class="pln">                      <span class="str">"name POLYSTYRENE  C  7.6817  H  7.6817                              wt%=3.957 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t283" class="pln">                      <span class="str">"h,cal=8000.   t(k)=298.15   rho=1.0600 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t284" class="pln">                      <span class="str">"name MAKP   C  5.3768  H 10.7535  O  1.5362  wt%=0.40 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t285" class="pln">                      <span class="str">"h,cal=-134060.   t(k)=298.15   rho=0.8500 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t286" class="pln">                      <span class="str">"name CALCIUM_PHOSPHATE  P  0.6447  CA 0.9671 O  2.5790              wt%=0.50 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t287" class="pln">                      <span class="str">"h,cal=-300500.   t(k)=298.15   rho=3.1400 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t288" class="pln">                      <span class="str">"name TIN_OCTOATE  C  3.9497 H  7.4057 O  0.9874 PB 0.0948 CU 0.1521 wt%=0.003 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t289" class="pln">                      <span class="str">"h,cal=-76120.   t(k)=298.15   rho=1.0000 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t290" class="pln">                      <span class="str">"name LECITHIN  C  5.5611 H 11.1223 O  1.2692 N  0.1208              wt%=0.18 "</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t291" class="pln">                      <span class="str">"h,cal=-63010.   t(k)=298.15   rho=1.0220 "</span><span class="op">]</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t292" class="pln">            <span class="op">}</span><span class="strut">&nbsp;</span></p>
+<p id="t293" class="pln"><span class="com"># !!! MAKE SURE LINES HAVE A SPACE ON THE END !!!</span><span class="strut">&nbsp;</span></p>
+<p id="t294" class="pln"><span class="strut">&nbsp;</span></p>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="footer">
+    <div class="content">
+        <p>
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
+            created at 2020-03-09 23:30
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
