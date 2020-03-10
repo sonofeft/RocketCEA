@@ -95,6 +95,7 @@ rocketcea/examples/chk_froz_mass_frac.py
 rocketcea/examples/chk_froz_mole_frac.py
 rocketcea/examples/chk_mass_frac.py
 rocketcea/examples/chk_mass_mole.py
+rocketcea/examples/chk_mf_prezero.py
 rocketcea/examples/chk_mole_frac.py
 rocketcea/examples/const_mass_frac.py
 rocketcea/examples/const_mass_frac1.png

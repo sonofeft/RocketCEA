@@ -570,7 +570,7 @@ class CEA_Obj(object):
 
 
     def __call__(self, Pc=100.0, MR=1.0, eps=40.0):
-        """Returns IspVac if CEA_Obj is simply called like a function."""
+        """Returns IspVac(sec) if CEA_Obj is simply called like a function."""
         if self.useFastLookup:
             isp =  self.fastModule.get_isp(Pc, eps, MR)
             return isp
@@ -580,7 +580,7 @@ class CEA_Obj(object):
     def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: Return the tuple (IspVac, Cstar, Tcomb).
+        #: Return the tuple (IspVac, Cstar, Tcomb)in(sec, ft/sec, degR)
         #: MR is only used for ox/fuel combos.
         """
         if self.useFastLookup:
@@ -624,7 +624,7 @@ class CEA_Obj(object):
     def getFrozen_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0):
         """::
 
-        #: Return the tuple (IspFrozen, Cstar, Tcomb).
+        #: Return the tuple (IspFrozen, Cstar, Tcomb)in(sec, ft/sec, degR)
         #: MR is only used for ox/fuel combos.
         #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         """
@@ -639,7 +639,7 @@ class CEA_Obj(object):
     def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)
+        #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)
         #: mw and gam apply to nozzle exit.
         #: MR is only used for ox/fuel combos.
         """
@@ -658,7 +658,7 @@ class CEA_Obj(object):
     def get_IvacCstrTc_ChmMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)
+        #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)
         #: mw and gam apply to chamber.
         #: MR is only used for ox/fuel combos.
         """
@@ -676,7 +676,7 @@ class CEA_Obj(object):
     def get_IvacCstrTc_ThtMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)
+        #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)
         #: mw and gam apply to throat.
         #: MR is only used for ox/fuel combos.
         """
@@ -694,7 +694,7 @@ class CEA_Obj(object):
     def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return IspVac.
+        #: return IspVac (sec)
         #: MR is only used for ox/fuel combos.
         """
         if self.useFastLookup:
@@ -721,7 +721,7 @@ class CEA_Obj(object):
     def get_Cstar(self, Pc=100.0, MR=1.0):
         """::
 
-        #: return Cstar.
+        #: return Cstar (ft/sec)
         #: MR is only used for ox/fuel combos.
         """
         if self.useFastLookup:
@@ -746,7 +746,7 @@ class CEA_Obj(object):
     def get_Tcomb(self, Pc=100.0, MR=1.0):
         """::
 
-        #: return Tcomb.
+        #: return Tcomb (degR)
         #: MR is only used for ox/fuel combos.
         """
         if self.useFastLookup:
@@ -821,7 +821,7 @@ class CEA_Obj(object):
     def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
-        #: Return a list of temperatures at the chamber, throat and exit.
+        #: Return a list of temperatures at the chamber, throat and exit (degR)
         #: (Note frozen flag determins whether Texit is equilibrium or Frozen temperature)
         #: MR is only used for ox/fuel combos.
         #: frozen flag (0=equilibrium, 1=frozen)
@@ -838,7 +838,7 @@ class CEA_Obj(object):
     def get_SonicVelocities(self, Pc=100.0, MR=1.0,eps=40.0):
         """::
 
-        #: Return a list of sonic velocities at the chamber, throat and exit.
+        #: Return a list of sonic velocities at the chamber, throat and exit (ft/sec)
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
@@ -849,7 +849,7 @@ class CEA_Obj(object):
     def get_Chamber_SonicVel(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: Return the sonic velocity in the chamber.
+        #: Return the sonic velocity in the chamber (ft/sec)
         #: MR is only used for ox/fuel combos.
         """
         sonicList = self.get_SonicVelocities( Pc=Pc, MR=MR, eps=eps)
@@ -859,7 +859,7 @@ class CEA_Obj(object):
     def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
         """::
 
-        #: Return a list of enthalpies at the chamber, throat and exit in BTU/lbm
+        #: Return a list of enthalpies at the chamber, throat and exit (BTU/lbm)
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
@@ -953,7 +953,7 @@ class CEA_Obj(object):
     def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: Return the enthalpy in the chamber in BTU/lbm
+        #: Return the enthalpy in the chamber (BTU/lbm)
         #: MR is only used for ox/fuel combos.
         """
         hList = self.get_Enthalpies( Pc=Pc, MR=MR, eps=eps)
@@ -963,7 +963,7 @@ class CEA_Obj(object):
     def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0):
         """::
 
-        #: Return a list of densities at the chamber, throat and exit.
+        #: Return a list of densities at the chamber, throat and exit(lbm/cuft)
         #: MR is only used for ox/fuel combos.
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
@@ -976,7 +976,7 @@ class CEA_Obj(object):
     def get_Chamber_Density(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: Return the density in the chamber.
+        #: Return the density in the chamber(lbm/cuft)
         #: MR is only used for ox/fuel combos.
         """
         dList = self.get_Densities( Pc=Pc, MR=MR, eps=eps)
@@ -986,7 +986,7 @@ class CEA_Obj(object):
     def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0):
         """::
 
-        #: Return a list of heat capacities at the chamber, throat and exit.
+        #: Return a list of heat capacities at the chamber, throat and exit(BTU/lbm degR)
         #: MR is only used for ox/fuel combos.
         #: frozen flag (0=equilibrium, 1=frozen)
         """
@@ -1000,7 +1000,7 @@ class CEA_Obj(object):
     def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         """::
 
-        #: Return the heat capacity in the chamber.
+        #: Return the heat capacity in the chamber(BTU/lbm degR)
         #: MR is only used for ox/fuel combos.
         #: frozen flag (0=equilibrium, 1=frozen)
         """
@@ -1010,7 +1010,7 @@ class CEA_Obj(object):
     def get_Throat_Isp(self, Pc=100.0, MR=1.0):
         """::
 
-        #: Return the IspVac for the throat.
+        #: Return the IspVac for the throat(sec).
         #: MR is only used for ox/fuel combos.
         """
         eps=1.0
@@ -1034,7 +1034,7 @@ class CEA_Obj(object):
     def get_Chamber_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return the tuple (mw, gam) for the chamber
+        #: return the tuple (mw, gam) for the chamber (lbm/lbmole, -)
         #: MR is only used for ox/fuel combos.
         """
         #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
@@ -1046,7 +1046,7 @@ class CEA_Obj(object):
     def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return the tuple (mw, gam) for the throat
+        #: return the tuple (mw, gam) for the throat (lbm/lbmole, -)
         #: MR is only used for ox/fuel combos.
         """
         #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
@@ -1058,7 +1058,7 @@ class CEA_Obj(object):
     def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
-        #: return the tuple (mw, gam) for the nozzle exit
+        #: return the tuple (mw, gam) for the nozzle exit (lbm/lbmole, -)
         #: MR is only used for ox/fuel combos.
         """
         #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
