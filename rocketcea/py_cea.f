@@ -3306,6 +3306,13 @@ C MOLE FRACTIONS - EQUILIBRIUM
       ENDIF
       if(makeio.ne.0)WRITE (8,99012) Tg(4)
       IF ( .NOT.Short_bn ) THEN
+c...  this mamo logic is duplicated because mamo gets nulled somewhere C.Taylor 3/16/2020      
+        IF ( Massf ) THEN
+          mamo = 'MASS'
+        ELSE
+          mamo = 'MOLE'
+        ENDIF
+      
         if(makeio.ne.0)WRITE (8,99013) mamo,tra
         if(makeio.ne.0)WRITE (8,99014) (Omit(i),i=1,notuse)
       ENDIF

@@ -6,6 +6,11 @@ Species Mole Fractions
 RocketCEA version 1.1.6 and greater provide access to the combustion species 
 mass fractions and mole fractions.
 
+.. warning::
+
+   Due to bug-fix please use >= version 1.1.8 for Species Fractions.
+
+
 Notice at the bottom of the sample run at 
 :ref:`Standard Examples LOX/LH2 Performance <std_examples_mole_frac_link>`
 that the combustion species mole fractions are displayed.

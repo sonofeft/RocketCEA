@@ -30,7 +30,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
 
-import os, sys, platform
+import os, sys
+from copy import deepcopy
 here = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -64,6 +65,7 @@ from rocketcea.separated_Cf import ambientCf, sepNozzleCf
 #
 # gravitational conversion factor
 GC = 32.174
+DEEP_COPY_L = [None] # will hold deepcopy of CEA_Obj (fixes mass/mole fraction calls)
 
 _last_called = None # remember the last object to read the datafile
 _NLines_Max_ever = 0 # make sure to overwrite any lines from previous calls
@@ -345,10 +347,12 @@ class CEA_Obj(object):
                 if fp:
                     fp.close()
 
+        DEEP_COPY_L[0] = deepcopy( self )
 
     def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None, frozen=0,
                    ERphi=None, ERr=None, frozenAtThroat=0, short_output=0,
-                   show_transport=0, pc_units='psia', output='calories'):
+                   show_transport=0, pc_units='psia', output='calories',
+                   show_mass_frac=False):
         '''
         Set up card deck and call CEA FORTRAN code.::
 
@@ -361,6 +365,9 @@ class CEA_Obj(object):
         '''
 
         global _last_called, _NLines_Max_ever
+        
+        self = DEEP_COPY_L[0]
+
 
         N = 1
         for line in self.cea_deck:
@@ -465,6 +472,8 @@ class CEA_Obj(object):
                     line += " short "
                 if show_transport:
                     line += " transport "
+                if show_mass_frac:
+                    line += " massf "
                     
             set_py_cea_line(N,line)
             N += 1
@@ -532,12 +541,12 @@ class CEA_Obj(object):
             py_cea.trpts.prfro[i] = 0.0  # frozen prandtl number
         
         # set species concentrations to 0.0 prior to calcs
-        for k,p in enumerate(py_cea.cdata.prod):
-            for i in range(3):
-                py_cea.comp.en[k-1,i] = 0.0
-                py_cea.therm.mw[k-1] = 0.0
-            if k>50:
-                break
+        #for k,p in enumerate(py_cea.cdata.prod):
+        #    for i in range(3):
+        #        py_cea.comp.en[k-1,i] = 0.0
+        #        py_cea.therm.mw[k-1] = 0.0
+        #    if k>50:
+        #        break
             
             
         #print( 'calling py_cea with pathPrefix and myfile=' )
@@ -546,7 +555,7 @@ class CEA_Obj(object):
 
     def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None,
                             frozen=0, frozenAtThroat=0, short_output=0, show_transport=1,
-                            pc_units='psia', output='calories'):
+                            pc_units='psia', output='calories', show_mass_frac=False):
         """
         Get the full output file created by CEA. Return as a string.
         #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
@@ -562,7 +571,7 @@ class CEA_Obj(object):
                          frozen=frozen, frozenAtThroat=frozenAtThroat, 
                          short_output=short_output,
                          show_transport=show_transport, pc_units=pc_units,
-                         output=output)
+                         output=output, show_mass_frac=show_mass_frac)
 
         self.makeOutput = save_flag # restore makeOutput
 
@@ -882,6 +891,11 @@ class CEA_Obj(object):
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         
+        #s = self.get_full_cea_output( Pc=Pc, MR=MR, eps=eps, subar=None, PcOvPe=None,
+        #                    frozen=frozen, frozenAtThroat=frozenAtThroat, short_output=0, show_transport=1,
+        #                    pc_units='psia', output='calories', show_mass_frac=True)
+        #print('Full Output:',s)
+        
         massFracD = {} # index=species: value=[massfrac_chm, massfrac_tht, massfrac_exit]
         molWtD    = {} # index=species: value=molecular weight
         for k,p in enumerate(py_cea.cdata.prod):
@@ -907,6 +921,7 @@ class CEA_Obj(object):
                             
                     massFracD[p] = mfL
                     molWtD[p] = mw
+                    
         return molWtD, massFracD
 
     def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
