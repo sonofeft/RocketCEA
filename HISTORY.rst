@@ -6,8 +6,14 @@ History
 
 GitHub Log
 ----------
+
+* Mar 16, 2020
+    - (by: sonofeft)
+        - Bug fix for species fractions and small fix to CEA FORTRAN output file
+
 * Mar 10, 2020
     - (by: sonofeft)
+        - put units labels in function calls
         - version 1.1.7 with some minor changes
         
 * Mar 8, 2020
