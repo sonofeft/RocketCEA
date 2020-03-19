@@ -28,6 +28,9 @@ oxCards = {
                  " h,cal=-3098.      t(k)=82.02       wt%=100. "],
         "O2":  [" oxid O2(L)  O 2  ",
                  " h,cal=-3102.      t(k)=90.18       wt%=100. "],
+        # match the O2(L) properties used on the CEA on-line site
+        "LO2_NASA":  [" oxid O2(L)  O 2  ",
+                 " h,cal=-3102.055      t(k)=90.17       wt%=100. "],
         "LO2":  [" oxid O2(L)  O 2  ",
                  " h,cal=-3102.      t(k)=90.18       wt%=100. "],
         "LOX":  [" oxid O2(L)  O 2  ",
@@ -116,6 +119,10 @@ fuelCards = {
                  " h,cal=-2154.0      t(k)=20.27       wt%=100. "],
         "H2":  [" fuel H2(L)  H 2  ",
                  " h,cal=-2154.0      t(k)=20.27       wt%=100. "],
+        # match the H2(L) properties used on the CEA on-line site
+        "LH2_NASA":  [" fuel H2(L)  H 2  ",
+                 " h,cal=-2153.920      t(k)=20.27       wt%=100. "],
+                 
         "MMH" :[" fuel CH6N2(L)  C 1     H 6     N 2     wt%=100.00 ",
                 " h,cal=12900.0     t(k)=298.15   rho=.874 "],
         "N2H4" :[" fuel N2H4(L)  N 2 H 4    wt%=100. ",
@@ -146,6 +153,9 @@ fuelCards = {
                 " h,cal=-5430.     t(k)=298.15   rho=0.773 "],
         "RP1" :[" fuel RP-1  C 1 H 1.9423 ",
                 " h,cal=-5430.     t(k)=298.15   rho=0.773 "],
+        # match the RP1 properties used on the CEA on-line site
+        "RP1_NASA" :[" fuel RP-1  C 1 H 1.95 ",
+                " h,cal=-5907.672     t(k)=298.15   rho=0.773 "],
         "JetA" :[" fuel Jet-A(L)  C  12.0 H  23.0 ",
                 " h,cal=-72466.6     t(k)=298.15   rho=0.815 "],
         "C3H8" :[" fuel C3H8(L) C 3 H 8     wt%=100. ",
@@ -164,6 +174,9 @@ fuelCards = {
                 " h,cal=4776.92     t(k)=298.15   rho=0.0018 "],
         "CH4" :[" fuel CH4(L) C 1 H 4     wt%=100.  ",
                 " h,cal=-21390.     t(k)=111.66   rho=0.4239  "],
+        # match the CH4(L) properties used on the CEA on-line site
+        "LCH4_NASA" :[" fuel CH4(L) C 1 H 4     wt%=100.  ",
+                " h,cal=-21327.199     t(k)=111.643   rho=0.4239  "],
         "GCH4": [" fuel CH4(G) C 1 H 4  ",
                " h,cal=-17895.0      t(k)=298.15       wt%=100.  "],
         "CINCH":[" fuel CINCH(L)     C 4.     H 10.    N 4.  ",
