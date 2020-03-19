@@ -7,6 +7,10 @@ History
 GitHub Log
 ----------
 
+* Mar 19, 2020
+    - (by: sonofeft)
+        - version 1.1.9 fixes combution species error, added xxx_NASA propellants
+        
 * Mar 16, 2020
     - (by: sonofeft)
         - Bug fix for species fractions and small fix to CEA FORTRAN output file
