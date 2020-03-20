@@ -349,7 +349,7 @@ class CEA_Obj(object):
     def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None, frozen=0,
                    ERphi=None, ERr=None, frozenAtThroat=0, short_output=0,
                    show_transport=0, pc_units='psia', output='calories',
-                   show_mass_frac=False):
+                   show_mass_frac=False, fac_CR=None):
         '''
         Set up card deck and call CEA FORTRAN code.::
 
@@ -359,6 +359,7 @@ class CEA_Obj(object):
         #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
         #: frozen flag (0=equilibrium, 1=frozen)
         #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
+        #: fac_CR, Contraction Ratio of finite area combustor
         '''
 
         global _last_called, _NLines_Max_ever
@@ -428,11 +429,21 @@ class CEA_Obj(object):
         
         # ------------ Pc/Pe String -------------
         pcope_str = make_inp_str( " pi/p=", PcOvPe )
+        
 
         # ------------------------------------------------
         # set up rocket line with Pc, PC/Pe and Epsilon
         set_py_cea_line(N," rocket %s  %s"%(eqfrStr,pc_str) + subar_str + pcope_str + eps_str )
 
+        
+        # ------------ Finite Area Combustor String ------
+        
+        if fac_CR is not None:
+            N += 1
+            fac_str = ' fac ' + make_inp_str(" ac/at=", fac_CR )
+                    
+            set_py_cea_line(N, fac_str )
+        
 
         N += 1
 
@@ -549,7 +560,8 @@ class CEA_Obj(object):
 
     def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None,
                             frozen=0, frozenAtThroat=0, short_output=0, show_transport=1,
-                            pc_units='psia', output='calories', show_mass_frac=False):
+                            pc_units='psia', output='calories', show_mass_frac=False,
+                            fac_CR=None):
         """
         Get the full output file created by CEA. Return as a string.
         #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
@@ -565,7 +577,8 @@ class CEA_Obj(object):
                          frozen=frozen, frozenAtThroat=frozenAtThroat, 
                          short_output=short_output,
                          show_transport=show_transport, pc_units=pc_units,
-                         output=output, show_mass_frac=show_mass_frac)
+                         output=output, show_mass_frac=show_mass_frac,
+                         fac_CR=fac_CR)
 
         self.makeOutput = save_flag # restore makeOutput
 

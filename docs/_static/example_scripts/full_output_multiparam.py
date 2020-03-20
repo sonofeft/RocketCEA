@@ -8,5 +8,6 @@ s = ispObj.get_full_cea_output( Pc=[1000, 2000], # number or list of chamber pre
                                 subar=[3,2],     # number or list of subsonic area ratios
                                 short_output=0,  # 0 or 1 to control output length
                                 pc_units='psia', # pc_units = 'psia', 'bar', 'atm', 'mmh'
-                                output='siunits')# output = 'calories' or 'siunits'
+                                output='siunits',# output = 'calories' or 'siunits'
+                                fac_CR=None)     # finite area combustor, contraction ratio
 print( s )

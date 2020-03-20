@@ -142,16 +142,19 @@ ERROR... bad oxidizer name (MON1300) in cea_obj.py
 {Item #8} test_badMONxyz, 
 ERROR... bad oxidizer name (MONxyz) in cea_obj.py
 
-{Item #9} test_get_Cstar, 
+{Item #9} test_full_cea_output, 
+NOTICE... making an output file
+
+{Item #10} test_get_Cstar, 
 6073.157251192654
 
-{Item #10} test_get_Enthalpies, 
+{Item #11} test_get_Enthalpies, 
 [  164.75127481  -161.9403418  -2198.84467212]
 
-{Item #11} test_get_SonicVelocities, 
+{Item #12} test_get_SonicVelocities, 
 [4187.8341406  4043.2202883  2446.32946625]
 
-{Item #12} test_Goal__main__, 
+{Item #13} test_Goal__main__, 
 ======================================================
 ----->Answer should be = 2.5
 with tolerance=1.0E-3  =
@@ -159,7 +162,7 @@ with tolerance=1.0E-3  =
 with tolerance=1.0E-20 =
 (2.5, 0)
 
-{Item #13} test_Isp__main__, 
+{Item #14} test_Isp__main__, 
 for gam=1.25 and eps=2
 
 solvePCoPE(1.25,2)= 8.828960623207562
@@ -176,11 +179,11 @@ CalcIdealIsVac(Gam,Temp,WtMol,eps) 243.6127442209382
 CalcCFvac(gam,PCoPE) 1.4631435664023358   in gray book= 1.4411964129063006
 CalcCstar(Gam,Temp,WtMol) 5356.956495962318
 
-{Item #14} test_bad_goal_func, 
+{Item #15} test_bad_goal_func, 
 ERROR unrecoverable in Goal.py
 returned an ERROR=1 from cren_goal in goalFind.py
 
-{Item #15} test_cea_w_units__main__, 
+{Item #16} test_cea_w_units__main__, 
 Chk: get_IvacCstrTc ALL GOOD:3 --> ['302.906', '5378.76', '4231.59']
 Chk: getFrozen_IvacCstrTc ALL GOOD:3 --> ['296.863', '5356.76', '4231.59']
 Chk: get_IvacCstrTc_exitMwGam ALL GOOD:5 --> ['302.906', '5378.76', '4231.59', '17.4208', '1.1199']
@@ -219,33 +222,33 @@ Chk: get_Exit_Transport ALL GOOD:4 --> ['4.22152', '0.452493', '1.63987', '0.586
 Chk: get_Exit_Transport ALL GOOD:4 --> ['0.917393', '0.452493', '0.633899', '0.329535']
 Chk: get_PambCf ALL GOOD:2 --> ['1.73974', '0.965525']
 Chk: getFrozen_PambCf ALL GOOD:2 --> ['1.73155', '0.982003']
-Chk: get_SpeciesMassFractions ALL GOOD:1 --> ["{'CH4': 16.04246, '*CO': 28.0101, '*CO2': 44.0095, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107, '*O': 15.9994, '*Si': 28.0855, 'SiH': 29.09344, 'SiO': 44.0849, 'SiO2': 60.0843, 'ALN(L)': 40.988238, 'AL2O3(a)': 101.961276, 'AL2O3(L)': 101.961276}"]
-Chk: get_SpeciesMoleFractions ALL GOOD:1 --> ["{'CH4': 16.04246, '*CO': 28.0101, '*CO2': 44.0095, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107, '*O': 15.9994, '*Si': 28.0855, 'SiH': 29.09344, 'SiO': 44.0849, 'SiO2': 60.0843, 'ALN(L)': 40.988238, 'AL2O3(a)': 101.961276, 'AL2O3(L)': 101.961276}"]
+Chk: get_SpeciesMassFractions ALL GOOD:1 --> ["{'CH4': 16.04246, '*CO': 28.0101, '*CO2': 44.0095, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107}"]
+Chk: get_SpeciesMoleFractions ALL GOOD:1 --> ["{'CH4': 16.04246, '*CO': 28.0101, '*CO2': 44.0095, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107}"]
 
-{Item #16} test_goal_func_bad_range, 
+{Item #17} test_goal_func_bad_range, 
 returned an ERROR=1 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 2.6 2.9 FofX
 using X value= 2.9
 
-{Item #17} test_goal_func_early_terminate, 
+{Item #18} test_goal_func_early_terminate, 
 returned an ERROR=2 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
 using X value= 57.123
 
-{Item #18} test_goal_func_err, 
+{Item #19} test_goal_func_err, 
 ERROR unrecoverable in Goal.py
 returned an ERROR=1 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
 using X value= 57.123
 ERROR unrecoverable in Goal.py
 
-{Item #19} test_mr_t_limits__main__, 
+{Item #20} test_mr_t_limits__main__, 
 Stoich MR = 2.496405605692339 for N2O4/MMH
 
 Min MR = 0   Tc at Min MR = 2145.1178929460416
 Max MR = 53.5632   Tc at Max MR = 1000.0000131980624
 
-{Item #20} test_run_cea_w_error_corr__main__, 
+{Item #21} test_run_cea_w_error_corr__main__, 
 Searching....................._NOT_FOUND_
 Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
 Estimated CEA_Isp at Pc=100, MR=1, eps=40 ispODE374.303
@@ -277,7 +280,7 @@ isp_froz_est = 433.98817133764663
 
 Run All: 448.1902329983554 414.8125904013141 7210.171598261272 5787.742274248721
 
-{Item #21} test_separated_Cf__main__, 
+{Item #22} test_separated_Cf__main__, 
 saving data to CSV file separated_Noz.csv
 gam=1.25, epsTot=25, Pc=200, Pamb=14.7
 CfOvCfvacAtEsep, CfOvCfvac 0.7359305787100278 0.6648559059513175

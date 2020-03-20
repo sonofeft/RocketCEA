@@ -3,12 +3,14 @@
 Species Mole Fractions
 ======================
 
-RocketCEA version 1.1.6 and greater provide access to the combustion species 
+RocketCEA versions 1.1.6 and greater provide access to the combustion species 
 mass fractions and mole fractions.
 
 .. warning::
 
-   Due to bug-fix please use >= version 1.1.8 for Species Fractions.
+   Only use >= version 1.1.9 for Species Fractions.
+   
+   Versions 1.1.6 through 1.1.8 have a bug.
 
 
 Notice at the bottom of the sample run at 

@@ -17,6 +17,7 @@ rocketcea/__init__.py
 rocketcea/_version.py
 rocketcea/blends.py
 rocketcea/cea_obj.py
+rocketcea/cea_obj.py.bak
 rocketcea/cea_obj_w_units.py
 rocketcea/clean_init.py
 rocketcea/excel_const.py
