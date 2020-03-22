@@ -541,6 +541,118 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_mass_fraction_species_concentration(self):
+        """test mass fraction species concentration"""
+        
+        C = CEA_Obj( oxName='LOX', fuelName='LH2')
+        
+        molWtD, massFracD = C.get_SpeciesMassFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=0, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.89139  0.89139  0.91033  0.96514")
+        
+        molWtD, massFracD = C.get_SpeciesMassFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.89139  0.89139  0.89139  0.89139")
+        
+        molWtD, massFracD = C.get_SpeciesMassFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=1 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.89139  0.89139  0.91033  0.91033")
+        
+        del C
+
+    def test_mole_fraction_species_concentration(self):
+        """test mole fraction species concentration"""
+        
+        C = CEA_Obj( oxName='LOX', fuelName='LH2')
+        
+        molWtD, massFracD = C.get_SpeciesMoleFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=0, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.66590  0.66590  0.68751  0.75598")
+        
+        molWtD, massFracD = C.get_SpeciesMoleFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.66590  0.66590  0.66590  0.66590")
+        
+        molWtD, massFracD = C.get_SpeciesMoleFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=1 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.66590  0.66590  0.68751  0.68751")
+        
+        del C
+
+    def test_mass_fraction_species_conc_w_fac(self):
+        """test mass fraction species concentration with finite area combustor"""
+        
+        C = CEA_Obj( oxName='LOX', fuelName='LH2', fac_CR=2.5)
+        
+        molWtD, massFracD = C.get_SpeciesMassFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=0, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.89139  0.89214  0.90989  0.96514")
+        
+        molWtD, massFracD = C.get_SpeciesMassFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.89139  0.89139  0.89139  0.89139")
+        
+        molWtD, massFracD = C.get_SpeciesMassFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=1 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.89139  0.89214  0.90989  0.90989")
+        
+        del C
+
+    def test_mole_fraction_species_conc_w_fac(self):
+        """test mole fraction species concentration with finite area combustor"""
+        
+        C = CEA_Obj( oxName='LOX', fuelName='LH2', fac_CR=2.5)
+        
+        molWtD, massFracD = C.get_SpeciesMoleFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=0, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.66590  0.66670  0.68697  0.75598")
+        
+        molWtD, massFracD = C.get_SpeciesMoleFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=0 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.66590  0.66590  0.66590  0.66590")
+        
+        molWtD, massFracD = C.get_SpeciesMoleFractions( Pc=1000.0, MR=6.0, eps=40.0, 
+                            frozen=1, frozenAtThroat=1 )
+        self.assertEqual(len(massFracD), 8)
+        self.assertEqual(len(molWtD), 8)
+        s = '  '.join( [ '%7.5f'%mf for mf in massFracD["H2O"] ] )
+        self.assertEqual(s, "0.66590  0.66670  0.68697  0.68697")
+        
+        del C
+
 if __name__ == '__main__':
     # Can test just this file from command prompt
     #  or it can be part of test discovery from nose, unittest, pytest, etc.

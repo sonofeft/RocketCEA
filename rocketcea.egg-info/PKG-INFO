@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: rocketcea
-Version: 1.1.10
+Version: 1.1.11
 Summary: RocketCEA wraps the FORTRAN CEA code and provides some useful tools.
 Home-page: http://rocketcea.readthedocs.org/en/latest/
 Author: Charlie Taylor

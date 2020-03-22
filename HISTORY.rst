@@ -9,6 +9,7 @@ GitHub Log
 
 * Mar 22, 2020
     - (by: sonofeft)
+        - version 1.1.12 changed mole/mass fractions to injector face, chamber, throat and exit 
         - version 1.1.11 added finite area combustor system-wide
 
 * Mar 19, 2020

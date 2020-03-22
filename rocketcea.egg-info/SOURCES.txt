@@ -99,6 +99,8 @@ rocketcea/examples/chk_mass_frac.py
 rocketcea/examples/chk_mass_mole.py
 rocketcea/examples/chk_mf_prezero.py
 rocketcea/examples/chk_mole_frac.py
+rocketcea/examples/compare_rayleigh.png
+rocketcea/examples/compare_rayleigh.py
 rocketcea/examples/const_mass_frac.py
 rocketcea/examples/const_mass_frac1.png
 rocketcea/examples/const_mass_frac2.png
@@ -109,8 +111,11 @@ rocketcea/examples/delta_stg3_vol.png
 rocketcea/examples/delta_stg3_vol.py
 rocketcea/examples/deltav_calc.py
 rocketcea/examples/divert_veh.png
+rocketcea/examples/est_pinj_over_pcomb.py
 rocketcea/examples/find_mr_temperature_range.py
 rocketcea/examples/full_output.py
+rocketcea/examples/full_output_Pcinj.py
+rocketcea/examples/full_output_fac_CR.py
 rocketcea/examples/full_output_mono.py
 rocketcea/examples/full_output_multiparam.py
 rocketcea/examples/get_transport.py
@@ -126,8 +131,10 @@ rocketcea/examples/new_propellants_2.py
 rocketcea/examples/perf_table.py
 rocketcea/examples/perox_eq_frz.png
 rocketcea/examples/perox_eq_frz.py
+rocketcea/examples/pinj_over_pcomb.png
 rocketcea/examples/plot_SI_biprop.py
 rocketcea/examples/plot_biprop.py
+rocketcea/examples/plot_rayleigh.py
 rocketcea/examples/quick_chk.py
 rocketcea/examples/rho_veh_1.png
 rocketcea/examples/rho_veh_1.py
@@ -169,6 +176,7 @@ rocketcea/sphinx_html/authors.html
 rocketcea/sphinx_html/comb_species.html
 rocketcea/sphinx_html/copyright.html
 rocketcea/sphinx_html/engine_mr.html
+rocketcea/sphinx_html/finite_area_comb.html
 rocketcea/sphinx_html/functions.html
 rocketcea/sphinx_html/genindex.html
 rocketcea/sphinx_html/history.html
@@ -216,12 +224,14 @@ rocketcea/sphinx_html/_images/colab_cstar_plot_example.jpg
 rocketcea/sphinx_html/_images/colab_pip_rocketcea.jpg
 rocketcea/sphinx_html/_images/colab_run_chk_cea.jpg
 rocketcea/sphinx_html/_images/colab_save_pyfile.jpg
+rocketcea/sphinx_html/_images/compare_rayleigh.png
 rocketcea/sphinx_html/_images/compile_success.jpg
 rocketcea/sphinx_html/_images/control_panel.jpg
 rocketcea/sphinx_html/_images/destination_of_pyd.jpg
 rocketcea/sphinx_html/_images/divert_veh.png
 rocketcea/sphinx_html/_images/edit_path.jpg
 rocketcea/sphinx_html/_images/env_vars.jpg
+rocketcea/sphinx_html/_images/fac_manual_option.jpg
 rocketcea/sphinx_html/_images/find_rocketcea.jpg
 rocketcea/sphinx_html/_images/full_output_p_units.jpg
 rocketcea/sphinx_html/_images/linux_import_error.jpg
@@ -264,6 +274,7 @@ rocketcea/sphinx_html/_sources/copyright.rst.txt
 rocketcea/sphinx_html/_sources/copyright.txt
 rocketcea/sphinx_html/_sources/engine_mr.rst.txt
 rocketcea/sphinx_html/_sources/engine_mr.txt
+rocketcea/sphinx_html/_sources/finite_area_comb.rst.txt
 rocketcea/sphinx_html/_sources/functions.rst.txt
 rocketcea/sphinx_html/_sources/functions.txt
 rocketcea/sphinx_html/_sources/history.rst.txt
@@ -327,6 +338,7 @@ rocketcea/sphinx_html/_static/colorized_default.css
 rocketcea/sphinx_html/_static/comment-bright.png
 rocketcea/sphinx_html/_static/comment-close.png
 rocketcea/sphinx_html/_static/comment.png
+rocketcea/sphinx_html/_static/compare_rayleigh.png
 rocketcea/sphinx_html/_static/compile_success.jpg
 rocketcea/sphinx_html/_static/control_panel.jpg
 rocketcea/sphinx_html/_static/css3-mediaqueries.js
@@ -339,6 +351,7 @@ rocketcea/sphinx_html/_static/down-pressed.png
 rocketcea/sphinx_html/_static/down.png
 rocketcea/sphinx_html/_static/edit_path.jpg
 rocketcea/sphinx_html/_static/env_vars.jpg
+rocketcea/sphinx_html/_static/fac_manual_option.jpg
 rocketcea/sphinx_html/_static/file.png
 rocketcea/sphinx_html/_static/find_rocketcea.jpg
 rocketcea/sphinx_html/_static/full_output_p_units.jpg
@@ -422,6 +435,8 @@ rocketcea/sphinx_html/_static/example_scripts/cea_plot.png
 rocketcea/sphinx_html/_static/example_scripts/cea_plot.py
 rocketcea/sphinx_html/_static/example_scripts/chk_froz_mass_frac.py
 rocketcea/sphinx_html/_static/example_scripts/chk_froz_mole_frac.py
+rocketcea/sphinx_html/_static/example_scripts/compare_rayleigh.png
+rocketcea/sphinx_html/_static/example_scripts/compare_rayleigh.py
 rocketcea/sphinx_html/_static/example_scripts/const_mass_frac.py
 rocketcea/sphinx_html/_static/example_scripts/const_mass_frac1.png
 rocketcea/sphinx_html/_static/example_scripts/const_mass_frac2.png
@@ -491,5 +506,6 @@ rocketcea/tests/separated_Noz.csv
 rocketcea/tests/test_biprop_utils.py
 rocketcea/tests/test_blend_defs.py
 rocketcea/tests/test_cea_obj.py
+rocketcea/tests/test_fac_CR.py
 rocketcea/tests/test_misc.py
 rocketcea/tests/test_transp_units.py

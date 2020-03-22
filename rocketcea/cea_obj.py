@@ -342,7 +342,7 @@ class CEA_Obj(object):
                 self.fastModuleName = "cea_fit_" + self.propName.replace('-','_')
             fp = None
             try:
-                pathList = [os.path.dirname( os.path.abspath(sys.argv[ self.i_chm ])[:] ),
+                pathList = [os.path.dirname( os.path.abspath(sys.argv[0])[:] ),
                     self.pathPrefix[:-1]]
                 #print( 'pathList',pathList )
                 fp, pathname, description = imp.find_module(self.fastModuleName, pathList)
@@ -404,7 +404,10 @@ class CEA_Obj(object):
 
         if frozen:
             if frozenAtThroat:
-                eqfrStr = 'frozen nfz=2 ' # nfz=2 is throat, nfz=1 is chamber
+                if self.fac_CR is not None:
+                    eqfrStr = 'frozen nfz=3 ' # nfz=3  for fac run
+                else:
+                    eqfrStr = 'frozen nfz=2 ' # nfz=2 is throat, nfz=1 is chamber
             else:
                 eqfrStr = 'frozen nfz=1 ' # nfz=1 is chamber
         else:
@@ -458,10 +461,12 @@ class CEA_Obj(object):
                     
             set_py_cea_line(N, fac_str )
             
+            self.i_injface = 0
             self.i_chm = 1
             self.i_thrt = 2
             self.i_exit = 3
         else:
+            self.i_injface = 0
             self.i_chm = 0
             self.i_thrt = 1
             self.i_exit = 2
@@ -989,7 +994,7 @@ class CEA_Obj(object):
     def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
-        #: Returns species mass fractions at the chamber, throat and exit.
+        #: Returns species mass fractions at the injector face, chamber, throat and exit.
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
@@ -1012,7 +1017,8 @@ class CEA_Obj(object):
                 sL = []
                 mfL = []
                 gt_zero = False
-                for i in range(3):
+                #for i in range(3):
+                for i in [self.i_injface, self.i_chm, self.i_thrt, self.i_exit]:
                     en = py_cea.comp.en[k-1,i]
                     mw = py_cea.therm.mw[k-1]
                     
@@ -1023,9 +1029,9 @@ class CEA_Obj(object):
                 if gt_zero:
                     if frozen:
                         if frozenAtThroat:
-                            mfL = [ mfL[ self.i_chm ], mfL[ self.i_thrt ], mfL[ self.i_thrt ] ]
+                            mfL = [ mfL[0], mfL[1], mfL[2], mfL[2] ]
                         else:
-                            mfL = [ mfL[ self.i_chm ], mfL[ self.i_chm ], mfL[ self.i_chm ] ]
+                            mfL = [ mfL[0] for _ in mfL ]
                             
                     massFracD[p] = mfL
                     molWtD[p] = mw
@@ -1035,7 +1041,7 @@ class CEA_Obj(object):
     def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
-        #: Returns species mole fractions at the chamber, throat and exit.
+        #: Returns species mole fractions at the injector face, chamber, throat and exit.
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
@@ -1058,7 +1064,8 @@ class CEA_Obj(object):
                 sL = []
                 mfL = []
                 gt_zero = False
-                for i in range(3):
+                #for i in range(3):
+                for i in [self.i_injface, self.i_chm, self.i_thrt, self.i_exit]:
                     en = py_cea.comp.en[k-1,i]
                     totn = py_cea.prtout.totn[i]
                     mw = py_cea.therm.mw[k-1]
@@ -1070,9 +1077,9 @@ class CEA_Obj(object):
                 if gt_zero:
                     if frozen:
                         if frozenAtThroat:
-                            mfL = [ mfL[ self.i_chm ], mfL[ self.i_thrt ], mfL[ self.i_thrt ] ]
+                            mfL = [ mfL[0], mfL[1], mfL[2], mfL[2] ]
                         else:
-                            mfL = [ mfL[ self.i_chm ], mfL[ self.i_chm ], mfL[ self.i_chm ] ]
+                            mfL = [ mfL[0] for _ in mfL ]
                     
                     moleFracD[p] = mfL
                     molWtD[p] = mw

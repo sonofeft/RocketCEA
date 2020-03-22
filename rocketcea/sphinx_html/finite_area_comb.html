@@ -1,0 +1,312 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Finite Area Combustor &#8212; RocketCEA v1.1.11 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Species Mole Fractions" href="comb_species.html" />
+    <link rel="prev" title="Simple Examples" href="simple_examples.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="comb_species.html" title="Species Mole Fractions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="simple_examples.html" title="Simple Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.11 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Finite Area Combustor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cea-fac-option">CEA fac Option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specify-plenum-pressure">Specify Plenum Pressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-performance">System Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="simple_examples.html"
+                        title="previous chapter">Simple Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="comb_species.html"
+                        title="next chapter">Species Mole Fractions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/finite_area_comb.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="finite-area-combustor">
+<span id="finite-area-comb"></span><h1>Finite Area Combustor<a class="headerlink" href="#finite-area-combustor" title="Permalink to this headline">¶</a></h1>
+<p>In a rocket engine, the ratio of chamber cross-sectional area to throat area is called
+the <strong>contraction ratio</strong>,  <strong>CR</strong>.</p>
+<p>Unless otherwise directed, CEA runs rocket
+calculations assuming an infinite CR.</p>
+<p>For an infinite contraction ratio, the pressure at the injector face, <strong>Pcinj_face</strong>, is the same as the
+pressure in the chamber combustion end plenum, <strong>Pcomb_end</strong>.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span> <span class="o">=</span> <span class="n">Pcomb_end</span>       <span class="p">(</span><span class="n">where</span><span class="p">:</span> <span class="n">CR</span> <span class="o">=</span> <span class="n">infinite</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In a real chamber, however, as the chamber cross-sectional area gets smaller,
+(as CR gets closer to 1.0), the pressure drop from Pcinj_face to Pcomb_end increases.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span> <span class="o">&gt;</span> <span class="n">Pcomb_end</span>       <span class="p">(</span><span class="n">where</span><span class="p">:</span> <span class="n">CR</span> <span class="o">&lt;</span> <span class="n">infinite</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This pressure drop is called the Rayleigh line loss.
+It is the stagnation pressure loss associated
+with the heat transfer effects in a duct of constant area and is the locus
+of points on an enthalpy-entropy diagram defined by the momentum equation,
+continuity equation, and the equation of state.</p>
+<a class="reference internal image-reference" href="_images/compare_rayleigh.png"><img alt="_images/compare_rayleigh.png" src="_images/compare_rayleigh.png" style="width: 60%;" /></a>
+<p>The above graph shows the CEA/RocketCEA calculation of the Rayleigh line loss as well as
+a simple approximation equation for estimating that loss:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span><span class="o">/</span><span class="n">Pcomb_end</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">CR</span><span class="o">**</span><span class="mf">2.2</span>
+</pre></div>
+</div>
+<p>It is often sufficient, for engineering purposes, to approximate the Rayleigh line loss
+with a simple correlating equation such as the one shown here (Especially since it is more common
+to specify a plenum pressure, <strong>Pcomb_end</strong>, and calculate an injector face pressure, <strong>Pcinj_face</strong>).</p>
+<div class="section" id="cea-fac-option">
+<h2>CEA fac Option<a class="headerlink" href="#cea-fac-option" title="Permalink to this headline">¶</a></h2>
+<p>The CEA program offers the option to calculate the Rayleigh line loss for you
+by using the <strong>fac</strong> option. (The above chart was generated with RocketCEA using the fac option).</p>
+<a class="reference internal image-reference" href="_images/fac_manual_option.jpg"><img alt="_images/fac_manual_option.jpg" src="_images/fac_manual_option.jpg" style="width: 60%;" /></a>
+<p>A traditional CEA run that sets <strong>fac</strong> has an extra column of data called
+<strong>COMB END</strong> that indicates what the chamber plenum pressure, <strong>Pcomb_end</strong>, would be
+if the injector face pressure, <strong>INJECTOR</strong> pressure, were specified.
+An example of that extra column is shown below.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                <span class="n">INJECTOR</span>  <span class="n">COMB</span> <span class="n">END</span>  <span class="n">THROAT</span>     <span class="n">EXIT</span>
+<span class="n">Pinj</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.0692</span>   <span class="mf">1.7921</span>   <span class="mf">473.77</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">ATM</span>            <span class="mf">68.046</span>   <span class="mf">63.643</span>   <span class="mf">37.970</span>  <span class="mf">0.14363</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3483.35</span>  <span class="mf">3467.55</span>  <span class="mf">3288.16</span>  <span class="mf">1441.62</span>
+<span class="n">RHO</span><span class="p">,</span> <span class="n">G</span><span class="o">/</span><span class="n">CC</span>       <span class="mf">3.2038</span><span class="o">-</span><span class="mi">3</span> <span class="mf">3.0113</span><span class="o">-</span><span class="mi">3</span> <span class="mf">1.9141</span><span class="o">-</span><span class="mi">3</span> <span class="mf">1.7133</span><span class="o">-</span><span class="mi">5</span>
+<span class="n">H</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">235.74</span>  <span class="o">-</span><span class="mf">253.44</span>  <span class="o">-</span><span class="mf">509.60</span> <span class="o">-</span><span class="mf">2372.05</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">750.09</span>  <span class="o">-</span><span class="mf">765.27</span>  <span class="o">-</span><span class="mf">990.00</span> <span class="o">-</span><span class="mf">2575.07</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>        <span class="o">-</span><span class="mf">15090.3</span> <span class="o">-</span><span class="mf">15057.2</span> <span class="o">-</span><span class="mf">14547.5</span> <span class="o">-</span><span class="mf">8526.66</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>     <span class="mf">4.2644</span>   <span class="mf">4.2692</span>   <span class="mf">4.2692</span>   <span class="mf">4.2692</span>
+
+<span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">13.458</span>   <span class="mf">13.463</span>   <span class="mf">13.602</span>   <span class="mf">14.111</span>
+<span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.02525</span> <span class="o">-</span><span class="mf">1.02508</span> <span class="o">-</span><span class="mf">1.01972</span> <span class="o">-</span><span class="mf">1.00000</span>
+<span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.4496</span>   <span class="mf">1.4485</span>   <span class="mf">1.3717</span>   <span class="mf">1.0001</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">2.0951</span>   <span class="mf">2.0962</span>   <span class="mf">1.9277</span>   <span class="mf">0.7309</span>
+<span class="n">GAMMAs</span>            <span class="mf">1.1401</span>   <span class="mf">1.1398</span>   <span class="mf">1.1401</span>   <span class="mf">1.2387</span>
+<span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1566.3</span>   <span class="mf">1562.3</span>   <span class="mf">1513.8</span>   <span class="mf">1025.8</span>
+<span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">0.246</span>    <span class="mf">1.000</span>    <span class="mf">4.122</span>
+</pre></div>
+</div>
+<p>In <strong>RocketCEA</strong> the fac option is implemented by specifying the fac contraction ratio, <strong>fac_CR</strong>
+when creating a CEA_Obj. For example:</p>
+<p>All calls to the <strong>ispObj</strong> will assume the input contraction ratio, <strong>fac_CR</strong>, and
+use the input <strong>Pc</strong> as the <strong>Pcinj_face</strong>.</p>
+<p>For example, the above table was generated with the code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The chamber plenum pressure, <strong>Pcomb_end</strong>, will be determined by applying the
+Rayleigh line loss to <strong>Pcinj_face</strong>.</p>
+<p>It is also possible to calculate <strong>Pcinj_face / Pcomb_end</strong> for any contraction ratio using the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PinjOverPcomb</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Pinj_over_Pcomb</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="n">CR</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The graph in the 1st section above was created using this approach.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">crL</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.4</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mf">0.2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="p">]</span>
+
+<span class="n">propL</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span><span class="s1">&#39;MMH&#39;</span><span class="p">,</span><span class="mf">2.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;CLF5&#39;</span><span class="p">,</span><span class="s1">&#39;N2H4&#39;</span><span class="p">,</span><span class="mf">2.5</span><span class="p">),</span> 
+         <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;CH4&#39;</span><span class="p">,</span><span class="mf">3.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span><span class="mf">6.0</span><span class="p">)]</span>
+
+<span class="n">Pc</span> <span class="o">=</span> <span class="mf">500.0</span>
+
+<span class="n">est_pratL</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">cr</span><span class="o">**</span><span class="mf">2.2</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crL</span><span class="p">]</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">crL</span><span class="p">,</span> <span class="n">est_pratL</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Est Eqn = 1.0 + 0.54 / CR**2.2&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>    
+
+<span class="k">def</span> <span class="nf">make_pratL</span><span class="p">(</span> <span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="p">,</span> <span class="n">MR</span> <span class="p">):</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="n">fuelName</span><span class="p">)</span>
+    <span class="n">pratL</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="o">.</span><span class="n">get_Pinj_over_Pcomb</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="n">cr</span><span class="p">)</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crL</span><span class="p">]</span>
+    
+    <span class="n">plot</span><span class="p">(</span><span class="n">crL</span><span class="p">,</span> <span class="n">pratL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">oxName</span><span class="p">,</span><span class="n">fuelName</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="p">,</span> <span class="n">MR</span><span class="p">)</span> <span class="ow">in</span> <span class="n">propL</span><span class="p">:</span>
+    <span class="n">make_pratL</span><span class="p">(</span> <span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="p">,</span> <span class="n">MR</span> <span class="p">)</span>
+    
+
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span> <span class="s1">&#39;Rayleigh Line Loss&#39;</span> <span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span> <span class="s1">&#39;Contraction Ratio&#39;</span> <span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span> <span class="s1">&#39;Pinj_face / Pplenum&#39;</span> <span class="p">)</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;compare_rayleigh.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="section" id="specify-plenum-pressure">
+<h2>Specify Plenum Pressure<a class="headerlink" href="#specify-plenum-pressure" title="Permalink to this headline">¶</a></h2>
+<p>Since it is more common to specify a plenum pressure, <strong>Pcomb_end</strong>,
+and calculate an injector face pressure, <strong>Pcinj_face</strong>,
+The following script will use <strong>RocketCEA</strong> to calculate the required <strong>Pcinj_face</strong>
+that gives <strong>Pcomb_end</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    figure out Pcinj_face to get desired Pcomb_end (100 atm in example)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">cr</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="c1"># contraction ratio</span>
+<span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="n">cr</span><span class="p">)</span>
+
+<span class="c1"># Use 100 atm to make output easy to read</span>
+<span class="n">Pc</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="mf">14.6959</span>
+
+<span class="c1"># use correlation to make 1st estimate of Pcinj_face / Pcomb_end</span>
+<span class="n">PinjOverPcomb</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">cr</span><span class="o">**</span><span class="mf">2.2</span>
+
+<span class="c1"># use RocketCEA to refine initial estimate</span>
+<span class="n">PinjOverPcomb</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_Pinj_over_Pcomb</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span> <span class="o">*</span> <span class="n">PinjOverPcomb</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span> <span class="p">)</span>
+
+<span class="c1"># print results (noting that &quot;COMB END&quot; == 100.00 atm)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span> <span class="o">*</span> <span class="n">PinjOverPcomb</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output from the above script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                <span class="n">INJECTOR</span>  <span class="n">COMB</span> <span class="n">END</span>  <span class="n">THROAT</span>     <span class="n">EXIT</span>
+<span class="n">Pinj</span><span class="o">/</span><span class="n">P</span>            <span class="mf">1.0000</span>   <span class="mf">1.0693</span>   <span class="mf">1.7944</span>   <span class="mf">479.16</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">ATM</span>            <span class="mf">106.93</span>   <span class="mf">100.00</span>   <span class="mf">59.593</span>  <span class="mf">0.22317</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">K</span>             <span class="mf">3532.34</span>  <span class="mf">3516.04</span>  <span class="mf">3327.30</span>  <span class="mf">1432.71</span>
+<span class="n">RHO</span><span class="p">,</span> <span class="n">G</span><span class="o">/</span><span class="n">CC</span>       <span class="mf">4.9892</span><span class="o">-</span><span class="mi">3</span> <span class="mf">4.6890</span><span class="o">-</span><span class="mi">3</span> <span class="mf">2.9813</span><span class="o">-</span><span class="mi">3</span> <span class="mf">2.6786</span><span class="o">-</span><span class="mi">5</span>
+<span class="n">H</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">235.74</span>  <span class="o">-</span><span class="mf">253.64</span>  <span class="o">-</span><span class="mf">512.51</span> <span class="o">-</span><span class="mf">2378.56</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>         <span class="o">-</span><span class="mf">754.77</span>  <span class="o">-</span><span class="mf">770.11</span>  <span class="o">-</span><span class="mf">996.59</span> <span class="o">-</span><span class="mf">2580.33</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="n">G</span>        <span class="o">-</span><span class="mf">15064.1</span> <span class="o">-</span><span class="mf">15030.3</span> <span class="o">-</span><span class="mf">14496.0</span> <span class="o">-</span><span class="mf">8399.74</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>     <span class="mf">4.1979</span>   <span class="mf">4.2026</span>   <span class="mf">4.2026</span>   <span class="mf">4.2026</span>
+
+<span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>          <span class="mf">13.524</span>   <span class="mf">13.529</span>   <span class="mf">13.659</span>   <span class="mf">14.111</span>
+<span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLP</span><span class="p">)</span><span class="n">t</span>      <span class="o">-</span><span class="mf">1.02259</span> <span class="o">-</span><span class="mf">1.02243</span> <span class="o">-</span><span class="mf">1.01737</span> <span class="o">-</span><span class="mf">1.00000</span>
+<span class="p">(</span><span class="n">dLV</span><span class="o">/</span><span class="n">dLT</span><span class="p">)</span><span class="n">p</span>        <span class="mf">1.3977</span>   <span class="mf">1.3966</span>   <span class="mf">1.3245</span>   <span class="mf">1.0001</span>
+<span class="n">Cp</span><span class="p">,</span> <span class="n">CAL</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="p">)(</span><span class="n">K</span><span class="p">)</span>    <span class="mf">1.9426</span>   <span class="mf">1.9433</span>   <span class="mf">1.7862</span>   <span class="mf">0.7293</span>
+<span class="n">GAMMAs</span>            <span class="mf">1.1431</span>   <span class="mf">1.1429</span>   <span class="mf">1.1435</span>   <span class="mf">1.2393</span>
+<span class="n">SON</span> <span class="n">VEL</span><span class="p">,</span><span class="n">M</span><span class="o">/</span><span class="n">SEC</span>     <span class="mf">1575.6</span>   <span class="mf">1571.5</span>   <span class="mf">1521.9</span>   <span class="mf">1022.9</span>
+<span class="n">MACH</span> <span class="n">NUMBER</span>        <span class="mf">0.000</span>    <span class="mf">0.246</span>    <span class="mf">1.000</span>    <span class="mf">4.140</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="system-performance">
+<h2>System Performance<a class="headerlink" href="#system-performance" title="Permalink to this headline">¶</a></h2>
+<p>Choosing a contraction ratio is part of an overall system performance trade.</p>
+<p>A smaller CR gives a smaller, lighter engine, but leads to a heavier pressurization system
+and perhaps heavier tankage.</p>
+<p>Focusing on engine thrust to weight ratio completely ignores system implications.</p>
+<p>That said, the most common contraction ratio is <strong>2.5</strong>.
+Very large booster engines tend to have smaller CR, small engines tend to have larger CR.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="comb_species.html" title="Species Mole Fractions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="simple_examples.html" title="Simple Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.11 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
