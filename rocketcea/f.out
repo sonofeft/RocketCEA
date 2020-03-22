@@ -15,8 +15,9 @@
   oxid O2(L)  O 2
   h,cal=-3102.      t(k)=90.18       wt%=100.
   
- prob case=LOX_/_LH2
+ prob case=RocketCEA,
   rocket equilibrium   p,psia=1000.000000,  supar=40.000000,
+  fac  ac/at=2.500000,
   o/f=6.000000,
   
   
@@ -36,13 +37,13 @@
 
  SUPERSONIC AREA RATIOS =    40.0000
 
- NFZ=  1  Mdot/Ac= 0.000000E+00  Ac/At= 0.000000E+00
+ NFZ=  1  Mdot/Ac= 0.000000E+00  Ac/At= 2.500000E+00
 
     REACTANT          WT.FRAC   (ENERGY/R),K   TEMP,K  DENSITY
         EXPLODED FORMULA
- F: H2(L)            1.000000  -0.108393E+04    20.27  1.6340
+ F: H2(L)            1.000000  -0.108393E+04    20.27  0.8740
           H  2.00000
- O: O2(L)            1.000000  -0.156098E+04    90.18  1.4070
+ O: O2(L)            1.000000  -0.156098E+04    90.18  1.0036
           O  2.00000
 
   SPECIES BEING CONSIDERED IN THIS SYSTEM
@@ -83,12 +84,30 @@
 
  POINT ITN      T            H           O 
    1    9    3483.350      -9.273     -16.160
- Pinf/Pt = 1.734909
-   2    4    3291.075      -9.450     -16.510
- Pinf/Pt = 1.735136
-   2    1    3291.030      -9.450     -16.510
-   3    5    1392.743     -10.935     -27.365
-   3    3    1440.950     -10.895     -26.697
+   2    2    3477.640      -9.295     -16.173
+ Pinf/Pt = 1.734699
+   3    4    3286.479      -9.473     -16.521
+ Pinf/Pt = 1.734896
+   3    1    3286.440      -9.473     -16.522
+   4    2    3467.552      -9.305     -16.190
+   4    2    3465.647      -9.306     -16.193
+   4    2    3465.444      -9.307     -16.193
+   4    1    3465.442      -9.307     -16.193
+   2    2    3479.772      -9.287     -16.168
+ Pinf/Pt = 1.734777
+   3    4    3288.197      -9.465     -16.517
+ Pinf/Pt = 1.734986
+   3    1    3288.155      -9.465     -16.517
+   4    2    3469.663      -9.296     -16.185
+   4    2    3467.753      -9.298     -16.188
+   4    2    3467.550      -9.298     -16.189
+   4    1    3467.548      -9.298     -16.189
+ END OF CHAMBER ITERATIONS
+
+ WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
+ TO BE LESS THAN  Pinj/Pc =  1.06918. POINT OMITTED (ROCKET)
+   4    5    1393.236     -10.951     -27.358
+   4    3    1441.621     -10.912     -26.689
 
 
 
@@ -96,74 +115,75 @@
 
               THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
 
-           COMPOSITION DURING EXPANSION FROM INFINITE AREA COMBUSTOR
+            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
  Pinj =  1000.0 PSIA
- CASE = LOX_/_LH2      
+ Ac/At =  2.5000      Pinj/Pinf =  1.032901
+ CASE = RocketCEA,     
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
                                           (SEE NOTE)      CAL/MOL       K  
  FUEL        H2(L)                        1.0000000     -2154.000     20.270
  OXIDANT     O2(L)                        1.0000000     -3102.000     90.180
 
- REACTANT DENSITY=  1.4355 G/CC
+ REACTANT DENSITY=  0.9828 G/CC
 
  O/F=    6.00000  %FUEL= 14.285714  R,EQ.RATIO= 1.322780  PHI,EQ.RATIO= 1.322780
 
-                 CHAMBER   THROAT     EXIT
- Pinf/P            1.0000   1.7351   459.06
- P, ATM            68.046   39.216  0.14823
- T, K             3483.35  3291.03  1440.95
- RHO, G/CC       3.2038-3 1.9758-3 1.7690-5
- H, CAL/G         -235.74  -509.81 -2372.54
- U, CAL/G         -750.09  -990.49 -2575.47
- G, CAL/G        -15090.3 -14544.2 -8517.40
- S, CAL/(G)(K)     4.2644   4.2644   4.2644
+                 INJECTOR  COMB END  THROAT     EXIT
+ Pinj/P            1.0000   1.0692   1.7921   473.77
+ P, ATM            68.046   63.643   37.970  0.14363
+ T, K             3483.35  3467.55  3288.16  1441.62
+ RHO, G/CC       3.2038-3 3.0113-3 1.9141-3 1.7133-5
+ H, CAL/G         -235.74  -253.44  -509.60 -2372.05
+ U, CAL/G         -750.09  -765.27  -990.00 -2575.07
+ G, CAL/G        -15090.3 -15057.2 -14547.5 -8526.66
+ S, CAL/(G)(K)     4.2644   4.2692   4.2692   4.2692
 
- M, (1/n)          13.458   13.606   14.111
- (dLV/dLP)t      -1.02525 -1.01954 -1.00000
- (dLV/dLT)p        1.4496   1.3682   1.0001
- Cp, CAL/(G)(K)    2.0951   1.9171   0.7308
- GAMMAs            1.1401   1.1403   1.2388
- SON VEL,M/SEC     1566.3   1514.4   1025.6
- MACH NUMBER        0.000    1.000    4.123
+ M, (1/n)          13.458   13.463   13.602   14.111
+ (dLV/dLP)t      -1.02525 -1.02508 -1.01972 -1.00000
+ (dLV/dLT)p        1.4496   1.4485   1.3717   1.0001
+ Cp, CAL/(G)(K)    2.0951   2.0962   1.9277   0.7309
+ GAMMAs            1.1401   1.1398   1.1401   1.2387
+ SON VEL,M/SEC     1566.3   1562.3   1513.8   1025.8
+ MACH NUMBER        0.000    0.246    1.000    4.122
 
  TRANSPORT PROPERTIES (GASES ONLY)
    CONDUCTIVITY IN UNITS OF MILLICALORIES/(CM)(K)(SEC)
 
- VISC,MILLIPOISE   1.0588   1.0153  0.52745
+ VISC,MILLIPOISE   1.0588   1.0552   1.0146  0.52766
 
   WITH EQUILIBRIUM REACTIONS
 
- Cp, CAL/(G)(K)    2.0951   1.9171   0.7308
- CONDUCTIVITY      4.1444   3.6272   0.5411
- PRANDTL NUMBER    0.5352   0.5366   0.7123
+ Cp, CAL/(G)(K)    2.0951   2.0962   1.9277   0.7309
+ CONDUCTIVITY      4.1444   4.1371   3.6495   0.5415
+ PRANDTL NUMBER    0.5352   0.5347   0.5359   0.7123
 
   WITH FROZEN REACTIONS
 
- Cp, CAL/(G)(K)    0.9029   0.8950   0.7302
- CONDUCTIVITY      1.3519   1.2760   0.5398
- PRANDTL NUMBER    0.7071   0.7121   0.7135
+ Cp, CAL/(G)(K)    0.9029   0.9023   0.8949   0.7303
+ CONDUCTIVITY      1.3519   1.3461   1.2752   0.5401
+ PRANDTL NUMBER    0.7071   0.7073   0.7120   0.7135
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      1.0000   40.000
- CSTAR, FT/SEC              7560.0   7560.0
- CF                         0.6572   1.8351
- Ivac,LB-SEC/LB              289.8    451.7
- Isp, LB-SEC/LB              154.4    431.2
+ Ae/At                      2.5000   1.0000   40.000
+ CSTAR, FT/SEC              7558.0   7558.0   7558.0
+ CF                         0.1671   0.6571   1.8354
+ Ivac,LB-SEC/LB              606.6    289.8    451.6
+ Isp, LB-SEC/LB               39.2    154.4    431.1
 
 
  MOLE FRACTIONS
 
- *H               0.03417  0.02810  0.00001
- HO2              0.00003  0.00002  0.00000
- *H2              0.24832  0.24538  0.24401
- H2O              0.66590  0.68751  0.75598
- H2O2             0.00001  0.00001  0.00000
- *O               0.00334  0.00217  0.00000
- *OH              0.04478  0.03446  0.00000
- *O2              0.00345  0.00236  0.00000
+ *H               0.03417  0.03406  0.02835  0.00001
+ HO2              0.00003  0.00003  0.00002  0.00000
+ *H2              0.24832  0.24814  0.24539  0.24401
+ H2O              0.66590  0.66670  0.68697  0.75598
+ H2O2             0.00001  0.00001  0.00001  0.00000
+ *O               0.00334  0.00330  0.00220  0.00000
+ *OH              0.04478  0.04434  0.03468  0.00000
+ *O2              0.00345  0.00342  0.00240  0.00000
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 

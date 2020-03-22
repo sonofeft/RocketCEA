@@ -26,6 +26,7 @@ Contents:
    std_examples
    traditional_example
    simple_examples
+   finite_area_comb
    comb_species
    engine_mr
    propellant_select

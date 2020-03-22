@@ -77,7 +77,7 @@ class MyTest(unittest.TestCase):
 
     def test_lox_mmh_existence(self):
         """Check that LOX/MMH gives correct result"""
-        C = CEA_Obj(oxName="LOX", fuelName='MMH')
+        C = CEA_Obj(oxName="LOX", fuelName='MMH', fac_CR=None)
         
         Pc,MR,eps = 1000.0, 5.88687, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
@@ -90,7 +90,7 @@ class MyTest(unittest.TestCase):
 
     def test_M10(self):
         """Check that M10 gives correct result"""
-        C = CEA_Obj(oxName="LOX", fuelName='M10')
+        C = CEA_Obj(oxName="LOX", fuelName='M10', fac_CR=None)
         
         Pc,MR,eps = 1000.0, 1.0, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
@@ -102,11 +102,11 @@ class MyTest(unittest.TestCase):
     def test_badM1000(self):
         """Check that M1000 gives Exception"""
         with self.assertRaises(Exception):
-            C = CEA_Obj(oxName="LOX", fuelName='M1000')
+            C = CEA_Obj(oxName="LOX", fuelName='M1000', fac_CR=None)
 
     def test_Peroxide83(self):
         """Check that Peroxide83 gives correct result"""
-        C = CEA_Obj(oxName='Peroxide83', fuelName="CH4")
+        C = CEA_Obj(oxName='Peroxide83', fuelName="CH4", fac_CR=None)
         
         Pc,MR,eps = 1000.0, 1.0, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
@@ -118,17 +118,17 @@ class MyTest(unittest.TestCase):
     def test_BadPeroxide(self):
         """Check that Peroxidexx gives Exception"""
         with self.assertRaises(Exception):
-            C = CEA_Obj(oxName='Peroxidexx', fuelName="CH4")
+            C = CEA_Obj(oxName='Peroxidexx', fuelName="CH4", fac_CR=None)
         
 
     def test_BadPeroxide1000(self):
         """Check that Peroxide1000 gives Exception"""
         with self.assertRaises(Exception):
-            C = CEA_Obj(oxName='Peroxide1000', fuelName="CH4")
+            C = CEA_Obj(oxName='Peroxide1000', fuelName="CH4", fac_CR=None)
 
     def test_HYD30(self):
         """Check that HYD30 gives correct result"""
-        C = CEA_Obj(propName='HYD30')
+        C = CEA_Obj(propName='HYD30', fac_CR=None)
         
         Pc,MR,eps = 200.0, 1.0, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
@@ -145,7 +145,7 @@ class MyTest(unittest.TestCase):
         len_1 = len( cacheD )
         self.assertGreater(len(cacheD), 0)
         
-        C = CEA_Obj(oxName="LOX", fuelName='M19') # new propellant so increases cache.
+        C = CEA_Obj(oxName="LOX", fuelName='M19', fac_CR=None) # new propellant so increases cache.
         Pc,MR,eps = 1000.0, 4.0, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
         
@@ -157,16 +157,16 @@ class MyTest(unittest.TestCase):
     def test_badMON1300(self):
         """Check that MON1300 gives Exception"""
         with self.assertRaises(Exception):
-            C = CEA_Obj(oxName="MON1300", fuelName='MMH')
+            C = CEA_Obj(oxName="MON1300", fuelName='MMH', fac_CR=None)
 
     def test_badMONxyz(self):
         """Check that MONxyz gives Exception"""
         with self.assertRaises(Exception):
-            C = CEA_Obj(oxName="MONxyz", fuelName='MMH')
+            C = CEA_Obj(oxName="MONxyz", fuelName='MMH', fac_CR=None)
 
     def test_MON13(self):
         """Check that MON13 gives correct result"""
-        C = CEA_Obj(oxName="MON13", fuelName='MMH')
+        C = CEA_Obj(oxName="MON13", fuelName='MMH', fac_CR=None)
         
         Pc,MR,eps = 1000.0, 1.0, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
@@ -178,11 +178,11 @@ class MyTest(unittest.TestCase):
     def test_badFLOX888(self):
         """Check that FLOX888 gives Exception"""
         with self.assertRaises(Exception):
-            C = CEA_Obj(oxName="FLOX888", fuelName='MMH')
+            C = CEA_Obj(oxName="FLOX888", fuelName='MMH', fac_CR=None)
 
     def test_FLOX88(self):
         """Check that FLOX88 gives correct result"""
-        C = CEA_Obj(oxName="FLOX88", fuelName='MMH')
+        C = CEA_Obj(oxName="FLOX88", fuelName='MMH', fac_CR=None)
         
         Pc,MR,eps = 1000.0, 1.0, 100.0
         i,c,t = C.get_IvacCstrTc(Pc,MR,eps)
@@ -193,7 +193,7 @@ class MyTest(unittest.TestCase):
 
     def test_getFrozen_IvacCstrTc(self):
         """ test call to getFrozen_IvacCstrTc( Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         i,c,t = C.getFrozen_IvacCstrTc( Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0)
         
         self.assertAlmostEqual(i, 335.79399488107725, places=3)
@@ -202,7 +202,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_IvacCstrTc_exitMwGam(self):
         """ test call to get_IvacCstrTc_exitMwGam( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         IspODE, Cstar, Tcomb, mw, gam = C.get_IvacCstrTc_exitMwGam( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(IspODE, 351.738807671, places=3)
@@ -212,7 +212,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_IvacCstrTc_ChmMwGam(self):
         """ test call to get_IvacCstrTc_ChmMwGam( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         IspODE, Cstar, Tcomb, mw, gam = C.get_IvacCstrTc_ChmMwGam( Pc=100.0, MR=1.0, eps=40.0)
         #print( IspODE, Cstar, Tcomb, mw, gam )
         
@@ -223,7 +223,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_IvacCstrTc_ThtMwGam(self):
         """ test call to get_IvacCstrTc_ThtMwGam( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         IspODE, Cstar, Tcomb, mw, gam = C.get_IvacCstrTc_ThtMwGam( Pc=100.0, MR=1.0, eps=40.0)
         #print( IspODE, Cstar, Tcomb, mw, gam )
         
@@ -234,7 +234,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Isp(self):
         """ test call to get_Isp( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         IspODE = C.get_Isp( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(IspODE, 351.7388076713265, places=3)
@@ -243,7 +243,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Cstar(self):
         """ test call to get_Cstar( Pc=100.0, MR=1.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         cstar = C.get_Cstar( Pc=100.0, MR=1.0)
         print( cstar )
         
@@ -256,7 +256,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Tcomb(self):
         """ test call to get_Tcomb( Pc=100.0, MR=1.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         Tc = C.get_Tcomb( Pc=100.0, MR=1.0)
         
         self.assertAlmostEqual(Tc, 5464.953232850104, places=3)
@@ -265,7 +265,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_PcOvPe(self):
         """ test call to get_PcOvPe( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         PcOvPe = C.get_PcOvPe( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(PcOvPe, 550.3111877518063, places=3)
@@ -274,7 +274,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_eps_at_PcOvPe(self):
         """ test call to get_eps_at_PcOvPe( Pc=100.0, MR=1.0, PcOvPe=1000.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         eps = C.get_eps_at_PcOvPe( Pc=100.0, MR=1.0, PcOvPe=1000.0)
         
         self.assertAlmostEqual(eps, 63.23132705083242, places=3)
@@ -283,7 +283,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Throat_PcOvPe(self):
         """ test call to get_Throat_PcOvPe( Pc=100.0, MR=1.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         PcOvPe = C.get_Throat_PcOvPe( Pc=100.0, MR=1.0)
         
         self.assertAlmostEqual(PcOvPe, 1.7514818804078667, places=3)
@@ -292,7 +292,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_MachNumber(self):
         """ test call to get_MachNumber( Pc=100.0, MR=1.0,eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         M = C.get_MachNumber( Pc=100.0, MR=1.0,eps=40.0)
         
         self.assertAlmostEqual(M, 4.44559589277226, places=3)
@@ -301,7 +301,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_SonicVelocities(self):
         """ test call to get_SonicVelocities( Pc=100.0, MR=1.0,eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         sonicList = C.get_SonicVelocities( Pc=100.0, MR=1.0,eps=40.0)
         print( sonicList )
         
@@ -313,7 +313,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Chamber_SonicVel(self):
         """ test call to get_Chamber_SonicVel( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         v = C.get_Chamber_SonicVel( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(v, 4187.834140603644, places=3)
@@ -322,7 +322,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Enthalpies(self):
         """ test call to get_Enthalpies( Pc=100.0, MR=1.0,eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         hList = C.get_Enthalpies( Pc=100.0, MR=1.0,eps=40.0)
         print( hList )
         
@@ -334,7 +334,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Chamber_H(self):
         """ test call to get_Chamber_H( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         h = C.get_Chamber_H( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(h, 164.75127480959486, places=3)
@@ -343,7 +343,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Densities(self):
         """ test call to get_Densities( Pc=100.0, MR=1.0,eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         dList = C.get_Densities( Pc=100.0, MR=1.0,eps=40.0)
         
         self.assertEqual( len(dList), 3 )
@@ -354,7 +354,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Chamber_Density(self):
         """ test call to get_Chamber_Density( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         d = C.get_Chamber_Density( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(d, 0.030572097913422087, places=3)
@@ -363,7 +363,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_HeatCapacities(self):
         """ test call to get_HeatCapacities( Pc=100.0, MR=1.0,eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         cpL = C.get_HeatCapacities( Pc=100.0, MR=1.0,eps=40.0)
         
         self.assertEqual( len(cpL), 3)
@@ -374,7 +374,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Chamber_Cp(self):
         """ test call to get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         cpList = C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(cpList, 1.2168114560892265, places=3)
@@ -383,7 +383,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Throat_Isp(self):
         """ test call to get_Throat_Isp( Pc=100.0, MR=1.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         i = C.get_Throat_Isp( Pc=100.0, MR=1.0)
         
         self.assertAlmostEqual(i, 233.43895092017615, places=3)
@@ -392,7 +392,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Chamber_MolWt_gamma(self):
         """ test call to get_Chamber_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         mw,gam = C.get_Chamber_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(mw, 17.92996373798247, places=3)
@@ -402,7 +402,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_Throat_MolWt_gamma(self):
         """ test call to get_Throat_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         mw,gam = C.get_Throat_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(mw, 18.103782908970977, places=3)
@@ -412,7 +412,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_exit_MolWt_gamma(self):
         """ test call to get_exit_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         mw,gam = C.get_exit_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(mw, 18.428712322579944, places=3)
@@ -422,7 +422,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_eqratio(self):
         """ test call to get_eqratio( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         eq = C.get_eqratio( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertEqual( len(eq), 2)
@@ -432,7 +432,7 @@ class MyTest(unittest.TestCase):
 
     def test_getMRforER(self):
         """ test call to getMRforER( ERphi=None, ERr=None) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         mr = C.getMRforER( ERphi=1.0, ERr=None)
         self.assertAlmostEqual(mr, 1.7363572550114232, places=3)
 
@@ -443,7 +443,7 @@ class MyTest(unittest.TestCase):
 
     def test_get_description(self):
         """ test call to get_description(self) """
-        C = CEA_Obj(oxName="LOX", fuelName="MMH")
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         ans = C.get_description()
         
         self.assertEqual(ans, 'LOX / MMH')
@@ -452,7 +452,7 @@ class MyTest(unittest.TestCase):
 
 
     def test_ambient_Isp(self):
-        C = CEA_Obj(oxName="LOX", fuelName="LH2")
+        C = CEA_Obj(oxName="LOX", fuelName="LH2", fac_CR=None)
         
         IspAmb, mode = C.estimate_Ambient_Isp(Pc=100.0, MR=6.0, eps=20.0, Pamb=14.7)
         self.assertAlmostEqual(IspAmb, 235.9980548, places=3)
@@ -466,7 +466,7 @@ class MyTest(unittest.TestCase):
         del C
     
     def test_full_cea_output(self):
-        C = CEA_Obj(oxName="LOX", fuelName="LH2")
+        C = CEA_Obj(oxName="LOX", fuelName="LH2", fac_CR=None)
         s = C.get_full_cea_output( Pc=1000.0, MR=6.0, eps=40.0)
         #print( s )
         
@@ -493,7 +493,7 @@ class MyTest(unittest.TestCase):
         """
         add_new_fuel( 'MMH_AL', card_str )
         
-        C = CEA_Obj(oxName="GelN2O4", fuelName="MMH_AL")
+        C = CEA_Obj(oxName="GelN2O4", fuelName="MMH_AL", fac_CR=None)
         IspODE = C.get_Isp( Pc=1850.0, MR=0.7, eps=40.0)
         self.assertAlmostEqual(IspODE, 380.83236183365057, places=3)
 
@@ -504,7 +504,7 @@ class MyTest(unittest.TestCase):
         h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
         """
         add_new_propellant( 'MyProp', card_str )
-        C = CEA_Obj(propName="MyProp")
+        C = CEA_Obj(propName="MyProp", fac_CR=None)
         IspODE = C.get_Isp( Pc=1850.0, eps=40.0)
         self.assertAlmostEqual(IspODE, 189.9709005711723, places=3)
 
@@ -522,7 +522,7 @@ class MyTest(unittest.TestCase):
     
     def test_get_ambient_Cf(self):
         """ test call to get_eqratio( Pc=100.0, MR=1.0, eps=40.0) """
-        C = CEA_Obj(oxName="LOX", fuelName="LH2")
+        C = CEA_Obj(oxName="LOX", fuelName="LH2", fac_CR=None)
         CFcea, CF,mode = C.get_PambCf( Pc=1000.0, MR=6.0, eps=40.0, Pamb=14.7*0.14823)
         
         self.assertAlmostEqual(CF, 1.8351, places=3)

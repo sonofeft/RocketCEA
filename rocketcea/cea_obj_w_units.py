@@ -19,7 +19,8 @@ class CEA_Obj( object ):
         pressure_units='psia', temperature_units='degR', 
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
         density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
-        viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s'):
+        viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s', 
+        fac_CR=None):
         """::
         
         #: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb
@@ -36,6 +37,7 @@ class CEA_Obj( object ):
         #: specific_heat_units  = 'BTU/lbm degR' # kJ/kg-K, cal/g-C, J/kg-K (# note: cal/g K == BTU/lbm degR)
         #: viscosity_units      = 'millipoise'   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise
         #: thermal_cond_units   = 'mcal/cm-K-s'  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC
+        #: fac_CR, Contraction Ratio of finite area combustor (None=infinite)
         """
 
         self.isp_units            = isp_units
@@ -48,6 +50,7 @@ class CEA_Obj( object ):
         self.specific_heat_units  = specific_heat_units
         self.viscosity_units      = viscosity_units
         self.thermal_cond_units   = thermal_cond_units
+        self.fac_CR               = fac_CR
         
         # Units objects for input/output (e.g. Pc and Pamb)
         self.Pc_U       = get_units_obj('psia', pressure_units )
@@ -64,7 +67,8 @@ class CEA_Obj( object ):
         self.thermal_cond_U   = get_units_obj('mcal/cm-K-s', thermal_cond_units)
         
         self.cea_obj = CEA_Obj_default(propName=propName, oxName=oxName, fuelName=fuelName, 
-                               useFastLookup=useFastLookup, makeOutput=makeOutput)
+                               useFastLookup=useFastLookup, makeOutput=makeOutput,
+                               fac_CR=fac_CR)
         self.desc = self.cea_obj.desc
     
     def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):

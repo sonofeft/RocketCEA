@@ -69,8 +69,8 @@ class MyTest(unittest.TestCase):
     def test_use_Mpa_as_input_Pc(self):
         """test use Mpa as input Pc"""
         
-        C = CEA_Obj( oxName='LOX', fuelName='LH2')
-        CwU = CEA_Obj_w_units( oxName='LOX', fuelName='LH2', pressure_units='MPa')
+        C = CEA_Obj( oxName='LOX', fuelName='LH2', fac_CR=None)
+        CwU = CEA_Obj_w_units( oxName='LOX', fuelName='LH2', pressure_units='MPa', fac_CR=None)
         
         a = C.get_Isp(Pc=1000.0, MR=6.0, eps=40.0)
         b = CwU.get_Isp(Pc=1000.0/145.037738, MR=6.0, eps=40.0)
@@ -79,10 +79,10 @@ class MyTest(unittest.TestCase):
     def test_chamber_transport_props(self):
         """test chamber transport props"""
         
-        C = CEA_Obj( oxName='LOX', fuelName='LH2')
+        C = CEA_Obj( oxName='LOX', fuelName='LH2', fac_CR=None)
         CwU = CEA_Obj_w_units( oxName='LOX', fuelName='LH2', pressure_units='MPa',
               specific_heat_units='kJ/kg-K',  # note: cal/g K == BTU/lbm degR
-              viscosity_units='poise', thermal_cond_units='BTU/s-in-degF')
+              viscosity_units='poise', thermal_cond_units='BTU/s-in-degF', fac_CR=None)
         
         Cp1, v1, con1, P1 = C.get_Chamber_Transport(Pc=1000.0, MR=6.0, eps=40.0, frozen=0)
         Cp2, v2, con2, P2 = CwU.get_Chamber_Transport(Pc=1000.0/145.037738, MR=6.0, eps=40.0, frozen=0)

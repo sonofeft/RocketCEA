@@ -7,9 +7,14 @@ History
 GitHub Log
 ----------
 
+* Mar 22, 2020
+    - (by: sonofeft)
+        - version 1.1.11 added finite area combustor system-wide
+
 * Mar 19, 2020
     - (by: sonofeft)
-        - version 1.1.9 fixes combution species error, added xxx_NASA propellants
+        - version 1.1.10 Added finite area combustor to full cea output
+        - version 1.1.9 fixes combustion species error, added xxx_NASA propellants
         
 * Mar 16, 2020
     - (by: sonofeft)

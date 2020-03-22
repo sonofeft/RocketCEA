@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Functions &#8212; RocketCEA v1.1.9 documentation</title>
+    <title>RocketCEA Functions &#8212; RocketCEA v1.1.10 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.9 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.10 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -490,7 +490,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.get_full_cea_output">
-<code class="sig-name descname">get_full_cea_output</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">subar=None</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em>, <em class="sig-param">show_transport=1</em>, <em class="sig-param">pc_units='psia'</em>, <em class="sig-param">output='calories'</em>, <em class="sig-param">show_mass_frac=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_full_cea_output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_full_cea_output</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">subar=None</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em>, <em class="sig-param">show_transport=1</em>, <em class="sig-param">pc_units='psia'</em>, <em class="sig-param">output='calories'</em>, <em class="sig-param">show_mass_frac=False</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_full_cea_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the full output file created by CEA. Return as a string.
 #: pc_units = 'psia', 'bar', 'atm', 'mmh'(mm of mercury)
 #: frozen flag (0=equilibrium, 1=frozen)
@@ -499,7 +499,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.setupCards">
-<code class="sig-name descname">setupCards</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">subar=None</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">ERphi=None</em>, <em class="sig-param">ERr=None</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em>, <em class="sig-param">show_transport=0</em>, <em class="sig-param">pc_units='psia'</em>, <em class="sig-param">output='calories'</em>, <em class="sig-param">show_mass_frac=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.setupCards" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setupCards</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">subar=None</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">ERphi=None</em>, <em class="sig-param">ERr=None</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em>, <em class="sig-param">show_transport=0</em>, <em class="sig-param">pc_units='psia'</em>, <em class="sig-param">output='calories'</em>, <em class="sig-param">show_mass_frac=False</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.setupCards" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up card deck and call CEA FORTRAN code.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: if PcOvPe has a value, use it instead of eps to run case</span>
 <span class="c1">#: ERphi = Equivalence ratios in terms of fuel-to-oxidant weight ratios.</span>
@@ -507,6 +507,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <span class="c1">#: pc_units = &#39;psia&#39;, &#39;bar&#39;, &#39;atm&#39;, &#39;mmh&#39;(mm of mercury)</span>
 <span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
 <span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+<span class="c1">#: fac_CR, Contraction Ratio of finite area combustor</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -878,7 +879,7 @@ card in cardDict if necessary</p>
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.9 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.10 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

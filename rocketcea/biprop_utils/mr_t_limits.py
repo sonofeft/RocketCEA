@@ -47,7 +47,8 @@ class MR_Temperature_Limits( object ):
         self.MR_MIN = MR_MIN
         self.MR_MAX = MR_MAX
 
-        self.ispODEObj = CEA_Obj(fuelName=self.cea_fuelName, oxName=self.cea_oxName, useFastLookup=0)
+        self.ispODEObj = CEA_Obj(fuelName=self.cea_fuelName, oxName=self.cea_oxName, 
+                                 useFastLookup=0, fac_CR=None)
 
         self.Stoich_MR = self.ispODEObj.getMRforER( ERphi=1.0 )
         #print( 'Stoich MR =',self.Stoich_MR,'for %s/%s'%(self.cea_oxName, self.cea_fuelName) )
