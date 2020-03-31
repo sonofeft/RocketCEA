@@ -33,6 +33,10 @@ class MR_Temperature_Limits( object ):
     def __init__(self, oxName='N2O4', fuelName='MMH', oxPcentL=None, fuelPcentL=None,
         TC_LIMIT=1000.0, PcNominal=1000.0, epsNominal=10.0,
         MR_MIN=0.0, MR_MAX=1000.0): # degR, psia
+        """
+        For the nominal Pc and Area Ratio,
+        Find minimum and maximum mixture ratio where Tcombusion >= 1000 degR
+        """
         
         self.oxName = oxName
         self.oxPcentL = oxPcentL

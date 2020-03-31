@@ -159,7 +159,7 @@ The examples below call out 90, 95 and 98 percent Peroxide::
 FLOX
 ****
 
-FLOX is a mixuture of Fluorine and Oxygen.
+FLOX is a mixture of Fluorine and Oxygen.
 Call out the mixture as "FLOX" + weight percent of Fluorine.
 The examples below call out 60, 70 and 80 percent Fluorine::
 

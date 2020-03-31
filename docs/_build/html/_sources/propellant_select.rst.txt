@@ -61,7 +61,7 @@ Many companies publish charts of density impulse such as this
 `TRW Propellant Performance Summary <./_static/TRW_Propellant_Performance_Summary.pdf>`_
 
 The units of density impulse can vary between charts, however the choice of ``specific gravity``
-for density and ``sec`` for Isp seem to keep numbers in more recognizable ranges.
+for density and ``sec`` for Isp seems to keep numbers in more recognizable ranges.
 Most charts use an X axis of ``Mixture Ratio`` and a combined Y axis of ``Isp`` and ``Density Impulse``.
 
 The same information can also be displayed on a chart like the one below.
@@ -74,7 +74,7 @@ Recall that real engine Isp will be derived from a curve between equilibrium and
 in :ref:`LOX/LH2 Performance <engine_mr_loxlh2_link>`
 
 .. image:: ./_static/example_scripts/basic_chart.png
-    :width: 75%
+    :width: 99%
     
 `Click Image to View Fill Size`
 
@@ -89,10 +89,11 @@ The script that created this chart is.
 
 
 
-Looking at the chart above, it says that if Isp is most important, then only use F2/H2 or perhaps LOX/LH2 if
-Fluorine is rejected.
+Looking at the chart above, it says that if Isp is most important, 
+then only use F2/H2 or perhaps LOX/LH2 if Fluorine is rejected.
 
-If density impulse is most important, then only use N2F4/N2H4 or perhaps LOX/RP1 if LOX is the chosen oxidizer.
+If density impulse is most important, then only use N2F4/N2H4 or 
+perhaps LOX/RP1 if LOX is the chosen oxidizer.
 
 Stage Density
 -------------
@@ -106,7 +107,8 @@ If we assume that **Stage inert mass only depends on tank volume**.
 Then no matter which bipropellant combination we pour into the stage or in whatever mixture ratio we pour it,
 all of the stage performance parameters can be calculated.
 
-This allows us to take a reference stage design and compare its use by other propellant combinations.
+This allows us to take a reference stage design and evaluate its performance 
+when using any propellant combination.
 
 The quality of this assumption will certainly vary between propellant combinations.
 The performance of some propellants will be helped and others will be hurt, however,
@@ -132,7 +134,7 @@ Notice that for much of the chart, that the lines of constant density impulse cl
 constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice for the Saturn V first stage.
 
 .. image:: ./_static/example_scripts/rho_veh_stg1_vol.png
-    :width: 75%
+    :width: 99%
     
 `Click Image to View Fill Size`
 
@@ -176,7 +178,7 @@ track closely together in an inverse relationship.
 
 
 .. image:: ./_static/example_scripts/rho_veh_stg1_dv.png
-    :width: 75%
+    :width: 99%
 
     
 `Click Image to View Fill Size`
@@ -222,7 +224,7 @@ more than a LOX/RP1 or a LOX/CH4 third stage.
 Note that in this case of ``mass limit``, density impulse is a poor indicator of the best propellant combination.
 
 .. image:: ./_static/example_scripts/rho_veh_stg3_glow.png
-    :width: 75%
+    :width: 99%
     
 `Click Image to View Fill Size`
 
@@ -259,11 +261,11 @@ The chart below compares different propellants being used in a divert vehicle.
 **Every point on the chart has the same initial mass.**
 
 Note that in this case with a ``mass limit``, but a much lower delta velocity requirement, 
-that density impulse is a better indicator of performance than the Saturn stage 3 case, but not 
-particularly good.
+that density impulse is a better indicator of performance than it was for the Saturn stage 3 case, 
+but only by luck, not based on system requirements.
 
 .. image:: ./_static/example_scripts/divert_veh.png
-    :width: 75%
+    :width: 99%
     
     
 `Click Image to View Fill Size`

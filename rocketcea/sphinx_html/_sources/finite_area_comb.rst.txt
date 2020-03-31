@@ -37,9 +37,13 @@ a simple approximation equation for estimating that loss::
 
     Pcinj_face/Pcomb_end = 1.0 + 0.54 / CR**2.2
 
-It is often sufficient, for engineering purposes, to approximate the Rayleigh line loss
-with a simple correlating equation such as the one shown here (Especially since it is more common
-to specify a plenum pressure, **Pcomb_end**, and calculate an injector face pressure, **Pcinj_face**).
+Since different propellant combinations have nearly identical Rayleigh line loss (see above graph),
+it is often sufficient, for engineering purposes, to approximate the Rayleigh line loss
+with a simple correlating equation such as the one shown here.
+
+This is especially convenient when designing to a known plenum pressure, **Pcomb_end**,
+and deriving the injector face pressure, **Pcinj_face**, that CEA and RocketCEA require 
+as an input.
 
 
 CEA fac Option
@@ -81,7 +85,7 @@ when creating a CEA_Obj. For example:
 All calls to the **ispObj** will assume the input contraction ratio, **fac_CR**, and
 use the input **Pc** as the **Pcinj_face**.
 
-For example, the above table was generated with the code.
+For example, the above CEA output was generated with the code.
 
 .. code-block:: python
 

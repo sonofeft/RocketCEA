@@ -42,9 +42,9 @@ The right image is a large, high pressure, small area ratio engine that operates
 
     
 .. image:: ./_static/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png
-    :width: 45%
+    :width: 49%
 .. image:: ./_static/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png
-    :width: 45%
+    :width: 49%
     
 `Click Image to View Fill Size`
 
@@ -64,9 +64,9 @@ Note that fuel film cooling is very common in N2O4/MMH engines and
 will lower the thrust chamber MR below the core MR.
 
 .. image:: ./_static/N2O4_MMH_Peak_ODK_MR.png
-    :width: 45%
+    :width: 49%
 .. image:: ./_static/N2O4_MMH_Peak_MR_Shift.png
-    :width: 45%
+    :width: 49%
 
 `Click Image to View Fill Size`
 
@@ -82,18 +82,18 @@ At high Pc, even large area ratios have very little impact on mixture ratio sele
 Note that both images below are for 100 Klbf engines.
 
 .. image:: ./_static/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png
-    :width: 45%
+    :width: 49%
 .. image:: ./_static/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png
-    :width: 45%
+    :width: 49%
     
 `Click Image to View Fill Size`
 
 
 
 .. image:: ./_static/LOX_RP1_Peak_ODK_MR.png
-    :width: 45%
+    :width: 49%
 .. image:: ./_static/LOX_RP1_Peak_MR_Shift.png
-    :width: 45%
+    :width: 49%
 
 With LOX/RP1 engines, it is helpful to look at historical MR selections.
 Staged combustion (SC) designs use MR values very close to the ODK predictions (~2.6), very near CEA predictions.
@@ -128,14 +128,14 @@ the other tank is reduced will have little impact on overall inert mass.)
 
 The conclusion is that operating at an MR of 6 can add 10 to 15 percent more delta velocity
 to the stage.  Note that the stage initial gross mass also increases so that the overall 
-delta velocity benefit to the vehicle will be less that of this upper stage alone.
+delta velocity benefit to the vehicle will be less than that of this upper stage alone.
 
 
 .. _`engine_mr_loxlh2_link`:
 
 
 .. image:: ./_static/example_scripts/rho_veh_LOXLH2.png
-    :width: 80%
+    :width: 99%
     
 `Click Image to View Fill Size`
 
@@ -144,18 +144,18 @@ The charts below show the kind of kinetics effects that can be expected with LOX
 
 
 .. image:: ./_static/odekf_LOX_LH2_Fvac100_Pc100_eps100.png
-    :width: 45%
+    :width: 49%
 .. image:: ./_static/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png
-    :width: 45%
+    :width: 49%
     
 `Click Image to View Fill Size`
 
 
 
 .. image:: ./_static/LOX_LH2_Peak_ODK_MR.png
-    :width: 45%
+    :width: 49%
 .. image:: ./_static/LOX_LH2_Peak_MR_Shift.png
-    :width: 45%
+    :width: 49%
     
 `Click Image to View Fill Size`
 

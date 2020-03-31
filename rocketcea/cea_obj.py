@@ -642,7 +642,7 @@ class CEA_Obj(object):
 
         self.fac_CR = save_fac_CR   # restore fac_CR
         
-        Pinj_over_Pcomb = Pexit = py_cea.prtout.ppp[0] / py_cea.prtout.ppp[1]
+        Pinj_over_Pcomb = py_cea.prtout.ppp[0] / py_cea.prtout.ppp[1]
 
         return Pinj_over_Pcomb
 

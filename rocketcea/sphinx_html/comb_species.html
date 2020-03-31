@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Species Mole Fractions &#8212; RocketCEA v1.1.11 documentation</title>
+    <title>Species Mole Fractions &#8212; RocketCEA v1.1.12 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="finite_area_comb.html" title="Finite Area Combustor"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.11 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -108,12 +108,12 @@
             
   <div class="section" id="species-mole-fractions">
 <h1>Species Mole Fractions<a class="headerlink" href="#species-mole-fractions" title="Permalink to this headline">¶</a></h1>
-<p>RocketCEA versions 1.1.6 and greater provide access to the combustion species
+<p>Use RocketCEA versions 1.1.9 and greater to access to the combustion species
 mass fractions and mole fractions.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Only use &gt;= version 1.1.9 for Species Fractions.</p>
-<p>Versions 1.1.6 through 1.1.8 have a bug.</p>
+<p>Only use &gt;= version 1.1.9 for Species Fractions.
+(Versions 1.1.6 through 1.1.8 have a bug.)</p>
 </div>
 <p>Notice at the bottom of the sample run at
 <a class="reference internal" href="std_examples.html#std-examples-mole-frac-link"><span class="std std-ref">Standard Examples LOX/LH2 Performance</span></a>
@@ -134,36 +134,43 @@ that the combustion species mole fractions are displayed.</p>
 <p>RocketCEA provides the function <cite>get_SpeciesMoleFractions</cite> that returns two dictionaries.
 One with with species molecular weights and one with the combustion species mole fractions.
 The user can specify equilibrium or frozen values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RocketCEA returns 4 columns of species concentrations.</p>
+<p>Columns are: (1) Injector Face, (2) Combustion Chamber, (3) Throat and (4) Exit</p>
+<p>For a <a class="reference internal" href="finite_area_comb.html#finite-area-comb"><span class="std std-ref">Finite Area Combustor</span></a> , the Injector Face and Combustion Chamber will differ,
+otherwise the two are identical.</p>
+</div>
 <p>A Display of the contents of those two dictionaries is shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">ROCKETCEA</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
- <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
- <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
- <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24401</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
- <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.75598</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
- <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
- <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
- <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
- <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24401</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.75598</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
 <span class="o">=======================================================</span>
    <span class="n">ROCKETCEA</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
- <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.03417</span>  <span class="mf">0.03417</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
- <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
- <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24832</span>  <span class="mf">0.24832</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
- <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.66590</span>  <span class="mf">0.66590</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
- <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
- <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00334</span>  <span class="mf">0.00334</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
- <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.04478</span>  <span class="mf">0.04478</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
- <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00345</span>  <span class="mf">0.00345</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.03417</span>  <span class="mf">0.03417</span>  <span class="mf">0.03417</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24832</span>  <span class="mf">0.24832</span>  <span class="mf">0.24832</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.66590</span>  <span class="mf">0.66590</span>  <span class="mf">0.66590</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00334</span>  <span class="mf">0.00334</span>  <span class="mf">0.00334</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.04478</span>  <span class="mf">0.04478</span>  <span class="mf">0.04478</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00345</span>  <span class="mf">0.00345</span>  <span class="mf">0.00345</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
 <span class="o">=======================================================</span>
    <span class="n">ROCKETCEA</span> <span class="n">MOLE</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
- <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.02810</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
- <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00002</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
- <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24538</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
- <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.68751</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
- <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
- <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00217</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
- <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.03446</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
- <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00236</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.03417</span>  <span class="mf">0.03417</span>  <span class="mf">0.02810</span>  <span class="mf">0.02810</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00002</span>  <span class="mf">0.00002</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.24832</span>  <span class="mf">0.24832</span>  <span class="mf">0.24538</span>  <span class="mf">0.24538</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.66590</span>  <span class="mf">0.66590</span>  <span class="mf">0.68751</span>  <span class="mf">0.68751</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00334</span>  <span class="mf">0.00334</span>  <span class="mf">0.00217</span>  <span class="mf">0.00217</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.04478</span>  <span class="mf">0.04478</span>  <span class="mf">0.03446</span>  <span class="mf">0.03446</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00345</span>  <span class="mf">0.00345</span>  <span class="mf">0.00236</span>  <span class="mf">0.00236</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
 <span class="o">=======================================================</span>
 </pre></div>
 </div>
@@ -208,34 +215,34 @@ return mass fractions is shown below.</p>
 </div>
 <p>This script produces the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">ROCKETCEA</span> <span class="n">MASS</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
- <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00208</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
- <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00004</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
- <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03636</span>  <span class="mf">0.03486</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
- <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.91033</span>  <span class="mf">0.96514</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
- <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
- <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00255</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
- <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.04308</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
- <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00555</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00256</span>  <span class="mf">0.00208</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00008</span>  <span class="mf">0.00004</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03720</span>  <span class="mf">0.03636</span>  <span class="mf">0.03486</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.89139</span>  <span class="mf">0.91033</span>  <span class="mf">0.96514</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00001</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00397</span>  <span class="mf">0.00255</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.05658</span>  <span class="mf">0.04308</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00820</span>  <span class="mf">0.00555</span>  <span class="mf">0.00000</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
 <span class="o">=======================================================</span>
    <span class="n">ROCKETCEA</span> <span class="n">MASS</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
- <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00256</span>  <span class="mf">0.00256</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
- <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00008</span>  <span class="mf">0.00008</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
- <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03720</span>  <span class="mf">0.03720</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
- <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.89139</span>  <span class="mf">0.89139</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
- <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
- <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00397</span>  <span class="mf">0.00397</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
- <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.05658</span>  <span class="mf">0.05658</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
- <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00820</span>  <span class="mf">0.00820</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00256</span>  <span class="mf">0.00256</span>  <span class="mf">0.00256</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00008</span>  <span class="mf">0.00008</span>  <span class="mf">0.00008</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03720</span>  <span class="mf">0.03720</span>  <span class="mf">0.03720</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.89139</span>  <span class="mf">0.89139</span>  <span class="mf">0.89139</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00003</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00397</span>  <span class="mf">0.00397</span>  <span class="mf">0.00397</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.05658</span>  <span class="mf">0.05658</span>  <span class="mf">0.05658</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00820</span>  <span class="mf">0.00820</span>  <span class="mf">0.00820</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
 <span class="o">=======================================================</span>
    <span class="n">ROCKETCEA</span> <span class="n">MASS</span> <span class="n">FRACTIONS</span> <span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
- <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00208</span>  <span class="mf">0.00208</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
- <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00004</span>  <span class="mf">0.00004</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
- <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03636</span>  <span class="mf">0.03636</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
- <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.91033</span>  <span class="mf">0.91033</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
- <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
- <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00255</span>  <span class="mf">0.00255</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
- <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.04308</span>  <span class="mf">0.04308</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
- <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00555</span>  <span class="mf">0.00555</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
+ <span class="o">*</span><span class="n">H</span>               <span class="mf">0.00256</span>  <span class="mf">0.00256</span>  <span class="mf">0.00208</span>  <span class="mf">0.00208</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">1.00794</span>
+ <span class="n">HO2</span>              <span class="mf">0.00008</span>  <span class="mf">0.00008</span>  <span class="mf">0.00004</span>  <span class="mf">0.00004</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">33.0067</span>
+ <span class="o">*</span><span class="n">H2</span>              <span class="mf">0.03720</span>  <span class="mf">0.03720</span>  <span class="mf">0.03636</span>  <span class="mf">0.03636</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">2.01588</span>
+ <span class="n">H2O</span>              <span class="mf">0.89139</span>  <span class="mf">0.89139</span>  <span class="mf">0.91033</span>  <span class="mf">0.91033</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">18.0153</span>
+ <span class="n">H2O2</span>             <span class="mf">0.00003</span>  <span class="mf">0.00003</span>  <span class="mf">0.00001</span>  <span class="mf">0.00001</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">34.0147</span>
+ <span class="o">*</span><span class="n">O</span>               <span class="mf">0.00397</span>  <span class="mf">0.00397</span>  <span class="mf">0.00255</span>  <span class="mf">0.00255</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">15.9994</span>
+ <span class="o">*</span><span class="n">OH</span>              <span class="mf">0.05658</span>  <span class="mf">0.05658</span>  <span class="mf">0.04308</span>  <span class="mf">0.04308</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">17.0073</span>
+ <span class="o">*</span><span class="n">O2</span>              <span class="mf">0.00820</span>  <span class="mf">0.00820</span>  <span class="mf">0.00555</span>  <span class="mf">0.00555</span>   <span class="n">MW</span><span class="o">=</span><span class="mf">31.9988</span>
 <span class="o">=======================================================</span>
 </pre></div>
 </div>
@@ -263,7 +270,7 @@ return mass fractions is shown below.</p>
         <li class="right" >
           <a href="finite_area_comb.html" title="Finite Area Combustor"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.11 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

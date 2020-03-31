@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Finite Area Combustor &#8212; RocketCEA v1.1.11 documentation</title>
+    <title>Finite Area Combustor &#8212; RocketCEA v1.1.12 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.11 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -135,9 +135,12 @@ a simple approximation equation for estimating that loss:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span><span class="o">/</span><span class="n">Pcomb_end</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">CR</span><span class="o">**</span><span class="mf">2.2</span>
 </pre></div>
 </div>
-<p>It is often sufficient, for engineering purposes, to approximate the Rayleigh line loss
-with a simple correlating equation such as the one shown here (Especially since it is more common
-to specify a plenum pressure, <strong>Pcomb_end</strong>, and calculate an injector face pressure, <strong>Pcinj_face</strong>).</p>
+<p>Since different propellant combinations have nearly identical Rayleigh line loss (see above graph),
+it is often sufficient, for engineering purposes, to approximate the Rayleigh line loss
+with a simple correlating equation such as the one shown here.</p>
+<p>This is especially convenient when designing to a known plenum pressure, <strong>Pcomb_end</strong>,
+and deriving the injector face pressure, <strong>Pcinj_face</strong>, that CEA and RocketCEA require
+as an input.</p>
 <div class="section" id="cea-fac-option">
 <h2>CEA fac Option<a class="headerlink" href="#cea-fac-option" title="Permalink to this headline">¶</a></h2>
 <p>The CEA program offers the option to calculate the Rayleigh line loss for you
@@ -170,7 +173,7 @@ An example of that extra column is shown below.:</p>
 when creating a CEA_Obj. For example:</p>
 <p>All calls to the <strong>ispObj</strong> will assume the input contraction ratio, <strong>fac_CR</strong>, and
 use the input <strong>Pc</strong> as the <strong>Pcinj_face</strong>.</p>
-<p>For example, the above table was generated with the code.</p>
+<p>For example, the above CEA output was generated with the code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
@@ -301,7 +304,7 @@ Very large booster engines tend to have smaller CR, small engines tend to have l
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.11 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
