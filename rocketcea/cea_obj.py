@@ -955,9 +955,11 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
         # convert from m/sec into ft/sec
         if self.fac_CR is not None:
-            sonicList = 3.28083 * py_cea.rockt.sonvel[1:4]
+            sonicList = list(py_cea.rockt.sonvel[1:4])
         else:
-            sonicList = 3.28083 * py_cea.rockt.sonvel[:3]
+            sonicList = list(py_cea.rockt.sonvel[:3])
+            
+        sonicList = [v * 3.28083 for v in sonicList]
         return sonicList
 
     def get_Chamber_SonicVel(self, Pc=100.0, MR=1.0, eps=40.0):
@@ -969,7 +971,7 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         """
         sonicList = self.get_SonicVelocities( Pc=Pc, MR=MR, eps=eps)
-        return sonicList[ 0 ]
+        return sonicList[ 0 ] # 0 == self.i_chm here
 
 
     def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
@@ -983,9 +985,9 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
         
         if self.fac_CR is not None:
-            hList =  py_cea.prtout.hsum[1:4]
+            hList =  list(py_cea.prtout.hsum[1:4])
         else:
-            hList =  py_cea.prtout.hsum[:3]
+            hList =  list(py_cea.prtout.hsum[:3])
         
         for i,h in enumerate( hList ):
             hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
@@ -1094,7 +1096,7 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         """
         hList = self.get_Enthalpies( Pc=Pc, MR=MR, eps=eps)
-        return hList[ 0 ] # BTU/lbm
+        return hList[ 0 ] # BTU/lbm  # 0 == self.i_chm here
 
 
     def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0):
@@ -1108,9 +1110,9 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
         # convert from m/sec into ft/sec
         if self.fac_CR is not None:
-            dList =  py_cea.prtout.vlm[1:4]
+            dList =  list(py_cea.prtout.vlm[1:4])
         else:
-            dList =  py_cea.prtout.vlm[:3]
+            dList =  list(py_cea.prtout.vlm[:3])
         
         for i,v in enumerate( dList ):
             dList[i] = 62.42796 * 100.0 / v # convert into lbm/cuft
@@ -1125,7 +1127,7 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         """
         dList = self.get_Densities( Pc=Pc, MR=MR, eps=eps)
-        return dList[ 0 ] # lbm/cuft
+        return dList[ 0 ] # lbm/cuft  # 0 == self.i_chm here
 
 
     def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0):
@@ -1140,9 +1142,9 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         # convert from m/sec into ft/sec
         if self.fac_CR is not None:
-            cpList =  py_cea.prtout.cpr[1:4]
+            cpList =  list(py_cea.prtout.cpr[1:4])
         else:
-            cpList =  py_cea.prtout.cpr[:3]
+            cpList =  list(py_cea.prtout.cpr[:3])
         
         for i,cp in enumerate( cpList ):
             cpList[i] = cp * 8314.51 / 4184.0  # convert into BTU/lbm degR (aka cal/gm K)
@@ -1158,7 +1160,7 @@ class CEA_Obj(object):
         #: frozen flag (0=equilibrium, 1=frozen)
         """
         cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
-        return cpList[ 0 ] # BTU/lbm degR
+        return cpList[ 0 ] # BTU/lbm degR  # 0 == self.i_chm here
 
     def get_Throat_Isp(self, Pc=100.0, MR=1.0):
         """::
