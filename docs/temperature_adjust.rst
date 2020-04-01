@@ -41,6 +41,13 @@ engineering units code `EngCoolProp <http://engcoolprop.readthedocs.org/en/lates
 will calculate the delta T and delta H for CH4, create a new CEA card for subcooled CH4,
 run the performance of both all-NBP and common-T engine designs and output the comparison between  all-NBP and common-T.
 
+Note that although delta H for CH4 can be calculated directly from 
+`EngCoolProp <http://engcoolprop.readthedocs.org/en/latest/>`_, that
+the method **makeCardForNewTemperature** was set up with **CpAve**, not **delta H** as an input.
+This was done because many of the CEA propellants are not in coolprop and therefor 
+an explicit calculation of delta H is not available.
+Using an estimate of average Cp, however, the user can still calculate a very good answer.
+
 .. literalinclude:: ./_static/example_scripts/adjust_ch4_t.py
 
 The output from the script shows that the CH4 will change by, dT=-33.2 degR and dH=-27.2 BTU/lbm.
