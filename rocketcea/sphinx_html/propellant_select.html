@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Propellant Selection &#8212; RocketCEA v1.1.12 documentation</title>
+    <title>Propellant Selection &#8212; RocketCEA v1.1.14 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="engine_mr.html" title="Engine Mixture Ratio"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.14 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -163,7 +163,7 @@ the linear combination of Isp and density must be good also.
 Many companies publish charts of density impulse such as this
 <a class="reference external" href="./_static/TRW_Propellant_Performance_Summary.pdf">TRW Propellant Performance Summary</a></p>
 <p>The units of density impulse can vary between charts, however the choice of <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">gravity</span></code>
-for density and <code class="docutils literal notranslate"><span class="pre">sec</span></code> for Isp seem to keep numbers in more recognizable ranges.
+for density and <code class="docutils literal notranslate"><span class="pre">sec</span></code> for Isp seems to keep numbers in more recognizable ranges.
 Most charts use an X axis of <code class="docutils literal notranslate"><span class="pre">Mixture</span> <span class="pre">Ratio</span></code> and a combined Y axis of <code class="docutils literal notranslate"><span class="pre">Isp</span></code> and <code class="docutils literal notranslate"><span class="pre">Density</span> <span class="pre">Impulse</span></code>.</p>
 <p>The same information can also be displayed on a chart like the one below.
 Here the X axis is <code class="docutils literal notranslate"><span class="pre">Specific</span> <span class="pre">Gravity</span> <span class="pre">(g/ml)</span></code> and the Y axis is <code class="docutils literal notranslate"><span class="pre">Isp</span></code>.
@@ -172,7 +172,7 @@ On that chart, contours of <code class="docutils literal notranslate"><span clas
 and area ratio.
 Recall that real engine Isp will be derived from a curve between equilibrium and frozen as shown
 in <a class="reference internal" href="engine_mr.html#engine-mr-loxlh2-link"><span class="std std-ref">LOX/LH2 Performance</span></a></p>
-<a class="reference internal image-reference" href="_images/basic_chart.png"><img alt="_images/basic_chart.png" src="_images/basic_chart.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="_images/basic_chart.png"><img alt="_images/basic_chart.png" src="_images/basic_chart.png" style="width: 99%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
@@ -181,9 +181,10 @@ in <a class="reference internal" href="engine_mr.html#engine-mr-loxlh2-link"><sp
 <span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Looking at the chart above, it says that if Isp is most important, then only use F2/H2 or perhaps LOX/LH2 if
-Fluorine is rejected.</p>
-<p>If density impulse is most important, then only use N2F4/N2H4 or perhaps LOX/RP1 if LOX is the chosen oxidizer.</p>
+<p>Looking at the chart above, it says that if Isp is most important,
+then only use F2/H2 or perhaps LOX/LH2 if Fluorine is rejected.</p>
+<p>If density impulse is most important, then only use N2F4/N2H4 or
+perhaps LOX/RP1 if LOX is the chosen oxidizer.</p>
 </div>
 <div class="section" id="stage-density">
 <h2>Stage Density<a class="headerlink" href="#stage-density" title="Permalink to this headline">¶</a></h2>
@@ -195,7 +196,8 @@ a new parameter called <strong>Stage Density</strong>.:</p>
 <p>If we assume that <strong>Stage inert mass only depends on tank volume</strong>.
 Then no matter which bipropellant combination we pour into the stage or in whatever mixture ratio we pour it,
 all of the stage performance parameters can be calculated.</p>
-<p>This allows us to take a reference stage design and compare its use by other propellant combinations.</p>
+<p>This allows us to take a reference stage design and evaluate its performance
+when using any propellant combination.</p>
 <p>The quality of this assumption will certainly vary between propellant combinations.
 The performance of some propellants will be helped and others will be hurt, however,
 a review of any results can take those differences into account.</p>
@@ -214,7 +216,7 @@ the propellant used in the stage.</p>
 <p><strong>Every point on the chart below has the same volume.</strong></p>
 <p>Notice that for much of the chart, that the lines of constant density impulse closely match the lines of
 constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice for the Saturn V first stage.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_stg1_vol.png"><img alt="_images/rho_veh_stg1_vol.png" src="_images/rho_veh_stg1_vol.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_stg1_vol.png"><img alt="_images/rho_veh_stg1_vol.png" src="_images/rho_veh_stg1_vol.png" style="width: 99%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
@@ -247,7 +249,7 @@ Another good approach is to estimate stage designs at points of interest on the 
 but it would be twice the size.</p>
 <p>It is interesting to note here also that the lines of density impulse and those of propellant volume
 track closely together in an inverse relationship.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_stg1_dv.png"><img alt="_images/rho_veh_stg1_dv.png" src="_images/rho_veh_stg1_dv.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_stg1_dv.png"><img alt="_images/rho_veh_stg1_dv.png" src="_images/rho_veh_stg1_dv.png" style="width: 99%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
@@ -281,7 +283,7 @@ This means that the lower stages will deliver the same delta v for all points on
 <p>Given this, the chart shows that using LOX/LH2 for the third stage will deliver about 1000 ft/sec
 more than a LOX/RP1 or a LOX/CH4 third stage.</p>
 <p>Note that in this case of <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">limit</span></code>, density impulse is a poor indicator of the best propellant combination.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_stg3_glow.png"><img alt="_images/rho_veh_stg3_glow.png" src="_images/rho_veh_stg3_glow.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_stg3_glow.png"><img alt="_images/rho_veh_stg3_glow.png" src="_images/rho_veh_stg3_glow.png" style="width: 99%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
@@ -310,9 +312,9 @@ be taken in the <code class="docutils literal notranslate"><span class="pre">sta
 <p>The chart below compares different propellants being used in a divert vehicle.</p>
 <p><strong>Every point on the chart has the same initial mass.</strong></p>
 <p>Note that in this case with a <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">limit</span></code>, but a much lower delta velocity requirement,
-that density impulse is a better indicator of performance than the Saturn stage 3 case, but not
-particularly good.</p>
-<a class="reference internal image-reference" href="_images/divert_veh.png"><img alt="_images/divert_veh.png" src="_images/divert_veh.png" style="width: 75%;" /></a>
+that density impulse is a better indicator of performance than it was for the Saturn stage 3 case,
+but only by luck, not based on system requirements.</p>
+<a class="reference internal image-reference" href="_images/divert_veh.png"><img alt="_images/divert_veh.png" src="_images/divert_veh.png" style="width: 99%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
@@ -359,7 +361,7 @@ particularly good.</p>
         <li class="right" >
           <a href="engine_mr.html" title="Engine Mixture Ratio"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.14 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

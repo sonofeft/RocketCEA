@@ -61,6 +61,6 @@ A plot of Monopropellant Hydrazine Performance can be created with the following
 
     
 .. image:: ./_static/example_scripts/amm_dissociation.png
-    :width: 45%
+    :width: 80%
     
 `Click Image to View Fill Size`

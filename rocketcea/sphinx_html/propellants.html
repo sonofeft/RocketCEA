@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Propellants &#8212; RocketCEA v1.1.12 documentation</title>
+    <title>Propellants &#8212; RocketCEA v1.1.14 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.14 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -84,6 +84,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#hno3">HNO3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#irfna">IRFNA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lo2">LO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lo2-nasa">LO2_NASA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lox">LOX</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mon15">MON15</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mon25">MON25</a></li>
@@ -133,7 +134,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#jpx">JPX</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#kerosene">Kerosene</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#kerosene90-h2o10">Kerosene90_H2O10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lch4-nasa">LCH4_NASA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lh2">LH2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lh2-nasa">LH2_NASA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#m20">M20</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#m20-nh3">M20_NH3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#methanol">Methanol</a></li>
@@ -147,6 +150,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#propylene">Propylene</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id7">propylene</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rp1">RP1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rp1-nasa">RP1_NASA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rp-1">RP_1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#udmh">UDMH</a></li>
 </ul>
@@ -231,9 +235,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>
 
 <tr><td><table width="100%"><tr><th colspan="8" style="text-align:center;">Oxidizers</th></tr>
 <tr><td><a href="#90_H2O2">90_H2O2</a></td><td><a href="#98_H2O2">98_H2O2</a></td><td><a href="#AIR">AIR</a></td><td><a href="#AIRSIMP">AIRSIMP</a></td><td><a href="#CLF3">CLF3</a></td><td><a href="#CLF5">CLF5</a></td><td><a href="#F2">F2</a></td><td><a href="#GO2">GO2</a></td></tr>
-<tr><td><a href="#GOX">GOX</a></td><td><a href="#H2O">H2O</a></td><td><a href="#H2O2">H2O2</a></td><td><a href="#HAN315">HAN315</a></td><td><a href="#HNO3">HNO3</a></td><td><a href="#IRFNA">IRFNA</a></td><td><a href="#LO2">LO2</a></td><td><a href="#LOX">LOX</a></td></tr>
-<tr><td><a href="#MON15">MON15</a></td><td><a href="#MON25">MON25</a></td><td><a href="#MON3">MON3</a></td><td><a href="#N2F4">N2F4</a></td><td><a href="#N2H4">N2H4</a></td><td><a href="#N2O">N2O</a></td><td><a href="#N2O3">N2O3</a></td><td><a href="#N2O4">N2O4</a></td></tr>
-<tr><td><a href="#N2O_nbp">N2O_nbp</a></td><td><a href="#O2">O2</a></td><td><a href="#OF2">OF2</a></td><td><a href="#Peroxide90">Peroxide90</a></td><td><a href="#Peroxide98">Peroxide98</a></td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td></tr>
+<tr><td><a href="#GOX">GOX</a></td><td><a href="#H2O">H2O</a></td><td><a href="#H2O2">H2O2</a></td><td><a href="#HAN315">HAN315</a></td><td><a href="#HNO3">HNO3</a></td><td><a href="#IRFNA">IRFNA</a></td><td><a href="#LO2">LO2</a></td><td><a href="#LO2_NASA">LO2_NASA</a></td></tr>
+<tr><td><a href="#LOX">LOX</a></td><td><a href="#MON15">MON15</a></td><td><a href="#MON25">MON25</a></td><td><a href="#MON3">MON3</a></td><td><a href="#N2F4">N2F4</a></td><td><a href="#N2H4">N2H4</a></td><td><a href="#N2O">N2O</a></td><td><a href="#N2O3">N2O3</a></td></tr>
+<tr><td><a href="#N2O4">N2O4</a></td><td><a href="#N2O_nbp">N2O_nbp</a></td><td><a href="#O2">O2</a></td><td><a href="#OF2">OF2</a></td><td><a href="#Peroxide90">Peroxide90</a></td><td><a href="#Peroxide98">Peroxide98</a></td><td> &nbsp; </td><td> &nbsp; </td></tr>
 </table></td></tr>
 
 <tr><td><table width="100%"><tr><th colspan="8" style="text-align:center;">Fuels</th></tr>
@@ -241,8 +245,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>
 <tr><td><a href="#C2H6_167">C2H6_167</a></td><td><a href="#C3H8">C3H8</a></td><td><a href="#CFx">CFx</a></td><td><a href="#CH3OH">CH3OH</a></td><td><a href="#CH4">CH4</a></td><td><a href="#CINCH">CINCH</a></td><td><a href="#DMAZ">DMAZ</a></td><td><a href="#ECP_dimer">ECP_dimer</a></td></tr>
 <tr><td><a href="#Ethanol">Ethanol</a></td><td><a href="#ETHANOL">ETHANOL</a></td><td><a href="#Gasoline">Gasoline</a></td><td><a href="#GCH4">GCH4</a></td><td><a href="#GH2">GH2</a></td><td><a href="#GH2_160">GH2_160</a></td><td><a href="#H2">H2</a></td><td><a href="#H2O">H2O</a></td></tr>
 <tr><td><a href="#HTPB">HTPB</a></td><td><a href="#Isopropanol">Isopropanol</a></td><td><a href="#JetA">JetA</a></td><td><a href="#JP10">JP10</a></td><td><a href="#JP4">JP4</a></td><td><a href="#JPX">JPX</a></td><td><a href="#Kerosene">Kerosene</a></td><td><a href="#Kerosene90_H2O10">Kerosene90_H2O10</a></td></tr>
-<tr><td><a href="#LH2">LH2</a></td><td><a href="#M20">M20</a></td><td><a href="#M20_NH3">M20_NH3</a></td><td><a href="#Methanol">Methanol</a></td><td><a href="#METHANOL">METHANOL</a></td><td><a href="#MHF3">MHF3</a></td><td><a href="#MMH">MMH</a></td><td><a href="#N2H4">N2H4</a></td></tr>
-<tr><td><a href="#NH3">NH3</a></td><td><a href="#NITROMETHANE">NITROMETHANE</a></td><td><a href="#Propane">Propane</a></td><td><a href="#Propylene">Propylene</a></td><td><a href="#propylene">propylene</a></td><td><a href="#RP1">RP1</a></td><td><a href="#RP_1">RP_1</a></td><td><a href="#UDMH">UDMH</a></td></tr>
+<tr><td><a href="#LCH4_NASA">LCH4_NASA</a></td><td><a href="#LH2">LH2</a></td><td><a href="#LH2_NASA">LH2_NASA</a></td><td><a href="#M20">M20</a></td><td><a href="#M20_NH3">M20_NH3</a></td><td><a href="#Methanol">Methanol</a></td><td><a href="#METHANOL">METHANOL</a></td><td><a href="#MHF3">MHF3</a></td></tr>
+<tr><td><a href="#MMH">MMH</a></td><td><a href="#N2H4">N2H4</a></td><td><a href="#NH3">NH3</a></td><td><a href="#NITROMETHANE">NITROMETHANE</a></td><td><a href="#Propane">Propane</a></td><td><a href="#Propylene">Propylene</a></td><td><a href="#propylene">propylene</a></td><td><a href="#RP1">RP1</a></td></tr>
+<tr><td><a href="#RP1_NASA">RP1_NASA</a></td><td><a href="#RP_1">RP_1</a></td><td><a href="#UDMH">UDMH</a></td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td></tr>
 </table></td></td></tr>
 
 <tr><td><table width="100%"><tr><th colspan="8" style="text-align:center;">Monoprop &amp; Solid</th></tr>
@@ -327,7 +332,7 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">90.00</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
 <span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">10.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="98_H2O2"></a></div>
@@ -336,7 +341,7 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">98.00</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
 <span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">2.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="AIR"></a></div>
@@ -406,11 +411,11 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="section" id="han315">
 <h3>HAN315<a class="headerlink" href="#han315" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="o">=</span> <span class="n">HAN</span> <span class="n">C</span> <span class="mf">0.064</span> <span class="n">H</span> <span class="mf">4.296</span> <span class="n">N</span> <span class="mf">2.062</span> <span class="n">O</span> <span class="mf">4.1</span> <span class="n">P</span> <span class="mf">0.008</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">93980.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.685</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">93980.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.685</span>
 <span class="n">oxid</span> <span class="o">=</span> <span class="n">HEHN</span> <span class="n">C</span> <span class="mf">2.0</span> <span class="n">H</span> <span class="mf">9.0</span> <span class="n">N</span> <span class="mf">3.0</span> <span class="n">O</span> <span class="mf">4.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">108000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.428</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">108000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.428</span>
 <span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">11.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="HNO3"></a></div>
@@ -432,6 +437,13 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <h3>LO2<a class="headerlink" href="#lo2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.18</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+</pre></div>
+</div>
+<a name="LO2_NASA"></a></div>
+<div class="section" id="lo2-nasa">
+<h3>LO2_NASA<a class="headerlink" href="#lo2-nasa" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">O</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">3102.055</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">90.17</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="LOX"></a></div>
@@ -528,7 +540,7 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">90.00</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
 <span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">10.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="Peroxide98"></a></div>
@@ -537,7 +549,7 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oxid</span> <span class="n">H2O2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">H</span> <span class="mi">2</span> <span class="n">O</span> <span class="mi">2</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">98.00</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">44880.0</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>  <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.407</span>
 <span class="n">oxid</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">2.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 </div>
@@ -773,7 +785,14 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">Kerosene</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.9532</span>  <span class="n">wt</span><span class="o">%=</span><span class="mf">90.00</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5769.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.8</span>
 <span class="n">fuel</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span>  <span class="n">wt</span><span class="o">%=</span> <span class="mf">10.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68317.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+</pre></div>
+</div>
+<a name="LCH4_NASA"></a></div>
+<div class="section" id="lch4-nasa">
+<h3>LCH4_NASA<a class="headerlink" href="#lch4-nasa" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span>     <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">21327.199</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">111.643</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.4239</span>
 </pre></div>
 </div>
 <a name="LH2"></a></div>
@@ -781,6 +800,13 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <h3>LH2<a class="headerlink" href="#lh2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2154.0</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
+</pre></div>
+</div>
+<a name="LH2_NASA"></a></div>
+<div class="section" id="lh2-nasa">
+<h3>LH2_NASA<a class="headerlink" href="#lh2-nasa" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">H2</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>  <span class="n">H</span> <span class="mi">2</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">2153.920</span>      <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">20.27</span>       <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
 </pre></div>
 </div>
 <a name="M20"></a></div>
@@ -882,6 +908,13 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5430.</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.773</span>
 </pre></div>
 </div>
+<a name="RP1_NASA"></a></div>
+<div class="section" id="rp1-nasa">
+<h3>RP1_NASA<a class="headerlink" href="#rp1-nasa" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fuel</span> <span class="n">RP</span><span class="o">-</span><span class="mi">1</span>  <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mf">1.95</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">5907.672</span>     <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span>   <span class="n">rho</span><span class="o">=</span><span class="mf">0.773</span>
+</pre></div>
+</div>
 <a name="RP_1"></a></div>
 <div class="section" id="rp-1">
 <h3>RP_1<a class="headerlink" href="#rp-1" title="Permalink to this headline">¶</a></h3>
@@ -977,11 +1010,11 @@ The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="section" id="id8">
 <h3>HAN315<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">HAN</span> <span class="n">C</span> <span class="mf">0.064</span> <span class="n">H</span> <span class="mf">4.296</span> <span class="n">N</span> <span class="mf">2.062</span> <span class="n">O</span> <span class="mf">4.1</span> <span class="n">P</span> <span class="mf">0.008</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">93980.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.685</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">93980.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.685</span>
 <span class="n">name</span> <span class="o">=</span> <span class="n">HEHN</span> <span class="n">C</span> <span class="mf">2.0</span> <span class="n">H</span> <span class="mf">9.0</span> <span class="n">N</span> <span class="mf">3.0</span> <span class="n">O</span> <span class="mf">4.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">44.5</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">108000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.428</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">108000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.428</span>
 <span class="n">name</span> <span class="o">=</span> <span class="n">WATER</span> <span class="n">H</span> <span class="mf">2.0</span> <span class="n">O</span> <span class="mf">1.0</span> <span class="n">wt</span><span class="o">%=</span> <span class="mf">11.0</span>
-<span class="n">h</span><span class="o">.</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">68000.</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">298.15</span> <span class="n">rho</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">cc</span><span class="o">=</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <a name="HPB24"></a></div>
@@ -1034,7 +1067,7 @@ omit NH3
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.14 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

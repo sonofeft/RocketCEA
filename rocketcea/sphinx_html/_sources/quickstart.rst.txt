@@ -199,5 +199,5 @@ And then run the file::
 Colab plots work with RocketCEA as well.
 
 .. image:: ./_static/colab_cstar_plot_example.jpg
-    :width: 70%
+    :width: 80%
 

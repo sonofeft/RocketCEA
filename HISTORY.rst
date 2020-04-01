@@ -6,6 +6,14 @@ History
 
 GitHub Log
 ----------
+* Apr 1, 2020
+    - (by: sonofeft)
+        - Fixed properties problem with Cp, H, density and sonic vel
+        - updated temperature adjust docs
+
+* Mar 31, 2020
+    - (by: sonofeft)
+        - documetation updates
 
 * Mar 22, 2020
     - (by: sonofeft)

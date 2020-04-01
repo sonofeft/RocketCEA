@@ -222,7 +222,8 @@ class MyTest(unittest.TestCase):
         
         sonicList = C.get_SonicVelocities( Pc=100.0, MR=1.0,eps=40.0)
         print( sonicList )
-        print( (1.0/3.28083)*sonicList )
+        #print( (1.0/3.28083)*sonicList )
+        print( [s*(1.0/3.28083) for s in sonicList] )
         
         self.assertEqual( len(sonicList), 3)
         self.assertAlmostEqual(sonicList[0], 4176.70139407, places=3)
@@ -266,7 +267,8 @@ class MyTest(unittest.TestCase):
         
         dList = C.get_Densities( Pc=100.0, MR=1.0,eps=40.0)
         print('  dList', dList)
-        print('rhoList', (1.0 / (62.42796 * 100.0)) * dList)
+        #print('rhoList', (1.0 / (62.42796 * 100.0)) * dList)
+        print('rhoList', [d*(1.0 / (62.42796 * 100.0)) for d in dList])
         
         self.assertEqual( len(dList), 3 )
         self.assertAlmostEqual(dList[0], 0.028722, places=7)

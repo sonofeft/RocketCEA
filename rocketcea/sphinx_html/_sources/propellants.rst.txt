@@ -33,9 +33,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses **propNa
 
     <tr><td><table width="100%"><tr><th colspan="8" style="text-align:center;">Oxidizers</th></tr>
     <tr><td><a href="#90_H2O2">90_H2O2</a></td><td><a href="#98_H2O2">98_H2O2</a></td><td><a href="#AIR">AIR</a></td><td><a href="#AIRSIMP">AIRSIMP</a></td><td><a href="#CLF3">CLF3</a></td><td><a href="#CLF5">CLF5</a></td><td><a href="#F2">F2</a></td><td><a href="#GO2">GO2</a></td></tr>
-    <tr><td><a href="#GOX">GOX</a></td><td><a href="#H2O">H2O</a></td><td><a href="#H2O2">H2O2</a></td><td><a href="#HAN315">HAN315</a></td><td><a href="#HNO3">HNO3</a></td><td><a href="#IRFNA">IRFNA</a></td><td><a href="#LO2">LO2</a></td><td><a href="#LOX">LOX</a></td></tr>
-    <tr><td><a href="#MON15">MON15</a></td><td><a href="#MON25">MON25</a></td><td><a href="#MON3">MON3</a></td><td><a href="#N2F4">N2F4</a></td><td><a href="#N2H4">N2H4</a></td><td><a href="#N2O">N2O</a></td><td><a href="#N2O3">N2O3</a></td><td><a href="#N2O4">N2O4</a></td></tr>
-    <tr><td><a href="#N2O_nbp">N2O_nbp</a></td><td><a href="#O2">O2</a></td><td><a href="#OF2">OF2</a></td><td><a href="#Peroxide90">Peroxide90</a></td><td><a href="#Peroxide98">Peroxide98</a></td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td></tr>
+    <tr><td><a href="#GOX">GOX</a></td><td><a href="#H2O">H2O</a></td><td><a href="#H2O2">H2O2</a></td><td><a href="#HAN315">HAN315</a></td><td><a href="#HNO3">HNO3</a></td><td><a href="#IRFNA">IRFNA</a></td><td><a href="#LO2">LO2</a></td><td><a href="#LO2_NASA">LO2_NASA</a></td></tr>
+    <tr><td><a href="#LOX">LOX</a></td><td><a href="#MON15">MON15</a></td><td><a href="#MON25">MON25</a></td><td><a href="#MON3">MON3</a></td><td><a href="#N2F4">N2F4</a></td><td><a href="#N2H4">N2H4</a></td><td><a href="#N2O">N2O</a></td><td><a href="#N2O3">N2O3</a></td></tr>
+    <tr><td><a href="#N2O4">N2O4</a></td><td><a href="#N2O_nbp">N2O_nbp</a></td><td><a href="#O2">O2</a></td><td><a href="#OF2">OF2</a></td><td><a href="#Peroxide90">Peroxide90</a></td><td><a href="#Peroxide98">Peroxide98</a></td><td> &nbsp; </td><td> &nbsp; </td></tr>
     </table></td></tr>
 
     <tr><td><table width="100%"><tr><th colspan="8" style="text-align:center;">Fuels</th></tr>
@@ -43,8 +43,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses **propNa
     <tr><td><a href="#C2H6_167">C2H6_167</a></td><td><a href="#C3H8">C3H8</a></td><td><a href="#CFx">CFx</a></td><td><a href="#CH3OH">CH3OH</a></td><td><a href="#CH4">CH4</a></td><td><a href="#CINCH">CINCH</a></td><td><a href="#DMAZ">DMAZ</a></td><td><a href="#ECP_dimer">ECP_dimer</a></td></tr>
     <tr><td><a href="#Ethanol">Ethanol</a></td><td><a href="#ETHANOL">ETHANOL</a></td><td><a href="#Gasoline">Gasoline</a></td><td><a href="#GCH4">GCH4</a></td><td><a href="#GH2">GH2</a></td><td><a href="#GH2_160">GH2_160</a></td><td><a href="#H2">H2</a></td><td><a href="#H2O">H2O</a></td></tr>
     <tr><td><a href="#HTPB">HTPB</a></td><td><a href="#Isopropanol">Isopropanol</a></td><td><a href="#JetA">JetA</a></td><td><a href="#JP10">JP10</a></td><td><a href="#JP4">JP4</a></td><td><a href="#JPX">JPX</a></td><td><a href="#Kerosene">Kerosene</a></td><td><a href="#Kerosene90_H2O10">Kerosene90_H2O10</a></td></tr>
-    <tr><td><a href="#LH2">LH2</a></td><td><a href="#M20">M20</a></td><td><a href="#M20_NH3">M20_NH3</a></td><td><a href="#Methanol">Methanol</a></td><td><a href="#METHANOL">METHANOL</a></td><td><a href="#MHF3">MHF3</a></td><td><a href="#MMH">MMH</a></td><td><a href="#N2H4">N2H4</a></td></tr>
-    <tr><td><a href="#NH3">NH3</a></td><td><a href="#NITROMETHANE">NITROMETHANE</a></td><td><a href="#Propane">Propane</a></td><td><a href="#Propylene">Propylene</a></td><td><a href="#propylene">propylene</a></td><td><a href="#RP1">RP1</a></td><td><a href="#RP_1">RP_1</a></td><td><a href="#UDMH">UDMH</a></td></tr>
+    <tr><td><a href="#LCH4_NASA">LCH4_NASA</a></td><td><a href="#LH2">LH2</a></td><td><a href="#LH2_NASA">LH2_NASA</a></td><td><a href="#M20">M20</a></td><td><a href="#M20_NH3">M20_NH3</a></td><td><a href="#Methanol">Methanol</a></td><td><a href="#METHANOL">METHANOL</a></td><td><a href="#MHF3">MHF3</a></td></tr>
+    <tr><td><a href="#MMH">MMH</a></td><td><a href="#N2H4">N2H4</a></td><td><a href="#NH3">NH3</a></td><td><a href="#NITROMETHANE">NITROMETHANE</a></td><td><a href="#Propane">Propane</a></td><td><a href="#Propylene">Propylene</a></td><td><a href="#propylene">propylene</a></td><td><a href="#RP1">RP1</a></td></tr>
+    <tr><td><a href="#RP1_NASA">RP1_NASA</a></td><td><a href="#RP_1">RP_1</a></td><td><a href="#UDMH">UDMH</a></td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td><td> &nbsp; </td></tr>
     </table></td></td></tr>
 
     <tr><td><table width="100%"><tr><th colspan="8" style="text-align:center;">Monoprop &amp; Solid</th></tr>
@@ -152,7 +153,7 @@ Oxidizers
     oxid H2O2(L) H 2 O 2  wt%=90.00
     h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
     oxid = WATER H 2.0 O 1.0 wt%= 10.0
-    h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68317. t(k)=298.15 rho.g/cc=1.0
 
 
 .. raw:: html
@@ -167,7 +168,7 @@ Oxidizers
     oxid H2O2(L) H 2 O 2  wt%=98.00
     h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
     oxid = WATER H 2.0 O 1.0 wt%= 2.0
-    h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68317. t(k)=298.15 rho.g/cc=1.0
 
 
 .. raw:: html
@@ -297,11 +298,11 @@ HAN315
 ::
 
     oxid = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5
-    h.cal=-93980. t(k)=298.15 rho.g/cc=1.685
+    h,cal=-93980. t(k)=298.15 rho.g/cc=1.685
     oxid = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5
-    h.cal=-108000. t(k)=298.15 rho.g/cc=1.428
+    h,cal=-108000. t(k)=298.15 rho.g/cc=1.428
     oxid = WATER H 2.0 O 1.0 wt%= 11.0
-    h.cal=-68000. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68000. t(k)=298.15 rho.g/cc=1.0
 
 
 .. raw:: html
@@ -341,6 +342,19 @@ LO2
 
     oxid O2(L)  O 2
     h,cal=-3102.      t(k)=90.18       wt%=100.
+
+
+.. raw:: html
+
+    <a name="LO2_NASA"></a> 
+
+LO2_NASA
+********
+
+::
+
+    oxid O2(L)  O 2
+    h,cal=-3102.055      t(k)=90.17       wt%=100.
 
 
 .. raw:: html
@@ -515,7 +529,7 @@ Peroxide90
     oxid H2O2(L) H 2 O 2  wt%=90.00
     h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
     oxid = WATER H 2.0 O 1.0 wt%= 10.0
-    h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68317. t(k)=298.15 rho.g/cc=1.0
 
 
 .. raw:: html
@@ -530,7 +544,7 @@ Peroxide98
     oxid H2O2(L) H 2 O 2  wt%=98.00
     h,cal=-44880.0     t(k)=298.15  rho.g/cc=1.407
     oxid = WATER H 2.0 O 1.0 wt%= 2.0
-    h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68317. t(k)=298.15 rho.g/cc=1.0
 
 
 
@@ -960,7 +974,20 @@ Kerosene90_H2O10
     fuel Kerosene  C 1 H 1.9532  wt%=90.00
     h,cal=-5769.     t(k)=298.15   rho=0.8
     fuel = WATER H 2.0 O 1.0  wt%= 10.0
-    h.cal=-68317. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68317. t(k)=298.15 rho.g/cc=1.0
+
+
+.. raw:: html
+
+    <a name="LCH4_NASA"></a> 
+
+LCH4_NASA
+*********
+
+::
+
+    fuel CH4(L) C 1 H 4     wt%=100.
+    h,cal=-21327.199     t(k)=111.643   rho=0.4239
 
 
 .. raw:: html
@@ -974,6 +1001,19 @@ LH2
 
     fuel H2(L)  H 2
     h,cal=-2154.0      t(k)=20.27       wt%=100.
+
+
+.. raw:: html
+
+    <a name="LH2_NASA"></a> 
+
+LH2_NASA
+********
+
+::
+
+    fuel H2(L)  H 2
+    h,cal=-2153.920      t(k)=20.27       wt%=100.
 
 
 .. raw:: html
@@ -1155,6 +1195,19 @@ RP1
 
 .. raw:: html
 
+    <a name="RP1_NASA"></a> 
+
+RP1_NASA
+********
+
+::
+
+    fuel RP-1  C 1 H 1.95
+    h,cal=-5907.672     t(k)=298.15   rho=0.773
+
+
+.. raw:: html
+
     <a name="RP_1"></a> 
 
 RP_1
@@ -1310,11 +1363,11 @@ HAN315
 ::
 
     name = HAN C 0.064 H 4.296 N 2.062 O 4.1 P 0.008 wt%= 44.5
-    h.cal=-93980. t(k)=298.15 rho.g/cc=1.685
+    h,cal=-93980. t(k)=298.15 rho.g/cc=1.685
     name = HEHN C 2.0 H 9.0 N 3.0 O 4.0 wt%= 44.5
-    h.cal=-108000. t(k)=298.15 rho.g/cc=1.428
+    h,cal=-108000. t(k)=298.15 rho.g/cc=1.428
     name = WATER H 2.0 O 1.0 wt%= 11.0
-    h.cal=-68000. t(k)=298.15 rho.g/cc=1.0
+    h,cal=-68000. t(k)=298.15 rho.g/cc=1.0
 
 
 .. raw:: html

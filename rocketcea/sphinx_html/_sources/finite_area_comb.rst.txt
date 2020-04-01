@@ -30,7 +30,7 @@ of points on an enthalpy-entropy diagram defined by the momentum equation,
 continuity equation, and the equation of state. 
 
 .. image:: ./_static/compare_rayleigh.png
-    :width: 60%
+    :width: 70%
 
 The above graph shows the CEA/RocketCEA calculation of the Rayleigh line loss as well as
 a simple approximation equation for estimating that loss::
@@ -53,7 +53,7 @@ The CEA program offers the option to calculate the Rayleigh line loss for you
 by using the **fac** option. (The above chart was generated with RocketCEA using the fac option).
 
 .. image:: ./_static/fac_manual_option.jpg
-    :width: 60%
+    :width: 65%
 
 A traditional CEA run that sets **fac** has an extra column of data called
 **COMB END** that indicates what the chamber plenum pressure, **Pcomb_end**, would be 

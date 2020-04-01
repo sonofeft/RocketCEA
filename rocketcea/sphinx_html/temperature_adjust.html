@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Temperature Adjust &#8212; RocketCEA v1.1.12 documentation</title>
+    <title>Temperature Adjust &#8212; RocketCEA v1.1.14 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.14 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -137,6 +137,12 @@ set at 5 psig so that the LOX is stored at 20 psia and therefore 168 degR.</p>
 engineering units code <a class="reference external" href="http://engcoolprop.readthedocs.org/en/latest/">EngCoolProp</a>, the following script
 will calculate the delta T and delta H for CH4, create a new CEA card for subcooled CH4,
 run the performance of both all-NBP and common-T engine designs and output the comparison between  all-NBP and common-T.</p>
+<p>Note that although delta H for CH4 can be calculated directly from
+<a class="reference external" href="http://engcoolprop.readthedocs.org/en/latest/">EngCoolProp</a>, that
+the method <strong>makeCardForNewTemperature</strong> was set up with <strong>CpAve</strong>, not <strong>delta H</strong> as an input.
+This was done because many of the CEA propellants are not in coolprop and therefor
+an explicit calculation of delta H is not available.
+Using an estimate of average Cp, however, the user can still calculate a very good answer.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="k">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
 <span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="k">import</span> <span class="n">makeCardForNewTemperature</span>
 <span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
@@ -231,7 +237,7 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.12 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.14 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
