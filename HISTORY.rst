@@ -6,6 +6,11 @@ History
 
 GitHub Log
 ----------
+* Apr 3, 2020
+    - (by: sonofeft)
+        - Added CEA vs TDK vs RPA documentation
+        - small update to unit tests
+
 * Apr 1, 2020
     - (by: sonofeft)
         - Fixed properties problem with Cp, H, density and sonic vel
@@ -13,7 +18,7 @@ GitHub Log
 
 * Mar 31, 2020
     - (by: sonofeft)
-        - documetation updates
+        - documentation updates
 
 * Mar 22, 2020
     - (by: sonofeft)

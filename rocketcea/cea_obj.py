@@ -940,7 +940,9 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         # convert from Kelvin to Rankine
-        tempList = 1.8 * py_cea.prtout.ttt[:3]
+        #tempList = 1.8 * py_cea.prtout.ttt[:3]
+        tempList = list( py_cea.prtout.ttt[:3] )
+        tempList = [1.8*T for T in tempList]
         return tempList # Tc, Tthroat, Texit
 
 

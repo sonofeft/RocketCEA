@@ -36,6 +36,7 @@ Contents:
    ambient_isp
    hydrazine_mono
    temperature_adjust
+   cea_tdk_rpa
    parasol_example
    functions
    copyright

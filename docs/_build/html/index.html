@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.14 documentation</title>
+    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.15 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.14 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.15 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -61,6 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
@@ -217,6 +218,19 @@ and
 <li class="toctree-l2"><a class="reference internal" href="temperature_adjust.html#changing-t-and-h">Changing T and H</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#chart-description">Chart Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#lox-lh2">LOX/LH2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#lox-ch4">LOX/CH4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#lox-rp1">LOX/RP1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#lox-ethanol">LOX/Ethanol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#peroxide90-ethanol">Peroxide90/Ethanol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#n2o4-mmh">N2O4/MMH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#n2o4-n2h4">N2O4/N2H4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#mon25-mhf3">MON25/MHF3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cea_tdk_rpa.html#clf5-n2h4">CLF5/N2H4</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions.html#module-rocketcea.cea_obj">CEA_Obj Functions</a></li>
@@ -270,7 +284,7 @@ and
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.14 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.15 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

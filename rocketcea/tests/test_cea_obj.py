@@ -263,6 +263,20 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_get_Temperatures(self):
+        """ test call to get_Temperatures( Pc=100.0, MR=1.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        Tlist = C.get_Temperatures( Pc=100.0, MR=1.0)
+        
+        self.assertEqual( len(Tlist), 3)
+        self.assertAlmostEqual(Tlist[0], 5464.953232850124, places=3)
+        self.assertAlmostEqual(Tlist[2], 1779.407322930484, places=3)
+        
+        Tc = C.get_Tcomb( Pc=100.0, MR=1.0)
+        self.assertAlmostEqual(Tc, Tlist[0], places=3)
+        
+        del C
+
     def test_get_PcOvPe(self):
         """ test call to get_PcOvPe( Pc=100.0, MR=1.0, eps=40.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
