@@ -6,6 +6,10 @@ History
 
 GitHub Log
 ----------
+* Apr 5, 2020
+    - (by: Franky333)
+        - Added Pascal (Pa) to units
+
 * Apr 3, 2020
     - (by: sonofeft)
         - Added CEA vs TDK vs RPA documentation

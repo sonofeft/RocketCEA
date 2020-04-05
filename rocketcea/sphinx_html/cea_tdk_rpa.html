@@ -1,0 +1,523 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>CEA vs TDK vs RPA &#8212; RocketCEA v1.1.15 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Parasol Example" href="parasol_example.html" />
+    <link rel="prev" title="Temperature Adjust" href="temperature_adjust.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parasol_example.html" title="Parasol Example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="temperature_adjust.html" title="Temperature Adjust"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CEA vs TDK vs RPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chart-description">Chart Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lox-lh2">LOX/LH2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lox-ch4">LOX/CH4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lox-rp1">LOX/RP1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lox-ethanol">LOX/Ethanol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peroxide90-ethanol">Peroxide90/Ethanol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#n2o4-mmh">N2O4/MMH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#n2o4-n2h4">N2O4/N2H4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mon25-mhf3">MON25/MHF3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clf5-n2h4">CLF5/N2H4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="temperature_adjust.html"
+                        title="previous chapter">Temperature Adjust</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="parasol_example.html"
+                        title="next chapter">Parasol Example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cea_tdk_rpa.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cea-vs-tdk-vs-rpa">
+<h1>CEA vs TDK vs RPA<a class="headerlink" href="#cea-vs-tdk-vs-rpa" title="Permalink to this headline">¶</a></h1>
+<p>There are three major computer programs, of which I'm aware, that calculate one dimensional equilibrium (ODE)
+performance of rocket engines, <strong>CEA</strong>, <strong>TDK</strong> and <strong>RPA</strong>. Back in 2006 I was interested in comparing the results of these three codes for common propellant combinations,
+just to see if they all gave similar results.
+I created charts of the <strong>difference</strong> in ODE Isp performance for <strong>CEA</strong> vs <strong>TDK</strong> and for <strong>RPA</strong> vs <strong>TDK</strong>.</p>
+<p>Currently these codes are available at:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">CEA at NASA Glenn Research Center</a></p>
+<p><a class="reference external" href="http://www.seainc.com/productsTDK.php">TDK at Software &amp; Engineering Associates</a></p>
+<p><a class="reference external" href="http://sierraengineering.com/TDK/tdk.html">TDK at Sierra Engineering &amp; Software, Inc.</a></p>
+<p><a class="reference external" href="http://www.propulsion-analysis.com/index.htm">RPA at Rocket Propulsion Software+Engineering UG</a></p>
+</div></blockquote>
+<p>The <strong>TDK</strong> code is the accepted standard for the <a class="reference external" href="https://www.jannaf.org/">JANNAF</a>
+performance calculation method.
+As far as I know, <a class="reference external" href="https://www.jannaf.org/">JANNAF</a>  only controls a version of <a class="reference external" href="https://www.jannaf.org/products/codes">TDK from 1993</a>
+and the only modern versions are the two commercial versions above.</p>
+<p>One very important reason that <strong>TDK</strong>  is the  <a class="reference external" href="https://www.jannaf.org/">JANNAF</a>  standard is that,
+unlike CEA and RPA, the <strong>TDK</strong> code can calculate the <strong>kinetics loss</strong> in the nozzle.
+(i.e. ODE assumes infinite time for combustion product chemistry to come to equilibrium
+everywhere in the nozzle, whereas the kinetics
+calculation accounts for the actual time available for the chemistry to approach equilibrium in the nozzle.)</p>
+<p>This <strong>kinetics loss</strong> can be a very important consideration for rocket performance, especially in
+small thrust, low pressure, high area ratio engines.</p>
+<p>It is my understanding that the developers of <strong>TDK</strong> started with a version of <strong>CEA</strong>
+developed by <a class="reference external" href="https://www1.grc.nasa.gov/glenn-history/hall-of-fame/biographies/bonnie-mcbride/">Bonnie J. McBride and Sanford Gordon</a>
+and added more capabilities to it,
+so there is some expectation that those two codes should agree reasonably well on ODE Isp.</p>
+<p>The developers of <strong>TDK</strong> <a class="reference external" href="http://www.seainc.com/index.php">(Software &amp; Engineering Associates)</a>
+also created the <a class="reference external" href="http://www.seainc.com/productsSPP.php">SPP (Solid Performance Program)</a>
+code that calculates performance of solid propulsion Isp.
+Because of this, it's probably true that <strong>TDK</strong> handles condensibles and particulates better
+than <strong>CEA</strong> or <strong>RPA</strong>. (This likely also explains why <strong>RPA</strong> crashes and <strong>CEA</strong> gets divergent
+answers at very high area ratio, where condensibles are likely to occur.)
+Note that <strong>SPP</strong> is also available from
+<a class="reference external" href="http://sierraengineering.com/SPP/SPP.html">Sierra Engineering &amp; Software, Inc.</a>.</p>
+<p>Although I do not know which code creates the most accurate values, I used <strong>TDK</strong> as the basis
+because it is the <a class="reference external" href="https://www.jannaf.org/">JANNAF</a>  standard.
+Each chart displays a very large spectrum of runs over a range of
+area ratios(2 to 512), chamber pressures(50 to 3200 psia) and
+mixture ratios that cover the
+maximum expected range of operation as well as extending to extremely ox rich and fuel rich.</p>
+<p>The main observations are:</p>
+<ul class="simple">
+<li><p>For common propellants, all of the codes agree very well in expected MR range of operation.</p></li>
+<li><p>For some storable propellants, RPA predicts higher Isp ODE than both CEA and TDK</p></li>
+<li><p>When extremely ox or fuel rich, <strong>CEA</strong> diverges and <strong>RPA</strong> crashes.</p></li>
+<li><p>Large differences (and <strong>RPA</strong> crashes) tend to happen at extremely large area ratios.</p></li>
+</ul>
+<p>Bear in mind that these numbers were run in 2006.
+I don't think much has changed in any of the codes that would affect these results, however,
+that is strictly a <strong>GUESS</strong> on my part.</p>
+<div class="section" id="chart-description">
+<h2>Chart Description<a class="headerlink" href="#chart-description" title="Permalink to this headline">¶</a></h2>
+<p>Each chart color-codes the difference in Isp ODE between two software packages (<strong>CEA</strong> vs <strong>TDK</strong>) and (<strong>RPA</strong> vs <strong>TDK</strong>)
+with the following scale.</p>
+<img alt="_images/ode_diff_scale.jpg" src="_images/ode_diff_scale.jpg" />
+<p>Cyan, Light Blue, Dark Blue indicate lower  than <strong>TDK</strong> by -1 to -2, -2 to -3 or &lt;-3 seconds of Isp respectively.</p>
+<p>Green indicates agreement within 1 second of Isp.</p>
+<p>Yellow, Orange, Red indicate higher than <strong>TDK</strong> by 1 to 2, 2 to 3 or &gt;3 seconds of Isp respectively.</p>
+<p>The X and Y axes are obvious and labeled as Area Ratio and Mixture Ratio.</p>
+<p>Notice, however, that there are horizontal bars on the mixture ratio axis indicating the
+minimum and maximum expected MR operating range.</p>
+<table width="100%">
+<tr>
+<td valign="top" width="40%">
+Chamber pressure on the charts is somewhat less obvious.
+For each Mixture Ratio and Area Ratio, the range of Chamber Pressure results (50 to 3200 psia)
+are shown as a bar of colors, one for each Pc.
+</td>
+<td><img src="./_static/pc_scale.jpg" width="160"></td>
+</tr>
+</table></div>
+<div class="section" id="lox-lh2">
+<h2>LOX/LH2<a class="headerlink" href="#lox-lh2" title="Permalink to this headline">¶</a></h2>
+<p>LOX/LH2 has very good agreement between all three codes.</p>
+<p>High area ratio, low MR is where differences occur.</p>
+<p>In those areas, <strong>CEA</strong> gets more than 3 seconds higher than <strong>TDK</strong> and
+<strong>RPA</strong> crashes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Blank areas in the RPA chart is where that code crashes.</p>
+</div>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_LH2_cea_minus_ode.png">
+<img src="./_static/LOX_LH2_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_LH2_rpa_minus_ode.png">
+<img src="./_static/LOX_LH2_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="lox-ch4">
+<h2>LOX/CH4<a class="headerlink" href="#lox-ch4" title="Permalink to this headline">¶</a></h2>
+<p>LOX/LCH4 has very good agreement between all three codes.</p>
+<p>Both <strong>CEA</strong> and <strong>RPA</strong> diverge at low MR.</p>
+<p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_CH4_cea_minus_ode.png">
+<img src="./_static/LOX_CH4_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_CH4_rpa_minus_ode.png">
+<img src="./_static/LOX_CH4_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="lox-rp1">
+<h2>LOX/RP1<a class="headerlink" href="#lox-rp1" title="Permalink to this headline">¶</a></h2>
+<p>For LOX/RP1 <strong>CEA</strong> has good agreement with <strong>TDK</strong>, however, <strong>RPA</strong>
+calculates as much as 2 seconds lower than <strong>TDK</strong> in the low portion of the expected MR range.</p>
+<p>Both <strong>CEA</strong> and <strong>RPA</strong> diverge at low MR.</p>
+<p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_RP1_cea_minus_ode.png">
+<img src="./_static/LOX_RP1_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_RP1_rpa_minus_ode.png">
+<img src="./_static/LOX_RP1_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="lox-ethanol">
+<h2>LOX/Ethanol<a class="headerlink" href="#lox-ethanol" title="Permalink to this headline">¶</a></h2>
+<p>LOX/Ethanol results are virtually identical to LOX/CH4 results.</p>
+<p>Good agreement between all three codes.</p>
+<p>Both <strong>CEA</strong> and <strong>RPA</strong> diverge at low MR.</p>
+<p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_Ethanol_cea_minus_ode.png">
+<img src="./_static/LOX_Ethanol_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/LOX_Ethanol_rpa_minus_ode.png">
+<img src="./_static/LOX_Ethanol_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="peroxide90-ethanol">
+<h2>Peroxide90/Ethanol<a class="headerlink" href="#peroxide90-ethanol" title="Permalink to this headline">¶</a></h2>
+<p>Peroxide90/Ethanol  has excellent agreement between all three codes.</p>
+<p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/Peroxide90_Ethanol_cea_minus_ode.png">
+<img src="./_static/Peroxide90_Ethanol_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/Peroxide90_Ethanol_rpa_minus_ode.png">
+<img src="./_static/Peroxide90_Ethanol_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="n2o4-mmh">
+<h2>N2O4/MMH<a class="headerlink" href="#n2o4-mmh" title="Permalink to this headline">¶</a></h2>
+<p>N2O4/MMH has excellent agreement between all three codes.</p>
+<p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/N2O4_MMH_cea_minus_ode.png">
+<img src="./_static/N2O4_MMH_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/N2O4_MMH_rpa_minus_ode.png">
+<img src="./_static/N2O4_MMH_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="n2o4-n2h4">
+<h2>N2O4/N2H4<a class="headerlink" href="#n2o4-n2h4" title="Permalink to this headline">¶</a></h2>
+<p>N2O4/N2H4 has excellent agreement between all three codes.</p>
+<p><strong>RPA</strong> crashes at both very high and very low MR with high area ratio.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/N2O4_N2H4_cea_minus_ode.png">
+<img src="./_static/N2O4_N2H4_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/N2O4_N2H4_rpa_minus_ode.png">
+<img src="./_static/N2O4_N2H4_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="mon25-mhf3">
+<h2>MON25/MHF3<a class="headerlink" href="#mon25-mhf3" title="Permalink to this headline">¶</a></h2>
+<p>for MON25/MHF3, <strong>CEA</strong> has good agreement</p>
+<p><strong>RPA</strong> predicts high everywhere, and has some crashes at very high MR for high area ratio.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/MON25_MHF3_cea_minus_ode.png">
+<img src="./_static/MON25_MHF3_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/MON25_MHF3_rpa_minus_ode.png">
+<img src="./_static/MON25_MHF3_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+<div class="section" id="clf5-n2h4">
+<h2>CLF5/N2H4<a class="headerlink" href="#clf5-n2h4" title="Permalink to this headline">¶</a></h2>
+<p>for CLF5/N2H4, <strong>CEA</strong> has good agreement in the expected MR range, but predicts higher Isp
+at the MR extremes.</p>
+<p><strong>RPA</strong> predicts high everywhere, and has some crashes at very high area ratio.</p>
+<table width="1000">
+<tr>
+<th style="text-align:center;"> CEA </th>
+<th style="text-align:center;"> RPA </th>
+</tr>
+<tr>
+<td>
+<a class="reference internal image-reference" href="./_static/CLF5_N2H4_cea_minus_ode.png">
+<img src="./_static/CLF5_N2H4_cea_minus_ode.png">
+</a>
+</td>
+<td>
+<a class="reference internal image-reference" href="./_static/CLF5_N2H4_rpa_minus_ode.png">
+<img src="./_static/CLF5_N2H4_rpa_minus_ode.png">
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<img src="./_static/ode_diff_scale.jpg">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p><cite>Click images to see full size</cite></p>
+</td>
+</tr>
+</table></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parasol_example.html" title="Parasol Example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="temperature_adjust.html" title="Temperature Adjust"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
