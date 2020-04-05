@@ -72,6 +72,7 @@ def add_user_units( default_units, user_units, multiplier, offset=0 ):
 # ...Pressure
 add_user_units('psia', 'MPa', 0.00689475729) # multiplier = user units / default units
 add_user_units('psia', 'kPa', 6.89475729)
+add_user_units('psia', 'Pa', 6894.75729)
 add_user_units('psia', 'Bar', 0.0689475729)
 add_user_units('psia', 'Atm', 0.068046)
 add_user_units('psia', 'Torr', 51.7149)
