@@ -238,6 +238,7 @@ if __name__ == "__main__":
              user_offset=-273.15) )
         
     chk_obj( get_units_obj('psia', 'MPa') )
+    chk_obj( get_units_obj('psia', 'Pa') )
     chk_obj( get_units_obj('psia', 'bar') )
     chk_obj( get_units_obj('psia', 'ATM') )
     

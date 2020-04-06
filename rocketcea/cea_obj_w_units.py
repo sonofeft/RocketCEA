@@ -29,7 +29,7 @@ class CEA_Obj( object ):
         #:  parameter             default             options
         #: isp_units            = 'sec',         # N-s/kg, m/s, km/s
         #: cstar_units          = 'ft/sec',      # m/s
-        #: pressure_units       = 'psia',        # MPa, KPa, Bar, Atm, Torr
+        #: pressure_units       = 'psia',        # MPa, KPa, Pa, Bar, Atm, Torr
         #: temperature_units    = 'degR',        # K, C, F
         #: sonic_velocity_units = 'ft/sec',      # m/s
         #: enthalpy_units       = 'BTU/lbm',     # J/g, kJ/kg, J/kg, kcal/kg, cal/g

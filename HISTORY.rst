@@ -9,6 +9,8 @@ GitHub Log
 * Apr 5, 2020
     - (by: Franky333)
         - Added Pascal (Pa) to units
+    - (by: sonofeft)
+        - Cleaned up docs for Pa units
 
 * Apr 3, 2020
     - (by: sonofeft)
