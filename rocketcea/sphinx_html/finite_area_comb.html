@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Finite Area Combustor &#8212; RocketCEA v1.1.15 documentation</title>
+    <title>Finite Area Combustor &#8212; RocketCEA v1.1.16 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -178,7 +178,7 @@ use the input <strong>Pc</strong> as the <strong>Pcinj_face</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>The chamber plenum pressure, <strong>Pcomb_end</strong>, will be determined by applying the
@@ -189,8 +189,8 @@ Rayleigh line loss to <strong>Pcinj_face</strong>.</p>
 </div>
 <p>The graph in the 1st section above was created using this approach.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">crL</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.4</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mf">0.2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="p">]</span>
 
@@ -249,7 +249,7 @@ that gives <strong>Pcomb_end</strong>.</p>
 
 <span class="c1"># print results (noting that &quot;COMB END&quot; == 100.00 atm)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span> <span class="o">*</span> <span class="n">PinjOverPcomb</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output from the above script:</p>
@@ -305,7 +305,7 @@ Very large booster engines tend to have smaller CR, small engines tend to have l
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

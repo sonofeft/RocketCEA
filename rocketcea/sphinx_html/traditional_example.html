@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Traditional Example &#8212; RocketCEA v1.1.15 documentation</title>
+    <title>Traditional Example &#8212; RocketCEA v1.1.16 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="std_examples.html" title="Standard Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -115,7 +115,7 @@ mixture ratio, subsonic area ratio, supersonic area ratio and Pc/Pexit ratio.</p
 value or a list of values to be input.</p>
 <p>The following example shows how to run a case with multiple input values in order to
 generate that more traditional output.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="c1"># number or list of chamber pressures</span>
@@ -132,7 +132,7 @@ generate that more traditional output.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Notice... the input Pc units and output units are controlled by the parameters <strong>pc_units</strong> and
+<p>Notice… the input Pc units and output units are controlled by the parameters <strong>pc_units</strong> and
 <strong>output</strong> respectively.</p>
 </div>
 <p>The following is the output that results from the above call to <strong>get_full_cea_output</strong>.</p>
@@ -677,7 +677,7 @@ generate that more traditional output.</p>
         <li class="right" >
           <a href="std_examples.html" title="Standard Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

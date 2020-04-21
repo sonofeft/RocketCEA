@@ -913,7 +913,7 @@ class CEA_Obj(object):
             PcOvPe = PcOvPe * py_cea.rockt.app[ self.i_chm ]
         return PcOvPe
 
-    def get_MachNumber(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_MachNumber(self, Pc=100.0, MR=1.0, eps=40.0):
         """::
 
         #: return nozzle exit mach number.
@@ -923,6 +923,30 @@ class CEA_Obj(object):
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
         M = py_cea.rockt.vmoc[ self.i_exit ]
+        return M
+
+    def get_Chamber_MachNumber(self, Pc=100.0, MR=1.0, fac_CR=None):
+        """::
+
+        #: Return  mach numbers at the chamber
+        #: Pc = combustion end pressure (psia)
+        #: MR is only used for ox/fuel combos.
+        #: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)
+        """
+        # Allow user to override fac_CR from CEA_Obj __init__
+        save_fac_CR = self.fac_CR
+        if fac_CR is not None:
+            self.fac_CR = fac_CR
+            
+        if self.fac_CR is None:
+            print('ERROR in get_Chamber_MachNumber... Need value for fac_CR')
+            raise Exception('ERROR in get_Chamber_MachNumber... Need value for fac_CR')
+            
+        self.setupCards( Pc=Pc, MR=MR )
+
+        self.fac_CR = save_fac_CR   # restore fac_CR
+        
+        M = py_cea.rockt.vmoc[ 1 ]
         return M
 
     def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
@@ -941,7 +965,11 @@ class CEA_Obj(object):
         
         # convert from Kelvin to Rankine
         #tempList = 1.8 * py_cea.prtout.ttt[:3]
-        tempList = list( py_cea.prtout.ttt[:3] )
+        if self.fac_CR is not None:
+            tempList = list( py_cea.prtout.ttt[1:4] )
+        else:
+            tempList = list( py_cea.prtout.ttt[:3] )
+            
         tempList = [1.8*T for T in tempList]
         return tempList # Tc, Tthroat, Texit
 
@@ -976,6 +1004,25 @@ class CEA_Obj(object):
         return sonicList[ 0 ] # 0 == self.i_chm here
 
 
+    def get_Entropies(self, Pc=100.0, MR=1.0,eps=40.0):
+        """::
+
+        #: Return a list of entropies at the chamber, throat and exit CAL/(G)(K)
+        #: Pc = combustion end pressure (psia)
+        #: MR is only used for ox/fuel combos.
+        #: eps = Nozzle Expansion Area Ratio
+        """
+        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        
+        if self.fac_CR is not None:
+            sList =  list(py_cea.prtout.ssum[1:4])
+        else:
+            sList =  list(py_cea.prtout.ssum[:3])
+        
+        for i,s in enumerate( sList ):
+            sList[i] = s * 8314.51 / 4184.0  # convert into CAL/(G)(K)
+        return sList
+
     def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
         """::
 
@@ -995,7 +1042,8 @@ class CEA_Obj(object):
             hList[i] = h * 1.8 * 8314.51 / 4184.0  # convert into BTU/lbm
         return hList
 
-    def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+    def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, 
+                                 frozen=0, frozenAtThroat=0, min_fraction=0.000005):
         """::
 
         #: Returns species mass fractions at the injector face, chamber, throat and exit.
@@ -1006,7 +1054,7 @@ class CEA_Obj(object):
         #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         #: Returns 2 dictionaries
         #: molWtD dictionary: index=species: value=molecular weight
-        #: massFracD dictionary: index=species: value=[massfrac_chm, massfrac_tht, massfrac_exit]
+        #: massFracD dictionary: index=species: value=[massfrac_injface, massfrac_chm, massfrac_tht, massfrac_exit]
         """
 
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
@@ -1027,7 +1075,7 @@ class CEA_Obj(object):
                     mw = py_cea.therm.mw[k-1]
                     
                     mfL.append( en*mw )
-                    if mfL[-1] >= 0.000005:
+                    if mfL[-1] >= min_fraction: # default = 0.000005
                         gt_zero = True
                 
                 if gt_zero:
@@ -1042,7 +1090,8 @@ class CEA_Obj(object):
                     
         return molWtD, massFracD
 
-    def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+    def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, 
+                                 frozen=0, frozenAtThroat=0, min_fraction=0.000005):
         """::
 
         #: Returns species mole fractions at the injector face, chamber, throat and exit.
@@ -1053,7 +1102,7 @@ class CEA_Obj(object):
         #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         #: Returns 2 dictionaries
         #: molWtD dictionary: index=species: value=molecular weight
-        #: moleFracD dictionary: index=species: value=[molefrac_chm, molefrac_tht, molefrac_exit]
+        #: moleFracD dictionary: index=species: value=[molefrac_injface, molefrac_chm, molefrac_tht, molefrac_exit]
         """
         
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
@@ -1075,7 +1124,7 @@ class CEA_Obj(object):
                     mw = py_cea.therm.mw[k-1]
                     
                     mfL.append( en/totn )
-                    if mfL[-1] >= 0.000005:
+                    if mfL[-1] >= min_fraction: # default = 0.000005
                         gt_zero = True
                 
                 if gt_zero:
@@ -1110,7 +1159,7 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         """
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
-        # convert from m/sec into ft/sec
+        
         if self.fac_CR is not None:
             dList =  list(py_cea.prtout.vlm[1:4])
         else:

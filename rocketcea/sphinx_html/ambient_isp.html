@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Ambient Isp &#8212; RocketCEA v1.1.15 documentation</title>
+    <title>Ambient Isp &#8212; RocketCEA v1.1.16 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="plot_examples.html" title="Plot Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -147,7 +147,7 @@ The <strong>estimate_Ambient_Isp</strong> method is called as follows:</p>
 The returned Isp value considers both ambient pressure correction and potential nozzle flow separation.</p>
 <p>The returned <strong>mode</strong> parameter is a string describing the nozzle flow condition.
 The script below demonstrates.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">oxName</span><span class="o">=</span><span class="s2">&quot;LOX&quot;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;H2&quot;</span><span class="p">,</span>  <span class="n">useFastLookup</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">Pc</span><span class="o">=</span><span class="mf">500.</span>
@@ -194,7 +194,7 @@ it is much more common to want the Cf in vacuum or at sea level.</p>
 </div>
 <p>The following script calls <code class="docutils literal notranslate"><span class="pre">get_PambCf</span></code> for the four nozzle operating domains of interest,
 under-expanded, Pexit equals Pambient, over-expanded and separated flow.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span>
 <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span>
@@ -227,9 +227,9 @@ Flow separation can be quite violent and, in fact, can be the major structural d
 flow separation.</p>
 <p>The following RocketCEA script runs nozzle separation calculations and launches Microsoft Excel in order to
 plot the results. (works on Windows only, see: <a class="reference external" href="http://odscharts.readthedocs.io/en/latest/">ODSCharts</a> for a Linux solution.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea</span> <span class="k">import</span> <span class="n">separated_Cf</span>
-<span class="kn">from</span> <span class="nn">rocketcea</span> <span class="k">import</span> <span class="n">xlChart</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea</span> <span class="kn">import</span> <span class="n">separated_Cf</span>
+<span class="kn">from</span> <span class="nn">rocketcea</span> <span class="kn">import</span> <span class="n">xlChart</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">pc</span><span class="o">=</span><span class="mf">108.0</span>
 <span class="n">eps</span><span class="o">=</span><span class="mf">5.0</span>
@@ -299,7 +299,7 @@ shown in the bottom right corner of the image:</p>
         <li class="right" >
           <a href="plot_examples.html" title="Plot Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.15 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

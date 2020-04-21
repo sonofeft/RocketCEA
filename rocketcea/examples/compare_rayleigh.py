@@ -16,11 +16,26 @@ def make_pratL( oxName, fuelName, MR ):
     C = CEA_Obj( oxName=oxName, fuelName=fuelName)
     pratL = [C.get_Pinj_over_Pcomb( Pc=Pc, MR=MR, fac_CR=cr) for cr in crL]
     
-    plot(crL, pratL, label='%s/%s'%(oxName,fuelName), linewidth=2)
+    plot(crL, pratL, label='%s/%s (Pinj/Pcomb)'%(oxName,fuelName), linewidth=2)
 
 for (oxName, fuelName, MR) in propL:
     make_pratL( oxName, fuelName, MR )
+
+
+def make_pratv2L( oxName, fuelName, MR ):
+    C = CEA_Obj( oxName=oxName, fuelName=fuelName)
     
+    machL = [C.get_Chamber_MachNumber( Pc=Pc, MR=MR, fac_CR=cr) for cr in crL]
+    gamL  = [C.get_Chamber_MolWt_gamma( Pc=Pc, MR=MR)[-1] for cr in crL]
+    
+    pratL = [1+gam*M**2 for (gam,M) in zip(gamL, machL) ]
+    
+    plot(crL, pratL, label=r'%s/%s (1+$\gamma*M^2$)'%(oxName,fuelName), linewidth=2)
+
+for (oxName, fuelName, MR) in propL:
+    make_pratv2L( oxName, fuelName, MR )
+
+
 
 legend(loc='best')
 grid(True)

@@ -200,18 +200,20 @@ class CEA_Obj( object ):
             hList[i] = self.enthalpy_U.dval_to_uval( H )
         
         return hList
-    def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+    def get_SpeciesMassFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0,
+                                 min_fraction=0.000005):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         
         molWtD, massFracD = self.cea_obj.get_SpeciesMassFractions(Pc=Pc, MR=MR, eps=eps, 
-                                                          frozenAtThroat=frozenAtThroat)
+                                        frozenAtThroat=frozenAtThroat,min_fraction=min_fraction)
         return molWtD, massFracD
 
-    def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
+    def get_SpeciesMoleFractions(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0,
+                                 min_fraction=0.000005):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         
         molWtD, moleFracD = self.cea_obj.get_SpeciesMoleFractions(Pc=Pc, MR=MR, eps=eps, 
-                                                            frozenAtThroat=frozenAtThroat)
+                                        frozenAtThroat=frozenAtThroat, min_fraction=min_fraction)
         return molWtD, moleFracD
         
     def get_Chamber_H(self, Pc=100.0, MR=1.0, eps=40.0):

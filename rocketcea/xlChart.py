@@ -1,9 +1,9 @@
 import sys, os
 from win32com.client import Dispatch
-import string
+
 from rocketcea.excel_const import constants
 import rocketcea.xlChFormula as xlChFormula
-
+UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 msoFalse                      =0x0        # from enum MsoTriState
 msoTrue                       =-1         # from enum MsoTriState
@@ -405,7 +405,7 @@ class xlChart:
 
     def focusSheet(self, N):
         '''use 1-based index to Sheets'''
-        print( 'focusing on sheet #',N )
+        print('focusing on sheet #',N)
         self.xlSheet = self.sheetList[N-1]
         #self.chart = self.chartList[N-1]
         #self.nColumns = self.chartNColumns[N-1]
@@ -440,7 +440,7 @@ class xlChart:
                 xLabels[self.getCellValue( cell=self.formula.labelLoc )] = 1
         except:
             pass
-        for k in xLabels.keys():
+        for k in list(xLabels.keys()):
             if len(allXNames)>0:allXNames = allXNames + ', '
             allXNames = allXNames + k
         return allXNames
@@ -750,9 +750,9 @@ class xlChart:
                     if NColumn>26:
                         r = NColumn % 26 - 1
                         q = NColumn / 26 - 1
-                        colStr = string.uppercase[q] + string.uppercase[r]
+                        colStr = UPPERCASE[q] + UPPERCASE[r]
                     else:
-                        colStr = string.uppercase[NColumn-1]
+                        colStr = UPPERCASE[NColumn-1]
                     colRange = self.xlSheet.Range('$%s$1'%colStr, '$%s$%i'%(colStr,self.nRows))
                     colRange.NumberFormat = colFormat
                     #print colRange[0]
