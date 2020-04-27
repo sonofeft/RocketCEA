@@ -20,7 +20,7 @@ class CEA_Obj( object ):
         sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
         density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
         viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s', 
-        fac_CR=None):
+        fac_CR=None, make_debug_prints=False):
         """::
         
         #: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb
@@ -38,6 +38,7 @@ class CEA_Obj( object ):
         #: viscosity_units      = 'millipoise'   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise
         #: thermal_cond_units   = 'mcal/cm-K-s'  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC
         #: fac_CR, Contraction Ratio of finite area combustor (None=infinite)
+        #: if make_debug_prints is True, print debugging info to terminal.
         """
 
         self.isp_units            = isp_units
@@ -68,7 +69,7 @@ class CEA_Obj( object ):
         
         self.cea_obj = CEA_Obj_default(propName=propName, oxName=oxName, fuelName=fuelName, 
                                useFastLookup=useFastLookup, makeOutput=makeOutput,
-                               fac_CR=fac_CR)
+                               fac_CR=fac_CR, make_debug_prints=make_debug_prints)
         self.desc = self.cea_obj.desc
     
     def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):

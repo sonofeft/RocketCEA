@@ -174,18 +174,20 @@ class CEA_Obj(object):
 
     def __init__(self, propName='', oxName='', fuelName='', fac_CR=None,
         useFastLookup=0, # depricated
-        makeOutput=0):
+        makeOutput=0, make_debug_prints=False):
         """
         #: Create the base CEA wrapper object.
         #: Fast Lookup is depricated.
         #: fac_CR = Contraction Ratio of finite area combustor (None=infinite)
+        #: if make_debug_prints is True, print debugging info to terminal.
         """
 
         self.makeOutput = makeOutput # makes "f.out"
+        self.make_debug_prints = make_debug_prints
         
         if fac_CR is not None:
             self.fac_CR = float( fac_CR )
-            print('Creating CEA_Obj with finite area combustor CR = ', self.fac_CR)
+            #print('Creating CEA_Obj with finite area combustor CR = ', self.fac_CR)
         else:
             self.fac_CR = None
 
@@ -209,13 +211,16 @@ class CEA_Obj(object):
 
         if oxName[-3:]=='(G)':
             oxName = 'G' + oxName[:-3]
-            print('Ox name changed to',oxName)
+            if self.make_debug_prints:
+                print('Ox name changed to',oxName)
         if fuelName[-3:]=='(G)':
             fuelName = 'G' + fuelName[:-3]
-            print('Fuel name changed to',fuelName)
+            if self.make_debug_prints:
+                print('Fuel name changed to',fuelName)
         if propName[-3:]=='(G)':
             propName = 'G' + propName[:-3]
-            print('Propellant name changed to',propName)
+            if self.make_debug_prints:
+                print('Propellant name changed to',propName)
 
         # may want to interpolate tables of CEA runs for speed
         self.useFastLookup = useFastLookup
@@ -247,13 +252,14 @@ class CEA_Obj(object):
 
                 self.cea_deck.append( propList )
                 self.desc += ' ' + propName
-                print("fuel Cards converted into prop Cards")
-                for card in self.cea_deck:
-                    if type(card) == type(''):
-                        print(card)
-                    else:
-                        for c in card:
-                            print(c)
+                if self.make_debug_prints:
+                    print("fuel Cards converted into prop Cards")
+                    for card in self.cea_deck:
+                        if type(card) == type(''):
+                            print(card)
+                        else:
+                            for c in card:
+                                print(c)
             elif propName in oxCards:
                 tempList = oxCards[ propName ]
                 if type(tempList) == type(''):
@@ -265,13 +271,14 @@ class CEA_Obj(object):
 
                 self.cea_deck.append( propList )
                 self.desc += ' ' + propName
-                print("ox Cards converted into prop Cards")
-                for card in self.cea_deck:
-                    if type(card) == type(''):
-                        print(card)
-                    else:
-                        for c in card:
-                            print(c)
+                if self.make_debug_prints:
+                    print("ox Cards converted into prop Cards")
+                    for card in self.cea_deck:
+                        if type(card) == type(''):
+                            print(card)
+                        else:
+                            for c in card:
+                                print(c)
             else:
                 print('ERROR... bad propellant name (%s) in cea_obj.py'%propName)
 
@@ -542,8 +549,9 @@ class CEA_Obj(object):
                 _PrintCountDict[self.desc] = 1
 
 
-        if self.makeOutput:
-            print("NOTICE... making an output file")
+        if self.make_debug_prints:
+            if self.makeOutput:
+                print("NOTICE... making an output file")
 
         # Before calling CEA, init values to zero so bad run can be detected
         py_cea.rockt.vaci[ self.i_thrt ] =  0.0 # Vacuum Isp at throat

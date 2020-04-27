@@ -75,6 +75,7 @@ class InterpProp:
             #print '1) self.interpFunc( %s ) ='%xval,self.interpFunc( xval )
             return float(self.interpFunc( xval ))
         
+        # if not in data range, linearly extrapoate from end points.
         if xval<self.x[0]: 
             yval = self.y[0]+(xval-self.x[0])*(self.y[1]-self.y[0])/(self.x[1]-self.x[0])
         elif xval>self.x[-1]: 
@@ -82,12 +83,21 @@ class InterpProp:
         else:
             #print '2) self.interpFunc( %s ) ='%xval,self.interpFunc( xval )
             yval = float(self.interpFunc( xval ))
-                        
+        
+        # if limits set, use them
         if self.minY != None: yval = max(yval, self.minY)
         if self.maxY != None: yval = min(yval, self.maxY)
         return yval
         
     def deriv(self, xval=0.0, stepFrac=0.0001):
+        
+        # if possible, use UnivariateSpline for 1st derivative.
+        if xval>=self.x[0] and xval<=self.x[-1]: 
+            # for UnivariateSpline, linear has 0th and 1st deriv
+            #                       quadratic has 0th, 1st and 2nd derivs
+            return self.interpFunc.derivatives( xval )[1] # 1 for 1st derivative 
+        
+        # otherwise, make a rough estimate.
         dx = self.delX * stepFrac
         return (self(xval+dx) - self(xval-dx)) / 2.0 / dx
           
@@ -137,16 +147,19 @@ if __name__ == "__main__": #Self Test
     x = [2.,4.25,5.25,7.81,9.2,10.6]
     y = [7.2,7.1,6.,5.,3.5,5.]
     
-    q = InterpProp( x, y)
+    q = InterpProp( x, y, linear=1)
     
 
     xL = []
     yL = []
+    dydxL = []
     Npts = 100
     for i in range(Npts+1):
         xL.append( 12.*i/Npts )
         yL.append( q(xL[-1]) )
+        dydxL.append( q.deriv(xL[-1]) )
     plt.plot(xL, yL, '-')
+    plt.plot(xL, dydxL, '--')
     plt.plot( q.x, q.y, 'o-' )
     plt.grid()
     plt.show()

@@ -6,6 +6,14 @@ History
 
 GitHub Log
 ----------
+* Apr 26, 2020
+    - (by: sonofeft)
+        - version 1.1.17, changed some prints to debug prints
+
+* Apr 21, 2020
+    - (by: sonofeft)
+        - fixed xlChart, added mach and entropy methods
+        
 * Apr 5, 2020
     - (by: Franky333)
         - Added Pascal (Pa) to units
