@@ -1,4 +1,4 @@
-________tk_nosy UNITTEST RUN# 11________
+________tk_nosy UNITTEST RUN# 1_________
 
 {Item #1} test__main__, 
 FLOX80
@@ -50,10 +50,6 @@ Enthalpies = [-1.4371070704248329e-11, -197.9636883578134, nan]
 Densities = [0.5271574696918462, 0.3312135630890024, 0.0042632969395448314]
 Cp        = [0.47903690306414526, 0.5191274797122336, 3.0298627419443456]
 =======================================
-ox Cards converted into prop Cards
-reac
- name NitrousOxide  N 2.0 O 1.0  wt%=100.00
- h,cal= 19467.0 t(k)=298.15
 
  N2O    at Pc=1000.0, MR=1.000, eps=30.00...
 Isp =  197.55309076259832
@@ -142,128 +138,30 @@ ERROR... bad oxidizer name (MON1300) in cea_obj.py
 {Item #8} test_badMONxyz, 
 ERROR... bad oxidizer name (MONxyz) in cea_obj.py
 
-{Item #9} test_full_cea_output, 
-NOTICE... making an output file
-
-{Item #10} test_get_Cstar, 
+{Item #9} test_get_Cstar, 
 6073.157251192654
 
-{Item #11} test_get_Enthalpies, 
+{Item #10} test_get_Enthalpies, 
 [164.7512748095877, -161.94034179755695, -2198.8446721161367]
 
-{Item #12} test_get_SonicVelocities, 
+{Item #11} test_get_SonicVelocities, 
 [4187.8341406036525, 4043.220288296704, 2446.3294662536046]
 
-{Item #13} test_mass_fraction_species_conc_w_fac, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #14} test_mole_fraction_species_conc_w_fac, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #15} test_M10, 
-Creating CEA_Obj with finite area combustor CR =  3.0
-
-{Item #16} test_MON13, 
-Creating CEA_Obj with finite area combustor CR =  3.0
-
-{Item #17} test_ambient_Isp, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #18} test_full_cea_output, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-NOTICE... making an output file
-
-{Item #19} test_getFrozen_IvacCstrTc, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #20} test_getMRforER, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #21} test_get_Chamber_Cp, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #22} test_get_Chamber_Density, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #23} test_get_Chamber_H, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #24} test_get_Chamber_MolWt_gamma, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #25} test_get_Chamber_SonicVel, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #26} test_get_Cstar, 
-Creating CEA_Obj with finite area combustor CR =  2.5
+{Item #12} test_get_Cstar, 
 6071.98790105685
 
-{Item #27} test_get_Densities, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-  dList [0.028721999143010185, 0.018269705631498576, 0.0001697484462619544]
+{Item #13} test_get_Densities, 
+dList [0.028721999143010185, 0.018269705631498576, 0.0001697484462619544]
 rhoList [4.600822955453002e-06, 2.9265261321206994e-06, 2.7191092943282844e-08]
 
-{Item #28} test_get_Enthalpies, 
-Creating CEA_Obj with finite area combustor CR =  2.5
+{Item #14} test_get_Enthalpies, 
 [143.61895142033558, -161.68130699554115, -2198.5652665486314]
 
-{Item #29} test_get_HeatCapacities, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #30} test_get_Isp, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #31} test_get_IvacCstrTc_ChmMwGam, 
-Creating CEA_Obj with finite area combustor CR =  2.0
-
-{Item #32} test_get_IvacCstrTc_ThtMwGam, 
-Creating CEA_Obj with finite area combustor CR =  100.0
-
-{Item #33} test_get_IvacCstrTc_exitMwGam, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #34} test_get_MachNumber, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #35} test_get_PcOvPe, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #36} test_get_Pinj_over_Pcomb, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #37} test_get_SonicVelocities, 
-Creating CEA_Obj with finite area combustor CR =  2.5
+{Item #15} test_get_SonicVelocities, 
 [4176.701394069315, 4041.617016570013, 2446.6959331682588]
 [1273.0624244685994, 1231.8885820265034, 745.7551696272768]
 
-{Item #38} test_get_Tcomb, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #39} test_get_Throat_Isp, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #40} test_get_Throat_MolWt_gamma, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #41} test_get_Throat_PcOvPe, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #42} test_get_description, 
-Creating CEA_Obj with finite area combustor CR =  3.0
-
-{Item #43} test_get_eps_at_PcOvPe, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #44} test_get_eqratio, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #45} test_get_exit_MolWt_gamma, 
-Creating CEA_Obj with finite area combustor CR =  2.5
-
-{Item #46} test_lox_mmh_existence, 
-Creating CEA_Obj with finite area combustor CR =  3.0
-
-{Item #47} test_Goal__main__, 
+{Item #16} test_Goal__main__, 
 ======================================================
 ----->Answer should be = 2.5
 with tolerance=1.0E-3  =
@@ -271,7 +169,7 @@ with tolerance=1.0E-3  =
 with tolerance=1.0E-20 =
 (2.5, 0)
 
-{Item #48} test_Isp__main__, 
+{Item #17} test_Isp__main__, 
 for gam=1.25 and eps=2
 
 solvePCoPE(1.25,2)= 8.828960623207562
@@ -288,11 +186,11 @@ CalcIdealIsVac(Gam,Temp,WtMol,eps) 243.6127442209382
 CalcCFvac(gam,PCoPE) 1.4631435664023358   in gray book= 1.4411964129063006
 CalcCstar(Gam,Temp,WtMol) 5356.956495962318
 
-{Item #49} test_bad_goal_func, 
+{Item #18} test_bad_goal_func, 
 ERROR unrecoverable in Goal.py
 returned an ERROR=1 from cren_goal in goalFind.py
 
-{Item #50} test_cea_w_units__main__, 
+{Item #19} test_cea_w_units__main__, 
 Chk: get_IvacCstrTc ALL GOOD:3 --> ['302.906', '5378.76', '4231.59']
 Chk: getFrozen_IvacCstrTc ALL GOOD:3 --> ['296.863', '5356.76', '4231.59']
 Chk: get_IvacCstrTc_exitMwGam ALL GOOD:5 --> ['302.906', '5378.76', '4231.59', '17.4208', '1.1199']
@@ -334,30 +232,30 @@ Chk: getFrozen_PambCf ALL GOOD:2 --> ['1.73155', '0.982003']
 Chk: get_SpeciesMassFractions ALL GOOD:1 --> ["{'CH4': 16.04246, '*CO': 28.0101, '*CO2': 44.0095, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107}"]
 Chk: get_SpeciesMoleFractions ALL GOOD:1 --> ["{'CH4': 16.04246, '*CO': 28.0101, '*CO2': 44.0095, '*H': 1.00794, '*H2': 2.01588, 'H2O': 18.01528, 'NH3': 17.03052, '*NO': 30.0061, '*N2': 28.0134, '*OH': 17.00734, 'C(gr)': 12.0107}"]
 
-{Item #51} test_goal_func_bad_range, 
+{Item #20} test_goal_func_bad_range, 
 returned an ERROR=1 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 2.6 2.9 FofX
 using X value= 2.9
 
-{Item #52} test_goal_func_early_terminate, 
+{Item #21} test_goal_func_early_terminate, 
 returned an ERROR=2 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
 using X value= 57.123
 
-{Item #53} test_goal_func_err, 
+{Item #22} test_goal_func_err, 
 ERROR unrecoverable in Goal.py
 returned an ERROR=1 from cren_goal in goalFind.py
 goalVal, minX, maxX, funcOfX 0.0 0.0 57.123 FofX
 using X value= 57.123
 ERROR unrecoverable in Goal.py
 
-{Item #54} test_mr_t_limits__main__, 
+{Item #23} test_mr_t_limits__main__, 
 Stoich MR = 2.496405605692339 for N2O4/MMH
 
 Min MR = 0   Tc at Min MR = 2145.1178929460416
 Max MR = 53.5632   Tc at Max MR = 1000.0000131980624
 
-{Item #55} test_run_cea_w_error_corr__main__, 
+{Item #24} test_run_cea_w_error_corr__main__, 
 Searching....................._NOT_FOUND_
 Estimated CEA_Isp Frozen at Pc=100, MR=1, eps=40 ispFroz=0
 Estimated CEA_Isp at Pc=100, MR=1, eps=40 ispODE374.303
@@ -389,7 +287,7 @@ isp_froz_est = 433.98817133764663
 
 Run All: 448.1902329983554 414.8125904013141 7210.171598261272 5787.742274248721
 
-{Item #56} test_separated_Cf__main__, 
+{Item #25} test_separated_Cf__main__, 
 saving data to CSV file separated_Noz.csv
 gam=1.25, epsTot=25, Pc=200, Pamb=14.7
 CfOvCfvacAtEsep, CfOvCfvac 0.7359305787100278 0.6648559059513175

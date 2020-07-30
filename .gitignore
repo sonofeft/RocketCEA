@@ -104,3 +104,4 @@ ENV/
 .mypy_cache/
 rocketcea/tests/__pycache__/test_misc.cpython-37.pyc
 *.pyc
+install_w_py38.txt

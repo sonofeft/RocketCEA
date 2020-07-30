@@ -50,9 +50,17 @@ class InterpProp:
             #self.interpFunc = interpolate.interp1d(self.x, self.y, 
             #    kind=self.Nterp, bounds_error=False)
                 
-            self.interpFunc = interpolate.UnivariateSpline(self.x, self.y,  k=self.Nterp, s=0)
+            #self.interpFunc = interpolate.UnivariateSpline(self.x, self.y,  k=self.Nterp, s=0)
+            
+            # most smooth interpolation in my testing.
+            self.interpFunc = interpolate.PchipInterpolator(self.x, self.y)
+            
+            #self.interpFunc = interpolate.Akima1DInterpolator(self.x, self.y)
+            #self.interpFunc = interpolate.CubicSpline(self.x, self.y)
+            self.derivFunc = self.interpFunc.derivative()
         else:
             self.interpFunc = lambda x : self.y[0]
+            self.derivFunc = lambda X : 0.0
         
         try:
             self.minY = float(minY)
@@ -85,8 +93,8 @@ class InterpProp:
             yval = float(self.interpFunc( xval ))
         
         # if limits set, use them
-        if self.minY != None: yval = max(yval, self.minY)
-        if self.maxY != None: yval = min(yval, self.maxY)
+        if self.minY is not None: yval = max(yval, self.minY)
+        if self.maxY is not None: yval = min(yval, self.maxY)
         return yval
         
     def deriv(self, xval=0.0, stepFrac=0.0001):
@@ -95,7 +103,9 @@ class InterpProp:
         if xval>=self.x[0] and xval<=self.x[-1]: 
             # for UnivariateSpline, linear has 0th and 1st deriv
             #                       quadratic has 0th, 1st and 2nd derivs
-            return self.interpFunc.derivatives( xval )[1] # 1 for 1st derivative 
+            
+            return self.derivFunc( xval )
+            #return self.interpFunc.derivatives( xval )[1] # 1 for 1st derivative 
         
         # otherwise, make a rough estimate.
         dx = self.delX * stepFrac

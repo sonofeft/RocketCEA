@@ -10,4 +10,5 @@ pip uninstall -y rocketcea
 python setup.py develop 
 
 rem Test the compiled module
-python .\rocketcea\examples\quick_chk.py
+rem python .\rocketcea\examples\quick_chk.py
+python -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"

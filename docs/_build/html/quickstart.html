@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>QuickStart &#8212; RocketCEA v1.1.17 documentation</title>
+    <title>QuickStart &#8212; RocketCEA v1.1.18 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.18 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -115,6 +115,13 @@
             
   <div class="section" id="quickstart">
 <h1>QuickStart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python 3.8 on Windows has been problematic and is not fully supported.</p>
+<p>Python 3.8 64 bit on Windows has been made to work by using the new
+os.add_dll_directory command to locate MinGW DLL libraries, however,
+32 bit python 3.8 is not yet supported.</p>
+</div>
 <div class="section" id="install-numpy-matplotlib">
 <h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>Because RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
@@ -204,7 +211,7 @@ Paste that code into your text editor and save it to a python file.(for example 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
+giving a “shared” <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
 <p>If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
 You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order
 for RocketCEA to work (see below)</p>
@@ -235,7 +242,7 @@ for RocketCEA to work (see below)</p>
 <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">424.6998266323161</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Great... you are good to go.</p>
+<p>Great… you are good to go.</p>
 <p>If not, see the information below.</p>
 </div>
 <div class="section" id="google-colaboratory">
@@ -295,7 +302,7 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.18 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Finite Area Combustor &#8212; RocketCEA v1.1.16 documentation</title>
+    <title>Finite Area Combustor &#8212; RocketCEA v1.1.17 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -130,7 +130,17 @@ It is the stagnation pressure loss associated
 with the heat transfer effects in a duct of constant area and is the locus
 of points on an enthalpy-entropy diagram defined by the momentum equation,
 continuity equation, and the equation of state.</p>
-<a class="reference internal image-reference" href="_images/compare_rayleigh.png"><img alt="_images/compare_rayleigh.png" src="_images/compare_rayleigh.png" style="width: 70%;" /></a>
+<p>A discussion of this phenomenon is included in the classic design manual
+<a class="reference external" href="https://ntrs.nasa.gov/search.jsp?N=0&amp;Ntk=All&amp;Ntx=mode+matchallany&amp;Ntt=19710019929">Design of Liquid Propellant Rocket Engines by Huzel and Huang</a>
+on page 6, which simplifies the ratio of the injector face pressure to the plenum pressure with the equation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span> <span class="o">/</span> <span class="n">Pcomb_end</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">MachNumber</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>The above equation, equation <em>(1-15)</em> in
+<a class="reference external" href="https://ntrs.nasa.gov/search.jsp?N=0&amp;Ntk=All&amp;Ntx=mode+matchallany&amp;Ntt=19710019929">Huzel and Huang</a>
+is shown in the right-hand image below.</p>
+<a class="reference internal image-reference" href="_images/compare_rayleigh.png"><img alt="_images/compare_rayleigh.png" src="_images/compare_rayleigh.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="_images/Pinj_over_Pc_Huzel_and_Huang.jpg"><img alt="_images/Pinj_over_Pc_Huzel_and_Huang.jpg" src="_images/Pinj_over_Pc_Huzel_and_Huang.jpg" style="width: 39%;" /></a>
 <p>The above graph shows the CEA/RocketCEA calculation of the Rayleigh line loss as well as
 a simple approximation equation for estimating that loss:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span><span class="o">/</span><span class="n">Pcomb_end</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">CR</span><span class="o">**</span><span class="mf">2.2</span>
@@ -142,6 +152,9 @@ with a simple correlating equation such as the one shown here.</p>
 <p>This is especially convenient when designing to a known plenum pressure, <strong>Pcomb_end</strong>,
 and deriving the injector face pressure, <strong>Pcinj_face</strong>, that CEA and RocketCEA require
 as an input.</p>
+<p>One could also get the chamber gamma and mach number from <strong>RocketCEA</strong> and plug those values
+into the equation from
+<a class="reference external" href="https://ntrs.nasa.gov/search.jsp?N=0&amp;Ntk=All&amp;Ntx=mode+matchallany&amp;Ntt=19710019929">Huzel and Huang</a></p>
 <div class="section" id="cea-fac-option">
 <h2>CEA fac Option<a class="headerlink" href="#cea-fac-option" title="Permalink to this headline">¶</a></h2>
 <p>The CEA program offers the option to calculate the Rayleigh line loss for you
@@ -305,7 +318,7 @@ Very large booster engines tend to have smaller CR, small engines tend to have l
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

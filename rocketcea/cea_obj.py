@@ -33,6 +33,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os, sys
 here = os.path.abspath(os.path.dirname(__file__))
 
+# # python >=3.8 needs to be given permission to import DLL files.
+from rocketcea.find_mingw_lib import add_mingw_lib
+add_mingw_lib()
 
 # for multi-file projects see LICENSE file for authorship info
 # for single file projects, insert following information

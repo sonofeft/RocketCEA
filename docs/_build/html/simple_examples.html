@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Simple Examples &#8212; RocketCEA v1.1.17 documentation</title>
+    <title>Simple Examples &#8212; RocketCEA v1.1.18 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="traditional_example.html" title="Traditional Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.18 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -133,7 +133,7 @@ computations that take derivatives of Isp with respect to a design variable. (fo
 <p>By importing CEA_Obj from <strong>cea_obj_w_units</strong> instead of <strong>cea_obj</strong>, all of the I/O
 units can be changed from the default units (i.e. ft, lbm, BTU, degR, etc.).</p>
 <p>The above example in English units is recreated below with SI units(chamber pressure input in MPa).
-Notice that CEA_Obj is created with <strong>pressure_units='MPa'</strong> as an input parameter.
+Notice that CEA_Obj is created with <strong>pressure_units=’MPa’</strong> as an input parameter.
 (For ease of comparison, the 100 psia input value of Pc from above is converted to MPa as 100/145.037738.):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">pressure_units</span><span class="o">=</span><span class="s1">&#39;MPa&#39;</span><span class="p">)</span>
@@ -164,7 +164,7 @@ Simply include an input parameter in the creation of CEA_Obj as shown above with
 <p>If the units you desire are not shown above, your units may be added by importing
 <strong>add_user_units</strong> from <strong>rocketcea.units</strong> and calling it prior to
 creating CEA_Obj. For example MPa was added with the line.</p>
-<p>add_user_units('psia', 'MPa', 0.00689475729) # multiplier = user units / default units</p>
+<p>add_user_units(‘psia’, ‘MPa’, 0.00689475729) # multiplier = user units / default units</p>
 </div>
 </div>
 <div class="section" id="n2o4-mmh-performance">
@@ -221,7 +221,7 @@ The script below will make a table of N2O4/MMH performance data.</p>
 <p>Conducting an analysis with RocketCEA is much easier than the standard approach to running CEA and
 reviewing the pages of CEA output (as we did in the LOX/LH2 example from <a class="reference internal" href="std_examples.html#std-examples-link"><span class="std std-ref">Standard Examples</span></a>)</p>
 <p>We can query the CEA_Obj instance repeatedly for specific information, as opposed to simply printing a page of CEA output.</p>
-<p>If we wanted to run some deltaV calculations on a LOX/LH2 stage to see what impact changing the engine's area ratio
+<p>If we wanted to run some deltaV calculations on a LOX/LH2 stage to see what impact changing the engine’s area ratio
 would have, we might do the following.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">log</span>
 <span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
@@ -287,7 +287,7 @@ The delivered Isp is then used to calculate a stage deltaV.</p>
         <li class="right" >
           <a href="traditional_example.html" title="Traditional Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.18 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.17 documentation</title>
+    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.18 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.17 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.18 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -106,13 +106,13 @@
 <p>See PyPI page at:<a class="reference external" href="https://pypi.python.org/pypi/rocketcea">https://pypi.python.org/pypi/rocketcea</a></p>
 <p>See NASA CEA HomePage at: <a class="reference external" href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm">https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm</a></p>
 <p>See NASA CEA On-Line at: <a class="reference external" href="https://cearun.grc.nasa.gov/">https://cearun.grc.nasa.gov/</a></p>
-<p>RocketCEA makes direct calls to the NASA FORTRAN CEA code in &quot;rocket&quot; mode to calculate
+<p>RocketCEA makes direct calls to the NASA FORTRAN CEA code in “rocket” mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.</p>
 <p>RocketCEA does not use the FORTRAN <strong>CEA2.f</strong> file directly.</p>
 <p>Many modifications have been made in order to wrap CEA with
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> to build a python module.</p>
-<p>Additional changes to <strong>CEA2.f</strong> have been made in order to properly handle hydrazine monopropellant's
+<p>Additional changes to <strong>CEA2.f</strong> have been made in order to properly handle hydrazine monopropellant’s
 ammonia dissociation.</p>
 <p>Although the default units in RocketCEA are English units, SI units may be used for both
 input and output as well. (See <strong>Simple Examples &gt; Transport Properties</strong> in Docs)</p>
@@ -120,6 +120,13 @@ input and output as well. (See <strong>Simple Examples &gt; Transport Properties
 <a class="reference external" href="./_static/CEA_User_Manual_(NASA_RP-1311).pdf">CEA User Manual (NASA RP-1311).pdf</a>
 and
 <a class="reference external" href="./_static/CEA_Methodology_(NASA_RP-1311).pdf">CEA Methodology (NASA RP-1311).pdf</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python 3.8 on Windows has been problematic and is not fully supported.</p>
+<p>Python 3.8 64 bit on Windows has been made to work by using the new
+os.add_dll_directory command to locate MinGW DLL libraries, however,
+32 bit python 3.8 is not yet supported.</p>
+</div>
 </div>
 <div class="section" id="rocketcea">
 <h1>RocketCEA<a class="headerlink" href="#rocketcea" title="Permalink to this headline">¶</a></h1>
@@ -284,7 +291,7 @@ and
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.17 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.18 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

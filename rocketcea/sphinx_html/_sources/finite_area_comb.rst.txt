@@ -29,8 +29,21 @@ with the heat transfer effects in a duct of constant area and is the locus
 of points on an enthalpy-entropy diagram defined by the momentum equation,
 continuity equation, and the equation of state. 
 
+A discussion of this phenomenon is included in the classic design manual 
+`Design of Liquid Propellant Rocket Engines by Huzel and Huang <https://ntrs.nasa.gov/search.jsp?N=0&Ntk=All&Ntx=mode+matchallany&Ntt=19710019929>`_ 
+on page 6, which simplifies the ratio of the injector face pressure to the plenum pressure with the equation::
+
+    Pcinj_face / Pcomb_end = 1 + gamma * MachNumber**2
+    
+The above equation, equation *(1-15)* in 
+`Huzel and Huang  <https://ntrs.nasa.gov/search.jsp?N=0&Ntk=All&Ntx=mode+matchallany&Ntt=19710019929>`_ 
+is shown in the right-hand image below.
+
 .. image:: ./_static/compare_rayleigh.png
-    :width: 70%
+    :width: 60%
+
+.. image:: ./_static/Pinj_over_Pc_Huzel_and_Huang.jpg
+    :width: 39%
 
 The above graph shows the CEA/RocketCEA calculation of the Rayleigh line loss as well as
 a simple approximation equation for estimating that loss::
@@ -44,6 +57,10 @@ with a simple correlating equation such as the one shown here.
 This is especially convenient when designing to a known plenum pressure, **Pcomb_end**,
 and deriving the injector face pressure, **Pcinj_face**, that CEA and RocketCEA require 
 as an input.
+
+One could also get the chamber gamma and mach number from **RocketCEA** and plug those values
+into the equation from 
+`Huzel and Huang  <https://ntrs.nasa.gov/search.jsp?N=0&Ntk=All&Ntx=mode+matchallany&Ntt=19710019929>`_ 
 
 
 CEA fac Option

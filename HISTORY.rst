@@ -6,6 +6,10 @@ History
 
 GitHub Log
 ----------
+* July 30, 2020
+    - (by: sonofeft)
+        - version 1.1.18, trying some python 3.8 DLL import fixes
+
 * Apr 26, 2020
     - (by: sonofeft)
         - version 1.1.17, changed some prints to debug prints

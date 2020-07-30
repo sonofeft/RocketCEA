@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Functions &#8212; RocketCEA v1.1.16 documentation</title>
+    <title>RocketCEA Functions &#8212; RocketCEA v1.1.17 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -134,7 +134,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <hr class="docutils" />
 <dl class="class">
 <dt id="rocketcea.cea_obj.CEA_Obj">
-<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">make_debug_prints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp">
@@ -221,6 +221,17 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 </dd></dl>
 
 <dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber">
+<code class="sig-name descname">get_Chamber_MachNumber</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return  mach numbers at the chamber</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma">
 <code class="sig-name descname">get_Chamber_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the chamber (lbm/lbmole, -)</span>
@@ -280,6 +291,17 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <dt id="rocketcea.cea_obj.CEA_Obj.get_Enthalpies">
 <code class="sig-name descname">get_Enthalpies</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Enthalpies" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of enthalpies at the chamber, throat and exit (BTU/lbm)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="rocketcea.cea_obj.CEA_Obj.get_Entropies">
+<code class="sig-name descname">get_Entropies</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Entropies" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of entropies at the chamber, throat and exit CAL/(G)(K)</span>
 <span class="c1">#: Pc = combustion end pressure (psia)</span>
 <span class="c1">#: MR is only used for ox/fuel combos.</span>
 <span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
@@ -427,7 +449,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions">
-<code class="sig-name descname">get_SpeciesMassFractions</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_SpeciesMassFractions</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">min_fraction=5e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Returns species mass fractions at the injector face, chamber, throat and exit.</span>
 <span class="c1">#: Pc = combustion end pressure (psia)</span>
 <span class="c1">#: MR is only used for ox/fuel combos.</span>
@@ -436,14 +458,14 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
 <span class="c1">#: Returns 2 dictionaries</span>
 <span class="c1">#: molWtD dictionary: index=species: value=molecular weight</span>
-<span class="c1">#: massFracD dictionary: index=species: value=[massfrac_chm, massfrac_tht, massfrac_exit]</span>
+<span class="c1">#: massFracD dictionary: index=species: value=[massfrac_injface, massfrac_chm, massfrac_tht, massfrac_exit]</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions">
-<code class="sig-name descname">get_SpeciesMoleFractions</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_SpeciesMoleFractions</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">min_fraction=5e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Returns species mole fractions at the injector face, chamber, throat and exit.</span>
 <span class="c1">#: Pc = combustion end pressure (psia)</span>
 <span class="c1">#: MR is only used for ox/fuel combos.</span>
@@ -452,7 +474,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
 <span class="c1">#: Returns 2 dictionaries</span>
 <span class="c1">#: molWtD dictionary: index=species: value=molecular weight</span>
-<span class="c1">#: moleFracD dictionary: index=species: value=[molefrac_chm, molefrac_tht, molefrac_exit]</span>
+<span class="c1">#: moleFracD dictionary: index=species: value=[molefrac_injface, molefrac_chm, molefrac_tht, molefrac_exit]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -643,12 +665,12 @@ Normally used for debugging or verifying FORTRAN internal values.</p>
 <h2>CEA_Obj With Units<a class="headerlink" href="#cea-obj-with-units" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="rocketcea.cea_obj_w_units.CEA_Obj">
-<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj_w_units.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj_w_units.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">make_debug_prints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
 <p>This object wraps the English unit version of CEA_Obj to enable desired user units.</p>
 <dl class="method">
 <dt id="rocketcea.cea_obj_w_units.CEA_Obj.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">make_debug_prints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</span>
 <span class="c1">#: This object wraps the English unit version of CEA_Obj to enable desired user units.</span>
 <span class="c1">#: Same as CEA_Obj with standard units except, input and output units can be specified.</span>
@@ -664,6 +686,7 @@ Normally used for debugging or verifying FORTRAN internal values.</p>
 <span class="c1">#: viscosity_units      = &#39;millipoise&#39;   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise</span>
 <span class="c1">#: thermal_cond_units   = &#39;mcal/cm-K-s&#39;  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC</span>
 <span class="c1">#: fac_CR, Contraction Ratio of finite area combustor (None=infinite)</span>
+<span class="c1">#: if make_debug_prints is True, print debugging info to terminal.</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -956,7 +979,7 @@ card in cardDict if necessary</p>
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.16 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.17 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
