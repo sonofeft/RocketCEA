@@ -707,6 +707,7 @@ rocketcea/sphinx_html/_static/generic_logo.svg
 rocketcea/sphinx_html/_static/jquery-1.11.1.js
 rocketcea/sphinx_html/_static/jquery-3.2.1.js
 rocketcea/sphinx_html/_static/jquery-3.4.1.js
+rocketcea/sphinx_html/_static/jquery-3.5.1.js
 rocketcea/sphinx_html/_static/jquery.js
 rocketcea/sphinx_html/_static/language_data.js
 rocketcea/sphinx_html/_static/linux_import_error.jpg

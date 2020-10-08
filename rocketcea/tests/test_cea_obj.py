@@ -200,6 +200,17 @@ class MyTest(unittest.TestCase):
         
         del C
 
+
+    def test_froz_get_IvacCstrTc(self):
+        """ test call to get_IvacCstrTc_exitMwGam( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        IspODE, Cstar, Tcomb = C.get_IvacCstrTc( Pc=100.0, MR=1.0, eps=40.0,
+                                                 frozen=1, frozenAtThroat=0)
+        
+        self.assertAlmostEqual(IspODE, 335.7939948810785, places=3)
+        
+        del C
+
     def test_get_IvacCstrTc_exitMwGam(self):
         """ test call to get_IvacCstrTc_exitMwGam( Pc=100.0, MR=1.0, eps=40.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
@@ -207,6 +218,17 @@ class MyTest(unittest.TestCase):
         
         self.assertAlmostEqual(IspODE, 351.738807671, places=3)
         self.assertAlmostEqual(gam, 1.24657352829, places=3)
+        
+        del C
+
+    def test_froz_get_IvacCstrTc_exitMwGam(self):
+        """ test call to get_IvacCstrTc_exitMwGam( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        IspODE, Cstar, Tcomb, mw, gam = C.get_IvacCstrTc_exitMwGam( Pc=100.0, MR=1.0, eps=40.0,
+                                        frozen=1, frozenAtThroat=0)
+        
+        self.assertAlmostEqual(IspODE, 335.7939948810785, places=3)
+        self.assertAlmostEqual(gam, 1.3349, places=3)
         
         del C
 
@@ -238,6 +260,15 @@ class MyTest(unittest.TestCase):
         IspODE = C.get_Isp( Pc=100.0, MR=1.0, eps=40.0)
         
         self.assertAlmostEqual(IspODE, 351.7388076713265, places=3)
+        
+        del C
+
+    def test_froz_get_Isp(self):
+        """ test call to get_Isp( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        IspODE = C.get_Isp( Pc=100.0, MR=1.0, eps=40.0, frozen=1, frozenAtThroat=0)
+        
+        self.assertAlmostEqual(IspODE, 335.7939948810785, places=3)
         
         del C
 
@@ -286,12 +317,30 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_froz_get_PcOvPe(self):
+        """ test call to get_PcOvPe( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        PcOvPe = C.get_PcOvPe( Pc=100.0, MR=1.0, eps=40.0, frozen=1, frozenAtThroat=0)
+        
+        self.assertAlmostEqual(PcOvPe, 670.4054686991491, places=3)
+        
+        del C
+
     def test_get_eps_at_PcOvPe(self):
         """ test call to get_eps_at_PcOvPe( Pc=100.0, MR=1.0, PcOvPe=1000.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
         eps = C.get_eps_at_PcOvPe( Pc=100.0, MR=1.0, PcOvPe=1000.0)
         
         self.assertAlmostEqual(eps, 63.23132705083242, places=3)
+        
+        del C
+
+    def test_froz_get_eps_at_PcOvPe(self):
+        """ test call to get_eps_at_PcOvPe( Pc=100.0, MR=1.0, PcOvPe=1000.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        eps = C.get_eps_at_PcOvPe( Pc=100.0, MR=1.0, PcOvPe=1000.0, frozen=1, frozenAtThroat=0)
+        
+        self.assertAlmostEqual(eps, 53.244, places=3)
         
         del C
 
@@ -313,6 +362,15 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_froz_get_MachNumber(self):
+        """ test call to get_MachNumber( Pc=100.0, MR=1.0,eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        M = C.get_MachNumber( Pc=100.0, MR=1.0,eps=40.0, frozen=1)
+        
+        self.assertAlmostEqual(M, 4.701424596388033, places=3)
+        
+        del C
+
     def test_get_SonicVelocities(self):
         """ test call to get_SonicVelocities( Pc=100.0, MR=1.0,eps=40.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
@@ -322,6 +380,18 @@ class MyTest(unittest.TestCase):
         self.assertEqual( len(sonicList), 3)
         self.assertAlmostEqual(sonicList[0], 4187.8341406, places=3)
         self.assertAlmostEqual(sonicList[2], 2446.32946625, places=3)
+        
+        del C
+
+    def test_froz_get_SonicVelocities(self):
+        """ test call to get_SonicVelocities( Pc=100.0, MR=1.0,eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        sonicList = C.get_SonicVelocities( Pc=100.0, MR=1.0,eps=40.0, frozen=1, frozenAtThroat=0)
+        print( sonicList )
+        
+        self.assertEqual( len(sonicList), 3)
+        self.assertAlmostEqual(sonicList[0], 4327.439684148885, places=3)
+        self.assertAlmostEqual(sonicList[2], 2222.6599715896796, places=3)
         
         del C
 
@@ -346,6 +416,18 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_froz_get_Enthalpies(self):
+        """ test call to get_Enthalpies( Pc=100.0, MR=1.0,eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        hList = C.get_Enthalpies( Pc=100.0, MR=1.0,eps=40.0, frozen=1, frozenAtThroat=0)
+        print( hList )
+        
+        self.assertEqual( len(hList), 3 )
+        self.assertAlmostEqual(hList[0], 164.75127481, places=3)
+        self.assertAlmostEqual(hList[2], -2017.4177422825114, places=3)
+        
+        del C
+
     def test_get_Chamber_H(self):
         """ test call to get_Chamber_H( Pc=100.0, MR=1.0, eps=40.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
@@ -361,8 +443,19 @@ class MyTest(unittest.TestCase):
         dList = C.get_Densities( Pc=100.0, MR=1.0,eps=40.0)
         
         self.assertEqual( len(dList), 3 )
-        self.assertAlmostEqual(dList[0], 0.0305721, places=3)
-        self.assertAlmostEqual(dList[2], 0.00017537, places=3)
+        self.assertAlmostEqual(dList[0], 0.0305721, places=5)
+        self.assertAlmostEqual(dList[2], 0.00017537, places=7)
+        
+        del C
+
+    def test_froz_get_Densities(self):
+        """ test call to get_Densities( Pc=100.0, MR=1.0,eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        dList = C.get_Densities( Pc=100.0, MR=1.0,eps=40.0, frozen=1, frozenAtThroat=0)
+        
+        self.assertEqual( len(dList), 3 )
+        self.assertAlmostEqual(dList[0], 0.0305721, places=5)
+        self.assertAlmostEqual(dList[2], 0.0001867388, places=7)
         
         del C
 
@@ -386,6 +479,17 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_froz_get_HeatCapacities(self):
+        """ test call to get_HeatCapacities( Pc=100.0, MR=1.0,eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        cpL = C.get_HeatCapacities( Pc=100.0, MR=1.0,eps=40.0, frozen=1, frozenAtThroat=0)
+        
+        self.assertEqual( len(cpL), 3)
+        self.assertAlmostEqual(cpL[0], 0.5809986466700415, places=3)
+        self.assertAlmostEqual(cpL[2], 0.4417560565225854, places=3)
+        
+        del C
+
     def test_get_Chamber_Cp(self):
         """ test call to get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
@@ -401,6 +505,15 @@ class MyTest(unittest.TestCase):
         i = C.get_Throat_Isp( Pc=100.0, MR=1.0)
         
         self.assertAlmostEqual(i, 233.43895092017615, places=3)
+        
+        del C
+
+    def test_froz_get_Throat_Isp(self):
+        """ test call to get_Throat_Isp( Pc=100.0, MR=1.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        i = C.get_Throat_Isp( Pc=100.0, MR=1.0, frozen=1)
+        
+        self.assertAlmostEqual(i, 230.0679251436091, places=3)
         
         del C
 
@@ -424,6 +537,16 @@ class MyTest(unittest.TestCase):
         
         del C
 
+    def test_froz_get_Throat_MolWt_gamma(self):
+        """ test call to get_Throat_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        mw,gam = C.get_Throat_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0, frozen=1)
+        
+        self.assertAlmostEqual(mw, 17.929963737982373, places=3)
+        self.assertAlmostEqual(gam, 1.2403091071327417, places=3)
+        
+        del C
+
     def test_get_exit_MolWt_gamma(self):
         """ test call to get_exit_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0) """
         C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
@@ -431,6 +554,16 @@ class MyTest(unittest.TestCase):
         
         self.assertAlmostEqual(mw, 18.428712322579944, places=3)
         self.assertAlmostEqual(gam, 1.2465735282902142, places=3)
+        
+        del C
+
+    def test_froz_get_exit_MolWt_gamma(self):
+        """ test call to get_exit_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0) """
+        C = CEA_Obj(oxName="LOX", fuelName="MMH", fac_CR=None)
+        mw,gam = C.get_exit_MolWt_gamma( Pc=100.0, MR=1.0, eps=40.0, frozen=1, frozenAtThroat=0)
+        
+        self.assertAlmostEqual(mw, 17.929963737982373, places=3)
+        self.assertAlmostEqual(gam, 1.3349171357232805, places=3)
         
         del C
 

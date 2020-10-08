@@ -72,10 +72,11 @@ class CEA_Obj( object ):
                                fac_CR=fac_CR, make_debug_prints=make_debug_prints)
         self.desc = self.cea_obj.desc
     
-    def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        IspVac, Cstar, Tcomb = self.cea_obj.get_IvacCstrTc( Pc=Pc, MR=MR, eps=eps )
+        IspVac, Cstar, Tcomb = self.cea_obj.get_IvacCstrTc( Pc=Pc, MR=MR, eps=eps, 
+                                    frozen=frozen, frozenAtThroat=frozenAtThroat )
         
         IspVac = self.isp_U.dval_to_uval( IspVac )
         Cstar  = self.cstar_U.dval_to_uval( Cstar )
@@ -94,10 +95,11 @@ class CEA_Obj( object ):
         
         return IspFrozen, Cstar, Tcomb
         
-    def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        IspVac, Cstar, Tcomb, mw, gam = self.cea_obj.get_IvacCstrTc_exitMwGam( Pc=Pc, MR=MR, eps=eps )
+        IspVac, Cstar, Tcomb, mw, gam = self.cea_obj.get_IvacCstrTc_exitMwGam( Pc=Pc, MR=MR, eps=eps,
+                                                        frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         IspVac = self.isp_U.dval_to_uval( IspVac )
         Cstar  = self.cstar_U.dval_to_uval( Cstar )
@@ -128,13 +130,13 @@ class CEA_Obj( object ):
         return IspVac, Cstar, Tcomb, mw, gam
 
 
-    def __call__(self, Pc=100.0, MR=1.0, eps=40.0):
-        return self.get_Isp(Pc=Pc, MR=MR, eps=eps)
+    def __call__(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
+        return self.get_Isp(Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
 
-    def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        IspVac = self.cea_obj.get_Isp( Pc=Pc, MR=MR, eps=eps )
+        IspVac = self.cea_obj.get_Isp( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat )
         IspVac = self.isp_U.dval_to_uval( IspVac )
         
         return IspVac
@@ -153,21 +155,24 @@ class CEA_Obj( object ):
         Tcomb  = self.temperature_U.dval_to_uval( Tcomb )
         return Tcomb
         
-    def get_PcOvPe(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_PcOvPe(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        return self.cea_obj.get_PcOvPe( Pc=Pc, MR=MR, eps=eps )
+        return self.cea_obj.get_PcOvPe( Pc=Pc, MR=MR, eps=eps, 
+                                        frozen=frozen, frozenAtThroat=frozenAtThroat )
         
-    def get_eps_at_PcOvPe(self, Pc=100.0, MR=1.0, PcOvPe=1000.0):
+    def get_eps_at_PcOvPe(self, Pc=100.0, MR=1.0, PcOvPe=1000.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        return self.cea_obj.get_eps_at_PcOvPe( Pc=Pc, MR=MR, PcOvPe=PcOvPe )
+        return self.cea_obj.get_eps_at_PcOvPe( Pc=Pc, MR=MR, PcOvPe=PcOvPe, 
+                                               frozen=frozen, frozenAtThroat=frozenAtThroat )
         
     def get_Throat_PcOvPe(self, Pc=100.0, MR=1.0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_Throat_PcOvPe( Pc=Pc, MR=MR )
         
-    def get_MachNumber(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_MachNumber(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        return self.cea_obj.get_MachNumber( Pc=Pc, MR=MR, eps=eps )
+        return self.cea_obj.get_MachNumber( Pc=Pc, MR=MR, eps=eps, 
+                                            frozen=frozen, frozenAtThroat=frozenAtThroat )
         
     def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
@@ -178,9 +183,10 @@ class CEA_Obj( object ):
             tempList[i] = self.temperature_U.dval_to_uval( T )
         return tempList # Tc, Tthroat, Texit
         
-    def get_SonicVelocities(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_SonicVelocities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        sonicList = self.cea_obj.get_SonicVelocities( Pc=Pc, MR=MR, eps=eps )
+        sonicList = self.cea_obj.get_SonicVelocities( Pc=Pc, MR=MR, eps=eps, 
+                                                      frozen=frozen, frozenAtThroat=frozenAtThroat )
         
         for i,S in enumerate( sonicList ):
             sonicList[i] = self.sonic_velocity_U.dval_to_uval( S )
@@ -193,10 +199,11 @@ class CEA_Obj( object ):
         sonicVel = self.sonic_velocity_U.dval_to_uval( sonicVel )
         return sonicVel
         
-    def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         
-        hList = self.cea_obj.get_Enthalpies( Pc=Pc, MR=MR, eps=eps )
+        hList = self.cea_obj.get_Enthalpies( Pc=Pc, MR=MR, eps=eps, 
+                                             frozen=frozen, frozenAtThroat=frozenAtThroat )
         for i,H in enumerate( hList ):
             hList[i] = self.enthalpy_U.dval_to_uval( H )
         
@@ -223,10 +230,11 @@ class CEA_Obj( object ):
         H = self.cea_obj.get_Chamber_H( Pc=Pc, MR=MR, eps=eps )
         return self.enthalpy_U.dval_to_uval( H )
         
-    def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        dList = self.cea_obj.get_Densities( Pc=Pc, MR=MR, eps=eps )
+        dList = self.cea_obj.get_Densities( Pc=Pc, MR=MR, eps=eps, 
+                                            frozen=frozen, frozenAtThroat=frozenAtThroat )
         
         for i,d in enumerate( dList ):
             dList[i] = self.density_U.dval_to_uval( d )
@@ -239,10 +247,11 @@ class CEA_Obj( object ):
         H = self.cea_obj.get_Chamber_Density( Pc=Pc, MR=MR, eps=eps )
         return self.density_U.dval_to_uval( H )
         
-    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0):
+    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        cpList = self.cea_obj.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen )
+        cpList = self.cea_obj.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, 
+                                                  frozen=frozen, frozenAtThroat=frozenAtThroat )
         
         for i,cp in enumerate( cpList ):
             cpList[i] = self.specific_heat_U.dval_to_uval( cp )
@@ -255,10 +264,10 @@ class CEA_Obj( object ):
         Cp = self.cea_obj.get_Chamber_Cp( Pc=Pc, MR=MR, eps=eps )
         return self.specific_heat_U.dval_to_uval( Cp )
         
-    def get_Throat_Isp(self, Pc=100.0, MR=1.0):
+    def get_Throat_Isp(self, Pc=100.0, MR=1.0, frozen=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        Isp = self.cea_obj.get_Throat_Isp( Pc=Pc, MR=MR)
+        Isp = self.cea_obj.get_Throat_Isp( Pc=Pc, MR=MR, frozen=frozen)
         Isp = self.isp_U.dval_to_uval( Isp )
         
         return Isp
@@ -268,10 +277,10 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_Chamber_MolWt_gamma( Pc=Pc, MR=MR, eps=eps )
         
-    def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        return self.cea_obj.get_Throat_MolWt_gamma( Pc=Pc, MR=MR, eps=eps )
+        return self.cea_obj.get_Throat_MolWt_gamma( Pc=Pc, MR=MR, eps=eps, frozen=frozen )
         
     def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
         
@@ -434,32 +443,41 @@ if __name__ == "__main__":
             print( 'Chk:',mname, 'ALL GOOD:%i -->'%Ngood, sL )
         
     chk_method('get_IvacCstrTc', **{'Pc':100.0})
+    chk_method('get_IvacCstrTc', **{'Pc':100.0, 'frozen':1})
     chk_method('getFrozen_IvacCstrTc', **{'Pc':100.0})
     
     chk_method('get_IvacCstrTc_exitMwGam', **{'Pc':100.0})
+    chk_method('get_IvacCstrTc_exitMwGam', **{'Pc':100.0, 'frozen':1})
     chk_method('get_IvacCstrTc_ChmMwGam', **{'Pc':100.0})
     chk_method('get_IvacCstrTc_ThtMwGam', **{'Pc':100.0})
-    chk_method('get_Isp', **{'Pc':100.0})
+    chk_method('get_Isp', **{'Pc':100.0, 'frozen':1})
     chk_method('get_Cstar',**{'Pc':100.0})
     chk_method('get_Tcomb',**{'Pc':100.0})
     chk_method('get_PcOvPe',**{'Pc':100.0})
     chk_method('get_eps_at_PcOvPe',**{'Pc':100.0, 'PcOvPe':554.5})
+    chk_method('get_eps_at_PcOvPe',**{'Pc':100.0, 'PcOvPe':554.5, 'frozen':1})
     
     chk_method('get_Throat_PcOvPe',**{'Pc':100.0})
     chk_method('get_MachNumber',**{'Pc':100.0})
+    chk_method('get_MachNumber',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Temperatures',**{'Pc':100.0})
     chk_method('get_SonicVelocities',**{'Pc':100.0})
+    chk_method('get_SonicVelocities',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Chamber_SonicVel',**{'Pc':100.0})
     chk_method('get_Enthalpies',**{'Pc':100.0})
+    chk_method('get_Enthalpies',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Chamber_H',**{'Pc':100.0})
     chk_method('get_Densities',**{'Pc':100.0})
+    chk_method('get_Densities',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Chamber_Density',**{'Pc':100.0})
     chk_method('get_HeatCapacities',**{'Pc':100.0})
     chk_method('get_HeatCapacities',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Chamber_Cp',**{'Pc':100.0})
     chk_method('get_Throat_Isp',**{'Pc':100.0})
+    chk_method('get_Throat_Isp',**{'Pc':100.0, 'frozen':1})
     chk_method('get_Chamber_MolWt_gamma',**{'Pc':100.0})
     chk_method('get_Throat_MolWt_gamma',**{'Pc':100.0})
+    chk_method('get_Throat_MolWt_gamma',**{'Pc':100.0, 'frozen':1})
     chk_method('get_exit_MolWt_gamma',**{'Pc':100.0})
     chk_method('get_eqratio',**{'Pc':100.0})
     chk_method('getMRforER',**{'ERphi':1.0})

@@ -226,7 +226,9 @@ class CEA_Obj(object):
                 print('Propellant name changed to',propName)
 
         # may want to interpolate tables of CEA runs for speed
-        self.useFastLookup = useFastLookup
+        if useFastLookup:
+            print('WARNING... useFastLookup is no longer supported.')
+        self.useFastLookup = 0
 
         self.readDatafileOnce = 0
 
@@ -344,27 +346,6 @@ class CEA_Obj(object):
         except:
             _CacheObjDict[ self.desc ] = CEA_Cache(maxCache=10000, propName=self.desc )
 
-        #print( self.cea_deck )
-        if self.useFastLookup:
-            if self.useMR :
-                self.fastModuleName = "cea_fit_" + self.oxName.replace('-','_') + '_' + self.fuelName.replace('-','_')
-            else:
-                self.fastModuleName = "cea_fit_" + self.propName.replace('-','_')
-            fp = None
-            try:
-                pathList = [os.path.dirname( os.path.abspath(sys.argv[0])[:] ),
-                    self.pathPrefix[:-1]]
-                #print( 'pathList',pathList )
-                fp, pathname, description = imp.find_module(self.fastModuleName, pathList)
-                self.fastModule = imp.load_module(self.fastModuleName, fp, pathname, description)
-            except:
-                # Since we may exit via an exception, close fp explicitly.
-                self.useFastLookup = 0
-                print("WARNING... Fast Module",self.fastModuleName,"failed to load")
-                print("   Will call CEA code instead (slower but more accurate)")
-                print(traceback.print_exc())
-                if fp:
-                    fp.close()
 
 
     def setupCards(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None, frozen=0,
@@ -634,7 +615,7 @@ class CEA_Obj(object):
 
     def get_Pinj_over_Pcomb(self, Pc=100.0, MR=1.0, fac_CR=None):
         """
-        Get the full output file created by CEA. Return as a string.::
+        Get the pressure ratio of Pinjector / Pchamber.::
         
         #: Pc = combustion end pressure (psia)
         #: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)
@@ -658,63 +639,56 @@ class CEA_Obj(object):
         return Pinj_over_Pcomb
 
 
-    def __call__(self, Pc=100.0, MR=1.0, eps=40.0):
+    def __call__(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """Returns IspVac(sec) if CEA_Obj is simply called like a function."""
-        if self.useFastLookup:
-            isp =  self.fastModule.get_isp(Pc, eps, MR)
-            return isp
-        else:
-            return self.get_Isp(Pc=Pc, MR=MR, eps=eps)
+        return self.get_Isp(Pc=Pc, MR=MR, eps=eps, 
+                            frozen=frozen, frozenAtThroat=frozenAtThroat)
 
-    def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return the tuple (IspVac, Cstar, Tcomb)in(sec, ft/sec, degR)
         #: Pc = combustion end pressure (psia)
         #: eps = Nozzle Expansion Area Ratio
         #: MR is only used for ox/fuel combos.
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        if self.useFastLookup:
-            isp,cstr,tc = self.fastModule.get_ivaccstrtc(Pc, eps, MR)
-            return isp,cstr,tc
-        else:
 
-            #cacheDesc1 = '%g|%g|%g'%(Pc,MR,eps)  # %g only shows 6 sig digits
-            cacheDesc1 = (Pc,MR,eps)
+        cacheDesc1 = (Pc,MR,eps, frozen, frozenAtThroat)
+        try:
+            IspVac = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
+        except:
+            IspVac = None
+
+        # don't bother looking at Cstar and Tc if there's no Isp
+        cacheDesc2 = (Pc,MR, frozen, frozenAtThroat)
+        if IspVac:
             try:
-                IspVac = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
+                Cstar = _CacheObjDict[ self.desc ].getCstar( cacheDesc2 )
+                TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
             except:
-                IspVac = None
+                Cstar = None
+                TcK = None
+            if Cstar and TcK:
+                Tcomb = TcK * 1.8 # convert from Kelvin to Rankine
+                return IspVac, Cstar, Tcomb
 
-            # don't bother looking at Cstar and Tc if there's no Isp
-            #cacheDesc2 = '%g|%g'%(Pc,MR)  # %g only shows 6 sig digits
-            cacheDesc2 = (Pc,MR)
-            if IspVac:
-                try:
-                    Cstar = _CacheObjDict[ self.desc ].getCstar( cacheDesc2 )
-                    TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
-                except:
-                    Cstar = None
-                    TcK = None
-                if Cstar and TcK:
-                    Tcomb = TcK * 1.8 # convert from Kelvin to Rankine
-                    return IspVac, Cstar, Tcomb
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
 
-            self.setupCards( Pc=Pc, MR=MR, eps=eps)
-
-            #print( "py_cea.rockt.vaci",py_cea.rockt.vaci )
-            IspVac = py_cea.rockt.vaci[ self.i_exit ]
-            #print('py_cea.rockt.cstr',py_cea.rockt.cstr)
-            #print( 'py_cea.rockt.app', py_cea.rockt.app )
-            Cstar = float(py_cea.rockt.cstr)
-            
-            #print( "py_cea.prtout.ttt",py_cea.prtout.ttt )
-            TcK = py_cea.prtout.ttt[ self.i_chm ]
-            Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
-            _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspVac )
-            _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
-            _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
-            return IspVac, Cstar, Tcomb
+        #print( "py_cea.rockt.vaci",py_cea.rockt.vaci )
+        IspVac = py_cea.rockt.vaci[ self.i_exit ]
+        #print('py_cea.rockt.cstr',py_cea.rockt.cstr)
+        #print( 'py_cea.rockt.app', py_cea.rockt.app )
+        Cstar = float(py_cea.rockt.cstr)
+        
+        #print( "py_cea.prtout.ttt",py_cea.prtout.ttt )
+        TcK = py_cea.prtout.ttt[ self.i_chm ]
+        Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+        _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspVac )
+        _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
+        _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+        return IspVac, Cstar, Tcomb
 
     def getFrozen_IvacCstrTc(self, Pc=100.0, MR=1.0, eps=40.0, frozenAtThroat=0):
         """::
@@ -733,7 +707,7 @@ class CEA_Obj(object):
         Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
         return IspFrozen, Cstar, Tcomb
 
-    def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_IvacCstrTc_exitMwGam(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)
@@ -741,9 +715,11 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         #: mw and gam apply to nozzle exit.
         #: MR is only used for ox/fuel combos.
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
 
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
 
         #print( "py_cea.rockt.vaci",py_cea.rockt.vaci )
         IspVac = py_cea.rockt.vaci[ self.i_exit ]
@@ -794,34 +770,31 @@ class CEA_Obj(object):
 
         return IspVac, Cstar, Tcomb, mw, gam
 
-    def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_Isp(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: return IspVac (sec)
         #: Pc = combustion end pressure (psia)
         #: eps = Nozzle Expansion Area Ratio
         #: MR is only used for ox/fuel combos.
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        if self.useFastLookup:
-            isp =  self.fastModule.get_isp(Pc, eps, MR)
-            return isp
-        else:
-            #cacheDesc1 = '%g|%g|%g'%(Pc,MR,eps) # %g only shows 6 sig digits
-            cacheDesc1 = (Pc,MR,eps)
-            try:
-                IspVac = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
-            except:
-                IspVac = None
-            if IspVac:
-                return IspVac
-
-            self.setupCards( Pc=Pc, MR=MR, eps=eps)
-
-            IspVac = py_cea.rockt.vaci[ self.i_exit ]
-            _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspVac )
-            #print( 'py_cea.rockt.vaci',py_cea.rockt.vaci )
-            #print( 'py_cea.rockt.cstr',py_cea.rockt.cstr )
+        cacheDesc1 = (Pc,MR,eps, frozen, frozenAtThroat)
+        try:
+            IspVac = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
+        except:
+            IspVac = None
+        if IspVac:
             return IspVac
+
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
+
+        IspVac = py_cea.rockt.vaci[ self.i_exit ]
+        _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspVac )
+        #print( 'py_cea.rockt.vaci',py_cea.rockt.vaci )
+        #print( 'py_cea.rockt.cstr',py_cea.rockt.cstr )
+        return IspVac
 
     def get_Cstar(self, Pc=100.0, MR=1.0):
         """::
@@ -830,24 +803,19 @@ class CEA_Obj(object):
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         """
-        if self.useFastLookup:
-            Cstar =  self.fastModule.get_cstar(Pc, MR)
+        cacheDesc2 = (Pc,MR,0,0) # set frozen flags to zero in cache description
+        try:
+            Cstar = _CacheObjDict[ self.desc ].getCstar( cacheDesc2 )
+        except:
+            Cstar = None
+        if Cstar:
             return Cstar
-        else:
-            #cacheDesc2 = '%g|%g'%(Pc,MR) # %g only shows 6 sig digits
-            cacheDesc2 = (Pc,MR)
-            try:
-                Cstar = _CacheObjDict[ self.desc ].getCstar( cacheDesc2 )
-            except:
-                Cstar = None
-            if Cstar:
-                return Cstar
 
 
-            self.setupCards( Pc=Pc, MR=MR, eps=2.0)
-            Cstar = float(py_cea.rockt.cstr)
-            _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
-            return Cstar
+        self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+        Cstar = float(py_cea.rockt.cstr)
+        _CacheObjDict[ self.desc ].setCstar( cacheDesc2, Cstar )
+        return Cstar
 
     def get_Tcomb(self, Pc=100.0, MR=1.0):
         """::
@@ -856,57 +824,52 @@ class CEA_Obj(object):
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         """
-        if self.useFastLookup:
-            tc =  self.fastModule.get_tcomb(Pc, MR)
-            return tc
-        else:
-            #cacheDesc2 = '%g|%g'%(Pc,MR) # %g only shows 6 sig digits
-            cacheDesc2 = (Pc,MR)
-            try:
-                TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
-                Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
-            except:
-                TcK = None
-                Tcomb = None
-            if Tcomb:
-                return Tcomb
-
-            self.setupCards( Pc=Pc, MR=MR, eps=2.0)
-            TcK = py_cea.prtout.ttt[ self.i_chm ]
+        cacheDesc2 = (Pc,MR,0,0) # set frozen flags to zero in cache description
+        try:
+            TcK = _CacheObjDict[ self.desc ].getTcK( cacheDesc2 )
             Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
-            _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+        except:
+            TcK = None
+            Tcomb = None
+        if Tcomb:
             return Tcomb
 
-    def get_PcOvPe(self, Pc=100.0, MR=1.0, eps=40.0):
+        self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+        TcK = py_cea.prtout.ttt[ self.i_chm ]
+        Tcomb = TcK * 1.8  # convert from Kelvin to Rankine
+        _CacheObjDict[ self.desc ].setTcK( cacheDesc2, TcK )
+        return Tcomb
+
+    def get_PcOvPe(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: return Pc / Pexit.
         #: Pc = combustion end pressure (psia)
         #: eps = Nozzle Expansion Area Ratio
         #: MR is only used for ox/fuel combos.
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        if self.useFastLookup:
-            PcOvPe =  self.fastModule.get_pcovpe(Pc, eps, MR)
-            return PcOvPe
-        else:
-            self.setupCards( Pc=Pc, MR=MR, eps=eps)
-            PcOvPe = py_cea.rockt.app[ self.i_exit ]
-            if self.fac_CR is not None:
-                PcOvPe = PcOvPe * py_cea.rockt.app[ self.i_chm ]
-            
-            #print( 'py_cea.rockt.app',py_cea.rockt.app )
-            #Pexit = py_cea.prtout.ppp[ self.i_exit ]*14.7/1.01325
-            #return Pc/Pexit
-            return PcOvPe
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
+        PcOvPe = py_cea.rockt.app[ self.i_exit ]
+        if self.fac_CR is not None:
+            PcOvPe = PcOvPe * py_cea.rockt.app[ self.i_chm ]
+        
+        #print( 'py_cea.rockt.app',py_cea.rockt.app )
+        #Pexit = py_cea.prtout.ppp[ self.i_exit ]*14.7/1.01325
+        #return Pc/Pexit
+        return PcOvPe
 
-    def get_eps_at_PcOvPe(self, Pc=100.0, MR=1.0, PcOvPe=1000.0):
+    def get_eps_at_PcOvPe(self, Pc=100.0, MR=1.0, PcOvPe=1000.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Given a Pc/Pexit, return the Area Ratio that applies.
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, PcOvPe=PcOvPe)
+        self.setupCards( Pc=Pc, MR=MR, PcOvPe=PcOvPe, frozen=frozen, frozenAtThroat=frozenAtThroat)
         eps = py_cea.rockt.aeat[ self.i_exit ]
         #print( 'py_cea.rockt.aeat',py_cea.rockt.aeat )
         return eps
@@ -924,15 +887,17 @@ class CEA_Obj(object):
             PcOvPe = PcOvPe * py_cea.rockt.app[ self.i_chm ]
         return PcOvPe
 
-    def get_MachNumber(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_MachNumber(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: return nozzle exit mach number.
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         M = py_cea.rockt.vmoc[ self.i_exit ]
         return M
 
@@ -985,15 +950,17 @@ class CEA_Obj(object):
         return tempList # Tc, Tthroat, Texit
 
 
-    def get_SonicVelocities(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_SonicVelocities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of sonic velocities at the chamber, throat and exit (ft/sec)
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         # convert from m/sec into ft/sec
         if self.fac_CR is not None:
             sonicList = list(py_cea.rockt.sonvel[1:4])
@@ -1015,15 +982,17 @@ class CEA_Obj(object):
         return sonicList[ 0 ] # 0 == self.i_chm here
 
 
-    def get_Entropies(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Entropies(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of entropies at the chamber, throat and exit CAL/(G)(K)
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         if self.fac_CR is not None:
             sList =  list(py_cea.prtout.ssum[1:4])
@@ -1034,15 +1003,17 @@ class CEA_Obj(object):
             sList[i] = s * 8314.51 / 4184.0  # convert into CAL/(G)(K)
         return sList
 
-    def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Enthalpies(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of enthalpies at the chamber, throat and exit (BTU/lbm)
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         if self.fac_CR is not None:
             hList =  list(py_cea.prtout.hsum[1:4])
@@ -1161,15 +1132,17 @@ class CEA_Obj(object):
         return hList[ 0 ] # BTU/lbm  # 0 == self.i_chm here
 
 
-    def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0):
+    def get_Densities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of densities at the chamber, throat and exit(lbm/cuft)
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         if self.fac_CR is not None:
             dList =  list(py_cea.prtout.vlm[1:4])
@@ -1192,7 +1165,7 @@ class CEA_Obj(object):
         return dList[ 0 ] # lbm/cuft  # 0 == self.i_chm here
 
 
-    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0):
+    def get_HeatCapacities(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of heat capacities at the chamber, throat and exit(BTU/lbm degR)
@@ -1200,8 +1173,9 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
         #: frozen flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
         # convert from m/sec into ft/sec
         if self.fac_CR is not None:
             cpList =  list(py_cea.prtout.cpr[1:4])
@@ -1224,15 +1198,16 @@ class CEA_Obj(object):
         cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         return cpList[ 0 ] # BTU/lbm degR  # 0 == self.i_chm here
 
-    def get_Throat_Isp(self, Pc=100.0, MR=1.0):
+    def get_Throat_Isp(self, Pc=100.0, MR=1.0, frozen=0):
         """::
 
         #: Return the IspVac for the throat(sec).
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
+        #: frozen = flag (0=equilibrium, 1=frozen)
         """
         eps=1.0
-        cacheDesc1 = (Pc,MR,eps)
+        cacheDesc1 = (Pc,MR,eps,frozen,0) # set frozen flag to zero in cache description
         try:
             IspVac = _CacheObjDict[ self.desc ].getIsp( cacheDesc1 )
         except:
@@ -1240,7 +1215,7 @@ class CEA_Obj(object):
         if IspVac:
             return IspVac
 
-        self.setupCards( Pc=Pc, MR=MR, eps=2.0)
+        self.setupCards( Pc=Pc, MR=MR, eps=2.0, frozen=frozen)
 
         IspVac = py_cea.rockt.vaci[ self.i_thrt ]
         _CacheObjDict[ self.desc ].setIsp( cacheDesc1, IspVac )
@@ -1263,30 +1238,33 @@ class CEA_Obj(object):
         mw,gam = py_cea.prtout.wm[ self.i_chm ], py_cea.prtout.gammas[ self.i_chm ]
         return mw,gam
 
-    def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         """::
 
         #: return the tuple (mw, gam) for the throat (lbm/lbmole, -)
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
         """
         #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
 
         mw,gam = py_cea.prtout.wm[ self.i_thrt ], py_cea.prtout.gammas[ self.i_thrt ]
         return mw,gam
 
-    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: return the tuple (mw, gam) for the nozzle exit (lbm/lbmole, -)
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
+        #: frozen = flag (0=equilibrium, 1=frozen)
+        #: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat
         """
         #common /prtout/ cpr,dlvpt,dlvtp,gammas,hsum,ppp,ssum,totn,ttt,vlm,wm,pltout
-        self.setupCards( Pc=Pc, MR=MR, eps=eps)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
 
         mw,gam = py_cea.prtout.wm[ self.i_exit ], py_cea.prtout.gammas[ self.i_exit ]
         return mw,gam
@@ -1524,37 +1502,6 @@ if __name__ == '__main__':
 
     from pylab import *
 
-    if 0:
-        #ispNew = CEA_Obj(oxName="O2(g)", fuelName="Ethanol",  useFastLookup=1)
-        ispNew = CEA_Obj(oxName="GOX", fuelName="GCH4",  useFastLookup=0)
-        Pc = 1000.0
-        mr = 1.05
-        i,c,t = ispNew.get_IvacCstrTc(Pc,mr,25.0)
-        print('=========================================')
-        print('for ',ispNew.desc)
-        print('MR = ',mr)
-        print('Isp = ',i)
-        print('Cstar = ',c)
-        print('Tcomb = ',t)
-        print('=========================================')
-
-        for e in [ 50., 30.0, 20.0, 10.0]:
-            ispArr = []
-            MR = 0.5
-            mrArr = []
-            while MR < 6.0:
-                ispArr.append( ispNew(Pc, MR, e ))
-                mrArr.append(MR)
-                MR += 0.1
-            plot(mrArr, ispArr, label='eps %.1f'%e, linewidth=4)
-
-        legend(loc='best')
-        grid(True)
-        title( ispNew.desc )
-        xlabel( 'Mixture Ratio' )
-        ylabel( 'Isp (sec)' )
-        if not sys.argv[-1]=='suppress_show':
-            show()
 
     def showOutput( ispObj ):
         print()
@@ -1586,15 +1533,15 @@ if __name__ == '__main__':
     ispNew = CEA_Obj(propName="N2O")
     showOutput( ispNew )
 
-    ispNew = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
+    ispNew = CEA_Obj(oxName="LOX", fuelName="H2")
     showOutput( ispNew )
 
-    ispNew = CEA_Obj(oxName="LOX", fuelName="GH2_160",  useFastLookup=0)
+    ispNew = CEA_Obj(oxName="LOX", fuelName="GH2_160")
     showOutput( ispNew )
 
     print()
     print('amb_'*14)
-    C = CEA_Obj(oxName="LOX", fuelName="H2",  useFastLookup=0)
+    C = CEA_Obj(oxName="LOX", fuelName="H2")
     MR = 6.0
     for Pc in [100., 500., 1500., 5000.]:
         for eps in [2.0, 5., 10., 20., 50., 100.]:
