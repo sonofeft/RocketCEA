@@ -83,6 +83,65 @@ Try a quick test of the install by pasting the following into a command terminal
     should result in:
     374.30361765576265
 
+Windows Batch File
+------------------
+
+RockeCEA on Windows can be problematic. Often the problem is in the PATH environment variable
+where the wrong files are found for the intended install, and even more often it is because 
+the proper compiler build tools are not available.
+
+The Windows batch file below addresses both of those problems.
+
+For compile issues, the batch file uses `pipwin <https://pypi.org/project/pipwin/>`_.
+This means that you need to trust `Unofficial Windows Binaries for Python Extension Packages <https://www.lfd.uci.edu/~gohlke/pythonlibs/>`_.
+
+The batch file makes the PATH as simple as possible so that only the 64 bit MinGW files 
+and desired python files are found.
+
+Note that the batch file assumes that python 3.8 64 bit is the python version installed at **D:\\Python38_64**
+and that MinGW 64 bit is installed at **C:\\MinGW\\mingw64\\bin** and **C:\\MinGW\\mingw64\\lib**.
+*You will need to edit the batch file for your situation.*
+
+Note that it also uninstalls rocketcea in case bad files are left from previous attempts.
+
+**You will need to edit the hard-coded paths to your own location of python and MinGW.**
+
+- Copy and paste the batch file code below into an editor 
+- Edit the hard-coded paths to your own location of python and MinGW
+  (i.e. change D:\\Python38_64 and C:\\MinGW\\mingw64)
+- Save the file to D:\\Python38_64\\RUN_SETUP_BUILD_WIN64.BAT (or your python directory)
+- Open a command prompt terminal and navigate to that directory, for example "cd D:\\Python38_64"
+- Give the command RUN_SETUP_BUILD_WIN64.BAT
+
+.. code-block:: batch
+
+    rem =============== RUN_SETUP_BUILD_WIN64.BAT ================
+    rem set python path variable (Default is Python 3.8 64 bit)
+    SET "MYPYTHONPATH=D:\Python38_64"
+
+    rem Make sure that PATH is as simple as possible
+    set PATH=C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts
+
+    pip uninstall -y rocketcea
+
+    pip install pipwin
+    pipwin install future
+    pipwin install numpy
+    pipwin install scipy
+    pipwin install kiwisolver
+    pipwin install pillow
+    pipwin install matplotlib
+    pip install rocketcea
+
+    rem Test the compiled module
+    python -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"
+
+.. note::
+
+  If you have already installed some of the packages (e.g. numpy or matplotlib) you may want to 
+  comment out those pipwin statements.
+
+
 Getting Help
 ------------
 

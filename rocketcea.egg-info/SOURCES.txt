@@ -395,6 +395,7 @@ rocketcea/examples/Pexit.htm
 rocketcea/examples/Pexit.py
 rocketcea/examples/Pexit.xlsx
 rocketcea/examples/PexitPexit.summary
+rocketcea/examples/Reynolds_Number.py
 rocketcea/examples/adjust_ch4_t.py
 rocketcea/examples/ambient_Cf.py
 rocketcea/examples/amm_dissociation.png
