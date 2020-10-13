@@ -9,7 +9,7 @@ GitHub Log
 * Oct 8, 2020
     - (by: sonofeft)
         - version 1.1.19, added frozen flags to many methods
-        - removed depricated useFastLookup logic
+        - removed deprecated useFastLookup logic
         - added tests for new frozen flags
     
 * July 30, 2020

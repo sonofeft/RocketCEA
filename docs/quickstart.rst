@@ -5,11 +5,11 @@ QuickStart
 ==========
 .. note::
 
-    Python 3.8 on Windows has been problematic and is not fully supported.
+    Python 3.8 and 3.9 on Windows have been problematic and are not fully supported.
     
-    Python 3.8 64 bit on Windows has been made to work by using the new 
+    Python 3.8 64 bit and 3.9 64 bit on Windows has been made to work by using the new 
     os.add_dll_directory command to locate MinGW DLL libraries, however, 
-    32 bit python 3.8 is not yet supported.
+    32 bit python 3.8 and 3.9 are not yet supported.
 
 Install Numpy & Matplotlib
 --------------------------

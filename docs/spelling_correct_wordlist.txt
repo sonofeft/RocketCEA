@@ -1,4 +1,11 @@
 condensibles
+Pinjector
+Pchamber
+useFastLookup
+os
+dll
+uninstalls
+cd
 Cp
 coolprop
 Combustor

@@ -1,8 +1,0 @@
-functions.rst:1: (Pinjector) ["Injector", "P injector"]
-functions.rst:1: (Pchamber) ["Chamber", "P chamber"]
-history.rst:12: (depricated) ["deprecated", "metricated", "depreciated", "prevaricated", "extricated"]
-history.rst:12: (useFastLookup) 
-index.rst:19: (os) ["OS", "so", "Os", "s", "o", "sos", "nos", "cos", "dos", "gos", "mos", "hos", "Ros", "Los", "Cos", "org", "oxL", "py", "pc", "rst", "tox", "ci", "dH", "dT", "fc", "Cp", "mw"]
-index.rst:19: (dll) ["ll", "dell", "dill", "doll", "dull", "ell", "ill", "all", "Ill", "dbl", "d ll", "dH", "dT", "oxL", "yml"]
-quickstart.rst:10: (os) ["OS", "so", "Os", "s", "o", "sos", "nos", "cos", "dos", "gos", "mos", "hos", "Ros", "Los", "Cos", "org", "oxL", "py", "pc", "rst", "tox", "ci", "dH", "dT", "fc", "Cp", "mw"]
-quickstart.rst:10: (dll) ["ll", "dell", "dill", "doll", "dull", "ell", "ill", "all", "Ill", "dbl", "d ll", "dH", "dT", "oxL", "yml"]
