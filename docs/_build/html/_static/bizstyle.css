@@ -48,9 +48,6 @@ div.body {
     margin: 0;
     padding: 0.5em 20px 20px 20px;
 }
-div.bodywrapper {
-    margin: 0 0 0 calc(210px + 30px);
-}
 
 div.related {
     font-size: 1em;
@@ -405,10 +402,15 @@ p.versionchanged span.versionmodified {
 
 dl.field-list > dt {
     color: white;
+    padding-left: 0.5em;
+    padding-right: 5px;
     background-color: #82A0BE;
 }
 
 dl.field-list > dd {
+    padding-left: 0.5em;
+    margin-top: 0em;
+    margin-left: 0em;
     background-color: #f7f7f7;
 }
 
