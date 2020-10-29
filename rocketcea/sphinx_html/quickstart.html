@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>QuickStart &#8212; RocketCEA v1.1.19 documentation</title>
+    <title>QuickStart &#8212; RocketCEA v1.1.24 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.19 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.24 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -54,6 +54,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#install-numpy-matplotlib">Install Numpy &amp; Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-compiler">Install Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-rocketcea">Install RocketCEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-batch-file">Windows Batch File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
@@ -117,10 +118,10 @@
 <h1>QuickStart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Python 3.8 on Windows has been problematic and is not fully supported.</p>
-<p>Python 3.8 64 bit on Windows has been made to work by using the new
+<p>Python 3.8 and 3.9 on Windows have been problematic and are not fully supported.</p>
+<p>Python 3.8 64 bit and 3.9 64 bit on Windows has been made to work by using the new
 os.add_dll_directory command to locate MinGW DLL libraries, however,
-32 bit python 3.8 is not yet supported.</p>
+32 bit python 3.8 and 3.9 are not yet supported.</p>
 </div>
 <div class="section" id="install-numpy-matplotlib">
 <h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this headline">¶</a></h2>
@@ -180,6 +181,57 @@ on all platforms so that there are no FORTRAN incompatibilities between platform
 <span class="n">should</span> <span class="n">result</span> <span class="ow">in</span><span class="p">:</span>
 <span class="mf">374.30361765576265</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="windows-batch-file">
+<h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this headline">¶</a></h2>
+<p>RockeCEA on Windows can be problematic. Often the problem is in the PATH environment variable
+where the wrong files are found for the intended install, and even more often it is because
+the proper compiler build tools are not available.</p>
+<p>The Windows batch file below addresses both of those problems.</p>
+<p>For compile issues, the batch file uses <a class="reference external" href="https://pypi.org/project/pipwin/">pipwin</a>.
+This means that you need to trust <a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">Unofficial Windows Binaries for Python Extension Packages</a>.</p>
+<p>The batch file makes the PATH as simple as possible so that only the 64 bit MinGW files
+and desired python files are found.</p>
+<p>Note that the batch file assumes that python 3.8 64 bit is the python version installed at <strong>D:\Python38_64</strong>
+and that MinGW 64 bit is installed at <strong>C:\MinGW\mingw64\bin</strong> and <strong>C:\MinGW\mingw64\lib</strong>.
+<em>You will need to edit the batch file for your situation.</em></p>
+<p>Note that it also uninstalls rocketcea in case bad files are left from previous attempts.</p>
+<p><strong>You will need to edit the hard-coded paths to your own location of python and MinGW.</strong></p>
+<ul class="simple">
+<li><p>Copy and paste the batch file code below into an editor</p></li>
+<li><p>Edit the hard-coded paths to your own location of python and MinGW
+(i.e. change D:\Python38_64 and C:\MinGW\mingw64)</p></li>
+<li><p>Save the file to D:\Python38_64\RUN_SETUP_BUILD_WIN64.BAT (or your python directory)</p></li>
+<li><p>Open a command prompt terminal and navigate to that directory, for example “cd D:\Python38_64”</p></li>
+<li><p>Give the command RUN_SETUP_BUILD_WIN64.BAT</p></li>
+</ul>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">rem =============== RUN_SETUP_BUILD_WIN64.BAT ================</span>
+<span class="c1">rem set python path variable (Default is Python 3.8 64 bit)</span>
+<span class="k">SET</span> <span class="s2">&quot;MYPYTHONPATH=D:\Python38_64&quot;</span>
+
+<span class="c1">rem Make sure that PATH is as simple as possible</span>
+<span class="k">set</span> <span class="nv">PATH</span><span class="p">=</span>C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;<span class="nv">%MYPYTHONPATH%</span>;<span class="nv">%MYPYTHONPATH%</span>\Scripts
+
+pip uninstall -y rocketcea
+
+pip install pipwin
+pipwin install future
+pipwin install numpy
+pipwin install scipy
+pipwin install kiwisolver
+pipwin install pillow
+pipwin install matplotlib
+pip install rocketcea
+
+<span class="c1">rem Test the compiled module</span>
+python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=&#39;LOX&#39;, fuelName=&#39;LH2&#39;); print(C.get_Isp())&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have already installed some of the packages (e.g. numpy or matplotlib) you may want to
+comment out those pipwin statements.</p>
 </div>
 </div>
 <div class="section" id="getting-help">
@@ -302,7 +354,7 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.19 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.24 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

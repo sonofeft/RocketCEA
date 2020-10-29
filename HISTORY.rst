@@ -6,6 +6,16 @@ History
 
 GitHub Log
 ----------
+* Oct 28, 2020
+    - (by: sonofeft)
+        - moved work files to user HOME directory (fixes Colab)
+        - version 1.1.24
+
+* Oct 13, 2020
+    - (by: sonofeft)
+        - doc updates for python 3.8 and 3.9
+        - updated docs for python 3.8 and 3.9 using pipwin
+
 * Oct 8, 2020
     - (by: sonofeft)
         - version 1.1.19, added frozen flags to many methods

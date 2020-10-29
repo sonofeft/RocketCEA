@@ -98,7 +98,7 @@ setup(
     keywords = 'rocketcea setuptools development',
 
     packages = find_packages(exclude=['.tox', '.hg', 'docs']),
-    package_data = {'rocketcea':['examples/*.*', 'f.inp', 'f.out', 'thermo.*', 
+    package_data = {'rocketcea':['examples/*.*', 'f.inp', 'f.out', 'thermo.*', 'temp.dat',
                     'trans.*', 'py_cea.f', 'py_cea.inc']},
     include_package_data=True,
 

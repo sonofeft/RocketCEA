@@ -41,6 +41,7 @@ rocketcea/separated_Cf.py
 rocketcea/separated_Noz.csv
 rocketcea/separated_Noz_cea.csv
 rocketcea/show_html_help.py
+rocketcea/temp.dat
 rocketcea/temp.scr
 rocketcea/thermo.inp
 rocketcea/thermo.lib

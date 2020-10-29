@@ -32,6 +32,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os, sys
 here = os.path.abspath(os.path.dirname(__file__))
+import shutil
+
+USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
+ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
 # # python >=3.8 needs to be given permission to import DLL files.
 from rocketcea.find_mingw_lib import add_mingw_lib
@@ -336,9 +340,32 @@ class CEA_Obj(object):
         #dataPath = os.path.dirname( thisPath )
         #sp = dataPath.split('\\')
         #dataPath = '/'.join( sp ) + '/ ' # be sure to leave extra space
-        self.pathPrefix = here + os.sep + ' ' # be sure to leave extra space  # dataPath
+        #self.pathPrefix = here + os.sep + ' ' # be sure to leave extra space  # dataPath
+        
+        self.pathPrefix = ROCKETCEA_DATA_DIR + os.sep + ' ' # be sure to leave os.sep + extra space  # dataPath
+        
+        if not os.path.exists( ROCKETCEA_DATA_DIR ):
+            os.mkdir( ROCKETCEA_DATA_DIR, 0o777 )
+            
+        def maybe_copy( fname ):
+            if not os.path.exists( os.path.join(ROCKETCEA_DATA_DIR, fname) ):
+                if os.path.exists( os.path.join(here, fname) ):
+                    shutil.copyfile( os.path.join(here, fname), os.path.join(ROCKETCEA_DATA_DIR, fname) )
+        
+        maybe_copy( 'f.inp' )
+        maybe_copy( 'f.out' )
+        maybe_copy( 'temp.dat' )
+        maybe_copy( 'thermo.lib' )
+        maybe_copy( 'trans.lib' )
+        
+        #shutil.copyfile( os.path.join(here, 'f.inp'), os.path.join(ROCKETCEA_DATA_DIR, 'f.inp') )
+        #shutil.copyfile( os.path.join(here, 'f.out'), os.path.join(ROCKETCEA_DATA_DIR, 'f.out') )
+        #shutil.copyfile( os.path.join(here, 'temp.dat'), os.path.join(ROCKETCEA_DATA_DIR, 'temp.dat') )
+        #shutil.copyfile( os.path.join(here, 'thermo.lib'), os.path.join(ROCKETCEA_DATA_DIR, 'thermo.lib') )
+        #shutil.copyfile( os.path.join(here, 'trans.lib'), os.path.join(ROCKETCEA_DATA_DIR, 'trans.lib') )
+        
         #self.pathPrefix = self.pathPrefix.replace('\\','/')
-        #print( "self.pathPrefix",self.pathPrefix )
+        print( "self.pathPrefix -->",self.pathPrefix )
 
         # make a cache object for this propellant combo if it does not already exist
         try:
@@ -610,7 +637,7 @@ class CEA_Obj(object):
         self.makeOutput = save_flag # restore makeOutput
         self.fac_CR = save_fac_CR   # restore fac_CR
 
-        return open( os.path.join(here,'f.out'),'r').read()
+        return open( os.path.join(ROCKETCEA_DATA_DIR,'f.out'),'r').read()
 
 
     def get_Pinj_over_Pcomb(self, Pc=100.0, MR=1.0, fac_CR=None):
@@ -1526,6 +1553,10 @@ if __name__ == '__main__':
     Pc,MR,eps = 1000.0, 1.0, 30.0
     ispNew = CEA_Obj(fuelName="MMH", oxName="N2O4")
     showOutput( ispNew )
+    
+    #Cp, visc, cond, Pr = ispNew.get_Exit_Transport(Pc=1000.0, MR=6.0, eps=40.0, frozen=1)
+    #print('Cp=%g, visc=%g, cond=%g, Pr=%g'%(Cp, visc, cond, Pr) )
+    #sys.exit()
 
     ispNew = CEA_Obj(propName="ARC311")
     showOutput( ispNew )

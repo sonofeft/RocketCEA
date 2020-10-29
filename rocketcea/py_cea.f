@@ -117,7 +117,7 @@ c///      READ (*,99002) prefix
      $               FORM='formatted')
 c///      OPEN (IOSCH,STATUS='scratch',FORM='unformatted')
       OPEN (IOSCH,STATUS='unknown',FORM='unformatted',
-     $   FILE=prefix(1:ln)//'temp.scr')
+     $   FILE=prefix(1:ln)//'temp.dat')
       if( read_d .eq. 1 )then
        OPEN (IOTHM,FILE=prefix(1:ln)//'thermo.lib',FORM='unformatted')
        OPEN (IOTRN,FILE=prefix(1:ln)//'trans.lib',FORM='unformatted')
