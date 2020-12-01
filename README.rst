@@ -16,7 +16,7 @@ See the Docs at: `<http://rocketcea.readthedocs.org/en/latest/>`_
 
 See PyPI page at:`<https://pypi.python.org/pypi/rocketcea>`_
 
-See NASA CEA HomePage at: `<https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_
+See NASA CEA HomePage at: `<https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_
 
 See NASA CEA On-Line at: `<https://cearun.grc.nasa.gov/>`_
 

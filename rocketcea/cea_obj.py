@@ -8,7 +8,7 @@ RocketCEA makes direct calls to the FORTRAN CEA code in "rocket" mode to calcula
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.
 
-See the NASA CEA code at: `<https://www.grc.nasa.gov/WWW/CEAWeb/>`_
+See the NASA CEA code at: `<https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_
 
 RocketCEA
 Copyright (C) 2005-2018  Applied Python
@@ -365,7 +365,7 @@ class CEA_Obj(object):
         #shutil.copyfile( os.path.join(here, 'trans.lib'), os.path.join(ROCKETCEA_DATA_DIR, 'trans.lib') )
         
         #self.pathPrefix = self.pathPrefix.replace('\\','/')
-        print( "self.pathPrefix -->",self.pathPrefix )
+        #print( "self.pathPrefix -->",self.pathPrefix )
 
         # make a cache object for this propellant combo if it does not already exist
         try:

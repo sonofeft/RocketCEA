@@ -15,7 +15,7 @@ Install Numpy & Matplotlib
 --------------------------
 
 Because RocketCEA depends on `f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_ to
-compile the FORTRAN `NASA CEA code <https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_ and
+compile the FORTRAN `NASA CEA code <https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_ and
 `f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_
 is part of `numpy <https://numpy.org/>`_ ,
 `numpy <https://numpy.org/>`_ will need to be installed.

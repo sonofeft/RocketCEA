@@ -2,7 +2,8 @@
 # Oct,21 2005
 '''Interpolated Properties'''
 
-from scipy import array, float64, interpolate
+from scipy import  interpolate
+from numpy import array, float64
 
 class InterpProp:
     '''Interpolate tables of properties
