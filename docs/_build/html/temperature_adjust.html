@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
@@ -22,7 +22,7 @@
     <link rel="prev" title="Hydrazine Monopropellant" href="hydrazine_mono.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -99,7 +99,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -144,9 +144,9 @@ the method <strong>makeCardForNewTemperature</strong> was set up with <strong>Cp
 This was done because many of the CEA propellants are not in coolprop and therefor
 an explicit calculation of delta H is not available.
 Using an estimate of average Cp, however, the user can still calculate a very good answer.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="kn">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
-<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="kn">import</span> <span class="n">makeCardForNewTemperature</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="k">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
+<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="k">import</span> <span class="n">makeCardForNewTemperature</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
 
 <span class="c1"># ======= use EngCoolProp to calculate dT and dH ========</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;CH4&quot;</span> <span class="p">)</span>
@@ -243,7 +243,7 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
     </div>
   </body>
 </html>

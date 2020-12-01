@@ -5,11 +5,11 @@
 Standard Examples
 =================
 
-For those with `NASA CEA <https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_ experience,
+For those with `NASA CEA <https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_ experience,
 running CEA and reviewing the printed output is standard practice.
 
 The following examples show how to run a case and review the standard 
-`CEA <https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm>`_ output.
+`CEA <https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_ output.
 
 
 RocketCEA always begins with an import statement and an instance of a CEA_obj::
