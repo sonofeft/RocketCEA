@@ -14,6 +14,21 @@ and
 
 .. note::
 
+   For those interested in using **RocketCEA** to design rocket thrusters,
+   there are two companion projects
+   `RocketIsp <https://rocketisp.readthedocs.io/en/latest/>`_ and 
+   `RocketProps <https://rocketprops.readthedocs.io/en/latest/>`_.
+   
+   `RocketIsp <https://rocketisp.readthedocs.io/en/latest/>`_ uses a simplified JANNAF 
+   approach to calculate delivered specific impulse (Isp) for liquid rocket thrust chambers.
+   
+   `RocketProps <https://rocketprops.readthedocs.io/en/latest/>`_
+   calculates the various liquid propellant properties required to analyse 
+   a liquid propellant thrust chamber.
+
+
+.. note::
+
     Python 3.8 on Windows has been problematic and is not fully supported.
     
     Python 3.8 64 bit on Windows has been made to work by using the new 
