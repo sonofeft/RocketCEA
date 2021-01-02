@@ -10,6 +10,7 @@ env: FC=gfortran
 
 install:
     - "sudo pip install --upgrade pip"
+    - "sudo pip install --upgrade numpy"
     - "python setup.py build"
     - "python setup.py install"
     - "ls /home/travis/build/sonofeft/RocketCEA"
