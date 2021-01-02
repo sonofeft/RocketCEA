@@ -10,7 +10,7 @@ env: FC=gfortran
 
 install:
     - "sudo pip install --upgrade pip"
-    - "sudo pip install scipy<=1.2.3"
+    - "sudo pip install scipy<1.2.3"
     - "python setup.py build"
     - "python setup.py install"
     - "ls /home/travis/build/sonofeft/RocketCEA"
