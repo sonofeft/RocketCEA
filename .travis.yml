@@ -9,8 +9,8 @@ before_install:
 env: FC=gfortran
 
 install:
-    - "sudo pip install --upgrade pip"
-    - "sudo pip install scipy==1.4.1"
+    - "sudo pip3 install --upgrade pip"
+    - "sudo pip3 install scipy==1.4.1"
     - "python setup.py build"
     - "python setup.py install"
     - "ls /home/travis/build/sonofeft/RocketCEA"
