@@ -7,7 +7,7 @@ QuickStart
     
     On Windows, 32 bit python 3.8 and above are not supported.
     
-For a Windows install, jump strait to :ref:`link_windows_bat_file`
+For a Windows install, jump straight to :ref:`link_windows_bat_file`
 
 Install Numpy & Matplotlib
 --------------------------
