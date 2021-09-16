@@ -4,12 +4,10 @@
 QuickStart
 ==========
 .. note::
-
-    Python 3.8 and 3.9 on Windows have been problematic and are not fully supported.
     
-    Python 3.8 64 bit and 3.9 64 bit on Windows has been made to work by using the new 
-    os.add_dll_directory command to locate MinGW DLL libraries, however, 
-    32 bit python 3.8 and 3.9 are not yet supported.
+    On Windows, 32 bit python 3.8 and above are not supported.
+    
+For a Windows install, jump strait to :ref:`link_windows_bat_file`
 
 Install Numpy & Matplotlib
 --------------------------
@@ -83,6 +81,8 @@ Try a quick test of the install by pasting the following into a command terminal
     should result in:
     374.30361765576265
 
+.. _link_windows_bat_file:
+
 Windows Batch File
 ------------------
 
@@ -92,54 +92,59 @@ the proper compiler build tools are not available.
 
 The Windows batch file below addresses both of those problems.
 
-For compile issues, the batch file uses `pipwin <https://pypi.org/project/pipwin/>`_.
-This means that you need to trust `Unofficial Windows Binaries for Python Extension Packages <https://www.lfd.uci.edu/~gohlke/pythonlibs/>`_.
+Remember that the FORTRAN compiler must also be installed
+(see: :ref:`Install MinGW on Windows 10 <link_installmingw>`)
 
-The batch file makes the PATH as simple as possible so that only the 64 bit MinGW files 
+Notice that the batch file makes the PATH as simple as possible so that only the 64 bit MinGW files 
 and desired python files are found.
 
-Note that the batch file assumes that python 3.8 64 bit is the python version installed at **D:\\Python38_64**
+Note that the batch file assumes that python 3.9 64 bit is the python version installed at **C:\\Python39_64**
 and that MinGW 64 bit is installed at **C:\\MinGW\\mingw64\\bin** and **C:\\MinGW\\mingw64\\lib**.
-*You will need to edit the batch file for your situation.*
+*Edit those path names for your situation.*
 
-Note that it also uninstalls rocketcea in case bad files are left from previous attempts.
+Note that it starts by uninstalling rocketcea in case bad files are left from previous attempts.
+(Plan for the worst, hope for the best.)
 
-**You will need to edit the hard-coded paths to your own location of python and MinGW.**
+**You may need to edit the hard-coded paths to your own location of python and MinGW.**
 
 - Copy and paste the batch file code below into an editor 
 - Edit the hard-coded paths to your own location of python and MinGW
-  (i.e. change D:\\Python38_64 and C:\\MinGW\\mingw64)
-- Save the file to D:\\Python38_64\\RUN_SETUP_BUILD_WIN64.BAT (or your python directory)
-- Open a command prompt terminal and navigate to that directory, for example "cd D:\\Python38_64"
+  (i.e. perhaps change C:\\Python39_64 and C:\\MinGW\\mingw64)
+- Save the edited BAT file (e.g. as RUN_SETUP_BUILD_WIN64.BAT)
+- Open a command prompt terminal and navigate to the BAT file directory.
 - Give the command RUN_SETUP_BUILD_WIN64.BAT
+
+.. note::
+
+    Successfully tested on a clean Windows 10 with 64 bit python 3.9.7 on 9/16/2021
 
 .. code-block:: batch
 
     rem =============== RUN_SETUP_BUILD_WIN64.BAT ================
-    rem set python path variable (Default is Python 3.8 64 bit)
-    SET "MYPYTHONPATH=D:\Python38_64"
+    
+    SET "MYPYTHONPATH=C:\Python39_64"
 
     rem Make sure that PATH is as simple as possible
     set PATH=C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts
 
     pip uninstall -y rocketcea
-
-    pip install pipwin
-    pipwin install future
-    pipwin install numpy
-    pipwin install scipy
-    pipwin install kiwisolver
-    pipwin install pillow
-    pipwin install matplotlib
-    pip install rocketcea
+    
+    pip install future
+    pip install numpy
+    pip install scipy
+    
+    pip install pillow
+    pip install matplotlib
+    pip install --global-option build_ext --global-option --compiler=mingw32 rocketcea
 
     rem Test the compiled module
     python -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"
+    
 
 .. note::
 
-  If you have already installed some of the packages (e.g. numpy or matplotlib) you may want to 
-  comment out those pipwin statements.
+  The "trick" for installing RocketCEA on Windows seems to be pre-installing the dependency packages 
+  (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.
 
 
 Getting Help
@@ -267,3 +272,43 @@ Colab plots work with RocketCEA as well.
 .. image:: ./_static/colab_cstar_plot_example.jpg
     :width: 80%
 
+Windows 10 with WSL
+-------------------
+
+RocketCEA can also be installed on `Windows Subsystem for Linux (WSL) <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_
+
+After setting up your Linux distribution on WSL, installing RocketCEA is quick and easy.
+
+For example on a Ubuntu distribution.
+   
+*  Update Ubuntu
+    * sudo apt-get update
+   
+*  configure Ubuntu for python3 and FORTRAN
+    * sudo apt install python3-pip
+    * sudo apt-get install gfortran
+
+*  Install RocketCEA required libraries
+    * pip install numpy
+    * pip install matplotlib
+    * pip install rocketcea
+   
+*  Test installation with quick example
+    * python3 -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"
+    * SHOULD RETURN:  374.30361765576896 (or perhaps just very close to it.)
+
+WSL GUI
+~~~~~~~
+
+Note that, if desired, `VsXsrv <https://sourceforge.net/projects/vcxsrv/files/latest/download>`_ 
+can be used to enable Linux-driven graphic windows on WSL.
+ 
+This will enable matplotlib show() command, tkinter programs or any gui-based Linux application
+installed on the WSL Linux distribution.
+
+WSLg
+~~~~
+
+In the presumably near future, `WSLg <https://github.com/microsoft/wslg>`_ will be available that has GUI support built in.
+Windows 11 is expected to come with `WSLg <https://github.com/microsoft/wslg>`_ 
+and Windows 10 will be able to install `WSLg <https://github.com/microsoft/wslg>`_.

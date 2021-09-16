@@ -5,23 +5,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.24 documentation</title>
+    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.25 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/bizstyle.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="QuickStart" href="quickstart.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.24 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.25 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -88,7 +88,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -97,8 +97,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <img alt="https://travis-ci.org/sonofeft/RocketCEA.svg?branch=master" src="https://travis-ci.org/sonofeft/RocketCEA.svg?branch=master" />
-<img alt="https://img.shields.io/pypi/v/RocketCEA.svg" src="https://img.shields.io/pypi/v/RocketCEA.svg" /><img alt="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7-blue" src="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7-blue" />
+  <img alt="https://img.shields.io/pypi/v/RocketCEA.svg" src="https://img.shields.io/pypi/v/RocketCEA.svg" /><img alt="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7-blue" src="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7-blue" />
 <img alt="https://img.shields.io/pypi/l/RocketCEA.svg" src="https://img.shields.io/pypi/l/RocketCEA.svg" /><div class="section" id="rocketcea-wraps-the-nasa-fortran-cea-code-and-provides-some-useful-tools">
 <h1>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools<a class="headerlink" href="#rocketcea-wraps-the-nasa-fortran-cea-code-and-provides-some-useful-tools" title="Permalink to this headline">¶</a></h1>
 <p>See the Code at: <a class="reference external" href="https://github.com/sonofeft/RocketCEA">https://github.com/sonofeft/RocketCEA</a></p>
@@ -106,13 +105,13 @@
 <p>See PyPI page at:<a class="reference external" href="https://pypi.python.org/pypi/rocketcea">https://pypi.python.org/pypi/rocketcea</a></p>
 <p>See NASA CEA HomePage at: <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">https://www1.grc.nasa.gov/research-and-engineering/ceaweb/</a></p>
 <p>See NASA CEA On-Line at: <a class="reference external" href="https://cearun.grc.nasa.gov/">https://cearun.grc.nasa.gov/</a></p>
-<p>RocketCEA makes direct calls to the NASA FORTRAN CEA code in &quot;rocket&quot; mode to calculate
+<p>RocketCEA makes direct calls to the NASA FORTRAN CEA code in “rocket” mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.</p>
 <p>RocketCEA does not use the FORTRAN <strong>CEA2.f</strong> file directly.</p>
 <p>Many modifications have been made in order to wrap CEA with
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/f2py/python-usage.html">f2py</a> to build a python module.</p>
-<p>Additional changes to <strong>CEA2.f</strong> have been made in order to properly handle hydrazine monopropellant's
+<p>Additional changes to <strong>CEA2.f</strong> have been made in order to properly handle hydrazine monopropellant’s
 ammonia dissociation.</p>
 <p>Although the default units in RocketCEA are English units, SI units may be used for both
 input and output as well. (See <strong>Simple Examples &gt; Transport Properties</strong> in Docs)</p>
@@ -154,6 +153,7 @@ os.add_dll_directory command to locate MinGW DLL libraries, however,
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#test-the-install">Test The Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#google-colaboratory">Google Colaboratory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#windows-10-with-wsl">Windows 10 with WSL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a><ul>
@@ -304,12 +304,12 @@ os.add_dll_directory command to locate MinGW DLL libraries, however,
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.24 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.25 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

@@ -1,3 +1,11 @@
+uninstalling
+pre-installing
+pre
+oxName
+fuelName
+LH
+Isp
+gui
 condensibles
 Pinjector
 Pchamber

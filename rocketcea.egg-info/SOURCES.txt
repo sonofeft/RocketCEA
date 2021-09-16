@@ -12,6 +12,7 @@ requirements.txt
 setup.cfg
 setup.py
 tox.ini
+travisci_badge.txt
 rocketcea/.coverage
 rocketcea/Goal.py
 rocketcea/Isp.py

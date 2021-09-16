@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Install gfortran &#8212; RocketCEA v1.1.24 documentation</title>
+    <title>Install gfortran &#8212; RocketCEA v1.1.25 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.24 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -190,7 +190,7 @@ however, python 3.7 seemed to work just fine with:</p>
 </div>
 </div>
 <div class="section" id="windows-10">
-<h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">¶</a></h2>
+<span id="link-installmingw"></span><h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Windows users MUST put MinGW into environment PATH variable.
@@ -203,8 +203,13 @@ however, python 3.7 seemed to work just fine with:</p>
 on which to set up <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>.</p>
 <p>Assuming that your user may need either the 32 or 64 bit compiler, I recommend using the
 <a class="reference external" href="https://sourceforge.net/projects/mingw-w64/">SourceForge MinGW-w64 for 32 &amp; 64 bit Windows</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For python 3.8 and above, 32 bit python may not work with RocketCEA on Windows.</p>
+<p>64 bit python is recommended for RocketCEA with python versions 3.8 and above on Windows.</p>
+</div>
 <p>Go to the site <a class="reference external" href="https://sourceforge.net/projects/mingw-w64/">SourceForge MinGW-w64 for 32 &amp; 64 bit Windows</a>.
-and download MinGW. At the time of this writing, the downloaded file is <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.
+and download MinGW installer (<code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>). At the time of this writing, the downloaded file is <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.
 Run <code class="docutils literal notranslate"><span class="pre">mingw-w64-install.exe</span></code>.</p>
 <a class="reference internal image-reference" href="_images/mingw_welcome.jpg"><img alt="_images/mingw_welcome.jpg" src="_images/mingw_welcome.jpg" style="width: 60%;" /></a>
 <p>After clicking <code class="docutils literal notranslate"><span class="pre">Next</span></code>, the settings screen will appear.</p>
@@ -220,16 +225,19 @@ so that, later on, setting the user’s environment PATH will be easier.</p>
 <a class="reference internal image-reference" href="_images/mingw_installing_files.jpg"><img alt="_images/mingw_installing_files.jpg" src="_images/mingw_installing_files.jpg" style="width: 45%;" /></a>
 <a class="reference internal image-reference" href="_images/mingw_finished.jpg"><img alt="_images/mingw_finished.jpg" src="_images/mingw_finished.jpg" style="width: 45%;" /></a>
 <p>When both 32 and 64 bit compilers are installed, and if you selected <strong>C:\MinGW</strong> as your install directory.
-You should have a <strong>C:\MinGW</strong> directory that looks like the one below.</p>
+You should have a <strong>C:\MinGW</strong> directory that looks like the one below.
+(Recall that only 64 bit is recommended for RocketCEA)</p>
 <a class="reference internal image-reference" href="_images/MinGW_folder.jpg"><img alt="_images/MinGW_folder.jpg" src="_images/MinGW_folder.jpg" style="width: 40%;" /></a>
 <div class="section" id="windows-path">
 <span id="link-windowspath"></span><h3>Windows PATH<a class="headerlink" href="#windows-path" title="Permalink to this headline">¶</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Windows users MUST put MinGW into environment PATH variable.</p>
-<p>C:\MinGW\mingw64\bin  OR  C:\MinGW\mingw32\bin</p>
-<p>and</p>
-<p>C:\MinGW\mingw64\lib  OR  C:\MinGW\mingw32\lib</p>
+<p>Windows users MUST put 2 MinGW paths into environment PATH variable.</p>
+<p>C:\MinGW\mingw64\bin  and</p>
+<p>C:\MinGW\mingw64\lib</p>
+<p>OR</p>
+<p>C:\MinGW\mingw32\bin  and</p>
+<p>C:\MinGW\mingw32\lib</p>
 </div>
 <p>Having installed <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> ,
 there are some options as to when and how to change the system’s PATH environment variable.</p>
@@ -292,7 +300,7 @@ System or User Variables can be edited.</p>
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.24 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

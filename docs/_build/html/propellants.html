@@ -5,16 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Propellants &#8212; RocketCEA v1.1.24 documentation</title>
+    <title>Propellants &#8212; RocketCEA v1.1.25 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/bizstyle.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
@@ -22,7 +22,7 @@
     <link rel="prev" title="Propellant Selection" href="propellant_select.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.24 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -205,7 +205,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -221,13 +221,13 @@ Click any of the names to see the card deck submitted to CEA for that propellant
 <p>If your propellant is not included, or if you disagree with the definitions,
 new propellants can be added, and existing propellants can be modified.</p>
 <p>Any use of RocketCEA begins with an import statement and an instance of CEA_Obj:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Bipropellant runs use <strong>oxName</strong> and <strong>fuelName</strong> to define propellants.
 For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>propName</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -263,9 +263,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>
 <h3>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this headline">¶</a></h3>
 <p>The performance of <a class="reference internal" href="hydrazine_mono.html#hydrazine-mono-link"><span class="std std-ref">Hydrazine Monopropellant</span></a> engines is driven by the amount of ammonia dissociation that
 the catalyst bed delivers. Any amount of ammonia dissociation can be run by calling out the <strong>propName</strong>
-as &quot;HYD&quot; + weight percent dissociation.</p>
-<p>Note that the CEA FORTRAN code has been modified to include &quot;Undissociated Ammonia (UA)&quot; as an exhaust product.
-The CEA input also includes an &quot;omit NH3&quot; statement to prevent normal NH3 calculations.</p>
+as “HYD” + weight percent dissociation.</p>
+<p>Note that the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
+The CEA input also includes an “omit NH3” statement to prevent normal NH3 calculations.</p>
 <p>The examples below call out 30, 40 and 50 percent ammonia dissociation.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD30&#39;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
@@ -305,7 +305,7 @@ The weight percentages are calculated based on the equilibrium equations above.<
 <h3>Peroxide + Water<a class="headerlink" href="#peroxide-water" title="Permalink to this headline">¶</a></h3>
 <p>Peroxide is often blended with water in order to enhance its stability and improve its safety.
 While the debate about an appropriate blend of Peroxide rages on, analyzing it with RocketCEA
-simply requires calling it out as &quot;Peroxide&quot; + weight percent Peroxide.
+simply requires calling it out as “Peroxide” + weight percent Peroxide.
 The examples below call out 90, 95 and 98 percent Peroxide:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide90&#39;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide95&#39;</span><span class="p">)</span>
@@ -317,7 +317,7 @@ The examples below call out 90, 95 and 98 percent Peroxide:</p>
 <div class="section" id="flox">
 <h3>FLOX<a class="headerlink" href="#flox" title="Permalink to this headline">¶</a></h3>
 <p>FLOX is a mixture of Fluorine and Oxygen.
-Call out the mixture as &quot;FLOX&quot; + weight percent of Fluorine.
+Call out the mixture as “FLOX” + weight percent of Fluorine.
 The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX60&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX70&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
@@ -1068,12 +1068,12 @@ omit NH3
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.24 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

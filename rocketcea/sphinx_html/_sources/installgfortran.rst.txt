@@ -84,6 +84,8 @@ however, python 3.7 seemed to work just fine with::
     pip3 install numpy
     pip3 install genericf2py
 
+.. _`link_installmingw`:
+
 Windows 10
 ----------
 
@@ -104,8 +106,14 @@ on which to set up `gfortran <https://www.gnu.org/software/gcc/fortran/>`_.
 Assuming that your user may need either the 32 or 64 bit compiler, I recommend using the
 `SourceForge MinGW-w64 for 32 & 64 bit Windows <https://sourceforge.net/projects/mingw-w64/>`_.
 
+.. note::
+
+    For python 3.8 and above, 32 bit python may not work with RocketCEA on Windows. 
+    
+    64 bit python is recommended for RocketCEA with python versions 3.8 and above on Windows.
+
 Go to the site `SourceForge MinGW-w64 for 32 & 64 bit Windows <https://sourceforge.net/projects/mingw-w64/>`_.
-and download MinGW. At the time of this writing, the downloaded file is ``mingw-w64-install.exe``.
+and download MinGW installer (``mingw-w64-install.exe``). At the time of this writing, the downloaded file is ``mingw-w64-install.exe``.
 Run ``mingw-w64-install.exe``.
 
 
@@ -143,7 +151,8 @@ After several minutes of an ``Installing Files`` you should arrive at a successf
     :width: 45%
 
 When both 32 and 64 bit compilers are installed, and if you selected **C:\\MinGW** as your install directory.
-You should have a **C:\\MinGW** directory that looks like the one below.
+You should have a **C:\\MinGW** directory that looks like the one below. 
+(Recall that only 64 bit is recommended for RocketCEA)
 
 .. image:: ./_static/MinGW_folder.jpg
     :width: 40%
@@ -155,13 +164,17 @@ Windows PATH
 
 .. important::
 
-    Windows users MUST put MinGW into environment PATH variable.
+    Windows users MUST put 2 MinGW paths into environment PATH variable.
     
-    C:\\MinGW\\mingw64\\bin  OR  C:\\MinGW\\mingw32\\bin
+    C:\\MinGW\\mingw64\\bin  and
     
-    and
+    C:\\MinGW\\mingw64\\lib
     
-    C:\\MinGW\\mingw64\\lib  OR  C:\\MinGW\\mingw32\\lib
+    OR
+    
+    C:\\MinGW\\mingw32\\bin  and
+    
+    C:\\MinGW\\mingw32\\lib
 
 Having installed `gfortran <https://www.gnu.org/software/gcc/fortran/>`_ , 
 there are some options as to when and how to change the system's PATH environment variable.

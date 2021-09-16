@@ -1,3 +1,7 @@
+*) Add warning for Windows 32 bit python 3.8
+   "Can not build MinGW fortran *.pyd"
+
+
 *) Subsonic Area Ratios
 
 multiple output columns format.
