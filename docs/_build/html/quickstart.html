@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
@@ -22,7 +22,7 @@
     <link rel="prev" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -110,7 +110,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -125,7 +125,7 @@
 <p class="admonition-title">Note</p>
 <p>On Windows, 32 bit python 3.8 and above are not supported.</p>
 </div>
-<p>For a Windows install, jump strait to <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
+<p>For a Windows install, jump straight to <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
 <div class="section" id="install-numpy-matplotlib">
 <h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>Because RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
@@ -212,7 +212,7 @@ and that MinGW 64 bit is installed at <strong>C:\MinGW\mingw64\bin</strong> and 
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Successfully tested on a clean Windows 10 with 64 bit python 3.9.7 on 9/16/2021</p>
+<p>9/16/2021: BAT File successful on Windows 10 with 64 bit python 3.8.10 and 3.9.7</p>
 </div>
 <div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">rem =============== RUN_SETUP_BUILD_WIN64.BAT ================</span>
 
@@ -253,7 +253,7 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 <div class="section" id="running-rocketcea">
 <h2>Running RocketCEA<a class="headerlink" href="#running-rocketcea" title="Permalink to this headline">¶</a></h2>
 <p>Any use of RocketCEA begins with an import statement and an instance of CEA_obj:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -281,7 +281,7 @@ for RocketCEA to work (see below)</p>
 <h2>Test The Install<a class="headerlink" href="#test-the-install" title="Permalink to this headline">¶</a></h2>
 <p>Paste the following code into your text editor and save it to your test folder as basic_cea.py
 (for example, D:\rocketcea\basic_cea.py):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">mr</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span> <span class="p">)</span>
@@ -323,7 +323,7 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 <a class="reference internal image-reference" href="_images/colab_apt_libgfortran3.jpg"><img alt="_images/colab_apt_libgfortran3.jpg" src="_images/colab_apt_libgfortran3.jpg" style="width: 70%;" /></a>
 <p>Create a python script to run RocketCEA:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">chk_cea</span><span class="o">.</span><span class="n">py</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">mr</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span> <span class="p">)</span>
@@ -419,7 +419,7 @@ and Windows 10 will be able to install <a class="reference external" href="https
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
     </div>
   </body>
 </html>

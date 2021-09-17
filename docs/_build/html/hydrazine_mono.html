@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
@@ -22,7 +22,7 @@
     <link rel="prev" title="Ambient Isp" href="ambient_isp.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -100,7 +100,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -133,7 +133,7 @@ the CEA input includes an “omit NH3” statement to prevent normal equilibrium
 of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be “HYD30”, “HYD40” and “HYD50”.</p>
 <p>This can be demonstrated with the following RocketCEA script that shows the difference between <strong>HYD40</strong> (40% ammonia dissociation)
 and <strong>N2H4</strong> (equilibrium CEA logic)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">C40</span> <span class="o">=</span>  <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
 <span class="n">C100</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;N2H4&#39;</span><span class="p">)</span>
@@ -166,7 +166,7 @@ are:</p>
 <div class="section" id="performance-plot">
 <h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Permalink to this headline">¶</a></h2>
 <p>A plot of Monopropellant Hydrazine Performance can be created with the following script.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">Pc</span> <span class="o">=</span> <span class="mf">200.0</span>
@@ -239,7 +239,7 @@ are:</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
     </div>
   </body>
 </html>

@@ -7,7 +7,7 @@ QuickStart
     
     On Windows, 32 bit python 3.8 and above are not supported.
     
-For a Windows install, jump strait to :ref:`link_windows_bat_file`
+For a Windows install, jump straight to :ref:`link_windows_bat_file`
 
 Install Numpy & Matplotlib
 --------------------------
@@ -116,7 +116,7 @@ Note that it starts by uninstalling rocketcea in case bad files are left from pr
 
 .. note::
 
-    Successfully tested on a clean Windows 10 with 64 bit python 3.9.7 on 9/16/2021
+    9/16/2021: BAT File successful on Windows 10 with 64 bit python 3.8.10 and 3.9.7
 
 .. code-block:: batch
 
