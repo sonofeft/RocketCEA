@@ -1,7 +1,7 @@
 
 .. image:: https://img.shields.io/pypi/v/RocketCEA.svg
         
-.. image:: https://img.shields.io/badge/python-2.7|3.5|3.6|3.7|3.8|3.9-blue
+.. image:: https://img.shields.io/badge/python-2.7|3.5|3.6|3.7|3.8|3.9|3.10-blue
 
 .. image:: https://img.shields.io/pypi/l/RocketCEA.svg
 
