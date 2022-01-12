@@ -29,12 +29,10 @@ and
 
 .. note::
 
-    Python 3.8 on Windows has been problematic and is not fully supported.
-    
-    Python 3.8 64 bit on Windows has been made to work by using the new 
-    os.add_dll_directory command to locate MinGW DLL libraries, however, 
-    32 bit python 3.8 is not yet supported.
+   On Windows, 32 bit python 3.8 and above are not supported.
 
+   As of this writing (10/5/2021) 64 bit python 3.10 requires Unofficial Binaries
+   to install numpy, scipy and matplotlib. 
 
 RocketCEA
 =========

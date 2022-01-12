@@ -2,24 +2,24 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.25 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools &#8212; RocketCEA v1.1.26 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="QuickStart" href="quickstart.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -36,68 +36,17 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.25 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.26 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="#">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
-            </a></p>
-  <h3><a href="#">Table of Contents</a></h3>
-  <ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-</ul>
-
-  <h4>Next topic</h4>
-  <p class="topless"><a href="quickstart.html"
-                        title="next chapter">QuickStart</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <img alt="https://img.shields.io/pypi/v/RocketCEA.svg" src="https://img.shields.io/pypi/v/RocketCEA.svg" /><img alt="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7|3.8|3.9-blue" src="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7|3.8|3.9-blue" />
+  <img alt="https://img.shields.io/pypi/v/RocketCEA.svg" src="https://img.shields.io/pypi/v/RocketCEA.svg" /><img alt="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7|3.8|3.9|3.10-blue" src="https://img.shields.io/badge/python-2.7|3.5|3.6|3.7|3.8|3.9|3.10-blue" />
 <img alt="https://img.shields.io/pypi/l/RocketCEA.svg" src="https://img.shields.io/pypi/l/RocketCEA.svg" /><div class="section" id="rocketcea-wraps-the-nasa-fortran-cea-code-and-provides-some-useful-tools">
 <h1>RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools<a class="headerlink" href="#rocketcea-wraps-the-nasa-fortran-cea-code-and-provides-some-useful-tools" title="Permalink to this headline">¶</a></h1>
 <p>See the Code at: <a class="reference external" href="https://github.com/sonofeft/RocketCEA">https://github.com/sonofeft/RocketCEA</a></p>
@@ -133,10 +82,9 @@ a liquid propellant thrust chamber.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Python 3.8 on Windows has been problematic and is not fully supported.</p>
-<p>Python 3.8 64 bit on Windows has been made to work by using the new
-os.add_dll_directory command to locate MinGW DLL libraries, however,
-32 bit python 3.8 is not yet supported.</p>
+<p>On Windows, 32 bit python 3.8 and above are not supported.</p>
+<p>As of this writing (10/5/2021) 64 bit python 3.10 requires Unofficial Binaries
+to install numpy, scipy and matplotlib.</p>
 </div>
 </div>
 <div class="section" id="rocketcea">
@@ -149,6 +97,7 @@ os.add_dll_directory command to locate MinGW DLL libraries, however,
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#install-compiler">Install Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#install-rocketcea">Install RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#windows-batch-file">Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#anaconda-windows-batch-file">Anaconda Windows Batch File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#test-the-install">Test The Install</a></li>
@@ -287,7 +236,60 @@ os.add_dll_directory command to locate MinGW DLL libraries, however,
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="quickstart.html"
+                        title="next chapter">QuickStart</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -304,12 +306,13 @@ os.add_dll_directory command to locate MinGW DLL libraries, however,
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.25 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">RocketCEA v1.1.26 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
   </body>
 </html>

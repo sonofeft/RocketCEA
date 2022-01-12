@@ -2,25 +2,25 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Propellants &#8212; RocketCEA v1.1.25 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propellants &#8212; RocketCEA v1.1.26 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="New Propellants" href="new_propellants.html" />
     <link rel="prev" title="Propellant Selection" href="propellant_select.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -40,174 +40,10 @@
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Propellants</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Propellants</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#special-blends">Special Blends</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hydrazine-monopropellant">Hydrazine Monopropellant</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mmh-n2h4">MMH + N2H4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mixed-oxides-of-nitrogen">Mixed Oxides of Nitrogen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#peroxide-water">Peroxide + Water</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#flox">FLOX</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#oxidizers">Oxidizers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#h2o2">90_H2O2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">98_H2O2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#air">AIR</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#airsimp">AIRSIMP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clf3">CLF3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clf5">CLF5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#f2">F2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#go2">GO2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gox">GOX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#h2o">H2O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">H2O2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#han315">HAN315</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hno3">HNO3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#irfna">IRFNA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lo2">LO2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lo2-nasa">LO2_NASA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lox">LOX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mon15">MON15</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mon25">MON25</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mon3">MON3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#n2f4">N2F4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#n2h4">N2H4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#n2o">N2O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#n2o3">N2O3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#n2o4">N2O4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#n2o-nbp">N2O_nbp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#o2">O2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#of2">OF2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#peroxide90">Peroxide90</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#peroxide98">Peroxide98</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#fuels">Fuels</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#a50">A50</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acetylene">Acetylene</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#al">AL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ap">AP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#b2h6">B2H6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#c2h2">C2H2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#c2h5oh">C2H5OH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#c2h6">C2H6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#c2h6-167">C2H6_167</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#c3h8">C3H8</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cfx">CFx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ch3oh">CH3OH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ch4">CH4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cinch">CINCH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dmaz">DMAZ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ecp-dimer">ECP_dimer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ethanol">Ethanol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">ETHANOL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gasoline">Gasoline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gch4">GCH4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gh2">GH2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gh2-160">GH2_160</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#h2">H2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">H2O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#htpb">HTPB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#isopropanol">Isopropanol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jeta">JetA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jp10">JP10</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jp4">JP4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jpx">JPX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kerosene">Kerosene</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kerosene90-h2o10">Kerosene90_H2O10</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lch4-nasa">LCH4_NASA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lh2">LH2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lh2-nasa">LH2_NASA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#m20">M20</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#m20-nh3">M20_NH3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#methanol">Methanol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">METHANOL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mhf3">MHF3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mmh">MMH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">N2H4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nh3">NH3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nitromethane">NITROMETHANE</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#propane">Propane</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#propylene">Propylene</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">propylene</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rp1">RP1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rp1-nasa">RP1_NASA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rp-1">RP_1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#udmh">UDMH</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#monoprop-solid">Monoprop &amp; Solid</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#amt-2091">AMT_2091</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ap10-rdx25-htpb">AP10_RDX25_HTPB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#arc311">ARC311</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#arc448">ARC448</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#arc452">ARC452</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#arc457">ARC457</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#han269">HAN269</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">HAN315</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hpb24">HPB24</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyd40">HYD40</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="propellant_select.html"
-                        title="previous chapter">Propellant Selection</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="new_propellants.html"
-                        title="next chapter">New Propellants</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/propellants.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -1048,7 +884,173 @@ omit NH3
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Propellants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#special-blends">Special Blends</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hydrazine-monopropellant">Hydrazine Monopropellant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mmh-n2h4">MMH + N2H4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mixed-oxides-of-nitrogen">Mixed Oxides of Nitrogen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peroxide-water">Peroxide + Water</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flox">FLOX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#oxidizers">Oxidizers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#h2o2">90_H2O2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">98_H2O2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#air">AIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#airsimp">AIRSIMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clf3">CLF3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clf5">CLF5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#f2">F2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#go2">GO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gox">GOX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#h2o">H2O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">H2O2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#han315">HAN315</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hno3">HNO3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#irfna">IRFNA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lo2">LO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lo2-nasa">LO2_NASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lox">LOX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mon15">MON15</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mon25">MON25</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mon3">MON3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n2f4">N2F4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n2h4">N2H4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n2o">N2O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n2o3">N2O3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n2o4">N2O4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n2o-nbp">N2O_nbp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#o2">O2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#of2">OF2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peroxide90">Peroxide90</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peroxide98">Peroxide98</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fuels">Fuels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a50">A50</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acetylene">Acetylene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#al">AL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ap">AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b2h6">B2H6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c2h2">C2H2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c2h5oh">C2H5OH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c2h6">C2H6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c2h6-167">C2H6_167</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c3h8">C3H8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cfx">CFx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ch3oh">CH3OH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ch4">CH4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cinch">CINCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dmaz">DMAZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ecp-dimer">ECP_dimer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethanol">Ethanol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">ETHANOL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gasoline">Gasoline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gch4">GCH4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gh2">GH2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gh2-160">GH2_160</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#h2">H2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">H2O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htpb">HTPB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isopropanol">Isopropanol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jeta">JetA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jp10">JP10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jp4">JP4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jpx">JPX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kerosene">Kerosene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kerosene90-h2o10">Kerosene90_H2O10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lch4-nasa">LCH4_NASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lh2">LH2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lh2-nasa">LH2_NASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#m20">M20</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#m20-nh3">M20_NH3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methanol">Methanol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">METHANOL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mhf3">MHF3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mmh">MMH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">N2H4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nh3">NH3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nitromethane">NITROMETHANE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propane">Propane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propylene">Propylene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">propylene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rp1">RP1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rp1-nasa">RP1_NASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rp-1">RP_1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#udmh">UDMH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#monoprop-solid">Monoprop &amp; Solid</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#amt-2091">AMT_2091</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ap10-rdx25-htpb">AP10_RDX25_HTPB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arc311">ARC311</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arc448">ARC448</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arc452">ARC452</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arc457">ARC457</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#han269">HAN269</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">HAN315</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hpb24">HPB24</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyd40">HYD40</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="propellant_select.html"
+                        title="previous chapter">Propellant Selection</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="new_propellants.html"
+                        title="next chapter">New Propellants</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/propellants.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1068,12 +1070,13 @@ omit NH3
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Propellants</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
   </body>
 </html>
