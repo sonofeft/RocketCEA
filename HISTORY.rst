@@ -6,6 +6,39 @@ History
 
 GitHub Log
 ----------
+* Apr 8, 2022
+    - (by: Charlie)
+        - update docs for v1.1.27
+        - empty cache when redefining propellant
+        - doc update 
+
+* Jan 11, 2022
+    - (by: Charlie)
+        - ran unit tests
+        - Added Anaconda on Windows install directions 
+
+* Oct 5, 2021
+    - (by: Charlie)
+        - Made changes to show support for python 3.10 
+
+* Sep 16, 2021
+    - (by: Charlie)
+        - Added python 3.8 test results
+        - doc spelling correction
+        - version 1.1.25 and Windows install doc updates 
+
+* Jan 1, 2021
+    - (by: sonofeft)
+        - Update .travis.yml
+        - solve travisci numpy, scipy problem
+        - update to docs 
+
+* Dec 1, 2020
+    - (by: sonofeft)
+        - Merge branch 'master' of https://github.com/sonofeft/RocketCEA
+        - updated sphinx pages after NASA links changed
+        - NASA links changed 
+
 * Oct 28, 2020
     - (by: sonofeft)
         - moved work files to user HOME directory (fixes Colab)
