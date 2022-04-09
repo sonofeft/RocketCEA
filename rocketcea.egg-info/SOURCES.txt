@@ -23,6 +23,7 @@ rocketcea/cea_obj.py
 rocketcea/cea_obj.py.bak
 rocketcea/cea_obj_w_units.py
 rocketcea/clean_init.py
+rocketcea/coverage.xml
 rocketcea/excel_const.py
 rocketcea/f.inp
 rocketcea/f.out
@@ -526,6 +527,11 @@ rocketcea/sphinx_html/temperature_adjust.html
 rocketcea/sphinx_html/temperature_change.html
 rocketcea/sphinx_html/traditional_example.html
 rocketcea/sphinx_html/traditional_examples.html
+rocketcea/sphinx_html/_images/Anaconda_MingGW_Folder.jpg
+rocketcea/sphinx_html/_images/Anaconda_check_installs.jpg
+rocketcea/sphinx_html/_images/Anaconda_find_python_exe.jpg
+rocketcea/sphinx_html/_images/Anaconda_install_pillow.jpg
+rocketcea/sphinx_html/_images/Anaconda_successful_install.jpg
 rocketcea/sphinx_html/_images/CEA_User_Manual_(NASA_RP-1311).pdf
 rocketcea/sphinx_html/_images/LOX_LH2_Peak_MR_Shift.png
 rocketcea/sphinx_html/_images/LOX_LH2_Peak_ODK_MR.png
@@ -562,6 +568,7 @@ rocketcea/sphinx_html/_images/edit_path.jpg
 rocketcea/sphinx_html/_images/env_vars.jpg
 rocketcea/sphinx_html/_images/fac_manual_option.jpg
 rocketcea/sphinx_html/_images/find_rocketcea.jpg
+rocketcea/sphinx_html/_images/full_mingw_folder.jpg
 rocketcea/sphinx_html/_images/full_output_p_units.jpg
 rocketcea/sphinx_html/_images/linux_import_error.jpg
 rocketcea/sphinx_html/_images/mingw32_install.jpg
@@ -639,6 +646,17 @@ rocketcea/sphinx_html/_sources/temperature_change.rst.txt
 rocketcea/sphinx_html/_sources/traditional_example.rst.txt
 rocketcea/sphinx_html/_sources/traditional_examples.rst.txt
 rocketcea/sphinx_html/_sources/_static/example_scripts/examples_dir.rst.txt
+rocketcea/sphinx_html/_static/Anaconda_Folder.jpg
+rocketcea/sphinx_html/_static/Anaconda_LaunchAnacondaPrompt.jpg
+rocketcea/sphinx_html/_static/Anaconda_MingGW_Folder.jpg
+rocketcea/sphinx_html/_static/Anaconda_bat_install_file_3.jpg
+rocketcea/sphinx_html/_static/Anaconda_check_installs.jpg
+rocketcea/sphinx_html/_static/Anaconda_find_python_exe.jpg
+rocketcea/sphinx_html/_static/Anaconda_install_pillow.jpg
+rocketcea/sphinx_html/_static/Anaconda_open_notepad.jpg
+rocketcea/sphinx_html/_static/Anaconda_save_bat_file.jpg
+rocketcea/sphinx_html/_static/Anaconda_ssl_module_error.jpg
+rocketcea/sphinx_html/_static/Anaconda_successful_install.jpg
 rocketcea/sphinx_html/_static/CEA_Methodology_(NASA_RP-1311).pdf
 rocketcea/sphinx_html/_static/CEA_User_Manual_(NASA_RP-1311).pdf
 rocketcea/sphinx_html/_static/CLF5_N2H4_cea_minus_ode.png
@@ -675,6 +693,7 @@ rocketcea/sphinx_html/_static/Pinj_over_Pc_Huzel_and_Huang.jpg
 rocketcea/sphinx_html/_static/TRW_Propellant_Performance_Summary.pdf
 rocketcea/sphinx_html/_static/add_mingw_bin.jpg
 rocketcea/sphinx_html/_static/ajax-loader.gif
+rocketcea/sphinx_html/_static/anaconda_prompt.jpg
 rocketcea/sphinx_html/_static/background_b01.png
 rocketcea/sphinx_html/_static/bad_mingw_path.jpg
 rocketcea/sphinx_html/_static/basic.css
@@ -705,6 +724,7 @@ rocketcea/sphinx_html/_static/env_vars.jpg
 rocketcea/sphinx_html/_static/fac_manual_option.jpg
 rocketcea/sphinx_html/_static/file.png
 rocketcea/sphinx_html/_static/find_rocketcea.jpg
+rocketcea/sphinx_html/_static/full_mingw_folder.jpg
 rocketcea/sphinx_html/_static/full_output_p_units.jpg
 rocketcea/sphinx_html/_static/generic_logo.svg
 rocketcea/sphinx_html/_static/jquery-1.11.1.js
@@ -747,6 +767,7 @@ rocketcea/sphinx_html/_static/search_env_vars_lhs.jpg
 rocketcea/sphinx_html/_static/searchtools.js
 rocketcea/sphinx_html/_static/set_env_for_f2py.jpg
 rocketcea/sphinx_html/_static/system_props.jpg
+rocketcea/sphinx_html/_static/underscore-1.13.1.js
 rocketcea/sphinx_html/_static/underscore-1.3.1.js
 rocketcea/sphinx_html/_static/underscore.js
 rocketcea/sphinx_html/_static/up-pressed.png

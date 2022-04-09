@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>QuickStart &#8212; RocketCEA v1.1.25 documentation</title>
+    <title>QuickStart &#8212; RocketCEA v1.1.26 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#install-compiler">Install Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-rocketcea">Install RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-batch-file">Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda-windows-batch-file">Anaconda Windows Batch File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
@@ -125,7 +126,7 @@
 <p class="admonition-title">Note</p>
 <p>On Windows, 32 bit python 3.8 and above are not supported.</p>
 </div>
-<p>For a Windows install, jump strait to <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
+<p>For a Windows install, jump straight to <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
 <div class="section" id="install-numpy-matplotlib">
 <h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>Because RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
@@ -162,10 +163,14 @@ on all platforms so that there are no FORTRAN incompatibilities between platform
 <p class="admonition-title">Important</p>
 <p>Windows users MUST put MinGW into environment PATH variable.
 (see: <a class="reference internal" href="installgfortran.html#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
-<p>C:MinGWmingw64bin  OR  C:MinGWmingw32bin</p>
-<p>and</p>
-<p>C:MinGWmingw64lib  OR  C:MinGWmingw32lib</p>
+<p>for 32 bit:
+C:\MinGW\mingw32\bin  AND
+C:\MinGW\mingw32\bin</p>
+<p>For 64 bit:
+C:\MinGW\mingw64\lib  AND
+C:\MinGW\mingw64\lib</p>
 </div>
+<img alt="_images/full_mingw_folder.jpg" src="_images/full_mingw_folder.jpg" />
 </div>
 <div class="section" id="install-rocketcea">
 <h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this headline">¶</a></h2>
@@ -188,7 +193,11 @@ on all platforms so that there are no FORTRAN incompatibilities between platform
 </div>
 <div class="section" id="windows-batch-file">
 <span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this headline">¶</a></h2>
-<p>RockeCEA on Windows can be problematic. Often the problem is in the PATH environment variable
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see “Anaconda Windows Batch File” section below.</p>
+</div>
+<p>RocketCEA on Windows can be problematic. Often the problem is in the PATH environment variable
 where the wrong files are found for the intended install, and even more often it is because
 the proper compiler build tools are not available.</p>
 <p>The Windows batch file below addresses both of those problems.</p>
@@ -212,7 +221,7 @@ and that MinGW 64 bit is installed at <strong>C:\MinGW\mingw64\bin</strong> and 
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Successfully tested on a clean Windows 10 with 64 bit python 3.9.7 on 9/16/2021</p>
+<p>9/16/2021: BAT File successful on Windows 10 with 64 bit python 3.8.10 and 3.9.7</p>
 </div>
 <div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">rem =============== RUN_SETUP_BUILD_WIN64.BAT ================</span>
 
@@ -240,6 +249,57 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 <p>The “trick” for installing RocketCEA on Windows seems to be pre-installing the dependency packages
 (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.</p>
 </div>
+</div>
+<div class="section" id="anaconda-windows-batch-file">
+<h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Permalink to this headline">¶</a></h2>
+<p>As stated above, the “trick” for installing RocketCEA on Windows seems
+to be pre-installing the dependency packages  (e.g. numpy, scipy and matplotlib)
+so that the pip options for rocketcea only apply to rocketcea.</p>
+<p>On Anaconda, many of the required dependencies are preinstalled.</p>
+<p>To test the required installs, open an
+Anaconda prompt, launch python and attempt to import each package.
+(An example is shown below for Anaconda with python 3.9)</p>
+<img alt="_images/Anaconda_check_installs.jpg" src="_images/Anaconda_check_installs.jpg" />
+<p>Notice that a fresh install of Anaconda does not include the
+<a class="reference external" href="https://pypi.org/project/Pillow/">pillow</a> package.</p>
+<p>use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">pillow</span>
+</pre></div>
+</div>
+<p>to install <a class="reference external" href="https://pypi.org/project/Pillow/">pillow</a> . The results will look
+something like the image below.</p>
+<img alt="_images/Anaconda_install_pillow.jpg" src="_images/Anaconda_install_pillow.jpg" />
+<p>With all the dependencies handled, the batch file can be much more simple
+than the one shown above. Before you can run it, you need to verify the location
+of the python folders under Anaconda.</p>
+<p>To find your python folder, open an Anaconda prompt, launch python, import sys
+and give the command “sys.executable” as in the image below.</p>
+<img alt="_images/Anaconda_find_python_exe.jpg" src="_images/Anaconda_find_python_exe.jpg" />
+<p>In my case, the path was:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Charlie</span>\<span class="n">anaconda3</span>
+</pre></div>
+</div>
+<p>Yours will likely be similar.</p>
+<p>For the final step, edit the batch file below to replace <strong>&lt;YourUserName&gt;</strong> with
+the user name shown in the python path above.</p>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">rem NOTICE: MUST Verify dependency installs prior to running this batch file.</span>
+
+<span class="k">SET</span> <span class="s2">&quot;MYPYTHONPATH=C:\Users\&lt;YourUserName&gt;\anaconda3&quot;</span>
+
+<span class="c1">rem Make sure that PATH is as simple as possible... For Anaconda notice &quot;\Libary\bin&quot;</span>
+<span class="k">set</span> <span class="nv">PATH</span><span class="p">=</span>C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;<span class="nv">%MYPYTHONPATH%</span>;<span class="nv">%MYPYTHONPATH%</span>\Scripts;<span class="nv">%MYPYTHONPATH%</span>\Library\bin
+
+pip install --global-option build_ext --global-option --compiler=mingw32 rocketcea
+
+<span class="c1">rem Test the compiled module</span>
+python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=&#39;LOX&#39;, fuelName=&#39;LH2&#39;); print(C.get_Isp())&quot;</span>
+</pre></div>
+</div>
+<p>Run the batch file and the results will hopefully be similar to the results
+shown below.</p>
+<img alt="_images/Anaconda_successful_install.jpg" src="_images/Anaconda_successful_install.jpg" />
+<p>Notice that the file ran the “quick test” at the bottom of the batch file and
+properly output the Isp of 374.30…</p>
 </div>
 <div class="section" id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
@@ -414,7 +474,7 @@ and Windows 10 will be able to install <a class="reference external" href="https
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.25 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

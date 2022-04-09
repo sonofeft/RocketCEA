@@ -39,11 +39,6 @@ div.document {
     -webkit-box-shadow: 2px 2px 5px #000;
 }
 
-div.documentwrapper {
-    float: left;
-    width: 100%;
-}
-
 div.bodywrapper {
     margin: 0 0 0 240px;
     border-left: 1px solid #ccc;
@@ -52,9 +47,6 @@ div.bodywrapper {
 div.body {
     margin: 0;
     padding: 0.5em 20px 20px 20px;
-}
-div.bodywrapper {
-    margin: 0 0 0 calc(210px + 30px);
 }
 
 div.related {
@@ -102,6 +94,7 @@ div.sphinxsidebarwrapper {
 }
 
 div.sphinxsidebar {
+    margin: 0;
     padding: 0.5em 12px 12px 12px;
     width: 210px;
     font-size: 1em;
@@ -409,10 +402,15 @@ p.versionchanged span.versionmodified {
 
 dl.field-list > dt {
     color: white;
+    padding-left: 0.5em;
+    padding-right: 5px;
     background-color: #82A0BE;
 }
 
 dl.field-list > dd {
+    padding-left: 0.5em;
+    margin-top: 0em;
+    margin-left: 0em;
     background-color: #f7f7f7;
 }
 

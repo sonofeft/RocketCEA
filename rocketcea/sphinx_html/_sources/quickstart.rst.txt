@@ -7,7 +7,7 @@ QuickStart
     
     On Windows, 32 bit python 3.8 and above are not supported.
     
-For a Windows install, jump strait to :ref:`link_windows_bat_file`
+For a Windows install, jump straight to :ref:`link_windows_bat_file`
 
 Install Numpy & Matplotlib
 --------------------------
@@ -54,11 +54,17 @@ Click: :ref:`link_installgfortran` to see install instructions for a few platfor
     Windows users MUST put MinGW into environment PATH variable.
     (see: :ref:`link_windowspath`)
     
-    C:\MinGW\mingw64\bin  OR  C:\MinGW\mingw32\bin
+    for 32 bit:
+    C:\\MinGW\\mingw32\\bin  AND
+    C:\\MinGW\\mingw32\\bin
     
-    and
+    For 64 bit:
+    C:\\MinGW\\mingw64\\lib  AND 
+    C:\\MinGW\\mingw64\\lib
+
+
+.. image:: ./_static/full_mingw_folder.jpg
     
-    C:\MinGW\mingw64\lib  OR  C:\MinGW\mingw32\lib
 
 
 
@@ -86,7 +92,11 @@ Try a quick test of the install by pasting the following into a command terminal
 Windows Batch File
 ------------------
 
-RockeCEA on Windows can be problematic. Often the problem is in the PATH environment variable
+.. note::
+
+    for `Anaconda <https://www.anaconda.com/products/individual>`_ on Windows, see "Anaconda Windows Batch File" section below.
+
+RocketCEA on Windows can be problematic. Often the problem is in the PATH environment variable
 where the wrong files are found for the intended install, and even more often it is because 
 the proper compiler build tools are not available.
 
@@ -116,7 +126,7 @@ Note that it starts by uninstalling rocketcea in case bad files are left from pr
 
 .. note::
 
-    Successfully tested on a clean Windows 10 with 64 bit python 3.9.7 on 9/16/2021
+    9/16/2021: BAT File successful on Windows 10 with 64 bit python 3.8.10 and 3.9.7
 
 .. code-block:: batch
 
@@ -146,6 +156,74 @@ Note that it starts by uninstalling rocketcea in case bad files are left from pr
   The "trick" for installing RocketCEA on Windows seems to be pre-installing the dependency packages 
   (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.
 
+
+Anaconda Windows Batch File
+---------------------------
+
+As stated above, the "trick" for installing RocketCEA on Windows seems 
+to be pre-installing the dependency packages  (e.g. numpy, scipy and matplotlib) 
+so that the pip options for rocketcea only apply to rocketcea.
+
+On Anaconda, many of the required dependencies are preinstalled.
+
+To test the required installs, open an 
+Anaconda prompt, launch python and attempt to import each package.
+(An example is shown below for Anaconda with python 3.9)
+
+.. image:: ./_static/Anaconda_check_installs.jpg
+    
+Notice that a fresh install of Anaconda does not include the 
+`pillow <https://pypi.org/project/Pillow/>`_ package.
+
+use the command::
+
+    conda install -c anaconda pillow
+
+to install `pillow <https://pypi.org/project/Pillow/>`_ . The results will look
+something like the image below.
+
+.. image:: ./_static/Anaconda_install_pillow.jpg
+
+With all the dependencies handled, the batch file can be much more simple 
+than the one shown above. Before you can run it, you need to verify the location
+of the python folders under Anaconda.
+
+To find your python folder, open an Anaconda prompt, launch python, import sys 
+and give the command "sys.executable" as in the image below.
+
+.. image:: ./_static/Anaconda_find_python_exe.jpg
+
+In my case, the path was::
+
+    C:\Users\Charlie\anaconda3
+
+Yours will likely be similar.
+
+For the final step, edit the batch file below to replace **<YourUserName>** with 
+the user name shown in the python path above.
+
+.. code-block:: batch
+
+    rem NOTICE: MUST Verify dependency installs prior to running this batch file.
+
+    SET "MYPYTHONPATH=C:\Users\<YourUserName>\anaconda3"
+
+    rem Make sure that PATH is as simple as possible... For Anaconda notice "\Libary\bin"
+    set PATH=C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts;%MYPYTHONPATH%\Library\bin
+
+    pip install --global-option build_ext --global-option --compiler=mingw32 rocketcea
+
+    rem Test the compiled module
+    python -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"
+
+Run the batch file and the results will hopefully be similar to the results 
+shown below.
+
+
+.. image:: ./_static/Anaconda_successful_install.jpg
+
+Notice that the file ran the "quick test" at the bottom of the batch file and 
+properly output the Isp of 374.30...
 
 Getting Help
 ------------

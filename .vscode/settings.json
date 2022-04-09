@@ -1,13 +1,19 @@
 {
     "restructuredtext.confPath": "D:\\21_py_proj\\RocketUnits\\docs",
     "cSpell.words": [
+        "Boop",
         "conda",
+        "Cstar",
         "gfortran",
+        "indx",
         "installgfortran",
+        "Ivac",
+        "massfrac",
         "matplotlib",
         "Matplotlib",
         "MYPYTHONPATH",
         "rocketcea",
         "windowspath"
-    ]
+    ],
+    "esbonio.sphinx.confDir": "D:\\21_py_proj\\RocketUnits\\docs"
 }
