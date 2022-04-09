@@ -4,6 +4,7 @@
         "Boop",
         "conda",
         "Cstar",
+        "FLOX",
         "gfortran",
         "indx",
         "installgfortran",
@@ -13,6 +14,8 @@
         "Matplotlib",
         "MYPYTHONPATH",
         "rocketcea",
+        "vals",
+        "vname",
         "windowspath"
     ],
     "esbonio.sphinx.confDir": "D:\\21_py_proj\\RocketUnits\\docs"

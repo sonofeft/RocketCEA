@@ -96,6 +96,11 @@ def add_new_card( name, card_str, propD ):
     #: card_str = a single multiline string containing CEA input card for new propellant
     #: propD = dictionary to receive new propellant (e.g. oxCards, fuelCards or propCards)
     """
+    
+    # if name is already in propD, empty out the memoized run cache
+    # (i.e. if propellant is redefined, then old runs are not accurate)
+    if name in propD:
+        _CacheObjDict.clear()
 
     sL = card_str.split('\n')
     cardL = []
