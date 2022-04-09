@@ -2,27 +2,27 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Functions &#8212; RocketCEA v1.1.26 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RocketCEA Functions &#8212; RocketCEA v1.1.27 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Copyright" href="copyright.html" />
     <link rel="prev" title="Parasol Example" href="parasol_example.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,9 +40,894 @@
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.27 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">RocketCEA Functions</a></li> 
       </ul>
-    </div>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rocketcea-functions">
+<h1>RocketCEA Functions<a class="headerlink" href="#rocketcea-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-rocketcea.cea_obj">
+<span id="cea-obj-functions"></span><h2>CEA_Obj Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h2>
+<p>RocketCEA wraps the NASA FORTRAN CEA code and provides some useful tools.</p>
+<p>RocketCEA makes direct calls to the FORTRAN CEA code in “rocket” mode to calculate
+Isp, Cstar, Tcham etc. and provides tools to help determine useful
+mixture ratio range, optimum MR and more.</p>
+<p>See the NASA CEA code at: <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">https://www1.grc.nasa.gov/research-and-engineering/ceaweb/</a></p>
+<p>RocketCEA
+Copyright (C) 2005-2018  Applied Python</p>
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+<hr class="docutils" />
+<dl class="py class">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">CEA_Obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oxName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useFastLookup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makeOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_debug_prints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp">
+<span class="sig-name descname"><span class="pre">estimate_Ambient_Isp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pamb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspAmb, mode)</span>
+<span class="c1">#: Use throat gam to run ideal separation calculations.</span>
+<span class="c1">#: mode is a string containing, UnderExpanded, OverExpanded, or Separated</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: Pamb ambient pressure (e.g. sea level=14.7 psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag, 0=equilibrium, 1=frozen </span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc">
+<span class="sig-name descname"><span class="pre">getFrozen_IvacCstrTc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the tuple (IspFrozen, Cstar, Tcomb)in(sec, ft/sec, degR)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.getFrozen_PambCf">
+<span class="sig-name descname"><span class="pre">getFrozen_PambCf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pamb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_PambCf" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the Thrust Coefficient (CF) for frozen chemistry and ambient pressure</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: Pamb ambient pressure (e.g. sea level=14.7 psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.getMRforER">
+<span class="sig-name descname"><span class="pre">getMRforER</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ERphi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ERr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getMRforER" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the value of mixture ratio that applies to the input equivalence ratio.</span>
+<span class="c1">#: Can be ERr or ERphi (valence basis and mass basis respectively)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp">
+<span class="sig-name descname"><span class="pre">get_Chamber_Cp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the heat capacity in the chamber(BTU/lbm degR)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Density">
+<span class="sig-name descname"><span class="pre">get_Chamber_Density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Density" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the density in the chamber(lbm/cuft)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_H">
+<span class="sig-name descname"><span class="pre">get_Chamber_H</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_H" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the enthalpy in the chamber (BTU/lbm)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber">
+<span class="sig-name descname"><span class="pre">get_Chamber_MachNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return  mach numbers at the chamber</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma">
+<span class="sig-name descname"><span class="pre">get_Chamber_MolWt_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the chamber (lbm/lbmole, -)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel">
+<span class="sig-name descname"><span class="pre">get_Chamber_SonicVel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the sonic velocity in the chamber (ft/sec)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Transport">
+<span class="sig-name descname"><span class="pre">get_Chamber_Transport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Transport" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
+<span class="c1">#: in the chamber. (units are default printout units)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio... has no effect on chamber properties</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Cstar">
+<span class="sig-name descname"><span class="pre">get_Cstar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Cstar" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Cstar (ft/sec)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Densities">
+<span class="sig-name descname"><span class="pre">get_Densities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Densities" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of densities at the chamber, throat and exit(lbm/cuft)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Enthalpies">
+<span class="sig-name descname"><span class="pre">get_Enthalpies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Enthalpies" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of enthalpies at the chamber, throat and exit (BTU/lbm)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Entropies">
+<span class="sig-name descname"><span class="pre">get_Entropies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Entropies" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of entropies at the chamber, throat and exit CAL/(G)(K)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Exit_Transport">
+<span class="sig-name descname"><span class="pre">get_Exit_Transport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Exit_Transport" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
+<span class="c1">#: at the exit. (units are default printout units)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_HeatCapacities">
+<span class="sig-name descname"><span class="pre">get_HeatCapacities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_HeatCapacities" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacities at the chamber, throat and exit(BTU/lbm degR)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Isp">
+<span class="sig-name descname"><span class="pre">get_Isp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Isp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return IspVac (sec)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc">
+<span class="sig-name descname"><span class="pre">get_IvacCstrTc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the tuple (IspVac, Cstar, Tcomb)in(sec, ft/sec, degR)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam">
+<span class="sig-name descname"><span class="pre">get_IvacCstrTc_ChmMwGam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: mw and gam apply to chamber.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam">
+<span class="sig-name descname"><span class="pre">get_IvacCstrTc_ThtMwGam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: mw and gam apply to throat.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam">
+<span class="sig-name descname"><span class="pre">get_IvacCstrTc_exitMwGam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: mw and gam apply to nozzle exit.</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_MachNumber">
+<span class="sig-name descname"><span class="pre">get_MachNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_MachNumber" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return nozzle exit mach number.</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_PambCf">
+<span class="sig-name descname"><span class="pre">get_PambCf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pamb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_PambCf" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the Thrust Coefficient (CF) for equilibrium chemistry and ambient pressure</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: Pamb ambient pressure (e.g. sea level=14.7 psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_PcOvPe">
+<span class="sig-name descname"><span class="pre">get_PcOvPe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_PcOvPe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Pc / Pexit.</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Pinj_over_Pcomb">
+<span class="sig-name descname"><span class="pre">get_Pinj_over_Pcomb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Pinj_over_Pcomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pressure ratio of Pinjector / Pchamber.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_SonicVelocities">
+<span class="sig-name descname"><span class="pre">get_SonicVelocities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SonicVelocities" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of sonic velocities at the chamber, throat and exit (ft/sec)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions">
+<span class="sig-name descname"><span class="pre">get_SpeciesMassFractions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Returns species mass fractions at the injector face, chamber, throat and exit.</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+<span class="c1">#: Returns 2 dictionaries</span>
+<span class="c1">#: molWtD dictionary: index=species: value=molecular weight</span>
+<span class="c1">#: massFracD dictionary: index=species: value=[massfrac_injface, massfrac_chm, massfrac_tht, massfrac_exit]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions">
+<span class="sig-name descname"><span class="pre">get_SpeciesMoleFractions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Returns species mole fractions at the injector face, chamber, throat and exit.</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+<span class="c1">#: Returns 2 dictionaries</span>
+<span class="c1">#: molWtD dictionary: index=species: value=molecular weight</span>
+<span class="c1">#: moleFracD dictionary: index=species: value=[molefrac_injface, molefrac_chm, molefrac_tht, molefrac_exit]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Tcomb">
+<span class="sig-name descname"><span class="pre">get_Tcomb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Tcomb" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Tcomb (degR)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Temperatures">
+<span class="sig-name descname"><span class="pre">get_Temperatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Temperatures" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of temperatures at the chamber, throat and exit (degR)</span>
+<span class="c1">#: (Note frozen flag determins whether Texit is equilibrium or Frozen temperature)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Throat_Isp">
+<span class="sig-name descname"><span class="pre">get_Throat_Isp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Isp" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the IspVac for the throat(sec).</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma">
+<span class="sig-name descname"><span class="pre">get_Throat_MolWt_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the throat (lbm/lbmole, -)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe">
+<span class="sig-name descname"><span class="pre">get_Throat_PcOvPe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Pc/Pexit at throat.</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Throat_Transport">
+<span class="sig-name descname"><span class="pre">get_Throat_Transport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Transport" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
+<span class="c1">#: in the throat. (units are default printout units)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio... has no effect on throat properties</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string description of the propellant(s).  e.g. ‘LOX / MMH’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe">
+<span class="sig-name descname"><span class="pre">get_eps_at_PcOvPe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PcOvPe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Given a Pc/Pexit, return the Area Ratio that applies.</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_eqratio">
+<span class="sig-name descname"><span class="pre">get_eqratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_eqratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns BOTH ERr and ERphi (valence basis and mass basis respectively)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma">
+<span class="sig-name descname"><span class="pre">get_exit_MolWt_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the nozzle exit (lbm/lbmole, -)</span>
+<span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: MR is only used for ox/fuel combos.</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_full_cea_output">
+<span class="sig-name descname"><span class="pre">get_full_cea_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PcOvPe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_transport</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'calories'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_mass_frac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_full_cea_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the full output file created by CEA. Return as a string.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Pc = combustion end pressure</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: pc_units = &#39;psia&#39;, &#39;bar&#39;, &#39;atm&#39;, &#39;mmh&#39;(mm of mercury)</span>
+<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
+<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.setupCards">
+<span class="sig-name descname"><span class="pre">setupCards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PcOvPe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ERphi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ERr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_transport</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'calories'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_mass_frac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.setupCards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up card deck and call CEA FORTRAN code.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Pc = combustion end pressure (psia)</span>
+<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
+<span class="c1">#: if PcOvPe has a value, use it instead of eps to run case</span>
+<span class="c1">#: ERphi = Equivalence ratios in terms of fuel-to-oxidant weight ratios.</span>
+<span class="c1">#: ERr = Chemical equivalence ratios in terms of valences.</span>
+<span class="c1">#: pc_units = &#39;psia&#39;, &#39;bar&#39;, &#39;atm&#39;, &#39;mmh&#39;(mm of mercury)</span>
+<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
+<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.add_new_card">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">add_new_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propD</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_card" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Add or Replace a propellant.</span>
+<span class="c1">#: name = string name (e.g. oxName, fuelName or propName)</span>
+<span class="c1">#: card_str = a single multiline string containing CEA input card for new propellant</span>
+<span class="c1">#: propD = dictionary to receive new propellant (e.g. oxCards, fuelCards or propCards)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.add_new_fuel">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">add_new_fuel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_fuel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Fuel Card</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.add_new_oxidizer">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">add_new_oxidizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_oxidizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Oxidizer Card</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.add_new_propellant">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">add_new_propellant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_propellant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Propellant Card</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.getCacheDict">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">getCacheDict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.getCacheDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns internal cache of previously called calculations.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.print_py_cea_vars">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">print_py_cea_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.print_py_cea_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all the interface variables to the FORTRAN pyd file.
+Normally used for debugging or verifying FORTRAN internal values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.cea_obj.set_py_cea_line">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj.</span></span><span class="sig-name descname"><span class="pre">set_py_cea_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.set_py_cea_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>make sure that trailing blanks are on added lines</p>
+</dd></dl>
+
+</div>
+<div class="section" id="cea-obj-with-units">
+<h2>CEA_Obj With Units<a class="headerlink" href="#cea-obj-with-units" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rocketcea.cea_obj_w_units.CEA_Obj">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj_w_units.</span></span><span class="sig-name descname"><span class="pre">CEA_Obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oxName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useFastLookup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makeOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isp_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cstar_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ft/sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sonic_velocity_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ft/sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enthalpy_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BTU/lbm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lbm/cuft'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specific_heat_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BTU/lbm</span> <span class="pre">degR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viscosity_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'millipoise'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thermal_cond_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mcal/cm-K-s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_debug_prints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
+<p>This object wraps the English unit version of CEA_Obj to enable desired user units.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.cea_obj_w_units.CEA_Obj.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oxName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useFastLookup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makeOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isp_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cstar_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ft/sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sonic_velocity_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ft/sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enthalpy_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BTU/lbm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lbm/cuft'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specific_heat_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BTU/lbm</span> <span class="pre">degR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viscosity_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'millipoise'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thermal_cond_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mcal/cm-K-s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_debug_prints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</span>
+<span class="c1">#: This object wraps the English unit version of CEA_Obj to enable desired user units.</span>
+<span class="c1">#: Same as CEA_Obj with standard units except, input and output units can be specified.</span>
+<span class="c1">#:  parameter             default             options</span>
+<span class="c1">#: isp_units            = &#39;sec&#39;,         # N-s/kg, m/s, km/s</span>
+<span class="c1">#: cstar_units          = &#39;ft/sec&#39;,      # m/s</span>
+<span class="c1">#: pressure_units       = &#39;psia&#39;,        # MPa, KPa, Pa, Bar, Atm, Torr</span>
+<span class="c1">#: temperature_units    = &#39;degR&#39;,        # K, C, F</span>
+<span class="c1">#: sonic_velocity_units = &#39;ft/sec&#39;,      # m/s</span>
+<span class="c1">#: enthalpy_units       = &#39;BTU/lbm&#39;,     # J/g, kJ/kg, J/kg, kcal/kg, cal/g</span>
+<span class="c1">#: density_units        = &#39;lbm/cuft&#39;,    # g/cc, sg, kg/m^3</span>
+<span class="c1">#: specific_heat_units  = &#39;BTU/lbm degR&#39; # kJ/kg-K, cal/g-C, J/kg-K (# note: cal/g K == BTU/lbm degR)</span>
+<span class="c1">#: viscosity_units      = &#39;millipoise&#39;   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise</span>
+<span class="c1">#: thermal_cond_units   = &#39;mcal/cm-K-s&#39;  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC</span>
+<span class="c1">#: fac_CR, Contraction Ratio of finite area combustor (None=infinite)</span>
+<span class="c1">#: if make_debug_prints is True, print debugging info to terminal.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rocketcea.units">
+<span id="user-units"></span><h2>User Units<a class="headerlink" href="#module-rocketcea.units" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.units.add_default_unit">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.units.</span></span><span class="sig-name descname"><span class="pre">add_default_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">akaL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_default_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize unitsConvFactD for various default units.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.units.add_user_units">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.units.</span></span><span class="sig-name descname"><span class="pre">add_user_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_user_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new units to dictionary of default_units.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.units.get_conv_factor">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.units.</span></span><span class="sig-name descname"><span class="pre">get_conv_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_units</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.get_conv_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get multiplier and offset for user_units.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rocketcea.units.Units">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rocketcea.units.</span></span><span class="sig-name descname"><span class="pre">Units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MPa'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_over_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0068947572</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.units.Units.dval_to_uval">
+<span class="sig-name descname"><span class="pre">dval_to_uval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">def_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.dval_to_uval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in RockeCEA default units, return value in user units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.units.Units.show_dval_to_uval">
+<span class="sig-name descname"><span class="pre">show_dval_to_uval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">def_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.show_dval_to_uval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in RockeCEA default units, print conversion user units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.units.Units.show_uval_to_dval">
+<span class="sig-name descname"><span class="pre">show_uval_to_dval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.show_uval_to_dval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in user units, print conversion to RockeCEA default units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rocketcea.units.Units.uval_to_dval">
+<span class="sig-name descname"><span class="pre">uval_to_dval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.uval_to_dval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value in user units, return a value in RockeCEA default units.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rocketcea.blends">
+<span id="blend-functions"></span><h2>Blend Functions<a class="headerlink" href="#module-rocketcea.blends" title="Permalink to this headline">¶</a></h2>
+<p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.addFLOX_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addFLOX_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oxName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addFLOX_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new add FLOX oxidizer to the CEA_Obj.cea_deck
+FLOX70, for example, represents 70% F2 and 30% LOX</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.addHYD_AmmoniaBlend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addHYD_AmmoniaBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addHYD_AmmoniaBlend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new N2H4 + undissociated Ammonia (UA) Blend to the CEA_Obj.cea_deck.
+Use name like “HYD30” to represent hydrazine with 30% dissociated ammonia.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.addMMH_N2H4_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addMMH_N2H4_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fuelName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addMMH_N2H4_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new MMH + N2H4 Blend to the CEA_Obj.cea_deck
+Use name like M10 to represent 10% MMH and 90% N2H4</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.addMON_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addMON_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oxName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addMON_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new MON oxidizer Blend to the CEA_Obj.cea_deck
+MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.addPeroxideBlend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addPeroxideBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oxName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addPeroxideBlend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new Peroxide Blend to the CEA_Obj.cea_deck.
+Use name like Peroxide95 to represent 95% Peroxide and 5% water.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.all_in_dict">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">all_in_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nameL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.all_in_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>If all members of nameL are keys in D, then return True, otherwise False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getFloatTokenFromCards">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getFloatTokenFromCards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'t(k)'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFloatTokenFromCards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the float value of the desired token. (e.g. ‘t(k)’ )</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getFuelHfCalPerMole">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getFuelHfCalPerMole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelHfCalPerMole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fuel float value of the reference temperature ‘h,cal’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getFuelRefTempDegK">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getFuelRefTempDegK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelRefTempDegK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fuel float value of the reference temperature ‘t(k)’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getOxHfCalPerMole">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getOxHfCalPerMole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxHfCalPerMole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ox float value of the reference temperature ‘h,cal’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getOxRefTempDegK">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getOxRefTempDegK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxRefTempDegK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the oxidizer float value of the reference temperature ‘t(k)’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getPropHfCalPerMole">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getPropHfCalPerMole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropHfCalPerMole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the propellant float value of the reference temperature ‘h,cal’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.getPropRefTempDegK">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getPropRefTempDegK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropRefTempDegK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the propellant float value of the reference temperature ‘t(k)’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.get_propellant_name">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">get_propellant_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PcentL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.get_propellant_name" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the name of the blend defined by &quot;Name&quot;. (string or list of strings)</span>
+<span class="c1">#: Might be a defined blend such as MON25 or FLOX80.</span>
+<span class="c1">#: Might be in the library such as &quot;MMH&quot; or &quot;CLF5&quot;</span>
+<span class="c1">#: Might need to create a long name from percentages Name=[&quot;N2H4&quot;,&quot;NH3&quot;], PcentL=[90,10]</span>
+<span class="c1">#:   (if new name, add card to oxCards, fuelCards or propCards)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.giveCardMassPercent">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">giveCardMassPercent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelPcent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.giveCardMassPercent" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the value of mass percentage (wt%) on propellant card.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.giveCardNewHfAndTref">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">giveCardNewHfAndTref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newHfCalPerMole</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTrefDegR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.giveCardNewHfAndTref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the values of “h,cal” and “t(k)” on propellant cards.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.isAPeroxide_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isAPeroxide_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAPeroxide_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if name is for a blend of peroxide and water.
+Peroxide98 and Peroxide90 are in standard deck, however can make Peroxide95 etc. “on-the-fly”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.isAnMMH_N2H4_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isAnMMH_N2H4_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAnMMH_N2H4_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if name is for a blend of MMH + N2H4
+M20 is in standard deck, however can make M10, M30 etc. “on-the-fly”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.isFLOX_Ox_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isFLOX_Ox_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isFLOX_Ox_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>check for FLOX oxidizer (e.g. FLOX70 or FLOX82.5)
+No FLOX blends are in standard deck, however can make FLOX70, FLOX82.5 etc. “on-the-fly”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.isMON_Ox_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isMON_Ox_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isMON_Ox_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>check for MON oxidizer (MON1 to MON40)  48% is theoretical max
+MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.is_HYD_Ammonia_Blend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">is_HYD_Ammonia_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.is_HYD_Ammonia_Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if name is for a blend of N2H4 and undissociated Ammonia (UA)
+HYD40 is in standard deck, however can make HYD30, HYD50 etc. “on-the-fly”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.makeCardForNewTemperature">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">makeCardForNewTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ceaName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CH4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTdegR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">536.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CpAve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.791</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MolWt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16.04</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.makeCardForNewTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new propellant card that reflects a change in temperature of the propellant
+from the original reference temperature on the original card to the new input value
+of temperature, newTdegR.</p>
+<p>CpAve = BTU/lbm degR</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.newFuelBlend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newFuelBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fuelL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelPcentL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newFuelBlend" title="Permalink to this definition">¶</a></dt>
+<dd><p>create fuel blends such as M20  given the fuel names and weight percentages.
+e.g. fuelL=[“MMH”,”N2H4”], fuelPcentL=[20,80]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.newFuelWithNewState">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newFuelWithNewState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newHfCalPerMole</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTrefDegR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newFuelWithNewState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take name as it exists in fuelCards and change Hf and Tref to be
+the input values newHfCalPerMole and newTrefDegR</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.newOxBlend">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newOxBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oxL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oxPcentL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newOxBlend" title="Permalink to this definition">¶</a></dt>
+<dd><p>create ox blends such as MON25 given the oxidizer names and weight percentages.
+e.g. oxL=[“N2O4”,”N2O3”], oxPcentL=[36.67,63.33]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.newOxWithNewState">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newOxWithNewState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newHfCalPerMole</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTrefDegR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newOxWithNewState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take name as it exists in oxCards and change Hf and Tref to be
+the input values newHfCalPerMole and newTrefDegR</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.newPropWithNewState">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newPropWithNewState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newHfCalPerMole</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTrefDegR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newPropWithNewState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take name as it exists in fuelCards or oxCards and change Hf and Tref to be
+the input values newHfCalPerMole and newTrefDegR</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.renamePropIfNewHfOrTrefInName">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">renamePropIfNewHfOrTrefInName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.renamePropIfNewHfOrTrefInName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for “h,cal OR “t(k)”” in name.
+If present, then create new modified name and create new
+card in cardDict if necessary</p>
+<p>for example to tweak LH2 run might look like:
+“LH2 h,cal=-2155.0  t(k)=21.0”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.tightenUpEquals">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">tightenUpEquals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.tightenUpEquals" title="Permalink to this definition">¶</a></dt>
+<dd><p>make sure there’s no spaces around equal signs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rocketcea.blends.turnCardsIntoTokenL">
+<span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">turnCardsIntoTokenL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.turnCardsIntoTokenL" title="Permalink to this definition">¶</a></dt>
+<dd><p>turn the card list into one long list of tokens</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
@@ -96,895 +981,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="rocketcea-functions">
-<h1>RocketCEA Functions<a class="headerlink" href="#rocketcea-functions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-rocketcea.cea_obj">
-<span id="cea-obj-functions"></span><h2>CEA_Obj Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h2>
-<p>RocketCEA wraps the NASA FORTRAN CEA code and provides some useful tools.</p>
-<p>RocketCEA makes direct calls to the FORTRAN CEA code in “rocket” mode to calculate
-Isp, Cstar, Tcham etc. and provides tools to help determine useful
-mixture ratio range, optimum MR and more.</p>
-<p>See the NASA CEA code at: <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">https://www1.grc.nasa.gov/research-and-engineering/ceaweb/</a></p>
-<p>RocketCEA
-Copyright (C) 2005-2018  Applied Python</p>
-<p>This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.</p>
-<p>This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.</p>
-<p>You should have received a copy of the GNU General Public License
-along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
-<hr class="docutils" />
-<dl class="class">
-<dt id="rocketcea.cea_obj.CEA_Obj">
-<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">make_debug_prints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj" title="Permalink to this definition">¶</a></dt>
-<dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp">
-<code class="sig-name descname">estimate_Ambient_Isp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">Pamb=14.7</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspAmb, mode)</span>
-<span class="c1">#: Use throat gam to run ideal separation calculations.</span>
-<span class="c1">#: mode is a string containing, UnderExpanded, OverExpanded, or Separated</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: Pamb ambient pressure (e.g. sea level=14.7 psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag, 0=equilibrium, 1=frozen </span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc">
-<code class="sig-name descname">getFrozen_IvacCstrTc</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the tuple (IspFrozen, Cstar, Tcomb)in(sec, ft/sec, degR)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.getFrozen_PambCf">
-<code class="sig-name descname">getFrozen_PambCf</code><span class="sig-paren">(</span><em class="sig-param">Pamb=0.0</em>, <em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_PambCf" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the Thrust Coefficient (CF) for frozen chemistry and ambient pressure</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: Pamb ambient pressure (e.g. sea level=14.7 psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.getMRforER">
-<code class="sig-name descname">getMRforER</code><span class="sig-paren">(</span><em class="sig-param">ERphi=None</em>, <em class="sig-param">ERr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.getMRforER" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the value of mixture ratio that applies to the input equivalence ratio.</span>
-<span class="c1">#: Can be ERr or ERphi (valence basis and mass basis respectively)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp">
-<code class="sig-name descname">get_Chamber_Cp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the heat capacity in the chamber(BTU/lbm degR)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Density">
-<code class="sig-name descname">get_Chamber_Density</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Density" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the density in the chamber(lbm/cuft)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_H">
-<code class="sig-name descname">get_Chamber_H</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_H" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the enthalpy in the chamber (BTU/lbm)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber">
-<code class="sig-name descname">get_Chamber_MachNumber</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return  mach numbers at the chamber</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma">
-<code class="sig-name descname">get_Chamber_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the chamber (lbm/lbmole, -)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel">
-<code class="sig-name descname">get_Chamber_SonicVel</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the sonic velocity in the chamber (ft/sec)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Chamber_Transport">
-<code class="sig-name descname">get_Chamber_Transport</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Transport" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
-<span class="c1">#: in the chamber. (units are default printout units)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio... has no effect on chamber properties</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Cstar">
-<code class="sig-name descname">get_Cstar</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Cstar" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Cstar (ft/sec)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Densities">
-<code class="sig-name descname">get_Densities</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Densities" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of densities at the chamber, throat and exit(lbm/cuft)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Enthalpies">
-<code class="sig-name descname">get_Enthalpies</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Enthalpies" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of enthalpies at the chamber, throat and exit (BTU/lbm)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Entropies">
-<code class="sig-name descname">get_Entropies</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Entropies" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of entropies at the chamber, throat and exit CAL/(G)(K)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Exit_Transport">
-<code class="sig-name descname">get_Exit_Transport</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Exit_Transport" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
-<span class="c1">#: at the exit. (units are default printout units)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_HeatCapacities">
-<code class="sig-name descname">get_HeatCapacities</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_HeatCapacities" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacities at the chamber, throat and exit(BTU/lbm degR)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Isp">
-<code class="sig-name descname">get_Isp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Isp" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return IspVac (sec)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc">
-<code class="sig-name descname">get_IvacCstrTc</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the tuple (IspVac, Cstar, Tcomb)in(sec, ft/sec, degR)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam">
-<code class="sig-name descname">get_IvacCstrTc_ChmMwGam</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: mw and gam apply to chamber.</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam">
-<code class="sig-name descname">get_IvacCstrTc_ThtMwGam</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: mw and gam apply to throat.</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam">
-<code class="sig-name descname">get_IvacCstrTc_exitMwGam</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (IspVac, Cstar, Tcomb, mw, gam)in(sec, ft/sec, degR, lbm/lbmole, -)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: mw and gam apply to nozzle exit.</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_MachNumber">
-<code class="sig-name descname">get_MachNumber</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_MachNumber" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return nozzle exit mach number.</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_PambCf">
-<code class="sig-name descname">get_PambCf</code><span class="sig-paren">(</span><em class="sig-param">Pamb=14.7</em>, <em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_PambCf" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the Thrust Coefficient (CF) for equilibrium chemistry and ambient pressure</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: Pamb ambient pressure (e.g. sea level=14.7 psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_PcOvPe">
-<code class="sig-name descname">get_PcOvPe</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_PcOvPe" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Pc / Pexit.</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Pinj_over_Pcomb">
-<code class="sig-name descname">get_Pinj_over_Pcomb</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Pinj_over_Pcomb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the pressure ratio of Pinjector / Pchamber.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_SonicVelocities">
-<code class="sig-name descname">get_SonicVelocities</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SonicVelocities" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of sonic velocities at the chamber, throat and exit (ft/sec)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions">
-<code class="sig-name descname">get_SpeciesMassFractions</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">min_fraction=5e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Returns species mass fractions at the injector face, chamber, throat and exit.</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-<span class="c1">#: Returns 2 dictionaries</span>
-<span class="c1">#: molWtD dictionary: index=species: value=molecular weight</span>
-<span class="c1">#: massFracD dictionary: index=species: value=[massfrac_injface, massfrac_chm, massfrac_tht, massfrac_exit]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions">
-<code class="sig-name descname">get_SpeciesMoleFractions</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">min_fraction=5e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Returns species mole fractions at the injector face, chamber, throat and exit.</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-<span class="c1">#: Returns 2 dictionaries</span>
-<span class="c1">#: molWtD dictionary: index=species: value=molecular weight</span>
-<span class="c1">#: moleFracD dictionary: index=species: value=[molefrac_injface, molefrac_chm, molefrac_tht, molefrac_exit]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Tcomb">
-<code class="sig-name descname">get_Tcomb</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Tcomb" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Tcomb (degR)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Temperatures">
-<code class="sig-name descname">get_Temperatures</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Temperatures" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of temperatures at the chamber, throat and exit (degR)</span>
-<span class="c1">#: (Note frozen flag determins whether Texit is equilibrium or Frozen temperature)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_Isp">
-<code class="sig-name descname">get_Throat_Isp</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Isp" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the IspVac for the throat(sec).</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma">
-<code class="sig-name descname">get_Throat_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the throat (lbm/lbmole, -)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe">
-<code class="sig-name descname">get_Throat_PcOvPe</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return Pc/Pexit at throat.</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_Throat_Transport">
-<code class="sig-name descname">get_Throat_Transport</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Transport" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
-<span class="c1">#: in the throat. (units are default printout units)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio... has no effect on throat properties</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_description">
-<code class="sig-name descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a string description of the propellant(s).  e.g. ‘LOX / MMH’</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe">
-<code class="sig-name descname">get_eps_at_PcOvPe</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">PcOvPe=1000.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Given a Pc/Pexit, return the Area Ratio that applies.</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_eqratio">
-<code class="sig-name descname">get_eqratio</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_eqratio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns BOTH ERr and ERphi (valence basis and mass basis respectively)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma">
-<code class="sig-name descname">get_exit_MolWt_gamma</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: return the tuple (mw, gam) for the nozzle exit (lbm/lbmole, -)</span>
-<span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: MR is only used for ox/fuel combos.</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.get_full_cea_output">
-<code class="sig-name descname">get_full_cea_output</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">subar=None</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em>, <em class="sig-param">show_transport=1</em>, <em class="sig-param">pc_units='psia'</em>, <em class="sig-param">output='calories'</em>, <em class="sig-param">show_mass_frac=False</em>, <em class="sig-param">fac_CR=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_full_cea_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the full output file created by CEA. Return as a string.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Pc = combustion end pressure</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: pc_units = &#39;psia&#39;, &#39;bar&#39;, &#39;atm&#39;, &#39;mmh&#39;(mm of mercury)</span>
-<span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat = flag 0=frozen in chamber, 1=frozen at throat</span>
-<span class="c1">#: fac_CR = Contraction Ratio of finite area combustor, (None=infinite)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.cea_obj.CEA_Obj.setupCards">
-<code class="sig-name descname">setupCards</code><span class="sig-paren">(</span><em class="sig-param">Pc=100.0</em>, <em class="sig-param">MR=1.0</em>, <em class="sig-param">eps=40.0</em>, <em class="sig-param">subar=None</em>, <em class="sig-param">PcOvPe=None</em>, <em class="sig-param">frozen=0</em>, <em class="sig-param">ERphi=None</em>, <em class="sig-param">ERr=None</em>, <em class="sig-param">frozenAtThroat=0</em>, <em class="sig-param">short_output=0</em>, <em class="sig-param">show_transport=0</em>, <em class="sig-param">pc_units='psia'</em>, <em class="sig-param">output='calories'</em>, <em class="sig-param">show_mass_frac=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.setupCards" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set up card deck and call CEA FORTRAN code.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Pc = combustion end pressure (psia)</span>
-<span class="c1">#: eps = Nozzle Expansion Area Ratio</span>
-<span class="c1">#: if PcOvPe has a value, use it instead of eps to run case</span>
-<span class="c1">#: ERphi = Equivalence ratios in terms of fuel-to-oxidant weight ratios.</span>
-<span class="c1">#: ERr = Chemical equivalence ratios in terms of valences.</span>
-<span class="c1">#: pc_units = &#39;psia&#39;, &#39;bar&#39;, &#39;atm&#39;, &#39;mmh&#39;(mm of mercury)</span>
-<span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
-<span class="c1">#: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.add_new_card">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_card</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em>, <em class="sig-param">propD</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_card" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Add or Replace a propellant.</span>
-<span class="c1">#: name = string name (e.g. oxName, fuelName or propName)</span>
-<span class="c1">#: card_str = a single multiline string containing CEA input card for new propellant</span>
-<span class="c1">#: propD = dictionary to receive new propellant (e.g. oxCards, fuelCards or propCards)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.add_new_fuel">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_fuel</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_fuel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new Fuel Card</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.add_new_oxidizer">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_oxidizer</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_oxidizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new Oxidizer Card</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.add_new_propellant">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">add_new_propellant</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">card_str</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.add_new_propellant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new Propellant Card</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.getCacheDict">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">getCacheDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.getCacheDict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns internal cache of previously called calculations.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.print_py_cea_vars">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">print_py_cea_vars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.print_py_cea_vars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print all the interface variables to the FORTRAN pyd file.
-Normally used for debugging or verifying FORTRAN internal values.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.cea_obj.set_py_cea_line">
-<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">set_py_cea_line</code><span class="sig-paren">(</span><em class="sig-param">N</em>, <em class="sig-param">line</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.set_py_cea_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>make sure that trailing blanks are on added lines</p>
-</dd></dl>
-
-</div>
-<div class="section" id="cea-obj-with-units">
-<h2>CEA_Obj With Units<a class="headerlink" href="#cea-obj-with-units" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="rocketcea.cea_obj_w_units.CEA_Obj">
-<em class="property">class </em><code class="sig-prename descclassname">rocketcea.cea_obj_w_units.</code><code class="sig-name descname">CEA_Obj</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">make_debug_prints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj" title="Permalink to this definition">¶</a></dt>
-<dd><p>RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</p>
-<p>This object wraps the English unit version of CEA_Obj to enable desired user units.</p>
-<dl class="method">
-<dt id="rocketcea.cea_obj_w_units.CEA_Obj.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">propName=''</em>, <em class="sig-param">oxName=''</em>, <em class="sig-param">fuelName=''</em>, <em class="sig-param">useFastLookup=0</em>, <em class="sig-param">makeOutput=0</em>, <em class="sig-param">isp_units='sec'</em>, <em class="sig-param">cstar_units='ft/sec'</em>, <em class="sig-param">pressure_units='psia'</em>, <em class="sig-param">temperature_units='degR'</em>, <em class="sig-param">sonic_velocity_units='ft/sec'</em>, <em class="sig-param">enthalpy_units='BTU/lbm'</em>, <em class="sig-param">density_units='lbm/cuft'</em>, <em class="sig-param">specific_heat_units='BTU/lbm degR'</em>, <em class="sig-param">viscosity_units='millipoise'</em>, <em class="sig-param">thermal_cond_units='mcal/cm-K-s'</em>, <em class="sig-param">fac_CR=None</em>, <em class="sig-param">make_debug_prints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: RocketCEA wraps the NASA FORTRAN CEA code to calculate Isp, cstar, and Tcomb</span>
-<span class="c1">#: This object wraps the English unit version of CEA_Obj to enable desired user units.</span>
-<span class="c1">#: Same as CEA_Obj with standard units except, input and output units can be specified.</span>
-<span class="c1">#:  parameter             default             options</span>
-<span class="c1">#: isp_units            = &#39;sec&#39;,         # N-s/kg, m/s, km/s</span>
-<span class="c1">#: cstar_units          = &#39;ft/sec&#39;,      # m/s</span>
-<span class="c1">#: pressure_units       = &#39;psia&#39;,        # MPa, KPa, Pa, Bar, Atm, Torr</span>
-<span class="c1">#: temperature_units    = &#39;degR&#39;,        # K, C, F</span>
-<span class="c1">#: sonic_velocity_units = &#39;ft/sec&#39;,      # m/s</span>
-<span class="c1">#: enthalpy_units       = &#39;BTU/lbm&#39;,     # J/g, kJ/kg, J/kg, kcal/kg, cal/g</span>
-<span class="c1">#: density_units        = &#39;lbm/cuft&#39;,    # g/cc, sg, kg/m^3</span>
-<span class="c1">#: specific_heat_units  = &#39;BTU/lbm degR&#39; # kJ/kg-K, cal/g-C, J/kg-K (# note: cal/g K == BTU/lbm degR)</span>
-<span class="c1">#: viscosity_units      = &#39;millipoise&#39;   # lbf-sec/sqin, lbf-sec/sqft, lbm/ft-sec, poise, centipoise</span>
-<span class="c1">#: thermal_cond_units   = &#39;mcal/cm-K-s&#39;  # millical/cm-degK-sec, BTU/hr-ft-degF, BTU/s-in-degF, cal/s-cm-degC, W/cm-degC</span>
-<span class="c1">#: fac_CR, Contraction Ratio of finite area combustor (None=infinite)</span>
-<span class="c1">#: if make_debug_prints is True, print debugging info to terminal.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-rocketcea.units">
-<span id="user-units"></span><h2>User Units<a class="headerlink" href="#module-rocketcea.units" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="rocketcea.units.add_default_unit">
-<code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">add_default_unit</code><span class="sig-paren">(</span><em class="sig-param">name='psia'</em>, <em class="sig-param">akaL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_default_unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize unitsConvFactD for various default units.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.units.add_user_units">
-<code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">add_user_units</code><span class="sig-paren">(</span><em class="sig-param">default_units</em>, <em class="sig-param">user_units</em>, <em class="sig-param">multiplier</em>, <em class="sig-param">offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_user_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new units to dictionary of default_units.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.units.get_conv_factor">
-<code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">get_conv_factor</code><span class="sig-paren">(</span><em class="sig-param">default_units</em>, <em class="sig-param">user_units</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.get_conv_factor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get multiplier and offset for user_units.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="rocketcea.units.Units">
-<em class="property">class </em><code class="sig-prename descclassname">rocketcea.units.</code><code class="sig-name descname">Units</code><span class="sig-paren">(</span><em class="sig-param">default_units='psia'</em>, <em class="sig-param">user_units='MPa'</em>, <em class="sig-param">user_over_default=0.0068947572</em>, <em class="sig-param">user_offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="rocketcea.units.Units.dval_to_uval">
-<code class="sig-name descname">dval_to_uval</code><span class="sig-paren">(</span><em class="sig-param">def_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.dval_to_uval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a value in RockeCEA default units, return value in user units.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.units.Units.show_dval_to_uval">
-<code class="sig-name descname">show_dval_to_uval</code><span class="sig-paren">(</span><em class="sig-param">def_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.show_dval_to_uval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a value in RockeCEA default units, print conversion user units.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.units.Units.show_uval_to_dval">
-<code class="sig-name descname">show_uval_to_dval</code><span class="sig-paren">(</span><em class="sig-param">user_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.show_uval_to_dval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a value in user units, print conversion to RockeCEA default units.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rocketcea.units.Units.uval_to_dval">
-<code class="sig-name descname">uval_to_dval</code><span class="sig-paren">(</span><em class="sig-param">user_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.Units.uval_to_dval" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a value in user units, return a value in RockeCEA default units.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-rocketcea.blends">
-<span id="blend-functions"></span><h2>Blend Functions<a class="headerlink" href="#module-rocketcea.blends" title="Permalink to this headline">¶</a></h2>
-<p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
-<dl class="function">
-<dt id="rocketcea.blends.addFLOX_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addFLOX_Blend</code><span class="sig-paren">(</span><em class="sig-param">oxName</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addFLOX_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new add FLOX oxidizer to the CEA_Obj.cea_deck
-FLOX70, for example, represents 70% F2 and 30% LOX</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.addHYD_AmmoniaBlend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addHYD_AmmoniaBlend</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addHYD_AmmoniaBlend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new N2H4 + undissociated Ammonia (UA) Blend to the CEA_Obj.cea_deck.
-Use name like “HYD30” to represent hydrazine with 30% dissociated ammonia.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.addMMH_N2H4_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addMMH_N2H4_Blend</code><span class="sig-paren">(</span><em class="sig-param">fuelName</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addMMH_N2H4_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new MMH + N2H4 Blend to the CEA_Obj.cea_deck
-Use name like M10 to represent 10% MMH and 90% N2H4</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.addMON_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addMON_Blend</code><span class="sig-paren">(</span><em class="sig-param">oxName</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addMON_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new MON oxidizer Blend to the CEA_Obj.cea_deck
-MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.addPeroxideBlend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">addPeroxideBlend</code><span class="sig-paren">(</span><em class="sig-param">oxName</em>, <em class="sig-param">cea_deck</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addPeroxideBlend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new Peroxide Blend to the CEA_Obj.cea_deck.
-Use name like Peroxide95 to represent 95% Peroxide and 5% water.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.all_in_dict">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">all_in_dict</code><span class="sig-paren">(</span><em class="sig-param">nameL</em>, <em class="sig-param">D</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.all_in_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>If all members of nameL are keys in D, then return True, otherwise False.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getFloatTokenFromCards">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getFloatTokenFromCards</code><span class="sig-paren">(</span><em class="sig-param">cardL</em>, <em class="sig-param">token='t(k)'</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFloatTokenFromCards" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the float value of the desired token. (e.g. ‘t(k)’ )</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getFuelHfCalPerMole">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getFuelHfCalPerMole</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fuel float value of the reference temperature ‘h,cal’</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getFuelRefTempDegK">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getFuelRefTempDegK</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fuel float value of the reference temperature ‘t(k)’</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getOxHfCalPerMole">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getOxHfCalPerMole</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the ox float value of the reference temperature ‘h,cal’</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getOxRefTempDegK">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getOxRefTempDegK</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the oxidizer float value of the reference temperature ‘t(k)’</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getPropHfCalPerMole">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getPropHfCalPerMole</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the propellant float value of the reference temperature ‘h,cal’</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.getPropRefTempDegK">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">getPropRefTempDegK</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the propellant float value of the reference temperature ‘t(k)’</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.get_propellant_name">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">get_propellant_name</code><span class="sig-paren">(</span><em class="sig-param">Name=None</em>, <em class="sig-param">PcentL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.get_propellant_name" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return the name of the blend defined by &quot;Name&quot;. (string or list of strings)</span>
-<span class="c1">#: Might be a defined blend such as MON25 or FLOX80.</span>
-<span class="c1">#: Might be in the library such as &quot;MMH&quot; or &quot;CLF5&quot;</span>
-<span class="c1">#: Might need to create a long name from percentages Name=[&quot;N2H4&quot;,&quot;NH3&quot;], PcentL=[90,10]</span>
-<span class="c1">#:   (if new name, add card to oxCards, fuelCards or propCards)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.giveCardMassPercent">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">giveCardMassPercent</code><span class="sig-paren">(</span><em class="sig-param">card</em>, <em class="sig-param">fuelPcent</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.giveCardMassPercent" title="Permalink to this definition">¶</a></dt>
-<dd><p>set the value of mass percentage (wt%) on propellant card.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.giveCardNewHfAndTref">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">giveCardNewHfAndTref</code><span class="sig-paren">(</span><em class="sig-param">card</em>, <em class="sig-param">newHfCalPerMole</em>, <em class="sig-param">newTrefDegR</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.giveCardNewHfAndTref" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the values of “h,cal” and “t(k)” on propellant cards.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.isAPeroxide_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">isAPeroxide_Blend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAPeroxide_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>check if name is for a blend of peroxide and water.
-Peroxide98 and Peroxide90 are in standard deck, however can make Peroxide95 etc. “on-the-fly”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.isAnMMH_N2H4_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">isAnMMH_N2H4_Blend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAnMMH_N2H4_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>check if name is for a blend of MMH + N2H4
-M20 is in standard deck, however can make M10, M30 etc. “on-the-fly”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.isFLOX_Ox_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">isFLOX_Ox_Blend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isFLOX_Ox_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>check for FLOX oxidizer (e.g. FLOX70 or FLOX82.5)
-No FLOX blends are in standard deck, however can make FLOX70, FLOX82.5 etc. “on-the-fly”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.isMON_Ox_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">isMON_Ox_Blend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isMON_Ox_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>check for MON oxidizer (MON1 to MON40)  48% is theoretical max
-MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.is_HYD_Ammonia_Blend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">is_HYD_Ammonia_Blend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.is_HYD_Ammonia_Blend" title="Permalink to this definition">¶</a></dt>
-<dd><p>check if name is for a blend of N2H4 and undissociated Ammonia (UA)
-HYD40 is in standard deck, however can make HYD30, HYD50 etc. “on-the-fly”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.makeCardForNewTemperature">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">makeCardForNewTemperature</code><span class="sig-paren">(</span><em class="sig-param">ceaName='CH4'</em>, <em class="sig-param">newTdegR=536.0</em>, <em class="sig-param">CpAve=0.791</em>, <em class="sig-param">MolWt=16.04</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.makeCardForNewTemperature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new propellant card that reflects a change in temperature of the propellant
-from the original reference temperature on the original card to the new input value
-of temperature, newTdegR.</p>
-<p>CpAve = BTU/lbm degR</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.newFuelBlend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">newFuelBlend</code><span class="sig-paren">(</span><em class="sig-param">fuelL=None</em>, <em class="sig-param">fuelPcentL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newFuelBlend" title="Permalink to this definition">¶</a></dt>
-<dd><p>create fuel blends such as M20  given the fuel names and weight percentages.
-e.g. fuelL=[“MMH”,”N2H4”], fuelPcentL=[20,80]</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.newFuelWithNewState">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">newFuelWithNewState</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">newHfCalPerMole</em>, <em class="sig-param">newTrefDegR</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newFuelWithNewState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take name as it exists in fuelCards and change Hf and Tref to be
-the input values newHfCalPerMole and newTrefDegR</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.newOxBlend">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">newOxBlend</code><span class="sig-paren">(</span><em class="sig-param">oxL=None</em>, <em class="sig-param">oxPcentL=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newOxBlend" title="Permalink to this definition">¶</a></dt>
-<dd><p>create ox blends such as MON25 given the oxidizer names and weight percentages.
-e.g. oxL=[“N2O4”,”N2O3”], oxPcentL=[36.67,63.33]</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.newOxWithNewState">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">newOxWithNewState</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">newHfCalPerMole</em>, <em class="sig-param">newTrefDegR</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newOxWithNewState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take name as it exists in oxCards and change Hf and Tref to be
-the input values newHfCalPerMole and newTrefDegR</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.newPropWithNewState">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">newPropWithNewState</code><span class="sig-paren">(</span><em class="sig-param">cardDict</em>, <em class="sig-param">name</em>, <em class="sig-param">newHfCalPerMole</em>, <em class="sig-param">newTrefDegR</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newPropWithNewState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take name as it exists in fuelCards or oxCards and change Hf and Tref to be
-the input values newHfCalPerMole and newTrefDegR</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.renamePropIfNewHfOrTrefInName">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">renamePropIfNewHfOrTrefInName</code><span class="sig-paren">(</span><em class="sig-param">cardDict</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.renamePropIfNewHfOrTrefInName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look for “h,cal OR “t(k)”” in name.
-If present, then create new modified name and create new
-card in cardDict if necessary</p>
-<p>for example to tweak LH2 run might look like:
-“LH2 h,cal=-2155.0  t(k)=21.0”</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.tightenUpEquals">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">tightenUpEquals</code><span class="sig-paren">(</span><em class="sig-param">card</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.tightenUpEquals" title="Permalink to this definition">¶</a></dt>
-<dd><p>make sure there’s no spaces around equal signs.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="rocketcea.blends.turnCardsIntoTokenL">
-<code class="sig-prename descclassname">rocketcea.blends.</code><code class="sig-name descname">turnCardsIntoTokenL</code><span class="sig-paren">(</span><em class="sig-param">cardL</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.turnCardsIntoTokenL" title="Permalink to this definition">¶</a></dt>
-<dd><p>turn the card list into one long list of tokens</p>
-</dd></dl>
-
-</div>
-</div>
-
-
-          </div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1004,12 +1006,13 @@ card in cardDict if necessary</p>
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.27 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">RocketCEA Functions</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
   </body>
 </html>

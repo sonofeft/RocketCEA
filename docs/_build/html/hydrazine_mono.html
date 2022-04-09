@@ -2,27 +2,27 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Hydrazine Monopropellant &#8212; RocketCEA v1.1.26 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hydrazine Monopropellant &#8212; RocketCEA v1.1.27 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Temperature Adjust" href="temperature_adjust.html" />
     <link rel="prev" title="Ambient Isp" href="ambient_isp.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,9 +40,125 @@
         <li class="right" >
           <a href="ambient_isp.html" title="Ambient Isp"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.27 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Hydrazine Monopropellant</a></li> 
       </ul>
-    </div>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hydrazine-monopropellant">
+<span id="hydrazine-mono-link"></span><h1>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="chemical-reactions">
+<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this headline">¶</a></h2>
+<p>When decomposing Hydrazine (N2H4) as a monopropellant, there are two successive reactions to consider:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="n">N2H4</span> <span class="o">--&gt;</span> <span class="mi">4</span> <span class="n">NH3</span> <span class="o">+</span>   <span class="n">N2</span> <span class="p">(</span><span class="n">highly</span> <span class="n">exothermic</span><span class="p">)</span>
+<span class="mi">4</span> <span class="n">NH3</span>  <span class="o">--&gt;</span> <span class="mi">2</span> <span class="n">N2</span>  <span class="o">+</span> <span class="mi">6</span> <span class="n">H2</span> <span class="p">(</span><span class="n">endothermic</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first reaction is highly exothermic and goes to completion.
+It creates ammonia (NH3) and nitrogen gas (N2).</p>
+<p>The second reaction (ammonia dissociation), however, can be controlled by the design of a catalyst bed.
+The more ammonia dissociation there is, the cooler the resulting combustion products and the lower the
+Isp of the monopropellant engine.</p>
+</div>
+<div class="section" id="cea-modification">
+<h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Permalink to this headline">¶</a></h2>
+<p>In RocketCEA the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
+When decomposing hydrazine with only partial ammonia dissociation,
+the CEA input includes an “omit NH3” statement to prevent normal equilibrium NH3 calculations.</p>
+<p>Partial ammonia dissociation is implemented in RocketCEA with the <strong>propName</strong> “HYDnn”, where “nn” is the mass percent
+of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be “HYD30”, “HYD40” and “HYD50”.</p>
+<p>This can be demonstrated with the following RocketCEA script that shows the difference between <strong>HYD40</strong> (40% ammonia dissociation)
+and <strong>N2H4</strong> (equilibrium CEA logic)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+
+<span class="n">C40</span> <span class="o">=</span>  <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
+<span class="n">C100</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;N2H4&#39;</span><span class="p">)</span>
+
+<span class="n">I40</span><span class="p">,</span>  <span class="n">C40</span><span class="p">,</span>  <span class="n">T40</span> <span class="o">=</span>   <span class="n">C40</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">20.0</span><span class="p">)</span>
+<span class="n">I100</span><span class="p">,</span> <span class="n">C100</span><span class="p">,</span> <span class="n">T100</span> <span class="o">=</span> <span class="n">C100</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">20.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;       Isp     Cstar     Tc&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      (sec)   (ft/sec)  (degR)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;40</span><span class="si">%%</span><span class="s1">    </span><span class="si">%5.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">I40</span><span class="p">,</span> <span class="n">C40</span><span class="p">,</span> <span class="n">T40</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;100</span><span class="si">%%</span><span class="s1">   </span><span class="si">%5.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">I100</span><span class="p">,</span> <span class="n">C100</span><span class="p">,</span> <span class="n">T100</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">Isp</span>     <span class="n">Cstar</span>     <span class="n">Tc</span>
+      <span class="p">(</span><span class="n">sec</span><span class="p">)</span>   <span class="p">(</span><span class="n">ft</span><span class="o">/</span><span class="n">sec</span><span class="p">)</span>  <span class="p">(</span><span class="n">degR</span><span class="p">)</span>
+<span class="mi">40</span><span class="o">%</span>    <span class="mf">238.7</span>   <span class="mf">4364.4</span>   <span class="mf">2404.1</span>
+<span class="mi">100</span><span class="o">%</span>   <span class="mf">222.0</span>   <span class="mf">3995.1</span>   <span class="mf">1581.8</span>
+</pre></div>
+</div>
+<p>Note that high levels of ammonia dissociation can be beneficial in some applications like gas generators where lower
+combustion temperature is desirable. Typical ranges of ammonia dissociation for hydrazine monopropellant applications
+are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">Dissociation</span>          <span class="n">Application</span>
+  <span class="mi">30</span><span class="o">%</span> <span class="o">-</span> <span class="mi">50</span><span class="o">%</span>          <span class="n">High</span> <span class="n">Performance</span> <span class="n">Thrusters</span>
+  <span class="mi">50</span><span class="o">%</span> <span class="o">-</span> <span class="mi">70</span><span class="o">%</span>          <span class="n">ACS</span> <span class="n">Thrusters</span>
+  <span class="mi">60</span><span class="o">%</span> <span class="o">-</span> <span class="mi">80</span><span class="o">%</span>          <span class="n">Gas</span> <span class="n">Generators</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="performance-plot">
+<h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Permalink to this headline">¶</a></h2>
+<p>A plot of Monopropellant Hydrazine Performance can be created with the following script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">Pc</span> <span class="o">=</span> <span class="mf">200.0</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">20.0</span>
+
+<span class="n">xL</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># save data to lists</span>
+<span class="n">ispL</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cstarL</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tcL</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span> <span class="c1"># look at amm_dissociation from 5% to 95%</span>
+    <span class="n">propName</span> <span class="o">=</span> <span class="s1">&#39;HYD</span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">x</span>
+    <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">propName</span><span class="o">=</span><span class="n">propName</span><span class="p">)</span>
+    
+    <span class="n">xL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="c1"># save percent amm_dissociation</span>
+    
+    <span class="n">IspVac</span><span class="p">,</span> <span class="n">Cstar</span><span class="p">,</span> <span class="n">Tcomb</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">ispL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">IspVac</span> <span class="p">)</span> <span class="c1"># save IspVac</span>
+    <span class="n">cstarL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">Cstar</span> <span class="p">)</span><span class="c1"># save Cstar</span>
+    <span class="n">tcL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">Tcomb</span> <span class="p">)</span>   <span class="c1"># save Tcomb</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xL</span><span class="p">,</span> <span class="n">ispL</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IspVac&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="s1">&#39;Hydrazine Ideal Performance vs. Ammonia Dissociation</span><span class="se">\n</span><span class="s1">Pc=</span><span class="si">%g</span><span class="s1"> psia, Area Ratio=</span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Pc</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span> <span class="s1">&#39;% Ammonia Dissociation&#39;</span> <span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span> <span class="s1">&#39;IspVac (sec)&#39;</span> <span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cstar (ft/sec) and Tc (degR)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xL</span><span class="p">,</span> <span class="n">cstarL</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cstar&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xL</span><span class="p">,</span> <span class="n">tcL</span><span class="p">,</span>    <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tcham&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;amm_dissociation.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/amm_dissociation.png"><img alt="_images/amm_dissociation.png" src="_images/amm_dissociation.png" style="width: 80%;" /></a>
+<p><cite>Click Image to View Fill Size</cite></p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
@@ -95,126 +211,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="hydrazine-monopropellant">
-<span id="hydrazine-mono-link"></span><h1>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="chemical-reactions">
-<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this headline">¶</a></h2>
-<p>When decomposing Hydrazine (N2H4) as a monopropellant, there are two successive reactions to consider:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="n">N2H4</span> <span class="o">--&gt;</span> <span class="mi">4</span> <span class="n">NH3</span> <span class="o">+</span>   <span class="n">N2</span> <span class="p">(</span><span class="n">highly</span> <span class="n">exothermic</span><span class="p">)</span>
-<span class="mi">4</span> <span class="n">NH3</span>  <span class="o">--&gt;</span> <span class="mi">2</span> <span class="n">N2</span>  <span class="o">+</span> <span class="mi">6</span> <span class="n">H2</span> <span class="p">(</span><span class="n">endothermic</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The first reaction is highly exothermic and goes to completion.
-It creates ammonia (NH3) and nitrogen gas (N2).</p>
-<p>The second reaction (ammonia dissociation), however, can be controlled by the design of a catalyst bed.
-The more ammonia dissociation there is, the cooler the resulting combustion products and the lower the
-Isp of the monopropellant engine.</p>
-</div>
-<div class="section" id="cea-modification">
-<h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Permalink to this headline">¶</a></h2>
-<p>In RocketCEA the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
-When decomposing hydrazine with only partial ammonia dissociation,
-the CEA input includes an “omit NH3” statement to prevent normal equilibrium NH3 calculations.</p>
-<p>Partial ammonia dissociation is implemented in RocketCEA with the <strong>propName</strong> “HYDnn”, where “nn” is the mass percent
-of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be “HYD30”, “HYD40” and “HYD50”.</p>
-<p>This can be demonstrated with the following RocketCEA script that shows the difference between <strong>HYD40</strong> (40% ammonia dissociation)
-and <strong>N2H4</strong> (equilibrium CEA logic)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-
-<span class="n">C40</span> <span class="o">=</span>  <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
-<span class="n">C100</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;N2H4&#39;</span><span class="p">)</span>
-
-<span class="n">I40</span><span class="p">,</span>  <span class="n">C40</span><span class="p">,</span>  <span class="n">T40</span> <span class="o">=</span>   <span class="n">C40</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">20.0</span><span class="p">)</span>
-<span class="n">I100</span><span class="p">,</span> <span class="n">C100</span><span class="p">,</span> <span class="n">T100</span> <span class="o">=</span> <span class="n">C100</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">20.0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;       Isp     Cstar     Tc&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      (sec)   (ft/sec)  (degR)&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;40</span><span class="si">%%</span><span class="s1">    </span><span class="si">%5.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">I40</span><span class="p">,</span> <span class="n">C40</span><span class="p">,</span> <span class="n">T40</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;100</span><span class="si">%%</span><span class="s1">   </span><span class="si">%5.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">   </span><span class="si">%6.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">I100</span><span class="p">,</span> <span class="n">C100</span><span class="p">,</span> <span class="n">T100</span><span class="p">)</span> <span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">Isp</span>     <span class="n">Cstar</span>     <span class="n">Tc</span>
-      <span class="p">(</span><span class="n">sec</span><span class="p">)</span>   <span class="p">(</span><span class="n">ft</span><span class="o">/</span><span class="n">sec</span><span class="p">)</span>  <span class="p">(</span><span class="n">degR</span><span class="p">)</span>
-<span class="mi">40</span><span class="o">%</span>    <span class="mf">238.7</span>   <span class="mf">4364.4</span>   <span class="mf">2404.1</span>
-<span class="mi">100</span><span class="o">%</span>   <span class="mf">222.0</span>   <span class="mf">3995.1</span>   <span class="mf">1581.8</span>
-</pre></div>
-</div>
-<p>Note that high levels of ammonia dissociation can be beneficial in some applications like gas generators where lower
-combustion temperature is desirable. Typical ranges of ammonia dissociation for hydrazine monopropellant applications
-are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">Dissociation</span>          <span class="n">Application</span>
-  <span class="mi">30</span><span class="o">%</span> <span class="o">-</span> <span class="mi">50</span><span class="o">%</span>          <span class="n">High</span> <span class="n">Performance</span> <span class="n">Thrusters</span>
-  <span class="mi">50</span><span class="o">%</span> <span class="o">-</span> <span class="mi">70</span><span class="o">%</span>          <span class="n">ACS</span> <span class="n">Thrusters</span>
-  <span class="mi">60</span><span class="o">%</span> <span class="o">-</span> <span class="mi">80</span><span class="o">%</span>          <span class="n">Gas</span> <span class="n">Generators</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="performance-plot">
-<h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Permalink to this headline">¶</a></h2>
-<p>A plot of Monopropellant Hydrazine Performance can be created with the following script.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">Pc</span> <span class="o">=</span> <span class="mf">200.0</span>
-<span class="n">eps</span> <span class="o">=</span> <span class="mf">20.0</span>
-
-<span class="n">xL</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># save data to lists</span>
-<span class="n">ispL</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">cstarL</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tcL</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span> <span class="c1"># look at amm_dissociation from 5% to 95%</span>
-    <span class="n">propName</span> <span class="o">=</span> <span class="s1">&#39;HYD</span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">x</span>
-    <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span><span class="n">propName</span><span class="o">=</span><span class="n">propName</span><span class="p">)</span>
-    
-    <span class="n">xL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="c1"># save percent amm_dissociation</span>
-    
-    <span class="n">IspVac</span><span class="p">,</span> <span class="n">Cstar</span><span class="p">,</span> <span class="n">Tcomb</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_IvacCstrTc</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
-    <span class="n">ispL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">IspVac</span> <span class="p">)</span> <span class="c1"># save IspVac</span>
-    <span class="n">cstarL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">Cstar</span> <span class="p">)</span><span class="c1"># save Cstar</span>
-    <span class="n">tcL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">Tcomb</span> <span class="p">)</span>   <span class="c1"># save Tcomb</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xL</span><span class="p">,</span> <span class="n">ispL</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IspVac&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="s1">&#39;Hydrazine Ideal Performance vs. Ammonia Dissociation</span><span class="se">\n</span><span class="s1">Pc=</span><span class="si">%g</span><span class="s1"> psia, Area Ratio=</span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">Pc</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span> <span class="s1">&#39;% Ammonia Dissociation&#39;</span> <span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span> <span class="s1">&#39;IspVac (sec)&#39;</span> <span class="p">)</span>
-
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cstar (ft/sec) and Tc (degR)&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xL</span><span class="p">,</span> <span class="n">cstarL</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cstar&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xL</span><span class="p">,</span> <span class="n">tcL</span><span class="p">,</span>    <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tcham&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center right&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;amm_dissociation.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/amm_dissociation.png"><img alt="_images/amm_dissociation.png" src="_images/amm_dissociation.png" style="width: 80%;" /></a>
-<p><cite>Click Image to View Fill Size</cite></p>
-</div>
-</div>
-
-
-          </div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -234,12 +236,13 @@ are:</p>
         <li class="right" >
           <a href="ambient_isp.html" title="Ambient Isp"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.26 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.27 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Hydrazine Monopropellant</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
     </div>
   </body>
 </html>
