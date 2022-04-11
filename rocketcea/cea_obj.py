@@ -37,6 +37,11 @@ import shutil
 USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
+from rocketcea.short_win_path import get_short_path_name
+# try to solve spaces in Windows Path names by making 8.3, short path names.
+if ROCKETCEA_DATA_DIR.find(' ') >= 0:
+    ROCKETCEA_DATA_DIR = get_short_path_name( ROCKETCEA_DATA_DIR )
+
 # # python >=3.8 needs to be given permission to import DLL files.
 from rocketcea.find_mingw_lib import add_mingw_lib
 add_mingw_lib()
@@ -567,7 +572,8 @@ class CEA_Obj(object):
 
         if self.make_debug_prints:
             if self.makeOutput:
-                print("NOTICE... making an output file")
+                print('NOTICE... making an output file: f.out')
+                print("          in directory:", ROCKETCEA_DATA_DIR )
 
         # Before calling CEA, init values to zero so bad run can be detected
         py_cea.rockt.vaci[ self.i_thrt ] =  0.0 # Vacuum Isp at throat
