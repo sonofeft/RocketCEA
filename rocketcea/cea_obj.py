@@ -40,6 +40,11 @@ ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 from rocketcea.short_win_path import get_short_path_name
 
 def set_rocketcea_data_dir( rddir, do_print=True ):
+    """
+    Set working data directory for RocketCEA. 
+    On Windows will correct for any spaces in path name.
+    Also useful to make a local working directory outside the USER_HOME_DIR.
+    """
     global ROCKETCEA_DATA_DIR
     ROCKETCEA_DATA_DIR = rddir
     if do_print:
