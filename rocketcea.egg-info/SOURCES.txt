@@ -42,6 +42,7 @@ rocketcea/py_cea.pyf
 rocketcea/separated_Cf.py
 rocketcea/separated_Noz.csv
 rocketcea/separated_Noz_cea.csv
+rocketcea/short_win_path.py
 rocketcea/show_html_help.py
 rocketcea/temp.dat
 rocketcea/temp.scr
@@ -419,6 +420,12 @@ rocketcea/examples/cea_cstar_plot.png
 rocketcea/examples/cea_cstar_plot.py
 rocketcea/examples/cea_plot.png
 rocketcea/examples/cea_plot.py
+rocketcea/examples/chk_cea_addpropellant.py
+rocketcea/examples/chk_cea_addpropellant_user.py
+rocketcea/examples/chk_cea_debug.py
+rocketcea/examples/chk_cea_long_name.py
+rocketcea/examples/chk_cea_temp_workingdir.py
+rocketcea/examples/chk_cea_w_units_workingdir.py
 rocketcea/examples/chk_froz_mass_frac.py
 rocketcea/examples/chk_froz_mole_frac.py
 rocketcea/examples/chk_mass_frac.py

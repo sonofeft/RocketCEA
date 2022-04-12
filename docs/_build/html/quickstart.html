@@ -125,7 +125,7 @@ C:\MinGW\mingw64\lib</p>
 <span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see &quot;Anaconda Windows Batch File&quot; section below.</p>
+<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see “Anaconda Windows Batch File” section below.</p>
 </div>
 <p>RocketCEA on Windows can be problematic. Often the problem is in the PATH environment variable
 where the wrong files are found for the intended install, and even more often it is because
@@ -176,13 +176,13 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The &quot;trick&quot; for installing RocketCEA on Windows seems to be pre-installing the dependency packages
+<p>The “trick” for installing RocketCEA on Windows seems to be pre-installing the dependency packages
 (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.</p>
 </div>
 </div>
 <div class="section" id="anaconda-windows-batch-file">
 <h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Permalink to this headline">¶</a></h2>
-<p>As stated above, the &quot;trick&quot; for installing RocketCEA on Windows seems
+<p>As stated above, the “trick” for installing RocketCEA on Windows seems
 to be pre-installing the dependency packages  (e.g. numpy, scipy and matplotlib)
 so that the pip options for rocketcea only apply to rocketcea.</p>
 <p>On Anaconda, many of the required dependencies are preinstalled.</p>
@@ -203,7 +203,7 @@ something like the image below.</p>
 than the one shown above. Before you can run it, you need to verify the location
 of the python folders under Anaconda.</p>
 <p>To find your python folder, open an Anaconda prompt, launch python, import sys
-and give the command &quot;sys.executable&quot; as in the image below.</p>
+and give the command “sys.executable” as in the image below.</p>
 <img alt="_images/Anaconda_find_python_exe.jpg" src="_images/Anaconda_find_python_exe.jpg" />
 <p>In my case, the path was:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Charlie</span>\<span class="n">anaconda3</span>
@@ -228,8 +228,8 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 <p>Run the batch file and the results will hopefully be similar to the results
 shown below.</p>
 <img alt="_images/Anaconda_successful_install.jpg" src="_images/Anaconda_successful_install.jpg" />
-<p>Notice that the file ran the &quot;quick test&quot; at the bottom of the batch file and
-properly output the Isp of 374.30...</p>
+<p>Notice that the file ran the “quick test” at the bottom of the batch file and
+properly output the Isp of 374.30…</p>
 </div>
 <div class="section" id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
@@ -260,7 +260,7 @@ Paste that code into your text editor and save it to a python file.(for example 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
+giving a “shared” <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
 <p>If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
 You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order
 for RocketCEA to work (see below)</p>
@@ -291,7 +291,7 @@ for RocketCEA to work (see below)</p>
 <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">424.6998266323161</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Great... you are good to go.</p>
+<p>Great… you are good to go.</p>
 <p>If not, see the information below.</p>
 </div>
 <div class="section" id="google-colaboratory">
@@ -360,7 +360,7 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 </li>
 <li><dl class="simple">
 <dt>Test installation with quick example</dt><dd><ul>
-<li><p>python3 -c &quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())&quot;</p></li>
+<li><p>python3 -c “from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=’LOX’, fuelName=’LH2’); print(C.get_Isp())”</p></li>
 <li><p>SHOULD RETURN:  374.30361765576896 (or perhaps just very close to it.)</p></li>
 </ul>
 </dd>

@@ -6,6 +6,17 @@ History
 
 GitHub Log
 ----------
+* Apr 12, 2022
+    - (by: Charlie)
+        - updated doc files, added some examples
+        - added function doc strings
+        - Added logic and test function to correct for spaces in path name on Windows
+        - set version number to 1.1.28 
+
+* Apr 11, 2022
+    - (by: Charlie)
+        - Added space detection for user home dir and using 8.3, short format for Windows 
+
 * Apr 8, 2022
     - (by: Charlie)
         - update docs for v1.1.27

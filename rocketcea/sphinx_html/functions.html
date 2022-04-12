@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>RocketCEA Functions &#8212; RocketCEA v1.1.27 documentation</title>
+    <title>RocketCEA Functions &#8212; RocketCEA v1.1.28 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.27 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -673,6 +673,12 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 </dd></dl>
 
 <dl class="function">
+<dt id="rocketcea.cea_obj.get_rocketcea_data_dir">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">get_rocketcea_data_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.get_rocketcea_data_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the working data directory for RocketCEA</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="rocketcea.cea_obj.print_py_cea_vars">
 <code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">print_py_cea_vars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.print_py_cea_vars" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print all the interface variables to the FORTRAN pyd file.
@@ -683,6 +689,14 @@ Normally used for debugging or verifying FORTRAN internal values.</p>
 <dt id="rocketcea.cea_obj.set_py_cea_line">
 <code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">set_py_cea_line</code><span class="sig-paren">(</span><em class="sig-param">N</em>, <em class="sig-param">line</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.set_py_cea_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>make sure that trailing blanks are on added lines</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rocketcea.cea_obj.set_rocketcea_data_dir">
+<code class="sig-prename descclassname">rocketcea.cea_obj.</code><code class="sig-name descname">set_rocketcea_data_dir</code><span class="sig-paren">(</span><em class="sig-param">rddir</em>, <em class="sig-param">do_print=True</em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.set_rocketcea_data_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set working data directory for RocketCEA. 
+On Windows will correct for any spaces in path name.
+Also useful to make a local working directory outside the USER_HOME_DIR.</p>
 </dd></dl>
 
 </div>
@@ -1004,7 +1018,7 @@ card in cardDict if necessary</p>
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.27 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
