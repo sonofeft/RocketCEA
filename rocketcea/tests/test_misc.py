@@ -44,6 +44,7 @@ for more assert options
 
 import sys, os
 import imp
+import tempfile
 
 here = os.path.abspath(os.path.dirname(__file__)) # Needed for py.test
 up_one = os.path.split( here )[0]  # Needed to find rocketcea development version
@@ -57,6 +58,7 @@ import rocketcea.Goal
 import rocketcea.separated_Cf
 from rocketcea.biprop_utils.mr_t_limits import MR_Temperature_Limits
 from rocketcea.biprop_utils import run_cea_w_error_corr
+from rocketcea.cea_obj import CEA_Obj, get_rocketcea_data_dir, set_rocketcea_data_dir
 
 class MyTest(unittest.TestCase):
 
@@ -252,6 +254,30 @@ class MyTest(unittest.TestCase):
             raise Exception('ERROR... failed in __main__ routine')
         finally:
             sys.argv = old_sys_argv
+
+    def test_win32_rocketcea_data_dir_spaces(self):
+        """On Windows, use short path names when spaces in ROCKETCEA_DATA_DIR"""
+        if sys.platform == 'win32':
+            save_ROCKETCEA_DATA_DIR = get_rocketcea_data_dir()
+
+            try:
+                with tempfile.TemporaryDirectory() as tmpdirname:
+                    print('created temporary directory', tmpdirname)
+                    
+                    subdir = os.path.join( tmpdirname, 'cea w spaces' )
+                    os.mkdir( subdir )
+                    print( 'subdir =', subdir )
+                    print( 'os.path.exists(subdir) =', os.path.exists(subdir) )
+                    print()
+
+                    set_rocketcea_data_dir( subdir )
+
+                    C = CEA_Obj( oxName='LOX', fuelName='LH2', make_debug_prints=True)
+                    Isp = C.get_Isp(Pc=100.0, MR=1.0, eps=40.0)
+                    print( Isp )
+            finally:
+                # restore 
+                set_rocketcea_data_dir( save_ROCKETCEA_DATA_DIR )
 
 
 if __name__ == '__main__':

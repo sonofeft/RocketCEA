@@ -1,20 +1,18 @@
 import sys
 
-# try to solve spaces in Windows Path names by making 8.3, short path names.
+# try to solve spaces in Windows Path names by making 8.3, short path name.
+_CAN_RUN_CTYPES = False
 if sys.platform == 'win32':
-    import ctypes
-    from ctypes import wintypes
-    _GetShortPathNameW = ctypes.windll.kernel32.GetShortPathNameW
-    _GetShortPathNameW.argtypes = [wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD]
-    _GetShortPathNameW.restype = wintypes.DWORD
+    try:
+        import ctypes
+        from ctypes import wintypes
+        _GetShortPathNameW = ctypes.windll.kernel32.GetShortPathNameW
+        _GetShortPathNameW.argtypes = [wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD]
+        _GetShortPathNameW.restype = wintypes.DWORD
+        _CAN_RUN_CTYPES = True
+    except:
+        pass
 
-
-if sys.platform == 'win32':
-    import ctypes
-    from ctypes import wintypes
-    _GetShortPathNameW = ctypes.windll.kernel32.GetShortPathNameW
-    _GetShortPathNameW.argtypes = [wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD]
-    _GetShortPathNameW.restype = wintypes.DWORD
 
 def get_short_path_name(long_name):
     """
@@ -27,7 +25,10 @@ def get_short_path_name(long_name):
     If, due to a TOCTTOU problem, the return value is still larger, 
     keep trying until you've got it right.:
     """
-    if sys.platform != 'win32':
+    #if sys.platform != 'win32':
+    if not _CAN_RUN_CTYPES:
+        print( 'Failed to get short name in get_short_path_name' )
+        print( '   for long_name:', long_name )
         return long_name
     
     output_buf_size = 0

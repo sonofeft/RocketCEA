@@ -38,9 +38,23 @@ USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
 from rocketcea.short_win_path import get_short_path_name
-# try to solve spaces in Windows Path names by making 8.3, short path names.
-if ROCKETCEA_DATA_DIR.find(' ') >= 0:
-    ROCKETCEA_DATA_DIR = get_short_path_name( ROCKETCEA_DATA_DIR )
+
+def set_rocketcea_data_dir( rddir, do_print=True ):
+    global ROCKETCEA_DATA_DIR
+    ROCKETCEA_DATA_DIR = rddir
+    if do_print:
+        print( 'Setting ROCKETCEA_DATA_DIR =', ROCKETCEA_DATA_DIR )
+    # try to solve spaces in Windows Path names by making 8.3, short path names.
+    if ROCKETCEA_DATA_DIR.find(' ') >= 0:
+        print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
+        print('   ',ROCKETCEA_DATA_DIR)
+        ROCKETCEA_DATA_DIR = get_short_path_name( ROCKETCEA_DATA_DIR )
+set_rocketcea_data_dir( ROCKETCEA_DATA_DIR, do_print=False )
+
+def get_rocketcea_data_dir():
+    """Return the working data directory for RocketCEA"""
+    return ROCKETCEA_DATA_DIR
+
 
 # # python >=3.8 needs to be given permission to import DLL files.
 from rocketcea.find_mingw_lib import add_mingw_lib
@@ -190,11 +204,11 @@ class CEA_Obj(object):
     """
 
     def __init__(self, propName='', oxName='', fuelName='', fac_CR=None,
-        useFastLookup=0, # depricated
+        useFastLookup=0, # deprecated
         makeOutput=0, make_debug_prints=False):
         """
         #: Create the base CEA wrapper object.
-        #: Fast Lookup is depricated.
+        #: Fast Lookup is deprecated.
         #: fac_CR = Contraction Ratio of finite area combustor (None=infinite)
         #: if make_debug_prints is True, print debugging info to terminal.
         """
