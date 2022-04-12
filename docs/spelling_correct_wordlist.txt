@@ -1,4 +1,7 @@
 uninstalling
+travisci
+xlChart
+preinstalled
 pre-installing
 pre
 oxName
