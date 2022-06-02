@@ -1,0 +1,339 @@
+* Jun 2, 2022
+    - (by: Charlie)
+        - version 1.1.29, force data re-read when calculating transport properties 
+
+* Apr 12, 2022
+    - (by: Charlie)
+        - updated history file
+        - updated doc files, added some examples
+        - added function doc strings
+        - Added logic and test function to correct for spaces in path name on Windows
+        - set version number to 1.1.28 
+
+* Apr 11, 2022
+    - (by: Charlie)
+        - Added space detection for user home dir and using 8.3, short format for Windows 
+
+* Apr 8, 2022
+    - (by: Charlie)
+        - updated docs for history
+        - update docs for v1.1.27
+        - empty cache when redefining propellant
+        - doc update 
+
+* Jan 11, 2022
+    - (by: Charlie)
+        - ran unit tests
+        - Added Anaconda on Windows install directions 
+
+* Oct 5, 2021
+    - (by: Charlie)
+        - Made changes to show support for python 3.10 
+
+* Sep 16, 2021
+    - (by: Charlie)
+        - Added python 3.8 test results
+        - doc spelling correction
+        - version 1.1.25 and Windows install doc updates 
+
+* Jan 1, 2021
+    - (by: sonofeft)
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - try to solve travisci numpy, scipy problem
+        - try to solve travisci problem with numpy and scipy
+        - update to docs 
+
+* Dec 1, 2020
+    - (by: sonofeft)
+        - Merge branch 'master' of https://github.com/sonofeft/RocketCEA
+        - updated sphinx pages after NASA links changed
+        - NASA links changed 
+
+* Oct 28, 2020
+    - (by: Charlie)
+        - Delete rocketcea-1.1.9.tar.gz
+        - Delete rocketcea-1.1.8.tar.gz
+        - Delete rocketcea-1.1.7.tar.gz
+        - Delete rocketcea-1.1.7-cp37-cp37m-win_amd64.whl
+        - Delete rocketcea-1.1.6.tar.gz
+        - Delete rocketcea-1.1.5.tar.gz
+        - Delete rocketcea-1.1.4.tar.gz
+        - Delete rocketcea-1.1.3.tar.gz
+        - Delete rocketcea-1.1.21.tar.gz
+        - Delete rocketcea-1.1.20.tar.gz
+        - Delete rocketcea-1.1.2.tar.gz
+        - Delete rocketcea-1.1.19.tar.gz
+        - Delete rocketcea-1.1.19-cp37-cp37m-win_amd64.whl
+        - Delete rocketcea-1.1.18.tar.gz
+        - Delete rocketcea-1.1.18-cp37-cp37m-win_amd64.whl
+        - Delete rocketcea-1.1.18-cp37-cp37m-win32.whl
+        - Delete rocketcea-1.1.17.tar.gz
+        - Delete rocketcea-1.1.17-cp38-cp38-win_amd64.whl
+        - Delete rocketcea-1.1.16.tar.gz
+        - Delete rocketcea-1.1.15.tar.gz
+        - Delete rocketcea-1.1.14.tar.gz
+        - Delete rocketcea-1.1.12.tar.gz
+        - Delete rocketcea-1.1.11.tar.gz
+        - Delete rocketcea-1.1.10.tar.gz
+        - Delete rocketcea-1.1.1.tar.gz
+        - Delete rocketcea-1.1.1-cp37-cp37m-win32.whl
+        - Delete rocketcea-1.1.0.tar.gz
+        - Delete rocketcea-1.0.9.tar.gz
+        - Delete rocketcea-1.0.8.tar.gz
+        - Delete rocketcea-1.0.7.tar.gz
+        - Delete rocketcea-1.0.7-cp27-cp27m-win32.whl 
+
+* Oct 28, 2020
+    - (by: sonofeft)
+        - ignore dist_old in .gitignore
+        - version 1.1.24, moved work files to user HOME directory (fixes Colab) 
+
+* Oct 13, 2020
+    - (by: sonofeft)
+        - doc updates for python 3.8 and 3.9
+        - updated docs for python 3.8 and 3.9 using pipwin 
+
+* Oct 8, 2020
+    - (by: sonofeft)
+        - version 1.1.19
+        - - added frozen flags to many methods
+        - - removed depricated useFastLookup logic
+        - - added tests for new frozen flags 
+
+* Jul 30, 2020
+    - (by: sonofeft)
+        - version 1.1.18, trying some python 3.8 DLL import fixes 
+
+* Apr 26, 2020
+    - (by: sonofeft)
+        - version 1.1.17, changed some prints to debug prints 
+
+* Apr 21, 2020
+    - (by: sonofeft)
+        - fixed xlChart, added mach and entropy methods 
+
+* Apr 5, 2020
+    - (by: sonofeft)
+        - Cleaned up docs for Pa units
+        - Merge branch 'master' of https://github.com/sonofeft/RocketCEA
+        - Updated History for adding Pa to units 
+
+* Apr 5, 2020
+    - (by: Charlie)
+        - Merge pull request #10 from Franky333/master
+        - Add user unit Pa 
+
+* Apr 6, 2020
+    - (by: Daniel)
+        - addded user unit Pa 
+
+* Apr 3, 2020
+    - (by: sonofeft)
+        - Added CEA vs TDK vs RPA documentation 
+
+* Apr 1, 2020
+    - (by: sonofeft)
+        - needed to fix test failures on TravisCI
+        - Fixed properties problem with Cp, H, density and sonic vel
+        - updated temperature adjust docs 
+
+* Mar 31, 2020
+    - (by: sonofeft)
+        - documetation updates 
+
+* Mar 22, 2020
+    - (by: sonofeft)
+        - version 1.1.12 changed mole/mass fractions to injector face, chamber, throat and exit
+        - version 1.1.11 added finite area combustor system-wide 
+
+* Mar 19, 2020
+    - (by: sonofeft)
+        - Added finite area combustor to full cea output
+        - update history
+        - version 1.1.9 fixes combution species error, added xxx_NASA propellants 
+
+* Mar 16, 2020
+    - (by: sonofeft)
+        - update history file
+        - Bug fix for species fractions and small fix to CEA FORTRAN output file 
+
+* Mar 10, 2020
+    - (by: sonofeft)
+        - put units labels in function calls
+        - version 1.1.7 with some minor changes 
+
+* Mar 8, 2020
+    - (by: sonofeft)
+        - updated unit testing 
+
+* Mar 6, 2020
+    - (by: sonofeft)
+        - tweaked sphinx files
+        - sphinx changes
+        - update history
+        - Added combustion species for version 1.1.6
+        - examine species mass/mole fraction output 
+
+* Mar 4, 2020
+    - (by: sonofeft)
+        - minor doc change
+        - documentation updates
+        - fix python version shield
+        - history update
+        - version 1.1.4 adds thrust coefficient 
+
+* Feb 25, 2020
+    - (by: sonofeft)
+        - some doc updates 
+
+* Feb 21, 2020
+    - (by: sonofeft)
+        - history update
+        - Added error tolerance to multi-input of get_full_cea_output 
+
+* Feb 20, 2020
+    - (by: sonofeft)
+        - Cleaned up some directories
+        - history and doc updates
+        - Added multiple column, traditional CEA output and documentation
+        - updates to docs 
+
+* Feb 11, 2020
+    - (by: sonofeft)
+        - updatded git history
+        - Finished up (hopefully) transport units and unit testing
+        - A few doc tweeks for the transport property additions.
+        - Started Adding Transport Property Methods 
+
+* Feb 7, 2020
+    - (by: sonofeft)
+        - uploaded version 1.1.0
+        - Added Frozen option to Nozzle Exit Temperature 
+
+* Jan 21, 2020
+    - (by: sonofeft)
+        - added Pc units to full_output method 
+
+* Jan 20, 2020
+    - (by: sonofeft)
+        - more docs touch-up
+        - docs touch-up
+        - Update .travis.yml
+        - Try to get TravisCI to build
+        - updated docs
+        - updated history in docs
+        - Added docs for SI units 
+
+* Jan 19, 2020
+    - (by: sonofeft)
+        - created SI example "plot_SI_biprop.py"
+        - Some folder cleanup and starting  SI Units Addition 
+
+* Sep 25, 2019
+    - (by: sonofeft)
+        - html doc file update
+        - windows backslash path fixes in docs 
+
+* Aug 9, 2019
+    - (by: sonofeft)
+        - added mahoep comments and common block intis
+        - try fixing py_cea import error on ReadTheDocs
+        - automodule failing on ReadTheDocs for functions
+        - version 1.06 with updated Docs
+        - Incorporated suggestion of mahoep for transport properties
+        - and added get_Temperatures function to return (Tc, Tthroat, Texit) 
+
+* Jul 31, 2019
+    - (by: sonofeft)
+        - Update quickstart.rst 
+
+* Jul 29, 2019
+    - (by: sonofeft)
+        - Some doc and TODO updates
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Merge branch 'master' of https://github.com/sonofeft/RocketCEA
+        - travis.ci updates 
+
+* Jul 29, 2019
+    - (by: Charlie)
+        - Delete py_cea.so 
+
+* Jul 29, 2019
+    - (by: sonofeft)
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - Update .travis.yml
+        - get rid of __pycache__ files
+        - travis ci changes
+        - Major Overhaul of f2py usage. 
+
+* Jul 13, 2019
+    - (by: sonofeft)
+        - Updated MinGW Documentation 
+
+* Jul 7, 2019
+    - (by: sonofeft)
+        - Added Google Colab instructions to QuickStart 
+
+* Jul 6, 2019
+    - (by: sonofeft)
+        - Begin to support MacOS (Darwin), version 1.0.3 
+
+* Mar 26, 2019
+    - (by: sonofeft)
+        - Added Windows install fix info to docs 
+
+* Oct 21, 2018
+    - (by: sonofeft)
+        - added help for bad MinGW path error
+        - full instructions to recompile with gfortran 
+
+* Oct 20, 2018
+    - (by: sonofeft)
+        - Identified MinGW library issue in docs
+        - Updated quickstart to show warning about recent python requiring user to run as administrator 
+
+* Aug 12, 2018
+    - (by: sonofeft)
+        - modify .gitattributes to make project show as python
+        - added .gitattributes 
+
+* May 30, 2018
+    - (by: sonofeft)
+        - Reinstated Travis CI
+        - matplotlib fix for Travis CI
+        - added: matplotlib.use('Agg')
+        - try apt packages on travis ci
+        - try conda on travis ci
+        - try some pip fixes to travis ci
+        - try apt-get in travis build 
+
+* May 29, 2018
+    - (by: sonofeft)
+        - Removed Travis-CI
+        - Need to solve missing libgfortran.so.3 import error on Travis CI
+        - Developed code first commit
+        - Revert "Initial commit"
+        - This reverts commit e06031f0a5c0244d944fc3b1f4a3ed987579a2a7. 
+
+* May 29, 2018
+    - (by: Charlie)
+        - Initial commit 
+

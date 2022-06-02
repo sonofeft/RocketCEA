@@ -6,6 +6,10 @@ History
 
 GitHub Log
 ----------
+* Jun 2, 2022
+    - (by: Charlie)
+        - version 1.1.29, force data re-read when calculating transport properties 
+
 * Apr 12, 2022
     - (by: Charlie)
         - updated doc files, added some examples
