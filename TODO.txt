@@ -1,3 +1,5 @@
+*) Cast some inputs to float (e.g. eps, mr)
+
 *) Add warning for Windows 32 bit python 3.8
    "Can not build MinGW fortran *.pyd"
 

@@ -105,6 +105,14 @@ def getCacheDict():
     """Returns internal cache of previously called calculations."""
     return _CacheObjDict
 
+def clearCache( show_size=True ):
+    """Clear the cache of previously run cases for this session."""
+    if show_size:
+        print( 'BEFORE clearCache: Size of Cache =', len(_CacheObjDict))
+    _CacheObjDict.clear()
+    if show_size:
+        print( 'AFTER  clearCache: Size of Cache =', len(_CacheObjDict))
+
 def set_py_cea_line(N, line):
     '''make sure that trailing blanks are on added lines'''
     ln =  line + " "
@@ -563,6 +571,7 @@ class CEA_Obj(object):
         if _NLines_Max_ever>N:
             while N<_NLines_Max_ever:
                 set_py_cea_line(N,"    ")
+                #set_py_cea_line(N," "*131)
                 N += 1
 
         # now call CEA
@@ -576,6 +585,12 @@ class CEA_Obj(object):
                 readData = 0
         except:
             print("ERROR reading data file for",self.desc)
+
+        if show_transport:
+            if self.make_debug_prints:
+                print("NOTE: transport properties require re-reading data read.")
+            readData = 1
+
 
         if readData:
             _last_called = self
@@ -593,6 +608,10 @@ class CEA_Obj(object):
             if self.makeOutput:
                 print('NOTICE... making an output file: f.out')
                 print("          in directory:", ROCKETCEA_DATA_DIR )
+                print()
+            print("==== CEA Input Deck ====")
+            for i_cea_deck in range( min(_NLines_Max_ever+1, 50) ):
+                print( py_cea.cet_inp.inplines[i_cea_deck] )
 
         # Before calling CEA, init values to zero so bad run can be detected
         py_cea.rockt.vaci[ self.i_thrt ] =  0.0 # Vacuum Isp at throat

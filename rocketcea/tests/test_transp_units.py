@@ -46,7 +46,7 @@ for more assert options
 
 
 import sys, os
-import imp
+#import imp
 
 here = os.path.abspath(os.path.dirname(__file__)) # Needed for py.test
 up_one = os.path.split( here )[0]  # Needed to find rocketcea development version
