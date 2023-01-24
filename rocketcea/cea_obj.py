@@ -37,7 +37,7 @@ import shutil
 USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
-from rocketcea.short_win_path import get_short_path_name
+from rocketcea.short_win_path import get_usable_path
 
 def set_rocketcea_data_dir( rddir, do_print=True ):
     """
@@ -53,7 +53,7 @@ def set_rocketcea_data_dir( rddir, do_print=True ):
     if ROCKETCEA_DATA_DIR.find(' ') >= 0:
         print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
         print('   ',ROCKETCEA_DATA_DIR)
-        ROCKETCEA_DATA_DIR = get_short_path_name( ROCKETCEA_DATA_DIR )
+        ROCKETCEA_DATA_DIR = get_usable_path( ROCKETCEA_DATA_DIR )
         
 set_rocketcea_data_dir( ROCKETCEA_DATA_DIR, do_print=False )
 
@@ -612,7 +612,7 @@ class CEA_Obj(object):
                 print()
             print("==== CEA Input Deck ====")
             for i_cea_deck in range( min(_NLines_Max_ever+1, 50) ):
-                print( py_cea.cet_inp.inplines[i_cea_deck] )
+                print( py_cea.cet_inp.inplines[i_cea_deck].rstrip() )
 
         # Before calling CEA, init values to zero so bad run can be detected
         py_cea.rockt.vaci[ self.i_thrt ] =  0.0 # Vacuum Isp at throat
