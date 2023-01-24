@@ -17,6 +17,7 @@ if sys.platform == 'win32':
 
 
 def get_usable_path( inp_path ):
+    """The FORTRAN code doesn't like spaces in names... try to make usable name w/o spaces."""
     pobj = pathlib.Path( inp_path )
     partsL = list( pobj.parts )
     # print( 'partsL =', partsL )
@@ -70,7 +71,9 @@ def get_short_path_name(long_name):
     if not _CAN_RUN_CTYPES:
         print( 'Failed to get short name in get_short_path_name' )
         print( '   for long_name:', long_name )
-        return long_name
+        # return long_name
+        print( '   Trying with underscores in place of spaces')
+        return long_name.replace(' ', '_')
     
     output_buf_size = 0
     counter = 0
