@@ -6,6 +6,12 @@ For users that compile FORTRAN with MinGW, python 3.8 and above need to
 add the import path of the DLL libraries.
 """
 
+here = os.path.abspath(os.path.dirname(__file__))
+if hasattr(os, 'add_dll_directory'):
+    #os.add_dll_directory( here )
+    if os.path.isdir( os.path.join(here, '.libs') ):
+        os.add_dll_directory( os.path.join( here, '.libs') )
+
 def add_mingw_lib():
     # python >=3.8 needs to be given permission to import DLL files.
     if hasattr(os, 'add_dll_directory'):

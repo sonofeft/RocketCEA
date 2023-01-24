@@ -54,6 +54,7 @@ def set_rocketcea_data_dir( rddir, do_print=True ):
         print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
         print('   ',ROCKETCEA_DATA_DIR)
         ROCKETCEA_DATA_DIR = get_short_path_name( ROCKETCEA_DATA_DIR )
+        
 set_rocketcea_data_dir( ROCKETCEA_DATA_DIR, do_print=False )
 
 def get_rocketcea_data_dir():

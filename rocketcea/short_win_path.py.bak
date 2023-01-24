@@ -11,20 +11,8 @@ if sys.platform == 'win32':
         _GetShortPathNameW.restype = wintypes.DWORD
         _CAN_RUN_CTYPES = True
     except:
-        print('ERROR getting _GetShortPathNameW')
+        pass
 
-def shortpath(x):
-  # from: https://mail.python.org/archives/list/python-dev@python.org/thread/H6R3AHSYGNDDJKV2ZLI43DAGUKAG2Y3O/
-  z=''
-  for y in x.split('\\'):
-    if len(y.split('.')[0])>8:
-      if ('.' in y):
-        z=z+'\\'+y.split('.')[0][:6].upper()+'~1'+'.'+y.split('.')[1]
-      else:
-        z=z+'\\'+y[:6].upper()+'~1'
-    else:
-      z=z+'\\'+y
-  return z[1:]
 
 def get_short_path_name(long_name):
     """
@@ -37,7 +25,6 @@ def get_short_path_name(long_name):
     If, due to a TOCTTOU problem, the return value is still larger, 
     keep trying until you've got it right.:
     """
-    
     #if sys.platform != 'win32':
     if not _CAN_RUN_CTYPES:
         print( 'Failed to get short name in get_short_path_name' )
@@ -53,14 +40,8 @@ def get_short_path_name(long_name):
         needed = _GetShortPathNameW(long_name, output_buf, output_buf_size)
         if output_buf_size >= needed:
             print( 'Using short form of Windows path:' )
-            
-            if len(output_buf.value) > 0 and output_buf.value.find(' ') < 0:
-                print( '   "%s"'%output_buf.value )
-                return output_buf.value
-            else:
-                sn = shortpath(long_name)
-                print( '   "%s"'%sn )
-                return sn
+            print( '   ', output_buf.value )
+            return output_buf.value
         else:
             output_buf_size = needed
             

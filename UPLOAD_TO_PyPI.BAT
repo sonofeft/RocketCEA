@@ -11,7 +11,7 @@ xcopy /S .\docs\_build\html .\rocketcea\sphinx_html /y
 python setup.py sdist
 
 rem only upload source to PyPI
-rem C:\Users\Charlie\AppData\Roaming\Python\Python37\Scripts\twine.exe upload --skip-existing dist/*.gz
-C:\Users\Charlie\AppData\Roaming\Python\Scripts\twine.exe upload --skip-existing dist/*.gz
+rem C:\Python310\Scripts\twine.exe upload --skip-existing dist/*.gz
+C:\Python310\Scripts\twine.exe upload --config-file "%HOMEPATh%\.pypirc" --skip-existing dist/*.gz
 
 rem use:  twine check dist/*  OR twine check dist/*24.tar.gz (where: 24 is current version)
