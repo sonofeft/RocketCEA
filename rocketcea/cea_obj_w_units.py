@@ -359,7 +359,7 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         Cp, visc, cond, Prandtl = self.cea_obj.get_Exit_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         
-        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        #Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
         Cp = self.specific_heat_U.dval_to_uval( Cp )
         visc = self.viscosity_U.dval_to_uval( visc )
         cond = self.thermal_cond_U.dval_to_uval( cond )
