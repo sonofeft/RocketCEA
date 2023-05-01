@@ -258,10 +258,10 @@ class CEA_Obj( object ):
         
         return cpList
         
-    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        Cp = self.cea_obj.get_Chamber_Cp( Pc=Pc, MR=MR, eps=eps )
+        Cp = self.cea_obj.get_Chamber_Cp( Pc=Pc, MR=MR, eps=eps, frozen=0 )
         return self.specific_heat_U.dval_to_uval( Cp )
         
     def get_Throat_Isp(self, Pc=100.0, MR=1.0, frozen=0):
@@ -282,10 +282,10 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_Throat_MolWt_gamma( Pc=Pc, MR=MR, eps=eps, frozen=frozen )
         
-    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        return self.cea_obj.get_exit_MolWt_gamma( Pc=Pc, MR=MR, eps=eps )
+        return self.cea_obj.get_exit_MolWt_gamma( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat )
         
     def get_eqratio(self, Pc=100.0, MR=1.0, eps=40.0):
         
