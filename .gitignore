@@ -8,6 +8,7 @@ __pycache__
 *.so
 *.o
 *$py.class
+*.dll
 
 # Distribution / packaging
 .Python
@@ -17,6 +18,7 @@ develop-eggs/
 dist/
 dist_old/
 downloads/
+.libs/
 eggs/
 .eggs/
 lib/
@@ -107,3 +109,6 @@ ENV/
 rocketcea/tests/__pycache__/test_misc.cpython-37.pyc
 *.pyc
 install_w_py38.txt
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/

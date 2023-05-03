@@ -57,7 +57,7 @@ def get_short_path_name(long_name):
     """
     print( 'long_name =', long_name)
     import pathlib
-    pobj = pathlib.Path( long_name )
+    # pobj = pathlib.Path( long_name )
     # print('    pobj =', pobj,  '   pobj.exists() =', pobj.exists() )
     
     # if not os.path.isdir( long_name ):

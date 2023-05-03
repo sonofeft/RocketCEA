@@ -6,6 +6,11 @@ History
 
 GitHub Log
 ----------
+* May 3, 2023
+    - (by: Charlie and Alex)
+        - Added missing arguments to member functions of cea_obj_w_units
+        - Fixed the conversion from default imperial units to user units in cea_obj_w_units get_Exit_Transport()
+
 * Jun 2, 2022
     - (by: Charlie)
         - version 1.1.29, force data re-read when calculating transport properties 

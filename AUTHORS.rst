@@ -19,6 +19,10 @@ Patches and Ideas
 * `mahoep <https://github.com/mahoep>`_
     - Added transport properties and temperatures of throat and exit (see get_Temperatures function)
 
+* `Alex <https://github.com/alejandro0511>`_
+    - Added missing arguments to member functions of cea_obj_w_units
+    - Fixed the conversion from default imperial units to user units in cea_obj_w_units get_Exit_Transport()
+
 Initial Project Layout
 ----------------------
 

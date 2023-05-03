@@ -35,6 +35,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 import shutil
 
 USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
+# if USER_HOME_DIR.find(' ') >= 0 and sys.platform == 'win32':
+#     ROCKETCEA_DATA_DIR = os.path.join( os.path.split(USER_HOME_DIR)[0], 'Public', 'RocketCEA' )
+# else:
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
 from rocketcea.short_win_path import get_usable_path
@@ -1271,6 +1274,8 @@ class CEA_Obj(object):
         #: MR is only used for ox/fuel combos.
         #: eps = Nozzle Expansion Area Ratio
         #: frozen flag (0=equilibrium, 1=frozen)
+
+        NOTE: should return same value regardless of frozen flag or eps.
         """
         cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         return cpList[ 0 ] # BTU/lbm degR  # 0 == self.i_chm here
@@ -1282,6 +1287,8 @@ class CEA_Obj(object):
         #: Pc = combustion end pressure (psia)
         #: MR is only used for ox/fuel combos.
         #: frozen = flag (0=equilibrium, 1=frozen)
+
+        NOTE: should return same value regardless of eps.
         """
         eps=1.0
         cacheDesc1 = (Pc,MR,eps,frozen,0) # set frozen flag to zero in cache description
@@ -1577,7 +1584,7 @@ def print_py_cea_vars():
 
 if __name__ == '__main__':
 
-    from pylab import *
+    # from pylab import *
 
 
     def showOutput( ispObj ):
@@ -1632,3 +1639,13 @@ if __name__ == '__main__':
 
             print('Pc=%4i  eps=%3i  IspAmb=%10.2f IspVac=%10.2f  Mode=%s'%(int(Pc),int(eps), IspAmb, IspVac, mode))
         print('  ---')
+
+    print( 'Checking get_Chamber_Cp calls')
+    print( C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    print( C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+    print( C.get_Chamber_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    print( C.get_Chamber_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+    print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+    print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )

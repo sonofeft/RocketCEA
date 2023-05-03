@@ -1,6 +1,6 @@
 
-rem set python path variable (Default is Python 3.5 32 bit)
-IF "%1"=="" ( SET "MYPYTHONPATH=D:\Python35" ) ELSE ( SET "MYPYTHONPATH=D:\Python%1" )
+rem set python path variable (Default is Python 3.7 64 bit)
+IF "%1"=="" ( SET "MYPYTHONPATH=D:\py_versions\Python37_32" ) ELSE ( SET "MYPYTHONPATH=D:\py_versions\Python%1_32" )
 
 rem Make sure that PATH is as simple as possible
 set PATH=C:\MinGW\mingw32\bin;C:\MinGW\mingw32\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts

@@ -258,14 +258,18 @@ class CEA_Obj( object ):
         
         return cpList
         
-    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0):
-        
+    def get_Chamber_Cp(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+        """
+        NOTE: should return same value regardless of frozen flag or eps.
+        """
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        Cp = self.cea_obj.get_Chamber_Cp( Pc=Pc, MR=MR, eps=eps )
+        Cp = self.cea_obj.get_Chamber_Cp( Pc=Pc, MR=MR, eps=eps, frozen=frozen )
         return self.specific_heat_U.dval_to_uval( Cp )
         
     def get_Throat_Isp(self, Pc=100.0, MR=1.0, frozen=0):
-        
+        """
+        NOTE: should return same value regardless of eps.
+        """
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         Isp = self.cea_obj.get_Throat_Isp( Pc=Pc, MR=MR, frozen=frozen)
         Isp = self.isp_U.dval_to_uval( Isp )
@@ -282,10 +286,13 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_Throat_MolWt_gamma( Pc=Pc, MR=MR, eps=eps, frozen=frozen )
         
-    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0):
+    def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, 
+                             frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        return self.cea_obj.get_exit_MolWt_gamma( Pc=Pc, MR=MR, eps=eps )
+        return self.cea_obj.get_exit_MolWt_gamma( Pc=Pc, MR=MR, eps=eps, 
+                                                  frozen=frozen, 
+                                                  frozenAtThroat=frozenAtThroat)
         
     def get_eqratio(self, Pc=100.0, MR=1.0, eps=40.0):
         
@@ -359,7 +366,7 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         Cp, visc, cond, Prandtl = self.cea_obj.get_Exit_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         
-        Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        #Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
         Cp = self.specific_heat_U.dval_to_uval( Cp )
         visc = self.viscosity_U.dval_to_uval( visc )
         cond = self.thermal_cond_U.dval_to_uval( cond )
@@ -368,27 +375,26 @@ class CEA_Obj( object ):
 
 if __name__ == "__main__":
     
-    C = CEA_Obj(oxName='N2O4', fuelName="MMH", 
-        isp_units='sec', cstar_units='ft/sec', 
-        pressure_units='psia', temperature_units='degR', 
-        sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
+    C = CEA_Obj(oxName='N2O4', fuelName="MMH",
+        isp_units='sec', cstar_units='ft/sec',
+        pressure_units='psia', temperature_units='degR',
+        sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm',
         density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
         viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s')
     
-    Cmpa = CEA_Obj(oxName='N2O4', fuelName="MMH", 
-        isp_units='sec', cstar_units='ft/sec', 
-        pressure_units='MPa', temperature_units='degR', 
-        sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm', 
+    Cmpa = CEA_Obj(oxName='N2O4', fuelName="MMH",
+        isp_units='sec', cstar_units='ft/sec',
+        pressure_units='MPa', temperature_units='degR',
+        sonic_velocity_units='ft/sec', enthalpy_units='BTU/lbm',
         density_units='lbm/cuft', specific_heat_units='BTU/lbm degR',
         viscosity_units='millipoise', thermal_cond_units='mcal/cm-K-s')
     
-    
-    Csi=CEA_Obj( oxName='N2O4', fuelName="MMH", 
-        isp_units='N sec/kg', cstar_units='m/sec', 
-        pressure_units='MPa', temperature_units='C', 
-        sonic_velocity_units='m/sec', enthalpy_units='cal/g', 
-        density_units='sg', specific_heat_units='cal/g C',
-        viscosity_units='poise', thermal_cond_units='cal/s-cm-degC')
+    # Csi=CEA_Obj( oxName='N2O4', fuelName="MMH", 
+    #     isp_units='N sec/kg', cstar_units='m/sec', 
+    #     pressure_units='MPa', temperature_units='C', 
+    #     sonic_velocity_units='m/sec', enthalpy_units='cal/g', 
+    #     density_units='sg', specific_heat_units='cal/g C',
+    #     viscosity_units='poise', thermal_cond_units='cal/s-cm-degC')
     
     def make_a_list( result ):
         if type(result) == type("string"):
@@ -398,10 +404,11 @@ if __name__ == "__main__":
                 rL = list( result )
             except:
                 rL = list( (result,) )
-            
+        
         for i,v in enumerate(rL):
             try:
-                rL[i] = '%g'%v 
+                # rL[i] = '%g'%v 
+                rL[i] = "{:.5}".format(v) # 5 significant figures
             except:
                 rL[i] = '%s'%v 
         return rL
@@ -409,6 +416,7 @@ if __name__ == "__main__":
     def chk_method( mname, max_chks=99,  **D ):
         # get English unit results
         r1 = getattr(C, mname)( **D )
+        # print( '.......... got r1 for:', mname)
         
         if 'Pc' in D:
             D['Pc'] = D['Pc'] * 0.00689476 # change to MPa
@@ -416,6 +424,7 @@ if __name__ == "__main__":
             D['Pamb'] = D['Pamb'] * 0.00689476 # change to MPa
         # get Mpa results where Pc is equal to English run.
         r2 = getattr(Cmpa, mname)( **D )
+        # print( '.......... got r2 for:', mname)
         Ngood = 0
         Nbad = 0
         sL = []
@@ -483,13 +492,14 @@ if __name__ == "__main__":
     chk_method('getMRforER',**{'ERphi':1.0})
     chk_method('get_description')
     chk_method('estimate_Ambient_Isp', max_chks=1,**{'Pc':100.0, 'Pamb':14.7})
-    chk_method('get_Chamber_Transport',**{'Pc':100.0, 'frozen':0})
-    chk_method('get_Chamber_Transport',**{'Pc':100.0, 'frozen':1})
+
+    # chk_method('get_Chamber_Transport',**{'Pc':100.0, 'MR':1.0, 'eps':40.0,  'frozen':0})
+    # chk_method('get_Chamber_Transport',**{'Pc':100.0, 'MR':1.0, 'eps':40.0,  'frozen':1})
     
-    chk_method('get_Throat_Transport',**{'Pc':100.0, 'frozen':0})
-    chk_method('get_Throat_Transport',**{'Pc':100.0, 'frozen':1})
-    chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':0})
-    chk_method('get_Exit_Transport',**{'Pc':100.0, 'frozen':1})
+    # chk_method('get_Throat_Transport',**{'Pc':100.0, 'MR':1.0, 'eps':40.0, 'frozen':0})
+    # chk_method('get_Throat_Transport',**{'Pc':100.0, 'MR':1.0, 'eps':40.0,  'frozen':1})
+    # chk_method('get_Exit_Transport',**{'Pc':100.0, 'MR':1.0, 'eps':40.0,  'frozen':0})
+    # chk_method('get_Exit_Transport',**{'Pc':100.0, 'MR':1.0, 'eps':40.0,  'frozen':1})
         
     chk_method('get_PambCf', max_chks=2, **{'Pc':100.0, 'Pamb':14.7})
     chk_method('getFrozen_PambCf', max_chks=2, **{'Pc':100.0, 'Pamb':14.7, 'frozenAtThroat':1})
@@ -498,4 +508,15 @@ if __name__ == "__main__":
     chk_method('get_SpeciesMoleFractions', max_chks=1,**{'Pc':100.0, 'frozen':0, 'frozenAtThroat':0})
 
     
+
+    print( '======================= Checking get_Chamber_Cp calls ==========================')
+    print( 'frozen=0 C.get_Chamber_Cp =', C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    print( 'frozen=1 C.get_Chamber_Cp =', C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+    print( 'NOTE: Windows 11 with python 3.7 and 3.10 has FORTRAN error re-reading temp.dat with get_???_Transport')
+    # print( C.get_Chamber_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    # print( C.get_Chamber_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+    # print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    # print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+    # print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
+    # print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
     

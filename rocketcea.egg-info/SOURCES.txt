@@ -13,6 +13,7 @@ setup.cfg
 setup.py
 tox.ini
 travisci_badge.txt
+rocketcea/.coverage
 rocketcea/Goal.py
 rocketcea/Isp.py
 rocketcea/__init__.py
@@ -22,6 +23,7 @@ rocketcea/cea_obj.py
 rocketcea/cea_obj.py.bak
 rocketcea/cea_obj_w_units.py
 rocketcea/clean_init.py
+rocketcea/coverage.xml
 rocketcea/excel_const.py
 rocketcea/f.inp
 rocketcea/f.out
@@ -29,6 +31,10 @@ rocketcea/find_mingw_lib.py
 rocketcea/full_output_Pc_options.jpg
 rocketcea/input_cards.py
 rocketcea/nosetests_details.txt
+rocketcea/py_cea.cp310-win_amd64.pyd
+rocketcea/py_cea.cp37-win_amd64.pyd
+rocketcea/py_cea.cp38-win_amd64.pyd
+rocketcea/py_cea.cp39-win_amd64.pyd
 rocketcea/py_cea.f
 rocketcea/py_cea.inc
 rocketcea/py_cea.pyf
@@ -36,6 +42,7 @@ rocketcea/separated_Cf.py
 rocketcea/separated_Noz.csv
 rocketcea/separated_Noz_cea.csv
 rocketcea/short_win_path.py
+rocketcea/short_win_path.py.bak
 rocketcea/show_html_help.py
 rocketcea/temp.dat
 rocketcea/temp.scr
@@ -55,6 +62,12 @@ rocketcea.egg-info/entry_points.txt
 rocketcea.egg-info/not-zip-safe
 rocketcea.egg-info/requires.txt
 rocketcea.egg-info/top_level.txt
+rocketcea/.libs/libpy_cea.KJNBJ2LSMZKSZYAQNJY4656SFNQAM75H.gfortran-win_amd64.dll
+rocketcea/_temp/libpy_cea.JGHYEXBMZRT22GCFGCFN2C5ITYSGKNJE.gfortran-win32.dll
+rocketcea/_temp/libpy_cea.KJNBJ2LSMZKSZYAQNJY4656SFNQAM75H.gfortran-win_amd64.dll
+rocketcea/_temp/libpy_cea.KLQMM6BEWGKA73V6UIK7SXCIQXLSGEZA.gfortran-win_amd64.dll
+rocketcea/_temp/libpy_cea.NRMGONJGXWXVTE2PXLEP6NKKN4CH2Q7I.gfortran-win_amd64.dll
+rocketcea/_temp/libpy_cea.ZAWCFY2SHC6SRISD5Q6GPU7WPQI6WBVR.gfortran-win_amd64.dll
 rocketcea/biprop_utils/InterpProp_scipy.py
 rocketcea/biprop_utils/__init__.py
 rocketcea/biprop_utils/back_terp.py
