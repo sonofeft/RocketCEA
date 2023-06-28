@@ -2,18 +2,18 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Standard Examples &#8212; RocketCEA v1.1.29 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Standard Examples &#8212; RocketCEA v1.1.30 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Standard Examples</a></li> 
       </ul>
     </div>  
@@ -50,26 +50,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="standard-examples">
-<span id="std-examples-link"></span><h1>Standard Examples<a class="headerlink" href="#standard-examples" title="Permalink to this headline">¶</a></h1>
+  <section id="standard-examples">
+<span id="std-examples-link"></span><h1>Standard Examples<a class="headerlink" href="#standard-examples" title="Permalink to this heading">¶</a></h1>
 <p>For those with <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">NASA CEA</a> experience,
 running CEA and reviewing the printed output is standard practice.</p>
 <p>The following examples show how to run a case and review the standard
 <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">CEA</a> output.</p>
 <p>RocketCEA always begins with an import statement and an instance of a CEA_obj:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Instead of manually assembling a run deck for CEA, the above is all that is needed to run a CEA <strong>rocket</strong> case with standard
 definitions of all the most common rocket propellants.</p>
-<div class="section" id="lox-lh2-performance">
-<span id="example-1-link"></span><h2>LOX/LH2 Performance<a class="headerlink" href="#lox-lh2-performance" title="Permalink to this headline">¶</a></h2>
+<section id="lox-lh2-performance">
+<span id="example-1-link"></span><h2>LOX/LH2 Performance<a class="headerlink" href="#lox-lh2-performance" title="Permalink to this heading">¶</a></h2>
 <p>The script below is typical to calculate predicted equilibrium performance at a specific
 chamber pressure, mixture ratio and expansion ratio.</p>
 <p>The script uses the <strong>short</strong> output option. (long-form output is default)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -178,13 +178,13 @@ The default units in <strong>RocketCEA</strong> are psia, however, bar, atm and 
 <span class="n">NOTE</span><span class="o">.</span> <span class="n">WEIGHT</span> <span class="n">FRACTION</span> <span class="n">OF</span> <span class="n">FUEL</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">FUELS</span> <span class="n">AND</span> <span class="n">OF</span> <span class="n">OXIDANT</span> <span class="n">IN</span> <span class="n">TOTAL</span> <span class="n">OXIDANTS</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="transport-properties">
-<h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="transport-properties">
+<h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this heading">¶</a></h2>
 <p>New in RocketCEA version 1.06,
 to include transport properties, set the <strong>show_transport</strong> flag.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> 
@@ -227,22 +227,22 @@ to include transport properties, set the <strong>show_transport</strong> flag.</
 </pre></div>
 </div>
 <p>If different units are desired, use the <strong>cea_obj_w_units</strong> wrapper, for example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span>
              <span class="n">specific_heat_units</span><span class="o">=</span><span class="s1">&#39;kJ/kg-K&#39;</span><span class="p">,</span>
              <span class="n">viscosity_units</span><span class="o">=</span><span class="s1">&#39;poise&#39;</span><span class="p">,</span>
              <span class="n">thermal_cond_units</span><span class="o">=</span><span class="s1">&#39;BTU/s-in-degF&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="frozen-performance">
-<h2>Frozen Performance<a class="headerlink" href="#frozen-performance" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="frozen-performance">
+<h2>Frozen Performance<a class="headerlink" href="#frozen-performance" title="Permalink to this heading">¶</a></h2>
 <p>To run the same LOX/LH2 case above, but with frozen composition during expansion, the following script is used.</p>
 <p>Notice here that the flag to freeze the composition at the throat is set.
 Otherwise, the chamber composition is used.</p>
 <p>Also notice that without the short output flag, the long form of output results.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -375,8 +375,8 @@ Otherwise, the chamber composition is used.</p>
    <span class="n">PRODUCTS</span> <span class="n">WHICH</span> <span class="n">WERE</span> <span class="n">CONSIDERED</span> <span class="n">BUT</span> <span class="n">WHOSE</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -388,8 +388,9 @@ Otherwise, the chamber composition is used.</p>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Standard Examples</a><ul>
@@ -418,12 +419,17 @@ Otherwise, the chamber composition is used.</p>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="installgfortran.html"
-                        title="previous chapter">Install gfortran</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="traditional_example.html"
-                        title="next chapter">Traditional Example</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="installgfortran.html"
+                          title="previous chapter">Install gfortran</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="traditional_example.html"
+                          title="next chapter">Traditional Example</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -440,7 +446,7 @@ Otherwise, the chamber composition is used.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -460,13 +466,13 @@ Otherwise, the chamber composition is used.</p>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Standard Examples</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

@@ -2,18 +2,18 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temperature Adjust &#8212; RocketCEA v1.1.29 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Temperature Adjust &#8212; RocketCEA v1.1.30 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Temperature Adjust</a></li> 
       </ul>
     </div>  
@@ -50,31 +50,31 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="temperature-adjust">
-<span id="temperature-adjust-link"></span><h1>Temperature Adjust<a class="headerlink" href="#temperature-adjust" title="Permalink to this headline">¶</a></h1>
+  <section id="temperature-adjust">
+<span id="temperature-adjust-link"></span><h1>Temperature Adjust<a class="headerlink" href="#temperature-adjust" title="Permalink to this heading">¶</a></h1>
 <p>There are any number of good reasons to analyze propellants at other than their standard condition.
 RocketCEA provides some aid in creating adjusted input decks.</p>
-<div class="section" id="standard-t-and-h">
-<h2>Standard T and H<a class="headerlink" href="#standard-t-and-h" title="Permalink to this headline">¶</a></h2>
+<section id="standard-t-and-h">
+<h2>Standard T and H<a class="headerlink" href="#standard-t-and-h" title="Permalink to this heading">¶</a></h2>
 <p>Propellants in RocketCEA are assumed to be at standard temperature and enthalpy.
 For storable and gaseous propellants, room temperature is standard.
 For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
-<p>Calling the propellants “LOX” and “LH2” by name in a CEA_obj statement such as this:</p>
+<p>Calling the propellants &quot;LOX&quot; and &quot;LH2&quot; by name in a CEA_obj statement such as this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will result in LOX and LH2 at standard conditions.</p>
-</div>
-<div class="section" id="changing-t-and-h">
-<h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this headline">¶</a></h2>
-<p>As an example, I’ll use a LOX/CH4 engine, where, instead of running the engine on propellants
+</section>
+<section id="changing-t-and-h">
+<h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this heading">¶</a></h2>
+<p>As an example, I'll use a LOX/CH4 engine, where, instead of running the engine on propellants
 that are each at their normal boiling point (NBP), this engine will store both propellants at a
 common temperature. The LOX will be at NBP and the CH4 will be subcooled.</p>
 <p>In some designs a common propellant temperature is desirable in order to have common dome tankage.
 The ox and fuel are separated by an uninsulated dome without the worry of heat transfer between them.
 Additionally, common dome tankage makes a shorter stage.</p>
-<p>I’ll assume that only the CH4 CEA card will need to be adjusted, but the LOX CEA card can be used as is.
-In order to calculate the common storage temperature, I’ll assume that the bleed valve on the LOX tank is
+<p>I'll assume that only the CH4 CEA card will need to be adjusted, but the LOX CEA card can be used as is.
+In order to calculate the common storage temperature, I'll assume that the bleed valve on the LOX tank is
 set at 5 psig so that the LOX is stored at 20 psia and therefore 168 degR.</p>
 <p>Using the fluid properties code <a class="reference external" href="http://www.coolprop.org/dev/index.html">CoolProp</a> as wrapped by the
 engineering units code <a class="reference external" href="http://engcoolprop.readthedocs.org/en/latest/">EngCoolProp</a>, the following script
@@ -86,9 +86,9 @@ the method <strong>makeCardForNewTemperature</strong> was set up with <strong>Cp
 This was done because many of the CEA propellants are not in coolprop and therefor
 an explicit calculation of delta H is not available.
 Using an estimate of average Cp, however, the user can still calculate a very good answer.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="k">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
-<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="k">import</span> <span class="n">makeCardForNewTemperature</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="kn">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
+<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="kn">import</span> <span class="n">makeCardForNewTemperature</span>
+<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
 
 <span class="c1"># ======= use EngCoolProp to calculate dT and dH ========</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;CH4&quot;</span> <span class="p">)</span>
@@ -140,7 +140,7 @@ Both CEA cards are shown in the output for comparison.:</p>
 
 <span class="n">CH4</span> <span class="n">dT</span><span class="o">=-</span><span class="mf">33.171</span> <span class="n">degR</span><span class="p">,</span> <span class="n">dH</span><span class="o">=-</span><span class="mf">27.1848</span> <span class="n">BTU</span><span class="o">/</span><span class="n">lbm</span>
 
-<span class="n">New</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">CH4_m21632</span><span class="o">.</span><span class="mf">1_167.836</span>
+<span class="n">New</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">CH4_m21632</span><span class="mf">.1_167.836</span>
  <span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span> <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
  <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">21632.1</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">93.24</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.4239</span>
 
@@ -156,8 +156,8 @@ Both CEA cards are shown in the output for comparison.:</p>
 </div>
 <p>The final answer is that the performance only drops by about 0.2 seconds, almost certainly better than
 the added weight and complexity of interpropellant insulation, or separate-dome tankage.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -169,8 +169,9 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
@@ -198,12 +199,17 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="hydrazine_mono.html"
-                        title="previous chapter">Hydrazine Monopropellant</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="cea_tdk_rpa.html"
-                        title="next chapter">CEA vs TDK vs RPA</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="hydrazine_mono.html"
+                          title="previous chapter">Hydrazine Monopropellant</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cea_tdk_rpa.html"
+                          title="next chapter">CEA vs TDK vs RPA</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -220,7 +226,7 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -240,13 +246,13 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Temperature Adjust</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

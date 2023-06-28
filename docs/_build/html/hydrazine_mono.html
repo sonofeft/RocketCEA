@@ -2,18 +2,18 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hydrazine Monopropellant &#8212; RocketCEA v1.1.29 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Hydrazine Monopropellant &#8212; RocketCEA v1.1.30 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="ambient_isp.html" title="Ambient Isp"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Hydrazine Monopropellant</a></li> 
       </ul>
     </div>  
@@ -50,10 +50,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="hydrazine-monopropellant">
-<span id="hydrazine-mono-link"></span><h1>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="chemical-reactions">
-<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this headline">¶</a></h2>
+  <section id="hydrazine-monopropellant">
+<span id="hydrazine-mono-link"></span><h1>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this heading">¶</a></h1>
+<section id="chemical-reactions">
+<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this heading">¶</a></h2>
 <p>When decomposing Hydrazine (N2H4) as a monopropellant, there are two successive reactions to consider:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="n">N2H4</span> <span class="o">--&gt;</span> <span class="mi">4</span> <span class="n">NH3</span> <span class="o">+</span>   <span class="n">N2</span> <span class="p">(</span><span class="n">highly</span> <span class="n">exothermic</span><span class="p">)</span>
 <span class="mi">4</span> <span class="n">NH3</span>  <span class="o">--&gt;</span> <span class="mi">2</span> <span class="n">N2</span>  <span class="o">+</span> <span class="mi">6</span> <span class="n">H2</span> <span class="p">(</span><span class="n">endothermic</span><span class="p">)</span>
@@ -64,17 +64,17 @@ It creates ammonia (NH3) and nitrogen gas (N2).</p>
 <p>The second reaction (ammonia dissociation), however, can be controlled by the design of a catalyst bed.
 The more ammonia dissociation there is, the cooler the resulting combustion products and the lower the
 Isp of the monopropellant engine.</p>
-</div>
-<div class="section" id="cea-modification">
-<h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Permalink to this headline">¶</a></h2>
-<p>In RocketCEA the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
+</section>
+<section id="cea-modification">
+<h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Permalink to this heading">¶</a></h2>
+<p>In RocketCEA the CEA FORTRAN code has been modified to include &quot;Undissociated Ammonia (UA)&quot; as an exhaust product.
 When decomposing hydrazine with only partial ammonia dissociation,
-the CEA input includes an “omit NH3” statement to prevent normal equilibrium NH3 calculations.</p>
-<p>Partial ammonia dissociation is implemented in RocketCEA with the <strong>propName</strong> “HYDnn”, where “nn” is the mass percent
-of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be “HYD30”, “HYD40” and “HYD50”.</p>
+the CEA input includes an &quot;omit NH3&quot; statement to prevent normal equilibrium NH3 calculations.</p>
+<p>Partial ammonia dissociation is implemented in RocketCEA with the <strong>propName</strong> &quot;HYDnn&quot;, where &quot;nn&quot; is the mass percent
+of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be &quot;HYD30&quot;, &quot;HYD40&quot; and &quot;HYD50&quot;.</p>
 <p>This can be demonstrated with the following RocketCEA script that shows the difference between <strong>HYD40</strong> (40% ammonia dissociation)
 and <strong>N2H4</strong> (equilibrium CEA logic)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">C40</span> <span class="o">=</span>  <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
 <span class="n">C100</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;N2H4&#39;</span><span class="p">)</span>
@@ -103,11 +103,11 @@ are:</p>
   <span class="mi">60</span><span class="o">%</span> <span class="o">-</span> <span class="mi">80</span><span class="o">%</span>          <span class="n">Gas</span> <span class="n">Generators</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="performance-plot">
-<h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="performance-plot">
+<h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Permalink to this heading">¶</a></h2>
 <p>A plot of Monopropellant Hydrazine Performance can be created with the following script.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="k">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">Pc</span> <span class="o">=</span> <span class="mf">200.0</span>
@@ -151,8 +151,8 @@ are:</p>
 </div>
 <a class="reference internal image-reference" href="_images/amm_dissociation.png"><img alt="_images/amm_dissociation.png" src="_images/amm_dissociation.png" style="width: 80%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -164,8 +164,9 @@ are:</p>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
@@ -194,12 +195,17 @@ are:</p>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ambient_isp.html"
-                        title="previous chapter">Ambient Isp</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="temperature_adjust.html"
-                        title="next chapter">Temperature Adjust</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ambient_isp.html"
+                          title="previous chapter">Ambient Isp</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="temperature_adjust.html"
+                          title="next chapter">Temperature Adjust</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -216,7 +222,7 @@ are:</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -236,13 +242,13 @@ are:</p>
         <li class="right" >
           <a href="ambient_isp.html" title="Ambient Isp"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Hydrazine Monopropellant</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

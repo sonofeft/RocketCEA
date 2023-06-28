@@ -2,18 +2,18 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propellant Selection &#8212; RocketCEA v1.1.29 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Propellant Selection &#8212; RocketCEA v1.1.30 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="engine_mr.html" title="Engine Mixture Ratio"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Propellant Selection</a></li> 
       </ul>
     </div>  
@@ -50,8 +50,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="propellant-selection">
-<span id="propellant-select-link"></span><h1>Propellant Selection<a class="headerlink" href="#propellant-selection" title="Permalink to this headline">¶</a></h1>
+  <section id="propellant-selection">
+<span id="propellant-select-link"></span><h1>Propellant Selection<a class="headerlink" href="#propellant-selection" title="Permalink to this heading">¶</a></h1>
 <p>Before looking at stage performance,
 selecting a bipropellant combination for an application can have many considerations.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Historical</span> <span class="n">Experience</span>
@@ -93,11 +93,11 @@ between propellants that survive the initial screening
 is to have engineering teams generate
 detailed designs for each of the propellants and pick the best detailed design.</p>
 <p>In practice, that is rarely a viable option due to the cost and schedule of generating detailed designs.</p>
-<div class="section" id="rough-screening">
-<h2>Rough Screening<a class="headerlink" href="#rough-screening" title="Permalink to this headline">¶</a></h2>
+<section id="rough-screening">
+<h2>Rough Screening<a class="headerlink" href="#rough-screening" title="Permalink to this heading">¶</a></h2>
 <p>The most common tool for simplified performance screening is a chart of propellant
 <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">impulse</span></code> (Isp * bulk propellant density).</p>
-<p>It is very clear that high Isp is good and high density is good so it’s natural to assume that
+<p>It is very clear that high Isp is good and high density is good so it's natural to assume that
 the linear combination of Isp and density must be good also.
 Many companies publish charts of density impulse such as this
 <a class="reference external" href="./_static/TRW_Propellant_Performance_Summary.pdf">TRW Propellant Performance Summary</a></p>
@@ -124,9 +124,9 @@ in <a class="reference internal" href="engine_mr.html#engine-mr-loxlh2-link"><sp
 then only use F2/H2 or perhaps LOX/LH2 if Fluorine is rejected.</p>
 <p>If density impulse is most important, then only use N2F4/N2H4 or
 perhaps LOX/RP1 if LOX is the chosen oxidizer.</p>
-</div>
-<div class="section" id="stage-density">
-<h2>Stage Density<a class="headerlink" href="#stage-density" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="stage-density">
+<h2>Stage Density<a class="headerlink" href="#stage-density" title="Permalink to this heading">¶</a></h2>
 <p>In order to help bring some order into the decision making process, it is possible to introduce
 a new parameter called <strong>Stage Density</strong>.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Stage</span> <span class="n">Density</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">Inert</span> <span class="n">Mass</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">Propellant</span> <span class="n">Volume</span><span class="p">)</span>
@@ -140,9 +140,9 @@ when using any propellant combination.</p>
 <p>The quality of this assumption will certainly vary between propellant combinations.
 The performance of some propellants will be helped and others will be hurt, however,
 a review of any results can take those differences into account.</p>
-</div>
-<div class="section" id="volume-limit">
-<h2>Volume Limit<a class="headerlink" href="#volume-limit" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="volume-limit">
+<h2>Volume Limit<a class="headerlink" href="#volume-limit" title="Permalink to this heading">¶</a></h2>
 <p>A common requirement on a stage is to meet a volume limit.
 This is the easiest application of the stage density idea.
 Using a fixed stage design with a fixed propellant volume, simply pour in that volume of various propellants
@@ -168,7 +168,7 @@ constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice
 
 <span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;VolPropellant&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mf">75500.0</span><span class="o">*</span><span class="mi">1728</span><span class="p">,</span>
-                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;MassFrac&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">5</span><span class="p">},</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="mf">.4</span><span class="p">,</span> <span class="s1">&#39;MassFrac&#39;</span><span class="p">:</span><span class="mf">.5</span><span class="p">},</span>
                              <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">:[</span><span class="mi">8000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">12000</span><span class="p">,</span><span class="mi">14000</span><span class="p">,</span><span class="mi">16000</span><span class="p">,</span><span class="mi">18000</span><span class="p">],</span>
                                               <span class="s1">&#39;MassFrac&#39;</span><span class="p">:[</span><span class="mf">0.86</span><span class="p">,</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.92</span><span class="p">,</span><span class="mf">0.94</span><span class="p">,</span><span class="mf">0.95</span><span class="p">],</span>
                                               <span class="s1">&#39;GLOW&#39;</span><span class="p">:[</span><span class="mf">3e6</span><span class="p">,</span> <span class="mf">4e6</span><span class="p">,</span> <span class="mf">5e6</span><span class="p">,</span> <span class="mf">6e6</span><span class="p">,</span> <span class="mf">7e6</span><span class="p">,</span> <span class="mf">8e6</span><span class="p">,</span> <span class="mf">9e6</span><span class="p">]</span>    <span class="p">},</span>
@@ -176,9 +176,9 @@ constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice
 <span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="delta-v-requirement">
-<h2>Delta V Requirement<a class="headerlink" href="#delta-v-requirement" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="delta-v-requirement">
+<h2>Delta V Requirement<a class="headerlink" href="#delta-v-requirement" title="Permalink to this heading">¶</a></h2>
 <p>Another common requirement for a stage is to deliver a certain delta velocity.
 the use of stage density in this scenario requires that a function for stage density be derived.
 The chart below scales the actual Saturn V stage from an historical chart of stage density.
@@ -201,16 +201,16 @@ track closely together in an inverse relationship.</p>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mi">12000</span><span class="p">,</span>
-                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;MassFrac&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">8</span><span class="p">},</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="mf">.4</span><span class="p">,</span> <span class="s1">&#39;MassFrac&#39;</span><span class="p">:</span><span class="mf">.8</span><span class="p">},</span>
                              <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:[</span><span class="mf">6e6</span><span class="p">,</span> <span class="mf">5.5e6</span><span class="p">,</span> <span class="mf">5e6</span><span class="p">,</span> <span class="mf">4.5e6</span><span class="p">],</span>
                                               <span class="s1">&#39;CubicFt&#39;</span><span class="p">:[</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">90000</span><span class="p">,</span> <span class="mi">110000</span><span class="p">,</span> <span class="mi">13000</span><span class="p">]},</span>
                              <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GLOW&#39;</span><span class="p">,</span><span class="s1">&#39;CubicFt&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mass-limit">
-<h2>Mass Limit<a class="headerlink" href="#mass-limit" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mass-limit">
+<h2>Mass Limit<a class="headerlink" href="#mass-limit" title="Permalink to this heading">¶</a></h2>
 <p>A common requirement, especially for upper stages, is to minimize mass for a given delta v.
 The volume is not as important since upper stages are the smallest stages already.
 Using stage density to evaluate this situation again requires a function for stage density.
@@ -235,16 +235,16 @@ more than a LOX/RP1 or a LOX/CH4 third stage.</p>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;GLOW&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mf">524300.0</span><span class="p">,</span>
-                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;DeltaV&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">5</span><span class="p">},</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:</span><span class="mf">.4</span><span class="p">,</span> <span class="s1">&#39;DeltaV&#39;</span><span class="p">:</span><span class="mf">.5</span><span class="p">},</span>
                              <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;CubicFt&#39;</span><span class="p">:[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">],</span>
                                                <span class="s1">&#39;DeltaV&#39;</span> <span class="p">:[</span><span class="mi">7000</span><span class="p">,</span> <span class="mi">7500</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">8500</span><span class="p">]</span> <span class="p">},</span>
                              <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span><span class="s1">&#39;CubicFt&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="monopropellants">
-<h2>Monopropellants<a class="headerlink" href="#monopropellants" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="monopropellants">
+<h2>Monopropellants<a class="headerlink" href="#monopropellants" title="Permalink to this heading">¶</a></h2>
 <p>Screening with monopropellants can also be done using <code class="docutils literal notranslate"><span class="pre">stage</span> <span class="pre">density</span></code>, however, some care must
 be taken in the <code class="docutils literal notranslate"><span class="pre">stage</span> <span class="pre">density</span> <span class="pre">function</span></code>.</p>
 <p>Note also that monopropellants are only a single point on the specific gravity vs Isp curve.</p>
@@ -268,16 +268,16 @@ but only by luck, not based on system requirements.</p>
 
 <span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">add_stage_param_contours</span><span class="p">(</span> <span class="n">stg_obj</span><span class="p">,</span> <span class="n">set_param</span><span class="o">=</span><span class="s1">&#39;GLOW&#39;</span><span class="p">,</span> <span class="n">param_value</span><span class="o">=</span><span class="mf">64.0</span><span class="p">,</span>
-                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;VolPropellant&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">4</span><span class="p">},</span>
+                             <span class="n">label_frac_posD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLOW&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">,</span> <span class="s1">&#39;VolPropellant&#39;</span><span class="p">:</span><span class="mf">.4</span><span class="p">},</span>
                              <span class="n">plot_param_valD</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">:[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">2100</span><span class="p">,</span> <span class="mi">2300</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">2700</span><span class="p">,</span> <span class="mi">2900</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">3300</span><span class="p">],</span>
-                                              <span class="s1">&#39;MassFrac&#39;</span><span class="p">:[</span><span class="o">.</span><span class="mi">44</span><span class="p">,</span> <span class="o">.</span><span class="mi">46</span><span class="p">,</span> <span class="o">.</span><span class="mi">48</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">52</span><span class="p">],</span>
+                                              <span class="s1">&#39;MassFrac&#39;</span><span class="p">:[</span><span class="mf">.44</span><span class="p">,</span> <span class="mf">.46</span><span class="p">,</span> <span class="mf">.48</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mf">.52</span><span class="p">],</span>
                                               <span class="s1">&#39;VolPropellant&#39;</span><span class="p">:[</span><span class="mi">350</span><span class="p">,</span> <span class="mi">375</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">450</span><span class="p">]},</span>
                              <span class="n">plot_paramL</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeltaV&#39;</span><span class="p">,</span><span class="s1">&#39;VolPropellant&#39;</span><span class="p">],</span> <span class="n">num_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -289,8 +289,9 @@ but only by luck, not based on system requirements.</p>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
@@ -322,12 +323,17 @@ but only by luck, not based on system requirements.</p>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="engine_mr.html"
-                        title="previous chapter">Engine Mixture Ratio</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="propellants.html"
-                        title="next chapter">Propellants</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="engine_mr.html"
+                          title="previous chapter">Engine Mixture Ratio</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="propellants.html"
+                          title="next chapter">Propellants</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -344,7 +350,7 @@ but only by luck, not based on system requirements.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -364,13 +370,13 @@ but only by luck, not based on system requirements.</p>
         <li class="right" >
           <a href="engine_mr.html" title="Engine Mixture Ratio"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Propellant Selection</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

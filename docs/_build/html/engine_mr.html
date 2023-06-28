@@ -2,18 +2,18 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Engine Mixture Ratio &#8212; RocketCEA v1.1.29 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Engine Mixture Ratio &#8212; RocketCEA v1.1.30 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="comb_species.html" title="Species Mole Fractions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Engine Mixture Ratio</a></li> 
       </ul>
     </div>  
@@ -50,15 +50,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="engine-mixture-ratio">
-<span id="engine-mr-link"></span><h1>Engine Mixture Ratio<a class="headerlink" href="#engine-mixture-ratio" title="Permalink to this headline">¶</a></h1>
+  <section id="engine-mixture-ratio">
+<span id="engine-mr-link"></span><h1>Engine Mixture Ratio<a class="headerlink" href="#engine-mixture-ratio" title="Permalink to this heading">¶</a></h1>
 <p>There are many considerations when choosing the mixture ratio (MR) for a liquid rocket engine design.</p>
 <p>The most simplistic (oversimplified) approach is to pick the MR at which CEA predicts
 maximum Isp for the given chamber pressure (Pc) and area ratio (AR) of the propellant combination.</p>
 <p>Real engines normally operate at a lower MR than CEA predicts for peak Isp (<cite>LOX/LH2 being the major exception</cite>).
 Mechanisms that lower an engines MR include: fuel film cooling, fuel rich bleed cycle engines and chemical kinetics.</p>
-<div class="section" id="chemical-kinetics">
-<h2>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this headline">¶</a></h2>
+<section id="chemical-kinetics">
+<h2>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this heading">¶</a></h2>
 <p>CEA is a one dimensional equilibrium (ODE) code.
 It calculates temperature, pressure and species concentrations based on a one dimensional flow model
 where all molecular species are kept at chemical equilibrium (ODE).</p>
@@ -82,7 +82,7 @@ The right image is a large, high pressure, small area ratio engine that operates
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>In the absence of a detailed engine performance analysis,
 for initial sizing, pick a mixture ratio somewhere between the frozen and ODE peaks
-for the engine’s core flow.</p>
+for the engine's core flow.</p>
 <p>A summary specific to N2O4/MMH is shown below.
 It is a rough guide for choosing where the real peak N2O4/MMH mixture ratio will occur.</p>
 <p>The chart on the lower left shows the mixture ratio where peak ODK Isp occurs as a function of
@@ -94,9 +94,9 @@ will lower the thrust chamber MR below the core MR.</p>
 <a class="reference internal image-reference" href="_images/N2O4_MMH_Peak_ODK_MR.png"><img alt="_images/N2O4_MMH_Peak_ODK_MR.png" src="_images/N2O4_MMH_Peak_ODK_MR.png" style="width: 49%;" /></a>
 <a class="reference internal image-reference" href="_images/N2O4_MMH_Peak_MR_Shift.png"><img alt="_images/N2O4_MMH_Peak_MR_Shift.png" src="_images/N2O4_MMH_Peak_MR_Shift.png" style="width: 49%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
-</div>
-<div class="section" id="lox-rp1-gg-vs-sc">
-<h2>LOX/RP1 GG vs SC<a class="headerlink" href="#lox-rp1-gg-vs-sc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lox-rp1-gg-vs-sc">
+<h2>LOX/RP1 GG vs SC<a class="headerlink" href="#lox-rp1-gg-vs-sc" title="Permalink to this heading">¶</a></h2>
 <p>LOX/RP1 is mostly used in large engines of &gt; 100 Klbf.
 The chemical kinetics impact on performance is very small as shown below.
 Moderate Pc with small area ratio nozzles have virtually no impact on mixture ratio selection.
@@ -112,9 +112,9 @@ Staged combustion (SC) designs use MR values very close to the ODK predictions (
 Fuel rich gas generator cycles (GG) are significantly lower MR than CEA predicts (~2.0 to 2.2).</p>
 <p>In LOX/RP1 fuel rich GG cycle engines, the thrust chamber is typically very near the MR of 2.6.
 It is the fuel rich flow through the gas generator that reduces the overall engine mixture ratio.</p>
-</div>
-<div class="section" id="lox-lh2-bulk-density">
-<h2>LOX/LH2 Bulk Density<a class="headerlink" href="#lox-lh2-bulk-density" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lox-lh2-bulk-density">
+<h2>LOX/LH2 Bulk Density<a class="headerlink" href="#lox-lh2-bulk-density" title="Permalink to this heading">¶</a></h2>
 <p>LOX/LH2 is the exception to the rule that real engines operate at lower mixture ratios than the MR of peak Isp.
 LOX/LH2 engines normally operate well above peak Isp (i.e. more oxidizer rich).
 A kinetics analysis indicates the MR should be about 4.5 to 5.0, whereas,
@@ -143,8 +143,8 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
 <a class="reference internal image-reference" href="_images/LOX_LH2_Peak_ODK_MR.png"><img alt="_images/LOX_LH2_Peak_ODK_MR.png" src="_images/LOX_LH2_Peak_ODK_MR.png" style="width: 49%;" /></a>
 <a class="reference internal image-reference" href="_images/LOX_LH2_Peak_MR_Shift.png"><img alt="_images/LOX_LH2_Peak_MR_Shift.png" src="_images/LOX_LH2_Peak_MR_Shift.png" style="width: 49%;" /></a>
 <p><cite>Click Image to View Fill Size</cite></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -156,8 +156,9 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
@@ -186,12 +187,17 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="comb_species.html"
-                        title="previous chapter">Species Mole Fractions</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="propellant_select.html"
-                        title="next chapter">Propellant Selection</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="comb_species.html"
+                          title="previous chapter">Species Mole Fractions</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="propellant_select.html"
+                          title="next chapter">Propellant Selection</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -208,7 +214,7 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -228,13 +234,13 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
         <li class="right" >
           <a href="comb_species.html" title="Species Mole Fractions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Engine Mixture Ratio</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

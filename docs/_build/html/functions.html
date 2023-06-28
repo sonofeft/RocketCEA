@@ -2,18 +2,18 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RocketCEA Functions &#8212; RocketCEA v1.1.29 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>RocketCEA Functions &#8212; RocketCEA v1.1.30 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">RocketCEA Functions</a></li> 
       </ul>
     </div>  
@@ -50,12 +50,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rocketcea-functions">
-<h1>RocketCEA Functions<a class="headerlink" href="#rocketcea-functions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-rocketcea.cea_obj">
-<span id="cea-obj-functions"></span><h2>CEA_Obj Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this headline">¶</a></h2>
+  <section id="rocketcea-functions">
+<h1>RocketCEA Functions<a class="headerlink" href="#rocketcea-functions" title="Permalink to this heading">¶</a></h1>
+<section id="module-rocketcea.cea_obj">
+<span id="cea-obj-functions"></span><h2>CEA_Obj Functions<a class="headerlink" href="#module-rocketcea.cea_obj" title="Permalink to this heading">¶</a></h2>
 <p>RocketCEA wraps the NASA FORTRAN CEA code and provides some useful tools.</p>
-<p>RocketCEA makes direct calls to the FORTRAN CEA code in “rocket” mode to calculate
+<p>RocketCEA makes direct calls to the FORTRAN CEA code in &quot;rocket&quot; mode to calculate
 Isp, Cstar, Tcham etc. and provides tools to help determine useful
 mixture ratio range, optimum MR and more.</p>
 <p>See the NASA CEA code at: <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">https://www1.grc.nasa.gov/research-and-engineering/ceaweb/</a></p>
@@ -136,6 +136,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <span class="c1">#: frozen flag (0=equilibrium, 1=frozen)</span>
 </pre></div>
 </div>
+<p>NOTE: should return same value regardless of eps.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -257,7 +258,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_Exit_Transport">
-<span class="sig-name descname"><span class="pre">get_Exit_Transport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Exit_Transport" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_Exit_Transport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Pc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frozenAtThroat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_Exit_Transport" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number</span>
 <span class="c1">#: at the exit. (units are default printout units)</span>
 <span class="c1">#: Pc = combustion end pressure (psia)</span>
@@ -471,6 +472,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <span class="c1">#: frozen = flag (0=equilibrium, 1=frozen)</span>
 </pre></div>
 </div>
+<p>NOTE: should return same value regardless of eps.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -511,7 +513,7 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <dl class="py method">
 <dt class="sig sig-object py" id="rocketcea.cea_obj.CEA_Obj.get_description">
 <span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj.CEA_Obj.get_description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a string description of the propellant(s).  e.g. ‘LOX / MMH’</p>
+<dd><p>Return a string description of the propellant(s).  e.g. 'LOX / MMH'</p>
 </dd></dl>
 
 <dl class="py method">
@@ -645,9 +647,9 @@ On Windows will correct for any spaces in path name.
 Also useful to make a local working directory outside the USER_HOME_DIR.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="cea-obj-with-units">
-<h2>CEA_Obj With Units<a class="headerlink" href="#cea-obj-with-units" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="cea-obj-with-units">
+<h2>CEA_Obj With Units<a class="headerlink" href="#cea-obj-with-units" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rocketcea.cea_obj_w_units.CEA_Obj">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rocketcea.cea_obj_w_units.</span></span><span class="sig-name descname"><span class="pre">CEA_Obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oxName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useFastLookup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makeOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isp_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cstar_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ft/sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sonic_velocity_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ft/sec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enthalpy_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BTU/lbm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lbm/cuft'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specific_heat_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BTU/lbm</span> <span class="pre">degR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viscosity_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'millipoise'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thermal_cond_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mcal/cm-K-s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac_CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_debug_prints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.cea_obj_w_units.CEA_Obj" title="Permalink to this definition">¶</a></dt>
@@ -678,9 +680,9 @@ Also useful to make a local working directory outside the USER_HOME_DIR.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-rocketcea.units">
-<span id="user-units"></span><h2>User Units<a class="headerlink" href="#module-rocketcea.units" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-rocketcea.units">
+<span id="user-units"></span><h2>User Units<a class="headerlink" href="#module-rocketcea.units" title="Permalink to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.units.add_default_unit">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.units.</span></span><span class="sig-name descname"><span class="pre">add_default_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psia'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">akaL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.units.add_default_unit" title="Permalink to this definition">¶</a></dt>
@@ -728,9 +730,9 @@ Also useful to make a local working directory outside the USER_HOME_DIR.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-rocketcea.blends">
-<span id="blend-functions"></span><h2>Blend Functions<a class="headerlink" href="#module-rocketcea.blends" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-rocketcea.blends">
+<span id="blend-functions"></span><h2>Blend Functions<a class="headerlink" href="#module-rocketcea.blends" title="Permalink to this heading">¶</a></h2>
 <p>Handle propellant blends.  Make new input cards for various ox and fuel blends.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.addFLOX_Blend">
@@ -743,7 +745,7 @@ FLOX70, for example, represents 70% F2 and 30% LOX</p>
 <dt class="sig sig-object py" id="rocketcea.blends.addHYD_AmmoniaBlend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addHYD_AmmoniaBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addHYD_AmmoniaBlend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new N2H4 + undissociated Ammonia (UA) Blend to the CEA_Obj.cea_deck.
-Use name like “HYD30” to represent hydrazine with 30% dissociated ammonia.</p>
+Use name like &quot;HYD30&quot; to represent hydrazine with 30% dissociated ammonia.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -757,7 +759,7 @@ Use name like M10 to represent 10% MMH and 90% N2H4</p>
 <dt class="sig sig-object py" id="rocketcea.blends.addMON_Blend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">addMON_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oxName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cea_deck</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.addMON_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new MON oxidizer Blend to the CEA_Obj.cea_deck
-MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
+MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="py function">
@@ -776,43 +778,43 @@ Use name like Peroxide95 to represent 95% Peroxide and 5% water.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getFloatTokenFromCards">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getFloatTokenFromCards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'t(k)'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFloatTokenFromCards" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the float value of the desired token. (e.g. ‘t(k)’ )</p>
+<dd><p>Get the float value of the desired token. (e.g. 't(k)' )</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getFuelHfCalPerMole">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getFuelHfCalPerMole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fuel float value of the reference temperature ‘h,cal’</p>
+<dd><p>Get the fuel float value of the reference temperature 'h,cal'</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getFuelRefTempDegK">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getFuelRefTempDegK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getFuelRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the fuel float value of the reference temperature ‘t(k)’</p>
+<dd><p>Get the fuel float value of the reference temperature 't(k)'</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getOxHfCalPerMole">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getOxHfCalPerMole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the ox float value of the reference temperature ‘h,cal’</p>
+<dd><p>Get the ox float value of the reference temperature 'h,cal'</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getOxRefTempDegK">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getOxRefTempDegK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getOxRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the oxidizer float value of the reference temperature ‘t(k)’</p>
+<dd><p>Get the oxidizer float value of the reference temperature 't(k)'</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getPropHfCalPerMole">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getPropHfCalPerMole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropHfCalPerMole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the propellant float value of the reference temperature ‘h,cal’</p>
+<dd><p>Get the propellant float value of the reference temperature 'h,cal'</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.getPropRefTempDegK">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">getPropRefTempDegK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.getPropRefTempDegK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the propellant float value of the reference temperature ‘t(k)’</p>
+<dd><p>Get the propellant float value of the reference temperature 't(k)'</p>
 </dd></dl>
 
 <dl class="py function">
@@ -836,42 +838,42 @@ Use name like Peroxide95 to represent 95% Peroxide and 5% water.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.giveCardNewHfAndTref">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">giveCardNewHfAndTref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newHfCalPerMole</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTrefDegR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.giveCardNewHfAndTref" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the values of “h,cal” and “t(k)” on propellant cards.</p>
+<dd><p>Change the values of &quot;h,cal&quot; and &quot;t(k)&quot; on propellant cards.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.isAPeroxide_Blend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isAPeroxide_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAPeroxide_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check if name is for a blend of peroxide and water.
-Peroxide98 and Peroxide90 are in standard deck, however can make Peroxide95 etc. “on-the-fly”</p>
+Peroxide98 and Peroxide90 are in standard deck, however can make Peroxide95 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.isAnMMH_N2H4_Blend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isAnMMH_N2H4_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isAnMMH_N2H4_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check if name is for a blend of MMH + N2H4
-M20 is in standard deck, however can make M10, M30 etc. “on-the-fly”</p>
+M20 is in standard deck, however can make M10, M30 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.isFLOX_Ox_Blend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isFLOX_Ox_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isFLOX_Ox_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check for FLOX oxidizer (e.g. FLOX70 or FLOX82.5)
-No FLOX blends are in standard deck, however can make FLOX70, FLOX82.5 etc. “on-the-fly”</p>
+No FLOX blends are in standard deck, however can make FLOX70, FLOX82.5 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.isMON_Ox_Blend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">isMON_Ox_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.isMON_Ox_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check for MON oxidizer (MON1 to MON40)  48% is theoretical max
-MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. “on-the-fly”</p>
+MON15 and MON25 are in standard deck, however can make MON20, MON30 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.is_HYD_Ammonia_Blend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">is_HYD_Ammonia_Blend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.is_HYD_Ammonia_Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>check if name is for a blend of N2H4 and undissociated Ammonia (UA)
-HYD40 is in standard deck, however can make HYD30, HYD50 etc. “on-the-fly”</p>
+HYD40 is in standard deck, however can make HYD30, HYD50 etc. &quot;on-the-fly&quot;</p>
 </dd></dl>
 
 <dl class="py function">
@@ -887,7 +889,7 @@ of temperature, newTdegR.</p>
 <dt class="sig sig-object py" id="rocketcea.blends.newFuelBlend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newFuelBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fuelL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fuelPcentL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newFuelBlend" title="Permalink to this definition">¶</a></dt>
 <dd><p>create fuel blends such as M20  given the fuel names and weight percentages.
-e.g. fuelL=[“MMH”,”N2H4”], fuelPcentL=[20,80]</p>
+e.g. fuelL=[&quot;MMH&quot;,&quot;N2H4&quot;], fuelPcentL=[20,80]</p>
 </dd></dl>
 
 <dl class="py function">
@@ -901,7 +903,7 @@ the input values newHfCalPerMole and newTrefDegR</p>
 <dt class="sig sig-object py" id="rocketcea.blends.newOxBlend">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">newOxBlend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oxL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oxPcentL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.newOxBlend" title="Permalink to this definition">¶</a></dt>
 <dd><p>create ox blends such as MON25 given the oxidizer names and weight percentages.
-e.g. oxL=[“N2O4”,”N2O3”], oxPcentL=[36.67,63.33]</p>
+e.g. oxL=[&quot;N2O4&quot;,&quot;N2O3&quot;], oxPcentL=[36.67,63.33]</p>
 </dd></dl>
 
 <dl class="py function">
@@ -921,17 +923,17 @@ the input values newHfCalPerMole and newTrefDegR</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.renamePropIfNewHfOrTrefInName">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">renamePropIfNewHfOrTrefInName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cardDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.renamePropIfNewHfOrTrefInName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look for “h,cal OR “t(k)”” in name.
+<dd><p>Look for &quot;h,cal OR &quot;t(k)&quot;&quot; in name.
 If present, then create new modified name and create new
 card in cardDict if necessary</p>
 <p>for example to tweak LH2 run might look like:
-“LH2 h,cal=-2155.0  t(k)=21.0”</p>
+&quot;LH2 h,cal=-2155.0  t(k)=21.0&quot;</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rocketcea.blends.tightenUpEquals">
 <span class="sig-prename descclassname"><span class="pre">rocketcea.blends.</span></span><span class="sig-name descname"><span class="pre">tightenUpEquals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rocketcea.blends.tightenUpEquals" title="Permalink to this definition">¶</a></dt>
-<dd><p>make sure there’s no spaces around equal signs.</p>
+<dd><p>make sure there's no spaces around equal signs.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -940,8 +942,8 @@ card in cardDict if necessary</p>
 <dd><p>turn the card list into one long list of tokens</p>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -953,8 +955,9 @@ card in cardDict if necessary</p>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
@@ -973,10 +976,116 @@ card in cardDict if necessary</p>
 <li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RocketCEA Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.cea_obj">CEA_Obj Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cea-obj-with-units">CEA_Obj With Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.units">User Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.blends">Blend Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.cea_obj">CEA_Obj Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj"><code class="docutils literal notranslate"><span class="pre">CEA_Obj</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.estimate_Ambient_Isp"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.estimate_Ambient_Isp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_IvacCstrTc"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.getFrozen_IvacCstrTc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.getFrozen_PambCf"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.getFrozen_PambCf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.getMRforER"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.getMRforER()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Cp"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_Cp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Density"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_Density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_H"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_H()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MachNumber"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_MachNumber()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_MolWt_gamma"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_MolWt_gamma()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_SonicVel"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_SonicVel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Chamber_Transport"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Chamber_Transport()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Cstar"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Cstar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Densities"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Densities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Enthalpies"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Enthalpies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Entropies"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Entropies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Exit_Transport"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Exit_Transport()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_HeatCapacities"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_HeatCapacities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Isp"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Isp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_IvacCstrTc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ChmMwGam"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_IvacCstrTc_ChmMwGam()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_ThtMwGam"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_IvacCstrTc_ThtMwGam()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_IvacCstrTc_exitMwGam"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_IvacCstrTc_exitMwGam()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_MachNumber"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_MachNumber()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_PambCf"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_PambCf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_PcOvPe"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_PcOvPe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Pinj_over_Pcomb"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Pinj_over_Pcomb()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_SonicVelocities"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_SonicVelocities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMassFractions"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_SpeciesMassFractions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_SpeciesMoleFractions"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_SpeciesMoleFractions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Tcomb"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Tcomb()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Temperatures"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Temperatures()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Isp"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Throat_Isp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_MolWt_gamma"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Throat_MolWt_gamma()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_PcOvPe"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Throat_PcOvPe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_Throat_Transport"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_Throat_Transport()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_description"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_eps_at_PcOvPe"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_eps_at_PcOvPe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_eqratio"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_eqratio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_exit_MolWt_gamma"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_exit_MolWt_gamma()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.get_full_cea_output"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.get_full_cea_output()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj.CEA_Obj.setupCards"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.setupCards()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.add_new_card"><code class="docutils literal notranslate"><span class="pre">add_new_card()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.add_new_fuel"><code class="docutils literal notranslate"><span class="pre">add_new_fuel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.add_new_oxidizer"><code class="docutils literal notranslate"><span class="pre">add_new_oxidizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.add_new_propellant"><code class="docutils literal notranslate"><span class="pre">add_new_propellant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.clearCache"><code class="docutils literal notranslate"><span class="pre">clearCache()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.getCacheDict"><code class="docutils literal notranslate"><span class="pre">getCacheDict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.get_rocketcea_data_dir"><code class="docutils literal notranslate"><span class="pre">get_rocketcea_data_dir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.print_py_cea_vars"><code class="docutils literal notranslate"><span class="pre">print_py_cea_vars()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.set_py_cea_line"><code class="docutils literal notranslate"><span class="pre">set_py_cea_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj.set_rocketcea_data_dir"><code class="docutils literal notranslate"><span class="pre">set_rocketcea_data_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cea-obj-with-units">CEA_Obj With Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.cea_obj_w_units.CEA_Obj"><code class="docutils literal notranslate"><span class="pre">CEA_Obj</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.cea_obj_w_units.CEA_Obj.__init__"><code class="docutils literal notranslate"><span class="pre">CEA_Obj.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.units">User Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.units.add_default_unit"><code class="docutils literal notranslate"><span class="pre">add_default_unit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.units.add_user_units"><code class="docutils literal notranslate"><span class="pre">add_user_units()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.units.get_conv_factor"><code class="docutils literal notranslate"><span class="pre">get_conv_factor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.units.Units"><code class="docutils literal notranslate"><span class="pre">Units</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.units.Units.dval_to_uval"><code class="docutils literal notranslate"><span class="pre">Units.dval_to_uval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.units.Units.show_dval_to_uval"><code class="docutils literal notranslate"><span class="pre">Units.show_dval_to_uval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.units.Units.show_uval_to_dval"><code class="docutils literal notranslate"><span class="pre">Units.show_uval_to_dval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocketcea.units.Units.uval_to_dval"><code class="docutils literal notranslate"><span class="pre">Units.uval_to_dval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-rocketcea.blends">Blend Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.addFLOX_Blend"><code class="docutils literal notranslate"><span class="pre">addFLOX_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.addHYD_AmmoniaBlend"><code class="docutils literal notranslate"><span class="pre">addHYD_AmmoniaBlend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.addMMH_N2H4_Blend"><code class="docutils literal notranslate"><span class="pre">addMMH_N2H4_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.addMON_Blend"><code class="docutils literal notranslate"><span class="pre">addMON_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.addPeroxideBlend"><code class="docutils literal notranslate"><span class="pre">addPeroxideBlend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.all_in_dict"><code class="docutils literal notranslate"><span class="pre">all_in_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getFloatTokenFromCards"><code class="docutils literal notranslate"><span class="pre">getFloatTokenFromCards()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getFuelHfCalPerMole"><code class="docutils literal notranslate"><span class="pre">getFuelHfCalPerMole()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getFuelRefTempDegK"><code class="docutils literal notranslate"><span class="pre">getFuelRefTempDegK()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getOxHfCalPerMole"><code class="docutils literal notranslate"><span class="pre">getOxHfCalPerMole()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getOxRefTempDegK"><code class="docutils literal notranslate"><span class="pre">getOxRefTempDegK()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getPropHfCalPerMole"><code class="docutils literal notranslate"><span class="pre">getPropHfCalPerMole()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.getPropRefTempDegK"><code class="docutils literal notranslate"><span class="pre">getPropRefTempDegK()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.get_propellant_name"><code class="docutils literal notranslate"><span class="pre">get_propellant_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.giveCardMassPercent"><code class="docutils literal notranslate"><span class="pre">giveCardMassPercent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.giveCardNewHfAndTref"><code class="docutils literal notranslate"><span class="pre">giveCardNewHfAndTref()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.isAPeroxide_Blend"><code class="docutils literal notranslate"><span class="pre">isAPeroxide_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.isAnMMH_N2H4_Blend"><code class="docutils literal notranslate"><span class="pre">isAnMMH_N2H4_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.isFLOX_Ox_Blend"><code class="docutils literal notranslate"><span class="pre">isFLOX_Ox_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.isMON_Ox_Blend"><code class="docutils literal notranslate"><span class="pre">isMON_Ox_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.is_HYD_Ammonia_Blend"><code class="docutils literal notranslate"><span class="pre">is_HYD_Ammonia_Blend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.makeCardForNewTemperature"><code class="docutils literal notranslate"><span class="pre">makeCardForNewTemperature()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.newFuelBlend"><code class="docutils literal notranslate"><span class="pre">newFuelBlend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.newFuelWithNewState"><code class="docutils literal notranslate"><span class="pre">newFuelWithNewState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.newOxBlend"><code class="docutils literal notranslate"><span class="pre">newOxBlend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.newOxWithNewState"><code class="docutils literal notranslate"><span class="pre">newOxWithNewState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.newPropWithNewState"><code class="docutils literal notranslate"><span class="pre">newPropWithNewState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.renamePropIfNewHfOrTrefInName"><code class="docutils literal notranslate"><span class="pre">renamePropIfNewHfOrTrefInName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.tightenUpEquals"><code class="docutils literal notranslate"><span class="pre">tightenUpEquals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketcea.blends.turnCardsIntoTokenL"><code class="docutils literal notranslate"><span class="pre">turnCardsIntoTokenL()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
@@ -984,12 +1093,17 @@ card in cardDict if necessary</p>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="parasol_example.html"
-                        title="previous chapter">Parasol Example</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="copyright.html"
-                        title="next chapter">Copyright</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="parasol_example.html"
+                          title="previous chapter">Parasol Example</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="copyright.html"
+                          title="next chapter">Copyright</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1006,7 +1120,7 @@ card in cardDict if necessary</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1026,13 +1140,13 @@ card in cardDict if necessary</p>
         <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.29 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">RocketCEA Functions</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>
