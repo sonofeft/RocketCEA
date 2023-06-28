@@ -5,7 +5,7 @@
 
 .. image:: https://img.shields.io/pypi/l/RocketCEA.svg
 
-RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools
+RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools
 ========================================================================
 
 See the Code at: `<https://github.com/sonofeft/RocketCEA>`_

@@ -40,6 +40,11 @@ USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
 # else:
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
+# may need to add DLL directory to allow pyd/dll import
+os.add_dll_directory( here )
+
+
+# from rocketcea.short_win_path import get_short_path_name
 from rocketcea.short_win_path import get_usable_path
 
 def set_rocketcea_data_dir( rddir, do_print=True ):
@@ -1275,7 +1280,7 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         #: frozen flag (0=equilibrium, 1=frozen)
 
-        NOTE: should return same value regardless of frozen flag or eps.
+        NOTE: should return same value regardless of eps.
         """
         cpList = self.get_HeatCapacities( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
         return cpList[ 0 ] # BTU/lbm degR  # 0 == self.i_chm here
@@ -1538,7 +1543,7 @@ class CEA_Obj(object):
         
         return Cp, visc, cond, Prandtl
 
-    def get_Exit_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+    def get_Exit_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         """::
 
         #: Return a list of heat capacity, viscosity, thermal conductivity and Prandtl number
@@ -1548,7 +1553,8 @@ class CEA_Obj(object):
         #: eps = Nozzle Expansion Area Ratio
         #: frozen flag (0=equilibrium, 1=frozen)
         """
-        self.setupCards( Pc=Pc, MR=MR, eps=eps, show_transport=1)
+        self.setupCards( Pc=Pc, MR=MR, eps=eps, show_transport=1, 
+                         frozen=frozen, frozenAtThroat=frozenAtThroat)
         
         if frozen:
             Cp = py_cea.trpts.cpfro[ self.i_exit ]

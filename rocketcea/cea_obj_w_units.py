@@ -361,12 +361,14 @@ class CEA_Obj( object ):
         
         return Cp, visc, cond, Prandtl
         
-    def get_Exit_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
+    def get_Exit_Transport(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
         
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
-        Cp, visc, cond, Prandtl = self.cea_obj.get_Exit_Transport( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
+        Cp, visc, cond, Prandtl = self.cea_obj.get_Exit_Transport( Pc=Pc, MR=MR, eps=eps, 
+                                                                  frozen=frozen, 
+                                                                  frozenAtThroat=frozenAtThroat)
         
-        #Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
+        # Cp = Cp * 8314.51 / 4184.0  # convert into BTU/lbm degR
         Cp = self.specific_heat_U.dval_to_uval( Cp )
         visc = self.viscosity_U.dval_to_uval( visc )
         cond = self.thermal_cond_U.dval_to_uval( cond )
@@ -513,6 +515,7 @@ if __name__ == "__main__":
     print( 'frozen=0 C.get_Chamber_Cp =', C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
     print( 'frozen=1 C.get_Chamber_Cp =', C.get_Chamber_Cp( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
     print( 'NOTE: Windows 11 with python 3.7 and 3.10 has FORTRAN error re-reading temp.dat with get_???_Transport')
+    print( '    : However, Unit tests continue to pass.')
     # print( C.get_Chamber_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
     # print( C.get_Chamber_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
     # print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )

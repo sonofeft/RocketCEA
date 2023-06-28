@@ -1,3 +1,7 @@
+Franky
+Numpy
+sys
+undissociated
 uninstalling
 travisci
 xlChart

@@ -1,5 +1,5 @@
 
-rem set python path variable (Default is Python 3.7 64 bit)
+rem set python path variable (Default is Python 3.7 32 bit)
 IF "%1"=="" ( SET "MYPYTHONPATH=D:\py_versions\Python37_32" ) ELSE ( SET "MYPYTHONPATH=D:\py_versions\Python%1_32" )
 
 rem Make sure that PATH is as simple as possible

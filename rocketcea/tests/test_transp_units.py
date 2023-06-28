@@ -101,6 +101,32 @@ class MyTest(unittest.TestCase):
         # look at conductivity
         self.assertAlmostEqual(con1, 4.1444, delta=0.0001)
         self.assertAlmostEqual(con2, 2.3192E-5, delta=1.0E-9)
+
+    def test_chamber_transport_props_frozen(self):
+        """test chamber transport props"""
+        
+        C = CEA_Obj( oxName='LOX', fuelName='LH2', fac_CR=None)
+        CwU = CEA_Obj_w_units( oxName='LOX', fuelName='LH2', pressure_units='MPa',
+              specific_heat_units='kJ/kg-K',  # note: cal/g K == BTU/lbm degR
+              viscosity_units='poise', thermal_cond_units='BTU/s-in-degF', fac_CR=None)
+        
+        Cp1, v1, con1, P1 = C.get_Chamber_Transport(Pc=1000.0, MR=6.0, eps=40.0, frozen=1)
+        Cp2, v2, con2, P2 = CwU.get_Chamber_Transport(Pc=1000.0/145.037738, MR=6.0, eps=40.0, frozen=1)
+        
+        Cp3 = C.get_Chamber_Cp(Pc=1000.0, MR=6.0, eps=40.0, frozen=1)
+        
+        # look at heat capacity
+        self.assertAlmostEqual(Cp1, 0.9029163064281406, delta=0.001)
+        self.assertAlmostEqual(Cp2, 3.7803299917, delta=0.001)
+        self.assertAlmostEqual(Cp1, Cp3, delta=0.001)
+        
+        # look at viscosity
+        self.assertAlmostEqual(v1, 1.0588, delta=0.001)
+        self.assertAlmostEqual(v2, 0.0010588, delta=0.000001)
+        
+        # look at conductivity
+        self.assertAlmostEqual(con1, 1.351881202313083, delta=0.0001)
+        self.assertAlmostEqual(con2, 7.565127207986455e-06, delta=1.0E-9)
         
 
 if __name__ == '__main__':

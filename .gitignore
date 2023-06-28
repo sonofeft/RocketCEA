@@ -109,6 +109,10 @@ ENV/
 rocketcea/tests/__pycache__/test_misc.cpython-37.pyc
 *.pyc
 install_w_py38.txt
+*.bak
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+*.bak
+rocketcea/cea_obj.py.bak
+*.bak

@@ -50,7 +50,7 @@ def render_file( full_file_name, metadataD ):
 if __name__ == "__main__":
     import os
     
-    metadataD =  {"<<version>>":"0.1.3"}
+    metadataD =  {"<<version>>":"0.1.30"}
 
     # render_file( os.path.abspath('./docs/conf.py'), metadataD )
     # render_file( os.path.abspath('./setup.py'), metadataD )

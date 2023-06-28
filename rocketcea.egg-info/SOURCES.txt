@@ -22,6 +22,7 @@ rocketcea/blends.py
 rocketcea/cea_obj.py
 rocketcea/cea_obj.py.bak
 rocketcea/cea_obj_w_units.py
+rocketcea/cea_obj_w_units.py.bak
 rocketcea/clean_init.py
 rocketcea/coverage.xml
 rocketcea/excel_const.py
@@ -63,6 +64,7 @@ rocketcea.egg-info/not-zip-safe
 rocketcea.egg-info/requires.txt
 rocketcea.egg-info/top_level.txt
 rocketcea/.libs/libpy_cea.KJNBJ2LSMZKSZYAQNJY4656SFNQAM75H.gfortran-win_amd64.dll
+rocketcea/.libs/libpy_cea.NRMGONJGXWXVTE2PXLEP6NKKN4CH2Q7I.gfortran-win_amd64.dll
 rocketcea/_temp/libpy_cea.JGHYEXBMZRT22GCFGCFN2C5ITYSGKNJE.gfortran-win32.dll
 rocketcea/_temp/libpy_cea.KJNBJ2LSMZKSZYAQNJY4656SFNQAM75H.gfortran-win_amd64.dll
 rocketcea/_temp/libpy_cea.KLQMM6BEWGKA73V6UIK7SXCIQXLSGEZA.gfortran-win_amd64.dll
