@@ -20,6 +20,7 @@ def render_line( line, metadataD ):
     
     sL = line.split("# METADATA_RESET:")
     code_str = sL[-1].rstrip()
+    # print( 'code_str =', code_str)
     print('  Change:', sL[0].rstrip() )
     
     for key,val in metadataD.items():
@@ -50,7 +51,7 @@ def render_file( full_file_name, metadataD ):
 if __name__ == "__main__":
     import os
     
-    metadataD =  {"<<version>>":"0.1.30"}
+    metadataD =  {"<<version>>":"1.1.31"}
 
     # render_file( os.path.abspath('./docs/conf.py'), metadataD )
     # render_file( os.path.abspath('./setup.py'), metadataD )
