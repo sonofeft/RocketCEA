@@ -1,2 +1,3 @@
 [console_scripts]
 rocketcea = rocketcea.show_html_help:main
+
