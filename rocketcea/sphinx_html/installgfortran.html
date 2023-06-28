@@ -2,27 +2,27 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Install gfortran &#8212; RocketCEA v1.1.28 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Install gfortran &#8212; RocketCEA v1.1.30 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Standard Examples" href="std_examples.html" />
     <link rel="prev" title="QuickStart" href="quickstart.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,95 +40,31 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install gfortran</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Install gfortran</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#debian-ubuntu">Debian/Ubuntu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#centos-rhel">CentOS/RHEL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#opensuse">OpenSUSE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#macos-osx">MacOS/OSX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#windows-10">Windows 10</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#windows-path">Windows PATH</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="quickstart.html"
-                        title="previous chapter">QuickStart</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="std_examples.html"
-                        title="next chapter">Standard Examples</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/installgfortran.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="install-gfortran">
-<span id="link-installgfortran"></span><h1>Install gfortran<a class="headerlink" href="#install-gfortran" title="Permalink to this headline">¶</a></h1>
+  <section id="install-gfortran">
+<span id="link-installgfortran"></span><h1>Install gfortran<a class="headerlink" href="#install-gfortran" title="Permalink to this heading">¶</a></h1>
 <p>To compile and run RocketCEA, users need to install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> .</p>
 <p>Each operating system has its own approach.</p>
-<div class="section" id="debian-ubuntu">
-<h2>Debian/Ubuntu<a class="headerlink" href="#debian-ubuntu" title="Permalink to this headline">¶</a></h2>
+<section id="debian-ubuntu">
+<h2>Debian/Ubuntu<a class="headerlink" href="#debian-ubuntu" title="Permalink to this heading">¶</a></h2>
 <p>The one-liner:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
 </pre></div>
 </div>
 <p>installs <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> on
 <a class="reference external" href="https://www.debian.org/">Debian</a>/<a class="reference external" href="https://ubuntu.com/">Ubuntu</a> systems.</p>
-</div>
-<div class="section" id="centos-rhel">
-<h2>CentOS/RHEL<a class="headerlink" href="#centos-rhel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="centos-rhel">
+<h2>CentOS/RHEL<a class="headerlink" href="#centos-rhel" title="Permalink to this heading">¶</a></h2>
 <p>From my testing on <a class="reference external" href="https://www.centos.org/">CentOS</a>, <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>
 the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
@@ -155,9 +91,9 @@ indicates that the python devel library is required.</p>
 </div>
 <p>Presumably <a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">RHEL</a>
 will be similar.</p>
-</div>
-<div class="section" id="opensuse">
-<h2>OpenSUSE<a class="headerlink" href="#opensuse" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="opensuse">
+<h2>OpenSUSE<a class="headerlink" href="#opensuse" title="Permalink to this heading">¶</a></h2>
 <p>To install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> on
 <a class="reference external" href="https://www.opensuse.org/">OpenSUSE</a> use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="n">install</span> <span class="n">gcc</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">gcc</span><span class="o">-</span><span class="n">fortran</span>
@@ -176,9 +112,9 @@ in order to link the compiled FORTRAN to python:</p>
 “not finding Python.h during compile.”
 indicates that the python devel library is required.</p>
 </div>
-</div>
-<div class="section" id="macos-osx">
-<h2>MacOS/OSX<a class="headerlink" href="#macos-osx" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="macos-osx">
+<h2>MacOS/OSX<a class="headerlink" href="#macos-osx" title="Permalink to this heading">¶</a></h2>
 <p>I had trouble using <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> with
 python 2.7 on <a class="reference external" href="https://en.wikipedia.org/wiki/MacOS_Sierra">MacOS Sierra</a>,
 however, python 3.7 seemed to work just fine with:</p>
@@ -188,9 +124,9 @@ however, python 3.7 seemed to work just fine with:</p>
 <span class="n">pip3</span> <span class="n">install</span> <span class="n">genericf2py</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="windows-10">
-<span id="link-installmingw"></span><h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="windows-10">
+<span id="link-installmingw"></span><h2>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Windows users MUST put MinGW into environment PATH variable.
@@ -218,7 +154,7 @@ Run <code class="docutils literal notranslate"><span class="pre">mingw-w64-insta
 <p>For 32 bit compilation, these were my settings.</p>
 <a class="reference internal image-reference" href="_images/mingw32_install.jpg"><img alt="_images/mingw32_install.jpg" src="_images/mingw32_install.jpg" style="width: 60%;" /></a>
 <p>A location for the MinGW install then needs to be selected. The default location is in
-C:\Program Files (x86)\mingw-w64... etc.  However I recommend a simpler path like <strong>C:\MinGW</strong>
+C:\Program Files (x86)\mingw-w64\… etc.  However I recommend a simpler path like <strong>C:\MinGW</strong>
 so that, later on, setting the user’s environment PATH will be easier.</p>
 <a class="reference internal image-reference" href="_images/mingw_folder_select.jpg"><img alt="_images/mingw_folder_select.jpg" src="_images/mingw_folder_select.jpg" style="width: 60%;" /></a>
 <p>After several minutes of an <code class="docutils literal notranslate"><span class="pre">Installing</span> <span class="pre">Files</span></code> you should arrive at a successful finish screen.</p>
@@ -228,8 +164,8 @@ so that, later on, setting the user’s environment PATH will be easier.</p>
 You should have a <strong>C:\MinGW</strong> directory that looks like the one below.
 (Recall that only 64 bit is recommended for RocketCEA)</p>
 <a class="reference internal image-reference" href="_images/MinGW_folder.jpg"><img alt="_images/MinGW_folder.jpg" src="_images/MinGW_folder.jpg" style="width: 40%;" /></a>
-<div class="section" id="windows-path">
-<span id="link-windowspath"></span><h3>Windows PATH<a class="headerlink" href="#windows-path" title="Permalink to this headline">¶</a></h3>
+<section id="windows-path">
+<span id="link-windowspath"></span><h3>Windows PATH<a class="headerlink" href="#windows-path" title="Permalink to this heading">¶</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Windows users MUST put 2 MinGW paths into environment PATH variable.</p>
@@ -275,12 +211,84 @@ System or User Variables can be edited.</p>
 <p>and</p>
 <p>C:MinGWmingw64lib  OR  C:MinGWmingw32lib</p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install gfortran</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#debian-ubuntu">Debian/Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos-rhel">CentOS/RHEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opensuse">OpenSUSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos-osx">MacOS/OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-10">Windows 10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows-path">Windows PATH</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="quickstart.html"
+                          title="previous chapter">QuickStart</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="std_examples.html"
+                          title="next chapter">Standard Examples</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installgfortran.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -300,12 +308,13 @@ System or User Variables can be edited.</p>
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install gfortran</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

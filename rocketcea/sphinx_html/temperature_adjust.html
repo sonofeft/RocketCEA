@@ -2,27 +2,27 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Temperature Adjust &#8212; RocketCEA v1.1.28 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Temperature Adjust &#8212; RocketCEA v1.1.30 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="CEA vs TDK vs RPA" href="cea_tdk_rpa.html" />
     <link rel="prev" title="Hydrazine Monopropellant" href="hydrazine_mono.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,80 +40,22 @@
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Temperature Adjust</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Temperature Adjust</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#standard-t-and-h">Standard T and H</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#changing-t-and-h">Changing T and H</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="hydrazine_mono.html"
-                        title="previous chapter">Hydrazine Monopropellant</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="cea_tdk_rpa.html"
-                        title="next chapter">CEA vs TDK vs RPA</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/temperature_adjust.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="temperature-adjust">
-<span id="temperature-adjust-link"></span><h1>Temperature Adjust<a class="headerlink" href="#temperature-adjust" title="Permalink to this headline">¶</a></h1>
+  <section id="temperature-adjust">
+<span id="temperature-adjust-link"></span><h1>Temperature Adjust<a class="headerlink" href="#temperature-adjust" title="Permalink to this heading">¶</a></h1>
 <p>There are any number of good reasons to analyze propellants at other than their standard condition.
 RocketCEA provides some aid in creating adjusted input decks.</p>
-<div class="section" id="standard-t-and-h">
-<h2>Standard T and H<a class="headerlink" href="#standard-t-and-h" title="Permalink to this headline">¶</a></h2>
+<section id="standard-t-and-h">
+<h2>Standard T and H<a class="headerlink" href="#standard-t-and-h" title="Permalink to this heading">¶</a></h2>
 <p>Propellants in RocketCEA are assumed to be at standard temperature and enthalpy.
 For storable and gaseous propellants, room temperature is standard.
 For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
@@ -122,9 +64,9 @@ For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
 </pre></div>
 </div>
 <p>will result in LOX and LH2 at standard conditions.</p>
-</div>
-<div class="section" id="changing-t-and-h">
-<h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="changing-t-and-h">
+<h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this heading">¶</a></h2>
 <p>As an example, I’ll use a LOX/CH4 engine, where, instead of running the engine on propellants
 that are each at their normal boiling point (NBP), this engine will store both propellants at a
 common temperature. The LOX will be at NBP and the CH4 will be subcooled.</p>
@@ -198,7 +140,7 @@ Both CEA cards are shown in the output for comparison.:</p>
 
 <span class="n">CH4</span> <span class="n">dT</span><span class="o">=-</span><span class="mf">33.171</span> <span class="n">degR</span><span class="p">,</span> <span class="n">dH</span><span class="o">=-</span><span class="mf">27.1848</span> <span class="n">BTU</span><span class="o">/</span><span class="n">lbm</span>
 
-<span class="n">New</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">CH4_m21632</span><span class="o">.</span><span class="mf">1_167.836</span>
+<span class="n">New</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">CH4_m21632</span><span class="mf">.1_167.836</span>
  <span class="n">fuel</span> <span class="n">CH4</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="n">C</span> <span class="mi">1</span> <span class="n">H</span> <span class="mi">4</span> <span class="n">wt</span><span class="o">%=</span><span class="mf">100.</span>
  <span class="n">h</span><span class="p">,</span><span class="n">cal</span><span class="o">=-</span><span class="mf">21632.1</span> <span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">=</span><span class="mf">93.24</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.4239</span>
 
@@ -214,11 +156,77 @@ Both CEA cards are shown in the output for comparison.:</p>
 </div>
 <p>The final answer is that the performance only drops by about 0.2 seconds, almost certainly better than
 the added weight and complexity of interpropellant insulation, or separate-dome tankage.</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Temperature Adjust</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#standard-t-and-h">Standard T and H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-t-and-h">Changing T and H</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="hydrazine_mono.html"
+                          title="previous chapter">Hydrazine Monopropellant</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cea_tdk_rpa.html"
+                          title="next chapter">CEA vs TDK vs RPA</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/temperature_adjust.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -238,12 +246,13 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Temperature Adjust</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

@@ -463,6 +463,7 @@ rocketcea/sphinx_html/_static/search_env_vars.jpg
 rocketcea/sphinx_html/_static/search_env_vars_lhs.jpg
 rocketcea/sphinx_html/_static/searchtools.js
 rocketcea/sphinx_html/_static/set_env_for_f2py.jpg
+rocketcea/sphinx_html/_static/sphinx_highlight.js
 rocketcea/sphinx_html/_static/system_props.jpg
 rocketcea/sphinx_html/_static/underscore-1.13.1.js
 rocketcea/sphinx_html/_static/underscore-1.3.1.js

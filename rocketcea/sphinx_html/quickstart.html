@@ -2,27 +2,27 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>QuickStart &#8212; RocketCEA v1.1.28 documentation</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>QuickStart &#8212; RocketCEA v1.1.30 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Install gfortran" href="installgfortran.html" />
-    <link rel="prev" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools" href="index.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="prev" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,97 +38,27 @@
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
+          <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">QuickStart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install-numpy-matplotlib">Install Numpy &amp; Matplotlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-compiler">Install Compiler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-rocketcea">Install RocketCEA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#windows-batch-file">Windows Batch File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anaconda-windows-batch-file">Anaconda Windows Batch File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#google-colaboratory">Google Colaboratory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#windows-10-with-wsl">Windows 10 with WSL</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#wsl-gui">WSL GUI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#wslg">WSLg</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="installgfortran.html"
-                        title="next chapter">Install gfortran</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/quickstart.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="quickstart">
-<h1>QuickStart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+  <section id="quickstart">
+<h1>QuickStart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On Windows, 32 bit python 3.8 and above are not supported.</p>
 </div>
 <p>For a Windows install, jump straight to <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
-<div class="section" id="install-numpy-matplotlib">
-<h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this headline">¶</a></h2>
+<section id="install-numpy-matplotlib">
+<h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this heading">¶</a></h2>
 <p>Because RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
 compile the FORTRAN <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">NASA CEA code</a> and
 <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a>
@@ -151,9 +81,9 @@ creating plots.</p>
 <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-compiler">
-<h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-compiler">
+<h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Permalink to this heading">¶</a></h2>
 <p>Using <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to compile FORTRAN requires
 a FORTRAN compiler. I recommend using <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>
 on all platforms so that there are no FORTRAN incompatibilities between platforms.</p>
@@ -171,9 +101,9 @@ C:\MinGW\mingw64\lib  AND
 C:\MinGW\mingw64\lib</p>
 </div>
 <img alt="_images/full_mingw_folder.jpg" src="_images/full_mingw_folder.jpg" />
-</div>
-<div class="section" id="install-rocketcea">
-<h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-rocketcea">
+<h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this heading">¶</a></h2>
 <p><strong>After</strong> the above installs have been accomplished, the easiest way to install RocketCEA is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
 
@@ -190,9 +120,9 @@ C:\MinGW\mingw64\lib</p>
 <span class="mf">374.30361765576265</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="windows-batch-file">
-<span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="windows-batch-file">
+<span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see “Anaconda Windows Batch File” section below.</p>
@@ -249,9 +179,9 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 <p>The “trick” for installing RocketCEA on Windows seems to be pre-installing the dependency packages
 (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.</p>
 </div>
-</div>
-<div class="section" id="anaconda-windows-batch-file">
-<h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="anaconda-windows-batch-file">
+<h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Permalink to this heading">¶</a></h2>
 <p>As stated above, the “trick” for installing RocketCEA on Windows seems
 to be pre-installing the dependency packages  (e.g. numpy, scipy and matplotlib)
 so that the pip options for rocketcea only apply to rocketcea.</p>
@@ -300,18 +230,18 @@ shown below.</p>
 <img alt="_images/Anaconda_successful_install.jpg" src="_images/Anaconda_successful_install.jpg" />
 <p>Notice that the file ran the “quick test” at the bottom of the batch file and
 properly output the Isp of 374.30…</p>
-</div>
-<div class="section" id="getting-help">
-<h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">¶</a></h2>
 <p>After installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, there should be a launch command line program called <strong>rocketcea</strong> or, on Windows, <strong>rocketcea.exe</strong>.</p>
 <p>From a terminal or command prompt window simply type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rocketcea</span>
 </pre></div>
 </div>
 <p>Your browser will launch with these RocketCEA help pages.</p>
-</div>
-<div class="section" id="running-rocketcea">
-<h2>Running RocketCEA<a class="headerlink" href="#running-rocketcea" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="running-rocketcea">
+<h2>Running RocketCEA<a class="headerlink" href="#running-rocketcea" title="Permalink to this heading">¶</a></h2>
 <p>Any use of RocketCEA begins with an import statement and an instance of CEA_obj:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
@@ -336,9 +266,9 @@ You may need to install the MinGW Compiler Suite and perhaps even recompile Rock
 for RocketCEA to work (see below)</p>
 <p>On Windows, make sure the environment PATH variable is set properly (see: <a class="reference internal" href="installgfortran.html#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
 </div>
-</div>
-<div class="section" id="test-the-install">
-<h2>Test The Install<a class="headerlink" href="#test-the-install" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="test-the-install">
+<h2>Test The Install<a class="headerlink" href="#test-the-install" title="Permalink to this heading">¶</a></h2>
 <p>Paste the following code into your text editor and save it to your test folder as basic_cea.py
 (for example, D:\rocketcea\basic_cea.py):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
@@ -363,9 +293,9 @@ for RocketCEA to work (see below)</p>
 </div>
 <p>Great… you are good to go.</p>
 <p>If not, see the information below.</p>
-</div>
-<div class="section" id="google-colaboratory">
-<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="google-colaboratory">
+<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this heading">¶</a></h2>
 <p>If you are having trouble installing RocketCEA on your system,
 RocketCEA can be run on <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colaboratory</a>
 (either python3 or python2).</p>
@@ -397,9 +327,9 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 <a class="reference internal image-reference" href="_images/colab_run_chk_cea.jpg"><img alt="_images/colab_run_chk_cea.jpg" src="_images/colab_run_chk_cea.jpg" style="width: 50%;" /></a>
 <p>Colab plots work with RocketCEA as well.</p>
 <a class="reference internal image-reference" href="_images/colab_cstar_plot_example.jpg"><img alt="_images/colab_cstar_plot_example.jpg" src="_images/colab_cstar_plot_example.jpg" style="width: 80%;" /></a>
-</div>
-<div class="section" id="windows-10-with-wsl">
-<h2>Windows 10 with WSL<a class="headerlink" href="#windows-10-with-wsl" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="windows-10-with-wsl">
+<h2>Windows 10 with WSL<a class="headerlink" href="#windows-10-with-wsl" title="Permalink to this heading">¶</a></h2>
 <p>RocketCEA can also be installed on <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux (WSL)</a></p>
 <p>After setting up your Linux distribution on WSL, installing RocketCEA is quick and easy.</p>
 <p>For example on a Ubuntu distribution.</p>
@@ -437,24 +367,102 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 </dl>
 </li>
 </ul>
-<div class="section" id="wsl-gui">
-<h3>WSL GUI<a class="headerlink" href="#wsl-gui" title="Permalink to this headline">¶</a></h3>
+<section id="wsl-gui">
+<h3>WSL GUI<a class="headerlink" href="#wsl-gui" title="Permalink to this heading">¶</a></h3>
 <p>Note that, if desired, <a class="reference external" href="https://sourceforge.net/projects/vcxsrv/files/latest/download">VsXsrv</a>
 can be used to enable Linux-driven graphic windows on WSL.</p>
 <p>This will enable matplotlib show() command, tkinter programs or any gui-based Linux application
 installed on the WSL Linux distribution.</p>
-</div>
-<div class="section" id="wslg">
-<h3>WSLg<a class="headerlink" href="#wslg" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="wslg">
+<h3>WSLg<a class="headerlink" href="#wslg" title="Permalink to this heading">¶</a></h3>
 <p>In the presumably near future, <a class="reference external" href="https://github.com/microsoft/wslg">WSLg</a> will be available that has GUI support built in.
 Windows 11 is expected to come with <a class="reference external" href="https://github.com/microsoft/wslg">WSLg</a>
 and Windows 10 will be able to install <a class="reference external" href="https://github.com/microsoft/wslg">WSLg</a>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">QuickStart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-numpy-matplotlib">Install Numpy &amp; Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-compiler">Install Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-rocketcea">Install RocketCEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-batch-file">Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda-windows-batch-file">Anaconda Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#google-colaboratory">Google Colaboratory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-10-with-wsl">Windows 10 with WSL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wsl-gui">WSL GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wslg">WSLg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installgfortran.html">Install gfortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std_examples.html">Standard Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional_example.html">Traditional Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite_area_comb.html">Finite Area Combustor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comb_species.html">Species Mole Fractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_mr.html">Engine Mixture Ratio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellant_select.html">Propellant Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propellants.html">Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_propellants.html">New Propellants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_examples.html">Plot Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ambient_isp.html">Ambient Isp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrazine_mono.html">Hydrazine Monopropellant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temperature_adjust.html">Temperature Adjust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cea_tdk_rpa.html">CEA vs TDK vs RPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parasol_example.html">Parasol Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">RocketCEA Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="installgfortran.html"
+                          title="next chapter">Install gfortran</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/quickstart.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -472,14 +480,15 @@ and Windows 10 will be able to install <a class="reference external" href="https
           <a href="installgfortran.html" title="Install gfortran"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="RocketCEA Wraps The NASA Fortran CEA Code And Provides Some Useful Tools"
+          <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.28 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.30 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>
