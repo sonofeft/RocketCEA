@@ -13,9 +13,6 @@ build:
     - gfortran  
   tools:
     python: "3.10"
-  jobs:
-    pre_build: 
-      echo "export FC=gfortran" >> ~/.bash_profile
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
