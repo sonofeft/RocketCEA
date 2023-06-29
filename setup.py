@@ -46,12 +46,12 @@ target_file = path.join( here, 'rocketcea','_version.py')
 exec( open( target_file ).read() )  # creates local __version__ variable
 
 
-ext_py_cea = Extension(name = 'rocketcea.py_cea',
-                      sources = ['rocketcea/py_cea.f'],
-                      extra_link_args=["-static"])
+#ext_py_cea = Extension(name = 'rocketcea.py_cea',
+#                      sources = ['rocketcea/py_cea.f'],
+#                      extra_link_args=["-static"])
 
-# ext_py_cea = Extension(name = 'rocketcea.py_cea',
-#                        sources = ['rocketcea/py_cea.f'])
+ext_py_cea = Extension(name = 'rocketcea.py_cea',
+                       sources = ['rocketcea/py_cea.f'])
 
 
 setup(
