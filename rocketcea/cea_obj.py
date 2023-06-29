@@ -41,7 +41,8 @@ USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
 
 # may need to add DLL directory to allow pyd/dll import
-os.add_dll_directory( here )
+if hasattr(os, 'add_dll_directory'):
+    os.add_dll_directory( here )
 
 
 # from rocketcea.short_win_path import get_short_path_name
