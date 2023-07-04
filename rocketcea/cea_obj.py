@@ -233,6 +233,7 @@ class CEA_Obj(object):
         #: Create the base CEA wrapper object.
         #: Fast Lookup is deprecated.
         #: fac_CR = Contraction Ratio of finite area combustor (None=infinite)
+        #: makeOutput = flag to generate standard CEA text file output (default=0 for speed)
         #: if make_debug_prints is True, print debugging info to terminal.
         """
 
@@ -438,6 +439,9 @@ class CEA_Obj(object):
         #: frozen flag (0=equilibrium, 1=frozen)
         #: frozenAtThroat flag, 0=frozen in chamber, 1=frozen at throat
         '''
+        
+        # NOTE: if show_transport is True, need to set self.makeOutput to True
+        #       (i.e. transport properties require re-reading data from output file )
 
         global _last_called, _NLines_Max_ever
         
@@ -598,7 +602,7 @@ class CEA_Obj(object):
 
         if show_transport:
             if self.make_debug_prints:
-                print("NOTE: transport properties require re-reading data read.")
+                print("NOTE: transport properties require re-reading data from output file.")
             readData = 1
 
 
@@ -661,7 +665,18 @@ class CEA_Obj(object):
             
         #print( 'calling py_cea with pathPrefix and myfile=' )
         #print( '"'+self.pathPrefix+'"',' and ', '"'+myfile+'"' )
+        
+
+        save_makeOutput_flag = self.makeOutput
+        if show_transport:
+            # regardless of how run was set up, change makeOutput flag True
+            #   if transport properties are requested.
+            self.makeOutput = True
+        
         py_cea.py_cea(self.pathPrefix, myfile, self.makeOutput, readData)
+        
+        # restore user preference for makeOutput
+        self.makeOutput = save_makeOutput_flag
 
     def get_full_cea_output(self, Pc=100.0, MR=1.0, eps=40.0, subar=None, PcOvPe=None,
                             frozen=0, frozenAtThroat=0, short_output=0, show_transport=1,
@@ -679,7 +694,7 @@ class CEA_Obj(object):
         """
 
         # regardless of how run was set up, change makeOutput flag True
-        save_flag = self.makeOutput
+        save_makeOutput_flag = self.makeOutput
         self.makeOutput = True
         
         # Allow user to override fac_CR from CEA_Obj __init__
@@ -693,7 +708,7 @@ class CEA_Obj(object):
                          show_transport=show_transport, pc_units=pc_units,
                          output=output, show_mass_frac=show_mass_frac)
 
-        self.makeOutput = save_flag # restore makeOutput
+        self.makeOutput = save_makeOutput_flag # restore makeOutput
         self.fac_CR = save_fac_CR   # restore fac_CR
 
         return open( os.path.join(ROCKETCEA_DATA_DIR,'f.out'),'r').read()
