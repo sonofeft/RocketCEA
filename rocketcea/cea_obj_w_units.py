@@ -170,6 +170,7 @@ class CEA_Obj( object ):
         return self.cea_obj.get_Throat_PcOvPe( Pc=Pc, MR=MR )
     
     def get_Pinj_over_Pcomb(self, Pc=100.0, MR=1.0, fac_CR=None):
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_Pinj_over_Pcomb(Pc=Pc, MR=MR, fac_CR=fac_CR)
         
     def get_MachNumber(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
