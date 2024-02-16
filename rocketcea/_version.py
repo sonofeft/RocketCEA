@@ -1,5 +1,7 @@
 
-__version__ = '1.1.34'  # METADATA_RESET:__version__ = '<<version>>'
+import importlib.metadata
+
+__version__ = importlib.metadata.version('rocketcea')
 
 """
 The ``_version.py`` file can be executed with execfile to create a local variable __version__::
