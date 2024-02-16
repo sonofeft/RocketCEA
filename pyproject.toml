@@ -1,3 +1,75 @@
 [build-system]
-requires = ["setuptools", "numpy"]
-build-backend = "setuptools.build_meta:__legacy__"
+requires = ['setuptools', 'numpy']
+build-backend = 'setuptools.build_meta:__legacy__'
+
+[project]
+name = 'rocketcea'
+version = '1.1.34'
+dependencies = [
+    'future',
+    'numpy',
+    'scipy',
+    'matplotlib',
+]
+description = 'RocketCEA wraps the FORTRAN CEA code and provides some useful tools.'
+authors = [{name = 'Charlie Taylor', email = 'cet@appliedpython.com'}]
+license = {file = 'LICENSE.txt'}
+keywords = ['rocketcea setuptools development']
+readme = 'README.rst'
+classifiers = [
+    # Common status values are: "3 - Alpha", "4 - Beta", "5 - Production/Stable"
+    #        less common        1 - Planning, 2 - Pre-Alpha, 6 - Mature, 7 - Inactive
+    'Development Status :: 4 - Beta',
+
+    "Operating System :: OS Independent",
+    'Intended Audience :: Developers',
+    "Intended Audience :: End Users/Desktop",
+    'Topic :: Software Development :: Build Tools',
+
+    # This license should match "license" above
+    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+
+    # Specify the Python versions you support here. In particular, ensure
+    # that you indicate whether you support Python 2, Python 3 or both.
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+]
+
+[project.optional-dependencies]
+dev = ['check-manifest']
+test = ['pytest', 'coverage', 'nose'] # pytest --pyargs rocketcea
+
+[project.urls]
+Documentation = 'http://rocketcea.readthedocs.org/en/latest/'
+Repository = 'https://github.com/sonofeft/RocketCEA'
+"Bug Tracker" = 'https://github.com/sonofeft/RocketCEA/issues'
+
+[project.entry-points.'console_scripts']
+rocketcea = 'rocketcea.show_html_help:main'
+
+[tools.setuptools]
+zip-safe = false
+include-package-data = true
+platforms = 'any'
+
+[tool.setuptools.package-data]
+'rocketcea' = [
+    'examples/*.*',
+    'f.inp', 
+    'f.out', 
+    'thermo.*', 
+    'temp.dat', 
+    'trans.*', 
+    'py_cea.f', 
+    'py_cea.inc'
+]
+
+[tool.setuptools.packages.find]
+exclude = ['.tox', '.hg', 'docs'] 
