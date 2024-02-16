@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: ascii -*-
-from __future__ import print_function
+# from __future__ import print_function
 
 """
 Look for a line of code ending with a comment that starts with "# METADATA_RESET:"
