@@ -54,26 +54,6 @@ Repository = 'https://github.com/sonofeft/RocketCEA'
 [project.entry-points.'console_scripts']
 rocketcea = 'rocketcea.show_html_help:main'
 
-[tools.setuptools]
-zip-safe = false
-include-package-data = true
-platforms = 'any'
-
-[tool.setuptools.package-data]
-'rocketcea' = [
-    'examples/*.*',
-    'f.inp', 
-    'f.out', 
-    'thermo.*', 
-    'temp.dat', 
-    'trans.*', 
-    'py_cea.f', 
-    'py_cea.inc'
-]
-
-[tool.setuptools.packages.find]
-exclude = ['.tox', '.hg', 'docs'] 
-
 [tools.bdist_wheel]
 # This flag says that the code is written to work on both Python 2 and Python
 # 3. If at all possible, it is good practice to do this. If you cannot, you
