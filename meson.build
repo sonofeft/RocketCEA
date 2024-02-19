@@ -35,3 +35,5 @@ py.extension_module(
     install: true,
     subdir: 'rocketcea',
 )
+
+subdir('rocketcea')
