@@ -1,6 +1,6 @@
 [build-system]
-requires = ['setuptools', 'numpy']
-build-backend = 'setuptools.build_meta:__legacy__'
+build-backend = 'mesonpy'
+requires = ['meson-python', 'numpy']
 
 [project]
 name = 'rocketcea'
