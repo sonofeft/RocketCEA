@@ -18,8 +18,22 @@ python_sources = [
     'xlChFormula.py',
 ]
 
+other_sources = [
+  'f.inp', 
+  'f.out', 
+  'thermo.inp',
+  'thermo.lib',
+  'thermo.out', 
+  'temp.dat',
+  'trans.inp', 
+  'trans.lib',
+  'trans.out', 
+  'py_cea.f', 
+  'py_cea.inc',
+]
+
 py.install_sources(
-  python_sources,
+  [python_sources, other_sources],
   pure: false,
   subdir: 'rocketcea'
 )

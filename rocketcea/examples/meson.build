@@ -67,8 +67,45 @@ python_sources = [
     'xl_nozsep.py',
 ]
 
+other_sources = [
+    'amm_dissociation.png',
+    'basic_chart.png',
+    'biprop_isp.png',
+    'biprop_SI_isp.png',
+    'cea_compare2.png',
+    'cea_compare3.png',
+    'cea_compare_mono.png',
+    'cea_compareRhoIsp.png',
+    'cea_cstar_plot.png',
+    'cea_plot.png',
+    'compare_rayleigh.png',
+    'const_mass_frac1.png',
+    'const_mass_frac2.png',
+    'delta_stg3_dv.png',
+    'delta_stg3_vol.png',
+    'divert_veh.png',
+    'gox_gh2_compare.txt',
+    'IspAmb_plot.png',
+    'lox_gox_compare.png',
+    'nasa_rp1_case.txt',
+    'perox_eq_frz.png',
+    'Pexit.htm',
+    'PexitPexit.summary',
+    'Pexit.xlsx',
+    'pinj_over_pcomb.png',
+    'rho_veh_1.png',
+    'rho_veh_2.png',
+    'rho_veh_LOXLH2.png',
+    'rho_veh_stg1_dv.png',
+    'rho_veh_stg1_glow.png',
+    'rho_veh_stg1_vol.png',
+    'rho_veh_stg3_dv.png',
+    'rho_veh_stg3_glow.png',
+    'rho_veh_stg3_vol.png',
+]
+
 py.install_sources(
-  python_sources,
+  [python_sources, other_sources],
   pure: false,
   subdir: 'rocketcea/examples'
 )
