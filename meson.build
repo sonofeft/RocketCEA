@@ -20,20 +20,4 @@ incdir_f2py = run_command(py,
 
 inc_np = include_directories(incdir_numpy, incdir_f2py)
 
-pycea_source = custom_target('py_ceamodule.c',
-  input: ['rocketcea/py_cea.f'],
-  output: ['py_ceamodule.c', 'py_cea-f2pywrappers.f'],
-  command : [py, '-m', 'numpy.f2py', '@INPUT@', '-m', 'py_cea', '--lower']
-)
-
-py.extension_module(
-    'py_cea',
-    ['rocketcea/py_cea.f', pycea_source],
-    incdir_f2py / 'fortranobject.c',
-    include_directories: inc_np,
-    dependencies: py_dep,
-    install: true,
-    subdir: 'rocketcea',
-)
-
 subdir('rocketcea')
