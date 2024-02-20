@@ -1,4 +1,0 @@
-future
-numpy
-scipy
-matplotlib
