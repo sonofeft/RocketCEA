@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: ascii -*-
-# from __future__ import print_function
+from __future__ import print_function
 
 """
 Look for a line of code ending with a comment that starts with "# METADATA_RESET:"
@@ -51,7 +51,7 @@ def render_file( full_file_name, metadataD ):
 if __name__ == "__main__":
     import os
     
-    metadataD =  {"<<version>>":"1.1.31"}
+    metadataD =  {"<<version>>":"1.1.35"}
 
     # render_file( os.path.abspath('./docs/conf.py'), metadataD )
     # render_file( os.path.abspath('./setup.py'), metadataD )
