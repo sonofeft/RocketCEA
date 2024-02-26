@@ -14,7 +14,7 @@ Patches and Ideas
 -----------------
 
 * `joel-martin <https://github.com/joel-martin>`_
-    - Major help with numpy.distutils deprecation and converting to meson.build
+    - Extensive help with numpy.distutils deprecation and converting to meson.build
 
 * `stepbot <https://github.com/stepbot>`_
     - MacOS support 

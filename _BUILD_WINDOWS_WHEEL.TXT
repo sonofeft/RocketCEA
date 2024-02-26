@@ -1,0 +1,28 @@
+
+rem Launch VENV for desired python version 
+rem run GO.BAT to set restricted PATH
+
+rem cd over to RocketCEA development subdir 
+
+pip install numpy
+
+pip install matplotlib
+
+pip install scipy
+
+pip install setuptools
+
+pip install build
+
+pip install virtualenv
+
+pip install wheel
+
+python setup.py build --compiler=mingw32
+rem creates "build" subdir files
+
+python setup.py develop
+rem creates:  "rocketcea" subdir *.pyd files
+
+python setup.py bdist_wheel
+rem builds wheel for VENV version of python

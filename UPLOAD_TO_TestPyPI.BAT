@@ -1,5 +1,5 @@
 
-SET "MYPYTHONPATH=D:\Python37_64" 
+SET "MYPYTHONPATH=C:\Python310" 
 set PATH=C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts;C:\Windows\System32
 
 cd .\docs
