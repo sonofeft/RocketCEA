@@ -12,4 +12,4 @@ python setup.py sdist
 
 rem only upload source to PyPI
 rem twine upload --repository testpypi --skip-existing dist/*.gz
-C:\Python310\Scripts\twine.exe upload --config-file "%HOMEPATh%\.pypirc" --repository testpypi --skip-existing dist/*.gz
+C:\Python310\Scripts\twine.exe upload --config-file "%HOMEPATh%\.pypirc" --repository testpypi --skip-existing dist/*.*

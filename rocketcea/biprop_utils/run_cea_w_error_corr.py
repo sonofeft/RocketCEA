@@ -1,4 +1,3 @@
-from __future__ import print_function
 
 '''If CEA gives back Isp==0, then try to estimate it.'''
 """

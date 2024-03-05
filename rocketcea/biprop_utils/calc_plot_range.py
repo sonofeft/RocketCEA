@@ -1,4 +1,3 @@
-from __future__ import print_function
 from math import log10, floor
 
 def calcMinMaxRange(vmin, vmax, num_ticks=10):

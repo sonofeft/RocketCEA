@@ -1,4 +1,3 @@
-from __future__ import print_function
 #!/usr/bin/env python
 # -*- coding: ascii -*-
 
@@ -6,7 +5,6 @@ from __future__ import print_function
 This file wraps default RockeCEA units with desired user units.
 """
 import sys
-from future.utils import raise_
 
 # build a dictionary of conversion factors
 unitsConvFactD = {} # index=default units: value=default dictionary of conversion factor data.
@@ -47,13 +45,13 @@ def get_conv_factor( default_units, user_units ):
         D = unitsConvFactD[ default_units ]
     except:
         traceback = sys.exc_info()[2]
-        raise_( ValueError, 'default units "%s" not recognized'%default_units, traceback )
+        raise ValueError( 'default units "%s" not recognized'%default_units, traceback )
         
     
     (uod, offset) = D.get(user_units, (None,None))
     if uod is None:
         traceback = sys.exc_info()[2]
-        raise_( ValueError, 'units "%s" not associated with default units="%s"'%(user_units,default_units), traceback )
+        raise ValueError( 'units "%s" not associated with default units="%s"'%(user_units,default_units), traceback )
             
     return uod, offset # multiplier is (user_units / default_units)
 

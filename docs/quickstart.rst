@@ -139,7 +139,6 @@ Note that it starts by uninstalling rocketcea in case bad files are left from pr
 
     pip uninstall -y rocketcea
     
-    pip install future
     pip install numpy
     pip install scipy
     
