@@ -630,7 +630,7 @@ def renamePropIfNewHfOrTrefInName( cardDict, name ):
     # if all else fails, simply return input name
     return name
 
-if __name__ == '__main__':
+def dev_tests():
     
     for name in ['FLOX80', 'MON15', 'M13', 'Peroxide88']:
         L = []
@@ -651,6 +651,7 @@ if __name__ == '__main__':
         print( L )
         print( '-'*55 )
 
-
+if __name__ == "__main__":
+    dev_tests()
 
     

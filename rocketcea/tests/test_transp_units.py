@@ -33,8 +33,15 @@ with self.assertRaises(KeyError):
 
 Test if __name__ == "__main__":
     def test__main__(self):
-        # loads and runs the bottom section: if __name__ == "__main__"
-        runpy = imp.load_source('__main__', os.path.join(up_one, 'filename.py') )
+        # Change bottom of source file to call "dev_tests"
+        
+         def dev_tests():
+            pass
+
+         if __name__ == "__main__":
+            dev_tests()
+            
+        # then test by calling <name>.dev_tests()
 
 
 See:
@@ -46,7 +53,6 @@ for more assert options
 
 
 import sys, os
-#import imp
 
 here = os.path.abspath(os.path.dirname(__file__)) # Needed for py.test
 up_one = os.path.split( here )[0]  # Needed to find rocketcea development version

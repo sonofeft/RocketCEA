@@ -858,7 +858,7 @@ class xlChart:
             self.focusSheetByName(shtName=sheetName)
         self.xlSheet.Shapes.AddPicture( imgAbsPath, msoFalse, msoTrue, left, top, width, height)
 
-if __name__ == "__main__": #Self Test
+def dev_tests(): #Self Test
     xl = xlChart()
     rs = ( ("x", "y", "Zee","Queue"), (1,1,1,1,1,1), (2,2,3,4), (3,3,5,8) )
     rs = squareUpRS( rs, pad='xxx' )
@@ -913,3 +913,8 @@ abcdefghijklmnopqrstuvwxy'''
     for i in range(1,11):
         xl.setRangeOfDataSheet( [['SPOT']], sheetName="Sheet1", upperLeft='$A$%i'%i,
             bgColor=i)
+
+if __name__ == "__main__":
+    dev_tests()
+
+        

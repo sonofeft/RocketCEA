@@ -104,7 +104,7 @@ class Goal( object ):
         return x1, NO_CONVERGENCE
             
 
-if __name__ == "__main__":  #self test
+def dev_tests():  #self test
     
     def FofX(x):
         #print(  'calling FofX with x=',x)
@@ -121,4 +121,8 @@ if __name__ == "__main__":  #self test
     G2 = Goal(goalVal=0.0, minX=0.0, maxX=57.123, 
         funcOfX=FofX, tolerance=1.0E-20, maxLoops=40, failValue=None)
     print(  G2())
+
+if __name__ == "__main__":
+    dev_tests()
+
     

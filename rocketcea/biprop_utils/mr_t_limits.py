@@ -1,4 +1,17 @@
-import sys
+# The following is needed to find rocketcea when self-testing 
+import os, sys
+here = os.path.abspath(os.path.dirname(__file__))
+up_one = os.path.split( here )[0]
+up_two = os.path.split( up_one )[0]
+
+if here not in sys.path[:3]:
+    sys.path.insert(0, here)
+if up_one not in sys.path[:3]:
+    sys.path.insert(0, up_one)
+if up_two not in sys.path[:3]:
+    sys.path.insert(0, up_two)
+
+
 from rocketcea.cea_obj import CEA_Obj
 from rocketcea.blends import get_propellant_name
 
@@ -119,7 +132,7 @@ class MR_Temperature_Limits( object ):
         return '''<%s/%s, Stoich_MR=%g, Min MR=%g, Max MR=%g, Tc Left=%g R, Tc Right=%g R>'''%\
             (self.cea_oxName, self.cea_fuelName, self.Stoich_MR, self.min_MR, self.max_MR, self.Tc_at_min_MR, self.Tc_at_max_MR)
 
-if __name__=="__main__":
+def dev_tests():
     
     mc = MR_Temperature_Limits()
     
@@ -128,4 +141,8 @@ if __name__=="__main__":
     print( 'Min MR = %g'%mc.min_MR, '  Tc at Min MR =',mc.Tc_at_min_MR )
     print( 'Max MR = %g'%mc.max_MR, '  Tc at Max MR =',mc.Tc_at_max_MR )
     
+
+if __name__ == "__main__":
+    dev_tests()
+
     

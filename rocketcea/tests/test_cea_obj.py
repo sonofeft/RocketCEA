@@ -35,8 +35,15 @@ with self.assertRaises(KeyError):
 
 Test if __name__ == "__main__":
     def test__main__(self):
-        # loads and runs the bottom section: if __name__ == "__main__"
-        runpy = imp.load_source('__main__', os.path.join(up_one, 'filename.py') )
+        # Change bottom of source file to call "dev_tests"
+        
+         def dev_tests():
+            pass
+
+         if __name__ == "__main__":
+            dev_tests()
+            
+        # then test by calling <name>.dev_tests()
         
 See:
       https://docs.python.org/2/library/unittest.html
@@ -46,7 +53,6 @@ for more assert options
 """
 
 import sys, os
-import imp
 
 here = os.path.abspath(os.path.dirname(__file__)) # Needed for py.test
 up_one = os.path.split( here )[0]  # Needed to find rocketcea development version
@@ -55,7 +61,7 @@ if here not in sys.path[:2]:
 if up_one not in sys.path[:2]:
     sys.path.insert(0, up_one)
 
-from rocketcea.cea_obj import CEA_Obj, getCacheDict
+from rocketcea.cea_obj import CEA_Obj, getCacheDict, dev_tests
 from rocketcea.blends import newFuelBlend
 from rocketcea.input_cards import oxCards, fuelCards, propCards
 from rocketcea.cea_obj import add_new_fuel, add_new_oxidizer, add_new_propellant
@@ -661,7 +667,7 @@ class MyTest(unittest.TestCase):
         sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'cea_obj.py') )
+            dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:

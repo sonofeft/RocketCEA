@@ -57,12 +57,12 @@ prop_sgD['FLOX70'] = sg_mix( 'F2', 'O2', 70.0 )
 prop_sgD['FLOX80'] = sg_mix( 'F2', 'O2', 80.0 )
 
             
-if __name__=="__main__":
+def dev_tests():
     
 
     print( '--------------')
-    keyL = prop_sgD.keys()
-    keyL.sort()
+    keyL = sorted( prop_sgD.keys() )
+    
     for name in keyL:
         print( '%10s, %s'%(name, prop_sgD[name]) )
     print()
@@ -74,4 +74,8 @@ if __name__=="__main__":
     pBulk('N2O4','A50',1.83)
     pBulk('LOX','RP1',2.27)
     pBulk('LOX','LH2',5.5)
+
+
+if __name__ == "__main__":
+    dev_tests()
 

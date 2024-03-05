@@ -1604,7 +1604,7 @@ def print_py_cea_vars():
             print()
 
 
-if __name__ == '__main__':
+def dev_tests():
 
     # from pylab import *
 
@@ -1671,3 +1671,7 @@ if __name__ == '__main__':
     print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
     print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
     print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+
+if __name__ == "__main__":
+    dev_tests()
+

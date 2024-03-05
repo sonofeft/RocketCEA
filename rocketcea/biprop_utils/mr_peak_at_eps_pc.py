@@ -1,4 +1,17 @@
-import sys
+# The following is needed to find rocketcea when self-testing 
+import os, sys
+here = os.path.abspath(os.path.dirname(__file__))
+up_one = os.path.split( here )[0]
+up_two = os.path.split( up_one )[0]
+
+if here not in sys.path[:3]:
+    sys.path.insert(0, here)
+if up_one not in sys.path[:3]:
+    sys.path.insert(0, up_one)
+if up_two not in sys.path[:3]:
+    sys.path.insert(0, up_two)
+
+
 import numpy as np
 
 from rocketcea.biprop_utils.mr_t_limits import MR_Temperature_Limits
@@ -228,8 +241,8 @@ class MR_Peak_At_EpsPc( object ):
         ispL = [self.isp_at_mr( mr=mr) for mr in mrL]
         return mrL, ispL
     
-if __name__=="__main__":
-    from pylab import *
+def dev_tests():
+    from matplotlib.pyplot import title, plot, axvline, show
     
     mc = MR_Temperature_Limits(oxName='F2', fuelName='H2', oxPcentL=None, fuelPcentL=None,
         TC_LIMIT=1400.0, PcNominal=200.0, epsNominal=3.0,
@@ -275,4 +288,8 @@ if __name__=="__main__":
     
     show()
     
+
+if __name__ == "__main__":
+    dev_tests()
+
     

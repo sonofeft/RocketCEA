@@ -1,3 +1,18 @@
+# The following is needed to find rocketcea when self-testing 
+import os, sys
+here = os.path.abspath(os.path.dirname(__file__))
+up_one = os.path.split( here )[0]
+up_two = os.path.split( up_one )[0]
+
+if here not in sys.path[:3]:
+    sys.path.insert(0, here)
+if up_one not in sys.path[:3]:
+    sys.path.insert(0, up_one)
+if up_two not in sys.path[:3]:
+    sys.path.insert(0, up_two)
+
+
+
 import numpy as np
 from rocketcea.biprop_utils.contour_supt import within
 
@@ -94,8 +109,7 @@ def find_first_terp( x_target, xArr, yArr ):
     return ans
 
 
-if __name__=="__main__":
-    import numpy as np
+def dev_tests():
     
     sgArr = np.array([0.13433717, 0.69979866, 1.26526015])
     isArr = np.array([290.04456811, 340.42993479, 390.81530146, 441.20066813])
@@ -113,4 +127,8 @@ if __name__=="__main__":
     print( 'is_ans =',is_ans)
     sg_ans = sgArr[0]
     print( 'sg_ans =',sg_ans )
+
+if __name__ == "__main__":
+    dev_tests()
+
     

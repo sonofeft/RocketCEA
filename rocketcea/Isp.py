@@ -107,7 +107,7 @@ def  CalcIdealIsVac(Gam,Temp,WtMol,eps):
     return IspVac
 
 
-if __name__ == "__main__":
+def dev_tests():
     
     def testme():
         gam=1.25
@@ -140,3 +140,7 @@ if __name__ == "__main__":
         print(  'CalcCFvac(gam,PCoPE)',CalcCFvac(gam,pcope),'  in gray book=',grayLambda*CalcCFvac(gam,pcope))
         print(  'CalcCstar(Gam,Temp,WtMol)',CalcCstar(gam,Temp,WtMol))
     testme()
+
+if __name__ == "__main__":
+    dev_tests()
+

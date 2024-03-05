@@ -57,10 +57,14 @@ def search(f, a, b, tol=1.0e-9):
     if f1 < f2: return x1,f1
     else: return x2,f2
 
-if __name__ == "__main__":
+def dev_tests():
     
     def myfunc( x ):
         return (3.123-x)**2
         
     print( 'answer should be 3.123' )
     print( search(myfunc,0.0,5.0,tol=1.0e-9) )
+
+if __name__ == "__main__":
+    dev_tests()
+

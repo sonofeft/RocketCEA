@@ -32,8 +32,15 @@ with self.assertRaises(KeyError):
 
 Test if __name__ == "__main__":
     def test__main__(self):
-        # loads and runs the bottom section: if __name__ == "__main__"
-        runpy = imp.load_source('__main__', os.path.join(up_one, 'filename.py') )
+        # Change bottom of source file to call "dev_tests"
+        
+         def dev_tests():
+            pass
+
+         if __name__ == "__main__":
+            dev_tests()
+            
+        # then test by calling <name>.dev_tests()
         
 See:
       https://docs.python.org/2/library/unittest.html
@@ -43,7 +50,6 @@ for more assert options
 """
 
 import sys, os
-import imp
 import tempfile
 
 here = os.path.abspath(os.path.dirname(__file__)) # Needed for py.test
@@ -57,8 +63,10 @@ import rocketcea.Isp
 import rocketcea.Goal
 import rocketcea.separated_Cf
 from rocketcea.biprop_utils.mr_t_limits import MR_Temperature_Limits
+import rocketcea.biprop_utils.mr_t_limits
 from rocketcea.biprop_utils import run_cea_w_error_corr
 from rocketcea.cea_obj import CEA_Obj, get_rocketcea_data_dir, set_rocketcea_data_dir
+from rocketcea import cea_obj_w_units
 
 class MyTest(unittest.TestCase):
 
@@ -155,7 +163,7 @@ class MyTest(unittest.TestCase):
         sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'Goal.py') )
+            rocketcea.Goal.dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:
@@ -168,7 +176,7 @@ class MyTest(unittest.TestCase):
         sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'Isp.py') )
+            rocketcea.Isp.dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:
@@ -181,7 +189,7 @@ class MyTest(unittest.TestCase):
         #sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'separated_Cf.py') )
+            rocketcea.separated_Cf.dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:
@@ -223,7 +231,7 @@ class MyTest(unittest.TestCase):
         #sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'biprop_utils', 'mr_t_limits.py') )
+            rocketcea.biprop_utils.mr_t_limits.dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:
@@ -236,7 +244,7 @@ class MyTest(unittest.TestCase):
         #sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'biprop_utils', 'run_cea_w_error_corr.py') )
+            run_cea_w_error_corr.dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:
@@ -249,7 +257,7 @@ class MyTest(unittest.TestCase):
         sys.argv.append('suppress_show')
         
         try:
-            runpy = imp.load_source('__main__', os.path.join(up_one, 'cea_obj_w_units.py') )
+            cea_obj_w_units.dev_tests()
         except:
             raise Exception('ERROR... failed in __main__ routine')
         finally:

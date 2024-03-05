@@ -219,7 +219,7 @@ def get_units_obj( default_units, user_units ):
                       user_over_default=uod, user_offset=offset )
     
 
-if __name__ == "__main__":
+def dev_tests():
     
     def chk_obj( U, user_val=1.0 ):
         print('*'*44)
@@ -265,3 +265,7 @@ if __name__ == "__main__":
     for k,vD in unitsConvFactD.items():
         print(k, [uk for uk in vD.keys()])
         print()
+
+if __name__ == "__main__":
+    dev_tests()
+

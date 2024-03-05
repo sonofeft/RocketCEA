@@ -38,7 +38,7 @@ def calcMinMaxRange(vmin, vmax, num_ticks=10):
     except:
         return vmin, vmax, (vmax-vmin)/10.0
 
-if __name__ == "__main__":
+def dev_tests():
     def test( vmin, vmax):
         print( 'for vmin, vmax=',vmin, vmax, end='')
         rmin,rmax,step = calcMinMaxRange(vmin, vmax)
@@ -49,4 +49,8 @@ if __name__ == "__main__":
     
     test( 255.0, 255.0)
     test( -255.0, 255.0)
+
+
+if __name__ == "__main__":
+    dev_tests()
 

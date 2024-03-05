@@ -1,3 +1,17 @@
+# The following is needed to find rocketcea when self-testing 
+import os, sys
+here = os.path.abspath(os.path.dirname(__file__))
+up_one = os.path.split( here )[0]
+up_two = os.path.split( up_one )[0]
+
+if here not in sys.path[:3]:
+    sys.path.insert(0, here)
+if up_one not in sys.path[:3]:
+    sys.path.insert(0, up_one)
+if up_two not in sys.path[:3]:
+    sys.path.insert(0, up_two)
+
+
 import pylab as plt
 import numpy as np
 from rocketcea.biprop_utils.InterpProp_scipy import InterpProp
@@ -515,7 +529,7 @@ class RhoIspPlot( object ):
         self.add_propellants()
         plt.savefig(fname, dpi=dpi)
 
-if __name__=="__main__":
+def dev_tests():
     from veh_stage_obj import ConstMassFracStage
     
     #rp = RhoIspPlot()
@@ -530,3 +544,7 @@ if __name__=="__main__":
                                  plot_paramL=['GLOW'], num_ticks=16)
     
     rp.show()
+
+if __name__ == "__main__":
+    dev_tests()
+

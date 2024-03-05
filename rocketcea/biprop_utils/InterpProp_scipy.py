@@ -112,8 +112,8 @@ class InterpProp:
         dx = self.delX * stepFrac
         return (self(xval+dx) - self(xval-dx)) / 2.0 / dx
           
-if __name__ == "__main__": #Self Test
-    from pylab import *
+def dev_tests(): #Self Test
+    import matplotlib.pyplot as plt
 
     x = [1,2,6,4,5]
     y = [10,40,360,160,250]
@@ -174,3 +174,7 @@ if __name__ == "__main__": #Self Test
     plt.plot( q.x, q.y, 'o-' )
     plt.grid()
     plt.show()
+
+if __name__ == "__main__":
+    dev_tests()
+

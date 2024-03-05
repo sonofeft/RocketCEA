@@ -378,7 +378,7 @@ class CEA_Obj( object ):
         
         return Cp, visc, cond, Prandtl
 
-if __name__ == "__main__":
+def dev_tests():
     
     C = CEA_Obj(oxName='N2O4', fuelName="MMH",
         isp_units='sec', cstar_units='ft/sec',
@@ -525,4 +525,8 @@ if __name__ == "__main__":
     print( C.get_Throat_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
     print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=0) )
     print( C.get_Exit_Transport( Pc=100.0, MR=1.0, eps=40.0, frozen=1) )
+
+if __name__ == "__main__":
+    dev_tests()
+
     

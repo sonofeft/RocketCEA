@@ -84,7 +84,7 @@ def sepNozzleCf(gam=1.25, epsTot=20.0, Pc=200.0, Pamb=14.7):
     CfOvCfvacAtEsep = Cf / CfiVac
     return CfOvCfvacAtEsep, CfOvCfvac, Cf, CfiVac, CfiAmbSimple, CfVac, epsSep, Psep
     
-if __name__ == "__main__":
+def dev_tests():
     import csv
 
     csvfilename = 'separated_Noz.csv'
@@ -126,3 +126,7 @@ if __name__ == "__main__":
     print( )
 
     ambientCf(gam=1.25, epsTot=20.0, Pc=200.0, Pamb=14.7)
+
+if __name__ == "__main__":
+    dev_tests()
+
