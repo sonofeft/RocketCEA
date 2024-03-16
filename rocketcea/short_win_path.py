@@ -55,7 +55,7 @@ def get_short_path_name(long_name):
     If, due to a TOCTTOU problem, the return value is still larger, 
     keep trying until you've got it right.:
     """
-    print( 'long_name =', long_name)
+    # print( 'long_name =', long_name)
     import pathlib
     # pobj = pathlib.Path( long_name )
     # print('    pobj =', pobj,  '   pobj.exists() =', pobj.exists() )

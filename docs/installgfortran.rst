@@ -63,7 +63,6 @@ Similar to `CentOS <https://www.centos.org/>`_ ,
 `OpenSUSE <https://www.opensuse.org/>`_ will need the following
 in order to link the compiled FORTRAN to python::
 
-    sudo zypper in python-devel   # for python2.x installs
     sudo zypper in python3-devel  # for python3.x installs
 
 .. note::

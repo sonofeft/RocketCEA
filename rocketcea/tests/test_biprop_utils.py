@@ -76,14 +76,8 @@ class MyTest(unittest.TestCase):
 
     def test_rho_obj_creation(self):
         """can create obj OK."""
-        if platform.node() == 'moo':
-            if sys.version_info[0] < 3: # run only with 2.7, not 3.x
-                rp = RhoIspPlot(bipropL=[('LOX','LH2')], Pc=735., eps=27.5)
-                del rp
-            
-        else:
-            rp = RhoIspPlot(bipropL=[('LOX','LH2')], Pc=735., eps=27.5)
-            del rp
+        rp = RhoIspPlot(bipropL=[('LOX','LH2')], Pc=735., eps=27.5)
+        del rp
 
 
 if __name__ == '__main__':

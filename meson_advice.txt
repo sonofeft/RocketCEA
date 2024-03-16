@@ -1,0 +1,13 @@
+
+
+*) Install from source directory with:
+pip install .
+
+# to make a develop (i.e. editable) install
+pip install --editable .
+
+# OR... try to mimic regular install
+pip install -e . --config-settings editable_mode=strict
+
+*) Get out of source directory to run any tests.
+

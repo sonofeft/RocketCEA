@@ -17,7 +17,6 @@ This will execute the setup.py file and insure that its pip-specific commands ar
 
 # Use numpy to build the f2py fortran extension
 # --------------------------------    
-import setuptools
 from numpy.distutils.core import Extension, setup
 
 
@@ -46,18 +45,19 @@ target_file = path.join( here, 'rocketcea','_version.py')
 exec( open( target_file ).read() )  # creates local __version__ variable
 
 
-#ext_py_cea = Extension(name = 'rocketcea.py_cea',
-#                      sources = ['rocketcea/py_cea.f'],
-#                      extra_link_args=["-static"])
-
 ext_py_cea = Extension(name = 'rocketcea.py_cea',
-                       sources = ['rocketcea/py_cea.f'])
+                     sources = ['rocketcea/py_cea.f'],
+                     extra_link_args=["-static"])
+
+# ext_py_cea = Extension(name = 'rocketcea.py_cea',
+#                        sources = ['rocketcea/py_cea.f'])
 
 
 setup(
     name='rocketcea',
     version = __version__,  # METADATA_RESET:    version = '<<version>>',
     ext_modules = [ext_py_cea],
+    #   config_fc={'--fcompiler': 'mingw32'},  # Specify the Fortran compiler type
 
     description = 'RocketCEA wraps the FORTRAN CEA code and provides some useful tools.',
     long_description = long_description,

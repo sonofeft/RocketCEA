@@ -60,8 +60,9 @@ def set_rocketcea_data_dir( rddir, do_print=True ):
         print( 'Setting ROCKETCEA_DATA_DIR =', ROCKETCEA_DATA_DIR )
     # try to solve spaces in Windows Path names by making 8.3, short path names.
     if ROCKETCEA_DATA_DIR.find(' ') >= 0:
-        print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
-        print('   ',ROCKETCEA_DATA_DIR)
+        if do_print:
+            print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
+            print('   ',ROCKETCEA_DATA_DIR)
         ROCKETCEA_DATA_DIR = get_usable_path( ROCKETCEA_DATA_DIR )
         
 set_rocketcea_data_dir( ROCKETCEA_DATA_DIR, do_print=False )

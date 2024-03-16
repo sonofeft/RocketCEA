@@ -1,4 +1,5 @@
 Franky
+ipython
 Numpy
 sys
 undissociated
