@@ -6,6 +6,59 @@ History
 
 GitHub Log
 ----------
+
+* Mar 16, 2024
+    - (by: Charlie)
+        - Try to solve ReadTheDocs problem
+        - some fixes and doc updates for numpy.distutils deprecation
+
+* Mar 5, 2024
+    - (by: Charlie)
+        - removed "import imp" from tests for "__main__" testing
+        - remove "future" from requirements
+
+* Feb 25, 2024
+    - (by: Charlie)
+        - rebuilt docs
+
+* Feb 24, 2024
+    - (by: Charlie)
+        - Rebase to edited v1.1.34 to v1.1.35
+
+* Feb 16, 2024
+    - (by: Charlie)
+        - Removed __future__ as a requirement
+
+* Dec 29, 2023
+    - (by: Charlie)
+        - Merge branch 'master' of https://github.com/sonofeft/RocketCEA
+        - added version tags
+
+* Nov 14, 2023
+    - (by: Eligh)
+        - Fixed Pinj_over_Pcomb by adding unit converasion
+        - implimented get_Pinj_over_Pcomb in cea_obj_w_units
+
+* Jul 4, 2023
+    - (by: Charlie)
+        - doc rebuild
+        - fixed transport property FORTRAN error (makeOutput flag)
+
+* Jun 28, 2023
+    - (by: Charlie)
+        - fix add_dll_directory
+        - docs updata
+        - rebuild docs
+        - static build problem on Ubuntu
+        - lament readthedocs for now
+        - try to fix readthedocs
+        - try to fix readthedocs automodule
+        - rebuilt docs
+        - version update
+        - some build cleanup
+        - set language flag to english in conf.py
+        - added frozen flags to some functions
+
 * May 3, 2023
     - (by: Charlie and Alex)
         - Added missing arguments to member functions of cea_obj_w_units

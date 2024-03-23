@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>QuickStart &#8212; RocketCEA v1.1.34 documentation</title>
+    <title>QuickStart &#8212; RocketCEA v1.2.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.34 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>  
@@ -125,7 +125,14 @@ C:\MinGW\mingw64\lib</p>
 <span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see “Anaconda Windows Batch File” section below.</p>
+<p>3/14/2024: The deprecation of numpy.distutils has made Windows installs much more problematic.</p>
+<p>In order to support deprecated features in pip and numpy, we need to use old versions of these packages.</p>
+<p>For this reason, you may want to install RocketCEA in a <a class="reference external" href="https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/">virtual environment</a> rather than your primary installation.</p>
+<p>Further, until <a class="reference external" href="https://mesonbuild.com/">meson</a> is implemented, RocketCEA only officially supports python 3.7 thru 3.11 on Windows.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see &quot;Anaconda Windows Batch File&quot; section below.</p>
 </div>
 <p>RocketCEA on Windows can be problematic. Often the problem is in the PATH environment variable
 where the wrong files are found for the intended install, and even more often it is because
@@ -138,8 +145,10 @@ and desired python files are found.</p>
 <p>Note that the batch file assumes that python 3.9 64 bit is the python version installed at <strong>C:\Python39_64</strong>
 and that MinGW 64 bit is installed at <strong>C:\MinGW\mingw64\bin</strong> and <strong>C:\MinGW\mingw64\lib</strong>.
 <em>Edit those path names for your situation.</em></p>
-<p>Note that it starts by uninstalling rocketcea in case bad files are left from previous attempts.
-(Plan for the worst, hope for the best.)</p>
+<p>The batch file starts by uninstalling rocketcea in case bad files are left from previous attempts.
+(This would not be necessary in a fresh virtual environment.)</p>
+<p>Finally, note that the batch file installs RocketCEA version 1.1.34 which is <cite>likely</cite>
+the last version to depend on numpy.distutils.</p>
 <p><strong>You may need to edit the hard-coded paths to your own location of python and MinGW.</strong></p>
 <ul class="simple">
 <li><p>Copy and paste the batch file code below into an editor</p></li>
@@ -151,37 +160,77 @@ and that MinGW 64 bit is installed at <strong>C:\MinGW\mingw64\bin</strong> and 
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>9/16/2021: BAT File successful on Windows 10 with 64 bit python 3.8.10 and 3.9.7</p>
+<p>3/14/2024: BAT File successful on Windows 11 virtual environments with 64 bit python 3.7 thru 3.11</p>
+<p>The virtual environments had the <strong>parent</strong> python version's subdirectories &quot;libs&quot; and &quot;include&quot; copied into them.</p>
 </div>
 <div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">rem =============== RUN_SETUP_BUILD_WIN64.BAT ================</span>
 
-<span class="k">SET</span> <span class="s2">&quot;MYPYTHONPATH=C:\Python39_64&quot;</span>
-
 <span class="c1">rem Make sure that PATH is as simple as possible</span>
+<span class="k">SET</span> <span class="s2">&quot;MYPYTHONPATH=C:\Python39_64&quot;</span>
 <span class="k">set</span> <span class="nv">PATH</span><span class="p">=</span>C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;<span class="nv">%MYPYTHONPATH%</span>;<span class="nv">%MYPYTHONPATH%</span>\Scripts
 
+<span class="c1">rem OR perhaps simply...</span>
+<span class="k">set</span> <span class="nv">PATH</span><span class="p">=</span>C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;<span class="nv">%PATH%</span>
+
+
+<span class="c1">REM The trick for installing RocketCEA on Windows seems to be</span>
+<span class="c1">REM pre-installing the dependency packages (e.g. numpy, scipy and matplotlib)</span>
+<span class="c1">REM so that the pip option (--global-option) for rocketcea only applies to rocketcea.</span>
+
+<span class="c1">rem pip 24.2 will enforce --global-option deprecation</span>
+<span class="c1">rem     ... so use an older pip</span>
+python -m pip install pip==23.3.2
+
+<span class="c1">rem future is removed after rocketcea 1.1.34</span>
+pip install future
+
+pip install build
+
+pip install wheel==0.38.4
+
+<span class="c1">rem in case of an earlier failed attempt to install rocketcea</span>
 pip uninstall -y rocketcea
 
-pip install numpy
-pip install scipy
+<span class="c1">rem setuptools.find_packages is used.</span>
+<span class="c1">rem for python 3.7 use:  pip install setuptools==59.8.0</span>
+pip install setuptools==69.1.1
+
+pip install numpy<span class="p">&lt;</span>=1.26.4
+<span class="c1">rem pip install numpy==1.25.2</span>
 
 pip install pillow
+
 pip install matplotlib
-pip install --global-option build_ext --global-option --compiler=mingw32 rocketcea
+
+pip install scipy
+
+<span class="c1">rem pip install rocketcea, but with global options.</span>
+pip install --global-option build_ext --global-option --compiler=mingw32 rocketcea==1.1.34
 
 <span class="c1">rem Test the compiled module</span>
 python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=&#39;LOX&#39;, fuelName=&#39;LH2&#39;); print(C.get_Isp())&quot;</span>
+
+python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  print( &#39;RocketCEA Version:&#39;, __version__)&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The “trick” for installing RocketCEA on Windows seems to be pre-installing the dependency packages
+<p>The &quot;trick&quot; for installing RocketCEA on Windows seems to be pre-installing the dependency packages
 (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.</p>
+<p>If you are having trouble on Windows, you may want to try <a class="reference internal" href="#link-windows-wsl"><span class="std std-ref">Windows 10 or 11 with WSL</span></a></p>
 </div>
 </section>
 <section id="anaconda-windows-batch-file">
 <h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Permalink to this heading">¶</a></h2>
-<p>As stated above, the “trick” for installing RocketCEA on Windows seems
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>3/14/2024: I am <strong>Guessing</strong> that the deprecation of numpy.distutils has made Anaconda installs <strong>only</strong> viable
+in a <a class="reference external" href="https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/">virtual environment</a> .
+I'm also <strong>Guessing</strong> that, on Windows, an Anaconda virtual environment would be successful with the
+batch file shown above in  <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
+<p>An older install of Anaconda may work with the <strong>old</strong> and <strong>possibly outdated</strong> approach below.</p>
+</div>
+<p>As stated above, the &quot;trick&quot; for installing RocketCEA on Windows seems
 to be pre-installing the dependency packages  (e.g. numpy, scipy and matplotlib)
 so that the pip options for rocketcea only apply to rocketcea.</p>
 <p>On Anaconda, many of the required dependencies are preinstalled.</p>
@@ -202,7 +251,7 @@ something like the image below.</p>
 than the one shown above. Before you can run it, you need to verify the location
 of the python folders under Anaconda.</p>
 <p>To find your python folder, open an Anaconda prompt, launch python, import sys
-and give the command “sys.executable” as in the image below.</p>
+and give the command &quot;sys.executable&quot; as in the image below.</p>
 <img alt="_images/Anaconda_find_python_exe.jpg" src="_images/Anaconda_find_python_exe.jpg" />
 <p>In my case, the path was:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Charlie</span>\<span class="n">anaconda3</span>
@@ -227,8 +276,8 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 <p>Run the batch file and the results will hopefully be similar to the results
 shown below.</p>
 <img alt="_images/Anaconda_successful_install.jpg" src="_images/Anaconda_successful_install.jpg" />
-<p>Notice that the file ran the “quick test” at the bottom of the batch file and
-properly output the Isp of 374.30…</p>
+<p>Notice that the file ran the &quot;quick test&quot; at the bottom of the batch file and
+properly output the Isp of 374.30...</p>
 </section>
 <section id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">¶</a></h2>
@@ -259,7 +308,7 @@ Paste that code into your text editor and save it to a python file.(for example 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-giving a “shared” <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
+giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
 <p>If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
 You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order
 for RocketCEA to work (see below)</p>
@@ -290,14 +339,13 @@ for RocketCEA to work (see below)</p>
 <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">424.6998266323161</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Great… you are good to go.</p>
+<p>Great... you are good to go.</p>
 <p>If not, see the information below.</p>
 </section>
 <section id="google-colaboratory">
 <h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this heading">¶</a></h2>
 <p>If you are having trouble installing RocketCEA on your system,
-RocketCEA can be run on <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colaboratory</a>
-(either python3 or python2).</p>
+RocketCEA can be run on <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colaboratory</a></p>
 <p><a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Colaboratory</a>
 is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud.</p>
 <p>After creating a Colaboratory notebook, install RocketCEA.:</p>
@@ -327,39 +375,39 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 <p>Colab plots work with RocketCEA as well.</p>
 <a class="reference internal image-reference" href="_images/colab_cstar_plot_example.jpg"><img alt="_images/colab_cstar_plot_example.jpg" src="_images/colab_cstar_plot_example.jpg" style="width: 80%;" /></a>
 </section>
-<section id="windows-10-with-wsl">
-<h2>Windows 10 with WSL<a class="headerlink" href="#windows-10-with-wsl" title="Permalink to this heading">¶</a></h2>
+<section id="windows-10-or-11-with-wsl">
+<span id="link-windows-wsl"></span><h2>Windows 10 or 11 with WSL<a class="headerlink" href="#windows-10-or-11-with-wsl" title="Permalink to this heading">¶</a></h2>
 <p>RocketCEA can also be installed on <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux (WSL)</a></p>
 <p>After setting up your Linux distribution on WSL, installing RocketCEA is quick and easy.</p>
-<p>For example on a Ubuntu distribution.</p>
+<p>For example on a fresh Ubuntu distribution, the following
+will install python 3.10.12 and rocketcea 1.1.34.</p>
+<p>(Tested March 14, 2024)</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Update Ubuntu</dt><dd><ul>
-<li><p>sudo apt-get update</p></li>
+<li><p>sudo apt update &amp;&amp; upgrade</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>configure Ubuntu for python3 and FORTRAN</dt><dd><ul>
-<li><p>sudo apt install python3-pip</p></li>
+<li><p>sudo apt install python3 python3-pip ipython3</p></li>
 <li><p>sudo apt-get install gfortran</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Install RocketCEA required libraries</dt><dd><ul>
-<li><p>pip install numpy</p></li>
-<li><p>pip install matplotlib</p></li>
-<li><p>pip install rocketcea</p></li>
+<dt>Install RocketCEA (required libraries should be available)</dt><dd><ul>
+<li><p>pip install rocketcea==1.1.34</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>Test installation with quick example</dt><dd><ul>
-<li><p>python3 -c “from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=’LOX’, fuelName=’LH2’); print(C.get_Isp())”</p></li>
+<li><p>python3 -c &quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())&quot;</p></li>
 <li><p>SHOULD RETURN:  374.30361765576896 (or perhaps just very close to it.)</p></li>
 </ul>
 </dd>
@@ -405,7 +453,7 @@ and Windows 10 will be able to install <a class="reference external" href="https
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-the-install">Test The Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#google-colaboratory">Google Colaboratory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#windows-10-with-wsl">Windows 10 with WSL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#windows-10-or-11-with-wsl">Windows 10 or 11 with WSL</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#wsl-gui">WSL GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wslg">WSLg</a></li>
 </ul>
@@ -481,7 +529,7 @@ and Windows 10 will be able to install <a class="reference external" href="https
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.34 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>

@@ -1,17 +1,45 @@
 
-SET "MYPYTHONPATH=C:\Python310" 
-set PATH=C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;%MYPYTHONPATH%;%MYPYTHONPATH%\Scripts;C:\Windows\System32
 
-cd .\docs
-C:\Python310\Scripts\sphinx-build.exe -b html -d _build/doctrees  . _build/html
-cd ..
+@echo off
+setlocal
 
-xcopy /S .\docs\_build\html .\rocketcea\sphinx_html /y
+rem Change "do_the_upload=FALSE" to "do_the_upload=TRUE" to run the upload
+rem AFTER... satisfying upload check list
+set "do_the_upload=FALSE"
 
-python setup.py sdist
+if "%do_the_upload%" == "TRUE" (
+    echo ...............................................................
+    echo doing the upload
+    echo ...............................................................
+    C:\Python310\Scripts\twine.exe upload --config-file "%HOMEPATh%\.pypirc" --skip-existing dist/*.*
+    echo ....................... DONE ..................................
+) else (
+    echo ...................... CHECK LIST .............................
+    echo ...............................................................
+    echo Install from local source afer all changes made
+    echo pip install .
+    echo ...............................................................
+    echo RUN pytest
+    echo ...............................................................
+    echo Update HISTORY.rst    README.rst    AUTHORS.rst
+    echo ...............................................................
+    echo Make sure that sphinx HTML is built with _BUILD_SPHINX_HTML.BAT
+    echo ...............................................................
+    echo COMMIT all files in git
+    echo ...............................................................
+    echo Make sure that "python -m build" has been executed
+    echo        AND any "python -m build --wheel"
+    echo ...............................................................
+    echo Run "twine check" to see if long description will render correctly
+    echo twine check dist/*            OR 
+    echo twine check dist/*24.tar.gz (where: 24 is current version)
+    echo ...............................................................
+    echo THEN: set "do_the_upload=TRUE" to run the upload
+    echo AFTER UPLOAD: set "do_the_upload=FALSE"
+    echo ...............................................................
+)
 
-rem only upload source to PyPI
-rem C:\Python310\Scripts\twine.exe upload --skip-existing dist/*.gz
-C:\Python310\Scripts\twine.exe upload --config-file "%HOMEPATh%\.pypirc" --skip-existing dist/*.*
+endlocal
+
 
 rem use:  twine check dist/*  OR twine check dist/*24.tar.gz (where: 24 is current version)

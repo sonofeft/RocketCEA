@@ -5,7 +5,11 @@ QuickStart
 ==========
 .. note::
     
-    On Windows, 32 bit python 3.8 and above are not supported.
+    RocketCEA on Windows has become much easier for versions 1.2.0 and above.
+
+    The deprecation of numpy.distutils forced a FORTRAN build conversion to `meson <https://mesonbuild.com/>`_ 
+    that has turned out to be a nice improvement. (Many thanks to `joel-martin <https://github.com/joel-martin>`_ for 
+    critical help with that conversion.)
     
 For a Windows install, jump straight to :ref:`link_windows_bat_file`
 
@@ -410,7 +414,7 @@ Colab plots work with RocketCEA as well.
 .. _link_windows_wsl:
 
 Windows 10 or 11 with WSL
--------------------
+-------------------------
 
 RocketCEA can also be installed on `Windows Subsystem for Linux (WSL) <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_
 

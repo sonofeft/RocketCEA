@@ -8,6 +8,7 @@ include thermo.*
 include trans.*
 include setup.cfg
 include .travis.yml tox.ini
+include meson.build
 
 graft rocketcea
 recursive-include rocketcea/examples *

@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Install gfortran &#8212; RocketCEA v1.1.34 documentation</title>
+    <title>Install gfortran &#8212; RocketCEA v1.2.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.34 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Install gfortran</a></li> 
       </ul>
     </div>  
@@ -86,7 +86,7 @@ the commands:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The error message
-“not finding Python.h during compile.”
+&quot;not finding Python.h during compile.&quot;
 indicates that the python devel library is required.</p>
 </div>
 <p>Presumably <a class="reference external" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">RHEL</a>
@@ -102,14 +102,13 @@ will be similar.</p>
 <p>Similar to <a class="reference external" href="https://www.centos.org/">CentOS</a> ,
 <a class="reference external" href="https://www.opensuse.org/">OpenSUSE</a> will need the following
 in order to link the compiled FORTRAN to python:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span>   <span class="c1"># for python2.x installs</span>
-<span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span>  <span class="c1"># for python3.x installs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span>  <span class="c1"># for python3.x installs</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The error message
-“not finding Python.h during compile.”
+&quot;not finding Python.h during compile.&quot;
 indicates that the python devel library is required.</p>
 </div>
 </section>
@@ -154,8 +153,8 @@ Run <code class="docutils literal notranslate"><span class="pre">mingw-w64-insta
 <p>For 32 bit compilation, these were my settings.</p>
 <a class="reference internal image-reference" href="_images/mingw32_install.jpg"><img alt="_images/mingw32_install.jpg" src="_images/mingw32_install.jpg" style="width: 60%;" /></a>
 <p>A location for the MinGW install then needs to be selected. The default location is in
-C:\Program Files (x86)\mingw-w64\… etc.  However I recommend a simpler path like <strong>C:\MinGW</strong>
-so that, later on, setting the user’s environment PATH will be easier.</p>
+C:\Program Files (x86)\mingw-w64\... etc.  However I recommend a simpler path like <strong>C:\MinGW</strong>
+so that, later on, setting the user's environment PATH will be easier.</p>
 <a class="reference internal image-reference" href="_images/mingw_folder_select.jpg"><img alt="_images/mingw_folder_select.jpg" src="_images/mingw_folder_select.jpg" style="width: 60%;" /></a>
 <p>After several minutes of an <code class="docutils literal notranslate"><span class="pre">Installing</span> <span class="pre">Files</span></code> you should arrive at a successful finish screen.</p>
 <a class="reference internal image-reference" href="_images/mingw_installing_files.jpg"><img alt="_images/mingw_installing_files.jpg" src="_images/mingw_installing_files.jpg" style="width: 45%;" /></a>
@@ -176,7 +175,7 @@ You should have a <strong>C:\MinGW</strong> directory that looks like the one be
 <p>C:\MinGW\mingw32\lib</p>
 </div>
 <p>Having installed <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a> ,
-there are some options as to when and how to change the system’s PATH environment variable.</p>
+there are some options as to when and how to change the system's PATH environment variable.</p>
 <p>For 32 bit compilation, the following must be in the PATH:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="nb">bin</span><span class="p">;</span>
 <span class="n">C</span><span class="p">:</span>\<span class="n">MinGW</span>\<span class="n">mingw32</span>\<span class="n">lib</span><span class="p">;</span>
@@ -194,11 +193,11 @@ there are some options as to when and how to change the system’s PATH environm
 </pre></div>
 </div>
 <p>They can also be added by editing the system Environment Variables in the Control Panel.</p>
-<p>Search for “environment variables” in the Windows 10 Search box and click on “Control Panel”</p>
-<p>Once there, select “Environment Variables…”.</p>
+<p>Search for &quot;environment variables&quot; in the Windows 10 Search box and click on &quot;Control Panel&quot;</p>
+<p>Once there, select &quot;Environment Variables...&quot;.</p>
 <a class="reference internal image-reference" href="_images/search_env_vars_lhs.jpg"><img alt="_images/search_env_vars_lhs.jpg" src="_images/search_env_vars_lhs.jpg" style="width: 40%;" /></a>
 <a class="reference internal image-reference" href="_images/control_panel.jpg"><img alt="_images/control_panel.jpg" src="_images/control_panel.jpg" style="width: 55%;" /></a>
-<p>The “Environment Variables…” Button will result in the screen below where either the
+<p>The &quot;Environment Variables...&quot; Button will result in the screen below where either the
 System or User Variables can be edited.</p>
 <img alt="_images/path_env_var.jpg" src="_images/path_env_var.jpg" />
 <p>Add the <strong>C:\MinGW</strong> path for <strong>Either</strong> the 32 or 64 bit compiler.</p>
@@ -308,7 +307,7 @@ System or User Variables can be edited.</p>
         <li class="right" >
           <a href="quickstart.html" title="QuickStart"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.1.34 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Install gfortran</a></li> 
       </ul>
     </div>
