@@ -93,11 +93,16 @@ Windows 10
     Windows users MUST put MinGW into environment PATH variable.
     (see: :ref:`link_windowspath`)
     
-    C:\\MinGW\\mingw64\\bin  OR  C:\\MinGW\\mingw32\\bin
+    for 32 bit (Untested for versions 1.2.0 and above):
+    C:\\MinGW\\mingw32\\bin  AND
+    C:\\MinGW\\mingw32\\bin
     
-    and
-    
-    C:\\MinGW\\mingw64\\lib  OR  C:\\MinGW\\mingw32\\lib
+    For 64 bit:
+    C:\\MinGW\\mingw64\\lib  AND 
+    C:\\MinGW\\mingw64\\lib
+
+
+.. image:: ./_static/full_mingw_folder.jpg
 
 `Windows 10 <https://en.wikipedia.org/wiki/Windows_10>`_ is the most complicated platform 
 on which to set up `gfortran <https://www.gnu.org/software/gcc/fortran/>`_.

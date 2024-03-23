@@ -55,65 +55,70 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>RocketCEA on Windows has become much easier for versions 1.2.0 and above.</p>
+<p>In fact, in most situations, Windows users can skip the step of installing MinGW gfortran
+and simply install a pre-compiled binary wheel for python 3.7 through 3.12.</p>
 <p>The deprecation of numpy.distutils forced a FORTRAN build conversion to <a class="reference external" href="https://mesonbuild.com/">meson</a>
 that has turned out to be a nice improvement. (Many thanks to <a class="reference external" href="https://github.com/joel-martin">joel-martin</a> for
 critical help with that conversion.)</p>
 </div>
-<p>For a Windows install, jump straight to <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
 <section id="install-numpy-matplotlib">
 <h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this heading">¶</a></h2>
-<p>Because RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
-compile the FORTRAN <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">NASA CEA code</a> and
-<a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a>
-is part of <a class="reference external" href="https://numpy.org/">numpy</a> ,
-<a class="reference external" href="https://numpy.org/">numpy</a> will need to be installed.</p>
+<p>When installing RocketCEA from source code or from a
+<a class="reference external" href="https://packaging.python.org/en/latest/specifications/source-distribution-format/">PyPI sdist</a>,
+RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
+compile the FORTRAN <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">NASA CEA code</a>
+and <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a>
+is part of <a class="reference external" href="https://numpy.org/">numpy</a>. After compilation, <a class="reference external" href="https://numpy.org/">numpy</a>
+will needed to interface with the compiled code.</p>
 <p>RocketCEA also makes use of the <a class="reference external" href="https://matplotlib.org/">matplotlib</a> package for
 creating plots.</p>
-<p>To install <a class="reference external" href="https://numpy.org/">numpy</a> and <a class="reference external" href="https://matplotlib.org/">matplotlib</a>, give the commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+<p>An optional package for some advanced features is <a class="reference external" href="https://scipy.org/">scipy</a>.</p>
+<p>To install <a class="reference external" href="https://numpy.org/">numpy</a>, <a class="reference external" href="https://matplotlib.org/">matplotlib</a> and <a class="reference external" href="https://scipy.org/">scipy</a>,
+give the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">scipy</span>
 
 <span class="n">OR</span> <span class="n">perhaps</span><span class="o">...</span>
 
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">numpy</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">matplotlib</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">scipy</span>
 </pre></div>
 </div>
 <p>Some Linux systems may require:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
-<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">scipy</span>
+
+<span class="n">OR</span> <span class="n">perhaps</span><span class="o">...</span>
+
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">scipy</span>
 </pre></div>
 </div>
 </section>
 <section id="install-compiler">
 <h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Windows users can skip &quot;Install Compiler&quot; and go to
+<a class="reference internal" href="#link-install-rocketcea"><span class="std std-ref">Install RocketCEA</span></a></p>
+</div>
 <p>Using <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to compile FORTRAN requires
 a FORTRAN compiler. I recommend using <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>
 on all platforms so that there are no FORTRAN incompatibilities between platforms.</p>
 <p>Each operating system has its own approach to install <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a></p>
 <p>Click: <a class="reference internal" href="installgfortran.html#link-installgfortran"><span class="std std-ref">Install gfortran</span></a> to see install instructions for a few platforms that I have tested.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Windows users MUST put MinGW into environment PATH variable.
-(see: <a class="reference internal" href="installgfortran.html#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
-<p>for 32 bit:
-C:\MinGW\mingw32\bin  AND
-C:\MinGW\mingw32\bin</p>
-<p>For 64 bit:
-C:\MinGW\mingw64\lib  AND
-C:\MinGW\mingw64\lib</p>
-</div>
-<img alt="_images/full_mingw_folder.jpg" src="_images/full_mingw_folder.jpg" />
 </section>
 <section id="install-rocketcea">
-<h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this heading">¶</a></h2>
+<span id="link-install-rocketcea"></span><h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this heading">¶</a></h2>
 <p><strong>After</strong> the above installs have been accomplished, the easiest way to install RocketCEA is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
+    <span class="n">OR</span> <span class="n">perhaps</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">prefer</span><span class="o">-</span><span class="n">binary</span> <span class="n">rocketcea</span>
 
     <span class="n">OR</span> <span class="n">on</span> <span class="n">Linux</span>
 <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">rocketcea</span>
     <span class="n">OR</span> <span class="n">perhaps</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">rocketcea</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">rocketcea</span>
 </pre></div>
 </div>
 <p>Try a quick test of the install by pasting the following into a command terminal:</p>
@@ -126,6 +131,37 @@ C:\MinGW\mingw64\lib</p>
 </section>
 <section id="windows-batch-file">
 <span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this heading">¶</a></h2>
+<p><strong>For versions of RocketCEA 1.2.0 and above</strong></p>
+<p>While the above section should work for Windows binary wheel installs, it is now much easier to install from
+source code as well.</p>
+<p>It will be necessary to <a class="reference internal" href="installgfortran.html#link-installgfortran"><span class="std std-ref">Install gfortran</span></a>, however, once FORTRAN is available, the steps to
+compile and install RocketCEA are virtually identical to installing binary wheels.</p>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">REM =============== Install RocketCEA from Source Code ================</span>
+
+<span class="c1">REM make sure that gfortran is in PATH</span>
+<span class="k">set</span> <span class="nv">PATH</span><span class="p">=</span>C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;<span class="nv">%PATH%</span>
+
+<span class="c1">REM **OPTIONALLY** install some dependencies</span>
+pip install numpy matplotlib scipy
+
+<span class="c1">REM install source downloaded from PyPI (e.g. rocketcea-1.2.0.tar.gz OR uncompressed source)</span>
+pip install rocketcea-1.2.0.tar.gz
+    ... OR ...
+pip install .
+
+<span class="c1">REM Test the compiled module</span>
+python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=&#39;LOX&#39;, fuelName=&#39;LH2&#39;); print(C.get_Isp())&quot;</span>
+
+python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  print( &#39;RocketCEA Version:&#39;, __version__)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="old-windows-batch-file">
+<h2>Old Windows Batch File<a class="headerlink" href="#old-windows-batch-file" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>3/23/2024: Ignore the following batch file for RocketCEA versions 1.2.0 and above.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>3/14/2024: The deprecation of numpy.distutils has made Windows installs much more problematic.</p>
@@ -284,12 +320,9 @@ properly output the Isp of 374.30...</p>
 </section>
 <section id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">¶</a></h2>
-<p>After installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, there should be a launch command line program called <strong>rocketcea</strong> or, on Windows, <strong>rocketcea.exe</strong>.</p>
-<p>From a terminal or command prompt window simply type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rocketcea</span>
-</pre></div>
-</div>
-<p>Your browser will launch with these RocketCEA help pages.</p>
+<p>The documentation for RocketCEA is the best place to start.</p>
+<p>Go to <a class="reference external" href="https://rocketcea.readthedocs.io/en/latest/index.html">RocketCEA ReadTheDocs</a>
+for information.</p>
 </section>
 <section id="running-rocketcea">
 <h2>Running RocketCEA<a class="headerlink" href="#running-rocketcea" title="Permalink to this heading">¶</a></h2>
@@ -308,15 +341,6 @@ Paste that code into your text editor and save it to a python file.(for example 
 </pre></div>
 </div>
 <p>Or, in many text editors hitting the <strong>F5</strong> key will execute the code.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-giving a &quot;shared&quot; <cite>*.pyd</cite> file that requires mingw libraries at run time.</p>
-<p>If you see the error: <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Error:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>
-You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order
-for RocketCEA to work (see below)</p>
-<p>On Windows, make sure the environment PATH variable is set properly (see: <a class="reference internal" href="installgfortran.html#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
-</div>
 </section>
 <section id="test-the-install">
 <h2>Test The Install<a class="headerlink" href="#test-the-install" title="Permalink to this heading">¶</a></h2>
@@ -451,6 +475,7 @@ and Windows 10 will be able to install <a class="reference external" href="https
 <li class="toctree-l2"><a class="reference internal" href="#install-compiler">Install Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-rocketcea">Install RocketCEA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-batch-file">Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#old-windows-batch-file">Old Windows Batch File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anaconda-windows-batch-file">Anaconda Windows Batch File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rocketcea">Running RocketCEA</a></li>

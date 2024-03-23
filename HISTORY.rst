@@ -7,6 +7,11 @@ History
 GitHub Log
 ----------
 
+* Mar 23, 2024
+    - (by: Charlie)
+        - version 1.2.0 with meson build 
+        - updated docs
+
 * Mar 16, 2024
     - (by: Charlie)
         - Try to solve ReadTheDocs problem

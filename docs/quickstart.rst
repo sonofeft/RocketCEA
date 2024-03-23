@@ -7,42 +7,57 @@ QuickStart
     
     RocketCEA on Windows has become much easier for versions 1.2.0 and above.
 
+    In fact, in most situations, Windows users can skip the step of installing MinGW gfortran 
+    and simply install a pre-compiled binary wheel for python 3.7 through 3.12.
+
     The deprecation of numpy.distutils forced a FORTRAN build conversion to `meson <https://mesonbuild.com/>`_ 
     that has turned out to be a nice improvement. (Many thanks to `joel-martin <https://github.com/joel-martin>`_ for 
     critical help with that conversion.)
     
-For a Windows install, jump straight to :ref:`link_windows_bat_file`
 
 Install Numpy & Matplotlib
 --------------------------
 
-Because RocketCEA depends on `f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_ to
-compile the FORTRAN `NASA CEA code <https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_ and
-`f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_
-is part of `numpy <https://numpy.org/>`_ ,
-`numpy <https://numpy.org/>`_ will need to be installed.
+When installing RocketCEA from source code or from a 
+`PyPI sdist <https://packaging.python.org/en/latest/specifications/source-distribution-format/>`_,
+RocketCEA depends on `f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_ to
+compile the FORTRAN `NASA CEA code <https://www1.grc.nasa.gov/research-and-engineering/ceaweb/>`_ 
+and `f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_
+is part of `numpy <https://numpy.org/>`_. After compilation, `numpy <https://numpy.org/>`_ 
+will needed to interface with the compiled code.
 
 RocketCEA also makes use of the `matplotlib <https://matplotlib.org/>`_ package for 
 creating plots.
 
-To install `numpy <https://numpy.org/>`_ and `matplotlib <https://matplotlib.org/>`_, give the commands::
+An optional package for some advanced features is `scipy <https://scipy.org/>`_.
+
+To install `numpy <https://numpy.org/>`_, `matplotlib <https://matplotlib.org/>`_ and `scipy <https://scipy.org/>`_, 
+give the commands::
     
-    pip install numpy
-    pip install matplotlib
+    pip install numpy matplotlib scipy
     
     OR perhaps...
     
     pip install --upgrade numpy
     pip install --upgrade matplotlib
+    pip install --upgrade scipy
 
 Some Linux systems may require::
 
-    sudo pip install numpy
-    sudo pip install matplotlib
+    sudo pip install numpy matplotlib scipy
+    
+    OR perhaps...
+    
+    sudo pip3 install numpy matplotlib scipy
 
 
 Install Compiler
 ----------------
+.. note::
+
+    Windows users can skip "Install Compiler" and go to 
+    :ref:`link_install_rocketcea`
+
 
 Using `f2py <https://numpy.org/devdocs/f2py/python-usage.html>`_ to compile FORTRAN requires
 a FORTRAN compiler. I recommend using `gfortran <https://www.gnu.org/software/gcc/fortran/>`_ 
@@ -52,25 +67,9 @@ Each operating system has its own approach to install `gfortran <https://www.gnu
 
 
 Click: :ref:`link_installgfortran` to see install instructions for a few platforms that I have tested.
-
-.. important::
-
-    Windows users MUST put MinGW into environment PATH variable.
-    (see: :ref:`link_windowspath`)
-    
-    for 32 bit:
-    C:\\MinGW\\mingw32\\bin  AND
-    C:\\MinGW\\mingw32\\bin
-    
-    For 64 bit:
-    C:\\MinGW\\mingw64\\lib  AND 
-    C:\\MinGW\\mingw64\\lib
-
-
-.. image:: ./_static/full_mingw_folder.jpg
     
 
-
+.. _link_install_rocketcea:
 
 Install RocketCEA
 -----------------
@@ -78,11 +77,15 @@ Install RocketCEA
 **After** the above installs have been accomplished, the easiest way to install RocketCEA is::
 
     pip install rocketcea
+        OR perhaps
+    pip install --prefer-binary rocketcea
     
         OR on Linux
     sudo pip install rocketcea
+    sudo pip3 install rocketcea
         OR perhaps
     pip install --user rocketcea
+    pip3 install --user rocketcea
 
 Try a quick test of the install by pasting the following into a command terminal::
 
@@ -95,6 +98,44 @@ Try a quick test of the install by pasting the following into a command terminal
 
 Windows Batch File
 ------------------
+
+**For versions of RocketCEA 1.2.0 and above**
+
+While the above section should work for Windows binary wheel installs, it is now much easier to install from 
+source code as well.
+
+It will be necessary to :ref:`link_installgfortran`, however, once FORTRAN is available, the steps to 
+compile and install RocketCEA are virtually identical to installing binary wheels.
+
+.. code-block:: batch
+
+    REM =============== Install RocketCEA from Source Code ================
+
+    REM make sure that gfortran is in PATH
+    set PATH=C:\MinGW\mingw64\bin;C:\MinGW\mingw64\lib;%PATH%
+    
+    REM **OPTIONALLY** install some dependencies
+    pip install numpy matplotlib scipy
+
+    REM install source downloaded from PyPI (e.g. rocketcea-1.2.0.tar.gz OR uncompressed source)
+    pip install rocketcea-1.2.0.tar.gz
+        ... OR ...
+    pip install .
+
+    REM Test the compiled module
+    python -c "from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())"
+
+    python -c "from rocketcea.cea_obj import __version__;  print( 'RocketCEA Version:', __version__)"
+
+
+
+Old Windows Batch File
+----------------------
+
+.. note::
+
+    3/23/2024: Ignore the following batch file for RocketCEA versions 1.2.0 and above.
+
 
 .. note::
 
@@ -289,13 +330,11 @@ properly output the Isp of 374.30...
 Getting Help
 ------------
 
-After installing with ``pip``, there should be a launch command line program called **rocketcea** or, on Windows, **rocketcea.exe**. 
+The documentation for RocketCEA is the best place to start.
 
-From a terminal or command prompt window simply type::
+Go to `RocketCEA ReadTheDocs <https://rocketcea.readthedocs.io/en/latest/index.html>`_ 
+for information.
 
-    rocketcea
-
-Your browser will launch with these RocketCEA help pages.
 
 Running RocketCEA
 -----------------
@@ -321,17 +360,6 @@ Example files can be run with the command::
     python example1.py
 
 Or, in many text editors hitting the **F5** key will execute the code.
-
-.. note::
-    
-    RocketCEA is compiled with the mingw and mingw-w64 gfortran compilers using default f2py options
-    giving a "shared" `*.pyd` file that requires mingw libraries at run time.
-    
-    If you see the error: ``Import Error: DLL load failed: The specified module could not be found``
-    You may need to install the MinGW Compiler Suite and perhaps even recompile RocketCEA in order 
-    for RocketCEA to work (see below)
-    
-    On Windows, make sure the environment PATH variable is set properly (see: :ref:`link_windowspath`)
 
 Test The Install
 ----------------

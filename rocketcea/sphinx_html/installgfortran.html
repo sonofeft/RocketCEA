@@ -130,10 +130,14 @@ however, python 3.7 seemed to work just fine with:</p>
 <p class="admonition-title">Important</p>
 <p>Windows users MUST put MinGW into environment PATH variable.
 (see: <a class="reference internal" href="#link-windowspath"><span class="std std-ref">Windows PATH</span></a>)</p>
-<p>C:\MinGW\mingw64\bin  OR  C:\MinGW\mingw32\bin</p>
-<p>and</p>
-<p>C:\MinGW\mingw64\lib  OR  C:\MinGW\mingw32\lib</p>
+<p>for 32 bit (Untested for versions 1.2.0 and above):
+C:\MinGW\mingw32\bin  AND
+C:\MinGW\mingw32\bin</p>
+<p>For 64 bit:
+C:\MinGW\mingw64\lib  AND
+C:\MinGW\mingw64\lib</p>
 </div>
+<img alt="_images/full_mingw_folder.jpg" src="_images/full_mingw_folder.jpg" />
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Windows_10">Windows 10</a> is the most complicated platform
 on which to set up <a class="reference external" href="https://www.gnu.org/software/gcc/fortran/">gfortran</a>.</p>
 <p>Assuming that your user may need either the 32 or 64 bit compiler, I recommend using the

@@ -26,6 +26,8 @@ if "%do_the_upload%" == "TRUE" (
     echo Make sure that sphinx HTML is built with _BUILD_SPHINX_HTML.BAT
     echo ...............................................................
     echo COMMIT all files in git
+    echo        AND Tag IF a new version release
+    echo        git tag -a v1.x.x -m "RocketCEA 1.x.x"
     echo ...............................................................
     echo Make sure that "python -m build" has been executed
     echo        AND any "python -m build --wheel"
@@ -35,7 +37,7 @@ if "%do_the_upload%" == "TRUE" (
     echo twine check dist/*24.tar.gz (where: 24 is current version)
     echo ...............................................................
     echo THEN: set "do_the_upload=TRUE" to run the upload
-    echo AFTER UPLOAD: set "do_the_upload=FALSE"
+    echo           AFTER UPLOAD: set "do_the_upload=FALSE"
     echo ...............................................................
 )
 
