@@ -28,6 +28,7 @@ if "%do_the_upload%" == "TRUE" (
     echo COMMIT all files in git
     echo        AND Tag IF a new version release
     echo        git tag -a v1.x.x -m "RocketCEA 1.x.x"
+    echo        git push --follow-tags
     echo ...............................................................
     echo Make sure that "python -m build" has been executed
     echo        AND any "python -m build --wheel"

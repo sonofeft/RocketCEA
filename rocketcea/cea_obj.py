@@ -828,6 +828,11 @@ class CEA_Obj(object):
         Cstar = float(py_cea.rockt.cstr)
         Tcomb = py_cea.prtout.ttt[ self.i_chm ] * 1.8  # convert from Kelvin to Rankine
         mw,gam = py_cea.prtout.wm[ self.i_exit ], py_cea.prtout.gammas[ self.i_exit ]
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_exit ] 
+        except:
+            pass # just use above mw if 1/totn fails
 
         return IspVac, Cstar, Tcomb, mw, gam
 
@@ -849,6 +854,11 @@ class CEA_Obj(object):
         Cstar = float(py_cea.rockt.cstr)
         Tcomb = py_cea.prtout.ttt[ self.i_chm ] * 1.8  # convert from Kelvin to Rankine
         mw,gam = py_cea.prtout.wm[ self.i_chm ], py_cea.prtout.gammas[ self.i_chm ]
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_chm ] 
+        except:
+            pass # just use above mw if 1/totn fails
 
         return IspVac, Cstar, Tcomb, mw, gam
 
@@ -869,6 +879,11 @@ class CEA_Obj(object):
         Cstar = float(py_cea.rockt.cstr)
         Tcomb = py_cea.prtout.ttt[ self.i_chm ] * 1.8  # convert from Kelvin to Rankine
         mw,gam = py_cea.prtout.wm[ self.i_thrt ], py_cea.prtout.gammas[ self.i_thrt ]
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_thrt ] 
+        except:
+            pass # just use above mw if 1/totn fails
 
         return IspVac, Cstar, Tcomb, mw, gam
 
@@ -1342,6 +1357,12 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps)
 
         mw,gam = py_cea.prtout.wm[ self.i_chm ], py_cea.prtout.gammas[ self.i_chm ]
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_chm ] 
+        except:
+            pass # just use above mw if 1/totn fails
+        
         return mw,gam
 
     def get_Throat_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0):
@@ -1357,6 +1378,12 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen)
 
         mw,gam = py_cea.prtout.wm[ self.i_thrt ], py_cea.prtout.gammas[ self.i_thrt ]
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_thrt ] 
+        except:
+            pass # just use above mw if 1/totn fails
+        
         return mw,gam
 
     def get_exit_MolWt_gamma(self, Pc=100.0, MR=1.0, eps=40.0, frozen=0, frozenAtThroat=0):
@@ -1373,6 +1400,12 @@ class CEA_Obj(object):
         self.setupCards( Pc=Pc, MR=MR, eps=eps, frozen=frozen, frozenAtThroat=frozenAtThroat)
 
         mw,gam = py_cea.prtout.wm[ self.i_exit ], py_cea.prtout.gammas[ self.i_exit ]
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_exit ] 
+        except:
+            pass # just use above mw if 1/totn fails
+        
         return mw,gam
 
 
@@ -1434,6 +1467,12 @@ class CEA_Obj(object):
 
         IspVac = py_cea.rockt.vaci[ self.i_exit ]
         mw,gam = py_cea.prtout.wm[ self.i_thrt ], py_cea.prtout.gammas[ self.i_thrt ] # throat gamma
+        
+        try:
+            mw = 1.0 / py_cea.prtout.totn[ self.i_thrt ] 
+        except:
+            pass # just use above mw if 1/totn fails
+        
         #PcOvPe = py_cea.rockt.app[ self.i_exit ]
         Pexit = py_cea.prtout.ppp[ self.i_exit ]*14.7/1.01325
         #print( "=============== Pexit ", Pexit, py_cea.prtout.ppp[ self.i_exit ]/1.01325, py_cea.prtout.ppp[ self.i_exit ] )

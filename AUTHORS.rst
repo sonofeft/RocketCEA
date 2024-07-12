@@ -12,6 +12,8 @@ Development Lead
 
 Patches and Ideas
 -----------------
+* `janstruzinski <https://github.com/janstruzinski>`_
+    - Identified problem with Molecular Weight when condensibles are present.
 
 * `joel-martin <https://github.com/joel-martin>`_
     - Extensive help with numpy.distutils deprecation and converting to meson.build
