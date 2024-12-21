@@ -229,7 +229,7 @@ class CEA_Obj(object):
 
     def __init__(self, propName='', oxName='', fuelName='', fac_CR=None,
         useFastLookup=0, # deprecated
-        makeOutput=0, make_debug_prints=False):
+        makeOutput=0, make_debug_prints=False, make_reading_prints=False):
         """
         #: Create the base CEA wrapper object.
         #: Fast Lookup is deprecated.
@@ -240,6 +240,7 @@ class CEA_Obj(object):
 
         self.makeOutput = makeOutput # makes "f.out"
         self.make_debug_prints = make_debug_prints
+        self.make_reading_prints = make_reading_prints
         
         if fac_CR is not None:
             self.fac_CR = float( fac_CR )
@@ -612,7 +613,7 @@ class CEA_Obj(object):
             self.readDatafileOnce = 1
             if self.desc in _PrintCountDict:
                 _PrintCountDict[self.desc] = _PrintCountDict[self.desc] + 1
-                if _PrintCountDict[self.desc] % 100 == 0:
+                if self.make_reading_prints and _PrintCountDict[self.desc] % 100 == 0:
                     print("reading cea isp data files for",self.desc,_PrintCountDict[self.desc],'times')
             else:
                 #print("reading cea isp data files for",self.desc)
