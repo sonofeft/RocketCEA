@@ -609,15 +609,16 @@ class CEA_Obj(object):
 
 
         if readData:
-            _last_called = self
-            self.readDatafileOnce = 1
-            if self.desc in _PrintCountDict:
-                _PrintCountDict[self.desc] = _PrintCountDict[self.desc] + 1
-                if self.make_reading_prints and _PrintCountDict[self.desc] % 100 == 0:
-                    print("reading cea isp data files for",self.desc,_PrintCountDict[self.desc],'times')
-            else:
-                #print("reading cea isp data files for",self.desc)
-                _PrintCountDict[self.desc] = 1
+            if self.make_debug_prints:
+                _last_called = self
+                self.readDatafileOnce = 1
+                if self.desc in _PrintCountDict:
+                    _PrintCountDict[self.desc] = _PrintCountDict[self.desc] + 1
+                    if self.make_reading_prints and _PrintCountDict[self.desc] % 100 == 0:
+                        print("reading cea isp data files for",self.desc,_PrintCountDict[self.desc],'times')
+                else:
+                    #print("reading cea isp data files for",self.desc)
+                    _PrintCountDict[self.desc] = 1
 
 
         if self.make_debug_prints:
