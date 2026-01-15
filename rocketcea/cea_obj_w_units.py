@@ -178,7 +178,7 @@ class CEA_Obj( object ):
         return self.cea_obj.get_MachNumber( Pc=Pc, MR=MR, eps=eps, 
                                             frozen=frozen, frozenAtThroat=frozenAtThroat )
     
-    def get_Chamber_MachNumber(self, Pc=100.0, MR=1.0, eps=40.0, fac_CR=None):
+    def get_Chamber_MachNumber(self, Pc=100.0, MR=1.0, fac_CR=None):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_Chamber_MachNumber(Pc=Pc, MR=MR, fac_CR=fac_CR)
         
