@@ -10,6 +10,10 @@ dependencies = [
     'scipy',
     'matplotlib',
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
 description = 'RocketCEA wraps the FORTRAN CEA code and provides some useful tools.'
 authors = [{name = 'Charlie Taylor', email = 'cet@appliedpython.com'}]
 license = {file = 'LICENSE.txt'}

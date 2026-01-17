@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>QuickStart &#8212; RocketCEA v1.2.1 documentation</title>
+    <title>QuickStart &#8212; RocketCEA v1.2.2 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
@@ -32,15 +32,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>  
@@ -97,7 +94,7 @@ give the commands:</p>
 <h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Windows users can skip &quot;Install Compiler&quot; and go to
+<p>Windows users can skip “Install Compiler” and go to
 <a class="reference internal" href="#link-install-rocketcea"><span class="std std-ref">Install RocketCEA</span></a></p>
 </div>
 <p>Using <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to compile FORTRAN requires
@@ -171,7 +168,7 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  pri
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see &quot;Anaconda Windows Batch File&quot; section below.</p>
+<p>for <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> on Windows, see “Anaconda Windows Batch File” section below.</p>
 </div>
 <p>RocketCEA on Windows can be problematic. Often the problem is in the PATH environment variable
 where the wrong files are found for the intended install, and even more often it is because
@@ -200,7 +197,7 @@ the last version to depend on numpy.distutils.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>3/14/2024: BAT File successful on Windows 11 virtual environments with 64 bit python 3.7 thru 3.11</p>
-<p>The virtual environments had the <strong>parent</strong> python version's subdirectories &quot;libs&quot; and &quot;include&quot; copied into them.</p>
+<p>The virtual environments had the <strong>parent</strong> python version’s subdirectories “libs” and “include” copied into them.</p>
 </div>
 <div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="c1">rem =============== RUN_SETUP_BUILD_WIN64.BAT ================</span>
 
@@ -254,7 +251,7 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  pri
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The &quot;trick&quot; for installing RocketCEA on Windows seems to be pre-installing the dependency packages
+<p>The “trick” for installing RocketCEA on Windows seems to be pre-installing the dependency packages
 (e.g. numpy, scipy and matplotlib) so that the pip options for rocketcea only apply to rocketcea.</p>
 <p>If you are having trouble on Windows, you may want to try <a class="reference internal" href="#link-windows-wsl"><span class="std std-ref">Windows 10 or 11 with WSL</span></a></p>
 </div>
@@ -265,11 +262,11 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  pri
 <p class="admonition-title">Note</p>
 <p>3/14/2024: I am <strong>Guessing</strong> that the deprecation of numpy.distutils has made Anaconda installs <strong>only</strong> viable
 in a <a class="reference external" href="https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/">virtual environment</a> .
-I'm also <strong>Guessing</strong> that, on Windows, an Anaconda virtual environment would be successful with the
+I’m also <strong>Guessing</strong> that, on Windows, an Anaconda virtual environment would be successful with the
 batch file shown above in  <a class="reference internal" href="#link-windows-bat-file"><span class="std std-ref">Windows Batch File</span></a></p>
 <p>An older install of Anaconda may work with the <strong>old</strong> and <strong>possibly outdated</strong> approach below.</p>
 </div>
-<p>As stated above, the &quot;trick&quot; for installing RocketCEA on Windows seems
+<p>As stated above, the “trick” for installing RocketCEA on Windows seems
 to be pre-installing the dependency packages  (e.g. numpy, scipy and matplotlib)
 so that the pip options for rocketcea only apply to rocketcea.</p>
 <p>On Anaconda, many of the required dependencies are preinstalled.</p>
@@ -290,7 +287,7 @@ something like the image below.</p>
 than the one shown above. Before you can run it, you need to verify the location
 of the python folders under Anaconda.</p>
 <p>To find your python folder, open an Anaconda prompt, launch python, import sys
-and give the command &quot;sys.executable&quot; as in the image below.</p>
+and give the command “sys.executable” as in the image below.</p>
 <img alt="_images/Anaconda_find_python_exe.jpg" src="_images/Anaconda_find_python_exe.jpg" />
 <p>In my case, the path was:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Charlie</span>\<span class="n">anaconda3</span>
@@ -315,8 +312,8 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Ob
 <p>Run the batch file and the results will hopefully be similar to the results
 shown below.</p>
 <img alt="_images/Anaconda_successful_install.jpg" src="_images/Anaconda_successful_install.jpg" />
-<p>Notice that the file ran the &quot;quick test&quot; at the bottom of the batch file and
-properly output the Isp of 374.30...</p>
+<p>Notice that the file ran the “quick test” at the bottom of the batch file and
+properly output the Isp of 374.30…</p>
 </section>
 <section id="getting-help">
 <h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">¶</a></h2>
@@ -366,7 +363,7 @@ Paste that code into your text editor and save it to a python file.(for example 
 <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">424.6998266323161</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Great... you are good to go.</p>
+<p>Great… you are good to go.</p>
 <p>If not, see the information below.</p>
 </section>
 <section id="google-colaboratory">
@@ -434,7 +431,7 @@ will install python 3.10.12 and rocketcea 1.1.34.</p>
 </li>
 <li><dl class="simple">
 <dt>Test installation with quick example</dt><dd><ul>
-<li><p>python3 -c &quot;from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName='LOX', fuelName='LH2'); print(C.get_Isp())&quot;</p></li>
+<li><p>python3 -c “from rocketcea.cea_obj import CEA_Obj; C=CEA_Obj(oxName=’LOX’, fuelName=’LH2’); print(C.get_Isp())”</p></li>
 <li><p>SHOULD RETURN:  374.30361765576896 (or perhaps just very close to it.)</p></li>
 </ul>
 </dd>
@@ -549,15 +546,12 @@ and Windows 10 will be able to install <a class="reference external" href="https
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>

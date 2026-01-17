@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Propellants &#8212; RocketCEA v1.2.1 documentation</title>
+    <title>Propellants &#8212; RocketCEA v1.2.2 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
@@ -32,15 +32,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="new_propellants.html" title="New Propellants"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Propellants</a></li> 
       </ul>
     </div>  
@@ -99,9 +96,9 @@ For Monopropellants and Solid Propellants, the instance of CEA_Obj uses <strong>
 <h3>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this heading">¶</a></h3>
 <p>The performance of <a class="reference internal" href="hydrazine_mono.html#hydrazine-mono-link"><span class="std std-ref">Hydrazine Monopropellant</span></a> engines is driven by the amount of ammonia dissociation that
 the catalyst bed delivers. Any amount of ammonia dissociation can be run by calling out the <strong>propName</strong>
-as &quot;HYD&quot; + weight percent dissociation.</p>
-<p>Note that the CEA FORTRAN code has been modified to include &quot;Undissociated Ammonia (UA)&quot; as an exhaust product.
-The CEA input also includes an &quot;omit NH3&quot; statement to prevent normal NH3 calculations.</p>
+as “HYD” + weight percent dissociation.</p>
+<p>Note that the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
+The CEA input also includes an “omit NH3” statement to prevent normal NH3 calculations.</p>
 <p>The examples below call out 30, 40 and 50 percent ammonia dissociation.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD30&#39;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
@@ -141,7 +138,7 @@ The weight percentages are calculated based on the equilibrium equations above.<
 <h3>Peroxide + Water<a class="headerlink" href="#peroxide-water" title="Permalink to this heading">¶</a></h3>
 <p>Peroxide is often blended with water in order to enhance its stability and improve its safety.
 While the debate about an appropriate blend of Peroxide rages on, analyzing it with RocketCEA
-simply requires calling it out as &quot;Peroxide&quot; + weight percent Peroxide.
+simply requires calling it out as “Peroxide” + weight percent Peroxide.
 The examples below call out 90, 95 and 98 percent Peroxide:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide90&#39;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;Peroxide95&#39;</span><span class="p">)</span>
@@ -153,7 +150,7 @@ The examples below call out 90, 95 and 98 percent Peroxide:</p>
 <section id="flox">
 <h3>FLOX<a class="headerlink" href="#flox" title="Permalink to this heading">¶</a></h3>
 <p>FLOX is a mixture of Fluorine and Oxygen.
-Call out the mixture as &quot;FLOX&quot; + weight percent of Fluorine.
+Call out the mixture as “FLOX” + weight percent of Fluorine.
 The examples below call out 60, 70 and 80 percent Fluorine:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX60&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span>   <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;FLOX70&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s2">&quot;LH2&quot;</span><span class="p">)</span>
@@ -1068,15 +1065,12 @@ omit NH3
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="new_propellants.html" title="New Propellants"
              >next</a> |</li>
         <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Propellants</a></li> 
       </ul>
     </div>
