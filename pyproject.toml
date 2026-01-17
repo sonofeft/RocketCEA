@@ -4,7 +4,7 @@ requires = ['meson-python', 'numpy']
 
 [project]
 name = 'rocketcea'
-version = '1.2.1'
+version = '1.2.2'
 dependencies = [
     'numpy',
     'scipy',

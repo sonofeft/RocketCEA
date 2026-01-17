@@ -7,6 +7,11 @@ History
 GitHub Log
 ----------
 
+* Jan 16, 2026
+    - (by: Charlie)
+        - version 1.2.2 changed Windows handling of space in user name
+        - added get_Chamber_MachNumber in cea_obj_w_units
+
 * July 12, 2024
     - (by: Charlie)
         - version 1.2.1 fixed MW when condensibles are present.

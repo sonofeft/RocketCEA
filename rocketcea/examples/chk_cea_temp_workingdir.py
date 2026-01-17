@@ -1,5 +1,5 @@
 import tempfile, os
-from rocketcea.cea_obj import CEA_Obj, get_rocketcea_data_dir, set_rocketcea_data_dir
+from rocketcea.cea_obj import CEA_Obj, get_rocketcea_data_dir #, set_rocketcea_data_dir
 
 print( 'ROCKETCEA_DATA_DIR =', get_rocketcea_data_dir() )
 
@@ -12,7 +12,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     print( 'os.path.exists(subdir) =', os.path.exists(subdir) )
     print()
 
-    set_rocketcea_data_dir( subdir )
+    # set_rocketcea_data_dir( subdir )
     print( 'ROCKETCEA_DATA_DIR =', get_rocketcea_data_dir() )
 
     C = CEA_Obj( oxName='LOX', fuelName='LH2', make_debug_prints=False)

@@ -1,5 +1,5 @@
 
-__version__ = '1.2.1'  # METADATA_RESET:__version__ = '<<version>>'
+__version__ = '1.2.2'  # METADATA_RESET:__version__ = '<<version>>'
 
 """
 The ``_version.py`` file can be executed with execfile to create a local variable __version__::

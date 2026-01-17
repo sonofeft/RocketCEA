@@ -1,10 +1,10 @@
 from rocketcea.cea_obj_w_units import CEA_Obj, CEA_Obj_default
-from rocketcea.cea_obj import get_rocketcea_data_dir, set_rocketcea_data_dir
+from rocketcea.cea_obj import get_rocketcea_data_dir #, set_rocketcea_data_dir
 
 test_dir = r'D:\temp\cea w spaces'
 print( 'ROCKETCEA_DATA_DIR =', get_rocketcea_data_dir() )
 
-set_rocketcea_data_dir( test_dir )
+# set_rocketcea_data_dir( test_dir )
 
 print( 'ROCKETCEA_DATA_DIR =', get_rocketcea_data_dir() )
 

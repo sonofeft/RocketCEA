@@ -177,7 +177,11 @@ class CEA_Obj( object ):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         return self.cea_obj.get_MachNumber( Pc=Pc, MR=MR, eps=eps, 
                                             frozen=frozen, frozenAtThroat=frozenAtThroat )
-        
+    
+    def get_Chamber_MachNumber(self, Pc=100.0, MR=1.0, fac_CR=None):
+        Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
+        return self.cea_obj.get_Chamber_MachNumber(Pc=Pc, MR=MR, fac_CR=fac_CR)
+                
     def get_Temperatures(self, Pc=100.0, MR=1.0,eps=40.0, frozen=0, frozenAtThroat=0):
         Pc = self.Pc_U.uval_to_dval( Pc ) # convert user units to psia
         tempList = self.cea_obj.get_Temperatures( Pc=Pc, MR=MR, eps=eps,
@@ -475,6 +479,9 @@ def dev_tests():
     chk_method('get_Throat_PcOvPe',**{'Pc':100.0})
     chk_method('get_MachNumber',**{'Pc':100.0})
     chk_method('get_MachNumber',**{'Pc':100.0, 'frozen':1})
+
+    chk_method('get_Chamber_MachNumber',**{'Pc':100.0, 'fac_CR':2.5})
+
     chk_method('get_Temperatures',**{'Pc':100.0})
     chk_method('get_SonicVelocities',**{'Pc':100.0})
     chk_method('get_SonicVelocities',**{'Pc':100.0, 'frozen':1})

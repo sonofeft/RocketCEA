@@ -1,6 +1,7 @@
 {
     "restructuredtext.confPath": "D:\\21_py_proj\\RocketUnits\\docs",
     "cSpell.words": [
+        "automodule",
         "Boop",
         "conda",
         "condensibles",
@@ -14,6 +15,7 @@
         "matplotlib",
         "Matplotlib",
         "MYPYTHONPATH",
+        "pypirc",
         "rddir",
         "rocketcea",
         "sdist",

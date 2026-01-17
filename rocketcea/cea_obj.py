@@ -35,10 +35,20 @@ here = os.path.abspath(os.path.dirname(__file__))
 import shutil
 
 USER_HOME_DIR = os.path.dirname( os.path.expanduser('~/') )
-# if USER_HOME_DIR.find(' ') >= 0 and sys.platform == 'win32':
+
+print( "USER_HOME_DIR=%s"%USER_HOME_DIR )
+if USER_HOME_DIR.find(' ') >= 0 and sys.platform == 'win32':
+    print( 'Since USER_HOME_DIR contains space char, using C:\\UserData as USER_HOME_DIR' )
+    USER_HOME_DIR = r'C:\UserData'
+    from pathlib import Path
+
+    target = Path( USER_HOME_DIR )
+    target.mkdir(parents=True, exist_ok=True)    
+    
 #     ROCKETCEA_DATA_DIR = os.path.join( os.path.split(USER_HOME_DIR)[0], 'Public', 'RocketCEA' )
 # else:
 ROCKETCEA_DATA_DIR = os.path.join( USER_HOME_DIR, 'RocketCEA' )
+# print( "ROCKETCEA_DATA_DIR=%s"%ROCKETCEA_DATA_DIR )
 
 # may need to add DLL directory to allow pyd/dll import
 if hasattr(os, 'add_dll_directory'):
@@ -46,26 +56,26 @@ if hasattr(os, 'add_dll_directory'):
 
 
 # from rocketcea.short_win_path import get_short_path_name
-from rocketcea.short_win_path import get_usable_path
+# from rocketcea.short_win_path import get_usable_path
 
-def set_rocketcea_data_dir( rddir, do_print=True ):
-    """
-    Set working data directory for RocketCEA. 
-    On Windows will correct for any spaces in path name.
-    Also useful to make a local working directory outside the USER_HOME_DIR.
-    """
-    global ROCKETCEA_DATA_DIR
-    ROCKETCEA_DATA_DIR = rddir
-    if do_print:
-        print( 'Setting ROCKETCEA_DATA_DIR =', ROCKETCEA_DATA_DIR )
-    # try to solve spaces in Windows Path names by making 8.3, short path names.
-    if ROCKETCEA_DATA_DIR.find(' ') >= 0:
-        if do_print:
-            print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
-            print('   ',ROCKETCEA_DATA_DIR)
-        ROCKETCEA_DATA_DIR = get_usable_path( ROCKETCEA_DATA_DIR )
+# def set_rocketcea_data_dir( rddir, do_print=True ):
+#     """
+#     Set working data directory for RocketCEA. 
+#     On Windows will correct for any spaces in path name.
+#     Also useful to make a local working directory outside the USER_HOME_DIR.
+#     """
+#     global ROCKETCEA_DATA_DIR
+#     ROCKETCEA_DATA_DIR = rddir
+#     if do_print:
+#         print( 'Setting ROCKETCEA_DATA_DIR =', ROCKETCEA_DATA_DIR )
+#     # try to solve spaces in Windows Path names by making 8.3, short path names.
+#     if ROCKETCEA_DATA_DIR.find(' ') >= 0:
+#         if do_print:
+#             print('WARNING: ROCKETCEA_DATA_DIR contains space characters:')
+#             print('   ',ROCKETCEA_DATA_DIR)
+#         ROCKETCEA_DATA_DIR = get_usable_path( ROCKETCEA_DATA_DIR )
         
-set_rocketcea_data_dir( ROCKETCEA_DATA_DIR, do_print=False )
+#set_rocketcea_data_dir( ROCKETCEA_DATA_DIR, do_print=False )
 
 def get_rocketcea_data_dir():
     """Return the working data directory for RocketCEA"""

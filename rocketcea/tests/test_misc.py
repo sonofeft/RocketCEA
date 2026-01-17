@@ -65,7 +65,7 @@ import rocketcea.separated_Cf
 from rocketcea.biprop_utils.mr_t_limits import MR_Temperature_Limits
 import rocketcea.biprop_utils.mr_t_limits
 from rocketcea.biprop_utils import run_cea_w_error_corr
-from rocketcea.cea_obj import CEA_Obj, get_rocketcea_data_dir, set_rocketcea_data_dir
+from rocketcea.cea_obj import CEA_Obj #, get_rocketcea_data_dir, set_rocketcea_data_dir
 from rocketcea import cea_obj_w_units
 
 class MyTest(unittest.TestCase):
@@ -263,29 +263,29 @@ class MyTest(unittest.TestCase):
         finally:
             sys.argv = old_sys_argv
 
-    def test_win32_rocketcea_data_dir_spaces(self):
-        """On Windows, use short path names when spaces in ROCKETCEA_DATA_DIR"""
-        if sys.platform == 'win32':
-            save_ROCKETCEA_DATA_DIR = get_rocketcea_data_dir()
+    # def test_win32_rocketcea_data_dir_spaces(self):
+    #     """On Windows, use short path names when spaces in ROCKETCEA_DATA_DIR"""
+    #     if sys.platform == 'win32':
+    #         save_ROCKETCEA_DATA_DIR = get_rocketcea_data_dir()
 
-            try:
-                with tempfile.TemporaryDirectory() as tmpdirname:
-                    print('created temporary directory', tmpdirname)
+    #         try:
+    #             with tempfile.TemporaryDirectory() as tmpdirname:
+    #                 print('created temporary directory', tmpdirname)
                     
-                    subdir = os.path.join( tmpdirname, 'cea w spaces' )
-                    os.mkdir( subdir )
-                    print( 'subdir =', subdir )
-                    print( 'os.path.exists(subdir) =', os.path.exists(subdir) )
-                    print()
+    #                 subdir = os.path.join( tmpdirname, 'cea w spaces' )
+    #                 os.mkdir( subdir )
+    #                 print( 'subdir =', subdir )
+    #                 print( 'os.path.exists(subdir) =', os.path.exists(subdir) )
+    #                 print()
 
-                    set_rocketcea_data_dir( subdir )
+    #                 set_rocketcea_data_dir( subdir )
 
-                    C = CEA_Obj( oxName='LOX', fuelName='LH2', make_debug_prints=True)
-                    Isp = C.get_Isp(Pc=100.0, MR=1.0, eps=40.0)
-                    print( Isp )
-            finally:
-                # restore 
-                set_rocketcea_data_dir( save_ROCKETCEA_DATA_DIR )
+    #                 C = CEA_Obj( oxName='LOX', fuelName='LH2', make_debug_prints=True)
+    #                 Isp = C.get_Isp(Pc=100.0, MR=1.0, eps=40.0)
+    #                 print( Isp )
+    #         finally:
+    #             # restore 
+    #             set_rocketcea_data_dir( save_ROCKETCEA_DATA_DIR )
 
 
 if __name__ == '__main__':
