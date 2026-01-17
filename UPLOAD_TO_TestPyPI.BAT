@@ -31,7 +31,7 @@ if "%do_the_upload%" == "TRUE" (
     echo COMMIT all files in git
     echo ...............................................................
     echo Make sure that "python -m build" has been executed
-    echo        AND any "python -m build --wheel"
+    echo        AND any "python -m build --wheel" for each python version
     echo ...............................................................
     echo Run "twine check" to see if long description will render correctly
     echo twine check dist/*            OR 
