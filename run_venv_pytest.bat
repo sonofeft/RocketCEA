@@ -32,14 +32,20 @@ pip install pytest
 
 rem Run pytest from Lib\site-packages\rocketcea
 pytest
-set TESTRESULT=%ERRORLEVEL%
+set PYTESTRESULT=%ERRORLEVEL%
 
 cd "%SAVED_DIR%"
 
-if "%TESTRESULT%"=="0" (
+if "%PYTESTRESULT%"=="0" (
     echo ===> Pytest passed. Building wheel...
     python -m pip install --upgrade build
-    python -m build --wheel
+
+    if "%PYVER%"=="14" ( 
+        python -m build 
+    ) else (
+        python -m build --wheel
+    )
+    
 ) else (
     echo ===> Pytest failed. Wheel will NOT be built.
 )

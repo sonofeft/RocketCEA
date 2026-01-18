@@ -20,6 +20,7 @@
         "numpy",
         "pypirc",
         "pytest",
+        "PYTESTRESULT",
         "PYVER",
         "rddir",
         "rocketcea",
