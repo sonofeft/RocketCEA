@@ -11,6 +11,7 @@ dependencies = [
     'matplotlib',
 ]
 
+
 [tool.setuptools.packages.find]
 where = ["."]
 
@@ -19,6 +20,7 @@ authors = [{name = 'Charlie Taylor', email = 'cet@appliedpython.com'}]
 license = {file = 'LICENSE.txt'}
 keywords = ['rocketcea setuptools development']
 readme = 'README.rst'
+
 classifiers = [
     # Common status values are: "3 - Alpha", "4 - Beta", "5 - Production/Stable"
     #        less common        1 - Planning, 2 - Pre-Alpha, 6 - Mature, 7 - Inactive
