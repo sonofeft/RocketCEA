@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Parasol Example &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Parasol Example &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="functions.html" title="RocketCEA Functions"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="cea_tdk_rpa.html" title="CEA vs TDK vs RPA"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Parasol Example</a></li> 
       </ul>
     </div>  
@@ -48,16 +50,16 @@
           <div class="body" role="main">
             
   <section id="parasol-example">
-<span id="parasol-example-link"></span><h1>Parasol Example<a class="headerlink" href="#parasol-example" title="Permalink to this heading">¶</a></h1>
+<span id="parasol-example-link"></span><h1>Parasol Example<a class="headerlink" href="#parasol-example" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="http://parasol.readthedocs.io/en/latest/">Parasol</a> is a Framework for Parametric Model Investigation.</p>
 <p>See the Docs at: <a class="reference external" href="http://parasol.readthedocs.org/en/latest/">http://parasol.readthedocs.org/en/latest/</a></p>
 <p><a class="reference external" href="http://parasol.readthedocs.io/en/latest/">Parasol</a>  enables easy optimization, sensitivity study, and visualization.</p>
 <p>For this example, <a class="reference external" href="http://parasol.readthedocs.io/en/latest/">Parasol</a> was used along with RocketCEA
 to evaluate sea level performance of a rocket engine.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">parasol</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">parasol</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="c1"># create system object (make sure author is correct... it&#39;s used for report)</span>
 <span class="n">S</span> <span class="o">=</span> <span class="n">ParametricSoln</span><span class="p">(</span><span class="n">subtaskName</span><span class="o">=</span><span class="s2">&quot;Nozzle Area Ratio&quot;</span><span class="p">,</span> 
@@ -96,7 +98,7 @@ to evaluate sea level performance of a rocket engine.</p>
 
 <span class="c1"># the following control routine ties together the system components</span>
 <span class="c1">#  with the system design variables</span>
-<span class="k">def</span> <span class="nf">myControlRoutine</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">myControlRoutine</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
     <span class="c1"># get current values of design variables    </span>
     <span class="n">Pc</span><span class="p">,</span><span class="n">eps</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">getDesVars</span><span class="p">(</span><span class="s2">&quot;Pc&quot;</span><span class="p">,</span><span class="s2">&quot;eps&quot;</span><span class="p">)</span>
     
@@ -372,10 +374,10 @@ contact: C. Taylor, cet@appliedpython.com
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -421,7 +423,7 @@ contact: C. Taylor, cet@appliedpython.com
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -429,31 +431,34 @@ contact: C. Taylor, cet@appliedpython.com
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="functions.html" title="RocketCEA Functions"
              >next</a> |</li>
         <li class="right" >
           <a href="cea_tdk_rpa.html" title="CEA vs TDK vs RPA"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Parasol Example</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

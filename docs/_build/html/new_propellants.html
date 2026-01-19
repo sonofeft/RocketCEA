@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>New Propellants &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>New Propellants &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="plot_examples.html" title="Plot Examples"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="propellants.html" title="Propellants"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">New Propellants</a></li> 
       </ul>
     </div>  
@@ -48,7 +50,7 @@
           <div class="body" role="main">
             
   <section id="new-propellants">
-<span id="new-propellants-link"></span><h1>New Propellants<a class="headerlink" href="#new-propellants" title="Permalink to this heading">¶</a></h1>
+<span id="new-propellants-link"></span><h1>New Propellants<a class="headerlink" href="#new-propellants" title="Link to this heading">¶</a></h1>
 <p>New propellants can be added and existing propellants modified.</p>
 <p>Create a python string variable that contains the new card.  It can be multiline such as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">card_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -67,9 +69,9 @@ It can be added as oxidizer, fuel or propellant.:</p>
 </pre></div>
 </div>
 <section id="new-ox-and-fuel">
-<h2>New Ox and Fuel<a class="headerlink" href="#new-ox-and-fuel" title="Permalink to this heading">¶</a></h2>
+<h2>New Ox and Fuel<a class="headerlink" href="#new-ox-and-fuel" title="Link to this heading">¶</a></h2>
 <p>The example below defines some gel propellants, adding SiO2 to the oxidizer and Al to the fuel.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">add_new_fuel</span><span class="p">,</span> <span class="n">add_new_oxidizer</span><span class="p">,</span> <span class="n">add_new_propellant</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">add_new_fuel</span><span class="p">,</span> <span class="n">add_new_oxidizer</span><span class="p">,</span> <span class="n">add_new_propellant</span>
 
 <span class="n">card_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">oxid N2O4(L)   N 2 O 4   wt%=96.5</span>
@@ -221,8 +223,8 @@ It can be added as oxidizer, fuel or propellant.:</p>
 </div>
 </section>
 <section id="new-monoprop">
-<h2>New Monoprop<a class="headerlink" href="#new-monoprop" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">add_new_fuel</span><span class="p">,</span> <span class="n">add_new_oxidizer</span><span class="p">,</span> <span class="n">add_new_propellant</span>
+<h2>New Monoprop<a class="headerlink" href="#new-monoprop" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">add_new_fuel</span><span class="p">,</span> <span class="n">add_new_oxidizer</span><span class="p">,</span> <span class="n">add_new_propellant</span>
 
 <span class="c1"># ==========</span>
 <span class="n">card_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -327,10 +329,10 @@ It can be added as oxidizer, fuel or propellant.:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -380,7 +382,7 @@ It can be added as oxidizer, fuel or propellant.:</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -388,31 +390,34 @@ It can be added as oxidizer, fuel or propellant.:</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="plot_examples.html" title="Plot Examples"
              >next</a> |</li>
         <li class="right" >
           <a href="propellants.html" title="Propellants"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">New Propellants</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

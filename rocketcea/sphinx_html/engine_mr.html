@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Engine Mixture Ratio &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Engine Mixture Ratio &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="comb_species.html" title="Species Mole Fractions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Engine Mixture Ratio</a></li> 
       </ul>
     </div>  
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="engine-mixture-ratio">
-<span id="engine-mr-link"></span><h1>Engine Mixture Ratio<a class="headerlink" href="#engine-mixture-ratio" title="Permalink to this heading">¶</a></h1>
+<span id="engine-mr-link"></span><h1>Engine Mixture Ratio<a class="headerlink" href="#engine-mixture-ratio" title="Link to this heading">¶</a></h1>
 <p>There are many considerations when choosing the mixture ratio (MR) for a liquid rocket engine design.</p>
 <p>The most simplistic (oversimplified) approach is to pick the MR at which CEA predicts
 maximum Isp for the given chamber pressure (Pc) and area ratio (AR) of the propellant combination.</p>
 <p>Real engines normally operate at a lower MR than CEA predicts for peak Isp (<cite>LOX/LH2 being the major exception</cite>).
 Mechanisms that lower an engines MR include: fuel film cooling, fuel rich bleed cycle engines and chemical kinetics.</p>
 <section id="chemical-kinetics">
-<h2>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this heading">¶</a></h2>
+<h2>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Link to this heading">¶</a></h2>
 <p>CEA is a one dimensional equilibrium (ODE) code.
 It calculates temperature, pressure and species concentrations based on a one dimensional flow model
 where all molecular species are kept at chemical equilibrium (ODE).</p>
@@ -74,8 +76,10 @@ An infinitely large engine has equilibrium chemistry.</p>
 The 1-D kinetics curve is a best estimate of the ideal engine performance without any losses.
 The left image is a small, low pressure, large area ratio engine that operates closer to frozen performance.
 The right image is a large, high pressure, small area ratio engine that operates closer to equilibrium performance.</p>
-<a class="reference internal image-reference" href="_images/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png"><img alt="_images/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png" src="_images/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png" style="width: 49%;" /></a>
-<a class="reference internal image-reference" href="_images/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png"><img alt="_images/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png" src="_images/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png"><img alt="_images/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png" src="_images/odekf_N2O4_MMH_Fvac100_Pc100_eps100.png" style="width: 49%;" />
+</a>
+<a class="reference internal image-reference" href="_images/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png"><img alt="_images/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png" src="_images/odekf_N2O4_MMH_Fvac100000_Pc2000_eps10.png" style="width: 49%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>In the absence of a detailed engine performance analysis,
 for initial sizing, pick a mixture ratio somewhere between the frozen and ODE peaks
@@ -88,22 +92,28 @@ The chart on the right shows how the peak ODK MR differs from the peak MR predic
 (This is no substitute for a real JANNAF standard analysis, but is a good quick estimate.)</p>
 <p>Note that fuel film cooling is very common in N2O4/MMH engines and
 will lower the thrust chamber MR below the core MR.</p>
-<a class="reference internal image-reference" href="_images/N2O4_MMH_Peak_ODK_MR.png"><img alt="_images/N2O4_MMH_Peak_ODK_MR.png" src="_images/N2O4_MMH_Peak_ODK_MR.png" style="width: 49%;" /></a>
-<a class="reference internal image-reference" href="_images/N2O4_MMH_Peak_MR_Shift.png"><img alt="_images/N2O4_MMH_Peak_MR_Shift.png" src="_images/N2O4_MMH_Peak_MR_Shift.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/N2O4_MMH_Peak_ODK_MR.png"><img alt="_images/N2O4_MMH_Peak_ODK_MR.png" src="_images/N2O4_MMH_Peak_ODK_MR.png" style="width: 49%;" />
+</a>
+<a class="reference internal image-reference" href="_images/N2O4_MMH_Peak_MR_Shift.png"><img alt="_images/N2O4_MMH_Peak_MR_Shift.png" src="_images/N2O4_MMH_Peak_MR_Shift.png" style="width: 49%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 </section>
 <section id="lox-rp1-gg-vs-sc">
-<h2>LOX/RP1 GG vs SC<a class="headerlink" href="#lox-rp1-gg-vs-sc" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/RP1 GG vs SC<a class="headerlink" href="#lox-rp1-gg-vs-sc" title="Link to this heading">¶</a></h2>
 <p>LOX/RP1 is mostly used in large engines of &gt; 100 Klbf.
 The chemical kinetics impact on performance is very small as shown below.
 Moderate Pc with small area ratio nozzles have virtually no impact on mixture ratio selection.
 At high Pc, even large area ratios have very little impact on mixture ratio selection.</p>
 <p>Note that both images below are for 100 Klbf engines.</p>
-<a class="reference internal image-reference" href="_images/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png"><img alt="_images/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png" src="_images/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png" style="width: 49%;" /></a>
-<a class="reference internal image-reference" href="_images/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png"><img alt="_images/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png" src="_images/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png"><img alt="_images/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png" src="_images/odekf_LOX_RP1_Fvac100000_Pc1000_eps10.png" style="width: 49%;" />
+</a>
+<a class="reference internal image-reference" href="_images/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png"><img alt="_images/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png" src="_images/odekf_LOX_RP1_Fvac100000_Pc2000_eps100.png" style="width: 49%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
-<a class="reference internal image-reference" href="_images/LOX_RP1_Peak_ODK_MR.png"><img alt="_images/LOX_RP1_Peak_ODK_MR.png" src="_images/LOX_RP1_Peak_ODK_MR.png" style="width: 49%;" /></a>
-<a class="reference internal image-reference" href="_images/LOX_RP1_Peak_MR_Shift.png"><img alt="_images/LOX_RP1_Peak_MR_Shift.png" src="_images/LOX_RP1_Peak_MR_Shift.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/LOX_RP1_Peak_ODK_MR.png"><img alt="_images/LOX_RP1_Peak_ODK_MR.png" src="_images/LOX_RP1_Peak_ODK_MR.png" style="width: 49%;" />
+</a>
+<a class="reference internal image-reference" href="_images/LOX_RP1_Peak_MR_Shift.png"><img alt="_images/LOX_RP1_Peak_MR_Shift.png" src="_images/LOX_RP1_Peak_MR_Shift.png" style="width: 49%;" />
+</a>
 <p>With LOX/RP1 engines, it is helpful to look at historical MR selections.
 Staged combustion (SC) designs use MR values very close to the ODK predictions (~2.6), very near CEA predictions.
 Fuel rich gas generator cycles (GG) are significantly lower MR than CEA predicts (~2.0 to 2.2).</p>
@@ -111,7 +121,7 @@ Fuel rich gas generator cycles (GG) are significantly lower MR than CEA predicts
 It is the fuel rich flow through the gas generator that reduces the overall engine mixture ratio.</p>
 </section>
 <section id="lox-lh2-bulk-density">
-<h2>LOX/LH2 Bulk Density<a class="headerlink" href="#lox-lh2-bulk-density" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/LH2 Bulk Density<a class="headerlink" href="#lox-lh2-bulk-density" title="Link to this heading">¶</a></h2>
 <p>LOX/LH2 is the exception to the rule that real engines operate at lower mixture ratios than the MR of peak Isp.
 LOX/LH2 engines normally operate well above peak Isp (i.e. more oxidizer rich).
 A kinetics analysis indicates the MR should be about 4.5 to 5.0, whereas,
@@ -131,14 +141,19 @@ the other tank is reduced will have little impact on overall inert mass.)</p>
 <p>The conclusion is that operating at an MR of 6 can add 10 to 15 percent more delta velocity
 to the stage.  Note that the stage initial gross mass also increases so that the overall
 delta velocity benefit to the vehicle will be less than that of this upper stage alone.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_LOXLH2.png" id="engine-mr-loxlh2-link"><img alt="_images/rho_veh_LOXLH2.png" id="engine-mr-loxlh2-link" src="_images/rho_veh_LOXLH2.png" style="width: 99%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_LOXLH2.png" id="engine-mr-loxlh2-link"><img alt="_images/rho_veh_LOXLH2.png" id="engine-mr-loxlh2-link" src="_images/rho_veh_LOXLH2.png" style="width: 99%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The charts below show the kind of kinetics effects that can be expected with LOX/LH.</p>
-<a class="reference internal image-reference" href="_images/odekf_LOX_LH2_Fvac100_Pc100_eps100.png"><img alt="_images/odekf_LOX_LH2_Fvac100_Pc100_eps100.png" src="_images/odekf_LOX_LH2_Fvac100_Pc100_eps100.png" style="width: 49%;" /></a>
-<a class="reference internal image-reference" href="_images/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png"><img alt="_images/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png" src="_images/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/odekf_LOX_LH2_Fvac100_Pc100_eps100.png"><img alt="_images/odekf_LOX_LH2_Fvac100_Pc100_eps100.png" src="_images/odekf_LOX_LH2_Fvac100_Pc100_eps100.png" style="width: 49%;" />
+</a>
+<a class="reference internal image-reference" href="_images/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png"><img alt="_images/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png" src="_images/odekf_LOX_LH2_Fvac100000_Pc2000_eps10.png" style="width: 49%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
-<a class="reference internal image-reference" href="_images/LOX_LH2_Peak_ODK_MR.png"><img alt="_images/LOX_LH2_Peak_ODK_MR.png" src="_images/LOX_LH2_Peak_ODK_MR.png" style="width: 49%;" /></a>
-<a class="reference internal image-reference" href="_images/LOX_LH2_Peak_MR_Shift.png"><img alt="_images/LOX_LH2_Peak_MR_Shift.png" src="_images/LOX_LH2_Peak_MR_Shift.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/LOX_LH2_Peak_ODK_MR.png"><img alt="_images/LOX_LH2_Peak_ODK_MR.png" src="_images/LOX_LH2_Peak_ODK_MR.png" style="width: 49%;" />
+</a>
+<a class="reference internal image-reference" href="_images/LOX_LH2_Peak_MR_Shift.png"><img alt="_images/LOX_LH2_Peak_MR_Shift.png" src="_images/LOX_LH2_Peak_MR_Shift.png" style="width: 49%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 </section>
 </section>
@@ -148,10 +163,10 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -202,7 +217,7 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -210,31 +225,34 @@ delta velocity benefit to the vehicle will be less than that of this upper stage
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="propellant_select.html" title="Propellant Selection"
              >next</a> |</li>
         <li class="right" >
           <a href="comb_species.html" title="Species Mole Fractions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Engine Mixture Ratio</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

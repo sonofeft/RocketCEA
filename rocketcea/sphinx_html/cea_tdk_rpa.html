@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CEA vs TDK vs RPA &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>CEA vs TDK vs RPA &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="temperature_adjust.html" title="Temperature Adjust"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">CEA vs TDK vs RPA</a></li> 
       </ul>
     </div>  
@@ -48,7 +50,7 @@
           <div class="body" role="main">
             
   <section id="cea-vs-tdk-vs-rpa">
-<h1>CEA vs TDK vs RPA<a class="headerlink" href="#cea-vs-tdk-vs-rpa" title="Permalink to this heading">¶</a></h1>
+<h1>CEA vs TDK vs RPA<a class="headerlink" href="#cea-vs-tdk-vs-rpa" title="Link to this heading">¶</a></h1>
 <p>There are three major computer programs, of which I’m aware, that calculate one dimensional equilibrium (ODE)
 performance of rocket engines, <strong>CEA</strong>, <strong>TDK</strong> and <strong>RPA</strong>. Back in 2006 I was interested in comparing the results of these three codes for common propellant combinations,
 just to see if they all gave similar results.
@@ -100,7 +102,7 @@ maximum expected range of operation as well as extending to extremely ox rich an
 I don’t think much has changed in any of the codes that would affect these results, however,
 that is strictly a <strong>GUESS</strong> on my part.</p>
 <section id="chart-description">
-<h2>Chart Description<a class="headerlink" href="#chart-description" title="Permalink to this heading">¶</a></h2>
+<h2>Chart Description<a class="headerlink" href="#chart-description" title="Link to this heading">¶</a></h2>
 <p>Each chart color-codes the difference in Isp ODE between two software packages (<strong>CEA</strong> vs <strong>TDK</strong>) and (<strong>RPA</strong> vs <strong>TDK</strong>)
 with the following scale.</p>
 <img alt="_images/ode_diff_scale.jpg" src="_images/ode_diff_scale.jpg" />
@@ -121,7 +123,7 @@ are shown as a bar of colors, one for each Pc.
 </tr>
 </table></section>
 <section id="lox-lh2">
-<h2>LOX/LH2<a class="headerlink" href="#lox-lh2" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/LH2<a class="headerlink" href="#lox-lh2" title="Link to this heading">¶</a></h2>
 <p>LOX/LH2 has very good agreement between all three codes.</p>
 <p>High area ratio, low MR is where differences occur.</p>
 <p>In those areas, <strong>CEA</strong> gets more than 3 seconds higher than <strong>TDK</strong> and
@@ -159,7 +161,7 @@ are shown as a bar of colors, one for each Pc.
 </tr>
 </table></section>
 <section id="lox-ch4">
-<h2>LOX/CH4<a class="headerlink" href="#lox-ch4" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/CH4<a class="headerlink" href="#lox-ch4" title="Link to this heading">¶</a></h2>
 <p>LOX/LCH4 has very good agreement between all three codes.</p>
 <p>Both <strong>CEA</strong> and <strong>RPA</strong> diverge at low MR.</p>
 <p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
@@ -192,7 +194,7 @@ are shown as a bar of colors, one for each Pc.
 </tr>
 </table></section>
 <section id="lox-rp1">
-<h2>LOX/RP1<a class="headerlink" href="#lox-rp1" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/RP1<a class="headerlink" href="#lox-rp1" title="Link to this heading">¶</a></h2>
 <p>For LOX/RP1 <strong>CEA</strong> has good agreement with <strong>TDK</strong>, however, <strong>RPA</strong>
 calculates as much as 2 seconds lower than <strong>TDK</strong> in the low portion of the expected MR range.</p>
 <p>Both <strong>CEA</strong> and <strong>RPA</strong> diverge at low MR.</p>
@@ -226,7 +228,7 @@ calculates as much as 2 seconds lower than <strong>TDK</strong> in the low porti
 </tr>
 </table></section>
 <section id="lox-ethanol">
-<h2>LOX/Ethanol<a class="headerlink" href="#lox-ethanol" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/Ethanol<a class="headerlink" href="#lox-ethanol" title="Link to this heading">¶</a></h2>
 <p>LOX/Ethanol results are virtually identical to LOX/CH4 results.</p>
 <p>Good agreement between all three codes.</p>
 <p>Both <strong>CEA</strong> and <strong>RPA</strong> diverge at low MR.</p>
@@ -260,7 +262,7 @@ calculates as much as 2 seconds lower than <strong>TDK</strong> in the low porti
 </tr>
 </table></section>
 <section id="peroxide90-ethanol">
-<h2>Peroxide90/Ethanol<a class="headerlink" href="#peroxide90-ethanol" title="Permalink to this heading">¶</a></h2>
+<h2>Peroxide90/Ethanol<a class="headerlink" href="#peroxide90-ethanol" title="Link to this heading">¶</a></h2>
 <p>Peroxide90/Ethanol  has excellent agreement between all three codes.</p>
 <p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
 <table width="1000">
@@ -292,7 +294,7 @@ calculates as much as 2 seconds lower than <strong>TDK</strong> in the low porti
 </tr>
 </table></section>
 <section id="n2o4-mmh">
-<h2>N2O4/MMH<a class="headerlink" href="#n2o4-mmh" title="Permalink to this heading">¶</a></h2>
+<h2>N2O4/MMH<a class="headerlink" href="#n2o4-mmh" title="Link to this heading">¶</a></h2>
 <p>N2O4/MMH has excellent agreement between all three codes.</p>
 <p><strong>RPA</strong> crashes at very high MR for very high area ratios.</p>
 <table width="1000">
@@ -324,7 +326,7 @@ calculates as much as 2 seconds lower than <strong>TDK</strong> in the low porti
 </tr>
 </table></section>
 <section id="n2o4-n2h4">
-<h2>N2O4/N2H4<a class="headerlink" href="#n2o4-n2h4" title="Permalink to this heading">¶</a></h2>
+<h2>N2O4/N2H4<a class="headerlink" href="#n2o4-n2h4" title="Link to this heading">¶</a></h2>
 <p>N2O4/N2H4 has excellent agreement between all three codes.</p>
 <p><strong>RPA</strong> crashes at both very high and very low MR with high area ratio.</p>
 <table width="1000">
@@ -356,7 +358,7 @@ calculates as much as 2 seconds lower than <strong>TDK</strong> in the low porti
 </tr>
 </table></section>
 <section id="mon25-mhf3">
-<h2>MON25/MHF3<a class="headerlink" href="#mon25-mhf3" title="Permalink to this heading">¶</a></h2>
+<h2>MON25/MHF3<a class="headerlink" href="#mon25-mhf3" title="Link to this heading">¶</a></h2>
 <p>for MON25/MHF3, <strong>CEA</strong> has good agreement</p>
 <p><strong>RPA</strong> predicts high everywhere, and has some crashes at very high MR for high area ratio.</p>
 <table width="1000">
@@ -388,7 +390,7 @@ calculates as much as 2 seconds lower than <strong>TDK</strong> in the low porti
 </tr>
 </table></section>
 <section id="clf5-n2h4">
-<h2>CLF5/N2H4<a class="headerlink" href="#clf5-n2h4" title="Permalink to this heading">¶</a></h2>
+<h2>CLF5/N2H4<a class="headerlink" href="#clf5-n2h4" title="Link to this heading">¶</a></h2>
 <p>for CLF5/N2H4, <strong>CEA</strong> has good agreement in the expected MR range, but predicts higher Isp
 at the MR extremes.</p>
 <p><strong>RPA</strong> predicts high everywhere, and has some crashes at very high area ratio.</p>
@@ -427,10 +429,10 @@ at the MR extremes.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -488,7 +490,7 @@ at the MR extremes.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -496,31 +498,34 @@ at the MR extremes.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="parasol_example.html" title="Parasol Example"
              >next</a> |</li>
         <li class="right" >
           <a href="temperature_adjust.html" title="Temperature Adjust"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">CEA vs TDK vs RPA</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

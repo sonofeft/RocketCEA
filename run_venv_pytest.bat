@@ -41,7 +41,8 @@ if "%PYTESTRESULT%"=="0" (
     python -m pip install --upgrade build
 
     if "%PYVER%"=="14" ( 
-        python -m build 
+        python -m build --wheel
+        python -m build --sdist
     ) else (
         python -m build --wheel
     )

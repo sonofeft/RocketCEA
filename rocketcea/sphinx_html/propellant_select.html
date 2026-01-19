@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Propellant Selection &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Propellant Selection &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="propellants.html" title="Propellants"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="engine_mr.html" title="Engine Mixture Ratio"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Propellant Selection</a></li> 
       </ul>
     </div>  
@@ -48,7 +50,7 @@
           <div class="body" role="main">
             
   <section id="propellant-selection">
-<span id="propellant-select-link"></span><h1>Propellant Selection<a class="headerlink" href="#propellant-selection" title="Permalink to this heading">¶</a></h1>
+<span id="propellant-select-link"></span><h1>Propellant Selection<a class="headerlink" href="#propellant-selection" title="Link to this heading">¶</a></h1>
 <p>Before looking at stage performance,
 selecting a bipropellant combination for an application can have many considerations.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Historical</span> <span class="n">Experience</span>
@@ -91,7 +93,7 @@ is to have engineering teams generate
 detailed designs for each of the propellants and pick the best detailed design.</p>
 <p>In practice, that is rarely a viable option due to the cost and schedule of generating detailed designs.</p>
 <section id="rough-screening">
-<h2>Rough Screening<a class="headerlink" href="#rough-screening" title="Permalink to this heading">¶</a></h2>
+<h2>Rough Screening<a class="headerlink" href="#rough-screening" title="Link to this heading">¶</a></h2>
 <p>The most common tool for simplified performance screening is a chart of propellant
 <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">impulse</span></code> (Isp * bulk propellant density).</p>
 <p>It is very clear that high Isp is good and high density is good so it’s natural to assume that
@@ -108,10 +110,11 @@ On that chart, contours of <code class="docutils literal notranslate"><span clas
 and area ratio.
 Recall that real engine Isp will be derived from a curve between equilibrium and frozen as shown
 in <a class="reference internal" href="engine_mr.html#engine-mr-loxlh2-link"><span class="std std-ref">LOX/LH2 Performance</span></a></p>
-<a class="reference internal image-reference" href="_images/basic_chart.png"><img alt="_images/basic_chart.png" src="_images/basic_chart.png" style="width: 99%;" /></a>
+<a class="reference internal image-reference" href="_images/basic_chart.png"><img alt="_images/basic_chart.png" src="_images/basic_chart.png" style="width: 99%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">RhoIspPlot</span>
 <span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">()</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">add_rho_isp_contours</span><span class="p">(</span><span class="n">label_frac_pos</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">rp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -123,7 +126,7 @@ then only use F2/H2 or perhaps LOX/LH2 if Fluorine is rejected.</p>
 perhaps LOX/RP1 if LOX is the chosen oxidizer.</p>
 </section>
 <section id="stage-density">
-<h2>Stage Density<a class="headerlink" href="#stage-density" title="Permalink to this heading">¶</a></h2>
+<h2>Stage Density<a class="headerlink" href="#stage-density" title="Link to this heading">¶</a></h2>
 <p>In order to help bring some order into the decision making process, it is possible to introduce
 a new parameter called <strong>Stage Density</strong>.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Stage</span> <span class="n">Density</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">Inert</span> <span class="n">Mass</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">Propellant</span> <span class="n">Volume</span><span class="p">)</span>
@@ -139,7 +142,7 @@ The performance of some propellants will be helped and others will be hurt, howe
 a review of any results can take those differences into account.</p>
 </section>
 <section id="volume-limit">
-<h2>Volume Limit<a class="headerlink" href="#volume-limit" title="Permalink to this heading">¶</a></h2>
+<h2>Volume Limit<a class="headerlink" href="#volume-limit" title="Link to this heading">¶</a></h2>
 <p>A common requirement on a stage is to meet a volume limit.
 This is the easiest application of the stage density idea.
 Using a fixed stage design with a fixed propellant volume, simply pour in that volume of various propellants
@@ -152,11 +155,12 @@ the propellant used in the stage.</p>
 <p><strong>Every point on the chart below has the same volume.</strong></p>
 <p>Notice that for much of the chart, that the lines of constant density impulse closely match the lines of
 constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice for the Saturn V first stage.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_stg1_vol.png"><img alt="_images/rho_veh_stg1_vol.png" src="_images/rho_veh_stg1_vol.png" style="width: 99%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_stg1_vol.png"><img alt="_images/rho_veh_stg1_vol.png" src="_images/rho_veh_stg1_vol.png" style="width: 99%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
-<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.veh_stage_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReferenceStage</span>
 
 <span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;RP1&#39;</span><span class="p">)],</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
@@ -175,7 +179,7 @@ constant delta v.  For these conditions, it looks like LOX/RP1 was a good choice
 </div>
 </section>
 <section id="delta-v-requirement">
-<h2>Delta V Requirement<a class="headerlink" href="#delta-v-requirement" title="Permalink to this heading">¶</a></h2>
+<h2>Delta V Requirement<a class="headerlink" href="#delta-v-requirement" title="Link to this heading">¶</a></h2>
 <p>Another common requirement for a stage is to deliver a certain delta velocity.
 the use of stage density in this scenario requires that a function for stage density be derived.
 The chart below scales the actual Saturn V stage from an historical chart of stage density.
@@ -185,11 +189,12 @@ Another good approach is to estimate stage designs at points of interest on the 
 but it would be twice the size.</p>
 <p>It is interesting to note here also that the lines of density impulse and those of propellant volume
 track closely together in an inverse relationship.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_stg1_dv.png"><img alt="_images/rho_veh_stg1_dv.png" src="_images/rho_veh_stg1_dv.png" style="width: 99%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_stg1_dv.png"><img alt="_images/rho_veh_stg1_dv.png" src="_images/rho_veh_stg1_dv.png" style="width: 99%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
-<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.veh_stage_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReferenceStage</span>
 
 <span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;RP1&#39;</span><span class="p">)],</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
@@ -207,7 +212,7 @@ track closely together in an inverse relationship.</p>
 </div>
 </section>
 <section id="mass-limit">
-<h2>Mass Limit<a class="headerlink" href="#mass-limit" title="Permalink to this heading">¶</a></h2>
+<h2>Mass Limit<a class="headerlink" href="#mass-limit" title="Link to this heading">¶</a></h2>
 <p>A common requirement, especially for upper stages, is to minimize mass for a given delta v.
 The volume is not as important since upper stages are the smallest stages already.
 Using stage density to evaluate this situation again requires a function for stage density.
@@ -219,11 +224,12 @@ This means that the lower stages will deliver the same delta v for all points on
 <p>Given this, the chart shows that using LOX/LH2 for the third stage will deliver about 1000 ft/sec
 more than a LOX/RP1 or a LOX/CH4 third stage.</p>
 <p>Note that in this case of <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">limit</span></code>, density impulse is a poor indicator of the best propellant combination.</p>
-<a class="reference internal image-reference" href="_images/rho_veh_stg3_glow.png"><img alt="_images/rho_veh_stg3_glow.png" src="_images/rho_veh_stg3_glow.png" style="width: 99%;" /></a>
+<a class="reference internal image-reference" href="_images/rho_veh_stg3_glow.png"><img alt="_images/rho_veh_stg3_glow.png" src="_images/rho_veh_stg3_glow.png" style="width: 99%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
-<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.veh_stage_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReferenceStage</span>
 
 <span class="n">rp</span> <span class="o">=</span> <span class="n">RhoIspPlot</span><span class="p">(</span><span class="n">bipropL</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;LH2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;RP1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span><span class="s1">&#39;CH4&#39;</span><span class="p">)],</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">735.</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">27.5</span><span class="p">)</span>
 
@@ -241,7 +247,7 @@ more than a LOX/RP1 or a LOX/CH4 third stage.</p>
 </div>
 </section>
 <section id="monopropellants">
-<h2>Monopropellants<a class="headerlink" href="#monopropellants" title="Permalink to this heading">¶</a></h2>
+<h2>Monopropellants<a class="headerlink" href="#monopropellants" title="Link to this heading">¶</a></h2>
 <p>Screening with monopropellants can also be done using <code class="docutils literal notranslate"><span class="pre">stage</span> <span class="pre">density</span></code>, however, some care must
 be taken in the <code class="docutils literal notranslate"><span class="pre">stage</span> <span class="pre">density</span> <span class="pre">function</span></code>.</p>
 <p>Note also that monopropellants are only a single point on the specific gravity vs Isp curve.</p>
@@ -250,11 +256,12 @@ be taken in the <code class="docutils literal notranslate"><span class="pre">sta
 <p>Note that in this case with a <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">limit</span></code>, but a much lower delta velocity requirement,
 that density impulse is a better indicator of performance than it was for the Saturn stage 3 case,
 but only by luck, not based on system requirements.</p>
-<a class="reference internal image-reference" href="_images/divert_veh.png"><img alt="_images/divert_veh.png" src="_images/divert_veh.png" style="width: 99%;" /></a>
+<a class="reference internal image-reference" href="_images/divert_veh.png"><img alt="_images/divert_veh.png" src="_images/divert_veh.png" style="width: 99%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 <p>The script that created this chart is.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span> <span class="kn">import</span> <span class="n">RhoIspPlot</span>
-<span class="kn">from</span> <span class="nn">rocketcea.biprop_utils.veh_stage_obj</span> <span class="kn">import</span> <span class="n">ReferenceStage</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.rho_isp_plot_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">RhoIspPlot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.biprop_utils.veh_stage_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReferenceStage</span>
 
 <span class="n">stg_obj</span> <span class="o">=</span> <span class="n">ReferenceStage</span><span class="p">(</span><span class="n">volCuInRef</span><span class="o">=</span><span class="mf">441.0</span> <span class="p">,</span> <span class="n">WtInertRef</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">WtPayload</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span>
         <span class="n">Name</span><span class="o">=</span><span class="s1">&#39;N2H4 DACS&#39;</span><span class="p">)</span>
@@ -281,10 +288,10 @@ but only by luck, not based on system requirements.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -338,7 +345,7 @@ but only by luck, not based on system requirements.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -346,31 +353,34 @@ but only by luck, not based on system requirements.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="propellants.html" title="Propellants"
              >next</a> |</li>
         <li class="right" >
           <a href="engine_mr.html" title="Engine Mixture Ratio"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Propellant Selection</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

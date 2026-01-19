@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Standard Examples &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Standard Examples &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="traditional_example.html" title="Traditional Example"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Standard Examples</a></li> 
       </ul>
     </div>  
@@ -48,25 +50,25 @@
           <div class="body" role="main">
             
   <section id="standard-examples">
-<span id="std-examples-link"></span><h1>Standard Examples<a class="headerlink" href="#standard-examples" title="Permalink to this heading">¶</a></h1>
+<span id="std-examples-link"></span><h1>Standard Examples<a class="headerlink" href="#standard-examples" title="Link to this heading">¶</a></h1>
 <p>For those with <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">NASA CEA</a> experience,
 running CEA and reviewing the printed output is standard practice.</p>
 <p>The following examples show how to run a case and review the standard
 <a class="reference external" href="https://www1.grc.nasa.gov/research-and-engineering/ceaweb/">CEA</a> output.</p>
 <p>RocketCEA always begins with an import statement and an instance of a CEA_obj:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Instead of manually assembling a run deck for CEA, the above is all that is needed to run a CEA <strong>rocket</strong> case with standard
 definitions of all the most common rocket propellants.</p>
 <section id="lox-lh2-performance">
-<span id="example-1-link"></span><h2>LOX/LH2 Performance<a class="headerlink" href="#lox-lh2-performance" title="Permalink to this heading">¶</a></h2>
+<span id="example-1-link"></span><h2>LOX/LH2 Performance<a class="headerlink" href="#lox-lh2-performance" title="Link to this heading">¶</a></h2>
 <p>The script below is typical to calculate predicted equilibrium performance at a specific
 chamber pressure, mixture ratio and expansion ratio.</p>
 <p>The script uses the <strong>short</strong> output option. (long-form output is default)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">short_output</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -177,11 +179,11 @@ The default units in <strong>RocketCEA</strong> are psia, however, bar, atm and 
 </div>
 </section>
 <section id="transport-properties">
-<h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this heading">¶</a></h2>
+<h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Link to this heading">¶</a></h2>
 <p>New in RocketCEA version 1.06,
 to include transport properties, set the <strong>show_transport</strong> flag.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> 
@@ -224,7 +226,7 @@ to include transport properties, set the <strong>show_transport</strong> flag.</
 </pre></div>
 </div>
 <p>If different units are desired, use the <strong>cea_obj_w_units</strong> wrapper, for example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj_w_units</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span>
              <span class="n">specific_heat_units</span><span class="o">=</span><span class="s1">&#39;kJ/kg-K&#39;</span><span class="p">,</span>
              <span class="n">viscosity_units</span><span class="o">=</span><span class="s1">&#39;poise&#39;</span><span class="p">,</span>
@@ -233,13 +235,13 @@ to include transport properties, set the <strong>show_transport</strong> flag.</
 </div>
 </section>
 <section id="frozen-performance">
-<h2>Frozen Performance<a class="headerlink" href="#frozen-performance" title="Permalink to this heading">¶</a></h2>
+<h2>Frozen Performance<a class="headerlink" href="#frozen-performance" title="Link to this heading">¶</a></h2>
 <p>To run the same LOX/LH2 case above, but with frozen composition during expansion, the following script is used.</p>
 <p>Notice here that the flag to freeze the composition at the throat is set.
 Otherwise, the chamber composition is used.</p>
 <p>Also notice that without the short output flag, the long form of output results.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frozenAtThroat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -380,10 +382,10 @@ Otherwise, the chamber composition is used.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -434,7 +436,7 @@ Otherwise, the chamber composition is used.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -442,31 +444,34 @@ Otherwise, the chamber composition is used.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="traditional_example.html" title="Traditional Example"
              >next</a> |</li>
         <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Standard Examples</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

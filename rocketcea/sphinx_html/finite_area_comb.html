@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Finite Area Combustor &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Finite Area Combustor &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="comb_species.html" title="Species Mole Fractions"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Finite Area Combustor</a></li> 
       </ul>
     </div>  
@@ -48,7 +50,7 @@
           <div class="body" role="main">
             
   <section id="finite-area-combustor">
-<span id="finite-area-comb"></span><h1>Finite Area Combustor<a class="headerlink" href="#finite-area-combustor" title="Permalink to this heading">¶</a></h1>
+<span id="finite-area-comb"></span><h1>Finite Area Combustor<a class="headerlink" href="#finite-area-combustor" title="Link to this heading">¶</a></h1>
 <p>In a rocket engine, the ratio of chamber cross-sectional area to throat area is called
 the <strong>contraction ratio</strong>,  <strong>CR</strong>.</p>
 <p>Unless otherwise directed, CEA runs rocket
@@ -77,8 +79,10 @@ on page 6, which simplifies the ratio of the injector face pressure to the plenu
 <p>The above equation, equation <em>(1-15)</em> in
 <a class="reference external" href="https://ntrs.nasa.gov/search.jsp?N=0&amp;Ntk=All&amp;Ntx=mode+matchallany&amp;Ntt=19710019929">Huzel and Huang</a>
 is shown in the right-hand image below.</p>
-<a class="reference internal image-reference" href="_images/compare_rayleigh.png"><img alt="_images/compare_rayleigh.png" src="_images/compare_rayleigh.png" style="width: 60%;" /></a>
-<a class="reference internal image-reference" href="_images/Pinj_over_Pc_Huzel_and_Huang.jpg"><img alt="_images/Pinj_over_Pc_Huzel_and_Huang.jpg" src="_images/Pinj_over_Pc_Huzel_and_Huang.jpg" style="width: 39%;" /></a>
+<a class="reference internal image-reference" href="_images/compare_rayleigh.png"><img alt="_images/compare_rayleigh.png" src="_images/compare_rayleigh.png" style="width: 60%;" />
+</a>
+<a class="reference internal image-reference" href="_images/Pinj_over_Pc_Huzel_and_Huang.jpg"><img alt="_images/Pinj_over_Pc_Huzel_and_Huang.jpg" src="_images/Pinj_over_Pc_Huzel_and_Huang.jpg" style="width: 39%;" />
+</a>
 <p>The above graph shows the CEA/RocketCEA calculation of the Rayleigh line loss as well as
 a simple approximation equation for estimating that loss:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pcinj_face</span><span class="o">/</span><span class="n">Pcomb_end</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">CR</span><span class="o">**</span><span class="mf">2.2</span>
@@ -94,10 +98,11 @@ as an input.</p>
 into the equation from
 <a class="reference external" href="https://ntrs.nasa.gov/search.jsp?N=0&amp;Ntk=All&amp;Ntx=mode+matchallany&amp;Ntt=19710019929">Huzel and Huang</a></p>
 <section id="cea-fac-option">
-<h2>CEA fac Option<a class="headerlink" href="#cea-fac-option" title="Permalink to this heading">¶</a></h2>
+<h2>CEA fac Option<a class="headerlink" href="#cea-fac-option" title="Link to this heading">¶</a></h2>
 <p>The CEA program offers the option to calculate the Rayleigh line loss for you
 by using the <strong>fac</strong> option. (The above chart was generated with RocketCEA using the fac option).</p>
-<a class="reference internal image-reference" href="_images/fac_manual_option.jpg"><img alt="_images/fac_manual_option.jpg" src="_images/fac_manual_option.jpg" style="width: 65%;" /></a>
+<a class="reference internal image-reference" href="_images/fac_manual_option.jpg"><img alt="_images/fac_manual_option.jpg" src="_images/fac_manual_option.jpg" style="width: 65%;" />
+</a>
 <p>A traditional CEA run that sets <strong>fac</strong> has an extra column of data called
 <strong>COMB END</strong> that indicates what the chamber plenum pressure, <strong>Pcomb_end</strong>, would be
 if the injector face pressure, <strong>INJECTOR</strong> pressure, were specified.
@@ -126,7 +131,7 @@ when creating a CEA_Obj. For example:</p>
 <p>All calls to the <strong>ispObj</strong> will assume the input contraction ratio, <strong>fac_CR</strong>, and
 use the input <strong>Pc</strong> as the <strong>Pcinj_face</strong>.</p>
 <p>For example, the above CEA output was generated with the code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">ispObj</span><span class="o">.</span><span class="n">get_full_cea_output</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
@@ -140,8 +145,8 @@ Rayleigh line loss to <strong>Pcinj_face</strong>.</p>
 </div>
 <p>The graph in the 1st section above was created using this approach.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">crL</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.4</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mf">0.2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="p">]</span>
 
@@ -153,7 +158,7 @@ Rayleigh line loss to <strong>Pcinj_face</strong>.</p>
 <span class="n">est_pratL</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.54</span> <span class="o">/</span> <span class="n">cr</span><span class="o">**</span><span class="mf">2.2</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crL</span><span class="p">]</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">crL</span><span class="p">,</span> <span class="n">est_pratL</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Est Eqn = 1.0 + 0.54 / CR**2.2&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>    
 
-<span class="k">def</span> <span class="nf">make_pratL</span><span class="p">(</span> <span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="p">,</span> <span class="n">MR</span> <span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_pratL</span><span class="p">(</span> <span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="p">,</span> <span class="n">MR</span> <span class="p">):</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="n">oxName</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="n">fuelName</span><span class="p">)</span>
     <span class="n">pratL</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="o">.</span><span class="n">get_Pinj_over_Pcomb</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="n">cr</span><span class="p">)</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crL</span><span class="p">]</span>
     
@@ -176,7 +181,7 @@ Rayleigh line loss to <strong>Pcinj_face</strong>.</p>
 </div>
 </section>
 <section id="specify-plenum-pressure">
-<h2>Specify Plenum Pressure<a class="headerlink" href="#specify-plenum-pressure" title="Permalink to this heading">¶</a></h2>
+<h2>Specify Plenum Pressure<a class="headerlink" href="#specify-plenum-pressure" title="Link to this heading">¶</a></h2>
 <p>Since it is more common to specify a plenum pressure, <strong>Pcomb_end</strong>,
 and calculate an injector face pressure, <strong>Pcinj_face</strong>,
 The following script will use <strong>RocketCEA</strong> to calculate the required <strong>Pcinj_face</strong>
@@ -184,7 +189,7 @@ that gives <strong>Pcomb_end</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    figure out Pcinj_face to get desired Pcomb_end (100 atm in example)</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">cr</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="c1"># contraction ratio</span>
 <span class="n">ispObj</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">fac_CR</span><span class="o">=</span><span class="n">cr</span><span class="p">)</span>
@@ -225,7 +230,7 @@ that gives <strong>Pcomb_end</strong>.</p>
 </div>
 </section>
 <section id="system-performance">
-<h2>System Performance<a class="headerlink" href="#system-performance" title="Permalink to this heading">¶</a></h2>
+<h2>System Performance<a class="headerlink" href="#system-performance" title="Link to this heading">¶</a></h2>
 <p>Choosing a contraction ratio is part of an overall system performance trade.</p>
 <p>A smaller CR gives a smaller, lighter engine, but leads to a heavier pressurization system
 and perhaps heavier tankage.</p>
@@ -240,10 +245,10 @@ Very large booster engines tend to have smaller CR, small engines tend to have l
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -294,7 +299,7 @@ Very large booster engines tend to have smaller CR, small engines tend to have l
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -302,31 +307,34 @@ Very large booster engines tend to have smaller CR, small engines tend to have l
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="comb_species.html" title="Species Mole Fractions"
              >next</a> |</li>
         <li class="right" >
           <a href="simple_examples.html" title="Simple Examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Finite Area Combustor</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

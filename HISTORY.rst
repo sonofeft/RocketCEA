@@ -6,6 +6,9 @@ History
 
 GitHub Log
 ----------
+* Jan 19, 2026
+    - (by: Charlie)
+        - version 1.2.3 fixed twine problem with description & long_description
 
 * Jan 16, 2026
     - (by: Charlie)

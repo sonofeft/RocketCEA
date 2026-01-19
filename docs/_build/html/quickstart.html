@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>QuickStart &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>QuickStart &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>  
@@ -48,7 +50,7 @@
           <div class="body" role="main">
             
   <section id="quickstart">
-<h1>QuickStart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h1>
+<h1>QuickStart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>RocketCEA on Windows has become much easier for versions 1.2.0 and above.</p>
@@ -59,7 +61,7 @@ that has turned out to be a nice improvement. (Many thanks to <a class="referenc
 critical help with that conversion.)</p>
 </div>
 <section id="install-numpy-matplotlib">
-<h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Permalink to this heading">¶</a></h2>
+<h2>Install Numpy &amp; Matplotlib<a class="headerlink" href="#install-numpy-matplotlib" title="Link to this heading">¶</a></h2>
 <p>When installing RocketCEA from source code or from a
 <a class="reference external" href="https://packaging.python.org/en/latest/specifications/source-distribution-format/">PyPI sdist</a>,
 RocketCEA depends on <a class="reference external" href="https://numpy.org/devdocs/f2py/python-usage.html">f2py</a> to
@@ -91,7 +93,7 @@ give the commands:</p>
 </div>
 </section>
 <section id="install-compiler">
-<h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Permalink to this heading">¶</a></h2>
+<h2>Install Compiler<a class="headerlink" href="#install-compiler" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Windows users can skip “Install Compiler” and go to
@@ -104,7 +106,7 @@ on all platforms so that there are no FORTRAN incompatibilities between platform
 <p>Click: <a class="reference internal" href="installgfortran.html#link-installgfortran"><span class="std std-ref">Install gfortran</span></a> to see install instructions for a few platforms that I have tested.</p>
 </section>
 <section id="install-rocketcea">
-<span id="link-install-rocketcea"></span><h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Permalink to this heading">¶</a></h2>
+<span id="link-install-rocketcea"></span><h2>Install RocketCEA<a class="headerlink" href="#install-rocketcea" title="Link to this heading">¶</a></h2>
 <p><strong>After</strong> the above installs have been accomplished, the easiest way to install RocketCEA is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocketcea</span>
     <span class="n">OR</span> <span class="n">perhaps</span>
@@ -127,7 +129,7 @@ on all platforms so that there are no FORTRAN incompatibilities between platform
 </div>
 </section>
 <section id="windows-batch-file">
-<span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Permalink to this heading">¶</a></h2>
+<span id="link-windows-bat-file"></span><h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Link to this heading">¶</a></h2>
 <p><strong>For versions of RocketCEA 1.2.0 and above</strong></p>
 <p>While the above section should work for Windows binary wheel installs, it is now much easier to install from
 source code as well.</p>
@@ -154,7 +156,7 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  pri
 </div>
 </section>
 <section id="old-windows-batch-file">
-<h2>Old Windows Batch File<a class="headerlink" href="#old-windows-batch-file" title="Permalink to this heading">¶</a></h2>
+<h2>Old Windows Batch File<a class="headerlink" href="#old-windows-batch-file" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>3/23/2024: Ignore the following batch file for RocketCEA versions 1.2.0 and above.</p>
@@ -257,7 +259,7 @@ python -c <span class="s2">&quot;from rocketcea.cea_obj import __version__;  pri
 </div>
 </section>
 <section id="anaconda-windows-batch-file">
-<h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Permalink to this heading">¶</a></h2>
+<h2>Anaconda Windows Batch File<a class="headerlink" href="#anaconda-windows-batch-file" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>3/14/2024: I am <strong>Guessing</strong> that the deprecation of numpy.distutils has made Anaconda installs <strong>only</strong> viable
@@ -316,15 +318,15 @@ shown below.</p>
 properly output the Isp of 374.30…</p>
 </section>
 <section id="getting-help">
-<h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this heading">¶</a></h2>
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">¶</a></h2>
 <p>The documentation for RocketCEA is the best place to start.</p>
 <p>Go to <a class="reference external" href="https://rocketcea.readthedocs.io/en/latest/index.html">RocketCEA ReadTheDocs</a>
 for information.</p>
 </section>
 <section id="running-rocketcea">
-<h2>Running RocketCEA<a class="headerlink" href="#running-rocketcea" title="Permalink to this heading">¶</a></h2>
+<h2>Running RocketCEA<a class="headerlink" href="#running-rocketcea" title="Link to this heading">¶</a></h2>
 <p>Any use of RocketCEA begins with an import statement and an instance of CEA_obj:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -340,10 +342,10 @@ Paste that code into your text editor and save it to a python file.(for example 
 <p>Or, in many text editors hitting the <strong>F5</strong> key will execute the code.</p>
 </section>
 <section id="test-the-install">
-<h2>Test The Install<a class="headerlink" href="#test-the-install" title="Permalink to this heading">¶</a></h2>
+<h2>Test The Install<a class="headerlink" href="#test-the-install" title="Link to this heading">¶</a></h2>
 <p>Paste the following code into your text editor and save it to your test folder as basic_cea.py
 (for example, D:\rocketcea\basic_cea.py):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">mr</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span> <span class="p">)</span>
@@ -367,7 +369,7 @@ Paste that code into your text editor and save it to a python file.(for example 
 <p>If not, see the information below.</p>
 </section>
 <section id="google-colaboratory">
-<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this heading">¶</a></h2>
+<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Link to this heading">¶</a></h2>
 <p>If you are having trouble installing RocketCEA on your system,
 RocketCEA can be run on <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colaboratory</a></p>
 <p><a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Colaboratory</a>
@@ -376,31 +378,36 @@ is a free Jupyter notebook environment that requires no setup and runs entirely 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install RocketCEA
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/colab_pip_rocketcea.jpg"><img alt="_images/colab_pip_rocketcea.jpg" src="_images/colab_pip_rocketcea.jpg" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="_images/colab_pip_rocketcea.jpg"><img alt="_images/colab_pip_rocketcea.jpg" src="_images/colab_pip_rocketcea.jpg" style="width: 60%;" />
+</a>
 <p>If Needed, install libgfortran3:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!apt-get install libgfortran3
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/colab_apt_libgfortran3.jpg"><img alt="_images/colab_apt_libgfortran3.jpg" src="_images/colab_apt_libgfortran3.jpg" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="_images/colab_apt_libgfortran3.jpg"><img alt="_images/colab_apt_libgfortran3.jpg" src="_images/colab_apt_libgfortran3.jpg" style="width: 70%;" />
+</a>
 <p>Create a python script to run RocketCEA:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">chk_cea</span><span class="o">.</span><span class="n">py</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">mr</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/colab_save_pyfile.jpg"><img alt="_images/colab_save_pyfile.jpg" src="_images/colab_save_pyfile.jpg" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="_images/colab_save_pyfile.jpg"><img alt="_images/colab_save_pyfile.jpg" src="_images/colab_save_pyfile.jpg" style="width: 60%;" />
+</a>
 <p>And then run the file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python chk_cea.py
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/colab_run_chk_cea.jpg"><img alt="_images/colab_run_chk_cea.jpg" src="_images/colab_run_chk_cea.jpg" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="_images/colab_run_chk_cea.jpg"><img alt="_images/colab_run_chk_cea.jpg" src="_images/colab_run_chk_cea.jpg" style="width: 50%;" />
+</a>
 <p>Colab plots work with RocketCEA as well.</p>
-<a class="reference internal image-reference" href="_images/colab_cstar_plot_example.jpg"><img alt="_images/colab_cstar_plot_example.jpg" src="_images/colab_cstar_plot_example.jpg" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/colab_cstar_plot_example.jpg"><img alt="_images/colab_cstar_plot_example.jpg" src="_images/colab_cstar_plot_example.jpg" style="width: 80%;" />
+</a>
 </section>
 <section id="windows-10-or-11-with-wsl">
-<span id="link-windows-wsl"></span><h2>Windows 10 or 11 with WSL<a class="headerlink" href="#windows-10-or-11-with-wsl" title="Permalink to this heading">¶</a></h2>
+<span id="link-windows-wsl"></span><h2>Windows 10 or 11 with WSL<a class="headerlink" href="#windows-10-or-11-with-wsl" title="Link to this heading">¶</a></h2>
 <p>RocketCEA can also be installed on <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux (WSL)</a></p>
 <p>After setting up your Linux distribution on WSL, installing RocketCEA is quick and easy.</p>
 <p>For example on a fresh Ubuntu distribution, the following
@@ -439,14 +446,14 @@ will install python 3.10.12 and rocketcea 1.1.34.</p>
 </li>
 </ul>
 <section id="wsl-gui">
-<h3>WSL GUI<a class="headerlink" href="#wsl-gui" title="Permalink to this heading">¶</a></h3>
+<h3>WSL GUI<a class="headerlink" href="#wsl-gui" title="Link to this heading">¶</a></h3>
 <p>Note that, if desired, <a class="reference external" href="https://sourceforge.net/projects/vcxsrv/files/latest/download">VsXsrv</a>
 can be used to enable Linux-driven graphic windows on WSL.</p>
 <p>This will enable matplotlib show() command, tkinter programs or any gui-based Linux application
 installed on the WSL Linux distribution.</p>
 </section>
 <section id="wslg">
-<h3>WSLg<a class="headerlink" href="#wslg" title="Permalink to this heading">¶</a></h3>
+<h3>WSLg<a class="headerlink" href="#wslg" title="Link to this heading">¶</a></h3>
 <p>In the presumably near future, <a class="reference external" href="https://github.com/microsoft/wslg">WSLg</a> will be available that has GUI support built in.
 Windows 11 is expected to come with <a class="reference external" href="https://github.com/microsoft/wslg">WSLg</a>
 and Windows 10 will be able to install <a class="reference external" href="https://github.com/microsoft/wslg">WSLg</a>.</p>
@@ -459,10 +466,10 @@ and Windows 10 will be able to install <a class="reference external" href="https
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -525,7 +532,7 @@ and Windows 10 will be able to install <a class="reference external" href="https
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -533,31 +540,34 @@ and Windows 10 will be able to install <a class="reference external" href="https
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="installgfortran.html" title="Install gfortran"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="RocketCEA Wraps The NASA FORTRAN CEA Code And Provides Some Useful Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QuickStart</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

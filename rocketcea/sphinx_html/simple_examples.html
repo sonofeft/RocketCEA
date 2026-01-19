@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Simple Examples &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Simple Examples &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="finite_area_comb.html" title="Finite Area Combustor"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="traditional_example.html" title="Traditional Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Simple Examples</a></li> 
       </ul>
     </div>  
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="simple-examples">
-<h1>Simple Examples<a class="headerlink" href="#simple-examples" title="Permalink to this heading">¶</a></h1>
+<h1>Simple Examples<a class="headerlink" href="#simple-examples" title="Link to this heading">¶</a></h1>
 <p>RocketCEA always begins with an import statement and an instance of a CEA_obj:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If the above is done at a command prompt, we can query the CEA_Obj as shown below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
 <span class="go">374.3036176557629</span>
@@ -67,13 +69,13 @@
 <p>While there is likely no physical significance to this, it can sometimes be useful numerically in
 computations that take derivatives of Isp with respect to a design variable. (for example optimizers.)</p>
 <section id="simple-si-units-example">
-<h2>Simple SI Units Example<a class="headerlink" href="#simple-si-units-example" title="Permalink to this heading">¶</a></h2>
+<h2>Simple SI Units Example<a class="headerlink" href="#simple-si-units-example" title="Link to this heading">¶</a></h2>
 <p>By importing CEA_Obj from <strong>cea_obj_w_units</strong> instead of <strong>cea_obj</strong>, all of the I/O
 units can be changed from the default units (i.e. ft, lbm, BTU, degR, etc.).</p>
 <p>The above example in English units is recreated below with SI units(chamber pressure input in MPa).
 Notice that CEA_Obj is created with <strong>pressure_units=’MPa’</strong> as an input parameter.
 (For ease of comparison, the 100 psia input value of Pc from above is converted to MPa as 100/145.037738.):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj_w_units</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj_w_units</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">,</span> <span class="n">pressure_units</span><span class="o">=</span><span class="s1">&#39;MPa&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span> <span class="o">/</span><span class="mf">145.037738</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">40.0</span><span class="p">)</span>
 <span class="go">374.30361765576265</span>
@@ -106,14 +108,14 @@ creating CEA_Obj. For example MPa was added with the line.</p>
 </div>
 </section>
 <section id="n2o4-mmh-performance">
-<h2>N2O4/MMH Performance<a class="headerlink" href="#n2o4-mmh-performance" title="Permalink to this heading">¶</a></h2>
+<h2>N2O4/MMH Performance<a class="headerlink" href="#n2o4-mmh-performance" title="Link to this heading">¶</a></h2>
 <p>Successive queries of the CEA_Obj can be made to create tables of information.
 The script below will make a table of N2O4/MMH performance data.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;N2O4&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;MMH&#39;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">show_perf</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">1.0</span> <span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_perf</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">1.0</span> <span class="p">):</span>
     
     <span class="n">IspVac</span><span class="p">,</span> <span class="n">Cstar</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">get_IvacCstrTc_ChmMwGam</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
     
@@ -155,14 +157,14 @@ The script below will make a table of N2O4/MMH performance data.</p>
 </div>
 </section>
 <section id="lox-lh2-delta-v">
-<h2>LOX/LH2 Delta V<a class="headerlink" href="#lox-lh2-delta-v" title="Permalink to this heading">¶</a></h2>
+<h2>LOX/LH2 Delta V<a class="headerlink" href="#lox-lh2-delta-v" title="Link to this heading">¶</a></h2>
 <p>Conducting an analysis with RocketCEA is much easier than the standard approach to running CEA and
 reviewing the pages of CEA output (as we did in the LOX/LH2 example from <a class="reference internal" href="std_examples.html#std-examples-link"><span class="std std-ref">Standard Examples</span></a>)</p>
 <p>We can query the CEA_Obj instance repeatedly for specific information, as opposed to simply printing a page of CEA output.</p>
 <p>If we wanted to run some deltaV calculations on a LOX/LH2 stage to see what impact changing the engine’s area ratio
 would have, we might do the following.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">log</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">C</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">oxName</span><span class="o">=</span><span class="s1">&#39;LOX&#39;</span><span class="p">,</span> <span class="n">fuelName</span><span class="o">=</span><span class="s1">&#39;LH2&#39;</span><span class="p">)</span>
 
@@ -173,7 +175,7 @@ would have, we might do the following.</p>
 <span class="n">Winit</span> <span class="o">=</span> <span class="n">Wstg</span> <span class="o">+</span> <span class="n">Wpropellant</span> <span class="o">+</span> <span class="n">Wpayload</span>
 <span class="n">Wfinal</span> <span class="o">=</span> <span class="n">Winit</span> <span class="o">-</span> <span class="n">Wpropellant</span>
 
-<span class="k">def</span> <span class="nf">show_deltaV</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">475.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">84.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">5.88</span> <span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_deltaV</span><span class="p">(</span> <span class="n">Pc</span><span class="o">=</span><span class="mf">475.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">84.0</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="mf">5.88</span> <span class="p">):</span>
     <span class="n">IspVac</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">get_Isp</span><span class="p">(</span><span class="n">Pc</span><span class="o">=</span><span class="n">Pc</span><span class="p">,</span> <span class="n">MR</span><span class="o">=</span><span class="n">MR</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
     <span class="n">IspDel</span> <span class="o">=</span> <span class="mf">0.969</span> <span class="o">*</span> <span class="n">IspVac</span>
     <span class="n">deltaV</span> <span class="o">=</span> <span class="mf">32.174</span> <span class="o">*</span> <span class="n">IspDel</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span> <span class="n">Winit</span> <span class="o">/</span> <span class="n">Wfinal</span> <span class="p">)</span> <span class="c1"># ft/sec</span>
@@ -209,10 +211,10 @@ The delivered Isp is then used to calculate a stage deltaV.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -263,7 +265,7 @@ The delivered Isp is then used to calculate a stage deltaV.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -271,31 +273,34 @@ The delivered Isp is then used to calculate a stage deltaV.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="finite_area_comb.html" title="Finite Area Combustor"
              >next</a> |</li>
         <li class="right" >
           <a href="traditional_example.html" title="Traditional Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Simple Examples</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

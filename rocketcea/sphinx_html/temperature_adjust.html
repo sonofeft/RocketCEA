@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Temperature Adjust &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Temperature Adjust &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="cea_tdk_rpa.html" title="CEA vs TDK vs RPA"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Temperature Adjust</a></li> 
       </ul>
     </div>  
@@ -48,11 +50,11 @@
           <div class="body" role="main">
             
   <section id="temperature-adjust">
-<span id="temperature-adjust-link"></span><h1>Temperature Adjust<a class="headerlink" href="#temperature-adjust" title="Permalink to this heading">¶</a></h1>
+<span id="temperature-adjust-link"></span><h1>Temperature Adjust<a class="headerlink" href="#temperature-adjust" title="Link to this heading">¶</a></h1>
 <p>There are any number of good reasons to analyze propellants at other than their standard condition.
 RocketCEA provides some aid in creating adjusted input decks.</p>
 <section id="standard-t-and-h">
-<h2>Standard T and H<a class="headerlink" href="#standard-t-and-h" title="Permalink to this heading">¶</a></h2>
+<h2>Standard T and H<a class="headerlink" href="#standard-t-and-h" title="Link to this heading">¶</a></h2>
 <p>Propellants in RocketCEA are assumed to be at standard temperature and enthalpy.
 For storable and gaseous propellants, room temperature is standard.
 For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
@@ -63,7 +65,7 @@ For cryogenic propellants, standard condition is normal boiling point (NBP).</p>
 <p>will result in LOX and LH2 at standard conditions.</p>
 </section>
 <section id="changing-t-and-h">
-<h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Permalink to this heading">¶</a></h2>
+<h2>Changing T and H<a class="headerlink" href="#changing-t-and-h" title="Link to this heading">¶</a></h2>
 <p>As an example, I’ll use a LOX/CH4 engine, where, instead of running the engine on propellants
 that are each at their normal boiling point (NBP), this engine will store both propellants at a
 common temperature. The LOX will be at NBP and the CH4 will be subcooled.</p>
@@ -83,9 +85,9 @@ the method <strong>makeCardForNewTemperature</strong> was set up with <strong>Cp
 This was done because many of the CEA propellants are not in coolprop and therefor
 an explicit calculation of delta H is not available.
 Using an estimate of average Cp, however, the user can still calculate a very good answer.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">engcoolprop.ec_fluid</span> <span class="kn">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
-<span class="kn">from</span> <span class="nn">rocketcea.blends</span> <span class="kn">import</span> <span class="n">makeCardForNewTemperature</span>
-<span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">engcoolprop.ec_fluid</span><span class="w"> </span><span class="kn">import</span> <span class="n">EC_Fluid</span>  <span class="c1"># &lt;== pip install EngCoolProp </span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.blends</span><span class="w"> </span><span class="kn">import</span> <span class="n">makeCardForNewTemperature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span><span class="p">,</span> <span class="n">fuelCards</span>
 
 <span class="c1"># ======= use EngCoolProp to calculate dT and dH ========</span>
 <span class="n">fl</span> <span class="o">=</span> <span class="n">EC_Fluid</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;CH4&quot;</span> <span class="p">)</span>
@@ -161,10 +163,10 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -214,7 +216,7 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -222,31 +224,34 @@ the added weight and complexity of interpropellant insulation, or separate-dome 
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="cea_tdk_rpa.html" title="CEA vs TDK vs RPA"
              >next</a> |</li>
         <li class="right" >
           <a href="hydrazine_mono.html" title="Hydrazine Monopropellant"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Temperature Adjust</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

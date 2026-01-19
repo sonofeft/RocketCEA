@@ -1,19 +1,18 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hydrazine Monopropellant &#8212; RocketCEA v1.2.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <title>Hydrazine Monopropellant &#8212; RocketCEA v1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=a2b0c6cf"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -25,19 +24,22 @@
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="temperature_adjust.html" title="Temperature Adjust"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="ambient_isp.html" title="Ambient Isp"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Hydrazine Monopropellant</a></li> 
       </ul>
     </div>  
@@ -48,9 +50,9 @@
           <div class="body" role="main">
             
   <section id="hydrazine-monopropellant">
-<span id="hydrazine-mono-link"></span><h1>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Permalink to this heading">¶</a></h1>
+<span id="hydrazine-mono-link"></span><h1>Hydrazine Monopropellant<a class="headerlink" href="#hydrazine-monopropellant" title="Link to this heading">¶</a></h1>
 <section id="chemical-reactions">
-<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this heading">¶</a></h2>
+<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Link to this heading">¶</a></h2>
 <p>When decomposing Hydrazine (N2H4) as a monopropellant, there are two successive reactions to consider:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="n">N2H4</span> <span class="o">--&gt;</span> <span class="mi">4</span> <span class="n">NH3</span> <span class="o">+</span>   <span class="n">N2</span> <span class="p">(</span><span class="n">highly</span> <span class="n">exothermic</span><span class="p">)</span>
 <span class="mi">4</span> <span class="n">NH3</span>  <span class="o">--&gt;</span> <span class="mi">2</span> <span class="n">N2</span>  <span class="o">+</span> <span class="mi">6</span> <span class="n">H2</span> <span class="p">(</span><span class="n">endothermic</span><span class="p">)</span>
@@ -63,7 +65,7 @@ The more ammonia dissociation there is, the cooler the resulting combustion prod
 Isp of the monopropellant engine.</p>
 </section>
 <section id="cea-modification">
-<h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Permalink to this heading">¶</a></h2>
+<h2>CEA Modification<a class="headerlink" href="#cea-modification" title="Link to this heading">¶</a></h2>
 <p>In RocketCEA the CEA FORTRAN code has been modified to include “Undissociated Ammonia (UA)” as an exhaust product.
 When decomposing hydrazine with only partial ammonia dissociation,
 the CEA input includes an “omit NH3” statement to prevent normal equilibrium NH3 calculations.</p>
@@ -71,7 +73,7 @@ the CEA input includes an “omit NH3” statement to prevent normal equilibrium
 of ammonia that dissociates.  For example, 30, 40 and 50 percent dissociation would be “HYD30”, “HYD40” and “HYD50”.</p>
 <p>This can be demonstrated with the following RocketCEA script that shows the difference between <strong>HYD40</strong> (40% ammonia dissociation)
 and <strong>N2H4</strong> (equilibrium CEA logic)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
 
 <span class="n">C40</span> <span class="o">=</span>  <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;HYD40&#39;</span><span class="p">)</span>
 <span class="n">C100</span> <span class="o">=</span> <span class="n">CEA_Obj</span><span class="p">(</span> <span class="n">propName</span><span class="o">=</span><span class="s1">&#39;N2H4&#39;</span><span class="p">)</span>
@@ -102,10 +104,10 @@ are:</p>
 </div>
 </section>
 <section id="performance-plot">
-<h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Permalink to this heading">¶</a></h2>
+<h2>Performance Plot<a class="headerlink" href="#performance-plot" title="Link to this heading">¶</a></h2>
 <p>A plot of Monopropellant Hydrazine Performance can be created with the following script.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rocketcea.cea_obj</span> <span class="kn">import</span> <span class="n">CEA_Obj</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocketcea.cea_obj</span><span class="w"> </span><span class="kn">import</span> <span class="n">CEA_Obj</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Pc</span> <span class="o">=</span> <span class="mf">200.0</span>
 <span class="n">eps</span> <span class="o">=</span> <span class="mf">20.0</span>
@@ -146,7 +148,8 @@ are:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/amm_dissociation.png"><img alt="_images/amm_dissociation.png" src="_images/amm_dissociation.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/amm_dissociation.png"><img alt="_images/amm_dissociation.png" src="_images/amm_dissociation.png" style="width: 80%;" />
+</a>
 <p><cite>Click Image to View Fill Size</cite></p>
 </section>
 </section>
@@ -156,10 +159,10 @@ are:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/generic_logo.svg" alt="Logo"/>
+              <img class="logo" src="_static/generic_logo.svg" alt="Logo of RocketCEA"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -210,7 +213,7 @@ are:</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -218,31 +221,34 @@ are:</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="temperature_adjust.html" title="Temperature Adjust"
              >next</a> |</li>
         <li class="right" >
           <a href="ambient_isp.html" title="Ambient Isp"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RocketCEA v1.2.3 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Hydrazine Monopropellant</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    &#169; <a href="copyright.html">Copyright</a> 2015, Charlie Taylor.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>
